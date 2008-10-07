@@ -1,4 +1,4 @@
-include_class "rpiplanner.Course"
+include_class "rpiplanner.model.Course"
 
 describe Course do
   before :each do
