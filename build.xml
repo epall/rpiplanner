@@ -5,6 +5,11 @@
 <project name="rpiplanner" default="default" basedir=".">
     <description>Builds, tests, and runs the project rpiplanner.</description>
     <import file="nbproject/build-impl.xml"/>
+	<target name="test" description="Runs all tests">
+	  <taskdef name="jtestr" classname="org.jtestr.ant.JtestRAntRunner" classpath="lib/jtestr-0.3.1.jar:build/classes"/>
+
+	  <jtestr/>
+	</target>
     <!--
 
     There exist several targets which are by default empty and which can be 
