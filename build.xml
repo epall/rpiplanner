@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project name="rpiplanner" basedir=".">
+<project name="rpiplanner" basedir="." default="test">
 	<target name="test" description="Runs all tests">
-	  <taskdef name="jtestr" classname="org.jtestr.ant.JtestRAntRunner" classpath="lib/jtestr-0.3.1.jar:build/classes"/>
-	  <jtestr/>
+	  <taskdef name="jtestr" classname="org.jtestr.ant.JtestRAntRunner" classpath="lib/jtestr-0.3.1.jar"/>
+	  <jtestr outputLevel="VERBOSE" port="20333"/>
 	</target>
+	
+	 <target name="test-server" description="Starts test server">
+    <taskdef name="jtestr-server" classname="org.jtestr.ant.JtestRAntServer" classpath="lib/jtestr-0.3.1.jar"/>
+
+    <jtestr-server port="20333" runtimes="3"/>
+  </target>
 </project>
