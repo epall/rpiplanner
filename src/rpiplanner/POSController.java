@@ -4,10 +4,13 @@ import java.util.ArrayList;
 
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.ListModel;
+import javax.swing.event.ListDataListener;
 
 import rpiplanner.model.Course;
 import rpiplanner.model.CourseDatabase;
 import rpiplanner.view.PlanOfStudyEditor;
+import rpiplanner.view.CourseListModel;
 
 public class POSController {
 	protected rpiplanner.model.PlanOfStudy plan;
@@ -18,7 +21,7 @@ public class POSController {
 	public POSController(){
 		plan = new rpiplanner.model.PlanOfStudy();
 	}
-
+	
 	public void updateUserInfo(String name, String school, String studentID) {
 		plan.setFullname(name);
 		plan.setSchool(school);
@@ -41,9 +44,13 @@ public class POSController {
 	public rpiplanner.model.PlanOfStudy getPlan() {
 		return plan;
 	}
-
+	
 	public void setPlan(rpiplanner.model.PlanOfStudy plan){
 		this.plan = plan;
+	}
+
+	public ListModel getCourseListModel() {
+		return new CourseListModel(courseDatabase);
 	}
 
 	public void setView(PlanOfStudyEditor planCard) {
