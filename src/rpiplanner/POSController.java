@@ -7,10 +7,11 @@ import javax.swing.JPanel;
 
 import rpiplanner.model.Course;
 import rpiplanner.model.CourseDatabase;
+import rpiplanner.view.PlanOfStudyEditor;
 
 public class POSController {
 	protected rpiplanner.model.PlanOfStudy plan;
-	protected rpiplanner.view.PlanOfStudy view;
+	protected rpiplanner.view.PlanOfStudyEditor view;
 	private ArrayList<JPanel> semesterPanels;
 	private CourseDatabase courseDatabase;
 	
@@ -30,7 +31,7 @@ public class POSController {
 		this.semesterPanels = semesterPanels;
 		for(JPanel p : semesterPanels){
 			for(int i = 0; i < SchoolInformation.DEFAULT_COURSES_PER_SEMESTER; i++){
-				p.add(new JLabel("Add Course"));
+				p.add(new JLabel("ENGR-2350 Embeded Control"));
 			}
 		}
 	}

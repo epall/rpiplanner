@@ -14,7 +14,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
-import rpiplanner.view.PlanOfStudy;
+import rpiplanner.view.PlanOfStudyEditor;
 
 import com.jgoodies.forms.factories.FormFactory;
 import com.jgoodies.forms.layout.CellConstraints;
@@ -25,7 +25,7 @@ import com.jgoodies.forms.layout.RowSpec;
 public class MainFrame extends JFrame {
 
 	private JPanel introCard;
-	private PlanOfStudy planCard;
+	private PlanOfStudyEditor planCard;
 	private JTextField textField_2;
 	private JTextField rensselaerPolytechnicInstituteTextField;
 	private JTextField textField;
@@ -43,7 +43,7 @@ public class MainFrame extends JFrame {
 		super();
 		getContentPane().setLayout(new CardLayout());
 		
-		setBounds(200, 100, 800, 600);
+		setBounds(200, 100, 900, 600);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 		introCard = new JPanel();
@@ -64,7 +64,7 @@ public class MainFrame extends JFrame {
 		introCard.setName("introCard");
 		getContentPane().add(introCard, introCard.getName());
 		
-		planCard = new PlanOfStudy();
+		planCard = new PlanOfStudyEditor();
 		planCard.setName("plan");
 		getContentPane().add(planCard, planCard.getName());
 
@@ -122,7 +122,7 @@ public class MainFrame extends JFrame {
 		this.setJMenuBar(menu);
 		//
 	}
-	public PlanOfStudy getPlanCard() {
+	public PlanOfStudyEditor getPlanCard() {
 		return planCard;
 	}
 	public JPanel getIntroPanel() {
