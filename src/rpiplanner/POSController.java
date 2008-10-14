@@ -15,9 +15,7 @@ public class POSController {
 	private ArrayList<JPanel> semesterPanels;
 	private CourseDatabase courseDatabase;
 	
-	public POSController(rpiplanner.view.PlanOfStudy view){
-		this.view = view;
-		view.setController(this);
+	public POSController(){
 		plan = new rpiplanner.model.PlanOfStudy();
 	}
 
@@ -38,5 +36,18 @@ public class POSController {
 
 	public void setCourseDatabase(CourseDatabase courseDatabase) {
 		this.courseDatabase = courseDatabase;
+	}
+
+	public rpiplanner.model.PlanOfStudy getPlan() {
+		return plan;
+	}
+
+	public void setPlan(rpiplanner.model.PlanOfStudy plan){
+		this.plan = plan;
+	}
+
+	public void setView(PlanOfStudyEditor planCard) {
+		this.view = planCard;
+		view.setController(this);
 	}
 }

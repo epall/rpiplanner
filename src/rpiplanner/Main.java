@@ -1,8 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package rpiplanner;
 
 import java.awt.event.WindowAdapter;
@@ -16,6 +11,7 @@ import javax.swing.JFrame;
 import org.jdesktop.application.Application;
 
 import rpiplanner.model.CourseDatabase;
+import rpiplanner.model.PlanOfStudy;
 
 import com.thoughtworks.xstream.XStream;
 
@@ -31,10 +27,12 @@ public class Main extends Application {
 
     @Override
     protected void startup() {
-    	loadCourseDatabase();
-        mainFrame = new MainFrame();
-        planControl = new POSController(mainFrame.getPlanCard());
+        planControl = new POSController();
+
+        loadFromXML();
         planControl.setCourseDatabase(courseDatabase);
+        mainFrame = new MainFrame();
+        planControl.setView(mainFrame.getPlanCard());
         mainFrame.setController(planControl);
         
         mainFrame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
@@ -46,10 +44,15 @@ public class Main extends Application {
         });
         mainFrame.setVisible(true);
     }
-    
-	protected void loadCourseDatabase(){
+
+	protected void loadFromXML(){
     	try {
 			courseDatabase = (CourseDatabase) xs.fromXML(new FileInputStream("course_database.xml"));
+		} catch (FileNotFoundException e) {
+			courseDatabase = new CourseDatabase();
+		}
+		try {
+			planControl.setPlan((PlanOfStudy) xs.fromXML(new FileInputStream("default_pos.xml")));
 		} catch (FileNotFoundException e) {
 			courseDatabase = new CourseDatabase();
 		}
@@ -59,6 +62,7 @@ public class Main extends Application {
     protected void shutdown() {
     	try {
 			xs.toXML(courseDatabase, new FileOutputStream("course_database.xml"));
+			xs.toXML(planControl.getPlan(), new FileOutputStream("default_pos.xml"));
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
