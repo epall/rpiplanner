@@ -15,6 +15,10 @@ import rpiplanner.model.PlanOfStudy;
 
 import com.thoughtworks.xstream.XStream;
 
+// OSX imports
+
+import com.apple.eawt.*;
+
 /**
  *
  * @author Eric Allen
@@ -42,6 +46,12 @@ public class Main extends Application {
                 exit();
             }
         });
+
+        try {
+        	initializeOSXExtensions();
+        } catch (ClassNotFoundException e){
+        	// silently ignore because we're not on a mac
+        }
         mainFrame.setVisible(true);
     }
 
@@ -57,7 +67,28 @@ public class Main extends Application {
 			courseDatabase = new CourseDatabase();
 		}
     }
-    
+	
+	private void initializeOSXExtensions() throws ClassNotFoundException {
+		com.apple.eawt.Application fApplication = com.apple.eawt.Application.getApplication();
+		fApplication.setEnabledPreferencesMenu(false);
+		fApplication.setEnabledAboutMenu(false);
+		fApplication.addApplicationListener(new com.apple.eawt.ApplicationAdapter() {
+			public void handleAbout(ApplicationEvent e) {
+			}
+			public void handleOpenApplication(ApplicationEvent e) {
+			}
+			public void handleOpenFile(ApplicationEvent e) {
+			}
+			public void handlePreferences(ApplicationEvent e) {
+			}
+			public void handlePrintFile(ApplicationEvent e) {
+			}
+			public void handleQuit(ApplicationEvent e) {
+				quit(null);
+			}
+		});
+	}
+	
     @Override
     protected void shutdown() {
     	try {
