@@ -12,12 +12,6 @@ import com.thoughtworks.xstream.annotations.XStreamOmitField;
 
 @XStreamAlias("courses")
 public class CourseDatabase implements ListModel {
-
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = -7592879999900432026L;
-	
 	@XStreamImplicit
 	private ArrayList<Course> courses = new ArrayList<Course>();
 	

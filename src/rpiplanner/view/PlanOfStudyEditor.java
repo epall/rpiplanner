@@ -31,10 +31,6 @@ import com.jgoodies.forms.layout.RowSpec;
 
 public class PlanOfStudyEditor extends JPanel {
 	private JList courseList;
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 5679127864387757734L;
 	private JTextField searchField;
 	private ArrayList<JPanel> semesterPanels = new ArrayList<JPanel>(8);
 
