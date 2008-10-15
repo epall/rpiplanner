@@ -14,6 +14,11 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
+import org.jdesktop.beansbinding.BeanProperty;
+import org.jdesktop.beansbinding.Bindings;
+import org.jdesktop.beansbinding.AutoBinding.UpdateStrategy;
+
+import rpiplanner.model.PlanOfStudy;
 import rpiplanner.view.PlanOfStudyEditor;
 
 import com.jgoodies.forms.factories.FormFactory;
@@ -26,9 +31,9 @@ public class MainFrame extends JFrame {
 
 	private JPanel introCard;
 	private PlanOfStudyEditor planCard;
-	private JTextField textField_2;
-	private JTextField rensselaerPolytechnicInstituteTextField;
-	private JTextField textField;
+	private JTextField studentIDfield;
+	private JTextField schoolField;
+	private JTextField nameField;
 	private POSController controller;
 	
 	/**
@@ -71,7 +76,6 @@ public class MainFrame extends JFrame {
 		final JButton button = new JButton();
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(final ActionEvent e) {
-				controller.updateUserInfo(textField.getText(), rensselaerPolytechnicInstituteTextField.getText(), textField_2.getText());
 				CardLayout l = (CardLayout)getContentPane().getLayout();
 				l.next(getContentPane());
 			}
@@ -87,7 +91,7 @@ public class MainFrame extends JFrame {
 		final JLabel pleaseEnterYourLabel = new JLabel();
 		pleaseEnterYourLabel.setText("Please enter your information");
 		introCard.add(pleaseEnterYourLabel, new CellConstraints(1, 2, 4, 1));
-
+		
 		final JLabel nameLabel = new JLabel();
 		nameLabel.setHorizontalAlignment(SwingConstants.RIGHT);
 		nameLabel.setText("Name:");
@@ -103,15 +107,15 @@ public class MainFrame extends JFrame {
 		studentIdLabel.setText("Student ID:");
 		introCard.add(studentIdLabel, new CellConstraints(2, 5));
 
-		textField = new JTextField();
-		introCard.add(textField, new CellConstraints(4, 3));
+		nameField = new JTextField();
+		introCard.add(nameField, new CellConstraints(4, 3));
 
-		rensselaerPolytechnicInstituteTextField = new JTextField();
-		rensselaerPolytechnicInstituteTextField.setText("Rensselaer Polytechnic Institute");
-		introCard.add(rensselaerPolytechnicInstituteTextField, new CellConstraints(4, 4));
+		schoolField = new JTextField();
+		schoolField.setText("Rensselaer Polytechnic Institute");
+		introCard.add(schoolField, new CellConstraints(4, 4));
 
-		textField_2 = new JTextField();
-		introCard.add(textField_2, new CellConstraints(4, 5));
+		studentIDfield = new JTextField();
+		introCard.add(studentIDfield, new CellConstraints(4, 5));
 		
 		final JMenuBar menu = new JMenuBar();
 		final JMenu fileMenu = new JMenu("File");
@@ -131,8 +135,16 @@ public class MainFrame extends JFrame {
 
 	public void setController(POSController controller) {
 		this.controller = controller;
+		setupBindings();
 	}
 
+	private void setupBindings() {
+		PlanOfStudy plan = controller.getPlan();
+		BeanProperty<JTextField, String> text = BeanProperty.create("text");
+		Bindings.createAutoBinding(UpdateStrategy.READ_WRITE, plan, BeanProperty.create("fullname"), nameField, text).bind();
+		Bindings.createAutoBinding(UpdateStrategy.READ_WRITE, plan, BeanProperty.create("school"), schoolField, text).bind();
+		Bindings.createAutoBinding(UpdateStrategy.READ_WRITE, plan, BeanProperty.create("studentID"), studentIDfield, text).bind();
+	}
 	public POSController getController() {
 		return controller;
 	}

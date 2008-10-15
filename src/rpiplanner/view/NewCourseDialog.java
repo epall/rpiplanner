@@ -18,6 +18,10 @@ import com.jgoodies.forms.layout.FormLayout;
 import com.jgoodies.forms.layout.RowSpec;
 
 public class NewCourseDialog extends JDialog {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -6343671810655509836L;
 	private JTextArea descriptionTextArea;
 	private JTextField catalogField;
 	private JTextField titleField;
