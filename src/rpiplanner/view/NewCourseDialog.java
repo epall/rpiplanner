@@ -109,7 +109,7 @@ public class NewCourseDialog extends JDialog {
 		newCourse.setDepartment(departmentField.getText());
 		newCourse.setTitle(titleField.getText());
 		newCourse.setCatalogNumber(catalogField.getText());
-		newCourse.setDepartment(descriptionTextArea.getText());
+		newCourse.setDescription(descriptionTextArea.getText());
 		Main.getCourseDatabase().add(newCourse);
 	}
 

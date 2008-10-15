@@ -110,7 +110,6 @@ public class Main extends Application {
 		xs.processAnnotations(PlanOfStudy.class);
 		xs.processAnnotations(Course.class);
 		xs.processAnnotations(CourseDatabase.class);
-		xs.addImplicitCollection(CourseDatabase.class, "courses");
         Application.launch(Main.class, args);
     }
 }

@@ -8,7 +8,6 @@ import javax.swing.ListModel;
 
 import rpiplanner.model.CourseDatabase;
 import rpiplanner.view.PlanOfStudyEditor;
-import rpiplanner.view.CourseListModel;
 
 public class POSController {
 	protected rpiplanner.model.PlanOfStudy plan;
@@ -42,7 +41,7 @@ public class POSController {
 	}
 
 	public ListModel getCourseListModel() {
-		return new CourseListModel(courseDatabase);
+		return courseDatabase;
 	}
 
 	public void setView(PlanOfStudyEditor planCard) {
