@@ -1,9 +1,13 @@
 package rpiplanner.model;
 
+import com.thoughtworks.xstream.annotations.XStreamAlias;
+
 /**
  *
  * @author Eric Allen
  */
+
+@XStreamAlias("course")
 public class Course {
     protected String title;
     protected String description;
@@ -33,5 +37,8 @@ public class Course {
 	}
 	public void setCatalogNumber(String catalogNumber) {
 		this.catalogNumber = catalogNumber;
+	}
+	public String toString(){
+		return catalogNumber + " - " + title;
 	}
 }

@@ -1,5 +1,8 @@
 package rpiplanner.model;
 
+import com.thoughtworks.xstream.annotations.XStreamAlias;
+
+@XStreamAlias("plan")
 public class PlanOfStudy {
 	protected String fullname;
 	protected String school;
@@ -23,6 +26,4 @@ public class PlanOfStudy {
 	public void setStudentID(String studentID) {
 		this.studentID = studentID;
 	}
-	
-	
 }

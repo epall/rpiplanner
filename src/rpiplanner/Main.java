@@ -10,6 +10,7 @@ import javax.swing.JFrame;
 
 import org.jdesktop.application.Application;
 
+import rpiplanner.model.Course;
 import rpiplanner.model.CourseDatabase;
 import rpiplanner.model.PlanOfStudy;
 
@@ -106,6 +107,10 @@ public class Main extends Application {
 
 	public static void main(String[] args) {
 		xs = new XStream();
+		xs.processAnnotations(PlanOfStudy.class);
+		xs.processAnnotations(Course.class);
+		xs.processAnnotations(CourseDatabase.class);
+		xs.addImplicitCollection(CourseDatabase.class, "courses");
         Application.launch(Main.class, args);
     }
 }
