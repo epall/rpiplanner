@@ -6,7 +6,10 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.ListModel;
 
+import rpiplanner.model.Course;
 import rpiplanner.model.CourseDatabase;
+import rpiplanner.model.Term;
+import rpiplanner.view.CourseTransferHandler;
 import rpiplanner.view.PlanOfStudyEditor;
 
 public class POSController {
@@ -21,10 +24,10 @@ public class POSController {
 
 	public void setSemesterPanels(ArrayList<JPanel> semesterPanels) {
 		this.semesterPanels = semesterPanels;
-		for(JPanel p : semesterPanels){
-			for(int i = 0; i < SchoolInformation.DEFAULT_COURSES_PER_SEMESTER; i++){
-				p.add(new JLabel("ENGR-2350 Embeded Control"));
-			}
+		for(int i = 0; i < semesterPanels.size(); i++){
+			JPanel p = semesterPanels.get(i);
+			p.setTransferHandler(new CourseTransferHandler(this));
+			updateSemesterPanel(i, plan.getTerm(i));
 		}
 	}
 
@@ -47,5 +50,31 @@ public class POSController {
 	public void setView(PlanOfStudyEditor planCard) {
 		this.view = planCard;
 		view.setController(this);
+	}
+
+	public void addCourse(int term, Course toAdd) {
+		Term toModify = plan.getTerm(term);
+		toModify.getCourses().add(toAdd);
+		updateSemesterPanel(term, toModify);
+	}
+
+	private void updateSemesterPanel(int term, Term model) {
+		ArrayList<Course> courses = model.getCourses();
+
+		JPanel semesterPanel = semesterPanels.get(term);
+		semesterPanel.removeAll();
+		for(int i = 0; i < SchoolInformation.DEFAULT_COURSES_PER_SEMESTER; i++){
+			try{
+				semesterPanel.add(new JLabel(courses.get(i).toString()));
+			} catch (IndexOutOfBoundsException e){ // no course there yet
+				semesterPanel.add(new JLabel("Add Course..."));
+			}
+		}
+		semesterPanel.validate();
+	}
+
+	public void initializeTerms(int startingYear) {
+		plan.setStartingYear(startingYear);
+		plan.rebuildTerms();
 	}
 }

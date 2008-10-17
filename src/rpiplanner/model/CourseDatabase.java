@@ -19,6 +19,8 @@ public class CourseDatabase implements ListModel {
 	private ArrayList<ListDataListener> listeners = new ArrayList<ListDataListener>(1);
 
 	public void add(Course newCourse) {
+		if(courses == null)
+			courses = new ArrayList<Course>();
 		courses.add(newCourse);
 		for(ListDataListener l : listeners){
 			ListDataEvent e = new ListDataEvent(this, ListDataEvent.INTERVAL_ADDED, courses.size()-1, courses.size()-1);
@@ -34,10 +36,14 @@ public class CourseDatabase implements ListModel {
 	}
 
 	public Object getElementAt(int index) {
+		if(courses == null)
+			courses = new ArrayList<Course>();
 		return courses.toArray()[index];
 	}
 
 	public int getSize() {
+		if(courses == null)
+			courses = new ArrayList<Course>();
 		return courses.size();
 	}
 

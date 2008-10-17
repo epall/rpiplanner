@@ -5,6 +5,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JMenu;
@@ -29,6 +30,7 @@ import com.jgoodies.forms.layout.RowSpec;
 
 public class MainFrame extends JFrame {
 
+	private JComboBox comboBox;
 	private JPanel introCard;
 	private PlanOfStudyEditor planCard;
 	private JTextField studentIDfield;
@@ -64,6 +66,7 @@ public class MainFrame extends JFrame {
 				FormFactory.DEFAULT_ROWSPEC,
 				FormFactory.DEFAULT_ROWSPEC,
 				FormFactory.DEFAULT_ROWSPEC,
+				RowSpec.decode("default"),
 				RowSpec.decode("fill:default:grow(1.0)"),
 				RowSpec.decode("bottom:default")}));
 		introCard.setName("introCard");
@@ -76,12 +79,13 @@ public class MainFrame extends JFrame {
 		final JButton button = new JButton();
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(final ActionEvent e) {
+				controller.initializeTerms((Integer)comboBox.getSelectedItem());
 				CardLayout l = (CardLayout)getContentPane().getLayout();
 				l.next(getContentPane());
 			}
 		});
 		button.setText("Continue");
-		introCard.add(button, new CellConstraints("1, 7, 4, 1, fill, fill"));
+		introCard.add(button, new CellConstraints("1, 8, 4, 1, fill, fill"));
 
 		final JLabel welcomeToRpiLabel = new JLabel();
 		welcomeToRpiLabel.setHorizontalAlignment(SwingConstants.CENTER);
@@ -116,6 +120,15 @@ public class MainFrame extends JFrame {
 
 		studentIDfield = new JTextField();
 		introCard.add(studentIDfield, new CellConstraints(4, 5));
+
+		final JLabel startingYearLabel = new JLabel();
+		startingYearLabel.setHorizontalAlignment(SwingConstants.RIGHT);
+		startingYearLabel.setText("Starting Year:");
+		introCard.add(startingYearLabel, new CellConstraints(2, 6));
+
+		Integer[] years = {2006, 2007, 2008, 2009, 2010, 2011};
+		comboBox = new JComboBox(years);
+		introCard.add(comboBox, new CellConstraints(4, 6));
 		
 		final JMenuBar menu = new JMenuBar();
 		final JMenu fileMenu = new JMenu("File");
@@ -141,9 +154,12 @@ public class MainFrame extends JFrame {
 	private void setupBindings() {
 		PlanOfStudy plan = controller.getPlan();
 		BeanProperty<JTextField, String> text = BeanProperty.create("text");
+		BeanProperty<JComboBox, String> selectedItem = BeanProperty.create("selectedItem");
+
 		Bindings.createAutoBinding(UpdateStrategy.READ_WRITE, plan, BeanProperty.create("fullname"), nameField, text).bind();
 		Bindings.createAutoBinding(UpdateStrategy.READ_WRITE, plan, BeanProperty.create("school"), schoolField, text).bind();
 		Bindings.createAutoBinding(UpdateStrategy.READ_WRITE, plan, BeanProperty.create("studentID"), studentIDfield, text).bind();
+		Bindings.createAutoBinding(UpdateStrategy.READ_WRITE, plan, BeanProperty.create("startingYear"), comboBox, selectedItem).bind();
 	}
 	public POSController getController() {
 		return controller;

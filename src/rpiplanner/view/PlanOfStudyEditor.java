@@ -88,6 +88,8 @@ public class PlanOfStudyEditor extends JPanel {
 		courseList = new JList();
 		courseList.setBorder(new EtchedBorder(EtchedBorder.LOWERED));
 		courseList.setBackground(Color.WHITE);
+		courseList.setTransferHandler(new CourseTransferHandler(null));
+		courseList.setDragEnabled(true);
 		searchPanel.add(courseList, new CellConstraints("1, 2, 1, 1, fill, fill"));
 
 		final JButton addCourseButton = new JButton();
