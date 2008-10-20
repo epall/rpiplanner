@@ -1,5 +1,6 @@
 package rpiplanner;
 
+import java.awt.Container;
 import java.util.ArrayList;
 
 import javax.swing.JLabel;
@@ -9,6 +10,7 @@ import javax.swing.ListModel;
 import rpiplanner.model.Course;
 import rpiplanner.model.CourseDatabase;
 import rpiplanner.model.Term;
+import rpiplanner.view.CourseDisplay;
 import rpiplanner.view.CourseTransferHandler;
 import rpiplanner.view.PlanOfStudyEditor;
 
@@ -65,9 +67,9 @@ public class POSController {
 		semesterPanel.removeAll();
 		for(int i = 0; i < SchoolInformation.DEFAULT_COURSES_PER_SEMESTER; i++){
 			try{
-				semesterPanel.add(new JLabel(courses.get(i).toString()));
+				semesterPanel.add(new CourseDisplay(this, courses.get(i)));
 			} catch (IndexOutOfBoundsException e){ // no course there yet
-				semesterPanel.add(new JLabel("Add Course..."));
+				semesterPanel.add(new CourseDisplay(this));
 			}
 		}
 		semesterPanel.validate();
@@ -76,5 +78,21 @@ public class POSController {
 	public void initializeTerms(int startingYear) {
 		plan.setStartingYear(startingYear);
 		plan.rebuildTerms();
+	}
+
+	public void removeCourse(Container semesterPanel, CourseDisplay course) {
+		int semester = 0;
+		int courseIndex = 0;
+		// find the semester
+		while(semesterPanels.get(semester) != semesterPanel)
+			semester++;
+		
+		// find course
+		while(semesterPanel.getComponent(courseIndex) != course)
+			courseIndex++;
+
+		ArrayList<Course> courses = plan.getTerm(semester).getCourses();
+		courses.remove(courseIndex);
+		updateSemesterPanel(semester, plan.getTerm(semester));
 	}
 }

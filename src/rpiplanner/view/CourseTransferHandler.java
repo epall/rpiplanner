@@ -7,6 +7,7 @@ import java.awt.datatransfer.UnsupportedFlavorException;
 import java.io.IOException;
 
 import javax.swing.JComponent;
+import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.TransferHandler;
 
@@ -25,6 +26,10 @@ public class CourseTransferHandler extends TransferHandler {
 		if(c instanceof JList){
 			Course toExport = (Course)((JList)c).getSelectedValue();
 			return new CourseTransfer(toExport); 
+		}
+		else if(c instanceof JLabel){
+			// dragging a course out of the plan
+			
 		}
 		return super.createTransferable(c);
 	}
