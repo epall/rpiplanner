@@ -45,6 +45,8 @@ public class CourseTransferHandler extends TransferHandler {
 			return false;
 		try {
 			Course toAdd = (Course) t.getTransferData(new DataFlavor(DataFlavor.javaJVMLocalObjectMimeType+";class=rpiplanner.model.Course"));
+			if(comp instanceof CourseDisplay)
+				comp = (JComponent) comp.getParent();
 			Component[] panels = comp.getParent().getComponents();
 			int index = 0;
 			while(comp != panels[index])
