@@ -14,6 +14,7 @@ import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import javax.swing.ListSelectionModel;
 import javax.swing.SwingConstants;
 import javax.swing.border.CompoundBorder;
 import javax.swing.border.EmptyBorder;
@@ -33,6 +34,10 @@ public class PlanOfStudyEditor extends JPanel {
 	private JList courseList;
 	private JTextField searchField;
 	private ArrayList<JPanel> semesterPanels = new ArrayList<JPanel>(8);
+	
+	public PlanOfStudyEditor(POSController controller){
+		super();
+	}
 
 	public PlanOfStudyEditor() {
 		super();
@@ -88,8 +93,6 @@ public class PlanOfStudyEditor extends JPanel {
 		courseList = new JList();
 		courseList.setBorder(new EtchedBorder(EtchedBorder.LOWERED));
 		courseList.setBackground(Color.WHITE);
-		courseList.setTransferHandler(new CourseTransferHandler(null));
-		courseList.setDragEnabled(true);
 		searchPanel.add(courseList, new CellConstraints("1, 2, 1, 1, fill, fill"));
 
 		final JButton addCourseButton = new JButton();
@@ -107,5 +110,8 @@ public class PlanOfStudyEditor extends JPanel {
 	public void setController(POSController controller){
 		controller.setSemesterPanels(semesterPanels);
 		courseList.setModel(controller.getCourseListModel());
+		courseList.setTransferHandler(new CourseTransferHandler(controller));
+		courseList.setDragEnabled(true);
+		courseList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 	}
 }
