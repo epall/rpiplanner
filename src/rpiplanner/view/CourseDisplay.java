@@ -2,6 +2,7 @@ package rpiplanner.view;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionAdapter;
 
@@ -65,6 +66,15 @@ public class CourseDisplay extends JPanel {
 		addMouseMotionListener(new MouseMotionAdapter() {
 			public void mouseDragged(final MouseEvent e) {
 				handler.exportAsDrag(CourseDisplay.this, e, TransferHandler.MOVE);
+			}
+		});
+		addMouseListener(new MouseAdapter() {
+			public void mouseEntered(final MouseEvent e) {
+				controller.setDetailDisplay(course);
+			}
+			@Override
+			public void mouseExited(final MouseEvent e) {
+				controller.setDetailDisplay(null);
 			}
 		});
 		//

@@ -6,6 +6,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
+import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
@@ -47,7 +48,7 @@ public class NewCourseDialog extends JDialog {
 				FormFactory.DEFAULT_ROWSPEC,
 				FormFactory.RELATED_GAP_ROWSPEC}));
 		setTitle("New Course");
-		setBounds(100, 100, 461, 205);
+		setBounds(100, 100, 447, 281);
 
 		final JLabel courseTitleLabel = new JLabel();
 		courseTitleLabel.setText("Department");
@@ -93,8 +94,13 @@ public class NewCourseDialog extends JDialog {
 		catalogField = new JTextField();
 		getContentPane().add(catalogField, new CellConstraints(4, 6));
 
+		final JScrollPane scrollPane = new JScrollPane();
+		getContentPane().add(scrollPane, new CellConstraints(4, 8));
+
 		descriptionTextArea = new JTextArea();
-		getContentPane().add(descriptionTextArea, new CellConstraints(4, 8));
+		scrollPane.setViewportView(descriptionTextArea);
+		descriptionTextArea.setLineWrap(true);
+		descriptionTextArea.setWrapStyleWord(true);
 		
 		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 		//

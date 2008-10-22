@@ -1,9 +1,12 @@
 package rpiplanner;
 
+import java.awt.Component;
 import java.awt.Container;
 import java.util.ArrayList;
 
 import javax.swing.JPanel;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
 import javax.swing.ListModel;
 
 import rpiplanner.model.Course;
@@ -18,6 +21,7 @@ public class POSController {
 	protected rpiplanner.view.PlanOfStudyEditor view;
 	private ArrayList<JPanel> semesterPanels;
 	private CourseDatabase courseDatabase;
+	private JPanel courseDetailsPanel;
 	
 	public POSController(){
 		plan = new rpiplanner.model.PlanOfStudy();
@@ -93,5 +97,32 @@ public class POSController {
 		ArrayList<Course> courses = plan.getTerm(semester).getCourses();
 		courses.remove(courseIndex);
 		updateSemesterPanel(semester, plan.getTerm(semester));
+	}
+
+	/**
+	 * Show the details for the specified course in the course details panel
+	 * @param course
+	 */
+	public void setDetailDisplay(Course course) {
+		if(course == null)
+			course = new Course();
+		for(Component c : courseDetailsPanel.getComponents()){
+			if(c.getName() == "department"){
+				((JTextField)c).setText(course.getDepartment());
+			}
+			if(c.getName() == "title"){
+				((JTextField)c).setText(course.getTitle());
+			}
+			if(c.getName() == "catalogNumber"){
+				((JTextField)c).setText(course.getCatalogNumber());
+			}
+			if(c.getName() == "description"){
+				((JTextArea)c).setText(course.getDescription());
+			}
+		}
+	}
+
+	public void setCourseDetailsPanel(JPanel courseDetailsPanel) {
+		this.courseDetailsPanel = courseDetailsPanel;
 	}
 }

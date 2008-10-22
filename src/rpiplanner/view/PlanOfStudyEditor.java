@@ -6,6 +6,8 @@ import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseMotionAdapter;
 import java.util.ArrayList;
 
 import javax.swing.BoxLayout;
@@ -13,12 +15,14 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JPanel;
+import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.ListSelectionModel;
 import javax.swing.SwingConstants;
 import javax.swing.border.CompoundBorder;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.EtchedBorder;
+import javax.swing.border.LineBorder;
 import javax.swing.border.TitledBorder;
 
 import rpiplanner.POSController;
@@ -31,6 +35,8 @@ import com.jgoodies.forms.layout.FormLayout;
 import com.jgoodies.forms.layout.RowSpec;
 
 public class PlanOfStudyEditor extends JPanel {
+	private JPanel courseDetailsPanel;
+	private JTextArea descriptionTextArea;
 	private JList courseList;
 	private JTextField searchField;
 	private ArrayList<JPanel> semesterPanels = new ArrayList<JPanel>(8);
@@ -48,7 +54,7 @@ public class PlanOfStudyEditor extends JPanel {
 				ColumnSpec.decode("181px:grow(2.0)")},
 			new RowSpec[] {
 				FormFactory.MIN_ROWSPEC,
-				RowSpec.decode("350px:grow(1.0)")}));
+				RowSpec.decode("fill:350px:grow(1.0)")}));
 
 		final JPanel titlePanel = new JPanel();
 		add(titlePanel, new CellConstraints("1, 1, 3, 1, fill, fill"));
@@ -69,11 +75,6 @@ public class PlanOfStudyEditor extends JPanel {
 			planPanel.add(semesterPanel);
 			semesterPanels.add(semesterPanel);
 		}
-
-		final JLabel statusAndOtherLabel = new JLabel();
-		add(statusAndOtherLabel, new CellConstraints("3, 2, 1, 1, fill, fill"));
-		statusAndOtherLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		statusAndOtherLabel.setText("Status and other information");
 
 		final JPanel searchPanel = new JPanel();
 		searchPanel.setLayout(new FormLayout(
@@ -104,11 +105,69 @@ public class PlanOfStudyEditor extends JPanel {
 		});
 		addCourseButton.setText("Add Course");
 		searchPanel.add(addCourseButton, new CellConstraints(1, 3));
+
+		courseDetailsPanel = new JPanel();
+		courseDetailsPanel.setLayout(new FormLayout(
+			new ColumnSpec[] {
+				FormFactory.DEFAULT_COLSPEC,
+				FormFactory.RELATED_GAP_COLSPEC,
+				ColumnSpec.decode("default:grow(1.0)")},
+			new RowSpec[] {
+				FormFactory.DEFAULT_ROWSPEC,
+				FormFactory.RELATED_GAP_ROWSPEC,
+				FormFactory.DEFAULT_ROWSPEC,
+				FormFactory.RELATED_GAP_ROWSPEC,
+				FormFactory.DEFAULT_ROWSPEC,
+				FormFactory.RELATED_GAP_ROWSPEC,
+				FormFactory.DEFAULT_ROWSPEC,
+				FormFactory.RELATED_GAP_ROWSPEC,
+				RowSpec.decode("fill:default:grow(1.0)")}));
+		courseDetailsPanel.setBorder(new TitledBorder(new EtchedBorder(), "Course details"));
+		add(courseDetailsPanel, new CellConstraints(3, 2));
+
+		final JLabel titleLabel = new JLabel();
+		titleLabel.setText("Title:");
+		courseDetailsPanel.add(titleLabel, new CellConstraints(1, 3));
+
+		final JLabel departmentLabel = new JLabel();
+		departmentLabel.setText("Department:");
+		courseDetailsPanel.add(departmentLabel, new CellConstraints());
+
+		final JLabel descriptionLabel = new JLabel();
+		descriptionLabel.setText("Description:");
+		courseDetailsPanel.add(descriptionLabel, new CellConstraints(1, 7));
+
+		descriptionTextArea = new JTextArea();
+		descriptionTextArea.setLineWrap(true);
+		descriptionTextArea.setWrapStyleWord(true);
+		descriptionTextArea.setName("description");
+		descriptionTextArea.setEditable(false);
+		courseDetailsPanel.add(descriptionTextArea, new CellConstraints(1, 9, 3, 1));
+
+		final JTextField departmentField = new JTextField();
+		departmentField.setEditable(false);
+		departmentField.setName("department");
+		courseDetailsPanel.add(departmentField, new CellConstraints(3, 1));
+
+		final JTextField titleField = new JTextField();
+		titleField.setEditable(false);
+		titleField.setName("title");
+		courseDetailsPanel.add(titleField, new CellConstraints(3, 3));
+
+		final JTextField catalogField = new JTextField();
+		catalogField.setEditable(false);
+		catalogField.setName("catalogNumber");
+		courseDetailsPanel.add(catalogField, new CellConstraints(3, 5));
+
+		final JLabel catalogNumberLabel = new JLabel();
+		catalogNumberLabel.setText("Catalog number:");
+		courseDetailsPanel.add(catalogNumberLabel, new CellConstraints(1, 5));
 		//
 	}
 	
 	public void setController(POSController controller){
 		controller.setSemesterPanels(semesterPanels);
+		controller.setCourseDetailsPanel(courseDetailsPanel);
 		courseList.setModel(controller.getCourseListModel());
 		courseList.setTransferHandler(new CourseTransferHandler(controller));
 		courseList.setDragEnabled(true);
