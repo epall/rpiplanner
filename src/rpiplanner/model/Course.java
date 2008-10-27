@@ -13,6 +13,10 @@ public class Course {
     protected String description;
     protected String department;
     protected String catalogNumber;
+    protected int credits;
+    protected Course[] prerequisites;
+    protected Course[] corequisites;
+    protected Term.YearPart[] availableTerms;
     
 	public String getTitle() {
 		return title;
@@ -37,6 +41,30 @@ public class Course {
 	}
 	public void setCatalogNumber(String catalogNumber) {
 		this.catalogNumber = catalogNumber;
+	}
+	public int getCredits() {
+		return credits;
+	}
+	public void setCredits(int credits) {
+		this.credits = credits;
+	}
+	public Course[] getPrerequisites() {
+		return prerequisites;
+	}
+	public void setPrerequisites(Course[] prerequisites) {
+		this.prerequisites = prerequisites;
+	}
+	public Course[] getCorequisites() {
+		return corequisites;
+	}
+	public void setCorequisites(Course[] corequisites) {
+		this.corequisites = corequisites;
+	}
+	public Term.YearPart[] getAvailableTerms() {
+		return availableTerms;
+	}
+	public void setAvailableTerms(Term.YearPart[] availableTerms) {
+		this.availableTerms = availableTerms;
 	}
 	public String toString(){
 		return catalogNumber + " - " + title;

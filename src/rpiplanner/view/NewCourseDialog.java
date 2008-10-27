@@ -1,16 +1,24 @@
 package rpiplanner.view;
 
+import java.awt.Component;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+
+import javax.swing.DefaultComboBoxModel;
 
 import javax.swing.JButton;
+import javax.swing.JCheckBox;
+import javax.swing.JComboBox;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
+import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
 import rpiplanner.Main;
+import rpiplanner.model.Term;
 
 import com.jgoodies.forms.factories.FormFactory;
 import com.jgoodies.forms.layout.CellConstraints;
@@ -19,6 +27,8 @@ import com.jgoodies.forms.layout.FormLayout;
 import com.jgoodies.forms.layout.RowSpec;
 
 public class NewCourseDialog extends JDialog {
+	private JPanel offeredDuringPanel;
+	private JComboBox creditsComboBox;
 	private JTextArea descriptionTextArea;
 	private JTextField catalogField;
 	private JTextField titleField;
@@ -43,6 +53,10 @@ public class NewCourseDialog extends JDialog {
 				FormFactory.RELATED_GAP_ROWSPEC,
 				FormFactory.DEFAULT_ROWSPEC,
 				FormFactory.RELATED_GAP_ROWSPEC,
+				FormFactory.DEFAULT_ROWSPEC,
+				FormFactory.RELATED_GAP_ROWSPEC,
+				RowSpec.decode("default"),
+				FormFactory.RELATED_GAP_ROWSPEC,
 				RowSpec.decode("fill:default:grow(1.0)"),
 				FormFactory.RELATED_GAP_ROWSPEC,
 				FormFactory.DEFAULT_ROWSPEC,
@@ -64,7 +78,7 @@ public class NewCourseDialog extends JDialog {
 
 		final JLabel descriptionLabel = new JLabel();
 		descriptionLabel.setText("Description");
-		getContentPane().add(descriptionLabel, new CellConstraints(2, 8));
+		getContentPane().add(descriptionLabel, new CellConstraints(2, 12));
 
 		final JButton saveButton = new JButton();
 		saveButton.addActionListener(new ActionListener() {
@@ -74,7 +88,7 @@ public class NewCourseDialog extends JDialog {
 			}
 		});
 		saveButton.setText("Save");
-		getContentPane().add(saveButton, new CellConstraints(2, 10));
+		getContentPane().add(saveButton, new CellConstraints(2, 14));
 
 		final JButton cancelButton = new JButton();
 		cancelButton.addActionListener(new ActionListener() {
@@ -83,7 +97,7 @@ public class NewCourseDialog extends JDialog {
 			}
 		});
 		cancelButton.setText("Cancel");
-		getContentPane().add(cancelButton, new CellConstraints(4, 10));
+		getContentPane().add(cancelButton, new CellConstraints(4, 14));
 
 		departmentField = new JTextField();
 		getContentPane().add(departmentField, new CellConstraints(4, 2));
@@ -95,7 +109,7 @@ public class NewCourseDialog extends JDialog {
 		getContentPane().add(catalogField, new CellConstraints(4, 6));
 
 		final JScrollPane scrollPane = new JScrollPane();
-		getContentPane().add(scrollPane, new CellConstraints(4, 8));
+		getContentPane().add(scrollPane, new CellConstraints(4, 12));
 
 		descriptionTextArea = new JTextArea();
 		scrollPane.setViewportView(descriptionTextArea);
@@ -103,6 +117,28 @@ public class NewCourseDialog extends JDialog {
 		descriptionTextArea.setWrapStyleWord(true);
 		
 		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+
+		final JLabel creditsLabel = new JLabel();
+		creditsLabel.setText("Credits");
+		getContentPane().add(creditsLabel, new CellConstraints(2, 8));
+
+		final JLabel offeredDuringLabel = new JLabel();
+		offeredDuringLabel.setText("Offered during");
+		getContentPane().add(offeredDuringLabel, new CellConstraints(2, 10));
+
+		creditsComboBox = new JComboBox();
+		creditsComboBox.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4"}));
+		creditsComboBox.setSelectedIndex(3);
+		getContentPane().add(creditsComboBox, new CellConstraints(4, 8));
+
+		offeredDuringPanel = new JPanel();
+		for(Term.YearPart p : Term.YearPart.values()){
+			final JCheckBox termBox = new JCheckBox(p.toString().toLowerCase());
+			termBox.setSelected(true);
+			offeredDuringPanel.add(termBox);
+		}
+		
+		getContentPane().add(offeredDuringPanel, new CellConstraints(4, 10));
 		//
 	}
 	
@@ -112,6 +148,15 @@ public class NewCourseDialog extends JDialog {
 		newCourse.setTitle(titleField.getText());
 		newCourse.setCatalogNumber(catalogField.getText());
 		newCourse.setDescription(descriptionTextArea.getText());
+		newCourse.setCredits(Integer.parseInt((String)creditsComboBox.getSelectedItem()));
+		
+		ArrayList<Term.YearPart> offeredDuring = new ArrayList<Term.YearPart>();
+		for(Component c : offeredDuringPanel.getComponents()){
+			JCheckBox box = (JCheckBox)c;
+			offeredDuring.add(Term.YearPart.valueOf(box.getText().toUpperCase()));
+		}
+		newCourse.setAvailableTerms(offeredDuring.toArray(new Term.YearPart[0]));
+		
 		Main.getCourseDatabase().add(newCourse);
 	}
 
