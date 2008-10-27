@@ -50,8 +50,8 @@ public class PlanOfStudy {
 	}
 	public void rebuildTerms(){
 		for(int i = 0; i < SchoolInformation.DEFAULT_NUM_SEMESTERS/2; i++){
-			terms.get(i).setYear(startingYear+i);
-			terms.get(i+1).setYear(startingYear+i);
+			terms.get(2*i).setYear(startingYear+i);
+			terms.get(2*i+1).setYear(startingYear+i);
 		}
 	}
 	
@@ -60,7 +60,7 @@ public class PlanOfStudy {
 	 * prototype that uses RPI's semester-based term system
 	 */
 	private void initializeTerms(){
-		terms = new ArrayList<Term>(8);
+		terms = new ArrayList<Term>(SchoolInformation.DEFAULT_NUM_SEMESTERS);
 		for(int i = 0; i < SchoolInformation.DEFAULT_NUM_SEMESTERS/2; i++){
 			Term fall = new Term();
 			fall.setYear(startingYear+i);
