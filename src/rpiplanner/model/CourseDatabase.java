@@ -1,55 +1,48 @@
 package rpiplanner.model;
 
+import java.beans.PropertyChangeListener;
+import java.beans.PropertyChangeSupport;
 import java.util.ArrayList;
-
-import javax.swing.ListModel;
-import javax.swing.event.ListDataEvent;
-import javax.swing.event.ListDataListener;
 
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 import com.thoughtworks.xstream.annotations.XStreamImplicit;
 import com.thoughtworks.xstream.annotations.XStreamOmitField;
 
 @XStreamAlias("courses")
-public class CourseDatabase implements ListModel {
+public class CourseDatabase {
 	@XStreamImplicit
 	private ArrayList<Course> courses = new ArrayList<Course>();
 	
 	@XStreamOmitField
-	private ArrayList<ListDataListener> listeners = new ArrayList<ListDataListener>(1);
-
+	private PropertyChangeSupport support;
+	
 	public void add(Course newCourse) {
 		if(courses == null)
 			courses = new ArrayList<Course>();
 		courses.add(newCourse);
-		for(ListDataListener l : listeners){
-			ListDataEvent e = new ListDataEvent(this, ListDataEvent.INTERVAL_ADDED, courses.size()-1, courses.size()-1);
-			l.intervalAdded(e);
-		}
+		support.firePropertyChange("courses", null, courses);
 	}
-
-	public void addListDataListener(ListDataListener l) {
-		if(listeners == null) // because XStream will null it
-			listeners = new ArrayList<ListDataListener>(1);
-
-		listeners.add(l);
-	}
-
-	public Object getElementAt(int index) {
-		if(courses == null)
-			courses = new ArrayList<Course>();
-		return courses.toArray()[index];
+	
+	public void addPropertyChangeListener(PropertyChangeListener listener){
+		if(support == null)
+			support = new PropertyChangeSupport(this);
+		support.addPropertyChangeListener(listener);
 	}
 
 	public int getSize() {
-		if(courses == null)
-			courses = new ArrayList<Course>();
 		return courses.size();
 	}
 
-	public void removeListDataListener(ListDataListener l) {
-		if(listeners == null) // because XStream will null it
-			listeners = new ArrayList<ListDataListener>(1);
-		listeners.remove(l);
+	public Course[] search(String text) {
+		ArrayList<Course> found = new ArrayList<Course>(courses.size());
+		for(Course c : courses){
+			if(c.toString().toLowerCase().contains(text.toLowerCase()))
+				found.add(c);
+		}
+		return found.toArray(new Course[0]);
+	}
+
+	public Course[] listAll() {
+		return courses.toArray(new Course[0]);
 	}
 }

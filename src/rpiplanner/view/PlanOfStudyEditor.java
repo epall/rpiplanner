@@ -6,8 +6,6 @@ import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseMotionAdapter;
 import java.util.ArrayList;
 
 import javax.swing.BoxLayout;
@@ -18,12 +16,13 @@ import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.ListSelectionModel;
-import javax.swing.SwingConstants;
 import javax.swing.border.CompoundBorder;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.EtchedBorder;
-import javax.swing.border.LineBorder;
 import javax.swing.border.TitledBorder;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
+import javax.swing.text.BadLocationException;
 
 import rpiplanner.POSController;
 import rpiplanner.SchoolInformation;
@@ -165,12 +164,39 @@ public class PlanOfStudyEditor extends JPanel {
 		//
 	}
 	
-	public void setController(POSController controller){
+	public void setController(final POSController controller){
 		controller.setSemesterPanels(semesterPanels);
 		controller.setCourseDetailsPanel(courseDetailsPanel);
 		courseList.setModel(controller.getCourseListModel());
 		courseList.setTransferHandler(new CourseTransferHandler(controller));
 		courseList.setDragEnabled(true);
 		courseList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		
+		searchField.getDocument().addDocumentListener(new DocumentListener(){
+
+			public void changedUpdate(DocumentEvent e) {
+				try {
+					controller.searchTextChanged(e.getDocument().getText(0, e.getDocument().getLength()));
+				} catch (BadLocationException e1) {
+					// won't ever happen
+				}
+			}
+
+			public void insertUpdate(DocumentEvent e) {
+				try {
+					controller.searchTextChanged(e.getDocument().getText(0, e.getDocument().getLength()));
+				} catch (BadLocationException e1) {
+					// won't ever happen
+				}
+			}
+
+			public void removeUpdate(DocumentEvent e) {
+				try {
+					controller.searchTextChanged(e.getDocument().getText(0, e.getDocument().getLength()));
+				} catch (BadLocationException e1) {
+					// won't ever happen
+				}
+			}
+		});
 	}
 }

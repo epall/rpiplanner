@@ -12,6 +12,7 @@ import javax.swing.ListModel;
 import rpiplanner.model.Course;
 import rpiplanner.model.CourseDatabase;
 import rpiplanner.model.Term;
+import rpiplanner.view.CourseDatabaseFilter;
 import rpiplanner.view.CourseDisplay;
 import rpiplanner.view.CourseTransferHandler;
 import rpiplanner.view.PlanOfStudyEditor;
@@ -21,6 +22,7 @@ public class POSController {
 	protected rpiplanner.view.PlanOfStudyEditor view;
 	private ArrayList<JPanel> semesterPanels;
 	private CourseDatabase courseDatabase;
+	private CourseDatabaseFilter courseDatabaseModel;
 	private JPanel courseDetailsPanel;
 	
 	public POSController(){
@@ -38,6 +40,8 @@ public class POSController {
 
 	public void setCourseDatabase(CourseDatabase courseDatabase) {
 		this.courseDatabase = courseDatabase;
+		this.courseDatabaseModel = new CourseDatabaseFilter(courseDatabase);
+		courseDatabase.addPropertyChangeListener(courseDatabaseModel);
 	}
 
 	public rpiplanner.model.PlanOfStudy getPlan() {
@@ -49,7 +53,7 @@ public class POSController {
 	}
 
 	public ListModel getCourseListModel() {
-		return courseDatabase;
+		return courseDatabaseModel;
 	}
 
 	public void setView(PlanOfStudyEditor planCard) {
@@ -124,5 +128,9 @@ public class POSController {
 
 	public void setCourseDetailsPanel(JPanel courseDetailsPanel) {
 		this.courseDetailsPanel = courseDetailsPanel;
+	}
+
+	public void searchTextChanged(String text) {
+		courseDatabaseModel.setSearchText(text);
 	}
 }
