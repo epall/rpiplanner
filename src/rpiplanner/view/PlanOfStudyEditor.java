@@ -40,6 +40,7 @@ import com.jgoodies.forms.layout.FormLayout;
 import com.jgoodies.forms.layout.RowSpec;
 
 public class PlanOfStudyEditor extends JPanel {
+	private JButton addCourseButton;
 	private JPanel courseDetailsPanel;
 	private JTextArea descriptionTextArea;
 	private JList courseList;
@@ -105,13 +106,7 @@ public class PlanOfStudyEditor extends JPanel {
 		courseList.setBorder(new EtchedBorder(EtchedBorder.LOWERED));
 		courseList.setBackground(Color.WHITE);
 
-		final JButton addCourseButton = new JButton();
-		addCourseButton.addActionListener(new ActionListener() {
-			public void actionPerformed(final ActionEvent e) {
-				NewCourseDialog ncd = new NewCourseDialog();
-				ncd.setVisible(true);
-			}
-		});
+		addCourseButton = new JButton();
 		addCourseButton.setText("Add Course");
 		searchPanel.add(addCourseButton, new CellConstraints(1, 3));
 
@@ -177,6 +172,15 @@ public class PlanOfStudyEditor extends JPanel {
 	public void setController(final POSController controller){
 		controller.setSemesterPanels(semesterPanels);
 		controller.setCourseDetailsPanel(courseDetailsPanel);
+		
+		addCourseButton.addActionListener(new ActionListener() {
+			public void actionPerformed(final ActionEvent e) {
+				NewCourseDialog ncd = new NewCourseDialog();
+				ncd.setController(controller);
+				ncd.setVisible(true);
+			}
+		});
+
 		courseList.setModel(controller.getCourseListModel());
 		courseList.setTransferHandler(new CourseTransferHandler(controller));
 		courseList.setDragEnabled(true);

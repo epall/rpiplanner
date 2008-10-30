@@ -17,7 +17,10 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
+import org.jdesktop.swingx.autocomplete.AutoCompleteDecorator;
+
 import rpiplanner.Main;
+import rpiplanner.POSController;
 import rpiplanner.model.Term;
 
 import com.jgoodies.forms.factories.FormFactory;
@@ -159,5 +162,8 @@ public class NewCourseDialog extends JDialog {
 		
 		Main.getCourseDatabase().add(newCourse);
 	}
-
+	
+	public void setController(POSController controller){
+		AutoCompleteDecorator.decorate(departmentField, controller.getCourseDatabase().getDepartments(), false);
+	}
 }

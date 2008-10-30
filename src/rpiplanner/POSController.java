@@ -43,6 +43,10 @@ public class POSController {
 		this.courseDatabaseModel = new CourseDatabaseFilter(courseDatabase);
 		courseDatabase.addPropertyChangeListener(courseDatabaseModel);
 	}
+	
+	public CourseDatabase getCourseDatabase(){
+		return courseDatabase;
+	}
 
 	public rpiplanner.model.PlanOfStudy getPlan() {
 		return plan;

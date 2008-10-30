@@ -8,7 +8,7 @@ import com.thoughtworks.xstream.annotations.XStreamAlias;
  */
 
 @XStreamAlias("course")
-public class Course {
+public class Course implements Comparable<Course> {
     protected String title;
     protected String description;
     protected String department;
@@ -68,5 +68,8 @@ public class Course {
 	}
 	public String toString(){
 		return catalogNumber + " - " + title;
+	}
+	public int compareTo(Course o) {
+		return toString().compareTo(o.toString());
 	}
 }

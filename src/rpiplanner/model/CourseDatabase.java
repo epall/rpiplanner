@@ -3,6 +3,9 @@ package rpiplanner.model;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.TreeSet;
 
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 import com.thoughtworks.xstream.annotations.XStreamImplicit;
@@ -12,6 +15,9 @@ import com.thoughtworks.xstream.annotations.XStreamOmitField;
 public class CourseDatabase {
 	@XStreamImplicit
 	private ArrayList<Course> courses = new ArrayList<Course>();
+	
+	@XStreamOmitField
+	private ArrayList<String> departments;
 	
 	@XStreamOmitField
 	private PropertyChangeSupport support;
@@ -34,7 +40,7 @@ public class CourseDatabase {
 	}
 
 	public Course[] search(String text) {
-		ArrayList<Course> found = new ArrayList<Course>(courses.size());
+		TreeSet<Course> found = new TreeSet<Course>();
 		for(Course c : courses){
 			if(c.toString().toLowerCase().contains(text.toLowerCase()))
 				found.add(c);
@@ -43,6 +49,19 @@ public class CourseDatabase {
 	}
 
 	public Course[] listAll() {
-		return courses.toArray(new Course[0]);
+		Course[] temp = new Course[courses.size()];
+		courses.toArray(temp);
+		Arrays.sort(temp);
+		return temp;
+	}
+	
+	public List<String> getDepartments(){
+		if(departments == null){
+			departments = new ArrayList<String>();
+			for(Course c : courses){
+				departments.add(c.getDepartment());
+			}
+		}
+		return departments;
 	}
 }
