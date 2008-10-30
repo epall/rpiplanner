@@ -16,6 +16,9 @@ public class CourseDatabase {
 	@XStreamImplicit
 	private ArrayList<Course> courses = new ArrayList<Course>();
 	
+	@XStreamImplicit
+	private ArrayList<Degree> degrees = new ArrayList<Degree>();
+
 	@XStreamOmitField
 	private ArrayList<String> departments;
 	

@@ -13,6 +13,7 @@ public class PlanOfStudy {
 	protected String school;
 	protected String studentID;
 	protected int startingYear;
+	protected ArrayList<Degree> degrees;
 
 	@XStreamImplicit
 	protected ArrayList<Term> terms;
@@ -48,6 +49,15 @@ public class PlanOfStudy {
 	public Term getTerm(int index){
 		return terms.get(index);
 	}
+	public ArrayList<Degree> getDegrees() {
+		if(degrees == null)
+			degrees = new ArrayList<Degree>();
+		return degrees;
+	}
+	public void setDegrees(ArrayList<Degree> degrees) {
+		this.degrees = degrees;
+	}
+
 	public void rebuildTerms(){
 		terms.get(0).setYear(startingYear);
 		for(int i = 1; i < SchoolInformation.DEFAULT_NUM_SEMESTERS/2; i++){

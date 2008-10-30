@@ -145,6 +145,10 @@ public class MainFrame extends JFrame {
 		});
 		newItemMenuItem.setText("Update from course database");
 		fileMenu.add(newItemMenuItem);
+
+		final JMenuItem addDegreeMenuItem = new JMenuItem();
+		addDegreeMenuItem.setText("Add Degree");
+		fileMenu.add(addDegreeMenuItem);
 		this.setJMenuBar(menu);
 		//
 	}
