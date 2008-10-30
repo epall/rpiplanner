@@ -43,8 +43,8 @@ public class CourseDisplay extends JPanel {
 	private void initialize(){
 		setLayout(new FormLayout(
 			new ColumnSpec[] {
-				FormFactory.DEFAULT_COLSPEC,
-				ColumnSpec.decode("4dlu:grow(1.0)"),
+				ColumnSpec.decode("left:0dlu:grow(1.0)"),
+				FormFactory.RELATED_GAP_COLSPEC,
 				ColumnSpec.decode("right:24px")},
 			new RowSpec[] {
 				RowSpec.decode("17px")}));

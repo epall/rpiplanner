@@ -6,6 +6,9 @@ import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseMotionAdapter;
 import java.util.ArrayList;
 
 import javax.swing.BoxLayout;
@@ -13,9 +16,11 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.ListSelectionModel;
+import javax.swing.ScrollPaneConstants;
 import javax.swing.border.CompoundBorder;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.EtchedBorder;
@@ -26,6 +31,7 @@ import javax.swing.text.BadLocationException;
 
 import rpiplanner.POSController;
 import rpiplanner.SchoolInformation;
+import rpiplanner.model.Course;
 
 import com.jgoodies.forms.factories.FormFactory;
 import com.jgoodies.forms.layout.CellConstraints;
@@ -53,7 +59,7 @@ public class PlanOfStudyEditor extends JPanel {
 				ColumnSpec.decode("181px:grow(2.0)")},
 			new RowSpec[] {
 				FormFactory.MIN_ROWSPEC,
-				RowSpec.decode("fill:350px:grow(1.0)")}));
+				RowSpec.decode("fill:0dlu:grow(1.0)")}));
 
 		final JPanel titlePanel = new JPanel();
 		add(titlePanel, new CellConstraints("1, 1, 3, 1, fill, fill"));
@@ -81,7 +87,7 @@ public class PlanOfStudyEditor extends JPanel {
 				ColumnSpec.decode("default:grow(1.0)")},
 			new RowSpec[] {
 				FormFactory.MIN_ROWSPEC,
-				RowSpec.decode("34px:grow(1.0)"),
+				RowSpec.decode("fill:0px:grow(1.0)"),
 				FormFactory.DEFAULT_ROWSPEC}));
 		searchPanel.setBorder(new TitledBorder(null, "Find Course", TitledBorder.DEFAULT_JUSTIFICATION, TitledBorder.DEFAULT_POSITION, null, null));
 		add(searchPanel, new CellConstraints("1, 2, 1, 1, fill, fill"));
@@ -90,10 +96,14 @@ public class PlanOfStudyEditor extends JPanel {
 		searchField.setPreferredSize(new Dimension(150, 28));
 		searchPanel.add(searchField, new CellConstraints("1, 1, 1, 1, fill, fill"));
 
+		final JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+		searchPanel.add(scrollPane, new CellConstraints("1, 2, 1, 1, fill, fill"));
+
 		courseList = new JList();
+		scrollPane.setViewportView(courseList);
 		courseList.setBorder(new EtchedBorder(EtchedBorder.LOWERED));
 		courseList.setBackground(Color.WHITE);
-		searchPanel.add(courseList, new CellConstraints("1, 2, 1, 1, fill, fill"));
 
 		final JButton addCourseButton = new JButton();
 		addCourseButton.addActionListener(new ActionListener() {
@@ -171,6 +181,25 @@ public class PlanOfStudyEditor extends JPanel {
 		courseList.setTransferHandler(new CourseTransferHandler(controller));
 		courseList.setDragEnabled(true);
 		courseList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+
+		courseList.addMouseMotionListener(new MouseMotionAdapter() {
+			public void mouseMoved(final MouseEvent e) {
+				int index = courseList.locationToIndex(e.getPoint());
+				if(index != -1){
+					Course mouseOver = (Course)courseList.getModel().getElementAt(index);
+					controller.setDetailDisplay(mouseOver);
+				}
+				else{
+					controller.setDetailDisplay(null);
+				}
+			}
+		});
+		courseList.addMouseListener(new MouseAdapter(){
+			@Override
+			public void mouseExited(MouseEvent e) {
+				controller.setDetailDisplay(null);
+			}
+		});
 		
 		searchField.getDocument().addDocumentListener(new DocumentListener(){
 
