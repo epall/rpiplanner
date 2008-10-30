@@ -16,6 +16,7 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JPanel;
+import javax.swing.JPopupMenu;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
@@ -175,7 +176,7 @@ public class PlanOfStudyEditor extends JPanel {
 		
 		addCourseButton.addActionListener(new ActionListener() {
 			public void actionPerformed(final ActionEvent e) {
-				NewCourseDialog ncd = new NewCourseDialog();
+				CourseEditDialog ncd = new CourseEditDialog();
 				ncd.setController(controller);
 				ncd.setVisible(true);
 			}
@@ -202,6 +203,23 @@ public class PlanOfStudyEditor extends JPanel {
 			@Override
 			public void mouseExited(MouseEvent e) {
 				controller.setDetailDisplay(null);
+			}
+			
+			@Override
+			public void mousePressed(MouseEvent e) {
+				if(e.getButton() == MouseEvent.BUTTON3){
+					// right click
+					int idx = courseList.locationToIndex(e.getPoint()); 
+					courseList.setSelectedIndex(idx); 
+					JPopupMenu contextMenu = new JPopupMenu();
+					contextMenu.add("Edit").addActionListener(new ActionListener(){
+						public void actionPerformed(ActionEvent e) {
+							CourseEditDialog d = new CourseEditDialog((Course)courseList.getSelectedValue());
+							d.setVisible(true);
+						}
+					});
+					contextMenu.show(courseList, e.getX(), e.getY());
+				}
 			}
 		});
 		

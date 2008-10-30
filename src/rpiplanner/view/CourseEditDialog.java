@@ -5,8 +5,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
-import javax.swing.DefaultComboBoxModel;
-
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
@@ -17,10 +15,14 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
+import org.jdesktop.beansbinding.BeanProperty;
+import org.jdesktop.beansbinding.Bindings;
+import org.jdesktop.beansbinding.AutoBinding.UpdateStrategy;
 import org.jdesktop.swingx.autocomplete.AutoCompleteDecorator;
 
 import rpiplanner.Main;
 import rpiplanner.POSController;
+import rpiplanner.model.Course;
 import rpiplanner.model.Term;
 
 import com.jgoodies.forms.factories.FormFactory;
@@ -29,18 +31,26 @@ import com.jgoodies.forms.layout.ColumnSpec;
 import com.jgoodies.forms.layout.FormLayout;
 import com.jgoodies.forms.layout.RowSpec;
 
-public class NewCourseDialog extends JDialog {
+public class CourseEditDialog extends JDialog {
 	private JPanel offeredDuringPanel;
 	private JComboBox creditsComboBox;
 	private JTextArea descriptionTextArea;
 	private JTextField catalogField;
 	private JTextField titleField;
 	private JTextField departmentField;
+	private Course toEdit;
+	private boolean newCourse = true;
 	/**
 	 * Create the dialog
 	 */
-	public NewCourseDialog() {
+	public CourseEditDialog() {
 		super();
+		this.toEdit = new Course();
+		initialize();
+		bind();
+	}
+
+	protected void initialize() {
 		getContentPane().setLayout(new FormLayout(
 			new ColumnSpec[] {
 				FormFactory.RELATED_GAP_COLSPEC,
@@ -86,7 +96,10 @@ public class NewCourseDialog extends JDialog {
 		final JButton saveButton = new JButton();
 		saveButton.addActionListener(new ActionListener() {
 			public void actionPerformed(final ActionEvent e) {
-				createCourse();
+				if(newCourse)
+					createCourse();
+				else
+					updateCourse();
 				setVisible(false);
 			}
 		});
@@ -129,8 +142,7 @@ public class NewCourseDialog extends JDialog {
 		offeredDuringLabel.setText("Offered during");
 		getContentPane().add(offeredDuringLabel, new CellConstraints(2, 10));
 
-		creditsComboBox = new JComboBox();
-		creditsComboBox.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4"}));
+		creditsComboBox = new JComboBox(new Integer[] {1, 2, 3, 4});
 		creditsComboBox.setSelectedIndex(3);
 		getContentPane().add(creditsComboBox, new CellConstraints(4, 8));
 
@@ -145,22 +157,38 @@ public class NewCourseDialog extends JDialog {
 		//
 	}
 	
+	public CourseEditDialog(Course toEdit){
+		newCourse = false;
+		this.toEdit = toEdit;
+		initialize();
+		bind();
+	}
+	
+	protected void bind(){
+		BeanProperty<JTextField, String> text = BeanProperty.create("text");
+		BeanProperty<JTextArea, String> textArea = BeanProperty.create("text");
+		BeanProperty<JComboBox, String> selectedItem = BeanProperty.create("selectedItem");
+		Bindings.createAutoBinding(UpdateStrategy.READ_WRITE, toEdit, BeanProperty.create("department"), departmentField, text).bind();
+		Bindings.createAutoBinding(UpdateStrategy.READ_WRITE, toEdit, BeanProperty.create("title"), titleField, text).bind();
+		Bindings.createAutoBinding(UpdateStrategy.READ_WRITE, toEdit, BeanProperty.create("catalogNumber"), catalogField, text).bind();
+		Bindings.createAutoBinding(UpdateStrategy.READ_WRITE, toEdit, BeanProperty.create("description"), descriptionTextArea, textArea).bind();
+		Bindings.createAutoBinding(UpdateStrategy.READ_WRITE, toEdit, BeanProperty.create("credits"), creditsComboBox, selectedItem).bind();
+	}
+	
 	protected void createCourse() {
-		rpiplanner.model.Course newCourse = new rpiplanner.model.Course();
-		newCourse.setDepartment(departmentField.getText());
-		newCourse.setTitle(titleField.getText());
-		newCourse.setCatalogNumber(catalogField.getText());
-		newCourse.setDescription(descriptionTextArea.getText());
-		newCourse.setCredits(Integer.parseInt((String)creditsComboBox.getSelectedItem()));
+		updateCourse();
+		Main.getCourseDatabase().add(toEdit);
+	}
+	
+	protected void updateCourse() {
+		
 		
 		ArrayList<Term.YearPart> offeredDuring = new ArrayList<Term.YearPart>();
 		for(Component c : offeredDuringPanel.getComponents()){
 			JCheckBox box = (JCheckBox)c;
 			offeredDuring.add(Term.YearPart.valueOf(box.getText().toUpperCase()));
 		}
-		newCourse.setAvailableTerms(offeredDuring.toArray(new Term.YearPart[0]));
-		
-		Main.getCourseDatabase().add(newCourse);
+		toEdit.setAvailableTerms(offeredDuring.toArray(new Term.YearPart[0]));
 	}
 	
 	public void setController(POSController controller){
