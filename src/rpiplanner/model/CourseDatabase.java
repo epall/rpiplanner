@@ -64,4 +64,12 @@ public class CourseDatabase {
 		}
 		return departments;
 	}
+
+	public Course getCourse(String catalogNumber) {
+		for(Course c : courses){
+			if(c.getCatalogNumber().equals(catalogNumber))
+				return c;
+		}
+		return null;
+	}
 }

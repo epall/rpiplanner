@@ -131,11 +131,20 @@ public class MainFrame extends JFrame {
 		introCard.add(comboBox, new CellConstraints(4, 6));
 		
 		final JMenuBar menu = new JMenuBar();
-		final JMenu fileMenu = new JMenu("File");
+		final JMenu fileMenu = new JMenu("Plan");
 		final JMenuItem fileSave = new JMenuItem("Save");
 		fileSave.setEnabled(false);
 		fileMenu.add(fileSave);
 		menu.add(fileMenu);
+
+		final JMenuItem newItemMenuItem = new JMenuItem();
+		newItemMenuItem.addActionListener(new ActionListener() {
+			public void actionPerformed(final ActionEvent e) {
+				controller.updatePlanFromDatabase();
+			}
+		});
+		newItemMenuItem.setText("Update from course database");
+		fileMenu.add(newItemMenuItem);
 		this.setJMenuBar(menu);
 		//
 	}

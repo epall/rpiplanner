@@ -137,4 +137,14 @@ public class POSController {
 	public void searchTextChanged(String text) {
 		courseDatabaseModel.setSearchText(text);
 	}
+
+	public void updatePlanFromDatabase() {
+		for(int i = 0; i < SchoolInformation.DEFAULT_NUM_SEMESTERS; i++){
+			Term t = plan.getTerm(i);
+			ArrayList<Course> courses = t.getCourses();
+			for(int j = 0; j < courses.size(); j++){
+				courses.set(j, courseDatabase.getCourse(courses.get(j).getCatalogNumber()));
+			}
+		}
+	}
 }
