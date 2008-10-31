@@ -64,12 +64,12 @@ public class PlanOfStudy {
 		for(int i = 0; i < SchoolInformation.DEFAULT_NUM_SEMESTERS/2; i++){
 			Term fall = new Term();
 			fall.setYear(startingYear+i);
-			fall.setTerm(Term.YearPart.FALL);
+			fall.setTerm(YearPart.FALL);
 			terms.add(fall);
 			
 			Term spring = new Term();
 			spring.setYear(startingYear+i);
-			spring.setTerm(Term.YearPart.SPRING);
+			spring.setTerm(YearPart.SPRING);
 			terms.add(spring);
 		}
 	}

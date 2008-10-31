@@ -23,7 +23,7 @@ import org.jdesktop.swingx.autocomplete.AutoCompleteDecorator;
 import rpiplanner.Main;
 import rpiplanner.POSController;
 import rpiplanner.model.Course;
-import rpiplanner.model.Term;
+import rpiplanner.model.YearPart;
 
 import com.jgoodies.forms.factories.FormFactory;
 import com.jgoodies.forms.layout.CellConstraints;
@@ -147,8 +147,8 @@ public class CourseEditDialog extends JDialog {
 		getContentPane().add(creditsComboBox, new CellConstraints(4, 8));
 
 		offeredDuringPanel = new JPanel();
-		for(Term.YearPart p : Term.YearPart.values()){
-			final JCheckBox termBox = new JCheckBox(p.toString().toLowerCase());
+		for(YearPart p : YearPart.values()){
+			final JCheckBox termBox = new JCheckBox(p.toString());
 			termBox.setSelected(true);
 			offeredDuringPanel.add(termBox);
 		}
@@ -183,12 +183,12 @@ public class CourseEditDialog extends JDialog {
 	protected void updateCourse() {
 		
 		
-		ArrayList<Term.YearPart> offeredDuring = new ArrayList<Term.YearPart>();
+		ArrayList<YearPart> offeredDuring = new ArrayList<YearPart>();
 		for(Component c : offeredDuringPanel.getComponents()){
 			JCheckBox box = (JCheckBox)c;
-			offeredDuring.add(Term.YearPart.valueOf(box.getText().toUpperCase()));
+			offeredDuring.add(YearPart.valueOf(box.getText().toUpperCase()));
 		}
-		toEdit.setAvailableTerms(offeredDuring.toArray(new Term.YearPart[0]));
+		toEdit.setAvailableTerms(offeredDuring.toArray(new YearPart[0]));
 	}
 	
 	public void setController(POSController controller){

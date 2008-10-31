@@ -16,7 +16,7 @@ public class Course implements Comparable<Course> {
     protected int credits;
     protected Course[] prerequisites;
     protected Course[] corequisites;
-    protected Term.YearPart[] availableTerms;
+    protected YearPart[] availableTerms;
     
 	public String getTitle() {
 		return title;
@@ -60,10 +60,10 @@ public class Course implements Comparable<Course> {
 	public void setCorequisites(Course[] corequisites) {
 		this.corequisites = corequisites;
 	}
-	public Term.YearPart[] getAvailableTerms() {
+	public YearPart[] getAvailableTerms() {
 		return availableTerms;
 	}
-	public void setAvailableTerms(Term.YearPart[] availableTerms) {
+	public void setAvailableTerms(YearPart[] availableTerms) {
 		this.availableTerms = availableTerms;
 	}
 	public String toString(){

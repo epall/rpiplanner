@@ -15,8 +15,6 @@ public class Term {
 	private int year;
 	private YearPart term;
 	
-	public enum YearPart {FALL, SPRING}
-
 	public int getYear() {
 		return year;
 	}
