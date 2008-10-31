@@ -8,6 +8,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.ListModel;
+import javax.swing.border.TitledBorder;
 
 import rpiplanner.model.Course;
 import rpiplanner.model.CourseDatabase;
@@ -77,6 +78,8 @@ public class POSController {
 		JPanel semesterPanel = semesterPanels.get(term);
 		semesterPanel.removeAll();
 		int numCourses = Math.max(SchoolInformation.DEFAULT_COURSES_PER_SEMESTER, courses.size());
+		
+		semesterPanel.setBorder(new TitledBorder(model.getTerm().toString() + " " + String.valueOf(model.getYear())));
 		
 		for(int i = 0; i < numCourses; i++){
 			try{

@@ -49,10 +49,12 @@ public class PlanOfStudy {
 		return terms.get(index);
 	}
 	public void rebuildTerms(){
-		for(int i = 0; i < SchoolInformation.DEFAULT_NUM_SEMESTERS/2; i++){
+		terms.get(0).setYear(startingYear);
+		for(int i = 1; i < SchoolInformation.DEFAULT_NUM_SEMESTERS/2; i++){
 			terms.get(2*i).setYear(startingYear+i);
-			terms.get(2*i+1).setYear(startingYear+i);
+			terms.get(2*i-1).setYear(startingYear+i);
 		}
+		terms.get(terms.size()-1).setYear(startingYear+SchoolInformation.DEFAULT_NUM_SEMESTERS/2);
 	}
 	
 	/**
@@ -61,16 +63,23 @@ public class PlanOfStudy {
 	 */
 	private void initializeTerms(){
 		terms = new ArrayList<Term>(SchoolInformation.DEFAULT_NUM_SEMESTERS);
+		Term firstTerm = new Term();
+		firstTerm.setYear(startingYear);
+		firstTerm.setTerm(YearPart.FALL);
+
 		for(int i = 0; i < SchoolInformation.DEFAULT_NUM_SEMESTERS/2; i++){
-			Term fall = new Term();
-			fall.setYear(startingYear+i);
-			fall.setTerm(YearPart.FALL);
-			terms.add(fall);
-			
 			Term spring = new Term();
 			spring.setYear(startingYear+i);
 			spring.setTerm(YearPart.SPRING);
+
 			terms.add(spring);
+			Term fall = new Term();
+			fall.setYear(startingYear+i);
+			fall.setTerm(YearPart.SPRING);
+			terms.add(fall);
 		}
+		Term lastTerm = new Term();
+		lastTerm.setYear(startingYear + SchoolInformation.DEFAULT_NUM_SEMESTERS/2);
+		lastTerm.setTerm(YearPart.SPRING);
 	}
 }
