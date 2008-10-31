@@ -76,14 +76,16 @@ public class POSController {
 
 		JPanel semesterPanel = semesterPanels.get(term);
 		semesterPanel.removeAll();
-		for(int i = 0; i < SchoolInformation.DEFAULT_COURSES_PER_SEMESTER; i++){
+		int numCourses = Math.max(SchoolInformation.DEFAULT_COURSES_PER_SEMESTER, courses.size());
+		
+		for(int i = 0; i < numCourses; i++){
 			try{
 				semesterPanel.add(new CourseDisplay(this, courses.get(i)));
 			} catch (IndexOutOfBoundsException e){ // no course there yet
 				semesterPanel.add(new CourseDisplay(this));
 			}
 		}
-		semesterPanel.validate();
+		semesterPanel.revalidate();
 	}
 
 	public void initializeTerms(int startingYear) {
