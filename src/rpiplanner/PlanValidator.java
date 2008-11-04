@@ -25,7 +25,10 @@ public class PlanValidator {
 	}
 	
 	public boolean isValid(PlanOfStudy plan){
-		// TODO
+		for(Degree degree : plan.getDegrees()){
+			if(!satisfiesDegree(plan, degree))
+				return false;
+		}
 		return true;
 	}
 	

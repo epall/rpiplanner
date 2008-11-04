@@ -35,6 +35,7 @@ public class Main extends Application {
         planControl = new POSController();
 
         loadFromXML();
+        PlanValidator.getInstance(); // boot up ruby environment
         planControl.setCourseDatabase(courseDatabase);
         mainFrame = new MainFrame();
         planControl.setView(mainFrame.getPlanCard());

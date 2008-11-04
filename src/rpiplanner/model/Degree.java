@@ -26,4 +26,7 @@ public class Degree {
 	public void setValidationCode(String validationCode){
 		this.validationCode = validationCode;
 	}
+	public String toString(){
+		return getName();
+	}
 }

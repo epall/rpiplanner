@@ -15,7 +15,7 @@ public class CourseDatabaseFilter extends AbstractListModel implements PropertyC
 	
 	public CourseDatabaseFilter(CourseDatabase database){
 		this.database = database;
-		this.visibleCourses = database.listAll();
+		this.visibleCourses = database.listCourses();
 	}
 
 	public Object getElementAt(int index) {
@@ -30,7 +30,7 @@ public class CourseDatabaseFilter extends AbstractListModel implements PropertyC
 
 	public void setSearchText(String text) {
 		if(text == null || text == "")
-			visibleCourses = database.listAll();
+			visibleCourses = database.listCourses();
 		else
 			visibleCourses = database.search(text);
 		fireContentsChanged(this, 0, visibleCourses.length-1);

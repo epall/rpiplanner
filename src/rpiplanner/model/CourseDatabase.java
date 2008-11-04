@@ -38,7 +38,7 @@ public class CourseDatabase {
 		support.addPropertyChangeListener(listener);
 	}
 
-	public int getSize() {
+	public int getNumCourses() {
 		return courses.size();
 	}
 
@@ -51,7 +51,7 @@ public class CourseDatabase {
 		return found.toArray(new Course[0]);
 	}
 
-	public Course[] listAll() {
+	public Course[] listCourses() {
 		Course[] temp = new Course[courses.size()];
 		courses.toArray(temp);
 		Arrays.sort(temp);
@@ -74,5 +74,11 @@ public class CourseDatabase {
 				return c;
 		}
 		return null;
+	}
+
+	public Degree[] listDegrees() {
+		if(degrees == null)
+			degrees = new ArrayList<Degree>();
+		return degrees.toArray(new Degree[0]);
 	}
 }
