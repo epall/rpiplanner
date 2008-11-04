@@ -4,6 +4,7 @@ import java.awt.Component;
 import java.awt.Container;
 import java.util.ArrayList;
 
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
@@ -12,10 +13,12 @@ import javax.swing.border.TitledBorder;
 
 import rpiplanner.model.Course;
 import rpiplanner.model.CourseDatabase;
+import rpiplanner.model.Degree;
 import rpiplanner.model.Term;
 import rpiplanner.view.CourseDatabaseFilter;
 import rpiplanner.view.CourseDisplay;
 import rpiplanner.view.CourseTransferHandler;
+import rpiplanner.view.DegreeListModel;
 import rpiplanner.view.PlanOfStudyEditor;
 
 public class POSController {
@@ -25,6 +28,8 @@ public class POSController {
 	private CourseDatabase courseDatabase;
 	private CourseDatabaseFilter courseDatabaseModel;
 	private JPanel courseDetailsPanel;
+	private DegreeListModel degreeListModel;
+	private DegreeListModel planDegreeListModel;
 	
 	public POSController(){
 		plan = new rpiplanner.model.PlanOfStudy();
@@ -70,6 +75,7 @@ public class POSController {
 		Term toModify = plan.getTerm(term);
 		toModify.getCourses().add(toAdd);
 		updateSemesterPanel(term, toModify);
+		validatePlan();
 	}
 
 	private void updateSemesterPanel(int term, Term model) {
@@ -151,5 +157,37 @@ public class POSController {
 				courses.set(j, courseDatabase.getCourse(courses.get(j).getCatalogNumber()));
 			}
 		}
+	}
+
+	public ListModel getDegreeListModel() {
+		if(degreeListModel == null){
+			degreeListModel = new DegreeListModel(courseDatabase);
+		}
+		return degreeListModel;
+	}
+
+	public void addDegree(Degree toAdd) {
+		plan.getDegrees().add(toAdd);
+		planDegreeListModel.degreeAdded();
+	}
+
+	public void removeDegree(Degree selectedValue) {
+		plan.getDegrees().remove(selectedValue);
+		planDegreeListModel.degreeRemoved();
+	}
+	
+	public void validatePlan(){
+		if(PlanValidator.getInstance().isValid(plan)){
+			
+		}
+		else{
+			JOptionPane.showMessageDialog(null, "EPIC FAIL");
+		}
+	}
+
+	public DegreeListModel getPlanDegreeListModel() {
+		if(planDegreeListModel == null)
+			planDegreeListModel = new DegreeListModel(plan);
+		return planDegreeListModel;
 	}
 }

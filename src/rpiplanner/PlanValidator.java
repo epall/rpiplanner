@@ -16,6 +16,12 @@ public class PlanValidator {
                 new String[] { "rb" });
 
 		rubyEnvironment = new BSFManager();
+		try { // cause Ruby to load
+			rubyEnvironment.eval("ruby", "(java)", 0, 0, "true");
+		} catch (BSFException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
 	public static PlanValidator getInstance(){
