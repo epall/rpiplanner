@@ -15,6 +15,7 @@ import rpiplanner.model.Course;
 import rpiplanner.model.CourseDatabase;
 import rpiplanner.model.Degree;
 import rpiplanner.model.Term;
+import rpiplanner.model.ValidationError;
 import rpiplanner.view.CourseDatabaseFilter;
 import rpiplanner.view.CourseDisplay;
 import rpiplanner.view.CourseTransferHandler;
@@ -116,6 +117,7 @@ public class POSController {
 		ArrayList<Course> courses = plan.getTerm(semester).getCourses();
 		courses.remove(courseIndex);
 		updateSemesterPanel(semester, plan.getTerm(semester));
+		validatePlan();
 	}
 
 	/**
@@ -169,19 +171,21 @@ public class POSController {
 	public void addDegree(Degree toAdd) {
 		plan.getDegrees().add(toAdd);
 		planDegreeListModel.degreeAdded();
+		validatePlan();
 	}
 
 	public void removeDegree(Degree selectedValue) {
 		plan.getDegrees().remove(selectedValue);
 		planDegreeListModel.degreeRemoved();
+		validatePlan();
 	}
 	
 	public void validatePlan(){
-		if(PlanValidator.getInstance().isValid(plan)){
-			
-		}
-		else{
-			JOptionPane.showMessageDialog(null, "EPIC FAIL");
+		for(Degree degree : plan.getDegrees()){
+			ValidationError[] errors = PlanValidator.getInstance().validate(plan, degree);
+			if(errors.length > 0){
+				JOptionPane.showMessageDialog(null, "Degree "+degree.getName()+" not satisfied: "+errors[0].getMessage());
+			}
 		}
 	}
 
