@@ -10,7 +10,6 @@
 	<classpathentry kind="lib" path="lib/appframework.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
-	<classpathentry kind="lib" path="/System/Library/Frameworks/JavaVM.framework/Versions/1.5.0/Home/lib/javaws.jar"/>
 	<classpathentry kind="lib" path="forms-1.2.0.jar" sourcepath="forms-1.2.0-src.zip"/>
 	<classpathentry kind="lib" path="lib/bsf.jar"/>
 	<classpathentry kind="lib" path="lib/jruby.jar"/>
