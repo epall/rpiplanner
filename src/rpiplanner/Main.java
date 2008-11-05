@@ -99,13 +99,14 @@ public class Main extends Application {
 	}
 
 	protected void loadFromXML(){
+		File localStorageDir = getContext().getLocalStorage().getDirectory();
     	try {
-			courseDatabase = (CourseDatabase) xs.fromXML(new FileInputStream("course_database.xml"));
+			courseDatabase = (CourseDatabase) xs.fromXML(new FileInputStream(new File(localStorageDir, "course_database.xml")));
 		} catch (FileNotFoundException e) {
 			courseDatabase = new CourseDatabase();
 		}
 		try {
-			planControl.setPlan((PlanOfStudy) xs.fromXML(new FileInputStream("default_pos.xml")));
+			planControl.setPlan((PlanOfStudy) xs.fromXML(new FileInputStream(new File(localStorageDir, "default_pos.xml"))));
 		} catch (FileNotFoundException e) {
 			courseDatabase = new CourseDatabase();
 		}
@@ -135,8 +136,14 @@ public class Main extends Application {
     @Override
     protected void shutdown() {
     	try {
-			xs.toXML(courseDatabase, new FileOutputStream("course_database.xml"));
-			xs.toXML(planControl.getPlan(), new FileOutputStream("default_pos.xml"));
+    		File localStorageDir = getContext().getLocalStorage().getDirectory();
+    		localStorageDir.mkdir();
+
+    		File cdbFile = new File(localStorageDir, "course_database.xml");
+       		File planFile = new File(localStorageDir, "default_pos.xml");
+       		
+			xs.toXML(courseDatabase, new FileOutputStream(cdbFile));
+			xs.toXML(planControl.getPlan(), new FileOutputStream(planFile));
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
