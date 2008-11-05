@@ -1,14 +1,24 @@
 package rpiplanner;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 
+import javax.swing.JFileChooser;
 import javax.swing.JFrame;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
+import javax.swing.filechooser.FileFilter;
 
+import org.jdesktop.application.Action;
 import org.jdesktop.application.Application;
+import org.jdesktop.application.ApplicationContext;
 
 import rpiplanner.model.Course;
 import rpiplanner.model.CourseDatabase;
@@ -48,6 +58,8 @@ public class Main extends Application {
                 exit();
             }
         });
+        
+        initializeMenuBar();
 
         try {
         	initializeOSXExtensions();
@@ -56,6 +68,35 @@ public class Main extends Application {
         }
         mainFrame.setVisible(true);
     }
+    
+    private javax.swing.Action getAction(String actionName) {
+        ApplicationContext ac = this.getContext();
+        return ac.getActionMap(getClass(), this).get(actionName);
+    }
+    
+	private void initializeMenuBar() {
+		final JMenuBar menu = new JMenuBar();
+		final JMenu fileMenu = new JMenu("Plan");
+		
+		final JMenuItem fileSave = new JMenuItem("Save");
+		fileSave.setAction(getAction("savePlan"));
+		fileMenu.add(fileSave);
+
+		final JMenuItem fileOpen = new JMenuItem();
+		fileOpen.setAction(getAction("loadPlan"));
+		fileMenu.add(fileOpen);
+
+		final JMenuItem fileUpdate = new JMenuItem("Update from course database");
+		fileUpdate.addActionListener(new ActionListener() {
+			public void actionPerformed(final ActionEvent e) {
+				planControl.updatePlanFromDatabase();
+			}
+		});
+		fileMenu.add(fileUpdate);
+
+		menu.add(fileMenu);
+		mainFrame.setJMenuBar(menu);
+	}
 
 	protected void loadFromXML(){
     	try {
@@ -105,6 +146,52 @@ public class Main extends Application {
     public static CourseDatabase getCourseDatabase() {
 		return courseDatabase;
 	}
+    
+    @Action
+    public void savePlan(){
+	    JFileChooser chooser = new JFileChooser();
+	    
+        int returnVal = chooser.showSaveDialog(mainFrame);
+        if (returnVal == JFileChooser.APPROVE_OPTION) {
+            File file = chooser.getSelectedFile();
+            if(!file.getName().endsWith(".plan")){
+            	file = new File(file.getPath()+".plan");
+            }
+    		try {
+				xs.toXML(planControl.getPlan(), new FileOutputStream(file));
+			} catch (FileNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+        }
+    }
+    
+    @Action
+    public void loadPlan(){
+	    JFileChooser chooser = new JFileChooser();
+	    chooser.setFileFilter(new FileFilter(){
+			@Override
+			public boolean accept(File f) {
+				return f.isFile() && f.getName().endsWith(".plan");
+			}
+
+			@Override
+			public String getDescription() {
+				return "Plan of Study file";
+			}
+	    	
+	    });
+	    int option = chooser.showOpenDialog(mainFrame);
+	    if (option == JFileChooser.APPROVE_OPTION) {
+	    	File file = chooser.getSelectedFile();
+			try {
+				planControl.setPlan((PlanOfStudy) xs.fromXML(new FileInputStream(file)));
+			} catch (FileNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+	    }
+    }
 
 	public static void main(String[] args) {
 		xs = new XStream();

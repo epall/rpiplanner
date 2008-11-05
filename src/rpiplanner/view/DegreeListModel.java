@@ -38,4 +38,9 @@ public class DegreeListModel extends AbstractListModel {
 	public void degreeRemoved(){
 		fireContentsChanged(this, 0, getSize());
 	}
+
+	public void newPlan(PlanOfStudy plan2) {
+		this.plan = plan2;
+		fireContentsChanged(this, 0, getSize());
+	}
 }

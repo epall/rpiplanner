@@ -15,6 +15,7 @@ import rpiplanner.model.Course;
 import rpiplanner.model.CourseDatabase;
 import rpiplanner.model.Degree;
 import rpiplanner.model.Term;
+import rpiplanner.model.PlanOfStudy;
 import rpiplanner.model.ValidationError;
 import rpiplanner.view.CourseDatabaseFilter;
 import rpiplanner.view.CourseDisplay;
@@ -23,7 +24,7 @@ import rpiplanner.view.DegreeListModel;
 import rpiplanner.view.PlanOfStudyEditor;
 
 public class POSController {
-	protected rpiplanner.model.PlanOfStudy plan;
+	protected PlanOfStudy plan;
 	protected rpiplanner.view.PlanOfStudyEditor view;
 	private ArrayList<JPanel> semesterPanels;
 	private CourseDatabase courseDatabase;
@@ -33,7 +34,7 @@ public class POSController {
 	private DegreeListModel planDegreeListModel;
 	
 	public POSController(){
-		plan = new rpiplanner.model.PlanOfStudy();
+		plan = new PlanOfStudy();
 	}
 
 	public void setSemesterPanels(ArrayList<JPanel> semesterPanels) {
@@ -55,12 +56,16 @@ public class POSController {
 		return courseDatabase;
 	}
 
-	public rpiplanner.model.PlanOfStudy getPlan() {
+	public PlanOfStudy getPlan() {
 		return plan;
 	}
 	
-	public void setPlan(rpiplanner.model.PlanOfStudy plan){
+	public void setPlan(PlanOfStudy plan){
 		this.plan = plan;
+		if(semesterPanels != null)
+			setSemesterPanels(semesterPanels);
+		if(planDegreeListModel != null)
+			planDegreeListModel.newPlan(plan);
 	}
 
 	public ListModel getCourseListModel() {

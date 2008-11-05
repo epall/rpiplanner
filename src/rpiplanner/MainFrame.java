@@ -8,9 +8,6 @@ import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JMenu;
-import javax.swing.JMenuBar;
-import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
@@ -129,24 +126,6 @@ public class MainFrame extends JFrame {
 		Integer[] years = {2006, 2007, 2008, 2009, 2010, 2011};
 		comboBox = new JComboBox(years);
 		introCard.add(comboBox, new CellConstraints(4, 6));
-		
-		final JMenuBar menu = new JMenuBar();
-		final JMenu fileMenu = new JMenu("Plan");
-		final JMenuItem fileSave = new JMenuItem("Save");
-		fileSave.setEnabled(false);
-		fileMenu.add(fileSave);
-		menu.add(fileMenu);
-
-		final JMenuItem newItemMenuItem = new JMenuItem();
-		newItemMenuItem.addActionListener(new ActionListener() {
-			public void actionPerformed(final ActionEvent e) {
-				controller.updatePlanFromDatabase();
-			}
-		});
-		newItemMenuItem.setText("Update from course database");
-		fileMenu.add(newItemMenuItem);
-
-		this.setJMenuBar(menu);
 		//
 	}
 	public PlanOfStudyEditor getPlanCard() {
