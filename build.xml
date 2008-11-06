@@ -11,7 +11,7 @@
 		<jtestr-server port="20333" runtimes="3"/>
 	</target>
 
-	<target name="package">
+	<target name="package" depends="build">
 		<jar destfile="rpiplanner.jar" filesetmanifest="mergewithoutmain">
 			<manifest>
 				<attribute name="Built-By" value="Eric Allen" />
@@ -19,6 +19,7 @@
 				<attribute name="Class-Path" value="." />
 			</manifest>
 			<fileset dir="build/classes" />
+			<fileset dir="." includes="*.png"/>
 			<zipfileset excludes="META-INF/*.SF" src="lib/swing-worker.jar" />
 			<zipfileset excludes="META-INF/*.SF" src="lib/xstream-1.3.jar" />
 			<zipfileset excludes="META-INF/*.SF" src="lib/AppleJavaExtensions.jar" />
@@ -30,5 +31,43 @@
 			<zipfileset excludes="META-INF/*.SF" src="lib/xpp3_min-1.1.4c.jar" />
 			<zipfileset excludes="META-INF/*.SF" src="lib/swingx-0.9.4.jar" />
 		</jar>
+	</target>
+	
+	<target name="clean">
+		<delete>
+			<fileset dir="build" includes="**/*.class"/>
+			<fileset dir="build" includes="**/*.properties"/>
+		</delete>
+	</target>
+	
+	<target name="build">
+		<javac srcdir="src"
+			destdir="build/classes"
+			source="1.5">
+			<classpath>
+				<fileset dir="lib" includes="*.jar"/>
+				<pathelement path="forms-1.2.0.jar"/>
+			</classpath>
+		</javac>
+		<copy todir="build/classes">
+		    <fileset dir="src">
+		      <include name="**/*.properties"/>
+		    </fileset>
+		</copy>
+	</target>
+	
+	<target name="sign" depends="package">
+		<signjar jar="rpiplanner.jar"
+			alias="mykey" storepass="davison"/>
+	</target>
+	
+	<target name="deploy" depends="sign">
+		<scp todir="epall@svallens.com:domains/rpiplanner.svallens.com/web/public/app"
+			keyfile="${user.home}/.ssh/id_rsa" passphrase="" verbose="true">
+			<fileset dir=".">
+				<include name="rpiplanner.jar"/>
+				<include name="rpiplanner.jnlp"/>
+			</fileset>
+		</scp>
 	</target>
 </project>

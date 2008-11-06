@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<jnlp
+  spec="1.5+"
+  codebase="http://rpiplanner.svallens.com/app"
+  href="rpiplanner.jnlp">
+  <information>
+    <title>RPI Planner</title>
+    <vendor>Eric Allen</vendor>
+    <homepage href="http://rpiplanner.svallens.com/"/>
+    <!-- <icon href="images/swingset2.jpg"/> -->
+    <!-- <icon kind="splash" href="images/splash.gif"/> -->
+    <offline-allowed/> 
+    <association mime-type="application-x/riplanner-file" extensions="plan" />
+    <shortcut online="false">
+      <desktop/>
+      <menu submenu="My Corporation Apps"/>
+    </shortcut>
+  </information>
+  <security>
+      <all-permissions/>
+  </security>
+  <resources>
+    <j2se version="1.5.0+" java-vm-args="-Dsun.swing.enableImprovedDragGesture"/>
+    <jar href="rpiplanner.jar"/>
+  </resources>
+  <application-desc main-class="rpiplanner.Main"/>
+</jnlp>
