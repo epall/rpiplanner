@@ -65,6 +65,8 @@ public class Main extends Application {
         	initializeOSXExtensions();
         } catch (ClassNotFoundException e){
         	// silently ignore because we're not on a mac
+        } catch (NullPointerException e){
+        	e.printStackTrace();
         }
         mainFrame.setVisible(true);
     }
