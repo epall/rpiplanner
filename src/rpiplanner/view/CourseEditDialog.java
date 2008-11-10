@@ -42,6 +42,7 @@ import org.jdesktop.swingx.autocomplete.AutoCompleteDecorator;
 import rpiplanner.Main;
 import rpiplanner.POSController;
 import rpiplanner.model.Course;
+import rpiplanner.model.CourseDatabase;
 import rpiplanner.model.YearPart;
 
 import com.jgoodies.forms.factories.FormFactory;
@@ -51,6 +52,8 @@ import com.jgoodies.forms.layout.FormLayout;
 import com.jgoodies.forms.layout.RowSpec;
 
 public class CourseEditDialog extends JDialog {
+	private JTextField corequisitesField;
+	private JTextField prerequisitesField;
 	private JPanel offeredDuringPanel;
 	private JComboBox creditsComboBox;
 	private JTextArea descriptionTextArea;
@@ -58,6 +61,7 @@ public class CourseEditDialog extends JDialog {
 	private JTextField titleField;
 	private JTextField departmentField;
 	private Course toEdit;
+	private CourseDatabase db;
 	private boolean newCourse = true;
 	/**
 	 * Create the dialog
@@ -65,6 +69,14 @@ public class CourseEditDialog extends JDialog {
 	public CourseEditDialog() {
 		super();
 		this.toEdit = new Course();
+		initialize();
+		bind();
+	}
+
+	public CourseEditDialog(Course toEdit){
+		super();
+		newCourse = false;
+		this.toEdit = toEdit;
 		initialize();
 		bind();
 	}
@@ -87,14 +99,18 @@ public class CourseEditDialog extends JDialog {
 				FormFactory.RELATED_GAP_ROWSPEC,
 				FormFactory.DEFAULT_ROWSPEC,
 				FormFactory.RELATED_GAP_ROWSPEC,
-				RowSpec.decode("default"),
+				FormFactory.DEFAULT_ROWSPEC,
 				FormFactory.RELATED_GAP_ROWSPEC,
 				RowSpec.decode("fill:default:grow(1.0)"),
+				FormFactory.RELATED_GAP_ROWSPEC,
+				RowSpec.decode("fill:default"),
+				FormFactory.RELATED_GAP_ROWSPEC,
+				RowSpec.decode("fill:default"),
 				FormFactory.RELATED_GAP_ROWSPEC,
 				FormFactory.DEFAULT_ROWSPEC,
 				FormFactory.RELATED_GAP_ROWSPEC}));
 		setTitle("New Course");
-		setBounds(100, 100, 447, 281);
+		setBounds(100, 100, 447, 600);
 
 		final JLabel courseTitleLabel = new JLabel();
 		courseTitleLabel.setText("Department");
@@ -123,7 +139,7 @@ public class CourseEditDialog extends JDialog {
 			}
 		});
 		saveButton.setText("Save");
-		getContentPane().add(saveButton, new CellConstraints(2, 14));
+		getContentPane().add(saveButton, new CellConstraints(2, 18));
 
 		final JButton cancelButton = new JButton();
 		cancelButton.addActionListener(new ActionListener() {
@@ -132,7 +148,7 @@ public class CourseEditDialog extends JDialog {
 			}
 		});
 		cancelButton.setText("Cancel");
-		getContentPane().add(cancelButton, new CellConstraints(4, 14));
+		getContentPane().add(cancelButton, new CellConstraints(4, 18));
 
 		departmentField = new JTextField();
 		getContentPane().add(departmentField, new CellConstraints(4, 2));
@@ -173,14 +189,21 @@ public class CourseEditDialog extends JDialog {
 		}
 		
 		getContentPane().add(offeredDuringPanel, new CellConstraints(4, 10));
+
+		final JLabel prerequisitesLabel = new JLabel();
+		prerequisitesLabel.setText("Prerequisites");
+		getContentPane().add(prerequisitesLabel, new CellConstraints(2, 14));
+
+		final JLabel corequisitesLabel = new JLabel();
+		corequisitesLabel.setText("Corequisites");
+		getContentPane().add(corequisitesLabel, new CellConstraints(2, 16));
+
+		prerequisitesField = new JTextField();
+		getContentPane().add(prerequisitesField, new CellConstraints(4, 14));
+
+		corequisitesField = new JTextField();
+		getContentPane().add(corequisitesField, new CellConstraints(4, 16));
 		//
-	}
-	
-	public CourseEditDialog(Course toEdit){
-		newCourse = false;
-		this.toEdit = toEdit;
-		initialize();
-		bind();
 	}
 	
 	protected void bind(){
@@ -192,6 +215,16 @@ public class CourseEditDialog extends JDialog {
 		Bindings.createAutoBinding(UpdateStrategy.READ_WRITE, toEdit, BeanProperty.create("catalogNumber"), catalogField, text).bind();
 		Bindings.createAutoBinding(UpdateStrategy.READ_WRITE, toEdit, BeanProperty.create("description"), descriptionTextArea, textArea).bind();
 		Bindings.createAutoBinding(UpdateStrategy.READ_WRITE, toEdit, BeanProperty.create("credits"), creditsComboBox, selectedItem).bind();
+
+		// manual binding
+		StringBuilder builder = new StringBuilder();
+		for(Course c : toEdit.getPrerequisites())
+			builder.append(c.getCatalogNumber());
+		prerequisitesField.setText(builder.toString());
+		builder = new StringBuilder();
+		for(Course c : toEdit.getCorequisites())
+			builder.append(c.getCatalogNumber());
+		corequisitesField.setText(builder.toString());
 	}
 	
 	protected void createCourse() {
@@ -200,7 +233,16 @@ public class CourseEditDialog extends JDialog {
 	}
 	
 	protected void updateCourse() {
-		
+		String[] prereqNames = prerequisitesField.getText().split(" ?, ?");
+		String[] coreqNames = corequisitesField.getText().split(" ?, ?");
+		ArrayList<Course> prerequisites = new ArrayList<Course>(prereqNames.length);
+		for(String name : prereqNames)
+			prerequisites.add(db.getCourse(name));
+		toEdit.setPrerequisites(prerequisites.toArray(new Course[0]));
+		ArrayList<Course> corequisites = new ArrayList<Course>(coreqNames.length);
+		for(String name : coreqNames)
+			corequisites.add(db.getCourse(name));
+		toEdit.setCorequisites(corequisites.toArray(new Course[0]));
 		
 		ArrayList<YearPart> offeredDuring = new ArrayList<YearPart>();
 		for(Component c : offeredDuringPanel.getComponents()){
@@ -212,5 +254,6 @@ public class CourseEditDialog extends JDialog {
 	
 	public void setController(POSController controller){
 		AutoCompleteDecorator.decorate(departmentField, controller.getCourseDatabase().getDepartments(), false);
+		this.db = controller.getCourseDatabase();
 	}
 }

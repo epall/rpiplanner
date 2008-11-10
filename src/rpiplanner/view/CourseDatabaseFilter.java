@@ -22,29 +22,15 @@ package rpiplanner.view;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 
-import javax.swing.AbstractListModel;
 
-import rpiplanner.model.Course;
 import rpiplanner.model.CourseDatabase;
 
-public class CourseDatabaseFilter extends AbstractListModel implements PropertyChangeListener {
-	private Course[] visibleCourses;
-	
+public class CourseDatabaseFilter extends CourseListModel implements PropertyChangeListener {
 	private CourseDatabase database;
 	
 	public CourseDatabaseFilter(CourseDatabase database){
 		this.database = database;
 		this.visibleCourses = database.listCourses();
-	}
-
-	public Object getElementAt(int index) {
-		if(index < visibleCourses.length)
-			return visibleCourses[index];
-		return null;
-	}
-
-	public int getSize() {
-		return visibleCourses.length;
 	}
 
 	public void setSearchText(String text) {
