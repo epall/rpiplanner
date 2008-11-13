@@ -1,11 +1,14 @@
 package rpiplanner;
 
+import java.awt.CardLayout;
 import java.awt.Component;
 import java.awt.Container;
 import java.util.ArrayList;
 
-import javax.swing.JOptionPane;
+import javax.swing.AbstractListModel;
+import javax.swing.JList;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.ListModel;
@@ -29,9 +32,10 @@ public class POSController {
 	private ArrayList<JPanel> semesterPanels;
 	private CourseDatabase courseDatabase;
 	private CourseDatabaseFilter courseDatabaseModel;
-	private JPanel courseDetailsPanel;
+	private JPanel detailsPanel;
 	private DegreeListModel degreeListModel;
 	private DegreeListModel planDegreeListModel;
+	private JList degreeList;
 	
 	public POSController(){
 		plan = new PlanOfStudy();
@@ -75,6 +79,7 @@ public class POSController {
 	public void setView(PlanOfStudyEditor planCard) {
 		this.view = planCard;
 		view.setController(this);
+		validatePlan();
 	}
 
 	public void addCourse(int term, Course toAdd) {
@@ -132,6 +137,7 @@ public class POSController {
 	public void setDetailDisplay(Course course) {
 		if(course == null)
 			course = new Course();
+		JPanel courseDetailsPanel = (JPanel) detailsPanel.getComponent(1); 
 		for(Component c : courseDetailsPanel.getComponents()){
 			if(c.getName() == "department"){
 				((JTextField)c).setText(course.getDepartment());
@@ -146,10 +152,38 @@ public class POSController {
 				((JTextArea)c).setText(course.getDescription());
 			}
 		}
+		((CardLayout)detailsPanel.getLayout()).last(detailsPanel);
+	}
+	
+	/**
+	 * Show the details for the specified degree in the course details panel
+	 * @param course
+	 */
+	public void setDetailDisplay(final Degree degree) {
+		JPanel degreeDetailsPanel = (JPanel) detailsPanel.getComponent(0); 
+		for(Component c : degreeDetailsPanel.getComponents()){
+			if(c.getName() == "name"){
+				((JTextField)c).setText(degree.getName());
+			}
+			if(c instanceof JScrollPane){
+				JList problemsList = (JList) ((JScrollPane)c).getViewport().getView();
+				problemsList.setModel(new AbstractListModel(){
+
+					public Object getElementAt(int index) {
+						return degree.getErrors()[index];
+					}
+
+					public int getSize() {
+						return degree.getErrors().length;
+					}
+				});
+			}
+		}
+		((CardLayout)detailsPanel.getLayout()).first(detailsPanel);
 	}
 
-	public void setCourseDetailsPanel(JPanel courseDetailsPanel) {
-		this.courseDetailsPanel = courseDetailsPanel;
+	public void setDetailsPanel(JPanel detailsPanel) {
+		this.detailsPanel = detailsPanel;
 	}
 
 	public void searchTextChanged(String text) {
@@ -188,15 +222,18 @@ public class POSController {
 	public void validatePlan(){
 		for(Degree degree : plan.getDegrees()){
 			ValidationError[] errors = PlanValidator.getInstance().validate(plan, degree);
-			if(errors.length > 0){
-				JOptionPane.showMessageDialog(null, "Degree "+degree.getName()+" not satisfied: "+errors[0].getMessage());
-			}
+			degree.setErrors(errors);
 		}
+		degreeList.revalidate();
 	}
 
 	public DegreeListModel getPlanDegreeListModel() {
 		if(planDegreeListModel == null)
 			planDegreeListModel = new DegreeListModel(plan);
 		return planDegreeListModel;
+	}
+
+	public void setDegreeList(JList degreeList) {
+		this.degreeList = degreeList;
 	}
 }

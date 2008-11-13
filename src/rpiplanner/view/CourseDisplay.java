@@ -74,7 +74,7 @@ public class CourseDisplay extends JPanel {
 			}
 			@Override
 			public void mouseExited(final MouseEvent e) {
-				controller.setDetailDisplay(null);
+				controller.setDetailDisplay((Course)null);
 			}
 		});
 		//

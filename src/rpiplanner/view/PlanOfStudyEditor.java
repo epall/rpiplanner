@@ -1,5 +1,6 @@
 package rpiplanner.view;
 
+import java.awt.CardLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
@@ -41,6 +42,9 @@ import com.jgoodies.forms.layout.FormLayout;
 import com.jgoodies.forms.layout.RowSpec;
 
 public class PlanOfStudyEditor extends JPanel {
+	private JPanel detailsPanel;
+	private JList problemsList;
+	private JTextField nameField;
 	private JButton removeDegreeButton;
 	private JButton addDegreeButton;
 	private JList degreeList;
@@ -115,7 +119,47 @@ public class PlanOfStudyEditor extends JPanel {
 		addCourseButton.setText("Add Course");
 		searchPanel.add(addCourseButton, new CellConstraints(1, 3));
 
+		detailsPanel = new JPanel();
+		detailsPanel.setLayout(new CardLayout());
+		add(detailsPanel, new CellConstraints(3, 2, 1, 2));
+
+		final JPanel degreeDetailsPanel = new JPanel();
+		degreeDetailsPanel.setBorder(new TitledBorder(null, "Degree details", TitledBorder.DEFAULT_JUSTIFICATION, TitledBorder.DEFAULT_POSITION, null, null));
+		degreeDetailsPanel.setLayout(new FormLayout(
+			new ColumnSpec[] {
+				ColumnSpec.decode("default:grow(1.0)"),
+				FormFactory.RELATED_GAP_COLSPEC,
+				ColumnSpec.decode("default:grow(1.0)")},
+			new RowSpec[] {
+				FormFactory.DEFAULT_ROWSPEC,
+				FormFactory.RELATED_GAP_ROWSPEC,
+				FormFactory.DEFAULT_ROWSPEC,
+				FormFactory.RELATED_GAP_ROWSPEC,
+				RowSpec.decode("fill:default:grow(1.0)")}));
+		degreeDetailsPanel.setName("panel_1");
+		detailsPanel.add(degreeDetailsPanel, degreeDetailsPanel.getName());
+
+		final JLabel nameLabel = new JLabel();
+		nameLabel.setText("Name:");
+		degreeDetailsPanel.add(nameLabel, new CellConstraints());
+
+		final JLabel problemsLabel = new JLabel();
+		problemsLabel.setText("Problems:");
+		degreeDetailsPanel.add(problemsLabel, new CellConstraints(1, 3));
+
+		nameField = new JTextField();
+		nameField.setName("name");
+		degreeDetailsPanel.add(nameField, new CellConstraints(3, 1));
+
+		final JScrollPane scrollPane_2 = new JScrollPane();
+		degreeDetailsPanel.add(scrollPane_2, new CellConstraints(1, 5, 3, 1));
+
+		problemsList = new JList();
+		scrollPane_2.setViewportView(problemsList);
+
 		courseDetailsPanel = new JPanel();
+		courseDetailsPanel.setName("courseDetailsPanel");
+		detailsPanel.add(courseDetailsPanel, courseDetailsPanel.getName());
 		courseDetailsPanel.setLayout(new FormLayout(
 			new ColumnSpec[] {
 				FormFactory.DEFAULT_COLSPEC,
@@ -132,7 +176,6 @@ public class PlanOfStudyEditor extends JPanel {
 				FormFactory.RELATED_GAP_ROWSPEC,
 				RowSpec.decode("fill:default:grow(1.0)")}));
 		courseDetailsPanel.setBorder(new TitledBorder(new EtchedBorder(), "Course details"));
-		add(courseDetailsPanel, new CellConstraints(3, 2, 1, 2));
 
 		final JLabel titleLabel = new JLabel();
 		titleLabel.setText("Title:");
@@ -188,6 +231,7 @@ public class PlanOfStudyEditor extends JPanel {
 
 		degreeList = new JList();
 		degreeList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		degreeList.setCellRenderer(new DegreeListCell());
 		scrollPane_1.setViewportView(degreeList);
 
 		addDegreeButton = new JButton();
@@ -202,7 +246,8 @@ public class PlanOfStudyEditor extends JPanel {
 	
 	public void setController(final POSController controller){
 		controller.setSemesterPanels(semesterPanels);
-		controller.setCourseDetailsPanel(courseDetailsPanel);
+		controller.setDetailsPanel(detailsPanel);
+		controller.setDegreeList(degreeList);
 		degreeList.setModel(controller.getDegreeListModel());
 		
 		addCourseButton.addActionListener(new ActionListener() {
@@ -242,14 +287,14 @@ public class PlanOfStudyEditor extends JPanel {
 					controller.setDetailDisplay(mouseOver);
 				}
 				else{
-					controller.setDetailDisplay(null);
+					controller.setDetailDisplay((Course)null);
 				}
 			}
 		});
 		courseList.addMouseListener(new MouseAdapter(){
 			@Override
 			public void mouseExited(MouseEvent e) {
-				controller.setDetailDisplay(null);
+				controller.setDetailDisplay((Course)null);
 			}
 			
 			@Override
@@ -267,6 +312,25 @@ public class PlanOfStudyEditor extends JPanel {
 					});
 					contextMenu.show(courseList, e.getX(), e.getY());
 				}
+			}
+		});
+		
+		degreeList.addMouseMotionListener(new MouseMotionAdapter() {
+			public void mouseMoved(final MouseEvent e) {
+				int index = degreeList.locationToIndex(e.getPoint());
+				if(index != -1){
+					Degree mouseOver = (Degree)degreeList.getModel().getElementAt(index);
+					controller.setDetailDisplay(mouseOver);
+				}
+				else{
+					controller.setDetailDisplay((Course)null);
+				}
+			}
+		});
+		degreeList.addMouseListener(new MouseAdapter(){
+			@Override
+			public void mouseExited(MouseEvent e) {
+				controller.setDetailDisplay((Course)null);
 			}
 		});
 		
