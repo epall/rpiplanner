@@ -1,5 +1,9 @@
 package rpiplanner;
 
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 
 import org.apache.bsf.BSFException;
@@ -19,12 +23,28 @@ public class PlanValidator {
                 new String[] { "rb" });
 
 		rubyEnvironment = new BSFManager();
-		try { // cause Ruby to load
-			rubyEnvironment.eval("ruby", "(java)", 0, 0, "true");
-		} catch (BSFException e) {
+		try {
+			FileReader initFile = new FileReader("plan_validation.rb");
+			BufferedReader input = new BufferedReader(initFile);
+			String line;
+			int lineNumber = 0;
+			while((line = input.readLine()) != null){
+				try { // cause Ruby to load
+					rubyEnvironment.eval("ruby", "(java)", lineNumber++, 0, line);
+				} catch (BSFException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+		} catch (FileNotFoundException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
+		
 	}
 	
 	public static PlanValidator getInstance(){
