@@ -43,27 +43,17 @@ public class PlanValidator {
 
 		rubyEnvironment = new BSFManager();
 		try {
-			FileReader initFile = new FileReader("plan_validation.rb");
-			BufferedReader input = new BufferedReader(initFile);
-			String line;
-			int lineNumber = 0;
-			while((line = input.readLine()) != null){
-				try { // cause Ruby to load
-					rubyEnvironment.eval("ruby", "(java)", lineNumber++, 0, line);
-				} catch (BSFException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-			}
+			rubyEnvironment.eval("ruby", "(java)", 0, 0, readFileAsString("plan_validation.rb"));
 		} catch (FileNotFoundException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		} catch (BSFException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
-		
-		
 	}
 	
 	public static PlanValidator getInstance(){
@@ -114,5 +104,19 @@ public class PlanValidator {
 			e.printStackTrace();
 			return new ValidationError[0];
 		}
+	}
+	
+	private static String readFileAsString(String filePath)
+	throws java.io.IOException{
+	    StringBuffer fileData = new StringBuffer(1000);
+	    BufferedReader reader = new BufferedReader(
+	            new FileReader(filePath));
+	    char[] buf = new char[1024];
+	    int numRead=0;
+	    while((numRead=reader.read(buf)) != -1){
+	        fileData.append(buf, 0, numRead);
+	    }
+	    reader.close();
+	    return fileData.toString();
 	}
 }

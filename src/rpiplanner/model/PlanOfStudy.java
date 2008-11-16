@@ -115,4 +115,8 @@ public class PlanOfStudy {
 	public int numTerms(){
 		return terms.size();
 	}
+
+	public ArrayList<Term> getTerms() {
+		return terms;
+	}
 }

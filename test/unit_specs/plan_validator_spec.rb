@@ -11,7 +11,7 @@ describe PlanValidator do
     degree = Degree.new
     plan = PlanOfStudy.new
     
-    degree.validationCode = "false"
+    degree.validationCode = "$errors << 'fail'"
     @validator.satisfiesDegree(plan, degree).should == false
     
     degree.validationCode = "true"
