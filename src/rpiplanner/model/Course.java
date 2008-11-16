@@ -68,12 +68,16 @@ public class Course implements Comparable<Course> {
 		this.credits = credits;
 	}
 	public Course[] getPrerequisites() {
+		if(prerequisites == null)
+			prerequisites = new Course[0];
 		return prerequisites;
 	}
 	public void setPrerequisites(Course[] prerequisites) {
 		this.prerequisites = prerequisites;
 	}
 	public Course[] getCorequisites() {
+		if(corequisites == null)
+			corequisites = new Course[0];
 		return corequisites;
 	}
 	public void setCorequisites(Course[] corequisites) {

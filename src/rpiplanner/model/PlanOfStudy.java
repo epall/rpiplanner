@@ -111,4 +111,8 @@ public class PlanOfStudy {
 		lastTerm.setYear(startingYear + SchoolInformation.DEFAULT_NUM_SEMESTERS/2);
 		lastTerm.setTerm(YearPart.SPRING);
 	}
+
+	public int numTerms(){
+		return terms.size();
+	}
 }

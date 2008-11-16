@@ -244,6 +244,41 @@ public class POSController {
 			degree.setErrors(errors);
 		}
 		degreeList.revalidate();
+
+		// validate prerequisites and corequisites
+		for(int i = 0; i < plan.numTerms(); i++){
+			Term currentTerm = plan.getTerm(i);
+			for(Course course : currentTerm.getCourses()){
+				for(Course coreq : course.getCorequisites()){
+					// search within this term and previous terms
+					boolean found = false;
+					for(int j = 0; j <= i; j++){
+						Term testTerm = plan.getTerm(i);
+						for(Course c : testTerm.getCourses()){
+							if(coreq.equals(c))
+								found = true;
+						}
+					}
+					if(!found)
+						System.err.println("PREREQUISITE NOT SATISFIED: "
+								+ coreq.toString());
+				}
+				for(Course prereq : course.getPrerequisites()){
+					// search within previous terms
+					boolean found = false;
+					for(int j = 0; j < i; j++){
+						Term testTerm = plan.getTerm(i);
+						for(Course c : testTerm.getCourses()){
+							if(prereq.equals(c))
+								found = true;
+						}
+					}
+					if (!found)
+						System.err.println("PREREQUISITE NOT SATISFIED: "
+								+ prereq.toString());
+				}
+			}
+		}
 	}
 
 	public DegreeListModel getPlanDegreeListModel() {
