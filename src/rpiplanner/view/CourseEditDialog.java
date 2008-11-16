@@ -236,12 +236,18 @@ public class CourseEditDialog extends JDialog {
 		String[] prereqNames = prerequisitesField.getText().split(" ?, ?");
 		String[] coreqNames = corequisitesField.getText().split(" ?, ?");
 		ArrayList<Course> prerequisites = new ArrayList<Course>(prereqNames.length);
-		for(String name : prereqNames)
-			prerequisites.add(db.getCourse(name));
+		for(String name : prereqNames){
+			Course toAdd = db.getCourse(name);
+			if(toAdd != null)
+				prerequisites.add(toAdd);
+		}
 		toEdit.setPrerequisites(prerequisites.toArray(new Course[0]));
 		ArrayList<Course> corequisites = new ArrayList<Course>(coreqNames.length);
-		for(String name : coreqNames)
-			corequisites.add(db.getCourse(name));
+		for(String name : coreqNames){
+			Course toAdd = db.getCourse(name);
+			if(toAdd != null)
+				corequisites.add(toAdd);
+		}
 		toEdit.setCorequisites(corequisites.toArray(new Course[0]));
 		
 		ArrayList<YearPart> offeredDuring = new ArrayList<YearPart>();

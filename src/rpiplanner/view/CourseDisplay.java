@@ -19,6 +19,7 @@
 
 package rpiplanner.view;
 
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
@@ -45,9 +46,12 @@ public class CourseDisplay extends JPanel {
 	private Course course;
 	private POSController controller;
 	private CourseTransferHandler handler;
+	private boolean prerequisitesSatisfied = true;
+	private boolean corequisitesSatisfied = true;
 	
 	public CourseDisplay(POSController controller){
 		this.controller = controller;
+		setOpaque(true);
 		initialize();
 		setText("Add Course...");
 		xButton.setVisible(false);
@@ -55,6 +59,7 @@ public class CourseDisplay extends JPanel {
 	public CourseDisplay(POSController controller, Course course){
 		this.course = course;
 		this.controller = controller;
+		setOpaque(true);
 		initialize();
 		setText(course.toString());
 	}
@@ -106,5 +111,23 @@ public class CourseDisplay extends JPanel {
 	
 	public Course getCourse(){
 		return course;
+	}
+	public void setPrerequisitesSatisfied(boolean prerequisitesSatisfied) {
+		if(prerequisitesSatisfied != this.prerequisitesSatisfied){
+			if(prerequisitesSatisfied)
+				setBackground(null);
+			else
+				setBackground(Color.RED);
+		}
+		this.prerequisitesSatisfied = prerequisitesSatisfied;
+	}
+	public void setCorequisitesSatisfied(boolean corequisitesSatisfied) {
+		if(corequisitesSatisfied != this.corequisitesSatisfied){
+			if(corequisitesSatisfied)
+				setBackground(null);
+			else
+				setBackground(Color.YELLOW);
+		}
+		this.corequisitesSatisfied = corequisitesSatisfied;
 	}
 }

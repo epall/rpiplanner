@@ -326,6 +326,7 @@ public class PlanOfStudyEditor extends JPanel {
 					contextMenu.add("Edit").addActionListener(new ActionListener(){
 						public void actionPerformed(ActionEvent e) {
 							CourseEditDialog d = new CourseEditDialog((Course)courseList.getSelectedValue());
+							d.setController(controller);
 							d.setVisible(true);
 						}
 					});

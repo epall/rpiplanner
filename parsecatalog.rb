@@ -227,7 +227,7 @@ xml = builder.courses do |b|
         b.description(description)
         b.department(course[:department])
         b.catalogNumber(course[:catalogNumber])
-        b.credits(course[:credits])
+        b.credits(course[:credits] || 0)
       end
     end
   end

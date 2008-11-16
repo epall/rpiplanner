@@ -90,6 +90,8 @@ public class Course implements Comparable<Course> {
 		this.availableTerms = availableTerms;
 	}
 	public String toString(){
+		if(title == null)
+			return catalogNumber;
 		return catalogNumber + " - " + title;
 	}
 	public int compareTo(Course o) {
@@ -98,7 +100,7 @@ public class Course implements Comparable<Course> {
 	@Override
 	public boolean equals(Object obj) {
 		if(obj instanceof Course)
-			return catalogNumber == ((Course)obj).catalogNumber;
+			return catalogNumber.equals(((Course)obj).catalogNumber);
 		return false;
 	}
 }

@@ -248,35 +248,45 @@ public class POSController {
 		// validate prerequisites and corequisites
 		for(int i = 0; i < plan.numTerms(); i++){
 			Term currentTerm = plan.getTerm(i);
+			int courseIdx = 0;
 			for(Course course : currentTerm.getCourses()){
+				CourseDisplay cd = (CourseDisplay) semesterPanels.get(i).getComponent(courseIdx);
+				cd.setCorequisitesSatisfied(true);
+				cd.setPrerequisitesSatisfied(true);
+				
 				for(Course coreq : course.getCorequisites()){
 					// search within this term and previous terms
 					boolean found = false;
 					for(int j = 0; j <= i; j++){
-						Term testTerm = plan.getTerm(i);
+						Term testTerm = plan.getTerm(j);
 						for(Course c : testTerm.getCourses()){
 							if(coreq.equals(c))
 								found = true;
 						}
 					}
-					if(!found)
-						System.err.println("PREREQUISITE NOT SATISFIED: "
+					if(!found){
+						System.err.println("COREQUISITE NOT SATISFIED: "
 								+ coreq.toString());
+						cd.setCorequisitesSatisfied(false);
+					}
 				}
 				for(Course prereq : course.getPrerequisites()){
 					// search within previous terms
 					boolean found = false;
 					for(int j = 0; j < i; j++){
-						Term testTerm = plan.getTerm(i);
+						Term testTerm = plan.getTerm(j);
 						for(Course c : testTerm.getCourses()){
 							if(prereq.equals(c))
 								found = true;
 						}
 					}
-					if (!found)
+					if (!found){
 						System.err.println("PREREQUISITE NOT SATISFIED: "
 								+ prereq.toString());
+						cd.setPrerequisitesSatisfied(false);
+					}
 				}
+				courseIdx++;
 			}
 		}
 	}
