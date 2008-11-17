@@ -272,6 +272,7 @@ public class POSController {
 				CourseDisplay cd = (CourseDisplay) semesterPanels.get(i).getComponent(courseIdx);
 				cd.setCorequisitesSatisfied(true);
 				cd.setPrerequisitesSatisfied(true);
+				StringBuilder tooltip = new StringBuilder();
 				
 				for(Course coreq : course.getCorequisites()){
 					// search within this term and previous terms
@@ -284,8 +285,7 @@ public class POSController {
 						}
 					}
 					if(!found){
-						System.err.println("COREQUISITE NOT SATISFIED: "
-								+ coreq.toString());
+						tooltip.append("Corequisite not satisfied: "+coreq.toString()+"\n");
 						cd.setCorequisitesSatisfied(false);
 					}
 				}
@@ -300,11 +300,11 @@ public class POSController {
 						}
 					}
 					if (!found){
-						System.err.println("PREREQUISITE NOT SATISFIED: "
-								+ prereq.toString());
+						tooltip.append("Prerequisite not satisfied: "+prereq.toString()+"\n");
 						cd.setPrerequisitesSatisfied(false);
 					}
 				}
+				cd.setToolTipText(tooltip.toString());
 				courseIdx++;
 			}
 		}
