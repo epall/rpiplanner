@@ -7,13 +7,11 @@
     <title>RPI Planner</title>
     <vendor>Eric Allen</vendor>
     <homepage href="http://rpiplanner.svallens.com/"/>
-    <!-- <icon href="images/swingset2.jpg"/> -->
-    <!-- <icon kind="splash" href="images/splash.gif"/> -->
     <offline-allowed/> 
     <association mime-type="application-x/riplanner-file" extensions="plan" />
     <shortcut online="false">
       <desktop/>
-      <menu submenu="My Corporation Apps"/>
+      <menu submenu="RPI"/>
     </shortcut>
   </information>
   <security>

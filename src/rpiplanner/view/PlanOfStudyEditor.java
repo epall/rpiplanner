@@ -28,6 +28,8 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionAdapter;
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
 import java.util.ArrayList;
 
 import javax.swing.BoxLayout;
@@ -61,6 +63,7 @@ import com.jgoodies.forms.layout.FormLayout;
 import com.jgoodies.forms.layout.RowSpec;
 
 public class PlanOfStudyEditor extends JPanel {
+	private JTextField creditTotalField;
 	private JPanel detailsPanel;
 	private JList problemsList;
 	private JTextField nameField;
@@ -83,15 +86,20 @@ public class PlanOfStudyEditor extends JPanel {
 		setLayout(new FormLayout(
 			new ColumnSpec[] {
 				ColumnSpec.decode("200px:grow(1.0)"),
-				ColumnSpec.decode("300px:grow(3.0)"),
-				ColumnSpec.decode("181px:grow(2.0)")},
+				ColumnSpec.decode("300px:grow(3.5)"),
+				ColumnSpec.decode("right:80px:grow(1.0)"),
+				FormFactory.RELATED_GAP_COLSPEC,
+				ColumnSpec.decode("80px:grow(1.0)"),
+				FormFactory.RELATED_GAP_COLSPEC},
 			new RowSpec[] {
 				FormFactory.MIN_ROWSPEC,
 				RowSpec.decode("fill:0dlu:grow(1.0)"),
+				FormFactory.RELATED_GAP_ROWSPEC,
+				FormFactory.DEFAULT_ROWSPEC,
 				RowSpec.decode("fill:70dlu")}));
 
 		final JPanel titlePanel = new JPanel();
-		add(titlePanel, new CellConstraints("1, 1, 3, 1, fill, fill"));
+		add(titlePanel, new CellConstraints("1, 1, 6, 1, fill, fill"));
 
 		final JLabel rpiPlannerLabel = new JLabel();
 		rpiPlannerLabel.setFont(new Font("Lucida Grande", Font.BOLD, 18));
@@ -119,7 +127,7 @@ public class PlanOfStudyEditor extends JPanel {
 				RowSpec.decode("fill:0px:grow(1.0)"),
 				FormFactory.DEFAULT_ROWSPEC}));
 		searchPanel.setBorder(new TitledBorder(null, "Find Course", TitledBorder.DEFAULT_JUSTIFICATION, TitledBorder.DEFAULT_POSITION, null, null));
-		add(searchPanel, new CellConstraints("1, 2, 1, 2, fill, fill"));
+		add(searchPanel, new CellConstraints("1, 2, 1, 4, fill, fill"));
 
 		searchField = new JTextField();
 		searchField.setPreferredSize(new Dimension(150, 28));
@@ -140,7 +148,7 @@ public class PlanOfStudyEditor extends JPanel {
 
 		detailsPanel = new JPanel();
 		detailsPanel.setLayout(new CardLayout());
-		add(detailsPanel, new CellConstraints(3, 2, 1, 2));
+		add(detailsPanel, new CellConstraints(3, 2, 3, 1));
 
 		final JPanel degreeDetailsPanel = new JPanel();
 		degreeDetailsPanel.setBorder(new TitledBorder(null, "Degree details", TitledBorder.DEFAULT_JUSTIFICATION, TitledBorder.DEFAULT_POSITION, null, null));
@@ -243,7 +251,7 @@ public class PlanOfStudyEditor extends JPanel {
 				FormFactory.DEFAULT_ROWSPEC,
 				FormFactory.DEFAULT_ROWSPEC}));
 		degreesPanel.setBorder(new TitledBorder(null, "Degrees", TitledBorder.DEFAULT_JUSTIFICATION, TitledBorder.DEFAULT_POSITION, null, null));
-		add(degreesPanel, new CellConstraints(2, 3));
+		add(degreesPanel, new CellConstraints(2, 4, 1, 2));
 
 		final JScrollPane scrollPane_1 = new JScrollPane();
 		degreesPanel.add(scrollPane_1, new CellConstraints(1, 1, 2, 1));
@@ -260,6 +268,13 @@ public class PlanOfStudyEditor extends JPanel {
 		removeDegreeButton = new JButton();
 		removeDegreeButton.setText("Remove");
 		degreesPanel.add(removeDegreeButton, new CellConstraints(2, 2));
+
+		final JLabel creditTotalLabel = new JLabel();
+		creditTotalLabel.setText("Credit total:");
+		add(creditTotalLabel, new CellConstraints(3, 4));
+
+		creditTotalField = new JTextField();
+		add(creditTotalField, new CellConstraints(5, 4));
 		//
 	}
 	
@@ -268,6 +283,11 @@ public class PlanOfStudyEditor extends JPanel {
 		controller.setDetailsPanel(detailsPanel);
 		controller.setDegreeList(degreeList);
 		degreeList.setModel(controller.getDegreeListModel());
+		controller.addPropertyChangeListener("creditTotal", new PropertyChangeListener(){
+			public void propertyChange(PropertyChangeEvent evt) {
+				creditTotalField.setText(String.valueOf(evt.getNewValue()));
+			}
+		});
 		
 		addCourseButton.addActionListener(new ActionListener() {
 			public void actionPerformed(final ActionEvent e) {
@@ -277,22 +297,19 @@ public class PlanOfStudyEditor extends JPanel {
 			}
 		});
 
-		final DegreeListModel model = controller.getPlanDegreeListModel();
-		degreeList.setModel(model);
-		
 		addDegreeButton.addActionListener(new ActionListener() {
 			public void actionPerformed(final ActionEvent e) {
 				DegreeSelector ds = new DegreeSelector(controller);
 				ds.setVisible(true);
 			}
 		});
-		
 		removeDegreeButton.addActionListener(new ActionListener(){
 			public void actionPerformed(final ActionEvent e) {
 				controller.removeDegree((Degree)degreeList.getSelectedValue());
 			}
 		});
-
+		degreeList.setModel(controller.getPlanDegreeListModel());
+		
 		courseList.setModel(controller.getCourseListModel());
 		courseList.setTransferHandler(new CourseTransferHandler(controller));
 		courseList.setDragEnabled(true);
@@ -355,29 +372,20 @@ public class PlanOfStudyEditor extends JPanel {
 		});
 		
 		searchField.getDocument().addDocumentListener(new DocumentListener(){
-
 			public void changedUpdate(DocumentEvent e) {
 				try {
 					controller.searchTextChanged(e.getDocument().getText(0, e.getDocument().getLength()));
-				} catch (BadLocationException e1) {
-					// won't ever happen
-				}
+				} catch (BadLocationException e1) {}
 			}
-
 			public void insertUpdate(DocumentEvent e) {
 				try {
 					controller.searchTextChanged(e.getDocument().getText(0, e.getDocument().getLength()));
-				} catch (BadLocationException e1) {
-					// won't ever happen
-				}
+				} catch (BadLocationException e1) {}
 			}
-
 			public void removeUpdate(DocumentEvent e) {
 				try {
 					controller.searchTextChanged(e.getDocument().getText(0, e.getDocument().getLength()));
-				} catch (BadLocationException e1) {
-					// won't ever happen
-				}
+				} catch (BadLocationException e1) {}
 			}
 		});
 	}

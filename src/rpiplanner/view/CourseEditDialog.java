@@ -69,6 +69,7 @@ public class CourseEditDialog extends JDialog {
 	public CourseEditDialog() {
 		super();
 		this.toEdit = new Course();
+		toEdit.setCredits(4);
 		initialize();
 		bind();
 	}

@@ -53,20 +53,12 @@ public class MainFrame extends JFrame {
 	private JTextField schoolField;
 	private JTextField nameField;
 	private POSController controller;
-	
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1829687916731988669L;
 
-	/**
-	 * Create the frame
-	 */
 	public MainFrame() {
 		super();
 		getContentPane().setLayout(new CardLayout());
 		
-		setBounds(200, 100, 900, 600);
+		setBounds(200, 100, 1000, 650);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 		introCard = new JPanel();

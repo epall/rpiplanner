@@ -22,6 +22,8 @@ package rpiplanner;
 import java.awt.CardLayout;
 import java.awt.Component;
 import java.awt.Container;
+import java.beans.PropertyChangeListener;
+import java.beans.PropertyChangeSupport;
 import java.util.ArrayList;
 
 import javax.swing.AbstractListModel;
@@ -55,6 +57,7 @@ public class POSController {
 	private DegreeListModel degreeListModel;
 	private DegreeListModel planDegreeListModel;
 	private JList degreeList;
+	protected final PropertyChangeSupport support = new PropertyChangeSupport(this);
 	
 	public POSController(){
 		plan = new PlanOfStudy();
@@ -98,6 +101,7 @@ public class POSController {
 	public void setView(PlanOfStudyEditor planCard) {
 		this.view = planCard;
 		view.setController(this);
+		totalCredits();
 		validatePlan();
 	}
 
@@ -105,6 +109,7 @@ public class POSController {
 		Term toModify = plan.getTerm(term);
 		toModify.getCourses().add(toAdd);
 		updateSemesterPanel(term, toModify);
+		totalCredits();
 		validatePlan();
 	}
 
@@ -114,16 +119,20 @@ public class POSController {
 		JPanel semesterPanel = semesterPanels.get(term);
 		semesterPanel.removeAll();
 		int numCourses = Math.max(SchoolInformation.DEFAULT_COURSES_PER_SEMESTER, courses.size());
-		
-		semesterPanel.setBorder(new TitledBorder(model.getTerm().toString() + " " + String.valueOf(model.getYear())));
+		int creditTotal = 0;
 		
 		for(int i = 0; i < numCourses; i++){
 			try{
 				semesterPanel.add(new CourseDisplay(this, courses.get(i)));
+				creditTotal += courses.get(i).getCredits();
 			} catch (IndexOutOfBoundsException e){ // no course there yet
 				semesterPanel.add(new CourseDisplay(this));
 			}
 		}
+		semesterPanel.setBorder(new TitledBorder(
+				model.getTerm().toString() + " " + String.valueOf(model.getYear()) + 
+				" (" + String.valueOf(creditTotal) + ")"));
+		
 		semesterPanel.revalidate();
 	}
 
@@ -146,7 +155,17 @@ public class POSController {
 		ArrayList<Course> courses = plan.getTerm(semester).getCourses();
 		courses.remove(courseIndex);
 		updateSemesterPanel(semester, plan.getTerm(semester));
+		totalCredits();
 		validatePlan();
+	}
+
+	private void totalCredits() {
+		int credits = 0;
+		for(Term t : plan.getTerms()){
+			for(Course c : t.getCourses())
+				credits += c.getCredits();
+		}
+		support.firePropertyChange("creditTotal", -1, credits);
 	}
 
 	/**
@@ -299,5 +318,10 @@ public class POSController {
 
 	public void setDegreeList(JList degreeList) {
 		this.degreeList = degreeList;
+	}
+
+	public void addPropertyChangeListener(String propertyName,
+			PropertyChangeListener propertyChangeListener) {
+		support.addPropertyChangeListener(propertyName, propertyChangeListener);
 	}
 }
