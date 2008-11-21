@@ -19,8 +19,11 @@
 				<attribute name="Class-Path" value="." />
 			</manifest>
 			<fileset dir="build/classes" />
-			<fileset dir="." includes="*.png"/>
-			<fileset dir="." includes="*.rb"/>
+			<fileset dir=".">
+  			<include name="course_database.xml"/>
+  			<include name="plan_validation.rb"/>
+  			<include name="*.png"/>
+		  </fileset>
 			<zipfileset excludes="META-INF/*.SF" src="lib/swing-worker.jar" />
 			<zipfileset excludes="META-INF/*.SF" src="lib/xstream-1.3.jar" />
 			<zipfileset excludes="META-INF/*.SF" src="lib/AppleJavaExtensions.jar" />

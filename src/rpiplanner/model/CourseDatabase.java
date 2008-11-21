@@ -71,6 +71,8 @@ public class CourseDatabase {
 	}
 
 	public Course[] listCourses() {
+		if(courses == null)
+			courses = new ArrayList<Course>();
 		Course[] temp = new Course[courses.size()];
 		courses.toArray(temp);
 		Arrays.sort(temp);

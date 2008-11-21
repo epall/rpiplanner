@@ -1,0 +1,3421 @@
+<courses>
+  <course>
+    <title>Electric Circuits</title>
+    <description>Techniques for the analysis and simulation of linear electric circuits, and measurements of their properties. Topics include resistive and energy-storage elements, controlled sources and operational amplifiers, systematic analysis methods, AC steady state, power and three-phase systems, magnetic coupling and transformers, transients, s-plane representation and analysis, frequency response, and Laplace transform and computer-aided methods.</description>
+    <department>Electrical, Computer, and Systems Engineering</department>
+    <catalogNumber>ECSE-2010</catalogNumber>
+    <credits>4</credits>
+    <prerequisites>
+      <course>
+        <catalogNumber>MATH-2400</catalogNumber>
+        <credits>0</credits>
+      </course>
+      <course>
+        <catalogNumber>PHYS-1200</catalogNumber>
+        <credits>0</credits>
+      </course>
+    </prerequisites>
+    <corequisites/>
+    <availableTerms>
+      <rpiplanner.model.YearPart>FALL</rpiplanner.model.YearPart>
+      <rpiplanner.model.YearPart>SPRING</rpiplanner.model.YearPart>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Introduction to Electronics</title>
+    <description>The physics and operation of semiconductor diodes, bipolar junction transistors, and field-effect transistors in elementary analog circuits. Amplifier biasing, small-signal analysis, and frequency response. Elementary bipolar and MOSFET digital circuits, analog-to-digital and digital-to- analog conversion.</description>
+    <department>Electrical, Computer, and Systems Engineering</department>
+    <catalogNumber>ECSE-2050</catalogNumber>
+    <credits>4</credits>
+    <prerequisites>
+      <course>
+        <catalogNumber>ECSE-2010</catalogNumber>
+        <credits>0</credits>
+      </course>
+    </prerequisites>
+    <corequisites/>
+    <availableTerms>
+      <rpiplanner.model.YearPart>FALL</rpiplanner.model.YearPart>
+      <rpiplanner.model.YearPart>SPRING</rpiplanner.model.YearPart>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Fields and Waves I</title>
+    <description>Development and application of Maxwell?s equations in free space and within materials. Introduction to vector calculus and computer-aided analysis and design methods in electromagnetics. Applications include calculation of lumped circuit elements from field theory, plane wave propagation in various materials, and reflection from boundaries. Transmission line concepts, Smith charts, and other design tools for distributed circuits.</description>
+    <department>Electrical, Computer, and Systems Engineering</department>
+    <catalogNumber>ECSE-2100</catalogNumber>
+    <credits>4</credits>
+    <prerequisites>
+      <course>
+        <catalogNumber>ECSE-2010</catalogNumber>
+        <credits>0</credits>
+      </course>
+    </prerequisites>
+    <corequisites/>
+    <availableTerms>
+      <rpiplanner.model.YearPart>FALL</rpiplanner.model.YearPart>
+      <rpiplanner.model.YearPart>SPRING</rpiplanner.model.YearPart>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Microelectronics Technology</title>
+    <description>An introductory survey of microelectronics technology emphasizing physical properties of semiconductors, device and circuit fabrication, semiconductor device operation, IC layout and design, and related CAD software. Topics include semiconductor crystals; energy bands; electronics  and holes; dopant impurities; fabrication and operation of diodes, bipolar junction transistors, and field-effect transistors; CMOS chip design.</description>
+    <department>Electrical, Computer, and Systems Engineering</department>
+    <catalogNumber>ECSE-2210</catalogNumber>
+    <credits>4</credits>
+    <prerequisites>
+      <course>
+        <catalogNumber>ECSE-2010</catalogNumber>
+        <credits>0</credits>
+      </course>
+    </prerequisites>
+    <corequisites/>
+    <availableTerms>
+      <rpiplanner.model.YearPart>FALL</rpiplanner.model.YearPart>
+      <rpiplanner.model.YearPart>SPRING</rpiplanner.model.YearPart>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Signals and Systems</title>
+    <description>Time and frequency-domain representation of continuous-and discrete-time signals and systems, and solutions of their response. Simulation of linear systems. Fourier series and transform. Laplace transform and z-transform. Stability, feedback systems, and root-locus analysis and design. Applications involving communication and control systems.</description>
+    <department>Electrical, Computer, and Systems Engineering</department>
+    <catalogNumber>ECSE-2410</catalogNumber>
+    <credits>4</credits>
+    <prerequisites>
+      <course>
+        <catalogNumber>ECSE-2010</catalogNumber>
+        <credits>0</credits>
+      </course>
+    </prerequisites>
+    <corequisites/>
+    <availableTerms>
+      <rpiplanner.model.YearPart>FALL</rpiplanner.model.YearPart>
+      <rpiplanner.model.YearPart>SPRING</rpiplanner.model.YearPart>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Computer Components and Operations</title>
+    <description>Design-oriented introduction to computer components and operations. Standard codes, number systems, base conversions, and computer arithmetic. Boolean algebra, minimization and synthesis techniques for combinational and sequential logic. Races, hazards, and asynchronous behavior. Registers, arithmetic logic units, memory structure, buses, and control units. Machine language programming, instruction fetch and execution, input-output devices, interrupts, and microprogram sequencers. Software and hardware tools.</description>
+    <department>Electrical, Computer, and Systems Engineering</department>
+    <catalogNumber>ECSE-2610</catalogNumber>
+    <credits>4</credits>
+    <prerequisites>
+      <course>
+        <catalogNumber>CSCI-1100</catalogNumber>
+        <credits>0</credits>
+      </course>
+    </prerequisites>
+    <corequisites/>
+    <availableTerms>
+      <rpiplanner.model.YearPart>FALL</rpiplanner.model.YearPart>
+      <rpiplanner.model.YearPart>SPRING</rpiplanner.model.YearPart>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Computer Architecture, Networks, and Operating Systems</title>
+    <description>Quantitative basis of modern computer architecture, processor design, memory hierarchy, and input/output methods. Layered operating system structures, process and storage management. Layered network organization, network protocols, switching, local and wide area networks. Examples from Unix and the Internet.</description>
+    <department>Electrical, Computer, and Systems Engineering</department>
+    <catalogNumber>ECSE-2660</catalogNumber>
+    <credits>4</credits>
+    <prerequisites>
+      <course>
+        <catalogNumber>ECSE-2610</catalogNumber>
+        <credits>0</credits>
+      </course>
+    </prerequisites>
+    <corequisites/>
+    <availableTerms>
+      <rpiplanner.model.YearPart>SPRING</rpiplanner.model.YearPart>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Sensing and Imaging</title>
+    <description>An introduction to sensing and imaging methods using electromagnetic radiation, including hands-on experiments. Topics include physical principles of sensing/imaging, instrumentation and data acquisition strategies and computational methods for image formation and sensing. Emphasis is placed on imaging with visible light and near infrared spectrum, diffuse optical imaging and spectroscopy, x-ray imaging and computed tomography and radar. Application areas include medicine and biology, security and surveillance, environmental and chemical sensing, and buried or hidden objects.
+
+  Cross-listed as BMED 2800. Students cannot receive credit for both this course and BMED 2800.</description>
+    <department>Electrical, Computer, and Systems Engineering</department>
+    <catalogNumber>ECSE-2800</catalogNumber>
+    <credits>3</credits>
+    <prerequisites>
+      <course>
+        <catalogNumber>PHYS-1200</catalogNumber>
+        <credits>0</credits>
+      </course>
+      <course>
+        <catalogNumber>MATH-2400</catalogNumber>
+        <credits>0</credits>
+      </course>
+    </prerequisites>
+    <corequisites/>
+    <availableTerms>
+      <rpiplanner.model.YearPart>SPRING</rpiplanner.model.YearPart>
+    </availableTerms>
+  </course>
+  <course>
+    <title>ECSE Honors Seminar</title>
+    <description>Introduction to research as a professional activity in electrical, computer, and systems engineering for participants in the ECSE Honors Program. Admission to the program is by application or invitation only, made during the fall term of the sophomore year. This seminar can be taken more than once.</description>
+    <department>Electrical, Computer, and Systems Engineering</department>
+    <catalogNumber>ECSE-2900</catalogNumber>
+    <credits>1</credits>
+    <prerequisites/>
+    <corequisites/>
+    <availableTerms>
+      <rpiplanner.model.YearPart>SPRING</rpiplanner.model.YearPart>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Digital Electronics</title>
+    <description>Analysis and design of switching-mode circuits: NMOS, CMOS, RTL, DTL, TTL, and ECL digital-logic families. Topics include: basic logic gates (voltage-transfer characteristics, noise margin, fan out, propagation delay, power dissipation), flip flops, Schmitt triggers, oscillators, timers, memories, A/D and D/A converters, and optional advanced topics.</description>
+    <department>Electrical, Computer, and Systems Engineering</department>
+    <catalogNumber>ECSE-4040</catalogNumber>
+    <credits>3</credits>
+    <prerequisites>
+      <course>
+        <catalogNumber>ECSE-2050</catalogNumber>
+        <credits>0</credits>
+      </course>
+      <course>
+        <catalogNumber>ECSE-2610</catalogNumber>
+        <credits>0</credits>
+      </course>
+    </prerequisites>
+    <corequisites/>
+    <availableTerms>
+      <rpiplanner.model.YearPart>SPRING</rpiplanner.model.YearPart>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Communication Circuits</title>
+    <description>Analysis and design of communications circuits, including coupling networks, oscillators, mixers, Class B and C r-f amplifiers; Class B and D broadband amplifiers; AM and FM modulators and demodulators; AGC and AFC and FSK circuits; pulse modulation techniques; phase-locked loops.</description>
+    <department>Electrical, Computer, and Systems Engineering</department>
+    <catalogNumber>ECSE-4060</catalogNumber>
+    <credits>3</credits>
+    <prerequisites>
+      <course>
+        <catalogNumber>ECSE-2050</catalogNumber>
+        <credits>0</credits>
+      </course>
+    </prerequisites>
+    <corequisites/>
+    <availableTerms>
+      <rpiplanner.model.YearPart>SPRING</rpiplanner.model.YearPart>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Semiconductor Power Electronics</title>
+    <description>The application of power semiconductor devices to the efficient conversion of electrical energy. Circuit analysis, signal analysis, and energy concepts are integrated to develop steady-state and dynamic models of generic power converters. Specific topics include AC/DC conversion, DC/DC conversion, DC/AC conversion, and AC/AC conversion. These generic converters are applied as controlled rectifiers, switching power supplies, motor drives, HVDC transmission, induction heating, and others. Ancillary circuits needed for the proper operation and control of power semiconductor devices are also discussed.
+
+  Cross-listed as EPOW 4080. Students cannot receive credit for both this course and EPOW 4080.</description>
+    <department>Electrical, Computer, and Systems Engineering</department>
+    <catalogNumber>ECSE-4080</catalogNumber>
+    <credits>3</credits>
+    <prerequisites>
+      <course>
+        <catalogNumber>ECSE-2050</catalogNumber>
+        <credits>0</credits>
+      </course>
+    </prerequisites>
+    <corequisites/>
+    <availableTerms>
+      <rpiplanner.model.YearPart>FALL</rpiplanner.model.YearPart>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Mechatronics</title>
+    <description>The synergistic combination of mechanical engineering, electronics, control engineering, and computer science in the design process. The key areas of mechatronics studied in depth are control sensors and actuators, interfacing sensors and actuators to a microcomputer, discrete controller design, and real-time programming for control using the C programming language. The unifying theme for this heavily laboratory-based course is the integration of the key areas into a successful mechatronic design.
+
+  Cross-listed as MANE 4490. Students cannot receive credit for both this course and MANE 4490.</description>
+    <department>Electrical, Computer, and Systems Engineering</department>
+    <catalogNumber>ECSE-4090</catalogNumber>
+    <credits>3</credits>
+    <prerequisites>
+      <course>
+        <catalogNumber>ENGR-2350</catalogNumber>
+        <credits>0</credits>
+      </course>
+    </prerequisites>
+    <corequisites/>
+    <availableTerms>
+      <rpiplanner.model.YearPart>FALL</rpiplanner.model.YearPart>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Fields and Waves II</title>
+    <description>A continuation of ECSE 2100. Topics include solution of boundary value problems in electromagnetics using both analytic and numerical techniques. Conducting and dielectric guiding structures for waves. Radiation from simple antennas. Low frequency applications.
+
+  NOTE: Offered on sufficient demand.</description>
+    <department>Electrical, Computer, and Systems Engineering</department>
+    <catalogNumber>ECSE-4160</catalogNumber>
+    <credits>3</credits>
+    <prerequisites>
+      <course>
+        <catalogNumber>ECSE-2100</catalogNumber>
+        <credits>0</credits>
+      </course>
+    </prerequisites>
+    <corequisites/>
+    <availableTerms>
+      <rpiplanner.model.YearPart>FALL</rpiplanner.model.YearPart>
+      <rpiplanner.model.YearPart>SPRING</rpiplanner.model.YearPart>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Introduction to Microwave Engineering</title>
+    <description>Techniques used in the analysis and design of microwave systems. Topics include wave propagation in free space and in guided structures; scattering parameters; signal flow graphs and applications to microwave networks; transmission lines and impedance matching; CAD of microwave circuits; system components; system design parameters and performance calculations.
+
+  NOTE: Offered on sufficient demand.</description>
+    <department>Electrical, Computer, and Systems Engineering</department>
+    <catalogNumber>ECSE-4170</catalogNumber>
+    <credits>3</credits>
+    <prerequisites>
+      <course>
+        <catalogNumber>ECSE-2050</catalogNumber>
+        <credits>0</credits>
+      </course>
+      <course>
+        <catalogNumber>ECSE-2100</catalogNumber>
+        <credits>0</credits>
+      </course>
+    </prerequisites>
+    <corequisites/>
+    <availableTerms>
+      <rpiplanner.model.YearPart>FALL</rpiplanner.model.YearPart>
+      <rpiplanner.model.YearPart>SPRING</rpiplanner.model.YearPart>
+    </availableTerms>
+  </course>
+  <course>
+    <title>VLSI Design</title>
+    <description>Introduction to VLSI design. The fabrication, device, circuit, and system aspects of VLSI design are covered in an integrated fashion. Emphasis is placed on NMOS and CMOS technology. Laboratory experiments focus on layout analysis, computer-aided layout, and logic and timing simulation. Project on digital design with standard cells.</description>
+    <department>Electrical, Computer, and Systems Engineering</department>
+    <catalogNumber>ECSE-4220</catalogNumber>
+    <credits>3</credits>
+    <prerequisites>
+      <course>
+        <catalogNumber>ECSE-2050</catalogNumber>
+        <credits>0</credits>
+      </course>
+      <course>
+        <catalogNumber>ECSE-2610</catalogNumber>
+        <credits>0</credits>
+      </course>
+    </prerequisites>
+    <corequisites/>
+    <availableTerms>
+      <rpiplanner.model.YearPart>FALL</rpiplanner.model.YearPart>
+      <rpiplanner.model.YearPart>SPRING</rpiplanner.model.YearPart>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Integrated Circuit Processes and Design</title>
+    <description>The theoretical and practical aspects of techniques utilized in the fabrication of silicon-based microcircuits. Imperfections in semiconductors, crystal growth, solid solubility, alloying and diffusion, ion implantation, oxide masking, epitaxy, metallization, etching, and photolithography. Fabrication techniques for bipolar and MOS-microcircuits, and the electrical performance of devices based on these techniques. Microcircuit design and layout. Students cannot receive credit for both this course and MTLE 4160.</description>
+    <department>Electrical, Computer, and Systems Engineering</department>
+    <catalogNumber>ECSE-4250</catalogNumber>
+    <credits>3</credits>
+    <prerequisites>
+      <course>
+        <catalogNumber>ECSE-2210</catalogNumber>
+        <credits>0</credits>
+      </course>
+    </prerequisites>
+    <corequisites/>
+    <availableTerms>
+      <rpiplanner.model.YearPart>FALL</rpiplanner.model.YearPart>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Plasma Engineering</title>
+    <description>Introduction to plasma physics with primary emphasis on the application of plasmas for controlled thermonuclear fusion. Plasma behavior and confinement concepts are analyzed from both single-particle and conducting-fluid models. The interaction of electromagnetic waves with plasmas, plasma transport, plasma stability, and a review of major fusion-oriented devices are also presented.
+
+  NOTE: Offered on sufficient demand.</description>
+    <department>Electrical, Computer, and Systems Engineering</department>
+    <catalogNumber>ECSE-4320</catalogNumber>
+    <credits>3</credits>
+    <prerequisites>
+      <course>
+        <catalogNumber>ECSE-2100</catalogNumber>
+        <credits>0</credits>
+      </course>
+    </prerequisites>
+    <corequisites/>
+    <availableTerms>
+      <rpiplanner.model.YearPart>FALL</rpiplanner.model.YearPart>
+      <rpiplanner.model.YearPart>SPRING</rpiplanner.model.YearPart>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Control Systems Engineering</title>
+    <description>Application of linear feedback theory to the design of large-scale, integrated control systems. Derivation of complex mathematical models of physical systems. Synthesis of appropriate control laws to provide stability. Simulation of complex control systems on digital computers.</description>
+    <department>Electrical, Computer, and Systems Engineering</department>
+    <catalogNumber>ECSE-4440</catalogNumber>
+    <credits>3</credits>
+    <prerequisites>
+      <course>
+        <catalogNumber>ECSE-2410</catalogNumber>
+        <credits>0</credits>
+      </course>
+    </prerequisites>
+    <corequisites/>
+    <availableTerms>
+      <rpiplanner.model.YearPart>FALL</rpiplanner.model.YearPart>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Robotics I</title>
+    <description>A survey of the fundamental issues necessary for the design, analysis, control, and implementation of robotic systems. The mathematical description of robot manipulators in terms of kinematics and dynamics. Hardware components of a typical robot arm. Path following, control, and sensing. Examples of several currently available manipulators.
+
+  Cross-listed as CSCI 4480. Students cannot receive credit for both this course and CSCI 4480.
+
+  NOTE: requires EITHER MATH-2010 or ENGR-1100 as a prerequisite</description>
+    <department>Electrical, Computer, and Systems Engineering</department>
+    <catalogNumber>ECSE-4480</catalogNumber>
+    <credits>3</credits>
+    <prerequisites>
+      <course>
+        <catalogNumber>MATH-2400</catalogNumber>
+        <credits>0</credits>
+      </course>
+    </prerequisites>
+    <corequisites/>
+    <availableTerms>
+      <rpiplanner.model.YearPart>FALL</rpiplanner.model.YearPart>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Robotics II</title>
+    <description>This course introduces methods that leverage the basic analysis techniques learned in Robotics I to develop numerical and algorithmic techniques needed to endow robots with the ?intelligence? to devise strategies to solve problems they will encounter. Once these abilities are sufficiently well developed, robots will become safe and autonomous, thus paving the way for pervasive personal robots. Topics include: configuration space representation, cell decomposition, roadmap methods, rapidly-exploring random trees, simultaneous localization and mapping, contact modeling, grasping, and dexterous manipulation.
+
+  Cross-listed as ECSE  6490, CSCI  4490 and CSCI 6490. Students cannot receive credit for both this course and ECSE 6490, CSCI 4490 or CSCI 6490.</description>
+    <department>Electrical, Computer, and Systems Engineering</department>
+    <catalogNumber>ECSE-4490</catalogNumber>
+    <credits>3</credits>
+    <prerequisites>
+      <course>
+        <catalogNumber>ECSE-4480</catalogNumber>
+        <credits>0</credits>
+      </course>
+    </prerequisites>
+    <corequisites/>
+    <availableTerms>
+      <rpiplanner.model.YearPart>SPRING</rpiplanner.model.YearPart>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Probability for Engineering Applications</title>
+    <description>Axioms of probability, joint and conditional probability, random variables, probability density and distribution functions, functions of random variables, statistical averages, empirical distributions, parameter estimation, regression, tests of hypotheses, and Markov chains. Applications to engineering data such as device characteristics, failure rates, image processing and network traffic.</description>
+    <department>Electrical, Computer, and Systems Engineering</department>
+    <catalogNumber>ECSE-4500</catalogNumber>
+    <credits>4</credits>
+    <prerequisites>
+      <course>
+        <catalogNumber>ECSE-2410</catalogNumber>
+        <credits>0</credits>
+      </course>
+    </prerequisites>
+    <corequisites/>
+    <availableTerms>
+      <rpiplanner.model.YearPart>FALL</rpiplanner.model.YearPart>
+      <rpiplanner.model.YearPart>SPRING</rpiplanner.model.YearPart>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Discrete Time Systems</title>
+    <description>Sampling, quantization, reconstruction of signals. Digital filters. Mathematical tools used in the modeling, analysis, and synthesis of discrete-time communication and control systems. These include discrete Fourier transform, z-transform, state-variable, and transfer-function techniques. Applications to sampled-data control and quantized-data communications systems.</description>
+    <department>Electrical, Computer, and Systems Engineering</department>
+    <catalogNumber>ECSE-4510</catalogNumber>
+    <credits>3</credits>
+    <prerequisites>
+      <course>
+        <catalogNumber>ECSE-2410</catalogNumber>
+        <credits>0</credits>
+      </course>
+    </prerequisites>
+    <corequisites/>
+    <availableTerms>
+      <rpiplanner.model.YearPart>FALL</rpiplanner.model.YearPart>
+      <rpiplanner.model.YearPart>SPRING</rpiplanner.model.YearPart>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Communication Systems</title>
+    <description>An introduction to signals and noise in electrical communication systems. Spectral analysis and filtering, including random signals. Modulation theory and techniques. Transmitter and receiver structures. System performance in the presence of noise.</description>
+    <department>Electrical, Computer, and Systems Engineering</department>
+    <catalogNumber>ECSE-4520</catalogNumber>
+    <credits>3</credits>
+    <prerequisites>
+      <course>
+        <catalogNumber>ECSE-2410</catalogNumber>
+        <credits>0</credits>
+      </course>
+    </prerequisites>
+    <corequisites/>
+    <availableTerms>
+      <rpiplanner.model.YearPart>FALL</rpiplanner.model.YearPart>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Introduction to Image Processing</title>
+    <description>An introduction to the field of image processing, covering both analytical and implementation aspects. Topics include the human visual system, cameras and image</description>
+    <department>Electrical, Computer, and Systems Engineering</department>
+    <catalogNumber>ECSE-4540</catalogNumber>
+    <credits>3</credits>
+    <prerequisites>
+      <course>
+        <catalogNumber>ECSE-4510</catalogNumber>
+        <credits>0</credits>
+      </course>
+    </prerequisites>
+    <corequisites/>
+    <availableTerms>
+      <rpiplanner.model.YearPart>SPRING</rpiplanner.model.YearPart>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Lasers and Optical Systems</title>
+    <description>Optical physics and applications of lasers. Design of optical systems. Topics include: wave optics and beam propagation, Gaussian beams, resonators, optical properties of atoms and laser gain media, laser amplifiers, pulsed laser systems, applications of lasers, nonlinear optics. Three lecture hours and three laboratory hours per week.
+
+  Cross-isted as PHYS 4630. Students cannot receive credit for both this course and PHYS 4630.
+
+  NOTE: odd-numbered years ONLY</description>
+    <department>Electrical, Computer, and Systems Engineering</department>
+    <catalogNumber>ECSE-4630</catalogNumber>
+    <credits>4</credits>
+    <prerequisites>
+      <course>
+        <catalogNumber>PHYS-2620</catalogNumber>
+        <credits>0</credits>
+      </course>
+    </prerequisites>
+    <corequisites/>
+    <availableTerms>
+      <rpiplanner.model.YearPart>FALL</rpiplanner.model.YearPart>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Optical Communications and Integrated Optics</title>
+    <description>Phenomena, materials, and devices for optical communications and computing. Topics include: guided wave and fiber optics, integrated optics, electro-optic and nonlinear optical switching, pulse and soliton propagation, sources and detectors. Three lecture hours and three laboratory hours per week.
+
+  Cross-listed as PHYS 4640. Students cannot receive credit for both this course and PHYS 4640.
+
+  NOTE: even-numbered years ONLY</description>
+    <department>Electrical, Computer, and Systems Engineering</department>
+    <catalogNumber>ECSE-4640</catalogNumber>
+    <credits>4</credits>
+    <prerequisites>
+      <course>
+        <catalogNumber>PHYS-2620</catalogNumber>
+        <credits>0</credits>
+      </course>
+    </prerequisites>
+    <corequisites/>
+    <availableTerms>
+      <rpiplanner.model.YearPart>FALL</rpiplanner.model.YearPart>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Computer Communication Networks</title>
+    <description>Introduction to the basic concepts of computer and communication networks, like flow control, congestion control, end-to-end reliability, routing,?framing, error-recovery, multiple access and statistical multiplexing.?In-depth presentation of the different networking layers, with emphasis on the Internet reference model. Protocols and architectures such as TCP, IP, Ethernet, wireless networks, etc. are described in order to illustrate important networking concepts. Introduction to quantitiative analysis and modeling of networks.</description>
+    <department>Electrical, Computer, and Systems Engineering</department>
+    <catalogNumber>ECSE-4670</catalogNumber>
+    <credits>3</credits>
+    <prerequisites>
+      <course>
+        <catalogNumber>ECSE-2610</catalogNumber>
+        <credits>0</credits>
+      </course>
+    </prerequisites>
+    <corequisites/>
+    <availableTerms>
+      <rpiplanner.model.YearPart>FALL</rpiplanner.model.YearPart>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Experimental and Simulation Techniques for Computer Networking</title>
+    <description>This senior-level laboratory course teaches tools and techniques used in the design and analysis of computer networks and protocols such as simulation, animation, visualization, experiment design, trace collection/analysis, protocol development on Linux, and modular router development platforms (eg: Linux-based ?Click? and Intel IXA platform). Each tool is developed in a networking protocol context such as TCP reliable transport, TCP congestion control, routing protocols (RIP, OSPF, BGP), network management and 802.11 wireless networks.</description>
+    <department>Electrical, Computer, and Systems Engineering</department>
+    <catalogNumber>ECSE-4690</catalogNumber>
+    <credits>3</credits>
+    <prerequisites>
+      <course>
+        <catalogNumber>C-</catalogNumber>
+        <credits>0</credits>
+      </course>
+    </prerequisites>
+    <corequisites/>
+    <availableTerms>
+      <rpiplanner.model.YearPart>FALL</rpiplanner.model.YearPart>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Interactive Computer-Aided Design</title>
+    <description>Development of computer-aided design techniques using computer graphics. Interactive design structures. Geometric modeling and computational geometry. Three-dimensional curve and surface geometry. Curve and surface design. Introduction to industrial interactive design systems. Extensive use of the Rensselaer Computer Graphics System.
+
+  NOTE: Unclear when course is offered</description>
+    <department>Electrical, Computer, and Systems Engineering</department>
+    <catalogNumber>ECSE-4710</catalogNumber>
+    <credits>3</credits>
+    <prerequisites>
+      <course>
+        <catalogNumber>CSCI-1100</catalogNumber>
+        <credits>0</credits>
+      </course>
+    </prerequisites>
+    <corequisites/>
+    <availableTerms>
+      <rpiplanner.model.YearPart>FALL</rpiplanner.model.YearPart>
+      <rpiplanner.model.YearPart>SPRING</rpiplanner.model.YearPart>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Solid-State Physics</title>
+    <description>An introduction to theoretical and experimental solidstate physics. Wave mechanics in the perfect crystal. X-rays, electrons, and phonons. Electrical properties of metals and semiconductors. Qualitative treatment of lattice defects.
+
+  Cross-listed as PHYS 4720. Students cannot receive credit for both this course and PHYS 4720.</description>
+    <department>Electrical, Computer, and Systems Engineering</department>
+    <catalogNumber>ECSE-4720</catalogNumber>
+    <credits>4</credits>
+    <prerequisites>
+      <course>
+        <catalogNumber>PHYS-2100</catalogNumber>
+        <credits>0</credits>
+      </course>
+      <course>
+        <catalogNumber>PHYS-2510</catalogNumber>
+        <credits>0</credits>
+      </course>
+    </prerequisites>
+    <corequisites/>
+    <availableTerms>
+      <rpiplanner.model.YearPart>FALL</rpiplanner.model.YearPart>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Computer Graphics</title>
+    <description>Introduction to Interactive Computer Graphics, with an emphasis on applications programming. Objects and viewers, and the synthetic camera model. Graphics architectures, the graphics pipeline, clipping, rasterization, and programmable shaders. Input and interaction. Geometric objects, homogeneous coordinates, and transformations. Viewing, hidden surface removal, frame and depth buffers, compositing, and anti-aliasing. Shading, light and materials, texture mapping, ray tracing, and radiosity. Intellectual property concerns. Extensive programming with the OpenGL API and C++.</description>
+    <department>Electrical, Computer, and Systems Engineering</department>
+    <catalogNumber>ECSE-4750</catalogNumber>
+    <credits>3</credits>
+    <prerequisites>
+      <course>
+        <catalogNumber>ECSE-2610</catalogNumber>
+        <credits>0</credits>
+      </course>
+    </prerequisites>
+    <corequisites/>
+    <availableTerms>
+      <rpiplanner.model.YearPart>FALL</rpiplanner.model.YearPart>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Real-Time Applications in Control and Communications</title>
+    <description>Experiments and lectures demonstrate the design and use of microcomputers as both decision tools and on-line real-time system components in control and communications. Topics include the basic operations of microcomputers, data I/O, analog and digital process control, voice processing, digital filter design, digital communication, and optimal LQR control.</description>
+    <department>Electrical, Computer, and Systems Engineering</department>
+    <catalogNumber>ECSE-4760</catalogNumber>
+    <credits>3</credits>
+    <prerequisites>
+      <course>
+        <catalogNumber>ECSE-4510</catalogNumber>
+        <credits>0</credits>
+      </course>
+    </prerequisites>
+    <corequisites/>
+    <availableTerms>
+      <rpiplanner.model.YearPart>SPRING</rpiplanner.model.YearPart>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Computer Hardware Design</title>
+    <description>Digital design methodologies including timing chain and counter based ?hardwired? microprogram design, modules, and modular design. The course bridges LSI and MSI design treating microprocessors, and I/O interfacing. Bus protocol standards, interrupts, direct memory access, priority arbitration, asynchronous timing, and overlap or double buffering. Specific examples of design include controllers for disks, cassettes, video systems, and stepping motors. Course includes a laboratory with access to FPGAs and microprocessors.</description>
+    <department>Electrical, Computer, and Systems Engineering</department>
+    <catalogNumber>ECSE-4770</catalogNumber>
+    <credits>3</credits>
+    <prerequisites>
+      <course>
+        <catalogNumber>ECSE-2610</catalogNumber>
+        <credits>0</credits>
+      </course>
+    </prerequisites>
+    <corequisites/>
+    <availableTerms>
+      <rpiplanner.model.YearPart>FALL</rpiplanner.model.YearPart>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Advanced Computer Hardware Design</title>
+    <description>A capstone design course.? Design methodologies include register transfer modules and firmware microprogrammed design. ?Bit-slice? philosophy of design. LSI microprocessors as design elements in larger digital systems such as high-speed channels and special purpose computers. Detailed discussion of the structure of several computers at the chip and board level. Specification of custom IC digital systems. FPGA based design implementation using VHDL. Students cannot receive credit for both this course and ECSE 6700.</description>
+    <department>Electrical, Computer, and Systems Engineering</department>
+    <catalogNumber>ECSE-4780</catalogNumber>
+    <credits>4</credits>
+    <prerequisites>
+      <course>
+        <catalogNumber>ECSE-4770</catalogNumber>
+        <credits>0</credits>
+      </course>
+    </prerequisites>
+    <corequisites/>
+    <availableTerms>
+      <rpiplanner.model.YearPart>SPRING</rpiplanner.model.YearPart>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Microprocessor Systems</title>
+    <description>Hardware and software for real-time microprocessor-based digital systems. Basic concepts and operations of on-chip components related to digital system functionality. Architectures, instructions sets, and interfacing with peripherals through serial or parallel ports. Introduction to 32-bit machines with in-depth treatment of 16- and 8- bit machines. Emphasis on C language cross-compilers. Laboratory exercises are included to demonstrate hardware and software development techniques practiced in industry.</description>
+    <department>Electrical, Computer, and Systems Engineering</department>
+    <catalogNumber>ECSE-4790</catalogNumber>
+    <credits>3</credits>
+    <prerequisites>
+      <course>
+        <catalogNumber>ECSE-2610</catalogNumber>
+        <credits>0</credits>
+      </course>
+      <course>
+        <catalogNumber>ENGR-2350</catalogNumber>
+        <credits>0</credits>
+      </course>
+    </prerequisites>
+    <corequisites/>
+    <availableTerms>
+      <rpiplanner.model.YearPart>FALL</rpiplanner.model.YearPart>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Subsurface Sensing and Imaging Systems</title>
+    <description>An introduction to the basics of subsurface sensing and imaging: Properties of probes such as optical beams, X-rays, ultrasonic waves, and electromagnetic waves. Physical interaction of probes with various media-transmission, reflection, attenuation, scattering, diffusion, fluorescence. Contrast agents and molecular sensing/imaging systems. Biomedical and security applications. Extracting information from subsurface signals using multi-view tomography (MVT), localized probing and mosaicing (LPM), and multi-spectral discrimination (MSD).
+
+  Cross-listed as BMED 4800. Students cannot receive credit for both this course and BMED 4800.</description>
+    <department>Electrical, Computer, and Systems Engineering</department>
+    <catalogNumber>ECSE-4800</catalogNumber>
+    <credits>3</credits>
+    <prerequisites>
+      <course>
+        <catalogNumber>ECSE-2410</catalogNumber>
+        <credits>0</credits>
+      </course>
+      <course>
+        <catalogNumber>ECSE-2100</catalogNumber>
+        <credits>0</credits>
+      </course>
+    </prerequisites>
+    <corequisites/>
+    <availableTerms>
+      <rpiplanner.model.YearPart>SPRING</rpiplanner.model.YearPart>
+    </availableTerms>
+  </course>
+  <course>
+    <title>ECSE Design</title>
+    <description>A capstone design course.? Provides all ECSE majors senior design experience by engaging them in clientsponsored projects. The students work in multidisciplinary teams, jointly responsible to the faculty, the client liaison, and to each other for project management, execution and reporting. Contemporary design tools and practices are emphasized. Senior standing required.
+
+  NOTE: senior standing required</description>
+    <department>Electrical, Computer, and Systems Engineering</department>
+    <catalogNumber>ECSE-4900</catalogNumber>
+    <credits>3</credits>
+    <prerequisites/>
+    <corequisites>
+      <course>
+        <catalogNumber>ECSE-4010</catalogNumber>
+        <credits>0</credits>
+      </course>
+    </corequisites>
+    <availableTerms>
+      <rpiplanner.model.YearPart>FALL</rpiplanner.model.YearPart>
+      <rpiplanner.model.YearPart>SPRING</rpiplanner.model.YearPart>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Independent Studies in Electrical, Computer, and Systems Engineering</title>
+    <description>Supervised reading and research.
+
+  NOTE: Unclear when course is offered</description>
+    <department>Electrical, Computer, and Systems Engineering</department>
+    <catalogNumber>ECSE-4940</catalogNumber>
+    <credits>1</credits>
+    <prerequisites/>
+    <corequisites/>
+    <availableTerms>
+      <rpiplanner.model.YearPart>FALL</rpiplanner.model.YearPart>
+      <rpiplanner.model.YearPart>SPRING</rpiplanner.model.YearPart>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Topics in Electrical, Computer, and Systems Engineering</title>
+    <description>
+
+  NOTE: Unclear when course is offered</description>
+    <department>Electrical, Computer, and Systems Engineering</department>
+    <catalogNumber>ECSE-4960</catalogNumber>
+    <credits>3</credits>
+    <prerequisites/>
+    <corequisites/>
+    <availableTerms>
+      <rpiplanner.model.YearPart>FALL</rpiplanner.model.YearPart>
+      <rpiplanner.model.YearPart>SPRING</rpiplanner.model.YearPart>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Senior Design Project</title>
+    <description>Get information from the curriculum office. This is designated as a writing-intensive course.
+
+  NOTE: Unclear when course is offered</description>
+    <department>Electrical, Computer, and Systems Engineering</department>
+    <catalogNumber>ECSE-4980</catalogNumber>
+    <credits>3</credits>
+    <prerequisites/>
+    <corequisites>
+      <course>
+        <catalogNumber>ENGR-4010</catalogNumber>
+        <credits>0</credits>
+      </course>
+    </corequisites>
+    <availableTerms>
+      <rpiplanner.model.YearPart>FALL</rpiplanner.model.YearPart>
+      <rpiplanner.model.YearPart>SPRING</rpiplanner.model.YearPart>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Network Theory</title>
+    <description>The analysis of active and passive linear networks, including sensitivity, topological formulas, energy functions, positive real functions, and realizability conditions. The determination of input and transfer functions that approximate a prescribed response. Active circuit elements including negative converters, gyrators, and operational amplifiers.
+
+  NOTE: alternate years ONLY</description>
+    <department>Electrical, Computer, and Systems Engineering</department>
+    <catalogNumber>ECSE-6010</catalogNumber>
+    <credits>3</credits>
+    <prerequisites>
+      <course>
+        <catalogNumber>ECSE-2050</catalogNumber>
+        <credits>0</credits>
+      </course>
+    </prerequisites>
+    <corequisites/>
+    <availableTerms>
+      <rpiplanner.model.YearPart>FALL</rpiplanner.model.YearPart>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Advanced Electronic Circuits</title>
+    <description>Design and analysis of wideband amplifiers, differential amplifiers, and operational amplifiers; the characteristics of op-amps and their use as linear and nonlinear elements, including compensation techniques; regulated power supplies.
+
+  NOTE: alternate years ONLY</description>
+    <department>Electrical, Computer, and Systems Engineering</department>
+    <catalogNumber>ECSE-6050</catalogNumber>
+    <credits>3</credits>
+    <prerequisites>
+      <course>
+        <catalogNumber>ECSE-2050</catalogNumber>
+        <credits>0</credits>
+      </course>
+    </prerequisites>
+    <corequisites/>
+    <availableTerms>
+      <rpiplanner.model.YearPart>FALL</rpiplanner.model.YearPart>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Advanced Device Concepts</title>
+    <description>An introduction to emerging electronic and optoelectronics technology. Topics cover cutting edge technologies and novel device concepts, such as quantum devices, silicon-on-insulators (SOI), compound semiconductor devices and technologies, thin film transistors (TFTs), wide band gap semiconductor devices and technologies, Si-Ge devices, solar cells, photodetectors, semiconductor lasers, opto-electronic ICs, optical interconnects and display technologies.</description>
+    <department>Electrical, Computer, and Systems Engineering</department>
+    <catalogNumber>ECSE-6210</catalogNumber>
+    <credits>3</credits>
+    <prerequisites>
+      <course>
+        <catalogNumber>ECSE-2210</catalogNumber>
+        <credits>0</credits>
+      </course>
+    </prerequisites>
+    <corequisites/>
+    <availableTerms>
+      <rpiplanner.model.YearPart>FALL</rpiplanner.model.YearPart>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Semiconductor Devices and Models I</title>
+    <description>The physical operation of modern semiconductor devices and the determination of their internal parameters. Devices include diodes, unipolar and bipolar transistors, and metal-oxide-semiconductor devices. Emphasis is placed on the fundamental mechanisms that contribute to device performance. The interrelationship between device parameters and circuit performance is stressed.</description>
+    <department>Electrical, Computer, and Systems Engineering</department>
+    <catalogNumber>ECSE-6230</catalogNumber>
+    <credits>3</credits>
+    <prerequisites>
+      <course>
+        <catalogNumber>ECSE-2210</catalogNumber>
+        <credits>0</credits>
+      </course>
+    </prerequisites>
+    <corequisites/>
+    <availableTerms>
+      <rpiplanner.model.YearPart>FALL</rpiplanner.model.YearPart>
+    </availableTerms>
+  </course>
+  <course>
+    <title>VLSI Fabrication Technology</title>
+    <description>Fabrication technology for silicon and gallium arsenide integrated circuits with emphasis on sub-micron structures. Topics include epitaxy, diffusion, binary and ternary phase diagrams, grown and deposited oxides and nitrides, polysilicon and silicide technology, single-and multi-metal systems, plasma and chemical etching, ion milling photo, e-beam and X-ray lithography.
+
+  NOTE: even-numbered years ONLY</description>
+    <department>Electrical, Computer, and Systems Engineering</department>
+    <catalogNumber>ECSE-6240</catalogNumber>
+    <credits>3</credits>
+    <prerequisites>
+      <course>
+        <catalogNumber>ECSE-4250</catalogNumber>
+        <credits>0</credits>
+      </course>
+    </prerequisites>
+    <corequisites/>
+    <availableTerms>
+      <rpiplanner.model.YearPart>SPRING</rpiplanner.model.YearPart>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Solid-State Microwave Devices</title>
+    <description>Physical properties of operation, modeling, and application of selected semiconductor microwave devices. Devices considered include varactors, p-i-n diodes, Schottky barrier diodes, avalanche transit time devices, transferred electron devices and field effect transistors. Terminal behavior of these devices, their noise characteristics, and their use in microwave circuits.
+
+  NOTE: Offered on sufficient demand.</description>
+    <department>Electrical, Computer, and Systems Engineering</department>
+    <catalogNumber>ECSE-6250</catalogNumber>
+    <credits>3</credits>
+    <prerequisites/>
+    <corequisites>
+      <course>
+        <catalogNumber>ECSE-6230</catalogNumber>
+        <credits>0</credits>
+      </course>
+    </corequisites>
+    <availableTerms>
+      <rpiplanner.model.YearPart>FALL</rpiplanner.model.YearPart>
+      <rpiplanner.model.YearPart>SPRING</rpiplanner.model.YearPart>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Semiconductor Power Devices</title>
+    <description>Special problems of semiconductor devices operating at high voltage and high current levels. Devices include p-i-n and Schottky diodes, bipolar junction transistors, power MOSFETs and thyristors. Topics include space charge limited current flow, microplasmas, avalanche breakdown, junction termination, high-level injection, emitter crowding, double injection, second breakdown, triggering mechanisms, plasma propagation, switching and recovery characteristics. Introduction to the Insulated-Gate Bipolar Transistor.</description>
+    <department>Electrical, Computer, and Systems Engineering</department>
+    <catalogNumber>ECSE-6260</catalogNumber>
+    <credits>3</credits>
+    <prerequisites>
+      <course>
+        <catalogNumber>ECSE-6230</catalogNumber>
+        <credits>0</credits>
+      </course>
+      <course>
+        <catalogNumber>ECSE-6290</catalogNumber>
+        <credits>0</credits>
+      </course>
+    </prerequisites>
+    <corequisites/>
+    <availableTerms>
+      <rpiplanner.model.YearPart>SPRING</rpiplanner.model.YearPart>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Optoelectronics</title>
+    <description>A brief review of interaction of light with matter. Operating principles, basic designs and applications of optoelectronic devices such as Light Emitting Diodes, Laser Diodes, Photodetectors and Solar Cells. Electro-optic, Acousto-optic and Non-linear optic based optical components such as Modulators, Switches, Couplers, Multiplexers and Amplifiers. Optical Waveguides and Fibers. Optoelectronic Applications such as Fiber Optic and Free Space Optical Communication, Photovoltaics, Thermophotovoltaics, and Solid State Lighting.
+
+  NOTE: Offered on sufficient demand.</description>
+    <department>Electrical, Computer, and Systems Engineering</department>
+    <catalogNumber>ECSE-6270</catalogNumber>
+    <credits>3</credits>
+    <prerequisites>
+      <course>
+        <catalogNumber>ECSE-2210</catalogNumber>
+        <credits>0</credits>
+      </course>
+      <course>
+        <catalogNumber>ECSE-4720</catalogNumber>
+        <credits>0</credits>
+      </course>
+    </prerequisites>
+    <corequisites/>
+    <availableTerms>
+      <rpiplanner.model.YearPart>SPRING</rpiplanner.model.YearPart>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Semiconductor Devices and Models II</title>
+    <description>A continuation of ECSE 6230. Physical operation of insulated-gate and heterojunction field-effect devices including short-channel and hot-carrier effects. Studies of other heterojunction devices emphasize the exploitation of particular quantum-mechanical phenomena to achieve unique device behavior.</description>
+    <department>Electrical, Computer, and Systems Engineering</department>
+    <catalogNumber>ECSE-6290</catalogNumber>
+    <credits>3</credits>
+    <prerequisites>
+      <course>
+        <catalogNumber>ECSE-6230</catalogNumber>
+        <credits>0</credits>
+      </course>
+    </prerequisites>
+    <corequisites/>
+    <availableTerms>
+      <rpiplanner.model.YearPart>SPRING</rpiplanner.model.YearPart>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Integrated Circuit Fabrication Laboratory</title>
+    <description>Theory and practice of IC fabrication in a research laboratory environment. Test chips are fabricated and the resulting devices and circuits evaluated. Processes and fabrication equipment studied and used include oxidation/diffusion, CVD reactors, photolithography, plasma etching, vacuum evaporator, ion implantation, etc. Instruments used in process monitoring and final testing include thin film profilometer, ellipsometer, resistivity probe, scanning electron microscope, capacitance-voltage system, etc. The fundamentals of hazardous material handling and clean room procedures are studied.
+
+  Cross listed as MTLE 6300. Students cannot receive credit for both this course and MTLE 6300.</description>
+    <department>Electrical, Computer, and Systems Engineering</department>
+    <catalogNumber>ECSE-6300</catalogNumber>
+    <credits>3</credits>
+    <prerequisites>
+      <course>
+        <catalogNumber>ECSE-4250</catalogNumber>
+        <credits>0</credits>
+      </course>
+    </prerequisites>
+    <corequisites/>
+    <availableTerms>
+      <rpiplanner.model.YearPart>SPRING</rpiplanner.model.YearPart>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Plasma Dynamics I</title>
+    <description>Analysis of the dynamics of plasma behavior in terms of statistical models. Development of the Boltzmann equation, the moment equations of continuity, momentum, and energy, and their application to plasma transport processes.
+
+  NOTE: odd-numbered years ONLY</description>
+    <department>Electrical, Computer, and Systems Engineering</department>
+    <catalogNumber>ECSE-6310</catalogNumber>
+    <credits>3</credits>
+    <prerequisites/>
+    <corequisites/>
+    <availableTerms>
+      <rpiplanner.model.YearPart>FALL</rpiplanner.model.YearPart>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Plasma Dynamics II</title>
+    <description>Plasma kinetic theory, suitability of magnetically confined plasmas, plasma radiation, plasma turbulence.
+
+  NOTE: even-numbered years ONLY</description>
+    <department>Electrical, Computer, and Systems Engineering</department>
+    <catalogNumber>ECSE-6320</catalogNumber>
+    <credits>3</credits>
+    <prerequisites>
+      <course>
+        <catalogNumber>ECSE-6310</catalogNumber>
+        <credits>0</credits>
+      </course>
+    </prerequisites>
+    <corequisites/>
+    <availableTerms>
+      <rpiplanner.model.YearPart>SPRING</rpiplanner.model.YearPart>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Plasma Devices</title>
+    <description>Analysis of magnetically confined high-temperature devices. Equilibrium and stability of a variety of magnetic confinement systems. Diagnostic techniques, current status of experimental results, and relationship to the development of controlled fusion.
+
+  NOTE: Offered on sufficient demand.</description>
+    <department>Electrical, Computer, and Systems Engineering</department>
+    <catalogNumber>ECSE-6330</catalogNumber>
+    <credits>3</credits>
+    <prerequisites>
+      <course>
+        <catalogNumber>ECSE-6320</catalogNumber>
+        <credits>0</credits>
+      </course>
+    </prerequisites>
+    <corequisites/>
+    <availableTerms>
+      <rpiplanner.model.YearPart>FALL</rpiplanner.model.YearPart>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Plasma Diagnostics</title>
+    <description>Investigation of the major diagnostic techniques used for measuring parameters in magnetically confined plasmas. Several examples of mechanical, radiation, and particle techniques are developed. Emphasis is placed on the basic principles behind each technique, the hardware necessary to perform the measurements, the space and time limitations on the technique, and its role in studying fusion-oriented plasmas.</description>
+    <department>Electrical, Computer, and Systems Engineering</department>
+    <catalogNumber>ECSE-6340</catalogNumber>
+    <credits>3</credits>
+    <prerequisites>
+      <course>
+        <catalogNumber>ECSE-6310</catalogNumber>
+        <credits>0</credits>
+      </course>
+      <course>
+        <catalogNumber>ECSE-6320</catalogNumber>
+        <credits>0</credits>
+      </course>
+    </prerequisites>
+    <corequisites/>
+    <availableTerms>
+      <rpiplanner.model.YearPart>SPRING</rpiplanner.model.YearPart>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Systems Analysis Techniques</title>
+    <description>Methods of analysis for continuous and discrete-time linear systems. Convolution, classical solution of dynamic equations, transforms and matrices are reviewed. Emphasis is on the concept of state space. Linear spaces, concept of state, modes, controllability, observability, state transition matrix. State variable feedback, compensation, decoupling.</description>
+    <department>Electrical, Computer, and Systems Engineering</department>
+    <catalogNumber>ECSE-6400</catalogNumber>
+    <credits>3</credits>
+    <prerequisites>
+      <course>
+        <catalogNumber>ECSE-2410</catalogNumber>
+        <credits>0</credits>
+      </course>
+    </prerequisites>
+    <corequisites/>
+    <availableTerms>
+      <rpiplanner.model.YearPart>FALL</rpiplanner.model.YearPart>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Nonlinear Control Systems</title>
+    <description>Phenomena peculiar to nonlinear systems. Linearization, iteration, and perturbation procedures. Describing function stability analysis. Phase plane methods. Relaxation oscillations and limit cycles. Stability analysis by Lyapunov?s method. Popov?s theorem. Adaptive control systems. Sensitivity analysis.
+
+  NOTE: prerequisite can be skipped on permission of instructor</description>
+    <department>Electrical, Computer, and Systems Engineering</department>
+    <catalogNumber>ECSE-6420</catalogNumber>
+    <credits>3</credits>
+    <prerequisites>
+      <course>
+        <catalogNumber>ECSE-6400</catalogNumber>
+        <credits>0</credits>
+      </course>
+    </prerequisites>
+    <corequisites/>
+    <availableTerms>
+      <rpiplanner.model.YearPart>SPRING</rpiplanner.model.YearPart>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Optimization Methods</title>
+    <description>Linear programming, nonlinear programming, iterative methods, and dynamic programming are presented, especially as they relate to optimal control problems. Discrete and continuous optimal regulators are derived from dynamic programming approach, which also leads to the Hamilton-Jacobi-Bellman Equation and the Minimum Principle. Linear quadratic regulators, linear tracking problems, and output regulators are treated. Linear observer and the separation theorem are developed for feedback controller implementation.</description>
+    <department>Electrical, Computer, and Systems Engineering</department>
+    <catalogNumber>ECSE-6430</catalogNumber>
+    <credits>3</credits>
+    <prerequisites>
+      <course>
+        <catalogNumber>ECSE-2410</catalogNumber>
+        <credits>0</credits>
+      </course>
+    </prerequisites>
+    <corequisites/>
+    <availableTerms>
+      <rpiplanner.model.YearPart>FALL</rpiplanner.model.YearPart>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Optimal Control Theory</title>
+    <description>The concepts, techniques, and tools related to optimal control for dynamical systems. Major topics include calculus of variation, minimum principle, dynamic programming, optimal estimation, and differential games. Both discrete time systems and continuous times are addressed. Particular consideration is given to linear time invariant systems in terms of linear quadratic regulator and Kalman filter.
+
+  NOTE: even-numbered years ONLY</description>
+    <department>Electrical, Computer, and Systems Engineering</department>
+    <catalogNumber>ECSE-6440</catalogNumber>
+    <credits>3</credits>
+    <prerequisites>
+      <course>
+        <catalogNumber>ECSE-6400</catalogNumber>
+        <credits>0</credits>
+      </course>
+    </prerequisites>
+    <corequisites/>
+    <availableTerms>
+      <rpiplanner.model.YearPart>SPRING</rpiplanner.model.YearPart>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Multivariable Control Systems</title>
+    <description>Tools and methods for the analysis and design of linear multivariable feedback systems. Topics include the connection between frequency domain and state space models and methods, model identification, model reduction, model uncertainty and closed loop performance, convex analysis and design methods, optimal controller synthesis using H2, H-infinity, and structured singular value criteria.
+
+  NOTE: even-numbered years ONLY</description>
+    <department>Electrical, Computer, and Systems Engineering</department>
+    <catalogNumber>ECSE-6460</catalogNumber>
+    <credits>3</credits>
+    <prerequisites>
+      <course>
+        <catalogNumber>ECSE-6400</catalogNumber>
+        <credits>0</credits>
+      </course>
+    </prerequisites>
+    <corequisites/>
+    <availableTerms>
+      <rpiplanner.model.YearPart>FALL</rpiplanner.model.YearPart>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Adaptive Systems</title>
+    <description>This course contains the fundamental theory required to design adaptive systems. Topics include parameter identification, ARMA modeling, model reference systems, model algorithmic control, self-tuning systems, and adaptive filtering. Applications to physical and physiological systems are introduced.
+
+  Cross-listed as BMED 6480. Students cannot receive credit for both this course and BMED 6480.</description>
+    <department>Electrical, Computer, and Systems Engineering</department>
+    <catalogNumber>ECSE-6480</catalogNumber>
+    <credits>3</credits>
+    <prerequisites>
+      <course>
+        <catalogNumber>ECSE-6400</catalogNumber>
+        <credits>0</credits>
+      </course>
+    </prerequisites>
+    <corequisites/>
+    <availableTerms>
+      <rpiplanner.model.YearPart>SPRING</rpiplanner.model.YearPart>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Robotics II</title>
+    <description>This course introduces methods that leverage the basic analysis techniques learned in Robotics I to develop numerical and algorithmic techniques needed to endow robots with the ?intelligence? to devise strategies to solve problems they will encounter. Once these abilities are sufficiently well developed, robots will become safe and autonomous, thus paving the way for pervasive personal robots. Topics include: configuration space representation, cell decomposition, roadmap methods, rapidly-exploring random trees, simultaneous localization and mapping, contact modeling, grasping, and dexterous manipulation.
+
+  Cross-listed as ECSE 4490, CSCI 4490 and CSCI 6490. Students cannot receive credit for both this course and ECSE 4490, CSCI 4490 or CSCI 6490.</description>
+    <department>Electrical, Computer, and Systems Engineering</department>
+    <catalogNumber>ECSE-6490</catalogNumber>
+    <credits>3</credits>
+    <prerequisites>
+      <course>
+        <catalogNumber>ECSE-4480</catalogNumber>
+        <credits>0</credits>
+      </course>
+    </prerequisites>
+    <corequisites/>
+    <availableTerms>
+      <rpiplanner.model.YearPart>SPRING</rpiplanner.model.YearPart>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Introduction to Stochastic Signals and Systems</title>
+    <description>Deterministic signal representations and analysis, introduction to random processes and spectral analysis, correlation function and power spectral density of stationary processes, noise mechanisms, the Gaussian and Poisson processes. Markov processes, the analysis of linear  and nonlinear systems with random inputs, stochastic signal representations, orthogonal expansions, the Karhunen-Loeve series, channel characterization, introduction to signal detection, linear mean-square filtering, the orthogonality principle, optimum Wiener and Kalman filtering, modulation theory, and systems analysis.</description>
+    <department>Electrical, Computer, and Systems Engineering</department>
+    <catalogNumber>ECSE-6510</catalogNumber>
+    <credits>3</credits>
+    <prerequisites>
+      <course>
+        <catalogNumber>ECSE-2410</catalogNumber>
+        <credits>0</credits>
+      </course>
+      <course>
+        <catalogNumber>ECSE-4500</catalogNumber>
+        <credits>0</credits>
+      </course>
+    </prerequisites>
+    <corequisites/>
+    <availableTerms>
+      <rpiplanner.model.YearPart>FALL</rpiplanner.model.YearPart>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Detection and Estimation Theory</title>
+    <description>Classical statistical decision theory, decision criteria, binary and composite hypothesis tests. Statistical models of signals and noise. Detection of known signals in Gaussian noise. Receiver operating characteristics and error probability. Applications to radar and communications. Detection of signals with unknown or random parameters, detection of stochastic signals, nonparametric detection techniques. Statistical estimation theory, performance measures. Cramer-Rao bounds, estimation of unknown signal parameters, optimum demodulation, signal design.
+
+  NOTE: probability theory required</description>
+    <department>Electrical, Computer, and Systems Engineering</department>
+    <catalogNumber>ECSE-6520</catalogNumber>
+    <credits>3</credits>
+    <prerequisites>
+      <course>
+        <catalogNumber>ECSE-6510</catalogNumber>
+        <credits>0</credits>
+      </course>
+    </prerequisites>
+    <corequisites/>
+    <availableTerms>
+      <rpiplanner.model.YearPart>SPRING</rpiplanner.model.YearPart>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Information Theory and Coding</title>
+    <description>Information measures, characterization of information sources, coding for discrete sources, the noiseless coding theorems, construction of Huffman codes. Discrete channel characterization, channel capacity, noisy-channel coding theorems, reliability exponents. Various error-control coding and decoding techniques, including block and convolutional codes. Introduction to waveform channels and rate distortion theory.</description>
+    <department>Electrical, Computer, and Systems Engineering</department>
+    <catalogNumber>ECSE-6530</catalogNumber>
+    <credits>3</credits>
+    <prerequisites/>
+    <corequisites>
+      <course>
+        <catalogNumber>ECSE-6510</catalogNumber>
+        <credits>0</credits>
+      </course>
+    </corequisites>
+    <availableTerms>
+      <rpiplanner.model.YearPart>FALL</rpiplanner.model.YearPart>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Stochastic Processes in Communication and Control</title>
+    <description>Review of measure and integration theory, elements of probability, random variables, conditional probability, and expectations. Stochastic processes, stationarity and ergodicity. Gaussian processes and Brownian motion, the Poisson process. Markov processes, wide-sense stationary processes, spectral representations, linear prediction and filtering. Stochastic integrals and differential equations, white noise and the stochastic calculus, the Fokker-Planck equation, diffusion processes, recursive filtering and estimation, evaluation of likelihood ratios. Applications in communication, information processing, and control.
+
+  NOTE: Offered on sufficient demand.</description>
+    <department>Electrical, Computer, and Systems Engineering</department>
+    <catalogNumber>ECSE-6550</catalogNumber>
+    <credits>3</credits>
+    <prerequisites>
+      <course>
+        <catalogNumber>ECSE-6510</catalogNumber>
+        <credits>0</credits>
+      </course>
+    </prerequisites>
+    <corequisites/>
+    <availableTerms>
+      <rpiplanner.model.YearPart>FALL</rpiplanner.model.YearPart>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Digital Communications Engineering</title>
+    <description>The functional characterization of digital signals and transmission facilities, band-limited and duration-limited signals, modulation and demodulation techniques for digital signals, error probability, intersymbol interference and its effects, equalization and optimization of baseband binary and M-ary signaling systems, error control coding techniques, digital filtering current practices in modern design. Introduction to communication networks and switched systems, store-and-forward communication systems, broadband communication techniques, channel protocol, current developments in digital communication systems design and operation.</description>
+    <department>Electrical, Computer, and Systems Engineering</department>
+    <catalogNumber>ECSE-6560</catalogNumber>
+    <credits>3</credits>
+    <prerequisites>
+      <course>
+        <catalogNumber>ECSE-4520</catalogNumber>
+        <credits>0</credits>
+      </course>
+    </prerequisites>
+    <corequisites/>
+    <availableTerms>
+      <rpiplanner.model.YearPart>FALL</rpiplanner.model.YearPart>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Digital Signal Compression: Data Compression in Theory and Practice</title>
+    <description>Principles of efficient digital representation of analog signals and their application to images, audio, and multimedia signals. Topics include rate-distortion theory, scalar and vector quantization, trellis-coded quantization (TCQ), entropy coding, Huffman coding, arithmetic coding, bit-plane coding, set partition coding, Ziv-Lempel coding, PCM, DPCM, transform coding, subband/wavelet coding, and tree/trellis coding. Certain standard or oft-used systems, evolving or current, such as JPEG, JPEG2000, JPEG-LS, Wavelet/TCQ, EZW, SPIHT, FBI Fingerprint, and MPEG will be treated.</description>
+    <department>Electrical, Computer, and Systems Engineering</department>
+    <catalogNumber>ECSE-6570</catalogNumber>
+    <credits>3</credits>
+    <prerequisites>
+      <course>
+        <catalogNumber>ECSE-6510</catalogNumber>
+        <credits>0</credits>
+      </course>
+    </prerequisites>
+    <corequisites/>
+    <availableTerms>
+      <rpiplanner.model.YearPart>SPRING</rpiplanner.model.YearPart>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Theory of Digital Communications</title>
+    <description>Review of the discrete Gaussian noise channel and development of coding theorems. Waveform channels, orthonormal expansions of signals and Gaussian noise, the vector model of waveform channels, time-bandwidth and dimensionality, optimum receiver principles, channel capacity and reliability functions, signal design and selection. Coding for the Gaussian noise channel, theoretical performance bounds, implementation of error control coding, techniques for overall system evaluation, investigation of fundamental rate versus reliability tradeoffs.</description>
+    <department>Electrical, Computer, and Systems Engineering</department>
+    <catalogNumber>ECSE-6580</catalogNumber>
+    <credits>3</credits>
+    <prerequisites>
+      <course>
+        <catalogNumber>ECSE-6510</catalogNumber>
+        <credits>0</credits>
+      </course>
+    </prerequisites>
+    <corequisites/>
+    <availableTerms>
+      <rpiplanner.model.YearPart>SPRING</rpiplanner.model.YearPart>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Principles of Wireless Communications</title>
+    <description>A comprehensive description of the concepts used in modern wireless and cellular systems. The general topics covered will be wireless channel models, multi-access issues, such as FDMA/TDMA and CDMA with a brief view of GSM, descriptions of digital transmission methods in wireless, receiver diversity, channel estimation and multi-user detection, and wideband communications. We will address the topics of system capacity and the effects of automatic power control, wireless networks, and DSP applications for wireless.</description>
+    <department>Electrical, Computer, and Systems Engineering</department>
+    <catalogNumber>ECSE-6590</catalogNumber>
+    <credits>3</credits>
+    <prerequisites>
+      <course>
+        <catalogNumber>ECSE-6510</catalogNumber>
+        <credits>0</credits>
+      </course>
+      <course>
+        <catalogNumber>ECSE-6560</catalogNumber>
+        <credits>0</credits>
+      </course>
+    </prerequisites>
+    <corequisites/>
+    <availableTerms>
+      <rpiplanner.model.YearPart>SPRING</rpiplanner.model.YearPart>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Internet Protocols</title>
+    <description>This course will cover concepts and protocols which enable heterogeneous computer networks to work with each other, including transport (TCP, UDP), network (IP, IPng), routing (RIP, OSPF), network management (SNMP, SNMPv2, RMON), and other important protocols like ARP, ICMP, DNS, BOOTP, DHCP and HTTP. Advanced topics like Mobile IP, Real-time and reservation protocols (RTP, RSVP), IP multicast (IGMP, MBONE) and network security will also be examined. Emphasis will be on breadth of coverage, as well as hands-on programming experiences.
+
+  NOTE: Unclear when course is offered</description>
+    <department>Electrical, Computer, and Systems Engineering</department>
+    <catalogNumber>ECSE-6600</catalogNumber>
+    <credits>3</credits>
+    <prerequisites>
+      <course>
+        <catalogNumber>ECSE-4670</catalogNumber>
+        <credits>0</credits>
+      </course>
+    </prerequisites>
+    <corequisites/>
+    <availableTerms>
+      <rpiplanner.model.YearPart>FALL</rpiplanner.model.YearPart>
+      <rpiplanner.model.YearPart>SPRING</rpiplanner.model.YearPart>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Pattern Recognition</title>
+    <description>Structure of pattern classification problems. Mathematics of statistical decision theory: random vectors, multivariate probability functions, discriminants, parametric and nonparametric techniques, Bayesian and maximum likelihood estimation, feature selection, dimensionality reduction, whitening transformations. Adaptive methods and clustering. Five programming assignments and a term paper.</description>
+    <department>Electrical, Computer, and Systems Engineering</department>
+    <catalogNumber>ECSE-6610</catalogNumber>
+    <credits>3</credits>
+    <prerequisites>
+      <course>
+        <catalogNumber>ECSE-4500</catalogNumber>
+        <credits>0</credits>
+      </course>
+    </prerequisites>
+    <corequisites/>
+    <availableTerms>
+      <rpiplanner.model.YearPart>FALL</rpiplanner.model.YearPart>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Digital Signal Processing</title>
+    <description>A comprehensive treatment of the theory, design, and implementation of digital signal processing structures. The sampling, quantization, and reconstruction process. Design of digital filters in both the time and frequency domains. Analysis of finite word length effects. Theory and applications of discrete Fourier transforms and the FFT algorithm. Applications from the communication, control, and radar signal processing areas.</description>
+    <department>Electrical, Computer, and Systems Engineering</department>
+    <catalogNumber>ECSE-6620</catalogNumber>
+    <credits>3</credits>
+    <prerequisites>
+      <course>
+        <catalogNumber>ECSE-4500</catalogNumber>
+        <credits>0</credits>
+      </course>
+    </prerequisites>
+    <corequisites/>
+    <availableTerms>
+      <rpiplanner.model.YearPart>FALL</rpiplanner.model.YearPart>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Digital Image and Video Processing</title>
+    <description>Theory of multidimensional signal processing and its application to digital image and video processing. The first half will cover signals and systems, Fourier transform, z-transform, discrete Fourier transform, FIR and IIR filters and their design. The emphasis will be on the unexpected and important differences from the one-dimensional case. The second half consists of applications in image and video signal processing, e.g., compression coding, noise reduction, motion estimation, deblurring, and restoration.</description>
+    <department>Electrical, Computer, and Systems Engineering</department>
+    <catalogNumber>ECSE-6630</catalogNumber>
+    <credits>3</credits>
+    <prerequisites>
+      <course>
+        <catalogNumber>ECSE-6510</catalogNumber>
+        <credits>0</credits>
+      </course>
+    </prerequisites>
+    <corequisites/>
+    <availableTerms>
+      <rpiplanner.model.YearPart>SPRING</rpiplanner.model.YearPart>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Digital Picture Processing</title>
+    <description>Pictures and their computer representation. Image digitization, transform, and prediction methods. Image coding and image data compression. Digital enhancement techniques, histogram equalization, differencing, smoothing, and geometric corrections. Restoration and filtering. Edge detection and picture segmentation. Geometric analysis, connectedness, size, distance, directionality, and shape. Image processing languages and software. Applications from remote sensing, scene analysis, and medical-image analysis.
+
+  NOTE: Offered on sufficient demand.
+
+  NOTE: prior exposure to probability, stochastic processes, and assembler language programming is recommended but not required</description>
+    <department>Electrical, Computer, and Systems Engineering</department>
+    <catalogNumber>ECSE-6640</catalogNumber>
+    <credits>3</credits>
+    <prerequisites/>
+    <corequisites/>
+    <availableTerms>
+      <rpiplanner.model.YearPart>FALL</rpiplanner.model.YearPart>
+      <rpiplanner.model.YearPart>SPRING</rpiplanner.model.YearPart>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Computer Vision</title>
+    <description>Image formation and visual perception. Images, line structures, and line drawings. Preprocessing, boundary detection, texture, and region growing. Image representation in terms of boundaries, regions, and shape. Three-dimensional structures and their projections. Analysis, manipulation, and classification of image data. Knowledge-based approaches to image understanding. Applications from fields of robot vision, biomedical-image analysis, and satellite and aerial image interpretation.
+
+  NOTE: Offered on sufficient demand.</description>
+    <department>Electrical, Computer, and Systems Engineering</department>
+    <catalogNumber>ECSE-6650</catalogNumber>
+    <credits>3</credits>
+    <prerequisites/>
+    <corequisites/>
+    <availableTerms>
+      <rpiplanner.model.YearPart>FALL</rpiplanner.model.YearPart>
+      <rpiplanner.model.YearPart>SPRING</rpiplanner.model.YearPart>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Broadband &amp; Optical Networking</title>
+    <description>Review of fundamental concepts and protocols of broadband and optical networking. Convergence of telephony, Internet and cable networks lead to new architectural and protocol concepts. Concepts and architectures covered in this course include: high-speed switching and router-design, traffic engineering, fiber optical communications, optical networking concepts, protection/restoration/survivability, optical link layers, quality of service, and broadband last-mile technologies.</description>
+    <department>Electrical, Computer, and Systems Engineering</department>
+    <catalogNumber>ECSE-6660</catalogNumber>
+    <credits>3</credits>
+    <prerequisites>
+      <course>
+        <catalogNumber>ECSE-4670</catalogNumber>
+        <credits>0</credits>
+      </course>
+    </prerequisites>
+    <corequisites/>
+    <availableTerms>
+      <rpiplanner.model.YearPart>SPRING</rpiplanner.model.YearPart>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Local Computer Networks and Multiaccess Communication</title>
+    <description>Review of OSI and IEEE 802 layered network architectures. Related queuing theory including basic  Markov chain theory; M/M/1 and M/G/1 queues; and  reservation, polling, and token passing systems. Protocols for multiple access channels such as satellite and packet radio networks including ALOHA and carrier sensing protocols. Local area network protocols: CSMA/CD, token passing rings and buses, implicit token protocols, and protocols for fiber optic LANs. Emphasis throughout on access protocols and their analysis.
+
+  NOTE: even-numbered years ONLY</description>
+    <department>Electrical, Computer, and Systems Engineering</department>
+    <catalogNumber>ECSE-6670</catalogNumber>
+    <credits>3</credits>
+    <prerequisites>
+      <course>
+        <catalogNumber>ECSE-4500</catalogNumber>
+        <credits>0</credits>
+      </course>
+    </prerequisites>
+    <corequisites/>
+    <availableTerms>
+      <rpiplanner.model.YearPart>SPRING</rpiplanner.model.YearPart>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Advanced VLSI Design</title>
+    <description>The reliable development of VLSI designs. Topics include device modeling, comparative circuit performance, design for testability, multiprocessor architectures, and memory and microprocessor design. Laboratory experiments involve the use of an ensemble of CAD tools, including SPICE, placement and routing, and high-level design descriptions. A term report and project are required.
+
+  NOTE: Offered on availability of instructor.</description>
+    <department>Electrical, Computer, and Systems Engineering</department>
+    <catalogNumber>ECSE-6680</catalogNumber>
+    <credits>3</credits>
+    <prerequisites>
+      <course>
+        <catalogNumber>ECSE-4220</catalogNumber>
+        <credits>0</credits>
+      </course>
+    </prerequisites>
+    <corequisites/>
+    <availableTerms>
+      <rpiplanner.model.YearPart>FALL</rpiplanner.model.YearPart>
+      <rpiplanner.model.YearPart>SPRING</rpiplanner.model.YearPart>
+    </availableTerms>
+  </course>
+  <course>
+    <title>VLSI Design Automation</title>
+    <description>Software design aids for specifying IC design. Covers a spectrum of logic entry, simulation, placement, routing, network extraction, verification, PG tape generation, and testing. Use of a tool set for 2 micron CMOS gate array design using an industrial foundry. Designs are actually fabricated.
+
+  NOTE: Offered on sufficient demand.</description>
+    <department>Electrical, Computer, and Systems Engineering</department>
+    <catalogNumber>ECSE-6690</catalogNumber>
+    <credits>3</credits>
+    <prerequisites>
+      <course>
+        <catalogNumber>ECSE-4770</catalogNumber>
+        <credits>0</credits>
+      </course>
+    </prerequisites>
+    <corequisites/>
+    <availableTerms>
+      <rpiplanner.model.YearPart>FALL</rpiplanner.model.YearPart>
+      <rpiplanner.model.YearPart>SPRING</rpiplanner.model.YearPart>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Computer Architecture Prototyping with FPGA?s</title>
+    <description>An advanced design and laboratory course. Design methodologies include register transfer modules and firmware microprogrammed design. Advanced microprocessor topics. ?Bit-slice? philosophy of design. LSI microprocessors as design elements in larger digital systems such as high-speed channels and special purpose computers. Detailed discussion of the structure of several computers at the chip and board level. Emphasis on high-speed ECL and Schottky circuits. Specification of custom IC digital systems. FPGA based design implementation using VHDL. Students cannot receive credit for both this course and ECSE 4780.</description>
+    <department>Electrical, Computer, and Systems Engineering</department>
+    <catalogNumber>ECSE-6700</catalogNumber>
+    <credits>3</credits>
+    <prerequisites>
+      <course>
+        <catalogNumber>ECSE-4770</catalogNumber>
+        <credits>0</credits>
+      </course>
+    </prerequisites>
+    <corequisites/>
+    <availableTerms>
+      <rpiplanner.model.YearPart>SPRING</rpiplanner.model.YearPart>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Fuzzy Sets and Expert Systems</title>
+    <description>Introduction to fuzzy set theory and fuzzy logics: basic concepts, fuzzy logics operations. Semantic manipulation applied to case studies in approximate reasoning, linguistic modeling, decision theory, and cluster analysis. Expert systems architecture and applications. Symbolic manipulation knowledge representation, control structure, and explanation capabilities. Analysis of expert systems such as MYCIN, PROSPECTOR, OPS5, DELTA.
+
+  NOTE: expertise in a high-level programming language, some knowledge of probability</description>
+    <department>Electrical, Computer, and Systems Engineering</department>
+    <catalogNumber>ECSE-6710</catalogNumber>
+    <credits>3</credits>
+    <prerequisites/>
+    <corequisites/>
+    <availableTerms>
+      <rpiplanner.model.YearPart>FALL</rpiplanner.model.YearPart>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Neural Network Computing</title>
+    <description>The theoretical background for learning using neural networks and important issues in the applications of neural networks. Topics include perception, associative memory, multilayer networks, recurrent networks, learning and generalization capabilities, training algorithms, learning with prior knowledge, and examples in applications.
+
+  NOTE: Offered on sufficient demand.
+
+  NOTE: familiarity with probability theory, linear algebra, and FORTRAN or C programming</description>
+    <department>Electrical, Computer, and Systems Engineering</department>
+    <catalogNumber>ECSE-6720</catalogNumber>
+    <credits>3</credits>
+    <prerequisites/>
+    <corequisites/>
+    <availableTerms>
+      <rpiplanner.model.YearPart>FALL</rpiplanner.model.YearPart>
+      <rpiplanner.model.YearPart>SPRING</rpiplanner.model.YearPart>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Fault-Tolerant Digital Systems</title>
+    <description>Theory and techniques for the diagnosis of hardware faults in digital systems and the design of fault-tolerant systems. Fault detection and diagnosis in logic networks. Static and dynamic redundancy to achieve error detection and error correction.
+
+  NOTE: Offered on sufficient demand.</description>
+    <department>Electrical, Computer, and Systems Engineering</department>
+    <catalogNumber>ECSE-6730</catalogNumber>
+    <credits>3</credits>
+    <prerequisites>
+      <course>
+        <catalogNumber>ECSE-2610</catalogNumber>
+        <credits>0</credits>
+      </course>
+    </prerequisites>
+    <corequisites/>
+    <availableTerms>
+      <rpiplanner.model.YearPart>FALL</rpiplanner.model.YearPart>
+      <rpiplanner.model.YearPart>SPRING</rpiplanner.model.YearPart>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Finite-State Machine Theory</title>
+    <description>Topics vary from year to year and may include methods of representation for finite-state machines, state assignments, machine decomposition theory. Experiments on finite-state machines, finite-memory machines, information-lossless machines. Linear machines, probabilistic machines, cellular arrays.
+
+  NOTE: Offered on sufficient demand.</description>
+    <department>Electrical, Computer, and Systems Engineering</department>
+    <catalogNumber>ECSE-6750</catalogNumber>
+    <credits>3</credits>
+    <prerequisites>
+      <course>
+        <catalogNumber>ECSE-2610</catalogNumber>
+        <credits>0</credits>
+      </course>
+    </prerequisites>
+    <corequisites/>
+    <availableTerms>
+      <rpiplanner.model.YearPart>FALL</rpiplanner.model.YearPart>
+      <rpiplanner.model.YearPart>SPRING</rpiplanner.model.YearPart>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Software Engineering I</title>
+    <description>Engineering approach to the development of small and large programming projects. The life cycle steps of project planning, requirements analysis and specification, design, production, testing and maintenance of programming systems. Examples from current literature. Use of Unix workstations and a team project with object-oriented analysis are required.</description>
+    <department>Electrical, Computer, and Systems Engineering</department>
+    <catalogNumber>ECSE-6770</catalogNumber>
+    <credits>3</credits>
+    <prerequisites>
+      <course>
+        <catalogNumber>ECSE-2660</catalogNumber>
+        <credits>0</credits>
+      </course>
+      <course>
+        <catalogNumber>CSCI-2300</catalogNumber>
+        <credits>0</credits>
+      </course>
+    </prerequisites>
+    <corequisites/>
+    <availableTerms>
+      <rpiplanner.model.YearPart>FALL</rpiplanner.model.YearPart>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Software Engineering II</title>
+    <description>Continuation of ECSE 6770. Current techniques in software engineering with topics selected from economics, reusability, reliable software, program analysis, reverse engineering, CASE tools, automatic code generation, and project management techniques.</description>
+    <department>Electrical, Computer, and Systems Engineering</department>
+    <catalogNumber>ECSE-6780</catalogNumber>
+    <credits>3</credits>
+    <prerequisites>
+      <course>
+        <catalogNumber>ECSE-6770</catalogNumber>
+        <credits>0</credits>
+      </course>
+    </prerequisites>
+    <corequisites/>
+    <availableTerms>
+      <rpiplanner.model.YearPart>SPRING</rpiplanner.model.YearPart>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Computational Geometry</title>
+    <description>Literature survey of current research in computational geometry and theoretical computer graphics showing recent efficient algorithms useful in graphics and CAD. Algorithms such as Voronoi networks, geometric searching, convex hulls, divide and conquer in multidimensional space, repeated rotation, preprocessing scenes to draw back to front from any viewpoint, new hidden surface algorithms, haloed line elimination, polyhedron intersection, and algorithms for scenes with thousands of faces are discussed. Major research paper required.
+
+  NOTE: Offered on sufficient demand.</description>
+    <department>Electrical, Computer, and Systems Engineering</department>
+    <catalogNumber>ECSE-6790</catalogNumber>
+    <credits>3</credits>
+    <prerequisites>
+      <course>
+        <catalogNumber>ECSE-4710</catalogNumber>
+        <credits>0</credits>
+      </course>
+    </prerequisites>
+    <corequisites/>
+    <availableTerms>
+      <rpiplanner.model.YearPart>FALL</rpiplanner.model.YearPart>
+      <rpiplanner.model.YearPart>SPRING</rpiplanner.model.YearPart>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Advanced 3-D Computer Graphics and Visualization</title>
+    <description>This course will cover 3-D graphical application programmer interfaces (APIs) and advanced rendering techniques, visulation pipelines, creating simulations, and visualization packages. Also covered will be algorithms for extracting visual information from data sets, such as determining iso-surfaces, contours, and cut planes. A programming emphasis will be on object-oriented design and systems. Term project required.</description>
+    <department>Electrical, Computer, and Systems Engineering</department>
+    <catalogNumber>ECSE-6800</catalogNumber>
+    <credits>3</credits>
+    <prerequisites>
+      <course>
+        <catalogNumber>ECSE-4750</catalogNumber>
+        <credits>0</credits>
+      </course>
+    </prerequisites>
+    <corequisites/>
+    <availableTerms>
+      <rpiplanner.model.YearPart>SPRING</rpiplanner.model.YearPart>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Queuing Systems and Applications</title>
+    <description>A course on fundamentals of stochastic processes and queuing theory emphasizing applications. Poisson processes, renewal processes, Markov chains, general methods in the study of Markovian and non-Markovian systems, tandem queues, networks of queues, priority and bulk queues, computational methods, and simulation. Focus of the course is the application of these tools in the performance evaluation and design of computer systems, communication networks, manufacturing systems, and service systems.
+
+  Cross-listed as DSES 6820. Students cannot receive credit for both this course and DSES 6820.
+
+  NOTE: even-numbered years ONLY</description>
+    <department>Electrical, Computer, and Systems Engineering</department>
+    <catalogNumber>ECSE-6820</catalogNumber>
+    <credits>3</credits>
+    <prerequisites>
+      <course>
+        <catalogNumber>ECSE-4500</catalogNumber>
+        <credits>0</credits>
+      </course>
+    </prerequisites>
+    <corequisites/>
+    <availableTerms>
+      <rpiplanner.model.YearPart>SPRING</rpiplanner.model.YearPart>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Large-Scale Systems: Case Studies and Analyses</title>
+    <description>A case-study approach introducing the systems method to analyze large-scale systems. Qualitative and quantitative study of the problems, from problem examination, to problem definition, to problem solution, and to implementation. Case studies in manufacturing, transportation, community development, water resources, and criminal justice. Emphasis is on analysis of real-world problems, using techniques of systems engineering and operations research, and considering diverse factors such as economic, technical, sociological, and environmental issues.
+
+  Cross-listed as DSES 6830. Students cannot receive credit for both this course and DSES 6830.
+
+  NOTE: odd-numbered years ONLY</description>
+    <department>Electrical, Computer, and Systems Engineering</department>
+    <catalogNumber>ECSE-6830</catalogNumber>
+    <credits>3</credits>
+    <prerequisites>
+      <course>
+        <catalogNumber>ECSE-4500</catalogNumber>
+        <credits>0</credits>
+      </course>
+    </prerequisites>
+    <corequisites/>
+    <availableTerms>
+      <rpiplanner.model.YearPart>FALL</rpiplanner.model.YearPart>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Modeling Large-Scale Systems</title>
+    <description>Applications of operations research and systems analysis techniques to mathematical modeling of complex systems, especially large-scale public systems. Discussion of model-building approaches, emphasizing the role of creativity, rationality, and mathematics. Introduction of important quantitative techniques (e.g., geometrical probability, optimization theory, and stochastic processes) and their application to modeling emergency service systems, spatial distribution of public service facilities, congestion, land-use patterns, transportation systems, demographics, and energy.
+
+  Cross-listed as DSES 6840. Students cannot receive credit for both this course and DSES 6840)</description>
+    <department>Electrical, Computer, and Systems Engineering</department>
+    <catalogNumber>ECSE-6840</catalogNumber>
+    <credits>3</credits>
+    <prerequisites>
+      <course>
+        <catalogNumber>MATP-4700</catalogNumber>
+        <credits>0</credits>
+      </course>
+      <course>
+        <catalogNumber>ECSE-4500</catalogNumber>
+        <credits>0</credits>
+      </course>
+    </prerequisites>
+    <corequisites/>
+    <availableTerms>
+      <rpiplanner.model.YearPart>FALL</rpiplanner.model.YearPart>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Evaluation Methods for Decision Making</title>
+    <description>Evaluation provides structured information for policy-relevant decision making based on a purposeful analysis of the identified measures. Topics include test hypotheses, randomization/control schemes, measures framework, measurement methods, and pertinent analytic techniques. Emphasis is on the application of evaluation methods (including systems engineering and operations research techniques) to issues arising in criminal justice, education, health, housing, transportation, welfare, automated information systems, and military programs.
+
+  Cross-listed as DSES 6860. Students cannot receive credit for both this course and DSES 6860.
+
+  NOTE: odd-numbered years ONLY</description>
+    <department>Electrical, Computer, and Systems Engineering</department>
+    <catalogNumber>ECSE-6860</catalogNumber>
+    <credits>3</credits>
+    <prerequisites>
+      <course>
+        <catalogNumber>ECSE-4500</catalogNumber>
+        <credits>0</credits>
+      </course>
+    </prerequisites>
+    <corequisites/>
+    <availableTerms>
+      <rpiplanner.model.YearPart>FALL</rpiplanner.model.YearPart>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Seminar in Electrical, Computer, and Systems Engineering</title>
+    <description>
+
+  NOTE: Unclear when course is offered</description>
+    <department>Electrical, Computer, and Systems Engineering</department>
+    <catalogNumber>ECSE-6900</catalogNumber>
+    <credits>0</credits>
+    <prerequisites/>
+    <corequisites/>
+    <availableTerms>
+      <rpiplanner.model.YearPart>FALL</rpiplanner.model.YearPart>
+      <rpiplanner.model.YearPart>SPRING</rpiplanner.model.YearPart>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Readings in Electrical, Computer, and Systems Engineering</title>
+    <description>Supervised reading and problems, by individual arrangement.
+
+  NOTE: Unclear when course is offered</description>
+    <department>Electrical, Computer, and Systems Engineering</department>
+    <catalogNumber>ECSE-6940</catalogNumber>
+    <credits>1</credits>
+    <prerequisites/>
+    <corequisites/>
+    <availableTerms>
+      <rpiplanner.model.YearPart>FALL</rpiplanner.model.YearPart>
+      <rpiplanner.model.YearPart>SPRING</rpiplanner.model.YearPart>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Topics in Electrical, Computer, and Systems Engineering</title>
+    <description>New or special courses are presented under this listing from time to time.
+
+  NOTE: Unclear when course is offered</description>
+    <department>Electrical, Computer, and Systems Engineering</department>
+    <catalogNumber>ECSE-6960</catalogNumber>
+    <credits>3</credits>
+    <prerequisites/>
+    <corequisites/>
+    <availableTerms>
+      <rpiplanner.model.YearPart>FALL</rpiplanner.model.YearPart>
+      <rpiplanner.model.YearPart>SPRING</rpiplanner.model.YearPart>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Professional Project</title>
+    <description>Active participation in a semester-long project, under the supervision of a faculty adviser. A Professional Project often serves as a culminating experience for a Professional Master?s program but, with departmental or school approval, can be used to fulfill other program requirements. With approval, students may register for more than one Professional Project. Professional Projects must result in documentation established by each department or school, but are not submitted to the Graduate School and are not archived in the library. Grades of A, B, C, or F are assigned by the faculty adviser at the end of the semester. If not completed on time, a formal Incomplete grade may be assigned by the faculty adviser, listing the work remaining to be completed and the time limit for completing this work.
+
+  NOTE: Unclear when course is offered</description>
+    <department>Electrical, Computer, and Systems Engineering</department>
+    <catalogNumber>ECSE-6970</catalogNumber>
+    <credits>0</credits>
+    <prerequisites/>
+    <corequisites/>
+    <availableTerms>
+      <rpiplanner.model.YearPart>FALL</rpiplanner.model.YearPart>
+      <rpiplanner.model.YearPart>SPRING</rpiplanner.model.YearPart>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Master?s Project</title>
+    <description>Active participation in a master?s-level project under the supervision of a faculty adviser, leading to a master?s project report. Grades of IP are assigned until the master?s project has been approved by the faculty adviser. If recommended by the adviser, the master?s project may be accepted by the Office of Graduate Education to be archived in the Library. Grades will then be listed as S.
+
+  NOTE: Unclear when course is offered</description>
+    <department>Electrical, Computer, and Systems Engineering</department>
+    <catalogNumber>ECSE-6980</catalogNumber>
+    <credits>3</credits>
+    <prerequisites/>
+    <corequisites/>
+    <availableTerms>
+      <rpiplanner.model.YearPart>FALL</rpiplanner.model.YearPart>
+      <rpiplanner.model.YearPart>SPRING</rpiplanner.model.YearPart>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Master?s Thesis</title>
+    <description>Active participation in research, under the supervision of a faculty adviser, leading to a master?s thesis. Grades of IP are assigned until the thesis has been approved by the faculty adviser and accepted by the Office of Graduate Education to be archived in a standard format in the library. Grades will then be listed as S.
+
+  NOTE: Unclear when course is offered</description>
+    <department>Electrical, Computer, and Systems Engineering</department>
+    <catalogNumber>ECSE-6990</catalogNumber>
+    <credits>6</credits>
+    <prerequisites/>
+    <corequisites/>
+    <availableTerms>
+      <rpiplanner.model.YearPart>FALL</rpiplanner.model.YearPart>
+      <rpiplanner.model.YearPart>SPRING</rpiplanner.model.YearPart>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Optical Fiber Communications</title>
+    <description>Review of the state of the art in optical fibers, light sources, and photodetectors. Topics include: propagation, coupling, dispersion, loss and cut-off characteristics of guided wave models in optical fibers, structural and operating parameters of various types of hetrostructure lasers and light-emitting diodes and quantum efficiency, response time and noise characteristics of silicon PAD and PIN diodes. Also includes applications of optical fibers in optical communications, in data processing, and in control systems.
+
+  NOTE: Offered biannually</description>
+    <department>Electrical, Computer, and Systems Engineering</department>
+    <catalogNumber>ECSE-7010</catalogNumber>
+    <credits>3</credits>
+    <prerequisites/>
+    <corequisites/>
+    <availableTerms>
+      <rpiplanner.model.YearPart>FALL</rpiplanner.model.YearPart>
+      <rpiplanner.model.YearPart>SPRING</rpiplanner.model.YearPart>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Introduction to Computer Programming</title>
+    <description>Computer programming is a way of thinking. A successful programmer needs to take a word problem, generate a pseudocode algorithm, and convert it to the syntax of a specific programming language. This course is an alternative to CSCI 1100 and is intended for students who want an introduction to this programming process but do not intend to do further course work in programming or computer science. Emphasis will be on the generation of the algorithms. Rather than using the complex syntax of a production language such as C or C++, this course will use Visual Basic. This allows us to concentrate on the fundamentals and not get sidetracked by language complexity. It also affords students a tool for creating useful personal applications or prototypes in the future. (Students cannot get credit for this course if they have already taken any other CSCI course</description>
+    <department>Computer Science</department>
+    <catalogNumber>CSCI-1010</catalogNumber>
+    <credits>4</credits>
+    <prerequisites/>
+    <corequisites/>
+    <availableTerms>
+      <rpiplanner.model.YearPart>SPRING</rpiplanner.model.YearPart>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Computer Science I</title>
+    <description>An introduction to computer programming algorithm design and analysis. Additional topics include basic computer organization; internal representation of scalar and array data; use of top-down design and subprograms to tackle complex problems; abstract data types. Enrichment material as time allows. Interdisciplinary case studies, numerical and nonnumerical applications. Students who have passed CSCI 1200 cannot register for this course.</description>
+    <department>Computer Science</department>
+    <catalogNumber>CSCI-1100</catalogNumber>
+    <credits>4</credits>
+    <prerequisites/>
+    <corequisites/>
+    <availableTerms>
+      <rpiplanner.model.YearPart>FALL</rpiplanner.model.YearPart>
+      <rpiplanner.model.YearPart>SPRING</rpiplanner.model.YearPart>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Beginning C Programming for Engineers</title>
+    <description>This course will teach elementary programming concepts using the C language for engineering students with little or no prior programming experience. Students cannot get credit for this course and any other Computer Science course.</description>
+    <department>Computer Science</department>
+    <catalogNumber>CSCI-1190</catalogNumber>
+    <credits>1</credits>
+    <prerequisites/>
+    <corequisites/>
+    <availableTerms>
+      <rpiplanner.model.YearPart>FALL</rpiplanner.model.YearPart>
+      <rpiplanner.model.YearPart>SPRING</rpiplanner.model.YearPart>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Computer Science II</title>
+    <description>Programming concepts: functions, parameter passing, pointers, arrays, strings, structs, classes, templates. Mathematical tools: sets, functions, and relations, order notation, complexity of algorithms, proof by induction. Data structures and their representations: data abstraction and internal representation, sequences, trees, binary search trees, associative structures. Algorithms: searching and sorting, generic algorithms, iterative and recursive algorithms. Methods of testing correctness and measuring performance.
+
+  NOTE: prerequisite can be skipped on permission of instructor</description>
+    <department>Computer Science</department>
+    <catalogNumber>CSCI-1200</catalogNumber>
+    <credits>4</credits>
+    <prerequisites>
+      <course>
+        <catalogNumber>CSCI-1100</catalogNumber>
+        <credits>0</credits>
+      </course>
+    </prerequisites>
+    <corequisites/>
+    <availableTerms>
+      <rpiplanner.model.YearPart>FALL</rpiplanner.model.YearPart>
+      <rpiplanner.model.YearPart>SPRING</rpiplanner.model.YearPart>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Programming in Java</title>
+    <description>Introduction to programming in the Java language. Java is an object-oriented programming language widely used in developing World Wide Web applications. Topics include class declarations and definitions, graphics, threads, exceptions, and writing Web applets.</description>
+    <department>Computer Science</department>
+    <catalogNumber>CSCI-2220</catalogNumber>
+    <credits>2</credits>
+    <prerequisites>
+      <course>
+        <catalogNumber>CSCI-1200</catalogNumber>
+        <credits>0</credits>
+      </course>
+    </prerequisites>
+    <corequisites/>
+    <availableTerms>
+      <rpiplanner.model.YearPart>FALL</rpiplanner.model.YearPart>
+      <rpiplanner.model.YearPart>SPRING</rpiplanner.model.YearPart>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Programming in Perl</title>
+    <description>Introduction to programming in the Perl language. Perl is a programming language widely used for complex shell scripts, Common GateWay Interface programs for World Wide Web pages, and rapid prototyping in more general application areas. Topics include text manipulation facilities, associative arrays, Unix system-call facilities, and application to Web and systems programming.</description>
+    <department>Computer Science</department>
+    <catalogNumber>CSCI-2230</catalogNumber>
+    <credits>2</credits>
+    <prerequisites>
+      <course>
+        <catalogNumber>CSCI-1200</catalogNumber>
+        <credits>0</credits>
+      </course>
+    </prerequisites>
+    <corequisites/>
+    <availableTerms>
+      <rpiplanner.model.YearPart>FALL</rpiplanner.model.YearPart>
+      <rpiplanner.model.YearPart>SPRING</rpiplanner.model.YearPart>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Data Structures and Algorithms</title>
+    <description>Data structures and algorithms, and the mathematical techniques necessary to design and analyze them. Basic data structures: lists, associative structures, trees. Mathematical techniques for designing algorithms and analyzing worst-case and expected-case algorithm efficiency. Advanced data structures: balanced trees, tries, heaps, priority queues, graphs. Searching, sorting. Algorithm design techniques: dynamic programming, greedy algorithms, divide-and-conquer, backtracking. Example graph, string, geometric, and numeric algorithms.</description>
+    <department>Computer Science</department>
+    <catalogNumber>CSCI-2300</catalogNumber>
+    <credits>4</credits>
+    <prerequisites>
+      <course>
+        <catalogNumber>CSCI-1200</catalogNumber>
+        <credits>0</credits>
+      </course>
+    </prerequisites>
+    <corequisites/>
+    <availableTerms>
+      <rpiplanner.model.YearPart>FALL</rpiplanner.model.YearPart>
+      <rpiplanner.model.YearPart>SPRING</rpiplanner.model.YearPart>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Models of Computation</title>
+    <description>This course introduces conceptual tools for reasoning about computational processes and the languages with which they are prescribed. It bears directly upon language translation, program verification, and computability. Topics to be covered include formal languages, finite automata, pushdown automata, nondeterminism, regular expressions, context-free grammars; parsing, compiler design basics; computability, Turing machines, Church?s thesis, unsolvability and intractability.</description>
+    <department>Computer Science</department>
+    <catalogNumber>CSCI-2400</catalogNumber>
+    <credits>4</credits>
+    <prerequisites>
+      <course>
+        <catalogNumber>CSCI-2300</catalogNumber>
+        <credits>0</credits>
+      </course>
+      <course>
+        <catalogNumber>MATH-2800</catalogNumber>
+        <credits>0</credits>
+      </course>
+    </prerequisites>
+    <corequisites/>
+    <availableTerms>
+      <rpiplanner.model.YearPart>FALL</rpiplanner.model.YearPart>
+      <rpiplanner.model.YearPart>SPRING</rpiplanner.model.YearPart>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Computer Organization</title>
+    <description>Introduction to computer organization, assembler language, and operating systems. Computer systems organization: processors, memory, I/O. Digital logic: gates, Boolean algebra, digital logic circuits, memory, buses. Microprogramming. Machine level: instruction formats, addressing modes, instruction types, flow of control. Operating systems: virtual memory, virtual I/O instructions, processes, interprocess communication. Numeric representation. Assembler language: the assembly process, macros, linking, loading. Advanced architectures: RISC architectures, parallel architectures.</description>
+    <department>Computer Science</department>
+    <catalogNumber>CSCI-2500</catalogNumber>
+    <credits>4</credits>
+    <prerequisites>
+      <course>
+        <catalogNumber>CSCI-1200</catalogNumber>
+        <credits>0</credits>
+      </course>
+    </prerequisites>
+    <corequisites/>
+    <availableTerms>
+      <rpiplanner.model.YearPart>FALL</rpiplanner.model.YearPart>
+      <rpiplanner.model.YearPart>SPRING</rpiplanner.model.YearPart>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Computer Algorithms</title>
+    <description>Basic algorithm design strategies such as greedy, dynamic programming, backtracking, and branch-and-bound; main approaches, including exact, probabilistic, approximate, and heuristic algorithms; sequential and parallel algorithms; algorithms for networks, string matching, matrix operations, and cryptography; learning algorithms.</description>
+    <department>Computer Science</department>
+    <catalogNumber>CSCI-4020</catalogNumber>
+    <credits>4</credits>
+    <prerequisites>
+      <course>
+        <catalogNumber>CSCI-2300</catalogNumber>
+        <credits>0</credits>
+      </course>
+    </prerequisites>
+    <corequisites/>
+    <availableTerms>
+      <rpiplanner.model.YearPart>SPRING</rpiplanner.model.YearPart>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Computability and Complexity</title>
+    <description>This course discusses concepts of languages defined by formal grammars, Turing machines and rewriting systems, computability, Church-Turing thesis, decidable and undecidable problems, computational complexity, polynomial reducibility, NP-completeness, and Cook?s theorem.</description>
+    <department>Computer Science</department>
+    <catalogNumber>CSCI-4050</catalogNumber>
+    <credits>4</credits>
+    <prerequisites>
+      <course>
+        <catalogNumber>CSCI-2400</catalogNumber>
+        <credits>0</credits>
+      </course>
+    </prerequisites>
+    <corequisites/>
+    <availableTerms>
+      <rpiplanner.model.YearPart>FALL</rpiplanner.model.YearPart>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Machine and Computational Learning</title>
+    <description>Introduction to the theory, algorithms, and applications of automated learning (supervised, reinforcement, and unsupervised), how much information and computation are needed to learn a task, and how to accomplish it. Emphasis will be given to unifying approaches coming from statistics, function approximation, optimization and pattern recognition. Topics include: Decision Trees, Neural Networks, RBF?s, Bayesian Learning, PAC Learning, Support Vector Machines, Gaussian processes, Hidden Markov Models.
+
+  NOTE: Offered on availability of instructor.
+
+  NOTE: familiarity with probability, linear algebra, and calculus</description>
+    <department>Computer Science</department>
+    <catalogNumber>CSCI-4100</catalogNumber>
+    <credits>4</credits>
+    <prerequisites/>
+    <corequisites/>
+    <availableTerms>
+      <rpiplanner.model.YearPart>FALL</rpiplanner.model.YearPart>
+      <rpiplanner.model.YearPart>SPRING</rpiplanner.model.YearPart>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Introduction to Artificial Intelligence</title>
+    <description>Topics and techniques of artificial intelligence using the language LISP. Topics include search, knowledge representation, expert systems, theorem proving, natural language interfaces, learning, game playing, and computer vision. Techniques include pattern matching, data-driven programming, substitution rules, frames, heuristic search, transition networks, neural networks, and evolutionary computation. Development of programming proficiency in LISP is emphasized.</description>
+    <department>Computer Science</department>
+    <catalogNumber>CSCI-4150</catalogNumber>
+    <credits>4</credits>
+    <prerequisites>
+      <course>
+        <catalogNumber>CSCI-2300</catalogNumber>
+        <credits>0</credits>
+      </course>
+    </prerequisites>
+    <corequisites/>
+    <availableTerms>
+      <rpiplanner.model.YearPart>FALL</rpiplanner.model.YearPart>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Introduction to Robotic Algorithms</title>
+    <description>An introduction to algorithms for robotic systems with a focus on motion planning, processing sensor information, world modeling, and handling uncertainty. Discusses application of techniques to mobile robotics and robotic manipulations. Emphasizes practical algorithms and implementing them in the laboratory.
+
+  NOTE: even-numbered years ONLY</description>
+    <department>Computer Science</department>
+    <catalogNumber>CSCI-4190</catalogNumber>
+    <credits>4</credits>
+    <prerequisites>
+      <course>
+        <catalogNumber>CSCI-2300</catalogNumber>
+        <credits>0</credits>
+      </course>
+    </prerequisites>
+    <corequisites/>
+    <availableTerms>
+      <rpiplanner.model.YearPart>SPRING</rpiplanner.model.YearPart>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Operating Systems</title>
+    <description>Discussion of various aspects of computer operating systems design and implementation. Topics include I/O programming, concurrent processes and synchronization problems, process management and scheduling of processes, virtual memory management, device management, file systems, deadlock problems, system calls, and interprocess communication. Programming projects are required.</description>
+    <department>Computer Science</department>
+    <catalogNumber>CSCI-4210</catalogNumber>
+    <credits>4</credits>
+    <prerequisites>
+      <course>
+        <catalogNumber>CSCI-2300</catalogNumber>
+        <credits>0</credits>
+      </course>
+      <course>
+        <catalogNumber>CSCI-2500</catalogNumber>
+        <credits>0</credits>
+      </course>
+    </prerequisites>
+    <corequisites/>
+    <availableTerms>
+      <rpiplanner.model.YearPart>FALL</rpiplanner.model.YearPart>
+      <rpiplanner.model.YearPart>SPRING</rpiplanner.model.YearPart>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Network Programming</title>
+    <description>An overview of the principles of computer networks, including a detailed look at the OSI reference model and an overview of various popular network protocol suites. Concentration on Unix interprocess communication, network programming using TCP/ IP, and distributed objects using CORBA.</description>
+    <department>Computer Science</department>
+    <catalogNumber>CSCI-4220</catalogNumber>
+    <credits>4</credits>
+    <prerequisites>
+      <course>
+        <catalogNumber>CSCI-4210</catalogNumber>
+        <credits>0</credits>
+      </course>
+    </prerequisites>
+    <corequisites/>
+    <availableTerms>
+      <rpiplanner.model.YearPart>SPRING</rpiplanner.model.YearPart>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Computer Architectures</title>
+    <description>Basic principles of computer design, including such topics as instruction sets, memory hierarchy, arithmetic, pipelining, vector processing, interconnection networks, and multiprocessors. The course emphasizes fundamental concepts and presents examples from existing computer systems.</description>
+    <department>Computer Science</department>
+    <catalogNumber>CSCI-4250</catalogNumber>
+    <credits>4</credits>
+    <prerequisites>
+      <course>
+        <catalogNumber>CSCI-2500</catalogNumber>
+        <credits>0</credits>
+      </course>
+      <course>
+        <catalogNumber>CSCI-2300</catalogNumber>
+        <credits>0</credits>
+      </course>
+    </prerequisites>
+    <corequisites/>
+    <availableTerms>
+      <rpiplanner.model.YearPart>FALL</rpiplanner.model.YearPart>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Graph Theory</title>
+    <description>Fundamental concepts and methods of graph theory and its applications of computing and the social and natural sciences. Topics include graphs as models, representation of graphs, trees, distances, matchings, connectivity, flows in networks, graph colorings, Hamiltonian cycles, traveling salesman problem, planarity. All concepts, methods, and applications are presented through a sequence of exercises and problems, many of which are done with the help of novel software systems for combinatorial computing.
+
+  Cross-listed as MATH 4150. Students cannot obtain credit for both this course and MATH 4150.</description>
+    <department>Computer Science</department>
+    <catalogNumber>CSCI-4260</catalogNumber>
+    <credits>4</credits>
+    <prerequisites>
+      <course>
+        <catalogNumber>MATH-2800</catalogNumber>
+        <credits>0</credits>
+      </course>
+      <course>
+        <catalogNumber>CSCI-1100</catalogNumber>
+        <credits>0</credits>
+      </course>
+    </prerequisites>
+    <corequisites/>
+    <availableTerms>
+      <rpiplanner.model.YearPart>SPRING</rpiplanner.model.YearPart>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Parallel Programming</title>
+    <description>Techniques and methods for parallel programming: models of parallel machines and programs, efficiency and complexity of parallel algorithms. Paradigms of parallel programming and corresponding extensions to sequential programming languages. Overview of parallel languages and coordination languages and models; programming on networks of workstations. Basic parallel algorithms: elementary computation, matrix multiplication, sorting; sample scientific application.</description>
+    <department>Computer Science</department>
+    <catalogNumber>CSCI-4320</catalogNumber>
+    <credits>4</credits>
+    <prerequisites>
+      <course>
+        <catalogNumber>CSCI-2400</catalogNumber>
+        <credits>0</credits>
+      </course>
+      <course>
+        <catalogNumber>CSCI-2500</catalogNumber>
+        <credits>0</credits>
+      </course>
+    </prerequisites>
+    <corequisites/>
+    <availableTerms>
+      <rpiplanner.model.YearPart>SPRING</rpiplanner.model.YearPart>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Database Systems</title>
+    <description>Discussion of the state of practice in modern database systems, with an emphasis on relational systems. Topics include database design, database system architecture, SQL, normalization techniques, storage structures, query processing, concurrency control, recovery, security, and new directions such as object-oriented and distributed database systems. Students gain hands-on experience with commercial database systems and interface building tools. Programming projects are required.</description>
+    <department>Computer Science</department>
+    <catalogNumber>CSCI-4380</catalogNumber>
+    <credits>4</credits>
+    <prerequisites>
+      <course>
+        <catalogNumber>CSCI-2300</catalogNumber>
+        <credits>0</credits>
+      </course>
+    </prerequisites>
+    <corequisites/>
+    <availableTerms>
+      <rpiplanner.model.YearPart>FALL</rpiplanner.model.YearPart>
+      <rpiplanner.model.YearPart>SPRING</rpiplanner.model.YearPart>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Database Mining</title>
+    <description>This course will provide an introductory survey of the main topics in data mining and knowledge discovery in databases (KDD), including: classification, clustering, association rules, sequence mining, similarity search, deviation detection, and so on. Emphasis will be on the algorithmic and system issues in KDD, as well as on applications such as Web mining, multimedia mining, bioinformatics, geographical information systems, etc.</description>
+    <department>Computer Science</department>
+    <catalogNumber>CSCI-4390</catalogNumber>
+    <credits>4</credits>
+    <prerequisites>
+      <course>
+        <catalogNumber>CSCI-2300</catalogNumber>
+        <credits>0</credits>
+      </course>
+      <course>
+        <catalogNumber>MATH-2800</catalogNumber>
+        <credits>0</credits>
+      </course>
+    </prerequisites>
+    <corequisites/>
+    <availableTerms>
+      <rpiplanner.model.YearPart>FALL</rpiplanner.model.YearPart>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Programming Languages</title>
+    <description>This course is a study of the important concepts found in current programming languages. Topics include language processing (lexical analysis, parsing, type-checking, interpretation and compilation, run-time environment), the role of abstraction (data abstraction and control abstraction), programming paradigms (procedural, functional, object-oriented, logic-oriented, generic), and formal language definition.</description>
+    <department>Computer Science</department>
+    <catalogNumber>CSCI-4430</catalogNumber>
+    <credits>4</credits>
+    <prerequisites>
+      <course>
+        <catalogNumber>CSCI-2400</catalogNumber>
+        <credits>0</credits>
+      </course>
+    </prerequisites>
+    <corequisites/>
+    <availableTerms>
+      <rpiplanner.model.YearPart>FALL</rpiplanner.model.YearPart>
+      <rpiplanner.model.YearPart>SPRING</rpiplanner.model.YearPart>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Software Design and Documentation</title>
+    <description>Software system design methodology emphasizing use of object oriented modeling of application domains and of software systems, and emphasizing the roles of written and oral communication in software engineering. Project management and software testing. Individual and team projects include specification, software architecture, user interfaces, and documentation of the phases of a project.</description>
+    <department>Computer Science</department>
+    <catalogNumber>CSCI-4440</catalogNumber>
+    <credits>4</credits>
+    <prerequisites>
+      <course>
+        <catalogNumber>CSCI-2300</catalogNumber>
+        <credits>0</credits>
+      </course>
+    </prerequisites>
+    <corequisites/>
+    <availableTerms>
+      <rpiplanner.model.YearPart>FALL</rpiplanner.model.YearPart>
+      <rpiplanner.model.YearPart>SPRING</rpiplanner.model.YearPart>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Robotics I</title>
+    <description>
+
+  Cross-listed with ECSE-4480.</description>
+    <department>Computer Science</department>
+    <catalogNumber>CSCI-4480</catalogNumber>
+    <credits>3</credits>
+    <prerequisites>
+      <course>
+        <catalogNumber>MATH-2400</catalogNumber>
+        <credits>0</credits>
+      </course>
+    </prerequisites>
+    <corequisites/>
+    <availableTerms>
+      <rpiplanner.model.YearPart>FALL</rpiplanner.model.YearPart>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Robotics II</title>
+    <description>
+
+  Cross-listed with CSCI-6490, ECSE-4490, ECSE-6490</description>
+    <department>Computer Science</department>
+    <catalogNumber>CSCI-4490</catalogNumber>
+    <credits>3</credits>
+    <prerequisites/>
+    <corequisites>
+      <course>
+        <catalogNumber>CSCI-448</catalogNumber>
+        <credits>0</credits>
+      </course>
+    </corequisites>
+    <availableTerms>
+      <rpiplanner.model.YearPart>SPRING</rpiplanner.model.YearPart>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Game Development</title>
+    <description>This class is a practical primer for anyone interested in a career in the rapidly evolving industry to video gaming. It is an intense, team-based, project-based course in which students will closely follow the actual game development cycle, with each team producing a complete PC game. Students cannot get credit for both this course and COGS 4520.</description>
+    <department>Computer Science</department>
+    <catalogNumber>CSCI-4520</catalogNumber>
+    <credits>4</credits>
+    <prerequisites>
+      <course>
+        <catalogNumber>COGS-2520</catalogNumber>
+        <credits>0</credits>
+      </course>
+    </prerequisites>
+    <corequisites/>
+    <availableTerms>
+      <rpiplanner.model.YearPart>SPRING</rpiplanner.model.YearPart>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Advanced Computer Graphics</title>
+    <description>In this course we will survey classic papers and current research in computer graphics. Topics include: advanced ray tracing, global illumination, photon mapping, subsurface scattering, mesh generation and simplification, subdivision surfaces, volumetric modeling, procedural modeling and texturing, weathering, physical simulation, appearance models. Course activities include programming assignments, oral presentations and a term project.?
+
+  Cross-listed with CSCI 6530.</description>
+    <department>Computer Science</department>
+    <catalogNumber>CSCI-4530</catalogNumber>
+    <credits>4</credits>
+    <prerequisites>
+      <course>
+        <catalogNumber>CSCI-2300</catalogNumber>
+        <credits>0</credits>
+      </course>
+    </prerequisites>
+    <corequisites/>
+    <availableTerms>
+      <rpiplanner.model.YearPart>SPRING</rpiplanner.model.YearPart>
+    </availableTerms>
+  </course>
+  <course>
+    <title>The Human-Computer Interface</title>
+    <description>An exploration of the languages, techniques, and mechanisms used to define and enhance communication between people and computer applications, both for input and output, in the general case and for a variety of important special domains. Use of graphics in the interface; multimedia environments; alternative I/O devices; issues in interface design. Interactive in-class exercises and activities. Substantial programming projects are assigned in a number of languages and for a variety of platforms. Students also prepare oral presentations based on material from the current scientific literature.
+
+  NOTE: Offered on availability of instructor.</description>
+    <department>Computer Science</department>
+    <catalogNumber>CSCI-4600</catalogNumber>
+    <credits>4</credits>
+    <prerequisites/>
+    <corequisites/>
+    <availableTerms>
+      <rpiplanner.model.YearPart>FALL</rpiplanner.model.YearPart>
+      <rpiplanner.model.YearPart>SPRING</rpiplanner.model.YearPart>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Networking Laboratory I</title>
+    <description>A studio course with an interactive learning style that utilizes a lab of over 139 routers, switches, and firewalls. Configuration labs include: Virtual LANs, Spanning Tree, and inter-switch communication on Gigabit switches; Class A, B, and C IP addressing using VLSM; Routing protocols including Static, Default, OSPF, EIGRP, IS-IS, and BGP routing; WAN protocols including Frame Relay and ISDN. Self-paced video demonstrations are used in conjunction with hands-on lab experiences.</description>
+    <department>Computer Science</department>
+    <catalogNumber>CSCI-4650</catalogNumber>
+    <credits>4</credits>
+    <prerequisites>
+      <course>
+        <catalogNumber>CSCI-2300</catalogNumber>
+        <credits>0</credits>
+      </course>
+    </prerequisites>
+    <corequisites/>
+    <availableTerms>
+      <rpiplanner.model.YearPart>FALL</rpiplanner.model.YearPart>
+      <rpiplanner.model.YearPart>SPRING</rpiplanner.model.YearPart>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Networking Laboratory II</title>
+    <description>A studio course with an interactive learning style that utilizes a lab of over 139 routers, switches, and firewalls. Configuration labs include: Virtual Private Network (VPN) tunnels; Network Address Translation (NAT); Class-Based Weighted Fair Queuing over Frame Relay; Inter-VLAN routing, Multi-Layer Switching, and Quality of Service for Voice-Over-IP (VOIP). Self-paced video demonstrations are used in conjunction with hands-on lab experiences.</description>
+    <department>Computer Science</department>
+    <catalogNumber>CSCI-4660</catalogNumber>
+    <credits>4</credits>
+    <prerequisites>
+      <course>
+        <catalogNumber>CSCI-4650</catalogNumber>
+        <credits>0</credits>
+      </course>
+    </prerequisites>
+    <corequisites/>
+    <availableTerms>
+      <rpiplanner.model.YearPart>SPRING</rpiplanner.model.YearPart>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Networking Security Laboratory</title>
+    <description>A studio course with an interactive learning style. Students download tools to compromise (?hack?) a network. Students will then set up defense strategies in an extensive lab of advanced routers and PIX firewalls. Configuration will include: IPSec, VPN tunnels, Authentication, Authorization, and Accounting (AAA), TACACS+ and RADIUS, Intrusion Detection, Context- Based Access Control (CBAC), Nested Object groups, Attack Guards, and Shunning. Self-paced video demonstrations are used in conjunction with hands-on lab experiences.</description>
+    <department>Computer Science</department>
+    <catalogNumber>CSCI-4670</catalogNumber>
+    <credits>4</credits>
+    <prerequisites>
+      <course>
+        <catalogNumber>CSCI-4650</catalogNumber>
+        <credits>0</credits>
+      </course>
+    </prerequisites>
+    <corequisites/>
+    <availableTerms>
+      <rpiplanner.model.YearPart>SPRING</rpiplanner.model.YearPart>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Numerical Computing</title>
+    <description>A survey of numerical methods for scientific and engineering problems. Topics include numerical solution of linear and nonlinear algebraic equations, interpolation and least squares approximations, numerical integration and differentiation, eigenvalue problems, and an introduction to the numerical solution of ordinary differential equations. Emphasis is placed on efficient computational procedures including the use of library and student written procedures using high-level software such as MATLAB.
+
+  Cross-listed as MATH 4800. Students cannot obtain credit for both this course and MATH 4800.</description>
+    <department>Computer Science</department>
+    <catalogNumber>CSCI-4800</catalogNumber>
+    <credits>4</credits>
+    <prerequisites>
+      <course>
+        <catalogNumber>CSCI-1100</catalogNumber>
+        <credits>0</credits>
+      </course>
+      <course>
+        <catalogNumber>MATH-2010</catalogNumber>
+        <credits>0</credits>
+      </course>
+    </prerequisites>
+    <corequisites/>
+    <availableTerms>
+      <rpiplanner.model.YearPart>FALL</rpiplanner.model.YearPart>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Introduction to Numerical Methods for Differential Equations</title>
+    <description>Derivation, analysis, and use of computational procedures for solving differential equations. Topics covered include ordinary differential equations (both initial value and boundary value problems) and partial differential equations. Runge-Kutta and multistep methods for initial value problems. Finite difference methods for partial differential equations including techniques for heat conduction, wave propagation, and potential problems. Basic convergence and stability theory.
+
+  Cross-listed as MATH 4820.</description>
+    <department>Computer Science</department>
+    <catalogNumber>CSCI-4820</catalogNumber>
+    <credits>4</credits>
+    <prerequisites>
+      <course>
+        <catalogNumber>MATH-4800</catalogNumber>
+        <credits>0</credits>
+      </course>
+    </prerequisites>
+    <corequisites/>
+    <availableTerms>
+      <rpiplanner.model.YearPart>SPRING</rpiplanner.model.YearPart>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Readings in Computer Science</title>
+    <description>
+
+  NOTE: Unclear when course is offered</description>
+    <department>Computer Science</department>
+    <catalogNumber>CSCI-4940</catalogNumber>
+    <credits>1</credits>
+    <prerequisites/>
+    <corequisites/>
+    <availableTerms>
+      <rpiplanner.model.YearPart>FALL</rpiplanner.model.YearPart>
+      <rpiplanner.model.YearPart>SPRING</rpiplanner.model.YearPart>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Topics in Computer Science</title>
+    <description>
+
+  NOTE: Unclear when course is offered</description>
+    <department>Computer Science</department>
+    <catalogNumber>CSCI-4960</catalogNumber>
+    <credits>1</credits>
+    <prerequisites/>
+    <corequisites/>
+    <availableTerms>
+      <rpiplanner.model.YearPart>FALL</rpiplanner.model.YearPart>
+      <rpiplanner.model.YearPart>SPRING</rpiplanner.model.YearPart>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Computability and Complexity</title>
+    <description>This course discusses modern concepts of computability and computational complexity theories. The Church-Turing thesis; variations of Turing Machines; Algorithms; Decidability; The Halting Problem; Reducibility; The Recursion Theorem; The Concept of Information; Time and Space Complexity; Intractability; NP-completeness and Cook?s theorem.</description>
+    <department>Computer Science</department>
+    <catalogNumber>CSCI-6050</catalogNumber>
+    <credits>3</credits>
+    <prerequisites>
+      <course>
+        <catalogNumber>CSCI-2400</catalogNumber>
+        <credits>0</credits>
+      </course>
+    </prerequisites>
+    <corequisites/>
+    <availableTerms>
+      <rpiplanner.model.YearPart>FALL</rpiplanner.model.YearPart>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Generic Software Design</title>
+    <description>Study of the generic programming approach to design and systematic classification of software components. Techniques for achieving correctness, efficiency, and generality of algorithms, data structures, and memory management. Methods of structuring a library of generic software components for maximum usability are practiced in a significant design and implementation project.</description>
+    <department>Computer Science</department>
+    <catalogNumber>CSCI-6090</catalogNumber>
+    <credits>3</credits>
+    <prerequisites>
+      <course>
+        <catalogNumber>CSCI-2300</catalogNumber>
+        <credits>0</credits>
+      </course>
+    </prerequisites>
+    <corequisites/>
+    <availableTerms>
+      <rpiplanner.model.YearPart>FALL</rpiplanner.model.YearPart>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Machine and Computational Learning</title>
+    <description>Introduction to the theory, algorithms, and applications of automated learning (supervised, reinforcement, and unsupervised), how much information and computation are needed to learn a task, and how to accomplish it. Emphasis will be given to unifying approaches coming from statistics, function approximation, optimization, and pattern recognition. Topics include: Decision Trees, Neural Networks, RBF?s, Bayesian Learning, PAC Learning, Support Vector Machines, Gaussian processes, Hidden Markov Models.
+
+  NOTE: Offered on availability of instructor.
+
+  NOTE: familiarity with probability, linear algebra, and calculus</description>
+    <department>Computer Science</department>
+    <catalogNumber>CSCI-6100</catalogNumber>
+    <credits>3</credits>
+    <prerequisites/>
+    <corequisites/>
+    <availableTerms>
+      <rpiplanner.model.YearPart>FALL</rpiplanner.model.YearPart>
+      <rpiplanner.model.YearPart>SPRING</rpiplanner.model.YearPart>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Distributed Operating Systems</title>
+    <description>A detailed discussion of issues in distributed operating system design and in computer security.? The topics discussed include distributed algorithms, distributed deadlock detection and recovery, distributed concurrency control and synchronization, cryptography, and computer security. If both CSCI 6130 and CSCI 6140 are to be taken, CSCI 6140 should be taken first.
+
+  NOTE: Offered on availability of instructor.</description>
+    <department>Computer Science</department>
+    <catalogNumber>CSCI-6130</catalogNumber>
+    <credits>3</credits>
+    <prerequisites>
+      <course>
+        <catalogNumber>CSCI-4210</catalogNumber>
+        <credits>0</credits>
+      </course>
+    </prerequisites>
+    <corequisites/>
+    <availableTerms>
+      <rpiplanner.model.YearPart>FALL</rpiplanner.model.YearPart>
+      <rpiplanner.model.YearPart>SPRING</rpiplanner.model.YearPart>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Computer Operating Systems</title>
+    <description>Topics include analysis of multiprogramming systems, virtual memory, computer system performance, and queuing theory. The course also discusses tools for synchronization of parallel programs and algorithms for mutual exclusion.
+
+  NOTE: prerequisite can be skipped on permission of instructor</description>
+    <department>Computer Science</department>
+    <catalogNumber>CSCI-6140</catalogNumber>
+    <credits>3</credits>
+    <prerequisites>
+      <course>
+        <catalogNumber>CSCI-4210</catalogNumber>
+        <credits>0</credits>
+      </course>
+    </prerequisites>
+    <corequisites/>
+    <availableTerms>
+      <rpiplanner.model.YearPart>FALL</rpiplanner.model.YearPart>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Design and Analysis of Algorithms</title>
+    <description>Theoretical and empirical analysis of algorithms; tools for on-line monitoring of the algorithm?s performance. Advanced algorithms for polynomial problems; randomized heuristic and approximate algorithms. Problems include computation in discrete mathematics, number theory, linear algebra, graph theory, numerical and symbolic computing.</description>
+    <department>Computer Science</department>
+    <catalogNumber>CSCI-6210</catalogNumber>
+    <credits>3</credits>
+    <prerequisites>
+      <course>
+        <catalogNumber>CSCI-4020</catalogNumber>
+        <credits>0</credits>
+      </course>
+    </prerequisites>
+    <corequisites/>
+    <availableTerms>
+      <rpiplanner.model.YearPart>FALL</rpiplanner.model.YearPart>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Parallel Algorithm Design</title>
+    <description>Models of parallel computation; deterministic and probabilistic PRAM model; P-complete problems. Techniques for designing efficient parallel algorithms. Parallel sorting prefix and suffix computation, list ranking, DAG evaluation, solving linear systems, graph and combinatorial problems.
+
+  NOTE: Offered on availability of instructor.</description>
+    <department>Computer Science</department>
+    <catalogNumber>CSCI-6220</catalogNumber>
+    <credits>3</credits>
+    <prerequisites>
+      <course>
+        <catalogNumber>CSCI-4020</catalogNumber>
+        <credits>0</credits>
+      </course>
+    </prerequisites>
+    <corequisites/>
+    <availableTerms>
+      <rpiplanner.model.YearPart>FALL</rpiplanner.model.YearPart>
+      <rpiplanner.model.YearPart>SPRING</rpiplanner.model.YearPart>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Computational Vision</title>
+    <description>Introduction to the problems and techniques of vision from a computational perspective. Discussion includes computational theories of vision and particular topics such as image formation, image processing, linear systems, Fourier transforms, mathematical morphology, edge and contour detection, shape from shading, stereo, motion, surface reconstruction, robust techniques, three-dimensional representation and reasoning, object recognition, and computational geometry.</description>
+    <department>Computer Science</department>
+    <catalogNumber>CSCI-6270</catalogNumber>
+    <credits>3</credits>
+    <prerequisites>
+      <course>
+        <catalogNumber>CSCI-2300</catalogNumber>
+        <credits>0</credits>
+      </course>
+    </prerequisites>
+    <corequisites/>
+    <availableTerms>
+      <rpiplanner.model.YearPart>FALL</rpiplanner.model.YearPart>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Mobile Robotics</title>
+    <description>An in-depth study of algorithms for mobile robots focusing on motion planning, localization, mapping, navigation, sensor fusion, and robot software architectures. The unifying themes of this course are navigation in known and unknown environments and structuring software to control mobile robots. Class activities include readings from the research literature and a series of programming projects.</description>
+    <department>Computer Science</department>
+    <catalogNumber>CSCI-6280</catalogNumber>
+    <credits>3</credits>
+    <prerequisites>
+      <course>
+        <catalogNumber>CSCI-2300</catalogNumber>
+        <credits>0</credits>
+      </course>
+      <course>
+        <catalogNumber>MATH-2010</catalogNumber>
+        <credits>0</credits>
+      </course>
+    </prerequisites>
+    <corequisites/>
+    <availableTerms>
+      <rpiplanner.model.YearPart>SPRING</rpiplanner.model.YearPart>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Graphical User Interfaces</title>
+    <description>Building graphical user interfaces, or GUIs, are the norm in modern computing. Once a user interface concept is designed and tested, it must be implemented by programming teams on specific hardware platforms. How the interface is specified is a real challenge. Likewise, a number of standards and tools exist that establish the ?look and feel? of the interface. Introduces the history of GUIs; shows how they can be specified; presents the concept of event-driven programming upon which they are based, and discusses their current status, and compares today?s standards such as Macintosh, Motif, and MS Windows. It also predicts the future based on current computer capabilities and interface trends.
+
+  NOTE: Unclear when course is offered
+
+  NOTE: user interface design experience</description>
+    <department>Computer Science</department>
+    <catalogNumber>CSCI-6320</catalogNumber>
+    <credits>3</credits>
+    <prerequisites/>
+    <corequisites/>
+    <availableTerms>
+      <rpiplanner.model.YearPart>FALL</rpiplanner.model.YearPart>
+      <rpiplanner.model.YearPart>SPRING</rpiplanner.model.YearPart>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Parallel Computing</title>
+    <description>A survey of fundamental issues in design of efficient programs for parallel computers. The topics discussed include models of parallel machines and programs, efficiency of parallel algorithms, programming styles for shared memory, message passing, data parallelism, and using MPI in scientific parallel programs. Parallel programming project required.
+
+  NOTE: Offered on availability of instructor.</description>
+    <department>Computer Science</department>
+    <catalogNumber>CSCI-6360</catalogNumber>
+    <credits>3</credits>
+    <prerequisites>
+      <course>
+        <catalogNumber>CSCI-4210</catalogNumber>
+        <credits>0</credits>
+      </course>
+    </prerequisites>
+    <corequisites/>
+    <availableTerms>
+      <rpiplanner.model.YearPart>FALL</rpiplanner.model.YearPart>
+      <rpiplanner.model.YearPart>SPRING</rpiplanner.model.YearPart>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Database Mining</title>
+    <description>This course will provide an introductory survey of the main topics in data mining and knowledge discovery in databases (KDD), including: classification, clustering, association rules, sequence mining, similarity search, deviation detection, and so on. Emphasis will be on the algorithmic and system issues in KDD, as well as on applications such as Web mining, multimedia mining, bioinformatics, geographical information systems, etc.</description>
+    <department>Computer Science</department>
+    <catalogNumber>CSCI-6390</catalogNumber>
+    <credits>3</credits>
+    <prerequisites>
+      <course>
+        <catalogNumber>CSCI-2300</catalogNumber>
+        <credits>0</credits>
+      </course>
+      <course>
+        <catalogNumber>MATH-2800</catalogNumber>
+        <credits>0</credits>
+      </course>
+    </prerequisites>
+    <corequisites/>
+    <availableTerms>
+      <rpiplanner.model.YearPart>FALL</rpiplanner.model.YearPart>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Advanced Database Management Topics</title>
+    <description>This course is a continuation of CSCI-4380 and presents a more theoretical approach to logical and physical database design. It covers such topics as algorithms for logical database design, primary and secondary indexing techniques, query processing and query optimization, and database security. Problems of interfacing a database system with an operating system and some of the issues in implementing distributed database systems are also discussed. Much of the material comes from recent research papers. A term paper may be required.
+
+  NOTE: Offered on availability of instructor.</description>
+    <department>Computer Science</department>
+    <catalogNumber>CSCI-6460</catalogNumber>
+    <credits>3</credits>
+    <prerequisites>
+      <course>
+        <catalogNumber>CSCI-4380</catalogNumber>
+        <credits>0</credits>
+      </course>
+    </prerequisites>
+    <corequisites/>
+    <availableTerms>
+      <rpiplanner.model.YearPart>FALL</rpiplanner.model.YearPart>
+      <rpiplanner.model.YearPart>SPRING</rpiplanner.model.YearPart>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Database Systems for Engineering Applications</title>
+    <description>A survey of traditional database systems is followed by an examination of differences between applications of those systems and engineering applications. Database systems for engineering applications are described including the concepts of long transactions, version control, object-oriented support, and concurrent engineering.
+
+  NOTE: Offered on availability of instructor.</description>
+    <department>Computer Science</department>
+    <catalogNumber>CSCI-6470</catalogNumber>
+    <credits>3</credits>
+    <prerequisites>
+      <course>
+        <catalogNumber>CSCI-4380</catalogNumber>
+        <credits>0</credits>
+      </course>
+    </prerequisites>
+    <corequisites/>
+    <availableTerms>
+      <rpiplanner.model.YearPart>FALL</rpiplanner.model.YearPart>
+      <rpiplanner.model.YearPart>SPRING</rpiplanner.model.YearPart>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Theory of Compiler Design</title>
+    <description>The use of language theory and automata theory in the design of compilers. Syntax-directed compilers. Lexical analysis and computer implementation of finite state machines. Syntax analysis, parsing versus restructuring. Top-down and bottom-up parsing algorithms. TD(k) and LR(k) grammars. The Younges algorithm. Syntax-directed transducers.
+
+  NOTE: Offered on availability of instructor.</description>
+    <department>Computer Science</department>
+    <catalogNumber>CSCI-6480</catalogNumber>
+    <credits>3</credits>
+    <prerequisites>
+      <course>
+        <catalogNumber>CSCI-6050</catalogNumber>
+        <credits>0</credits>
+      </course>
+    </prerequisites>
+    <corequisites/>
+    <availableTerms>
+      <rpiplanner.model.YearPart>FALL</rpiplanner.model.YearPart>
+      <rpiplanner.model.YearPart>SPRING</rpiplanner.model.YearPart>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Robotics II</title>
+    <description>
+
+  Cross-listed with ECSE 6490, CSCI 4490, ECSE 4490.</description>
+    <department>Computer Science</department>
+    <catalogNumber>CSCI-6490</catalogNumber>
+    <credits>3</credits>
+    <prerequisites>
+      <course>
+        <catalogNumber>CSCI-4480</catalogNumber>
+        <credits>0</credits>
+      </course>
+    </prerequisites>
+    <corequisites/>
+    <availableTerms>
+      <rpiplanner.model.YearPart>SPRING</rpiplanner.model.YearPart>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Distributed Computing Over The Internet</title>
+    <description>This course studies theoretical foundations ?namely Petri nets, process calculi, actors, join calculus, and mobile ambients?and practical issues in the design of concurrent and distributed programming languages. We compare communication and synchronization aspects in actor, process, and object-oriented concurrent programming models. Current research on coordination, mobility, naming, security, fault-tolerance, and scalability within the course contest is reviewed.</description>
+    <department>Computer Science</department>
+    <catalogNumber>CSCI-6500</catalogNumber>
+    <credits>3</credits>
+    <prerequisites>
+      <course>
+        <catalogNumber>CSCI-4430</catalogNumber>
+        <credits>0</credits>
+      </course>
+      <course>
+        <catalogNumber>CSCI-4220</catalogNumber>
+        <credits>0</credits>
+      </course>
+    </prerequisites>
+    <corequisites/>
+    <availableTerms>
+      <rpiplanner.model.YearPart>SPRING</rpiplanner.model.YearPart>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Distributed Algorithms and Systems</title>
+    <description>This course covers fundamentals of distributed computing algorithms. The algorithms are studied for particular commonly used distributed computing system models such as: shared memory, message passing, and peer-to-peer systems. Some of the distributed computing problems studied are: mutual exclusion; leader election; Byzantine agreement; spanning trees; vertex coloring. This course also studies distributed routing algorithms for store-andforward, optical wireless and sensor networks.</description>
+    <department>Computer Science</department>
+    <catalogNumber>CSCI-6510</catalogNumber>
+    <credits>3</credits>
+    <prerequisites>
+      <course>
+        <catalogNumber>CSCI-2300</catalogNumber>
+        <credits>0</credits>
+      </course>
+    </prerequisites>
+    <corequisites/>
+    <availableTerms>
+      <rpiplanner.model.YearPart>SPRING</rpiplanner.model.YearPart>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Advanced Computer Graphics</title>
+    <description>In this course, there will be a survey of classic papers and current research in computer graphics. Topics include: advanced ray tracing, global illumination, photon mapping, subsurface scattering, mesh generation and simplification, subdivision surfaces, volumetric modeling, procedural modeling and texturing, weathering, physical simulation, appearance models.? Course activities include programming assignments, oral presentations and a term project.???
+
+  Cross-listed with CSCI 4530.</description>
+    <department>Computer Science</department>
+    <catalogNumber>CSCI-6530</catalogNumber>
+    <credits>3</credits>
+    <prerequisites>
+      <course>
+        <catalogNumber>CSCI-2300</catalogNumber>
+        <credits>0</credits>
+      </course>
+    </prerequisites>
+    <corequisites/>
+    <availableTerms>
+      <rpiplanner.model.YearPart>SPRING</rpiplanner.model.YearPart>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Computational Linear Algebra</title>
+    <description>Gaussian elimination, special linear systems (such as positive definite, banded, or sparse), introduction to parallel computing, iterative methods for linear systems (such as conjugate gradient and preconditioning), QR factorization and least squares problems, and eigenvalue problems.
+
+  Cross-listed as MATH 6800. Students cannot obtain credit for both this course and MATH 6800.
+
+  NOTE: even-numbered years ONLY</description>
+    <department>Computer Science</department>
+    <catalogNumber>CSCI-6800</catalogNumber>
+    <credits>4</credits>
+    <prerequisites>
+      <course>
+        <catalogNumber>MATH-4800</catalogNumber>
+        <credits>0</credits>
+      </course>
+    </prerequisites>
+    <corequisites/>
+    <availableTerms>
+      <rpiplanner.model.YearPart>FALL</rpiplanner.model.YearPart>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Numerical Solution of Ordinary Differential Equations</title>
+    <description>Numerical methods and analysis for ODEs with applications from mechanics, optics, and chaotic dynamics. Numerical methods for dynamic systems include Runge-Kutta, multistep and extrapolation techniques, methods for conservative and Hamiltonian systems, methods for stiff differential equations and for differential-algebraic systems. Methods for boundary value problems include shooting and orthogonalization, finite difference and collocation techniques, and special methods for problems with boundary or shock layers.
+
+  Cross-isted as  MATH 6820. Students cannot obtain credit for both this course and MATH 6820.</description>
+    <department>Computer Science</department>
+    <catalogNumber>CSCI-6820</catalogNumber>
+    <credits>4</credits>
+    <prerequisites>
+      <course>
+        <catalogNumber>MATH-4800</catalogNumber>
+        <credits>0</credits>
+      </course>
+    </prerequisites>
+    <corequisites/>
+    <availableTerms>
+      <rpiplanner.model.YearPart>SPRING</rpiplanner.model.YearPart>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Numerical Solution of Partial Differential Equations</title>
+    <description>Numerical methods and analysis for linear and nonlinear PDEs with applications from heat conduction, wave propagation, solid and fluid mechanics, and other areas. Basic concepts of stability and convergence (Lax equivalence theorem, CFL condition, energy methods). Methods for parabolic problems (finite differences, method of lines, ADI, operator splitting), methods for hyperbolic problems (vector systems and characteristics, dissipation and dispersion, shocks capturing and tracking schemes), methods for elliptic problems (finite difference and finite volume methods).?
+
+  (Cross listed as MATH 6840. Students cannot obtain credit for both this course and MATH 6840).
+
+  NOTE: odd-numbered years ONLY</description>
+    <department>Computer Science</department>
+    <catalogNumber>CSCI-6840</catalogNumber>
+    <credits>4</credits>
+    <prerequisites>
+      <course>
+        <catalogNumber>MATH-4800</catalogNumber>
+        <credits>0</credits>
+      </course>
+    </prerequisites>
+    <corequisites/>
+    <availableTerms>
+      <rpiplanner.model.YearPart>FALL</rpiplanner.model.YearPart>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Finite Element Analysis</title>
+    <description>Galerkin?s method and extremal principles, finite element approximations (Lagrange, hierarchical and 3-D approximations, interpolation errors), mesh generation and assembly, adaptivity (h-, p-, hp-refinement). Error analysis and convergence rates. Perturbations resulting from boundary approximation, numerical integration, etc. Time dependent problems including parabolic and hyperbolic PDEs. Applications will be selected from several areas including heat conduction, wave propagation, potential theory, and solid and fluid mechanics.
+
+  (Cross listed as MATH 6860. Students cannot obtain credit for both this course and MATH 6860.)
+
+  NOTE: even-numbered years ONLY</description>
+    <department>Computer Science</department>
+    <catalogNumber>CSCI-6860</catalogNumber>
+    <credits>4</credits>
+    <prerequisites>
+      <course>
+        <catalogNumber>MATH-4800</catalogNumber>
+        <credits>0</credits>
+      </course>
+    </prerequisites>
+    <corequisites/>
+    <availableTerms>
+      <rpiplanner.model.YearPart>SPRING</rpiplanner.model.YearPart>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Computer Science Seminar</title>
+    <description>Presentation of current developments in computer science. Reports by students.
+
+  NOTE: Unclear when course is offered</description>
+    <department>Computer Science</department>
+    <catalogNumber>CSCI-6900</catalogNumber>
+    <credits>1</credits>
+    <prerequisites/>
+    <corequisites/>
+    <availableTerms>
+      <rpiplanner.model.YearPart>FALL</rpiplanner.model.YearPart>
+      <rpiplanner.model.YearPart>SPRING</rpiplanner.model.YearPart>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Readings in Computer Science</title>
+    <description>
+
+  NOTE: Unclear when course is offered</description>
+    <department>Computer Science</department>
+    <catalogNumber>CSCI-6940</catalogNumber>
+    <credits>1</credits>
+    <prerequisites/>
+    <corequisites/>
+    <availableTerms>
+      <rpiplanner.model.YearPart>FALL</rpiplanner.model.YearPart>
+      <rpiplanner.model.YearPart>SPRING</rpiplanner.model.YearPart>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Topics in Computer Science</title>
+    <description>
+
+  NOTE: Unclear when course is offered</description>
+    <department>Computer Science</department>
+    <catalogNumber>CSCI-6960</catalogNumber>
+    <credits>1</credits>
+    <prerequisites/>
+    <corequisites/>
+    <availableTerms>
+      <rpiplanner.model.YearPart>FALL</rpiplanner.model.YearPart>
+      <rpiplanner.model.YearPart>SPRING</rpiplanner.model.YearPart>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Professional Project</title>
+    <description>Active participation in a semester-long project, under the supervision of a faculty adviser. A Professional Project often serves as a culminating experience for a Professional Master?s program but, with departmental or school approval, can be used to fulfill other program requirements. With approval, students may register for more than one Professional Project. Professional Projects must result in documentation established by each department or school, but are not submitted to the Graduate School and are not archived in the library. Grades of A, B,C, or F are assigned by the faculty adviser at the end of the semester. If not completed on time, a formal Incomplete grade may be assigned by the faculty adviser, listing the work remaining to be completed and the time limit for completing this work.
+
+  NOTE: Unclear when course is offered</description>
+    <department>Computer Science</department>
+    <catalogNumber>CSCI-6970</catalogNumber>
+    <credits>0</credits>
+    <prerequisites/>
+    <corequisites/>
+    <availableTerms>
+      <rpiplanner.model.YearPart>FALL</rpiplanner.model.YearPart>
+      <rpiplanner.model.YearPart>SPRING</rpiplanner.model.YearPart>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Master?s Project</title>
+    <description>Active participation in a master?s-level project under the supervision of a faculty adviser, leading to a master?s project report. Grades of IP are assigned until the master?s project has been approved by the faculty adviser. If recommended by the adviser, the master?s project may be accepted by the Office of Graduate Education to be archived in the Library. Grades will then be listed as S.
+
+  NOTE: Unclear when course is offered</description>
+    <department>Computer Science</department>
+    <catalogNumber>CSCI-6980</catalogNumber>
+    <credits>1</credits>
+    <prerequisites/>
+    <corequisites/>
+    <availableTerms>
+      <rpiplanner.model.YearPart>FALL</rpiplanner.model.YearPart>
+      <rpiplanner.model.YearPart>SPRING</rpiplanner.model.YearPart>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Master?s Thesis</title>
+    <description>Active participation in research, under the supervision of a faculty adviser, leading to a master?s thesis. Grades of IP are assigned until the thesis has been approved by the faculty adviser and accepted by the Office of Graduate Education to be archived in a standard format in the library. Grades will then be listed as S.
+
+  NOTE: Unclear when course is offered</description>
+    <department>Computer Science</department>
+    <catalogNumber>CSCI-6990</catalogNumber>
+    <credits>1</credits>
+    <prerequisites/>
+    <corequisites/>
+    <availableTerms>
+      <rpiplanner.model.YearPart>FALL</rpiplanner.model.YearPart>
+      <rpiplanner.model.YearPart>SPRING</rpiplanner.model.YearPart>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Dissertation</title>
+    <description>Active participation in research, under the supervision of a faculty adviser, leading to a doctoral dissertation. Grades of IP are assigned until the dissertation has been publicly defended, approved by the doctoral committee, and accepted by the Office of Graduate Education to be archived in a standard format in the library. Grades will then be listed as S.
+
+  NOTE: Unclear when course is offered</description>
+    <department>Computer Science</department>
+    <catalogNumber>CSCI-9990</catalogNumber>
+    <credits>0</credits>
+    <prerequisites/>
+    <corequisites/>
+    <availableTerms>
+      <rpiplanner.model.YearPart>FALL</rpiplanner.model.YearPart>
+      <rpiplanner.model.YearPart>SPRING</rpiplanner.model.YearPart>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Introduction to Engineering Analysis</title>
+    <description>An integrated development of linear algebra and statics emphasizing engineering applications and also incorporating computer exercises involving matrix techniques and calculations using available software packages. </description>
+    <department>Core Engineering</department>
+    <catalogNumber>ENGR-1100</catalogNumber>
+    <credits>4</credits>
+    <prerequisites/>
+    <corequisites/>
+    <availableTerms>
+      <rpiplanner.model.YearPart>FALL</rpiplanner.model.YearPart>
+      <rpiplanner.model.YearPart>SPRING</rpiplanner.model.YearPart>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Engineering Graphics and CAD</title>
+    <description>An introduction to the techniques for creating solid models of engineering designs. Topics include three-dimensional modeling of parts and assemblies, visualization, orthographic and isometric free-hand sketching, and computer-generated design documentation. </description>
+    <department>Core Engineering</department>
+    <catalogNumber>ENGR-1200</catalogNumber>
+    <credits>1</credits>
+    <prerequisites/>
+    <corequisites/>
+    <availableTerms>
+      <rpiplanner.model.YearPart>FALL</rpiplanner.model.YearPart>
+      <rpiplanner.model.YearPart>SPRING</rpiplanner.model.YearPart>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Engineering Processes</title>
+    <description>The use of basic machine tools such as lathes, milling machines, drill presses, band saws, and grinders, including micrometers, vernier calipers, and other devices of use in a machine shop or laboratory. Welding techniques and tool making are also considered. 
+</description>
+    <department>Core Engineering</department>
+    <catalogNumber>ENGR-1300</catalogNumber>
+    <credits>1</credits>
+    <availableTerms>
+      <rpiplanner.model.YearPart>FALL</rpiplanner.model.YearPart>
+      <rpiplanner.model.YearPart>SPRING</rpiplanner.model.YearPart>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Calculus I</title>
+    <description>Functions, limits, continuity, derivatives, implicit differentiation, related rates, maxima and minima, elementary transcendental functions, introduction to definite integral with applications to area and volumes of revolution. 
+</description>
+    <department>Mathematics</department>
+    <catalogNumber>MATH-1010</catalogNumber>
+    <credits>4</credits>
+    <availableTerms>
+      <rpiplanner.model.YearPart>FALL</rpiplanner.model.YearPart>
+      <rpiplanner.model.YearPart>SPRING</rpiplanner.model.YearPart>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Calculus II</title>
+    <description>Techniques and applications of integration, polar coordinates, parametric equations, infinite sequences and series, vector functions and curves in space, functions of several variables, and partial derivatives. 
+</description>
+    <department>Mathematics</department>
+    <catalogNumber>MATH-1020</catalogNumber>
+    <credits>4</credits>
+    <availableTerms>
+      <rpiplanner.model.YearPart>FALL</rpiplanner.model.YearPart>
+      <rpiplanner.model.YearPart>SPRING</rpiplanner.model.YearPart>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Introduction to Discrete Structures</title>
+    <description>Introduction to the mathematical foundation of computer science. Topics include logic and set theory; methods of proof; mathematical induction and wellordering; principles of counting; relations and graphs; recurrences; discrete probability. 
+</description>
+    <department>Mathematics</department>
+    <catalogNumber>MATH-2800</catalogNumber>
+    <credits>4</credits>
+    <prerequisites/>
+    <corequisites/>
+    <availableTerms>
+      <rpiplanner.model.YearPart>FALL</rpiplanner.model.YearPart>
+      <rpiplanner.model.YearPart>SPRING</rpiplanner.model.YearPart>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Introduction to Differential Equations</title>
+    <description>First-order differential equations, second-order linear equations, eigenvalues and eigenvectors of matrices, systems of first-order equations, stability and qualitative properties of nonlinear autonomous systems in the plane, Fourier series, separation of variables for partial differential equations. 
+</description>
+    <department>Mathematics</department>
+    <catalogNumber>MATH-2400</catalogNumber>
+    <credits>4</credits>
+    <prerequisites/>
+    <corequisites/>
+    <availableTerms>
+      <rpiplanner.model.YearPart>FALL</rpiplanner.model.YearPart>
+      <rpiplanner.model.YearPart>SPRING</rpiplanner.model.YearPart>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Embedded Control</title>
+    <description>Engineering laboratory introduction to the microprocessor as an embedded element of engineering systems. Students simultaneously develop the hardware and software of one or more target systems during the semester. Topics include concepts and practices of microcontroller hardware and software for command, sensing, control, and display. Specifically this includes control of dynamic systems and sensor interfaces; analog-digital conversion; parallel input/output; driver circuits, modular programming, and subsystem integration. 
+</description>
+    <department>Core Engineering</department>
+    <catalogNumber>ENGR-2350</catalogNumber>
+    <credits>4</credits>
+    <availableTerms>
+      <rpiplanner.model.YearPart>FALL</rpiplanner.model.YearPart>
+      <rpiplanner.model.YearPart>SPRING</rpiplanner.model.YearPart>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Physics I</title>
+    <description>The first semester of a two-semester sequence of interactive courses. Topics include linear and angular kinematics and dynamics, work and energy, momentum and collisions, forces and fields, gravitation, elementary electrostatics, and motion of charged particles in a magnetic field. 
+</description>
+    <department>Physics</department>
+    <catalogNumber>PHYS-1100</catalogNumber>
+    <credits>4</credits>
+    <prerequisites/>
+    <corequisites/>
+    <availableTerms>
+      <rpiplanner.model.YearPart>FALL</rpiplanner.model.YearPart>
+      <rpiplanner.model.YearPart>SPRING</rpiplanner.model.YearPart>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Physics II</title>
+    <description>The second semester of the two-semester sequence of interactive courses. Topics include Gauss?s Law, current electricity, Ampere?s Law and Faraday?s Law, electromagnetic radiation, physical optics, and quantum physics. 
+</description>
+    <department>Physics</department>
+    <catalogNumber>PHYS-1200</catalogNumber>
+    <credits>4</credits>
+    <prerequisites>
+      <course reference="../../../course[174]"/>
+    </prerequisites>
+    <corequisites/>
+    <availableTerms>
+      <rpiplanner.model.YearPart>FALL</rpiplanner.model.YearPart>
+      <rpiplanner.model.YearPart>SPRING</rpiplanner.model.YearPart>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Introductory Economics</title>
+    <description>Every society faces the question of choosing how to use its natural and human resources to produce goods and services and how to distribute these resources among its people. This course studies how these choices are made in markets. It also explains the determinants of total output, employment, and inflation. Attention may also be given to special topics such as the environment, trade, and population. </description>
+    <department>Economics</department>
+    <catalogNumber>ECON-1200</catalogNumber>
+    <credits>4</credits>
+    <availableTerms>
+      <rpiplanner.model.YearPart>FALL</rpiplanner.model.YearPart>
+      <rpiplanner.model.YearPart>SPRING</rpiplanner.model.YearPart>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Chemistry I</title>
+    <description>Principles of chemistry, with particular focus on atomic and molecular structure and bonding, periodicity, basic thermodynamic principles, introduction to acid-base chemistry and elementary  chemical equilibrium, and introduction to organic chemistry. Students cannot get credit for both this course and CHEM-1110.</description>
+    <department>Chemistry</department>
+    <catalogNumber>CHEM-1100</catalogNumber>
+    <credits>4</credits>
+    <availableTerms>
+      <rpiplanner.model.YearPart>FALL</rpiplanner.model.YearPart>
+      <rpiplanner.model.YearPart>SPRING</rpiplanner.model.YearPart>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Introduction to Engineering Design</title>
+    <description>A first course in engineering design which emphasizes creativity, teamwork, communication, and work across engineering disciplines. Students are introduced to the design process through a semester-long project which provides a design-build-test experience. Oral and written communication are important elements of the course. The course meets with ENGR 1010. 
+</description>
+    <department>Core Engineering</department>
+    <catalogNumber>ENGR-2050</catalogNumber>
+    <credits>4</credits>
+    <prerequisites/>
+    <corequisites/>
+    <availableTerms>
+      <rpiplanner.model.YearPart>FALL</rpiplanner.model.YearPart>
+      <rpiplanner.model.YearPart>SPRING</rpiplanner.model.YearPart>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Environment &amp; Politics</title>
+    <description>Mascarenhas fun time</description>
+    <department>Social Science</department>
+    <catalogNumber>IHSS-1968</catalogNumber>
+    <credits>4</credits>
+    <prerequisites/>
+    <corequisites/>
+    <availableTerms>
+      <rpiplanner.model.YearPart>FALL</rpiplanner.model.YearPart>
+      <rpiplanner.model.YearPart>SPRING</rpiplanner.model.YearPart>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Engineering Dynamics</title>
+    <department>Core Engineering</department>
+    <catalogNumber>ENGR-2090</catalogNumber>
+    <credits>4</credits>
+    <prerequisites/>
+    <corequisites/>
+    <availableTerms>
+      <rpiplanner.model.YearPart>FALL</rpiplanner.model.YearPart>
+      <rpiplanner.model.YearPart>SPRING</rpiplanner.model.YearPart>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Mobile Studio Project</title>
+    <department>Electrical, Computer, and Systems Engineering</department>
+    <catalogNumber>ECSE-4940</catalogNumber>
+    <credits>3</credits>
+    <prerequisites/>
+    <corequisites/>
+    <availableTerms>
+      <rpiplanner.model.YearPart>FALL</rpiplanner.model.YearPart>
+      <rpiplanner.model.YearPart>SPRING</rpiplanner.model.YearPart>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Professional Development II</title>
+    <description>This course explores technological contexts for leadership roles. Assignments develop a variety of communication skills. A team-based project gives students the opportunity to demonstrate leadership initiative by proposing solutions to social problems that combine technical expertise with social analysis and communication skills. This is a communication-intensive course. </description>
+    <department>Social Science</department>
+    <catalogNumber>STSS-4840</catalogNumber>
+    <credits>2</credits>
+    <prerequisites/>
+    <corequisites/>
+    <availableTerms>
+      <rpiplanner.model.YearPart>FALL</rpiplanner.model.YearPart>
+      <rpiplanner.model.YearPart>SPRING</rpiplanner.model.YearPart>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Professional Development III</title>
+    <description>Students will study issues associated with working in teams in a modern work environment. Various styles of leadership, the definitions of power and empowerment and their applications in industry and team settings will be studied. Additionally, other topics to be explored include vision, values and attitudes, and organizational culture. The course format will include small and large group discussions, case studies, experiential exercises, and regular participation from industry guests. 
+</description>
+    <department>Core Engineering</department>
+    <catalogNumber>ENGR-4010</catalogNumber>
+    <credits>1</credits>
+    <prerequisites/>
+    <corequisites/>
+    <availableTerms>
+      <rpiplanner.model.YearPart>FALL</rpiplanner.model.YearPart>
+      <rpiplanner.model.YearPart>SPRING</rpiplanner.model.YearPart>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Inventor&apos;s Studio</title>
+    <description>Students work in teams to continue design and development work on approved projects that started in other courses such as Introduction to Engineering Design. New projects can also be proposed by students. Emphasis will be on completing the design, building an improved prototype, applying for patent protection, and licensing the design. Open to undergraduate and graduate students. Oral and written presentations are required. This is designated as a writing-intensive course. 
+</description>
+    <department>Mechanical, Aeronautical, and Nuclear Engineering</department>
+    <catalogNumber>MANE-4220</catalogNumber>
+    <credits>3</credits>
+    <prerequisites/>
+    <corequisites/>
+    <availableTerms>
+      <rpiplanner.model.YearPart>FALL</rpiplanner.model.YearPart>
+      <rpiplanner.model.YearPart>SPRING</rpiplanner.model.YearPart>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Structure of American Industry</title>
+    <description>Acquaints students with the structural characteristics and philosophical foundations of American enterprise. Several important industries are considered from the viewpoint of market structure, conduct, and performance. Such concepts as the corporation, technological competition, and private property, together with criteria for appropriate public policy toward business are examined to orient the student to contemporary American industrial activity. 
+</description>
+    <department>Economics</department>
+    <catalogNumber>ECON-4140</catalogNumber>
+    <credits>4</credits>
+    <prerequisites>
+      <course reference="../../../course[176]"/>
+    </prerequisites>
+    <corequisites/>
+    <availableTerms>
+      <rpiplanner.model.YearPart>FALL</rpiplanner.model.YearPart>
+      <rpiplanner.model.YearPart>SPRING</rpiplanner.model.YearPart>
+    </availableTerms>
+  </course>
+  <degree>
+    <name>always fails</name>
+    <validationCode>$errors &lt;&lt; &quot;I hate the world&quot;</validationCode>
+  </degree>
+  <degree>
+    <name>always succeeds</name>
+    <validationCode>puts &quot;yay!&quot;</validationCode>
+  </degree>
+  <degree>
+    <name>B.S. in Computer &amp; Systems Engineering</name>
+    <validationCode>$taken_courses = []
+
+    # Communication Requirement
+    commclasses = 0
+    each_course do |course|
+      commclasses = commclasses.succ if course.description =~ /(communication|writing)-intensive/i
+    end
+    $errors &lt;&lt; &quot;Communication requirement: #{comclasses} of 2&quot; if commclasses &lt; 2
+
+    # Math &amp; Science Courses
+    require_courses([&apos;CSCI-1200&apos;,&apos;CSCI-2300&apos;,&apos;MATH-1010&apos;,&apos;MATH-1020&apos;,&apos;MATH-2400&apos;,&apos;MATH-2800&apos;,&apos;PHYS-1100&apos;,&apos;PHYS-1200&apos;,&apos;CHEM-1100&apos;,&apos;CSCI-1100&apos;])
+
+    # Core Engineering Courses
+    require_courses([&apos;ENGR-1100&apos;,&apos;ENGR-2050&apos;,&apos;ENGR-2350&apos;,&apos;ENGR-1200&apos;,&apos;ENGR-1300&apos;,&apos;ENGR-4010&apos;])
+
+    # Required Courses
+    require_courses([&apos;ECSE-2010&apos;,&apos;ECSE-2610&apos;,&apos;ECSE-2660&apos;,&apos;ECSE-2410&apos;,&apos;ECSE-4500&apos;])
+
+    # Multidisciplinary Elective
+    require_one_of([&apos;ENGR-1600&apos;,&apos;ENGR-2090&apos;,&apos;ENGR-2250&apos;,&apos;ENGR-2530&apos;])
+
+    #Software Engineering Elective
+    require_one_of([&apos;ECSE-4690&apos;,&apos;ECSE-4750&apos;,&apos;CSCI-4380&apos;,&apos;CSCI-4440&apos;,&apos;CSCI-4600&apos;])
+
+    # Design Elective
+    require_one_of([&apos;ECSE-4780&apos;,&apos;ECSE-4900&apos;,&apos;ECSE-4980&apos;,&apos;MANE-4220&apos;,&apos;EPOW-4850&apos;])
+
+    # Restricted Electives
+    # INCOMPLETE
+    restricted_credits = 0
+    each_course do |course|
+      if course.catalogNumber =~ /(ECSE|CSCI)/ &amp;&amp; !$taken_courses.include?(course)
+        restricted_credits += course.credits
+        $taken_courses &lt;&lt; course
+      end
+    end
+    $errors &lt;&lt; &quot;Only #{restricted_credits} out of 9 restricted elective credits&quot; if restricted_credits &lt; 9
+
+    # H&amp;SS Core
+    # INCOMPLETE
+    humanities_credits = 0
+    socialscience_credits = 0
+    thousandlevel = 0
+    humanities_courses = []
+    socialscience_courses = []
+    fourcredits_hum = 0
+    fourcredits_soc = 0
+    fourthousand = false
+    each_course do |course|
+      if [&apos;IHSS&apos;,&apos;ARTS&apos;,&apos;LANG&apos;,&apos;LITR&apos;,&apos;COMM&apos;,&apos;WRIT&apos;,&apos;STSH&apos;,&apos;PHIL&apos;].include?(course.catalogNumber[0..3])
+        fourcredits_hum += 1 if course.credits == 4
+        fourthousand |= (course.catalogNumber[5..5] == &apos;4&apos; &amp;&amp; course.credits == 4)
+        if course.catalogNumber[5..5] == &apos;1&apos; # 1000-level course
+          if thousandlevel &lt; 3
+            humanities_credits += course.credits
+            humanities_courses &lt;&lt; course
+            $taken_courses &lt;&lt; course
+          end
+          thousandlevel+=1
+        else
+          humanities_credits += course.credits
+          humanities_courses &lt;&lt; course
+          $taken_courses &lt;&lt; course
+        end
+      elsif [&apos;COGS&apos;,&apos;ECON&apos;,&apos;IHSS&apos;,&apos;PSYC&apos;,&apos;STSS&apos;].include?(course.catalogNumber[0..3])
+        fourcredits_soc += 1 if course.credits == 4
+        fourthousand |= (course.catalogNumber[5..5] == &apos;4&apos; &amp;&amp; course.credits == 4)
+        if course.catalogNumber[5..5] == &apos;1&apos; # 1000-level course
+          if thousandlevel &lt; 3
+            socialscience_credits += course.credits
+            socialscience_courses &lt;&lt; course
+            $taken_courses &lt;&lt; course
+          end
+          thousandlevel+=1
+        else
+          socialscience_credits += course.credits
+          socialscience_courses &lt;&lt; course
+          $taken_courses &lt;&lt; course
+        end
+      end
+    end
+    $errors &lt;&lt; &quot;Only #{humanities_credits+socialscience_credits} out of 22 H&amp;SS credits&quot; if (humanities_credits+socialscience_credits) &lt; 22
+    $errors &lt;&lt; &quot;Minimum of 2 4-credit courses in Humanities&quot; if fourcredits_hum &lt; 2
+    $errors &lt;&lt; &quot;Minimum of 2 4-credit courses in Social Sciences&quot; if fourcredits_soc &lt; 2
+    $errors &lt;&lt; &quot;At least ONE 4 credit course must be at the 4000 level&quot; if !fourthousand
+
+    #depth requirement
+    has_depth = false
+    departments = {}
+    (humanities_courses + socialscience_courses).each do |course|
+      if departments[course.catalogNumber[0..3]].nil?
+        departments[course.catalogNumber[0..3]] = [course]
+      else
+        departments[course.catalogNumber[0..3]] &lt;&lt; course
+      end
+    end
+
+    departments.each do |dept|
+      if dept.size &gt; 2 &amp;&amp; 
+        dept[0].credits &gt;= 4 &amp;&amp; dept[1].credits &gt;= 4 &amp;&amp;
+        (dept.find{|course| course.catalogNumber =~ /^.....[^1]/})
+          has_depth = true
+      end
+    end
+
+    $errors &lt;&lt; &quot;H&amp;SS Depth Requirement not satisfied&quot; if !has_depth
+
+    # Free Electives
+    free_credits = 0
+    each_course do |course|
+      if !$taken_courses.include?(course)
+        free_credits += course.credits
+        $taken_courses &lt;&lt; course
+      end
+    end
+    $errors &lt;&lt; &quot;Only #{free_credits} out of 12 free elective credits&quot; if free_credits &lt; 12
+
+    # Total credit hours required
+    total_credits = 0
+    each_course do |course|
+      total_credits += course.credits
+    end
+    $errors &lt;&lt; &quot;Only #{total_credits} out of 128 total credits&quot; if total_credits &lt; 128
+    </validationCode>
+  </degree>
+</courses>

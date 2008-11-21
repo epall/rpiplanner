@@ -21,8 +21,8 @@ package rpiplanner;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 
 import org.apache.bsf.BSFException;
@@ -110,7 +110,7 @@ public class PlanValidator {
 	throws java.io.IOException{
 	    StringBuffer fileData = new StringBuffer(1000);
 	    BufferedReader reader = new BufferedReader(
-	            new FileReader(filePath));
+	            new InputStreamReader(PlanValidator.class.getResourceAsStream("/"+filePath)));
 	    char[] buf = new char[1024];
 	    int numRead=0;
 	    while((numRead=reader.read(buf)) != -1){

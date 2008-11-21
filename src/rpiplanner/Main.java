@@ -124,12 +124,16 @@ public class Main extends Application {
     	try {
 			courseDatabase = (CourseDatabase) xs.fromXML(new FileInputStream(new File(localStorageDir, "course_database.xml")));
 		} catch (FileNotFoundException e) {
-			courseDatabase = new CourseDatabase();
+			try{
+				courseDatabase = (CourseDatabase) xs.fromXML(getClass().getResourceAsStream("/course_database.xml"));
+			} catch(NullPointerException e1){
+				courseDatabase = new CourseDatabase();
+			}
 		}
 		try {
 			planControl.setPlan((PlanOfStudy) xs.fromXML(new FileInputStream(new File(localStorageDir, "default_pos.xml"))));
 		} catch (FileNotFoundException e) {
-			courseDatabase = new CourseDatabase();
+			planControl.setPlan(new PlanOfStudy());
 		}
     }
 	

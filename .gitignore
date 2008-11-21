@@ -1,7 +1,5 @@
 build
 dist
-course_database.xml
-default_pos.xml
-course*xml
+course_database_*.xml
 *pos*xml
 rpiplanner.jar

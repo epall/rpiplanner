@@ -20,6 +20,7 @@
 package rpiplanner.view;
 
 import java.awt.Color;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
@@ -85,7 +86,7 @@ public class CourseDisplay extends JPanel {
 				controller.removeCourse(getParent(), CourseDisplay.this);
 			}
 		});
-		xButton.setIcon(new ImageIcon("remove_course.png"));
+		xButton.setIcon(new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/remove_course.png"))));
 		add(xButton, new CellConstraints(3, 1));
 		addMouseMotionListener(new MouseMotionAdapter() {
 			public void mouseDragged(final MouseEvent e) {
