@@ -110,7 +110,7 @@ public class PlanOfStudyEditor extends JPanel {
 		planPanel.setLayout(new FormLayout("pref:grow(1.0), pref:grow(1.0)",
 				"top:min, top:min, top:min, top:min, top:min"));
 		add(planPanel, new CellConstraints("2, 2, 1, 1, fill, top"));
-		for(int i = 0; i < SchoolInformation.DEFAULT_NUM_SEMESTERS; i++){
+		for(int i = 0; i < SchoolInformation.getDefaultSemesterCount(); i++){
 			final JPanel semesterPanel = new JPanel();
 			semesterPanel.setBorder(new CompoundBorder(new EmptyBorder(5,5,5,5), new EtchedBorder()));
 			semesterPanel.setLayout(new BoxLayout(semesterPanel, BoxLayout.Y_AXIS));

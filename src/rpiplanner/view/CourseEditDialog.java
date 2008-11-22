@@ -39,7 +39,6 @@ import org.jdesktop.beansbinding.Bindings;
 import org.jdesktop.beansbinding.AutoBinding.UpdateStrategy;
 import org.jdesktop.swingx.autocomplete.AutoCompleteDecorator;
 
-import rpiplanner.Main;
 import rpiplanner.POSController;
 import rpiplanner.model.Course;
 import rpiplanner.model.CourseDatabase;
@@ -230,7 +229,7 @@ public class CourseEditDialog extends JDialog {
 	
 	protected void createCourse() {
 		updateCourse();
-		Main.getCourseDatabase().add(toEdit);
+		db.add(toEdit);
 	}
 	
 	protected void updateCourse() {

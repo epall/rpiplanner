@@ -85,7 +85,7 @@ public class Main extends Application {
         } catch (ClassNotFoundException e){
         	// silently ignore because we're not on a mac
         } catch (NullPointerException e){
-        	e.printStackTrace();
+        	// silently ignore because we're not on a mac
         }
         mainFrame.setVisible(true);
     }
@@ -123,7 +123,7 @@ public class Main extends Application {
 		File localStorageDir = getContext().getLocalStorage().getDirectory();
     	try {
 			courseDatabase = (CourseDatabase) xs.fromXML(new FileInputStream(new File(localStorageDir, "course_database.xml")));
-		} catch (FileNotFoundException e) {
+		} catch (FileNotFoundException e) { // not there, use default
 			try{
 				courseDatabase = (CourseDatabase) xs.fromXML(getClass().getResourceAsStream("/course_database.xml"));
 			} catch(NullPointerException e1){
@@ -132,7 +132,7 @@ public class Main extends Application {
 		}
 		try {
 			planControl.setPlan((PlanOfStudy) xs.fromXML(new FileInputStream(new File(localStorageDir, "default_pos.xml"))));
-		} catch (FileNotFoundException e) {
+		} catch (FileNotFoundException e) { // not there, use a blank one
 			planControl.setPlan(new PlanOfStudy());
 		}
     }
@@ -174,15 +174,10 @@ public class Main extends Application {
 			e.printStackTrace();
 		}
     }
-
-    public static CourseDatabase getCourseDatabase() {
-		return courseDatabase;
-	}
     
     @Action
     public void savePlan(){
 	    JFileChooser chooser = new JFileChooser();
-	    
         int returnVal = chooser.showSaveDialog(mainFrame);
         if (returnVal == JFileChooser.APPROVE_OPTION) {
             File file = chooser.getSelectedFile();
@@ -206,12 +201,10 @@ public class Main extends Application {
 			public boolean accept(File f) {
 				return f.isFile() && f.getName().endsWith(".plan");
 			}
-
 			@Override
 			public String getDescription() {
 				return "Plan of Study file";
 			}
-	    	
 	    });
 	    int option = chooser.showOpenDialog(mainFrame);
 	    if (option == JFileChooser.APPROVE_OPTION) {

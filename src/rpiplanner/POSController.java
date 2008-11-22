@@ -107,7 +107,7 @@ public class POSController {
 
 	public void addCourse(int term, Course toAdd) {
 		Term toModify = plan.getTerm(term);
-		toModify.getCourses().add(toAdd);
+		toModify.add(toAdd);
 		updateSemesterPanel(term, toModify);
 		totalCredits();
 		validatePlan();
@@ -118,16 +118,14 @@ public class POSController {
 
 		JPanel semesterPanel = semesterPanels.get(term);
 		semesterPanel.removeAll();
-		int numCourses = Math.max(SchoolInformation.DEFAULT_COURSES_PER_SEMESTER, courses.size());
 		int creditTotal = 0;
 		
-		for(int i = 0; i < numCourses; i++){
-			try{
-				semesterPanel.add(new CourseDisplay(this, courses.get(i)));
-				creditTotal += courses.get(i).getCredits();
-			} catch (IndexOutOfBoundsException e){ // no course there yet
-				semesterPanel.add(new CourseDisplay(this));
-			}
+		for(Course c : courses){
+			semesterPanel.add(new CourseDisplay(this, c));
+			creditTotal += c.getCredits();
+		}
+		for(int i = 0; i < (SchoolInformation.getDefaultCoursesPerSemester()-courses.size()); i++){
+			semesterPanel.add(new CourseDisplay(this));
 		}
 		semesterPanel.setBorder(new TitledBorder(
 				model.getTerm().toString() + " " + String.valueOf(model.getYear()) + 
@@ -229,7 +227,7 @@ public class POSController {
 	}
 
 	public void updatePlanFromDatabase() {
-		for(int i = 0; i < SchoolInformation.DEFAULT_NUM_SEMESTERS; i++){
+		for(int i = 0; i < SchoolInformation.getDefaultSemesterCount(); i++){
 			Term t = plan.getTerm(i);
 			ArrayList<Course> courses = t.getCourses();
 			for(int j = 0; j < courses.size(); j++){

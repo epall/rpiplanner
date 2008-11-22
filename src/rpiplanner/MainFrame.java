@@ -161,8 +161,4 @@ public class MainFrame extends JFrame {
 		Bindings.createAutoBinding(UpdateStrategy.READ_WRITE, plan, BeanProperty.create("studentID"), studentIDfield, text).bind();
 		Bindings.createAutoBinding(UpdateStrategy.READ_WRITE, plan, BeanProperty.create("startingYear"), comboBox, selectedItem).bind();
 	}
-	public POSController getController() {
-		return controller;
-	}
-
 }

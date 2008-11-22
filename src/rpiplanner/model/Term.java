@@ -29,7 +29,7 @@ import com.thoughtworks.xstream.annotations.XStreamImplicit;
 @XStreamAlias("term")
 public class Term {
 	@XStreamImplicit
-	private ArrayList<Course> courses = new ArrayList<Course>(SchoolInformation.DEFAULT_COURSES_PER_SEMESTER);
+	private ArrayList<Course> courses = new ArrayList<Course>(SchoolInformation.getDefaultCoursesPerSemester());
 	
 	private int year;
 	private YearPart term;
@@ -52,12 +52,12 @@ public class Term {
 
 	public ArrayList<Course> getCourses() {
 		if(courses == null){
-			courses = new ArrayList<Course>(SchoolInformation.DEFAULT_COURSES_PER_SEMESTER);
+			courses = new ArrayList<Course>(SchoolInformation.getDefaultCoursesPerSemester());
 		}
 		return courses;
 	}
 
-	public void setCourses(ArrayList<Course> courses) {
-		this.courses = courses;
+	public void add(Course toAdd) {
+		courses.add(toAdd);
 	}
 }
