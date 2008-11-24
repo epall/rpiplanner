@@ -27,6 +27,7 @@ import java.util.ArrayList;
 
 import org.apache.bsf.BSFException;
 import org.apache.bsf.BSFManager;
+import org.jruby.exceptions.RaiseException;
 
 import rpiplanner.model.Degree;
 import rpiplanner.model.PlanOfStudy;
@@ -100,9 +101,9 @@ public class PlanValidator {
 			return validationErrors.toArray(new ValidationError[0]);
 
 		} catch (BSFException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			return new ValidationError[0];
+			RaiseException err = (RaiseException) e.getTargetException();
+			System.err.println(err.getException().asJavaString());
+			return new ValidationError[] {new ValidationError(ValidationError.Type.WARNING, "Bad degree specification")};
 		}
 	}
 	
