@@ -22,6 +22,9 @@
  */
 package rpiplanner.model;
 
+import com.thoughtworks.xstream.annotations.XStreamAlias;
+
+@XStreamAlias("year-part")
 public enum YearPart {
 	FALL,
 	SPRING;

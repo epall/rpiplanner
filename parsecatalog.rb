@@ -73,63 +73,63 @@ def parse_year_parts(description, b)
   b.availableTerms {
     case description
     when "Offered each term."
-        b.tag!('rpiplanner.model.YearPart', 'FALL')
-        b.tag!('rpiplanner.model.YearPart', 'SPRING')
+        b.year-part('FALL')
+        b.tag!('year-part', 'SPRING')
     when "Spring term even-numbered years."
       retval = "even-numbered years ONLY"
-      b.tag!('rpiplanner.model.YearPart', 'SPRING')
+      b.tag!('year-part', 'SPRING')
     when /Fall, spring,? (and )?summer (terms|session 2) annually./
-      b.tag!('rpiplanner.model.YearPart', 'FALL')
-      b.tag!('rpiplanner.model.YearPart', 'SPRING')
+      b.tag!('year-part', 'FALL')
+      b.tag!('year-part', 'SPRING')
     when /Fall and spring terms?( annually)?./
-      b.tag!('rpiplanner.model.YearPart', 'FALL')
-      b.tag!('rpiplanner.model.YearPart', 'SPRING')
+      b.tag!('year-part', 'FALL')
+      b.tag!('year-part', 'SPRING')
     when /Spring( term)?( [aA]nnually)?.?/
-      b.tag!('rpiplanner.model.YearPart', 'SPRING')
+      b.tag!('year-part', 'SPRING')
     when /Fall( term)?( annually)?.?/
-      b.tag!('rpiplanner.model.YearPart', 'FALL')
+      b.tag!('year-part', 'FALL')
     when "Offered on sufficient demand."
       retval = "Offered on sufficient demand."
-      b.tag!('rpiplanner.model.YearPart', 'FALL')
-      b.tag!('rpiplanner.model.YearPart', 'SPRING')
+      b.tag!('year-part', 'FALL')
+      b.tag!('year-part', 'SPRING')
     when "Offered spring term on sufficient demand."
       retval = "Offered on sufficient demand."
-      b.tag!('rpiplanner.model.YearPart', 'SPRING')
+      b.tag!('year-part', 'SPRING')
     when "Fall term on sufficient demand."
       retval = "Offered on sufficient demand."
-      b.tag!('rpiplanner.model.YearPart', 'FALL')
+      b.tag!('year-part', 'FALL')
     when /Offered on availability of (instructor|faculty).?/
       retval = "Offered on availability of #{$1}."
-      b.tag!('rpiplanner.model.YearPart', 'FALL')
-      b.tag!('rpiplanner.model.YearPart', 'SPRING')
+      b.tag!('year-part', 'FALL')
+      b.tag!('year-part', 'SPRING')
     when "Fall term odd-numbered years."
       retval = "odd-numbered years ONLY"
-      b.tag!('rpiplanner.model.YearPart', 'FALL')
+      b.tag!('year-part', 'FALL')
     when "Fall term even-numbered years."
       retval = "even-numbered years ONLY"
-      b.tag!('rpiplanner.model.YearPart', 'FALL')
+      b.tag!('year-part', 'FALL')
     when "Fall term alternate years."
       retval = "alternate years ONLY"
-      b.tag!('rpiplanner.model.YearPart', 'FALL')
+      b.tag!('year-part', 'FALL')
     when "Spring term alternate years."
       retval = "alternate years ONLY"
-      b.tag!('rpiplanner.model.YearPart', 'FALL')
+      b.tag!('year-part', 'FALL')
     when "Offered biannually."
       retval = "Offered biannually"
-      b.tag!('rpiplanner.model.YearPart', 'FALL')
-      b.tag!('rpiplanner.model.YearPart', 'SPRING')
+      b.tag!('year-part', 'FALL')
+      b.tag!('year-part', 'SPRING')
     when /(Offered )?Annually.?/
       retval = "Offered anually. Unclear which term"
-      b.tag!('rpiplanner.model.YearPart', 'FALL')
-      b.tag!('rpiplanner.model.YearPart', 'SPRING')
+      b.tag!('year-part', 'FALL')
+      b.tag!('year-part', 'SPRING')
     when /Offered in conjunction with senior courses./
       retval = "Offered in conjunction with senior courses."
-      b.tag!('rpiplanner.model.YearPart', 'FALL')
-      b.tag!('rpiplanner.model.YearPart', 'SPRING')
+      b.tag!('year-part', 'FALL')
+      b.tag!('year-part', 'SPRING')
     when ""
       retval = "Unclear when course is offered"
-      b.tag!('rpiplanner.model.YearPart', 'FALL')
-      b.tag!('rpiplanner.model.YearPart', 'SPRING')
+      b.tag!('year-part', 'FALL')
+      b.tag!('year-part', 'SPRING')
     else
       raise "No match found for year part "+description
     end

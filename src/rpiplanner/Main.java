@@ -56,6 +56,7 @@ import rpiplanner.model.Course;
 import rpiplanner.model.DefaultCourseDatabase;
 import rpiplanner.model.PlanOfStudy;
 import rpiplanner.model.ShadowCourseDatabase;
+import rpiplanner.model.YearPart;
 
 import com.apple.eawt.ApplicationEvent;
 import com.thoughtworks.xstream.XStream;
@@ -287,6 +288,7 @@ public class Main extends Application {
 		xs.processAnnotations(Course.class);
 		xs.processAnnotations(DefaultCourseDatabase.class);
 		xs.processAnnotations(ShadowCourseDatabase.class);
+		xs.processAnnotations(YearPart.class);
         Application.launch(Main.class, args);
     }
 }
