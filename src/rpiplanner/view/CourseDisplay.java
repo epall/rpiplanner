@@ -23,15 +23,10 @@ import java.awt.Color;
 import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.Graphics;
-import java.awt.Toolkit;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionAdapter;
 
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.TransferHandler;
@@ -46,7 +41,7 @@ import com.jgoodies.forms.layout.FormLayout;
 import com.jgoodies.forms.layout.RowSpec;
 
 public class CourseDisplay extends JPanel {
-	private JButton xButton;
+	private JLabel xButton;
 	private Course course;
 	private POSController controller;
 	private CourseTransferHandler handler;
@@ -73,9 +68,9 @@ public class CourseDisplay extends JPanel {
 			new ColumnSpec[] {
 				ColumnSpec.decode("left:0dlu:grow(1.0)"),
 				FormFactory.RELATED_GAP_COLSPEC,
-				ColumnSpec.decode("right:24px")},
+				ColumnSpec.decode("right:min")},
 			new RowSpec[] {
-				RowSpec.decode("17px")}));
+				FormFactory.MIN_ROWSPEC}));
 
 		JLabel label = new JLabel("Add Course...");
 		this.add(label, new CellConstraints(1, 1));
@@ -83,14 +78,15 @@ public class CourseDisplay extends JPanel {
 		handler = new CourseTransferHandler(controller);
 		setTransferHandler(handler);
 		
-		xButton = new JButton();
-		xButton.addActionListener(new ActionListener() {
-			public void actionPerformed(final ActionEvent e) {
+		xButton = new JLabel("X");
+		xButton.addMouseListener(new MouseAdapter(){
+			@Override
+			public void mouseClicked(MouseEvent e) {
 				controller.removeCourse(getParent(), CourseDisplay.this);
 			}
 		});
-		xButton.setIcon(new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/remove_course.png"))));
 		add(xButton, new CellConstraints(3, 1));
+
 		addMouseMotionListener(new MouseMotionAdapter() {
 			public void mouseDragged(final MouseEvent e) {
 				handler.exportAsDrag(CourseDisplay.this, e, TransferHandler.MOVE);

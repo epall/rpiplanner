@@ -89,6 +89,7 @@ public class MainFrame extends JFrame {
 			public void actionPerformed(final ActionEvent e) {
 				controller.initializeTerms((Integer)comboBox.getSelectedItem());
 				CardLayout l = (CardLayout)getContentPane().getLayout();
+				controller.validatePlan();
 				l.next(getContentPane());
 			}
 		});
