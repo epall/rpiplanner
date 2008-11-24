@@ -20,30 +20,20 @@
 			</manifest>
 			<fileset dir="build/classes" />
 			<fileset dir=".">
-  			<include name="course_database.xml"/>
-  			<include name="plan_validation.rb"/>
-  			<include name="*.png"/>
-		  </fileset>
-			<zipfileset excludes="META-INF/*.SF" src="lib/swing-worker.jar" />
-			<zipfileset excludes="META-INF/*.SF" src="lib/xstream-1.3.jar" />
-			<zipfileset excludes="META-INF/*.SF" src="lib/AppleJavaExtensions.jar" />
-			<zipfileset excludes="META-INF/*.SF" src="lib/beansbinding-1.2.1.jar" />
-			<zipfileset excludes="META-INF/*.SF" src="lib/appframework.jar" />
-			<zipfileset excludes="META-INF/*.SF" src="forms-1.2.0.jar" />
-			<zipfileset excludes="META-INF/*.SF" src="lib/bsf.jar" />
-			<zipfileset excludes="META-INF/*.SF" src="lib/jruby.jar" />
-			<zipfileset excludes="META-INF/*.SF" src="lib/xpp3_min-1.1.4c.jar" />
-			<zipfileset excludes="META-INF/*.SF" src="lib/swingx-0.9.4.jar" />
+				<include name="course_database.xml"/>
+				<include name="plan_validation.rb"/>
+				<include name="*.png"/>
+			</fileset>
 		</jar>
 	</target>
-	
+
 	<target name="clean">
 		<delete>
 			<fileset dir="build" includes="**/*.class"/>
 			<fileset dir="build" includes="**/*.properties"/>
 		</delete>
 	</target>
-	
+
 	<target name="build">
 		<javac srcdir="src"
 			destdir="build/classes"
@@ -54,23 +44,31 @@
 			</classpath>
 		</javac>
 		<copy todir="build/classes">
-		    <fileset dir="src">
-		      <include name="**/*.properties"/>
-		    </fileset>
+			<fileset dir="src">
+				<include name="**/*.properties"/>
+			</fileset>
 		</copy>
 	</target>
-	
+
 	<target name="sign" depends="package">
-		<signjar jar="rpiplanner.jar"
-			alias="mykey" storepass="davison"/>
+		<signjar jar="rpiplanner.jar" alias="mykey" storepass="davison"/>
 	</target>
-	
+
 	<target name="deploy" depends="sign">
 		<scp todir="epall@svallens.com:domains/rpiplanner.svallens.com/web/public/app"
 			keyfile="${user.home}/.ssh/id_rsa" passphrase="" verbose="true">
 			<fileset dir=".">
 				<include name="rpiplanner.jar"/>
 				<include name="rpiplanner.jnlp"/>
+			</fileset>
+		</scp>
+	</target>
+	<target name="deploylib">
+		<scp todir="epall@svallens.com:domains/rpiplanner.svallens.com/web/public/app"
+			keyfile="${user.home}/.ssh/id_rsa" passphrase="" verbose="true">
+			<fileset dir="lib"/>
+			<fileset dir=".">
+				<include name="forms-1.2.0.jar"/>
 			</fileset>
 		</scp>
 	</target>
