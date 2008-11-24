@@ -29,6 +29,7 @@
     <jar href="jruby.jar"/>
     <jar href="xpp3_min-1.1.4c.jar"/>
     <jar href="swingx-0.9.4.jar"/>
+		<jar href="AppleJavaExtensions.jar"/>
   </resources>
   <application-desc main-class="rpiplanner.Main"/>
 </jnlp>
