@@ -6,7 +6,7 @@ commclasses = 0
 each_course do |course|
   commclasses = commclasses.succ if course.description =~ /(communication|writing)-intensive/i
 end
-$errors << "Communication requirement: #{comclasses} of 2" if commclasses < 2
+$errors << "Communication requirement: #{commclasses} of 2" if commclasses < 2
 
 # Math & Science Courses
 require_courses(['CSCI-1200','CSCI-2300','MATH-1010','MATH-1020','MATH-2400','MATH-2800','PHYS-1100','PHYS-1200','CHEM-1100','CSCI-1100'])

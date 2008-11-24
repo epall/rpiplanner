@@ -5,8 +5,6 @@ require 'uri'
 require 'builder'
 
 # TODO:
-# * Pull multiple pages
-# * Clean up parse_year_parts
 
 def pull_class(coid)
   res = Net::HTTP.get(URI.parse("http://catalog.rpi.edu/preview_course.php?catoid=5&coid=#{coid}&print"))
@@ -91,14 +89,14 @@ def parse_year_parts(description, b)
     when "Offered each term."  
       b.tag!('year-part', 'FALL')
       b.tag!('year-part', 'SPRING')
-    when "Spring term even-numbered years."
-      retval = "even-numbered years ONLY"
-      b.tag!('year-part', 'SPRING')
     when /Fall, spring,? (and )?summer (terms|session 2) annually./
       b.tag!('year-part', 'FALL')
       b.tag!('year-part', 'SPRING')
     when /Fall and spring terms?( annually)?./
       b.tag!('year-part', 'FALL')
+      b.tag!('year-part', 'SPRING')
+    when "Spring term even-numbered years."
+      retval = "even-numbered years ONLY"
       b.tag!('year-part', 'SPRING')
     when /Spring( term)?( [aA]nnually)?.?/
       b.tag!('year-part', 'SPRING')
@@ -114,8 +112,8 @@ def parse_year_parts(description, b)
     when "Fall term on sufficient demand."
       retval = "Offered on sufficient demand."
       b.tag!('year-part', 'FALL')
-    when "Offered on sufficient demand. Offered biannually."
-      retval = "Offered on sufficient demand."
+    when /(Offered on sufficient demand. )?Offered biannually./
+      retval = "Offered on sufficient demand." if $1
       retval = "Offered biannually"
       b.tag!('year-part', 'FALL')
       b.tag!('year-part', 'SPRING')
@@ -135,10 +133,6 @@ def parse_year_parts(description, b)
     when "Spring term alternate years."
       retval = "alternate years ONLY"
       b.tag!('year-part', 'FALL')
-    when "Offered biannually."
-      retval = "Offered biannually"
-      b.tag!('year-part', 'FALL')
-      b.tag!('year-part', 'SPRING')
     when /(Offered )?Annually.?/
       retval = "Offered anually. Unclear which term"
       b.tag!('year-part', 'FALL')
@@ -228,10 +222,16 @@ def parse_requisites(requisites, b)
     corequisites << $1+'-'+$2
     corequisites << $3+'-'+$4
     retval = requisites
+  when /Prerequisite:.*Mathematics major, Corequisite:.*([A-Z0-9-]*) or permission of instructor./
+    corequisites << $1
+    retval = "Must be mathematics major. Corequisite can be skipped on permission of instructor."
+  when /Prerequisite:.*([A-Z]*) (\d*) or graduate standing or permission of the instructor.*/
+    prerequisites << $1+'-'+$2
+    retval = "Prerequisite can be skipped with graduate standing or permission of the instructor."
   when ''
     nil
   else
-    raise "No match found for '#{requisites}'"
+    raise "No match found for /#{requisites}/"
   end
 
   b.prerequisites{
@@ -259,13 +259,14 @@ end
 # puts pull_class(7985).inspect
 # exit
 
-#Successfully parsed departments: ECSE, CSCI, ENGR, BIOL, MANE
+#Successfully parsed departments: ECSE, CSCI, ENGR, BIOL, MANE, MATH
 #in progress: CHEM, ECON
 # TODO: IHSS, PHYS, STSS
 
+fail = false
 builder = Builder::XmlMarkup.new(:indent => 2)
 xml = builder.courses do |b|
-  ['ECON'].each do |dept|
+  ['CSCI', 'ECSE', 'ENGR', 'MATH'].each do |dept|
     pull_dept(dept).each do |coid|
       b.course do |b|
         course = pull_class(coid)
@@ -278,7 +279,7 @@ xml = builder.courses do |b|
         rescue
           puts $!
           puts course[:catalogNumber]
-          exit
+          fail = true
         end
 
         b.description(description)
@@ -299,4 +300,4 @@ xml = builder.courses do |b|
   end
 end
 
-puts xml
+puts xml unless fail
