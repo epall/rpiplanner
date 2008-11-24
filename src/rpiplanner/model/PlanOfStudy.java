@@ -64,6 +64,7 @@ public class PlanOfStudy {
 	}
 	public void setStartingYear(int startingYear) {
 		this.startingYear = startingYear;
+		rebuildTerms();
 	}
 	public Term getTerm(int index){
 		return terms.get(index);
@@ -91,12 +92,14 @@ public class PlanOfStudy {
 	 * prototype that uses RPI's semester-based term system
 	 */
 	private void initializeTerms(){
+		startingYear = 2007; // default for most of my classmates
 		terms = new ArrayList<Term>(SchoolInformation.getDefaultSemesterCount());
 		Term firstTerm = new Term();
 		firstTerm.setYear(startingYear);
 		firstTerm.setTerm(YearPart.FALL);
+		terms.add(firstTerm);
 
-		for(int i = 0; i < SchoolInformation.getDefaultSemesterCount()/2; i++){
+		for(int i = 1; i < SchoolInformation.getDefaultSemesterCount()/2; i++){
 			Term spring = new Term();
 			spring.setYear(startingYear+i);
 			spring.setTerm(YearPart.SPRING);
@@ -104,12 +107,13 @@ public class PlanOfStudy {
 			terms.add(spring);
 			Term fall = new Term();
 			fall.setYear(startingYear+i);
-			fall.setTerm(YearPart.SPRING);
+			fall.setTerm(YearPart.FALL);
 			terms.add(fall);
 		}
 		Term lastTerm = new Term();
 		lastTerm.setYear(startingYear + SchoolInformation.getDefaultSemesterCount()/2);
 		lastTerm.setTerm(YearPart.SPRING);
+		terms.add(lastTerm);
 	}
 
 	public int numTerms(){

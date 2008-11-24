@@ -137,6 +137,8 @@ public class POSController {
 	public void initializeTerms(int startingYear) {
 		plan.setStartingYear(startingYear);
 		plan.rebuildTerms();
+		for(int i = 0; i < plan.numTerms(); i++)
+		updateSemesterPanel(i, plan.getTerm(i));
 	}
 
 	public void removeCourse(Container semesterPanel, CourseDisplay course) {
