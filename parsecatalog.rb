@@ -63,6 +63,22 @@ def pull_dept(department)
     name = c.inner_html
     courses << coid
   end
+  
+  if doc.search("a[@href=\"javascript:course_search(2);\"]")
+    req = Net::HTTP::Post.new('http://catalog.rpi.edu/content.php?catoid=5&navoid=111')
+    req.set_form_data({'filter[27]' => department,
+          'filter[29]' => '', 'cpage' => 2, 'cur_cat_oid' => 5, 'filter[32]' => 1,
+          'search_database' => 'Filter', 'filter[keyword]' => ''})
+
+    doc = Hpricot(Net::HTTP.new('catalog.rpi.edu').start {|http| http.request(req) }.body)
+
+    doc.search("a:not(.footer) [@target=\"_blank\"]").each do |c|
+      onclick = c.get_attribute('onclick')
+      coid = onclick.match('showCourse\(\'5\', \'(.*)\',this.*')[1]
+      name = c.inner_html
+      courses << coid
+    end
+  end
 
   return courses
 end
@@ -72,9 +88,9 @@ def parse_year_parts(description, b)
 
   b.availableTerms {
     case description
-    when "Offered each term."
-        b.year-part('FALL')
-        b.tag!('year-part', 'SPRING')
+    when "Offered each term."  
+      b.tag!('year-part', 'FALL')
+      b.tag!('year-part', 'SPRING')
     when "Spring term even-numbered years."
       retval = "even-numbered years ONLY"
       b.tag!('year-part', 'SPRING')
@@ -98,6 +114,11 @@ def parse_year_parts(description, b)
     when "Fall term on sufficient demand."
       retval = "Offered on sufficient demand."
       b.tag!('year-part', 'FALL')
+    when "Offered on sufficient demand. Offered biannually."
+      retval = "Offered on sufficient demand."
+      retval = "Offered biannually"
+      b.tag!('year-part', 'FALL')
+      b.tag!('year-part', 'SPRING')
     when /Offered on availability of (instructor|faculty).?/
       retval = "Offered on availability of #{$1}."
       b.tag!('year-part', 'FALL')
@@ -148,9 +169,11 @@ def parse_requisites(requisites, b)
   corequisites = []
   
   case requisites
-  when /Prerequisite: ([A-Z]*) (\d*) or permission of instructor./
-    prerequisites << $1+'-'+$2
-    retval = "prerequisite can be skipped on permission of instructor"
+  when /Prerequisites?: *([A-Za-z]*) (\d*)( or equivalent)?( or permission of instructor)?.?/
+    prerequisites << $1.upcase+'-'+$2
+    retval = "prerequisite can be replaced with an equivalent" if $3
+    retval ||= ""
+    retval += "\nprerequisite can be skipped on permission of instructor" if $4
   when /Prerequisites: ([A-Z]*) (\d*) and ([A-Z]*) (\d*)./
     prerequisites << $1+'-'+$2
     prerequisites << $3+'-'+$4
@@ -186,12 +209,25 @@ def parse_requisites(requisites, b)
     retval = "senior standing required" if $3
   when /Prerequisites?: ([a-z].*)./
     retval = $1
+  when /Prerequisite: ([A-Z0-9-]*) or ([A-Z0-9-]*)./
+    prerequisites << $1
+    retval = "Alternative prerequisite: $2"
+  when /CHEM 2210 or a similar course in organic chemistry is a co- or prerequisite./
+    prerequisites << "CHEM-2210"
+    retval = "a similar course to CHEM-2210 in organic chemistry can be substituted for the CHEM-2210 prerequisite"
+  when /A continuation of ([A-Z]*) (\d*), which is a prerequisite./
+    retval = "Continuation of #{$1}-#{$2}"
+    prerequisites << $1+'-'+$2
   when /Prerequisite\/Corequisite: Completion of Advanced Laboraty Requirement for Biology./
     retval = "Prerequisite/Corequisite: Completion of Advanced Laboratory Requirement for Biology"
   when /^There are no formal prerequisites.*/
     retval = requisites
   when /Prerequisite: This is a continuation of the fall course ([A-Z]*) (\d*)/
     prerequisites << $1+'-'+$2
+  when /Experiments depend on the theoretical material in ([A-Z]*) (\d*) and ([A-Z]*) (\d*), which are corequisites./
+    corequisites << $1+'-'+$2
+    corequisites << $3+'-'+$4
+    retval = requisites
   when ''
     nil
   else
@@ -224,10 +260,12 @@ end
 # exit
 
 #Successfully parsed departments: ECSE, CSCI, ENGR, BIOL, MANE
+#in progress: CHEM, ECON
+# TODO: IHSS, PHYS, STSS
 
 builder = Builder::XmlMarkup.new(:indent => 2)
 xml = builder.courses do |b|
-  ['ECSE', 'CSCI'].each do |dept|
+  ['ECON'].each do |dept|
     pull_dept(dept).each do |coid|
       b.course do |b|
         course = pull_class(coid)
@@ -249,6 +287,15 @@ xml = builder.courses do |b|
         b.credits(course[:credits] || 0)
       end
     end
+  end
+  
+  Dir.glob("degrees/*.rb").each do |file|
+    degree = File.new(file, 'r')
+    builder.degree {
+      builder.name(degree.readline.strip[2..1000])
+      builder.validationCode(degree.read(nil))
+    }
+    degree.close
   end
 end
 

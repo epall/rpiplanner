@@ -1,3 +1,4 @@
+# B.S. Computer Science 2011
 $taken_courses = []
 
 # Communication Requirement
