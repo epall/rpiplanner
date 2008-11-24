@@ -3284,15 +3284,7 @@
     </availableTerms>
   </course>
   <degree>
-    <name>always fails</name>
-    <validationCode>$errors &lt;&lt; &quot;I hate the world&quot;</validationCode>
-  </degree>
-  <degree>
-    <name>always succeeds</name>
-    <validationCode>puts &quot;yay!&quot;</validationCode>
-  </degree>
-  <degree>
-    <name>B.S. in Computer &amp; Systems Engineering</name>
+    <name>B.S. in Computer &amp; Systems Engineering 2011</name>
     <validationCode>$taken_courses = []
 
     # Communication Requirement
