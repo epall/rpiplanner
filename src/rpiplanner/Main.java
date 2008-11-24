@@ -19,20 +19,32 @@
 
 package rpiplanner;
 
+import java.awt.Dimension;
+import java.awt.Font;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.awt.print.PageFormat;
+import java.awt.print.Printable;
+import java.awt.print.PrinterException;
+import java.awt.print.PrinterJob;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 
+import javax.print.attribute.HashPrintRequestAttributeSet;
+import javax.print.attribute.PrintRequestAttributeSet;
+import javax.print.attribute.standard.OrientationRequested;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+import javax.swing.JPanel;
 import javax.swing.filechooser.FileFilter;
 
 import org.jdesktop.application.Action;
@@ -43,11 +55,8 @@ import rpiplanner.model.Course;
 import rpiplanner.model.CourseDatabase;
 import rpiplanner.model.PlanOfStudy;
 
+import com.apple.eawt.ApplicationEvent;
 import com.thoughtworks.xstream.XStream;
-
-// OSX imports
-
-import com.apple.eawt.*;
 
 /**
  *
@@ -106,6 +115,10 @@ public class Main extends Application {
 		final JMenuItem fileOpen = new JMenuItem();
 		fileOpen.setAction(getAction("loadPlan"));
 		fileMenu.add(fileOpen);
+		
+		final JMenuItem print = new JMenuItem();
+		print.setAction(getAction("print"));
+		fileMenu.add(print);
 
 		final JMenuItem fileUpdate = new JMenuItem("Update from course database");
 		fileUpdate.addActionListener(new ActionListener() {
@@ -217,6 +230,50 @@ public class Main extends Application {
 			}
 	    }
     }
+    
+    @Action
+    public void print() {
+		PrinterJob job = PrinterJob.getPrinterJob();
+		PrintRequestAttributeSet aset = new HashPrintRequestAttributeSet();
+		aset.add(OrientationRequested.LANDSCAPE);
+		job.setJobName("RPI Planner");
+		job.setPrintable(new Printable() {
+			public int print(Graphics graphics, PageFormat pageFormat,
+					int pageIndex) throws PrinterException {
+				if (pageIndex > 0) {
+					return NO_SUCH_PAGE;
+				}
+
+				JPanel planPanel = mainFrame.getPlanCard().getPlanPanel();
+				Dimension oldSize = planPanel.getSize();
+
+				planPanel.setSize((int)pageFormat.getImageableWidth(), (int)pageFormat.getImageableHeight()-72);
+				planPanel.validate();
+				Graphics2D g2d = (Graphics2D) graphics;
+				g2d.translate(pageFormat.getImageableX(), pageFormat.getImageableY()+72);
+
+				planPanel.printAll(g2d);
+				
+				g2d.setFont(new Font("Arial", Font.BOLD, 24));
+				g2d.drawString("Plan of study for "+planControl.getPlan().getFullname(), 72*3, -10);
+				
+				planPanel.setSize(oldSize);
+				planPanel.validate();
+
+				return PAGE_EXISTS;
+			}
+
+		});
+		
+		if(job.printDialog()){
+			try {
+				job.print(aset);
+			} catch (PrinterException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+	}
 
 	public static void main(String[] args) {
 		xs = new XStream();

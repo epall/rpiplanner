@@ -20,6 +20,9 @@
 package rpiplanner.view;
 
 import java.awt.Color;
+import java.awt.Component;
+import java.awt.Dimension;
+import java.awt.Graphics;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -130,5 +133,14 @@ public class CourseDisplay extends JPanel {
 				setBackground(Color.YELLOW);
 		}
 		this.corequisitesSatisfied = corequisitesSatisfied;
+	}
+	
+	@Override
+	protected void printChildren(Graphics g) {
+		Component text = getComponent(0);
+		Dimension oldSize = text.getSize();
+		text.setSize(this.getWidth(), this.getHeight());
+		getComponent(0).paint(g);
+		text.setSize(oldSize);
 	}
 }

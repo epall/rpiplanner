@@ -63,6 +63,7 @@ import com.jgoodies.forms.layout.FormLayout;
 import com.jgoodies.forms.layout.RowSpec;
 
 public class PlanOfStudyEditor extends JPanel {
+	private JPanel planPanel;
 	private JTextField creditTotalField;
 	private JPanel detailsPanel;
 	private JList problemsList;
@@ -106,7 +107,7 @@ public class PlanOfStudyEditor extends JPanel {
 		rpiPlannerLabel.setText("RPI Planner");
 		titlePanel.add(rpiPlannerLabel);
 
-		final JPanel planPanel = new JPanel();
+		planPanel = new JPanel();
 		planPanel.setLayout(new FormLayout("pref:grow(1.0), pref:grow(1.0)",
 				"top:min, top:min, top:min, top:min, top:min"));
 		add(planPanel, new CellConstraints("2, 2, 1, 1, fill, top"));
@@ -388,5 +389,9 @@ public class PlanOfStudyEditor extends JPanel {
 				} catch (BadLocationException e1) {}
 			}
 		});
+	}
+	
+	public JPanel getPlanPanel(){
+		return planPanel;
 	}
 }
