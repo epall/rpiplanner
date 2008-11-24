@@ -72,18 +72,21 @@ def parse_year_parts(description, b)
 
   b.availableTerms {
     case description
+    when "Offered each term."
+        b.tag!('rpiplanner.model.YearPart', 'FALL')
+        b.tag!('rpiplanner.model.YearPart', 'SPRING')
     when "Spring term even-numbered years."
       retval = "even-numbered years ONLY"
       b.tag!('rpiplanner.model.YearPart', 'SPRING')
-    when "Fall, spring, and summer terms annually."
+    when /Fall, spring,? (and )?summer (terms|session 2) annually./
       b.tag!('rpiplanner.model.YearPart', 'FALL')
       b.tag!('rpiplanner.model.YearPart', 'SPRING')
-    when /Fall and spring terms( annually)?./
+    when /Fall and spring terms?( annually)?./
       b.tag!('rpiplanner.model.YearPart', 'FALL')
       b.tag!('rpiplanner.model.YearPart', 'SPRING')
     when /Spring( term)?( [aA]nnually)?.?/
       b.tag!('rpiplanner.model.YearPart', 'SPRING')
-    when /Fall( term)? annually.?/
+    when /Fall( term)?( annually)?.?/
       b.tag!('rpiplanner.model.YearPart', 'FALL')
     when "Offered on sufficient demand."
       retval = "Offered on sufficient demand."
@@ -95,8 +98,8 @@ def parse_year_parts(description, b)
     when "Fall term on sufficient demand."
       retval = "Offered on sufficient demand."
       b.tag!('rpiplanner.model.YearPart', 'FALL')
-    when "Offered on availability of instructor."
-      retval = "Offered on availability of instructor."
+    when /Offered on availability of (instructor|faculty).?/
+      retval = "Offered on availability of #{$1}."
       b.tag!('rpiplanner.model.YearPart', 'FALL')
       b.tag!('rpiplanner.model.YearPart', 'SPRING')
     when "Fall term odd-numbered years."
@@ -113,6 +116,14 @@ def parse_year_parts(description, b)
       b.tag!('rpiplanner.model.YearPart', 'FALL')
     when "Offered biannually."
       retval = "Offered biannually"
+      b.tag!('rpiplanner.model.YearPart', 'FALL')
+      b.tag!('rpiplanner.model.YearPart', 'SPRING')
+    when /(Offered )?Annually.?/
+      retval = "Offered anually. Unclear which term"
+      b.tag!('rpiplanner.model.YearPart', 'FALL')
+      b.tag!('rpiplanner.model.YearPart', 'SPRING')
+    when /Offered in conjunction with senior courses./
+      retval = "Offered in conjunction with senior courses."
       b.tag!('rpiplanner.model.YearPart', 'FALL')
       b.tag!('rpiplanner.model.YearPart', 'SPRING')
     when ""
@@ -175,6 +186,12 @@ def parse_requisites(requisites, b)
     retval = "senior standing required" if $3
   when /Prerequisites?: ([a-z].*)./
     retval = $1
+  when /Prerequisite\/Corequisite: Completion of Advanced Laboraty Requirement for Biology./
+    retval = "Prerequisite/Corequisite: Completion of Advanced Laboratory Requirement for Biology"
+  when /^There are no formal prerequisites.*/
+    retval = requisites
+  when /Prerequisite: This is a continuation of the fall course ([A-Z]*) (\d*)/
+    prerequisites << $1+'-'+$2
   when ''
     nil
   else
@@ -205,6 +222,8 @@ end
 # 
 # puts pull_class(7985).inspect
 # exit
+
+#Successfully parsed departments: ECSE, CSCI, ENGR, BIOL, MANE
 
 builder = Builder::XmlMarkup.new(:indent => 2)
 xml = builder.courses do |b|
