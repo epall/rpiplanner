@@ -35,6 +35,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.IOException;
 
 import javax.print.attribute.HashPrintRequestAttributeSet;
 import javax.print.attribute.PrintRequestAttributeSet;
@@ -52,8 +53,9 @@ import org.jdesktop.application.Application;
 import org.jdesktop.application.ApplicationContext;
 
 import rpiplanner.model.Course;
-import rpiplanner.model.CourseDatabase;
+import rpiplanner.model.DefaultCourseDatabase;
 import rpiplanner.model.PlanOfStudy;
+import rpiplanner.model.ShadowCourseDatabase;
 
 import com.apple.eawt.ApplicationEvent;
 import com.thoughtworks.xstream.XStream;
@@ -65,7 +67,7 @@ import com.thoughtworks.xstream.XStream;
 public class Main extends Application {
     private MainFrame mainFrame;
     private static POSController planControl;
-    private static CourseDatabase courseDatabase;
+    private static ShadowCourseDatabase courseDatabase;
 	private static XStream xs;
 
     @Override
@@ -134,15 +136,19 @@ public class Main extends Application {
 
 	protected void loadFromXML(){
 		File localStorageDir = getContext().getLocalStorage().getDirectory();
-    	try {
-			courseDatabase = (CourseDatabase) xs.fromXML(new FileInputStream(new File(localStorageDir, "course_database.xml")));
-		} catch (FileNotFoundException e) { // not there, use default
-			try{
-				courseDatabase = (CourseDatabase) xs.fromXML(getClass().getResourceAsStream("/course_database.xml"));
-			} catch(NullPointerException e1){
-				courseDatabase = new CourseDatabase();
-			}
+		DefaultCourseDatabase mainDB = (DefaultCourseDatabase) xs.fromXML(getClass().getResourceAsStream("/course_database.xml"));
+		ShadowCourseDatabase shadowDB = null;
+		try {
+			shadowDB = (ShadowCourseDatabase) (xs.fromXML(new FileInputStream(new File(localStorageDir, "course_database.xml"))));
+		} catch (IOException e1) {
+			shadowDB = new ShadowCourseDatabase();
 		}
+		if(shadowDB == null)
+			shadowDB = new ShadowCourseDatabase();
+		
+		shadowDB.shadow(mainDB);
+		courseDatabase = shadowDB;
+
 		try {
 			planControl.setPlan((PlanOfStudy) xs.fromXML(new FileInputStream(new File(localStorageDir, "default_pos.xml"))));
 		} catch (FileNotFoundException e) { // not there, use a blank one
@@ -279,7 +285,8 @@ public class Main extends Application {
 		xs = new XStream();
 		xs.processAnnotations(PlanOfStudy.class);
 		xs.processAnnotations(Course.class);
-		xs.processAnnotations(CourseDatabase.class);
+		xs.processAnnotations(DefaultCourseDatabase.class);
+		xs.processAnnotations(ShadowCourseDatabase.class);
         Application.launch(Main.class, args);
     }
 }

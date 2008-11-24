@@ -42,6 +42,7 @@ import org.jdesktop.swingx.autocomplete.AutoCompleteDecorator;
 import rpiplanner.POSController;
 import rpiplanner.model.Course;
 import rpiplanner.model.CourseDatabase;
+import rpiplanner.model.EditableCourse;
 import rpiplanner.model.YearPart;
 
 import com.jgoodies.forms.factories.FormFactory;
@@ -59,7 +60,7 @@ public class CourseEditDialog extends JDialog {
 	private JTextField catalogField;
 	private JTextField titleField;
 	private JTextField departmentField;
-	private Course toEdit;
+	private EditableCourse toEdit;
 	private CourseDatabase db;
 	private boolean newCourse = true;
 	/**
@@ -67,7 +68,7 @@ public class CourseEditDialog extends JDialog {
 	 */
 	public CourseEditDialog() {
 		super();
-		this.toEdit = new Course();
+		this.toEdit = new EditableCourse();
 		toEdit.setCredits(4);
 		initialize();
 		bind();
@@ -76,7 +77,7 @@ public class CourseEditDialog extends JDialog {
 	public CourseEditDialog(Course toEdit){
 		super();
 		newCourse = false;
-		this.toEdit = toEdit;
+		this.toEdit = new EditableCourse(toEdit);
 		initialize();
 		bind();
 	}
@@ -229,7 +230,7 @@ public class CourseEditDialog extends JDialog {
 	
 	protected void createCourse() {
 		updateCourse();
-		db.add(toEdit);
+		db.addOrUpdate(toEdit);
 	}
 	
 	protected void updateCourse() {
@@ -256,6 +257,8 @@ public class CourseEditDialog extends JDialog {
 			offeredDuring.add(YearPart.valueOf(box.getText().toUpperCase()));
 		}
 		toEdit.setAvailableTerms(offeredDuring.toArray(new YearPart[0]));
+		
+		db.addOrUpdate(toEdit);
 	}
 	
 	public void setController(POSController controller){

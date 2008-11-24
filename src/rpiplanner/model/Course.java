@@ -21,11 +21,6 @@ package rpiplanner.model;
 
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 
-/**
- *
- * @author Eric Allen
- */
-
 @XStreamAlias("course")
 public class Course implements Comparable<Course> {
     protected String title;
@@ -40,54 +35,30 @@ public class Course implements Comparable<Course> {
 	public String getTitle() {
 		return title;
 	}
-	public void setTitle(String title) {
-		this.title = title;
-	}
 	public String getDescription() {
 		return description;
-	}
-	public void setDescription(String description) {
-		this.description = description;
 	}
 	public String getDepartment() {
 		return department;
 	}
-	public void setDepartment(String department) {
-		this.department = department;
-	}
 	public String getCatalogNumber() {
 		return catalogNumber;
 	}
-	public void setCatalogNumber(String catalogNumber) {
-		this.catalogNumber = catalogNumber;
-	}
 	public int getCredits() {
 		return credits;
-	}
-	public void setCredits(int credits) {
-		this.credits = credits;
 	}
 	public Course[] getPrerequisites() {
 		if(prerequisites == null)
 			prerequisites = new Course[0];
 		return prerequisites;
 	}
-	public void setPrerequisites(Course[] prerequisites) {
-		this.prerequisites = prerequisites;
-	}
 	public Course[] getCorequisites() {
 		if(corequisites == null)
 			corequisites = new Course[0];
 		return corequisites;
 	}
-	public void setCorequisites(Course[] corequisites) {
-		this.corequisites = corequisites;
-	}
 	public YearPart[] getAvailableTerms() {
 		return availableTerms;
-	}
-	public void setAvailableTerms(YearPart[] availableTerms) {
-		this.availableTerms = availableTerms;
 	}
 	public String toString(){
 		if(title == null)
@@ -102,5 +73,9 @@ public class Course implements Comparable<Course> {
 		if(obj instanceof Course)
 			return catalogNumber.equals(((Course)obj).catalogNumber);
 		return false;
+	}
+	@Override
+	public int hashCode() {
+        return catalogNumber.hashCode();
 	}
 }
