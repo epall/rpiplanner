@@ -16,9 +16,7 @@ def pull_class(coid)
   course[:catalogNumber] = titleparts[1].sub(' ', '-')
 
   textnodes = doc.at('td.block_content_popup').children.select{|e| e.text?}
-  course[:requisites] = textnodes.find{|n| n.inner_text =~ /.*requisite.*/}.inner_text.strip rescue ''
-  # puts "requisites for #{course[:catalogNumber]}: #{course[:requisites]}"
-  # puts  textnodes.find{|n| n.inner_text =~ /.*requisite.*/}
+  course[:requisites] = textnodes.find{|n| n.inner_text =~ /(Co|Pre)requisite.*/}.inner_text.strip rescue ''
 
   course[:description] = textnodes[2].inner_text.strip
 
@@ -100,9 +98,9 @@ def parse_year_parts(description, b)
       b.tag!('year-part', 'SPRING')
     when /Spring( term)?( [aA]nnually)?.?/
       b.tag!('year-part', 'SPRING')
-    when /Fall( term)?( annually)?.?/
+    when /(Offered )?[Ff]all( term)?( annually)?.?/
       b.tag!('year-part', 'FALL')
-    when "Offered on sufficient demand."
+    when /Offered on (sufficient )?demand./
       retval = "Offered on sufficient demand."
       b.tag!('year-part', 'FALL')
       b.tag!('year-part', 'SPRING')
@@ -112,13 +110,13 @@ def parse_year_parts(description, b)
     when "Fall term on sufficient demand."
       retval = "Offered on sufficient demand."
       b.tag!('year-part', 'FALL')
-    when /(Offered on sufficient demand. )?Offered biannually./
+    when /(Offered on sufficient demand. )?(Offered biannually|Alternate years)./
       retval = "Offered on sufficient demand." if $1
       retval = "Offered biannually"
       b.tag!('year-part', 'FALL')
       b.tag!('year-part', 'SPRING')
-    when /Offered on availability of (instructor|faculty).?/
-      retval = "Offered on availability of #{$1}."
+    when /(Offered on|On) (the )?availability (of )?(the )?(instructor|faculty).?/
+      retval = "Offered on availability of #{$5}."
       b.tag!('year-part', 'FALL')
       b.tag!('year-part', 'SPRING')
     when "Fall term odd-numbered years."
@@ -139,6 +137,17 @@ def parse_year_parts(description, b)
       b.tag!('year-part', 'SPRING')
     when /Offered in conjunction with senior courses./
       retval = "Offered in conjunction with senior courses."
+      b.tag!('year-part', 'FALL')
+      b.tag!('year-part', 'SPRING')
+    when /A fall-spring sequence annually./
+      retval = "A fall-spring sequence annually"
+      b.tag!('year-part', 'FALL')
+      b.tag!('year-part', 'SPRING')
+    when /Consult department( about when offered)?./
+      retval = "Consult department for availability"
+      b.tag!('year-part', 'FALL')
+      b.tag!('year-part', 'SPRING')
+    when /4 credit hours/  
       b.tag!('year-part', 'FALL')
       b.tag!('year-part', 'SPRING')
     when ""
@@ -163,71 +172,97 @@ def parse_requisites(requisites, b)
   corequisites = []
   
   case requisites
-  when /Prerequisites?: *([A-Za-z]*) (\d*)( or equivalent)?( or permission of instructor)?.?/
+  when /Prerequisites: EEVP Professional Master’s students or permission of instructor./
+    retval = "Must be EEVP Professional Master’s students or have permission of instructor"
+  when /Prerequisite.*([A-Z]{4}|Chem) (\d*)( or equivalent)?( or permission of instructor)?.?/
     prerequisites << $1.upcase+'-'+$2
     retval = "prerequisite can be replaced with an equivalent" if $3
-    retval ||= ""
-    retval += "\nprerequisite can be skipped on permission of instructor" if $4
-  when /Prerequisites: ([A-Z]*) (\d*) and ([A-Z]*) (\d*)./
+    if retval.nil?
+      retval = "prerequisite can be skipped on permission of instructor" if $4
+    else
+      retval += "\nprerequisite can be skipped on permission of instructor" if $4
+    end
+  when /Prerequisite: ([A-Z0-9-]{9})( or permission of instructor).?/
+    prerequisites << $1
+    retval = "prerequisite can be skipped on permission of instructor" if $2
+  when /Prerequisites: ([A-Z]{4}) (\d*) and ([A-Z]{4}) (\d*)./
     prerequisites << $1+'-'+$2
     prerequisites << $3+'-'+$4
-  when /Prerequisites?: (probability theory and )?([A-Z]*) (\d*)./
+  when /Prerequisites?: (probability theory and )?([A-Z]{4}) (\d*)./
     prerequisites << $2+'-'+$3
     retval = "probability theory required" if $1
-  when /Prerequisites: ([A-Z]*) (\d*), ([A-Z]*) (\d*), (and )?([A-Z]*) (\d*)./
+  when /Prerequisites: ([A-Z]{4}) (\d*), ([A-Z]{4}) (\d*), (and )?([A-Z]{4}) (\d*)./
     prerequisites << $1+'-'+$2
     prerequisites << $3+'-'+$4
     prerequisites << $6+'-'+$7
-  when /Prerequisites: ([A-Z]*) (\d*), ([A-Z]*) (\d*), and senior standing./
+  when /Prerequisites: ([A-Z]{4}) (\d*), ([A-Z]{4}) (\d*), and senior standing./
     prerequisites << $1+'-'+$2
     prerequisites << $3+'-'+$4
     retval = "senior standing required"
-  when /Prerequisites: ([A-Z0-9-]*) and either ([A-Z0-9-]*) or ([A-Z0-9-]*)./
+  when /Prerequisites: ([A-Z0-9-]{9}) and either ([A-Z0-9-]{9}) or ([A-Z0-9-]{9})./
     prerequisites << $1
     retval = "requires EITHER #{$2} or #{$3} as a prerequisite"
-  when /Prerequisites: ([A-Z]*) (\d*) and basic probability such as in MATH 2800, ENGR-2600 or ECSE 4500./
+  when /Prerequisite:.{1,3}([A-Z0-9-]{9}) or ([A-Z0-9-]{9}) or permission of Instructor/
+    retval = requisites
+  when /Prerequisites: ([A-Z]{4}) (\d*) and basic probability such as in MATH 2800, ENGR-2600 or ECSE 4500./
     prerequisites << $1+'-'+$2
     retval  ="requires basic probability such as in MATH 2800, ENGR-2600 or ECSE 4500"
-  when /Prerequisites: ([A-Z]*) (\d*). Co-requisite: ([A-Z]*) (\d*) or ([A-Z]*) (\d*)( recommended)?./
+  when /Prerequisites: ([A-Z]{4}) (\d*). Co-requisite: ([A-Z]{4}) (\d*) or ([A-Z]{4}) (\d*)( recommended)?./
     prerequisites << $1+'-'+$2
     corequisites << $3+'-'+$4
     corequisites << $5+'-'+$6
     retval = "corequisite only recommended" if $7
-  when /Prerequisites: ([A-Z]*) (\d*). Corequisites: ([A-Z]*) (\d*), ([A-Z]*) (\d*) and senior standing./
+  when /Prerequisites: ([A-Z]{4}) (\d*). Corequisites: ([A-Z]{4}) (\d*), ([A-Z]{4}) (\d*) and senior standing./
     prerequisites << $1+'-'+$2
     corequisites << $3+'-'+$4
     corequisites << $5+'-'+$6
     retval = "senior standing required"
-  when /Corequisites?: ([A-Z]*) (\d*)( and senior standing)?./  
+  when /Corequisites?: ([A-Z]{4}) (\d*)( and senior standing)?./  
     corequisites << $1+'-'+$2
     retval = "senior standing required" if $3
   when /Prerequisites?: ([a-z].*)./
     retval = $1
-  when /Prerequisite: ([A-Z0-9-]*) or ([A-Z0-9-]*)./
+  when /Prerequisite: ([A-Z0-9-]{9}) or ([A-Z0-9-]{9})./
     prerequisites << $1
-    retval = "Alternative prerequisite: $2"
+    retval = "Alternative prerequisite: #{$2}"
   when /CHEM 2210 or a similar course in organic chemistry is a co- or prerequisite./
     prerequisites << "CHEM-2210"
     retval = "a similar course to CHEM-2210 in organic chemistry can be substituted for the CHEM-2210 prerequisite"
-  when /A continuation of ([A-Z]*) (\d*), which is a prerequisite./
+  when /A continuation of ([A-Z]{4}) (\d*), which is a prerequisite./
     retval = "Continuation of #{$1}-#{$2}"
     prerequisites << $1+'-'+$2
   when /Prerequisite\/Corequisite: Completion of Advanced Laboraty Requirement for Biology./
     retval = "Prerequisite/Corequisite: Completion of Advanced Laboratory Requirement for Biology"
   when /^There are no formal prerequisites.*/
     retval = requisites
-  when /Prerequisite: This is a continuation of the fall course ([A-Z]*) (\d*)/
+  when /Prerequisite: This is a continuation of the fall course ([A-Z]{4}) (\d*)/
     prerequisites << $1+'-'+$2
-  when /Experiments depend on the theoretical material in ([A-Z]*) (\d*) and ([A-Z]*) (\d*), which are corequisites./
+  when /Experiments depend on the theoretical material in ([A-Z]{4}) (\d*) and ([A-Z]{4}) (\d*), which are corequisites./
     corequisites << $1+'-'+$2
     corequisites << $3+'-'+$4
     retval = requisites
-  when /Prerequisite:.*Mathematics major, Corequisite:.*([A-Z0-9-]*) or permission of instructor./
+  when /Prerequisite:.*Mathematics major, Corequisite:.*([A-Z0-9-]{9}) or permission of instructor./
     corequisites << $1
     retval = "Must be mathematics major. Corequisite can be skipped on permission of instructor."
-  when /Prerequisite:.*([A-Z]*) (\d*) or graduate standing or permission of the instructor.*/
+  when /Prerequisite:.*([A-Z]{4}) (\d*) or graduate standing or permission of the instructor.*/
     prerequisites << $1+'-'+$2
     retval = "Prerequisite can be skipped with graduate standing or permission of the instructor."
+  when /Prerequisites or corequisites: ([A-Z]{4}) (\d*) or ([A-Z]{4}) (\d*) or equivalent./
+    corequisites << $1+'-'+$2
+    corequisites << $3+'-'+$4
+    retval = "Either prerequisite should suffice"
+  when /Prerequisite: A knowledge of organic chemistry is required./
+    retval = requisites
+  when /Prerequisite:.{1,3}(permission of instructor|[Ff]irst-year math majors( only)?|one graduate course in mechanics of solids|a working knowledge of fluid mechanics and heat transfer)./
+    retval = "Prerequisite: "+$1
+  when /Prerequisite:.{1,3}(major in Management, Architecture or H&SS|first-year math TA|graduate student in mathematics|Open to mathematics seniors only|Mathematical Methods in Physics or permission of the instructor)./
+    retval = "Prerequisite: "+$1
+  when /Prerequisites?:.{1,3}(PDI I or PDI II|any 2000-level STS course|junior or senior status|graduate status|graduate standing in STS|junior or senior standing|one philosophy or STS course)( or permission of instructor)?./
+    retval = requisites
+  when /Prerequisite:.{1,3}(1000-level course \(or higher\) in STS|a 1000-level social science course|permission of a supervising faculty member)./
+    retval = requisites
+  when /Prerequisites:.{1,3}Vary with topic./
+    nil
   when ''
     nil
   else
@@ -240,14 +275,14 @@ def parse_requisites(requisites, b)
         b.catalogNumber(p)
       }
     end
-  }
+  } unless prerequisites.empty?
   b.corequisites{
     corequisites.each do |p|
       b.course{
         b.catalogNumber(p)
       }
     end
-  }
+  } unless corequisites.empty?
   
   if retval
     return "\n\nNOTE: "+retval
@@ -255,37 +290,33 @@ def parse_requisites(requisites, b)
     return ''
   end
 end
-# 
-# puts pull_class(7985).inspect
+
+# puts pull_class(7728).inspect
 # exit
 
-#Successfully parsed departments: ECSE, CSCI, ENGR, BIOL, MANE, MATH
-#in progress: CHEM, ECON
-# TODO: IHSS, PHYS, STSS
+#Successfully parsed departments: ECSE, CSCI, ENGR, BIOL, MATH, CHEM, ECON, MANE, IHSS, STSS, PHYS, STSH, PSYC
 
-fail = false
 builder = Builder::XmlMarkup.new(:indent => 2)
 xml = builder.courses do |b|
-  ['CSCI', 'ECSE', 'ENGR', 'MATH'].each do |dept|
+  ['CSCI', 'ECSE', 'ENGR', 'BIOL', 'MANE', 'MATH', 'CHEM', 'ECON','PHYS', 'IHSS', 'STSS', 'STSH', 'PSYC'].each do |dept|
     pull_dept(dept).each do |coid|
-      b.course do |b|
-        course = pull_class(coid)
-        b.title(course[:title])
-        description = course[:description]
+      course = pull_class(coid)
+      description = course[:description]
+      raise "Invalid catalog number: #{course[:catalogNumber]}" unless course[:catalogNumber] =~ /[A-Z]{4}-[\d]{4}/
 
-        begin
+      begin
+        b.course do |b|
           description += parse_year_parts(course[:offered], b)
           description += parse_requisites(course[:requisites], b)
-        rescue
-          puts $!
-          puts course[:catalogNumber]
-          fail = true
+          b.title(course[:title])
+          b.description(description)
+          b.department(course[:department])
+          b.catalogNumber(course[:catalogNumber])
+          b.credits(course[:credits] || 0)
         end
-
-        b.description(description)
-        b.department(course[:department])
-        b.catalogNumber(course[:catalogNumber])
-        b.credits(course[:credits] || 0)
+      rescue
+        $stderr.puts $!
+        $stderr.puts course[:catalogNumber]
       end
     end
   end
@@ -300,4 +331,4 @@ xml = builder.courses do |b|
   end
 end
 
-puts xml unless fail
+puts xml
