@@ -101,4 +101,8 @@ public class ShadowCourseDatabase implements CourseDatabase {
 		courses.add(updated);
 		support.firePropertyChange("courses", null, courses);
 	}
+
+	public Degree getDegree(long id) {
+		return shadowee.getDegree(id);
+	}
 }

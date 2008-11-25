@@ -11246,267 +11246,273 @@ NOTE: Prerequisite:  permission of a supervising faculty member.</description>
     <credits>3</credits>
   </course>
   <degree>
+    <id>2</id>
     <name>B.S. Computer Science 2011</name>
-    <validationCode>$taken_courses = []
+    <validationCode><![CDATA[#0002 B.S. Computer Science 2011
+    $taken_courses = []
 
-# Communication Requirement
-commclasses = 0
-each_course do |course|
-  commclasses += 1 if course.description =~ /(communication|writing)-intensive/i
-end
-$errors &lt;&lt; "Communication requirement: #{commclasses} of 2" if commclasses &lt; 2
-
-# Math &amp; Science Courses
-require_courses(['CSCI-1100', 'CSCI-1200','CSCI-2300','CSCI-2400','CSCI-2500','CSCI-4430','CSCI-4210','CSCI-4440'])
-require_courses(['MATH-1010','MATH-1020','MATH-2800','PHYS-1100','BIOL-1010','CHEM-1100'])
-
-# Mathematics Option
-mathematics = false
-each_course do |course|
-  if course.catalogNumber =~ /MAT[HP]-[2346].../
-    $taken_courses &lt;&lt; course
-    mathematics = true
-  end
-end
-$errors &lt;&lt; "Mathematics option not satsifed" unless mathematics
-
-# Computer Science Option (3 classes)
-compsci_opt = 0
-each_course do |course|
-  if course.catalogNumber =~ /CSCI-[46].../
-    $taken_courses &lt;&lt; course
-    compsci_opt += 1
-  elsif course.catalogNumber =~ /ECSE-4[67]../ &amp;&amp; !['4630','4640','4720'].include?(course.catalogNumber[5..8])
-    $taken_courses &lt;&lt; course
-    compsci_opt += 1
-  elsif course.catalogNumber == 'ECSE-4490'
-    $taken_courses &lt;&lt; course
-    compsci_opt += 1
-  end
-end
-$errors &lt;&lt; "Only #{compsci_opt} out of 3 Computer Science Option courses" if compsci_opt &lt; 3
-
-# Science Option
-science_opt = false
-each_course do |course|
-  if ['ASTR','BIOL','CHEM','ERTH','PHYS'].include?(course.catalogNumber[0..3]) &amp;&amp; 
-    course.credits == 4 &amp;&amp;
-    course.catalogNumber != 'ERTH-1030'
-    $taken_courses &lt;&lt; course
-  end
-end
-$errors &lt;&lt; "Science option not satisfied" unless science_opt
-
-# H&amp;SS Core
-humanities_credits = 0
-socialscience_credits = 0
-thousandlevel = 0
-humanities_courses = []
-socialscience_courses = []
-fourcredits_hum = 0
-fourcredits_soc = 0
-fourthousand = false
-each_course do |course|
-  if ['IHSS','ARTS','LANG','LITR','COMM','WRIT','STSH','PHIL'].include?(course.catalogNumber[0..3])
-    fourcredits_hum += 1 if course.credits == 4
-    fourthousand |= (course.catalogNumber[5..5] == '4' &amp;&amp; course.credits == 4)
-    if course.catalogNumber[5..5] == '1' # 1000-level course
-      if thousandlevel &lt; 3
-        humanities_credits += course.credits
-        humanities_courses &lt;&lt; course
-        $taken_courses &lt;&lt; course
-      end
-      thousandlevel+=1
-    else
-      humanities_credits += course.credits
-      humanities_courses &lt;&lt; course
-      $taken_courses &lt;&lt; course
+    # Communication Requirement
+    commclasses = 0
+    each_course do |course|
+      commclasses += 1 if course.description =~ /(communication|writing)-intensive/i
     end
-  elsif ['COGS','ECON','IHSS','PSYC','STSS'].include?(course.catalogNumber[0..3])
-    fourcredits_soc += 1 if course.credits == 4
-    fourthousand |= (course.catalogNumber[5..5] == '4' &amp;&amp; course.credits == 4)
-    if course.catalogNumber[5..5] == '1' # 1000-level course
-      if thousandlevel &lt; 3
-        socialscience_credits += course.credits
-        socialscience_courses &lt;&lt; course
-        $taken_courses &lt;&lt; course
+    $errors << "Communication requirement: #{commclasses} of 2" if commclasses < 2
+
+    # Math & Science Courses
+    require_courses(['CSCI-1100', 'CSCI-1200','CSCI-2300','CSCI-2400','CSCI-2500','CSCI-4430','CSCI-4210','CSCI-4440'])
+    require_courses(['MATH-1010','MATH-1020','MATH-2800','PHYS-1100','BIOL-1010','CHEM-1100'])
+
+    # Mathematics Option
+    mathematics = false
+    each_course do |course|
+      if course.catalogNumber =~ /MAT[HP]-[2346].../
+        $taken_courses << course
+        mathematics = true
       end
-      thousandlevel+=1
-    else
-      socialscience_credits += course.credits
-      socialscience_courses &lt;&lt; course
-      $taken_courses &lt;&lt; course
     end
-  end
-end
-$errors &lt;&lt; "Only #{humanities_credits+socialscience_credits} out of 22 H&amp;SS credits" if (humanities_credits+socialscience_credits) &lt; 22
-$errors &lt;&lt; "Minimum of 2 4-credit courses in Humanities" if fourcredits_hum &lt; 2
-$errors &lt;&lt; "Minimum of 2 4-credit courses in Social Sciences" if fourcredits_soc &lt; 2
-$errors &lt;&lt; "At least ONE 4 credit course must be at the 4000 level" if !fourthousand
+    $errors << "Mathematics option not satsifed" unless mathematics
 
-#depth requirement
-has_depth = false
-departments = {}
-(humanities_courses + socialscience_courses).each do |course|
-  if departments[course.catalogNumber[0..3]].nil?
-    departments[course.catalogNumber[0..3]] = [course]
-  else
-    departments[course.catalogNumber[0..3]] &lt;&lt; course
-  end
-end
+    # Computer Science Option (3 classes)
+    compsci_opt = 0
+    each_course do |course|
+      if course.catalogNumber =~ /CSCI-[46].../
+        $taken_courses << course
+        compsci_opt += 1
+      elsif course.catalogNumber =~ /ECSE-4[67]../ && !['4630','4640','4720'].include?(course.catalogNumber[5..8])
+        $taken_courses << course
+        compsci_opt += 1
+      elsif course.catalogNumber == 'ECSE-4490'
+        $taken_courses << course
+        compsci_opt += 1
+      end
+    end
+    $errors << "Only #{compsci_opt} out of 3 Computer Science Option courses" if compsci_opt < 3
 
-departments.each do |dept|
-  if dept.size &gt; 2 &amp;&amp;
-    dept[0].credits &gt;= 4 &amp;&amp; dept[1].credits &gt;= 4 &amp;&amp;
-    (dept.find{|course| course.catalogNumber =~ /^.....[^1]/})
-      has_depth = true
-  end
-end
+    # Science Option
+    science_opt = false
+    each_course do |course|
+      if ['ASTR','BIOL','CHEM','ERTH','PHYS'].include?(course.catalogNumber[0..3]) && 
+        course.credits == 4 &&
+        course.catalogNumber != 'ERTH-1030'
+        $taken_courses << course
+      end
+    end
+    $errors << "Science option not satisfied" unless science_opt
 
-$errors &lt;&lt; "H&amp;SS Depth Requirement not satisfied" if !has_depth
+    # H&SS Core
+    humanities_credits = 0
+    socialscience_credits = 0
+    thousandlevel = 0
+    humanities_courses = []
+    socialscience_courses = []
+    fourcredits_hum = 0
+    fourcredits_soc = 0
+    fourthousand = false
+    each_course do |course|
+      if ['IHSS','ARTS','LANG','LITR','COMM','WRIT','STSH','PHIL'].include?(course.catalogNumber[0..3])
+        fourcredits_hum += 1 if course.credits == 4
+        fourthousand |= (course.catalogNumber[5..5] == '4' && course.credits == 4)
+        if course.catalogNumber[5..5] == '1' # 1000-level course
+          if thousandlevel < 3
+            humanities_credits += course.credits
+            humanities_courses << course
+            $taken_courses << course
+          end
+          thousandlevel+=1
+        else
+          humanities_credits += course.credits
+          humanities_courses << course
+          $taken_courses << course
+        end
+      elsif ['COGS','ECON','IHSS','PSYC','STSS'].include?(course.catalogNumber[0..3])
+        fourcredits_soc += 1 if course.credits == 4
+        fourthousand |= (course.catalogNumber[5..5] == '4' && course.credits == 4)
+        if course.catalogNumber[5..5] == '1' # 1000-level course
+          if thousandlevel < 3
+            socialscience_credits += course.credits
+            socialscience_courses << course
+            $taken_courses << course
+          end
+          thousandlevel+=1
+        else
+          socialscience_credits += course.credits
+          socialscience_courses << course
+          $taken_courses << course
+        end
+      end
+    end
+    $errors << "Only #{humanities_credits+socialscience_credits} out of 22 H&SS credits" if (humanities_credits+socialscience_credits) < 22
+    $errors << "Minimum of 2 4-credit courses in Humanities" if fourcredits_hum < 2
+    $errors << "Minimum of 2 4-credit courses in Social Sciences" if fourcredits_soc < 2
+    $errors << "At least ONE 4 credit course must be at the 4000 level" if !fourthousand
 
-# Free Electives
-free_credits = 0
-each_course do |course|
-  if !$taken_courses.include?(course)
-    free_credits += course.credits
-    $taken_courses &lt;&lt; course
-  end
-end
-$errors &lt;&lt; "Only #{free_credits} out of 28 free elective credits" if free_credits &lt; 28
+    #depth requirement
+    has_depth = false
+    departments = {}
+    (humanities_courses + socialscience_courses).each do |course|
+      if departments[course.catalogNumber[0..3]].nil?
+        departments[course.catalogNumber[0..3]] = [course]
+      else
+        departments[course.catalogNumber[0..3]] << course
+      end
+    end
 
-# Total credit hours required
-total_credits = 0
-each_course do |course|
-  total_credits += course.credits
-end
-$errors &lt;&lt; "Only #{total_credits} out of 128 total credits" if total_credits &lt; 128
-</validationCode>
+    departments.each do |key, dept|
+      if dept.size >= 2 &&
+        dept[0].credits >= 4 && dept[1].credits >= 4 &&
+        (dept.find{|course| course.catalogNumber =~ /^.....[^1]/})
+          has_depth = true
+      end
+    end
+
+    $errors << "H&SS Depth Requirement not satisfied" if !has_depth
+
+    # Free Electives
+    free_credits = 0
+    each_course do |course|
+      if !$taken_courses.include?(course)
+        free_credits += course.credits
+        $taken_courses << course
+      end
+    end
+    $errors << "Only #{free_credits} out of 28 free elective credits" if free_credits < 28
+
+    # Total credit hours required
+    total_credits = 0
+    each_course do |course|
+      total_credits += course.credits
+    end
+    $errors << "Only #{total_credits} out of 128 total credits" if total_credits < 128
+    ]]></validationCode>
   </degree>
   <degree>
+    <id>1</id>
     <name>B.S. Computer &amp; Systems Engineering 2011</name>
-    <validationCode>$taken_courses = []
+    <validationCode><![CDATA[#0001 B.S. Computer & Systems Engineering 2011
+    $taken_courses = []
 
-# Communication Requirement
-commclasses = 0
-each_course do |course|
-  commclasses = commclasses.succ if course.description =~ /(communication|writing)-intensive/i
-end
-$errors &lt;&lt; "Communication requirement: #{commclasses} of 2" if commclasses &lt; 2
-
-# Math &amp; Science Courses
-require_courses(['CSCI-1200','CSCI-2300','MATH-1010','MATH-1020','MATH-2400','MATH-2800','PHYS-1100','PHYS-1200','CHEM-1100','CSCI-1100'])
-
-# Core Engineering Courses
-require_courses(['ENGR-1100','ENGR-2050','ENGR-2350','ENGR-1200','ENGR-1300','ENGR-4010'])
-
-# Required Courses
-require_courses(['ECSE-2010','ECSE-2610','ECSE-2660','ECSE-2410','ECSE-4500'])
-
-# Multidisciplinary Elective
-require_one_of(['ENGR-1600','ENGR-2090','ENGR-2250','ENGR-2530'])
-
-#Software Engineering Elective
-require_one_of(['ECSE-4690','ECSE-4750','CSCI-4380','CSCI-4440','CSCI-4600'])
-
-# Design Elective
-require_one_of(['ECSE-4780','ECSE-4900','ECSE-4980','MANE-4220','EPOW-4850'])
-
-# Restricted Electives
-# INCOMPLETE
-restricted_credits = 0
-each_course do |course|
-  if course.catalogNumber =~ /(ECSE|CSCI)/ &amp;&amp; !$taken_courses.include?(course)
-    restricted_credits += course.credits
-    $taken_courses &lt;&lt; course
-  end
-end
-$errors &lt;&lt; "Only #{restricted_credits} out of 9 restricted elective credits" if restricted_credits &lt; 9
-
-# H&amp;SS Core
-humanities_credits = 0
-socialscience_credits = 0
-thousandlevel = 0
-humanities_courses = []
-socialscience_courses = []
-fourcredits_hum = 0
-fourcredits_soc = 0
-fourthousand = false
-each_course do |course|
-  if ['IHSS','ARTS','LANG','LITR','COMM','WRIT','STSH','PHIL'].include?(course.catalogNumber[0..3])
-    fourcredits_hum += 1 if course.credits == 4
-    fourthousand |= (course.catalogNumber[5..5] == '4' &amp;&amp; course.credits == 4)
-    if course.catalogNumber[5..5] == '1' # 1000-level course
-      if thousandlevel &lt; 3
-        humanities_credits += course.credits
-        humanities_courses &lt;&lt; course
-        $taken_courses &lt;&lt; course
-      end
-      thousandlevel+=1
-    else
-      humanities_credits += course.credits
-      humanities_courses &lt;&lt; course
-      $taken_courses &lt;&lt; course
+    # Communication Requirement
+    commclasses = 0
+    each_course do |course|
+      commclasses = commclasses.succ if course.description =~ /(communication|writing)-intensive/i
     end
-  elsif ['COGS','ECON','IHSS','PSYC','STSS'].include?(course.catalogNumber[0..3])
-    fourcredits_soc += 1 if course.credits == 4
-    fourthousand |= (course.catalogNumber[5..5] == '4' &amp;&amp; course.credits == 4)
-    if course.catalogNumber[5..5] == '1' # 1000-level course
-      if thousandlevel &lt; 3
-        socialscience_credits += course.credits
-        socialscience_courses &lt;&lt; course
-        $taken_courses &lt;&lt; course
+    $errors << "Communication requirement: #{commclasses} of 2" if commclasses < 2
+
+    # Math & Science Courses
+    require_courses(['CSCI-1200','CSCI-2300','MATH-1010','MATH-1020','MATH-2400','MATH-2800','PHYS-1100','PHYS-1200','CHEM-1100','CSCI-1100'])
+
+    # Core Engineering Courses
+    require_courses(['ENGR-1100','ENGR-2050','ENGR-2350','ENGR-1200','ENGR-1300','ENGR-4010'])
+
+    # Required Courses
+    require_courses(['ECSE-2010','ECSE-2610','ECSE-2660','ECSE-2410','ECSE-4500'])
+
+    # Multidisciplinary Elective
+    require_one_of(['ENGR-1600','ENGR-2090','ENGR-2250','ENGR-2530'])
+
+    #Software Engineering Elective
+    require_one_of(['ECSE-4690','ECSE-4750','CSCI-4380','CSCI-4440','CSCI-4600'])
+
+    # Design Elective
+    require_one_of(['ECSE-4780','ECSE-4900','ECSE-4980','MANE-4220','EPOW-4850'])
+
+    # Restricted Electives
+    restricted_credits = 0
+    each_course do |course|
+      if course.catalogNumber =~ /(ECSE|CSCI)/ && !$taken_courses.include?(course)
+        if restricted_credits < 9
+          restricted_credits += course.credits
+          $taken_courses << course
+        end
       end
-      thousandlevel+=1
-    else
-      socialscience_credits += course.credits
-      socialscience_courses &lt;&lt; course
-      $taken_courses &lt;&lt; course
     end
-  end
-end
-$errors &lt;&lt; "Only #{humanities_credits+socialscience_credits} out of 22 H&amp;SS credits" if (humanities_credits+socialscience_credits) &lt; 22
-$errors &lt;&lt; "Minimum of 2 4-credit courses in Humanities" if fourcredits_hum &lt; 2
-$errors &lt;&lt; "Minimum of 2 4-credit courses in Social Sciences" if fourcredits_soc &lt; 2
-$errors &lt;&lt; "At least ONE 4 credit course must be at the 4000 level" if !fourthousand
+    $errors << "Only #{restricted_credits} out of 9 restricted elective credits" if restricted_credits < 9
 
-#depth requirement
-has_depth = false
-departments = {}
-(humanities_courses + socialscience_courses).each do |course|
-  if departments[course.catalogNumber[0..3]].nil?
-    departments[course.catalogNumber[0..3]] = [course]
-  else
-    departments[course.catalogNumber[0..3]] &lt;&lt; course
-  end
-end
+    # H&SS Core
+    humanities_credits = 0
+    socialscience_credits = 0
+    thousandlevel = 0
+    humanities_courses = []
+    socialscience_courses = []
+    fourcredits_hum = 0
+    fourcredits_soc = 0
+    fourthousand = false
+    each_course do |course|
+      if ['IHSS','ARTS','LANG','LITR','COMM','WRIT','STSH','PHIL'].include?(course.catalogNumber[0..3])
+        fourcredits_hum += 1 if course.credits == 4
+        fourthousand |= (course.catalogNumber[5..5] == '4' && course.credits == 4)
+        if course.catalogNumber[5..5] == '1' # 1000-level course
+          if thousandlevel < 3
+            humanities_credits += course.credits
+            humanities_courses << course
+            $taken_courses << course
+          end
+          thousandlevel+=1
+        else
+          humanities_credits += course.credits
+          humanities_courses << course
+          $taken_courses << course
+        end
+      elsif ['COGS','ECON','IHSS','PSYC','STSS'].include?(course.catalogNumber[0..3])
+        fourcredits_soc += 1 if course.credits == 4
+        fourthousand |= (course.catalogNumber[5..5] == '4' && course.credits == 4)
+        if course.catalogNumber[5..5] == '1' # 1000-level course
+          if thousandlevel < 3
+            socialscience_credits += course.credits
+            socialscience_courses << course
+            $taken_courses << course
+          end
+          thousandlevel+=1
+        else
+          socialscience_credits += course.credits
+          socialscience_courses << course
+          $taken_courses << course
+        end
+      end
+    end
+    $errors << "Only #{humanities_credits+socialscience_credits} out of 22 H&SS credits" if (humanities_credits+socialscience_credits) < 22
+    $errors << "Minimum of 2 4-credit courses in Humanities" if fourcredits_hum < 2
+    $errors << "Minimum of 2 4-credit courses in Social Sciences" if fourcredits_soc < 2
+    $errors << "At least ONE 4 credit course must be at the 4000 level" if !fourthousand
 
-departments.each do |dept|
-  if dept.size &gt; 2 &amp;&amp;
-    dept[0].credits &gt;= 4 &amp;&amp; dept[1].credits &gt;= 4 &amp;&amp;
-    (dept.find{|course| course.catalogNumber =~ /^.....[^1]/})
-      has_depth = true
-  end
-end
+    #depth requirement
+    has_depth = false
+    departments = {}
+    (humanities_courses + socialscience_courses).each do |course|
+      if departments[course.catalogNumber[0..3]].nil?
+        departments[course.catalogNumber[0..3]] = [course]
+      else
+        departments[course.catalogNumber[0..3]] << course
+      end
+    end
 
-$errors &lt;&lt; "H&amp;SS Depth Requirement not satisfied" if !has_depth
+    departments.each do |key, dept|
+      if dept.size >= 2 &&
+        dept[0].credits >= 4 && dept[1].credits >= 4 &&
+        (dept.find{|course| course.catalogNumber =~ /^.....[^1]/})
+          has_depth = true
+      end
+    end
 
-# Free Electives
-free_credits = 0
-each_course do |course|
-  if !$taken_courses.include?(course)
-    free_credits += course.credits
-    $taken_courses &lt;&lt; course
-  end
-end
-$errors &lt;&lt; "Only #{free_credits} out of 12 free elective credits" if free_credits &lt; 12
+    $errors << "H&SS Depth Requirement not satisfied" if !has_depth
 
-# Total credit hours required
-total_credits = 0
-each_course do |course|
-  total_credits += course.credits
-end
-$errors &lt;&lt; "Only #{total_credits} out of 128 total credits" if total_credits &lt; 128
-</validationCode>
+    # Free Electives
+    free_credits = 0
+    each_course do |course|
+      if !$taken_courses.include?(course)
+        free_credits += course.credits
+        $taken_courses << course
+      end
+    end
+    $errors << "Only #{free_credits} out of 12 free elective credits" if free_credits < 12
+
+    # Total credit hours required
+    total_credits = 0
+    each_course do |course|
+      total_credits += course.credits
+    end
+    $errors << "Only #{total_credits} out of 128 total credits" if total_credits < 128
+    ]]>
+    </validationCode>
   </degree>
 </courses>

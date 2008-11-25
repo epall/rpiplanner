@@ -36,4 +36,6 @@ public interface CourseDatabase {
 	public void addPropertyChangeListener(PropertyChangeListener listener);
 
 	public void addOrUpdate(Course updated);
+
+	public Degree getDegree(long id);
 }

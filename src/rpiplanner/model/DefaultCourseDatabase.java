@@ -100,4 +100,12 @@ public class DefaultCourseDatabase implements CourseDatabase {
 	public Collection<Course> getCourses() {
 		return courses;
 	}
+
+	public Degree getDegree(long id) {
+		for(Degree d : degrees){
+			if(d.getID() == id)
+				return d;
+		}
+		return null;
+	}
 }

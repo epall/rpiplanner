@@ -1,4 +1,4 @@
-# B.S. Computer & Systems Engineering 2011
+#0001 B.S. Computer & Systems Engineering 2011
 $taken_courses = []
 
 # Communication Requirement
@@ -27,12 +27,13 @@ require_one_of(['ECSE-4690','ECSE-4750','CSCI-4380','CSCI-4440','CSCI-4600'])
 require_one_of(['ECSE-4780','ECSE-4900','ECSE-4980','MANE-4220','EPOW-4850'])
 
 # Restricted Electives
-# INCOMPLETE
 restricted_credits = 0
 each_course do |course|
   if course.catalogNumber =~ /(ECSE|CSCI)/ && !$taken_courses.include?(course)
-    restricted_credits += course.credits
-    $taken_courses << course
+    if restricted_credits < 9
+      restricted_credits += course.credits
+      $taken_courses << course
+    end
   end
 end
 $errors << "Only #{restricted_credits} out of 9 restricted elective credits" if restricted_credits < 9
@@ -95,8 +96,8 @@ departments = {}
   end
 end
 
-departments.each do |dept|
-  if dept.size > 2 &&
+departments.each do |key, dept|
+  if dept.size >= 2 &&
     dept[0].credits >= 4 && dept[1].credits >= 4 &&
     (dept.find{|course| course.catalogNumber =~ /^.....[^1]/})
       has_depth = true

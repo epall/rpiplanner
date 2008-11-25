@@ -1,4 +1,4 @@
-# B.S. Computer Science 2011
+#0002 B.S. Computer Science 2011
 $taken_courses = []
 
 # Communication Requirement
@@ -107,8 +107,8 @@ departments = {}
   end
 end
 
-departments.each do |dept|
-  if dept.size > 2 &&
+departments.each do |key, dept|
+  if dept.size >= 2 &&
     dept[0].credits >= 4 && dept[1].credits >= 4 &&
     (dept.find{|course| course.catalogNumber =~ /^.....[^1]/})
       has_depth = true

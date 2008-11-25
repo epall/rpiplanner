@@ -265,8 +265,15 @@ public class POSController {
 	
 	public void validatePlan(){
 		for(Degree degree : plan.getDegrees()){
-			ValidationError[] errors = PlanValidator.getInstance().validate(plan, degree);
-			degree.setErrors(errors);
+			if(degree.getID() != 0){ // legacy check
+				Degree validationDegree = courseDatabase.getDegree(degree.getID());
+				ValidationError[] errors = PlanValidator.getInstance().validate(plan, validationDegree);
+				degree.setErrors(errors);
+			}
+			else{
+				ValidationError[] errors = PlanValidator.getInstance().validate(plan, degree);
+				degree.setErrors(errors);
+			}
 		}
 		degreeList.revalidate();
 

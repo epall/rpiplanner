@@ -27,6 +27,7 @@ public class Degree {
 	private String name;
 	private String note;
 	private String validationCode;
+	private long id = 0;
 	
 	@XStreamOmitField
 	private ValidationError[] errors;
@@ -34,25 +35,21 @@ public class Degree {
 	public String getName() {
 		return name;
 	}
-	public void setName(String name) {
-		this.name = name;
-	}
 	public String getNote() {
 		return note;
-	}
-	public void setNote(String note) {
-		this.note = note;
 	}
 	public String getValidationCode(){
 		return validationCode;
 	}
-	public void setValidationCode(String validationCode){
-		this.validationCode = validationCode;
+	public long getID(){
+		return id;
 	}
 	public String toString(){
 		return getName();
 	}
 	public ValidationError[] getErrors() {
+		if(errors == null)
+			return new ValidationError[0];
 		return errors;
 	}
 	public void setErrors(ValidationError[] errors) {

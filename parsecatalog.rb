@@ -323,8 +323,10 @@ xml = builder.courses do |b|
   
   Dir.glob("degrees/*.rb").each do |file|
     degree = File.new(file, 'r')
+    header = degree.readline.strip
     builder.degree {
-      builder.name(degree.readline.strip[2..1000])
+      builder.id(header[1..4].to_i)
+      builder.name(header[6..1000])
       builder.validationCode(degree.read(nil))
     }
     degree.close
