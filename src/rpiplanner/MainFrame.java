@@ -145,6 +145,8 @@ public class MainFrame extends JFrame {
 		Integer[] years = {2006, 2007, 2008, 2009, 2010, 2011};
 		comboBox = new JComboBox(years);
 		introCard.add(comboBox, new CellConstraints(4, 6));
+		
+		setTitle("RPI Planner [beta]");
 		//
 	}
 	public PlanOfStudyEditor getPlanCard() {
