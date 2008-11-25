@@ -41,6 +41,7 @@ import rpiplanner.model.Degree;
 import rpiplanner.model.Term;
 import rpiplanner.model.PlanOfStudy;
 import rpiplanner.model.ValidationError;
+import rpiplanner.model.YearPart;
 import rpiplanner.view.CourseDatabaseFilter;
 import rpiplanner.view.CourseDisplay;
 import rpiplanner.view.CourseTransferHandler;
@@ -264,15 +265,24 @@ public class POSController {
 		}
 		degreeList.revalidate();
 
-		// validate prerequisites and corequisites
+		// validate prerequisites, corequisites, and term restructions
 		for(int i = 0; i < plan.numTerms(); i++){
 			Term currentTerm = plan.getTerm(i);
 			int courseIdx = 0;
 			for(Course course : currentTerm.getCourses()){
+				StringBuilder tooltip = new StringBuilder();
+
+				boolean availableInTerm = false;
+				for(YearPart y : course.getAvailableTerms()){
+					if(y == currentTerm.getTerm())
+						availableInTerm = true;
+				}
 				CourseDisplay cd = (CourseDisplay) semesterPanels.get(i).getComponent(courseIdx);
 				cd.setCorequisitesSatisfied(true);
 				cd.setPrerequisitesSatisfied(true);
-				StringBuilder tooltip = new StringBuilder();
+				cd.setIsAppropriateTerm(availableInTerm);
+				if(!availableInTerm)
+					tooltip.append("Not offered during "+currentTerm.getTerm().toString()+" term\n");
 				
 				for(Course coreq : course.getCorequisites()){
 					// search within this term and previous terms

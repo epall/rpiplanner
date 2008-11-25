@@ -47,6 +47,7 @@ public class CourseDisplay extends JPanel {
 	private CourseTransferHandler handler;
 	private boolean prerequisitesSatisfied = true;
 	private boolean corequisitesSatisfied = true;
+	private boolean inAppropriateTerm = true;
 	
 	public CourseDisplay(POSController controller){
 		this.controller = controller;
@@ -113,22 +114,26 @@ public class CourseDisplay extends JPanel {
 		return course;
 	}
 	public void setPrerequisitesSatisfied(boolean prerequisitesSatisfied) {
-		if(prerequisitesSatisfied != this.prerequisitesSatisfied){
-			if(prerequisitesSatisfied)
-				setBackground(null);
-			else
-				setBackground(Color.RED);
-		}
 		this.prerequisitesSatisfied = prerequisitesSatisfied;
+		updateBackground();
 	}
 	public void setCorequisitesSatisfied(boolean corequisitesSatisfied) {
-		if(corequisitesSatisfied != this.corequisitesSatisfied){
-			if(corequisitesSatisfied)
-				setBackground(null);
-			else
-				setBackground(Color.YELLOW);
-		}
 		this.corequisitesSatisfied = corequisitesSatisfied;
+		updateBackground();
+	}
+	
+	public void setIsAppropriateTerm(boolean inAppropriateTerm){
+		this.inAppropriateTerm = inAppropriateTerm;
+		updateBackground();
+	}
+	
+	private void updateBackground(){
+		if(!prerequisitesSatisfied)
+			setBackground(Color.RED);
+		else if(!inAppropriateTerm || !corequisitesSatisfied)
+			setBackground(Color.YELLOW);
+		else
+			setBackground(null);
 	}
 	
 	@Override
