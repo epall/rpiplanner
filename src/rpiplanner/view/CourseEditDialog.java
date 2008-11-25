@@ -226,7 +226,17 @@ public class CourseEditDialog extends JDialog {
 		for(Course c : toEdit.getCorequisites())
 			builder.append(c.getCatalogNumber());
 		corequisitesField.setText(builder.toString());
-	}
+
+		for(Component c : offeredDuringPanel.getComponents()){
+			JCheckBox box = (JCheckBox)c;
+			box.setSelected(false);
+			if(toEdit.getAvailableTerms() != null)
+				for(YearPart t : toEdit.getAvailableTerms()){
+					if(box.getText().equals(t.toString()))
+						box.setSelected(true);
+				}
+		}
+}
 	
 	protected void createCourse() {
 		updateCourse();
