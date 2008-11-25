@@ -56,6 +56,7 @@ import rpiplanner.model.Course;
 import rpiplanner.model.DefaultCourseDatabase;
 import rpiplanner.model.PlanOfStudy;
 import rpiplanner.model.ShadowCourseDatabase;
+import rpiplanner.model.Term;
 import rpiplanner.model.YearPart;
 
 import com.apple.eawt.ApplicationEvent;
@@ -152,6 +153,12 @@ public class Main extends Application {
 
 		try {
 			planControl.setPlan((PlanOfStudy) xs.fromXML(new FileInputStream(new File(localStorageDir, "default_pos.xml"))));
+			if(planControl.getPlan().numTerms() == SchoolInformation.getDefaultSemesterCount()){
+				// legacy updating
+				Term apTerm = new Term();
+				apTerm.setYear(0);
+				planControl.getPlan().getTerms().add(0, apTerm);
+			}
 		} catch (FileNotFoundException e) { // not there, use a blank one
 			planControl.setPlan(new PlanOfStudy());
 		}

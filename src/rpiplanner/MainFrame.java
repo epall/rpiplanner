@@ -20,6 +20,8 @@
 package rpiplanner;
 
 import java.awt.CardLayout;
+import java.awt.Dimension;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -58,7 +60,12 @@ public class MainFrame extends JFrame {
 		super();
 		getContentPane().setLayout(new CardLayout());
 		
-		setBounds(200, 100, 1000, 650);
+		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+		Dimension windowSize = new Dimension(1200, 730);
+		if(windowSize.width > screenSize.width-200)
+			windowSize.width = screenSize.width-200;
+		setBounds((screenSize.width-windowSize.width)/2, (screenSize.height-windowSize.height)/2, 
+				windowSize.width, windowSize.height);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 		introCard = new JPanel();

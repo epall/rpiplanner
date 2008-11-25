@@ -128,9 +128,15 @@ public class POSController {
 		for(int i = 0; i < (SchoolInformation.getDefaultCoursesPerSemester()-courses.size()); i++){
 			semesterPanel.add(new CourseDisplay(this));
 		}
-		semesterPanel.setBorder(new TitledBorder(
-				model.getTerm().toString() + " " + String.valueOf(model.getYear()) + 
-				" (" + String.valueOf(creditTotal) + ")"));
+		if(model.getYear() == 0){ // AP/transfer credit
+			semesterPanel.setBorder(new TitledBorder("AP/transfer credit ("
+					+ String.valueOf(creditTotal) + ")"));
+		}
+		else{
+			semesterPanel.setBorder(new TitledBorder(model.getTerm().toString()
+					+ " " + String.valueOf(model.getYear()) + " ("
+					+ String.valueOf(creditTotal) + ")"));
+		}
 		
 		semesterPanel.revalidate();
 	}
@@ -230,8 +236,7 @@ public class POSController {
 	}
 
 	public void updatePlanFromDatabase() {
-		for(int i = 0; i < SchoolInformation.getDefaultSemesterCount(); i++){
-			Term t = plan.getTerm(i);
+		for(Term t : plan.getTerms()){
 			ArrayList<Course> courses = t.getCourses();
 			for(int j = 0; j < courses.size(); j++){
 				courses.set(j, courseDatabase.getCourse(courses.get(j).getCatalogNumber()));
@@ -266,7 +271,7 @@ public class POSController {
 		degreeList.revalidate();
 
 		// validate prerequisites, corequisites, and term restructions
-		for(int i = 0; i < plan.numTerms(); i++){
+		for(int i = 1; i < plan.numTerms(); i++){
 			Term currentTerm = plan.getTerm(i);
 			int courseIdx = 0;
 			for(Course course : currentTerm.getCourses()){

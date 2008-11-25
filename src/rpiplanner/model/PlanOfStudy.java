@@ -79,10 +79,10 @@ public class PlanOfStudy {
 	}
 
 	public void rebuildTerms(){
-		terms.get(0).setYear(startingYear);
+		terms.get(1).setYear(startingYear);
 		for(int i = 1; i < SchoolInformation.getDefaultSemesterCount()/2; i++){
+			terms.get(2*i+1).setYear(startingYear+i);
 			terms.get(2*i).setYear(startingYear+i);
-			terms.get(2*i-1).setYear(startingYear+i);
 		}
 		terms.get(terms.size()-1).setYear(startingYear+SchoolInformation.getDefaultSemesterCount()/2);
 	}
@@ -93,7 +93,10 @@ public class PlanOfStudy {
 	 */
 	private void initializeTerms(){
 		startingYear = 2007; // default for most of my classmates
-		terms = new ArrayList<Term>(SchoolInformation.getDefaultSemesterCount());
+		terms = new ArrayList<Term>(SchoolInformation.getDefaultSemesterCount()+1);
+		Term apTerm = new Term();
+		apTerm.setYear(0);
+		
 		Term firstTerm = new Term();
 		firstTerm.setYear(startingYear);
 		firstTerm.setTerm(YearPart.FALL);
