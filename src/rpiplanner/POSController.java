@@ -27,6 +27,7 @@ import java.beans.PropertyChangeSupport;
 import java.util.ArrayList;
 
 import javax.swing.AbstractListModel;
+import javax.swing.ComboBoxModel;
 import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
@@ -244,7 +245,7 @@ public class POSController {
 		}
 	}
 
-	public ListModel getDegreeListModel() {
+	public ComboBoxModel getDegreeListModel() {
 		if(degreeListModel == null){
 			degreeListModel = new DegreeListModel(courseDatabase);
 		}

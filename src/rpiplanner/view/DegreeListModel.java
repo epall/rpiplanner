@@ -20,13 +20,15 @@
 package rpiplanner.view;
 
 import javax.swing.AbstractListModel;
+import javax.swing.ComboBoxModel;
 
 import rpiplanner.model.CourseDatabase;
 import rpiplanner.model.PlanOfStudy;
 
-public class DegreeListModel extends AbstractListModel {
+public class DegreeListModel extends AbstractListModel implements ComboBoxModel {
 	private CourseDatabase database;
 	private PlanOfStudy plan;
+	private Object selectedItem;
 	
 	public DegreeListModel(CourseDatabase database){
 		this.database = database;
@@ -61,5 +63,13 @@ public class DegreeListModel extends AbstractListModel {
 	public void newPlan(PlanOfStudy plan2) {
 		this.plan = plan2;
 		fireContentsChanged(this, 0, getSize());
+	}
+
+	public Object getSelectedItem() {
+		return selectedItem;
+	}
+
+	public void setSelectedItem(Object anItem) {
+		selectedItem = anItem;
 	}
 }

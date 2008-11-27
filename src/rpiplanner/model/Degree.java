@@ -69,4 +69,12 @@ public class Degree {
 		}
 		return err;
 	}
+	@Override
+	public boolean equals(Object obj) {
+		if(obj instanceof Degree){
+			if(((Degree)obj).id == id)
+				return true;
+		}
+		return false;
+	}
 }

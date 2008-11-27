@@ -24,6 +24,7 @@ import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -37,6 +38,7 @@ import org.jdesktop.beansbinding.BeanProperty;
 import org.jdesktop.beansbinding.Bindings;
 import org.jdesktop.beansbinding.AutoBinding.UpdateStrategy;
 
+import rpiplanner.model.Degree;
 import rpiplanner.model.PlanOfStudy;
 import rpiplanner.view.PlanOfStudyEditor;
 
@@ -48,6 +50,7 @@ import com.jgoodies.forms.layout.RowSpec;
 
 public class MainFrame extends JFrame {
 
+	private JComboBox majorComboBox;
 	private JComboBox comboBox;
 	private JPanel introCard;
 	private PlanOfStudyEditor planCard;
@@ -81,6 +84,7 @@ public class MainFrame extends JFrame {
 				FormFactory.DEFAULT_ROWSPEC,
 				FormFactory.DEFAULT_ROWSPEC,
 				FormFactory.DEFAULT_ROWSPEC,
+				FormFactory.DEFAULT_ROWSPEC,
 				RowSpec.decode("default"),
 				RowSpec.decode("fill:default:grow(1.0)"),
 				RowSpec.decode("bottom:default")}));
@@ -94,14 +98,14 @@ public class MainFrame extends JFrame {
 		final JButton button = new JButton();
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(final ActionEvent e) {
-				controller.initializeTerms((Integer)comboBox.getSelectedItem());
+				manualSave();
 				CardLayout l = (CardLayout)getContentPane().getLayout();
 				controller.validatePlan();
 				l.next(getContentPane());
 			}
 		});
 		button.setText("Continue");
-		introCard.add(button, new CellConstraints("1, 8, 4, 1, fill, fill"));
+		introCard.add(button, new CellConstraints("1, 9, 4, 1, fill, fill"));
 
 		final JLabel welcomeToRpiLabel = new JLabel();
 		welcomeToRpiLabel.setHorizontalAlignment(SwingConstants.CENTER);
@@ -145,6 +149,14 @@ public class MainFrame extends JFrame {
 		Integer[] years = {2006, 2007, 2008, 2009, 2010, 2011};
 		comboBox = new JComboBox(years);
 		introCard.add(comboBox, new CellConstraints(4, 6));
+
+		final JLabel majorLabel = new JLabel();
+		majorLabel.setHorizontalAlignment(SwingConstants.RIGHT);
+		majorLabel.setText("Major:");
+		introCard.add(majorLabel, new CellConstraints(2, 7));
+
+		majorComboBox = new JComboBox();
+		introCard.add(majorComboBox, new CellConstraints(4, 7));
 		
 		setTitle("RPI Planner [beta]");
 		//
@@ -159,8 +171,28 @@ public class MainFrame extends JFrame {
 	public void setController(POSController controller) {
 		this.controller = controller;
 		setupBindings();
+		manualInit();
 	}
 
+	private void manualInit() {
+		majorComboBox.setModel(controller.getDegreeListModel());
+		if(controller.getPlan().getDegrees() == null || controller.getPlan().getDegrees().size() == 0)
+			;
+		else{
+			Degree major = controller.getPlan().getDegrees().get(0);
+			majorComboBox.setSelectedItem(major);
+		}
+	}
+	
+	private void manualSave() {
+		controller.initializeTerms((Integer)comboBox.getSelectedItem());
+		ArrayList<Degree> degrees = controller.getPlan().getDegrees();
+		if(degrees.contains(majorComboBox.getSelectedItem()))
+			;
+		else
+			controller.addDegree((Degree)majorComboBox.getSelectedItem());
+	}
+	
 	private void setupBindings() {
 		PlanOfStudy plan = controller.getPlan();
 		BeanProperty<JTextField, String> text = BeanProperty.create("text");
