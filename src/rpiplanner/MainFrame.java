@@ -171,4 +171,12 @@ public class MainFrame extends JFrame {
 		Bindings.createAutoBinding(UpdateStrategy.READ_WRITE, plan, BeanProperty.create("studentID"), studentIDfield, text).bind();
 		Bindings.createAutoBinding(UpdateStrategy.READ_WRITE, plan, BeanProperty.create("startingYear"), comboBox, selectedItem).bind();
 	}
+	public void goToDetailsPanel() {
+		CardLayout l = (CardLayout)getContentPane().getLayout();
+		l.first(getContentPane());
+	}
+	public void goToPlanEditor() {
+		CardLayout l = (CardLayout)getContentPane().getLayout();
+		l.last(getContentPane());
+	}
 }

@@ -96,6 +96,7 @@ public class PlanOfStudy {
 		terms = new ArrayList<Term>(SchoolInformation.getDefaultSemesterCount()+1);
 		Term apTerm = new Term();
 		apTerm.setYear(0);
+		terms.add(apTerm);
 		
 		Term firstTerm = new Term();
 		firstTerm.setYear(startingYear);

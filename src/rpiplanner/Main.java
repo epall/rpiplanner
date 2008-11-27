@@ -71,6 +71,7 @@ public class Main extends Application {
     private static POSController planControl;
     private static ShadowCourseDatabase courseDatabase;
 	private static XStream xs;
+	private boolean newPlan;
 
     @Override
     protected void startup() {
@@ -82,6 +83,8 @@ public class Main extends Application {
         mainFrame = new MainFrame();
         planControl.setView(mainFrame.getPlanCard());
         mainFrame.setController(planControl);
+        if(!newPlan)
+        	mainFrame.goToPlanEditor();
         
         mainFrame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
         mainFrame.addWindowListener(new WindowAdapter() {
@@ -124,6 +127,10 @@ public class Main extends Application {
 		print.setAction(getAction("print"));
 		fileMenu.add(print);
 
+		final JMenuItem details = new JMenuItem();
+		details.setAction(getAction("details"));
+		fileMenu.add(details);
+
 		final JMenuItem fileUpdate = new JMenuItem("Update from course database");
 		fileUpdate.addActionListener(new ActionListener() {
 			public void actionPerformed(final ActionEvent e) {
@@ -159,7 +166,9 @@ public class Main extends Application {
 				apTerm.setYear(0);
 				planControl.getPlan().getTerms().add(0, apTerm);
 			}
+			newPlan = false;
 		} catch (FileNotFoundException e) { // not there, use a blank one
+			newPlan = true;
 			planControl.setPlan(new PlanOfStudy());
 		}
     }
@@ -288,6 +297,11 @@ public class Main extends Application {
 			}
 		}
 	}
+    
+    @Action
+    public void details(){
+    	mainFrame.goToDetailsPanel();
+    }
 
 	public static void main(String[] args) {
 		xs = new XStream();
