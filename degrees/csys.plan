@@ -1,0 +1,394 @@
+<plan>
+  <fullname></fullname>
+  <school>Rensselaer Polytechnic Institute</school>
+  <studentID></studentID>
+  <startingYear>2007</startingYear>
+  <degrees>
+    <degree>
+      <name>B.S. Computer &amp; Systems Engineering 2011</name>
+      <id>1</id>
+    </degree>
+  </degrees>
+  <term>
+    <year>0</year>
+  </term>
+  <term>
+    <course>
+      <title>Introduction to Engineering Analysis</title>
+      <description>An integrated development of linear algebra and statics emphasizing engineering applications and also incorporating computer exercises involving matrix techniques and calculations using available software packages. </description>
+      <department>Core Engineering</department>
+      <catalogNumber>ENGR-1100</catalogNumber>
+      <credits>4</credits>
+      <prerequisites/>
+      <corequisites/>
+      <availableTerms>
+        <year-part>FALL</year-part>
+        <year-part>SPRING</year-part>
+      </availableTerms>
+    </course>
+    <course>
+      <title>Engineering Graphics and CAD</title>
+      <description>An introduction to the techniques for creating solid models of engineering designs. Topics include three-dimensional modeling of parts and assemblies, visualization, orthographic and isometric free-hand sketching, and computer-generated design documentation. </description>
+      <department>Core Engineering</department>
+      <catalogNumber>ENGR-1200</catalogNumber>
+      <credits>1</credits>
+      <prerequisites/>
+      <corequisites/>
+      <availableTerms>
+        <year-part>FALL</year-part>
+        <year-part>SPRING</year-part>
+      </availableTerms>
+    </course>
+    <course>
+      <title>Computer Science I</title>
+      <description>An introduction to computer programming algorithm design and analysis. Additional topics include basic computer organization; internal representation of scalar and array data; use of top-down design and subprograms to tackle complex problems; abstract data types. Enrichment material as time allows. Interdisciplinary case studies, numerical and nonnumerical applications. Students who have passed CSCI 1200 cannot register for this course.</description>
+      <department>Computer Science</department>
+      <catalogNumber>CSCI-1100</catalogNumber>
+      <credits>4</credits>
+      <prerequisites/>
+      <corequisites/>
+      <availableTerms>
+        <year-part>FALL</year-part>
+        <year-part>SPRING</year-part>
+      </availableTerms>
+    </course>
+    <course>
+      <title>Calculus I</title>
+      <description>Functions, limits, continuity, derivatives, implicit differentiation, related rates, maxima and minima, elementary transcendental functions, introduction to definite integral with applications to area and volumes of revolution.</description>
+      <department>Mathematical Sciences</department>
+      <catalogNumber>MATH-1010</catalogNumber>
+      <credits>4</credits>
+      <prerequisites/>
+      <corequisites/>
+      <availableTerms>
+        <year-part>FALL</year-part>
+        <year-part>SPRING</year-part>
+      </availableTerms>
+    </course>
+    <year>2007</year>
+    <term>FALL</term>
+  </term>
+  <term>
+    <course>
+      <title>Computer Science II</title>
+      <description>Programming concepts: functions, parameter passing, pointers, arrays, strings, structs, classes, templates. Mathematical tools: sets, functions, and relations, order notation, complexity of algorithms, proof by induction. Data structures and their representations: data abstraction and internal representation, sequences, trees, binary search trees, associative structures. Algorithms: searching and sorting, generic algorithms, iterative and recursive algorithms. Methods of testing correctness and measuring performance.
+
+  NOTE: prerequisite can be skipped on permission of instructor</description>
+      <department>Computer Science</department>
+      <catalogNumber>CSCI-1200</catalogNumber>
+      <credits>4</credits>
+      <prerequisites>
+        <course>
+          <catalogNumber>CSCI-1100</catalogNumber>
+          <credits>0</credits>
+        </course>
+      </prerequisites>
+      <corequisites/>
+      <availableTerms>
+        <year-part>FALL</year-part>
+        <year-part>SPRING</year-part>
+      </availableTerms>
+    </course>
+    <course>
+      <title>Introduction to Discrete Structures</title>
+      <description>Introduction to the mathematical foundation of computer science. Topics include logic and set theory; methods of proof; mathematical induction and wellordering; principles of counting; relations and graphs; recurrences; discrete probability. 
+</description>
+      <department>Mathematics</department>
+      <catalogNumber>MATH-2800</catalogNumber>
+      <credits>4</credits>
+      <prerequisites/>
+      <corequisites/>
+      <availableTerms>
+        <year-part>FALL</year-part>
+        <year-part>SPRING</year-part>
+      </availableTerms>
+    </course>
+    <course>
+      <title>Introduction to Engineering Electronics</title>
+      <description>A hands-on experience with electronic circuits and modern laboratory instrumentation. Motivates further study of engineering. The laboratory provides opportunities to build and test simple electronic circuits that illustrate basic concepts. A design project is included.</description>
+      <department>School of Engineering</department>
+      <catalogNumber>ENGR-1310</catalogNumber>
+      <credits>1</credits>
+      <prerequisites/>
+      <corequisites/>
+      <availableTerms>
+        <year-part>FALL</year-part>
+        <year-part>SPRING</year-part>
+      </availableTerms>
+    </course>
+    <course>
+      <title>Calculus II</title>
+      <description>Techniques and applications of integration, polar coordinates, parametric equations, infinite sequences and series, vector functions and curves in space, functions of several variables, and partial derivatives.</description>
+      <department>Mathematical Sciences</department>
+      <catalogNumber>MATH-1020</catalogNumber>
+      <credits>4</credits>
+      <prerequisites>
+        <course>
+          <catalogNumber>MATH-1010</catalogNumber>
+          <credits>0</credits>
+        </course>
+      </prerequisites>
+      <corequisites/>
+      <availableTerms>
+        <year-part>FALL</year-part>
+        <year-part>SPRING</year-part>
+      </availableTerms>
+    </course>
+    <year>2008</year>
+    <term>SPRING</term>
+  </term>
+  <term>
+    <course>
+      <title>Computer Components and Operations</title>
+      <description>Design-oriented introduction to computer components and operations. Standard codes, number systems, base conversions, and computer arithmetic. Boolean algebra, minimization and synthesis techniques for combinational and sequential logic. Races, hazards, and asynchronous behavior. Registers, arithmetic logic units, memory structure, buses, and control units. Machine language programming, instruction fetch and execution, input-output devices, interrupts, and microprogram sequencers. Software and hardware tools.</description>
+      <department>Electrical, Computer, and Systems Engineering</department>
+      <catalogNumber>ECSE-2610</catalogNumber>
+      <credits>4</credits>
+      <prerequisites>
+        <course>
+          <catalogNumber>CSCI-1100</catalogNumber>
+          <credits>0</credits>
+        </course>
+      </prerequisites>
+      <corequisites/>
+      <availableTerms>
+        <year-part>FALL</year-part>
+        <year-part>SPRING</year-part>
+      </availableTerms>
+    </course>
+    <course>
+      <title>Data Structures and Algorithms</title>
+      <description>Data structures and algorithms, and the mathematical techniques necessary to design and analyze them. Basic data structures: lists, associative structures, trees. Mathematical techniques for designing algorithms and analyzing worst-case and expected-case algorithm efficiency. Advanced data structures: balanced trees, tries, heaps, priority queues, graphs. Searching, sorting. Algorithm design techniques: dynamic programming, greedy algorithms, divide-and-conquer, backtracking. Example graph, string, geometric, and numeric algorithms.</description>
+      <department>Computer Science</department>
+      <catalogNumber>CSCI-2300</catalogNumber>
+      <credits>4</credits>
+      <prerequisites>
+        <course>
+          <catalogNumber>CSCI-1200</catalogNumber>
+          <credits>0</credits>
+        </course>
+      </prerequisites>
+      <corequisites/>
+      <availableTerms>
+        <year-part>FALL</year-part>
+        <year-part>SPRING</year-part>
+      </availableTerms>
+    </course>
+    <course>
+      <title>Embedded Control</title>
+      <description>Engineering laboratory introduction to the microprocessor as an embedded element of engineering systems. Students simultaneously develop the hardware and software of one or more target systems during the semester. Topics include concepts and practices of microcontroller hardware and software for command, sensing, control, and display. Specifically this includes control of dynamic systems and sensor interfaces; analog-digital conversion; parallel input/output; driver circuits, modular programming, and subsystem integration. 
+</description>
+      <department>Core Engineering</department>
+      <catalogNumber>ENGR-2350</catalogNumber>
+      <credits>4</credits>
+      <prerequisites/>
+      <corequisites/>
+      <availableTerms>
+        <year-part>FALL</year-part>
+        <year-part>SPRING</year-part>
+      </availableTerms>
+    </course>
+    <course>
+      <title>Physics I</title>
+      <description>The first semester of a two-semester sequence of interactive courses. Topics include linear and angular kinematics and dynamics, work and energy, momentum and collisions, forces and fields, gravitation, elementary electrostatics, and motion of charged particles in a magnetic field.</description>
+      <department>Physics, Applied Physics, and Astronomy</department>
+      <catalogNumber>PHYS-1100</catalogNumber>
+      <credits>4</credits>
+      <prerequisites/>
+      <corequisites>
+        <course>
+          <catalogNumber>MATH-1010</catalogNumber>
+          <credits>0</credits>
+        </course>
+      </corequisites>
+      <availableTerms>
+        <year-part>FALL</year-part>
+        <year-part>SPRING</year-part>
+      </availableTerms>
+    </course>
+    <year>2008</year>
+    <term>FALL</term>
+  </term>
+  <term>
+    <course>
+      <title>Computer Architecture, Networks, and Operating Systems</title>
+      <description>Quantitative basis of modern computer architecture, processor design, memory hierarchy, and input/output methods. Layered operating system structures, process and storage management. Layered network organization, network protocols, switching, local and wide area networks. Examples from Unix and the Internet.</description>
+      <department>Electrical, Computer, and Systems Engineering</department>
+      <catalogNumber>ECSE-2660</catalogNumber>
+      <credits>4</credits>
+      <prerequisites>
+        <course>
+          <catalogNumber>ECSE-2610</catalogNumber>
+          <credits>0</credits>
+        </course>
+      </prerequisites>
+      <corequisites/>
+      <availableTerms>
+        <year-part>SPRING</year-part>
+      </availableTerms>
+    </course>
+    <course>
+      <title>Chemistry I</title>
+      <description>Principles of chemistry, with particular focus on atomic and molecular structure and bonding, periodicity, basic thermodynamic principles, introduction to acid-base chemistry and elementary  chemical equilibrium, and introduction to organic chemistry. Students cannot get credit for both this course and CHEM-1110.</description>
+      <department>Chemistry</department>
+      <catalogNumber>CHEM-1100</catalogNumber>
+      <credits>4</credits>
+      <prerequisites/>
+      <corequisites/>
+      <availableTerms>
+        <year-part>FALL</year-part>
+        <year-part>SPRING</year-part>
+      </availableTerms>
+    </course>
+    <course>
+      <title>Introduction to Differential Equations</title>
+      <description>First-order differential equations, second-order linear equations, eigenvalues and eigenvectors of matrices, systems of first-order equations, stability and qualitative properties of nonlinear autonomous systems in the plane, Fourier series, separation of variables for partial differential equations. 
+</description>
+      <department>Mathematics</department>
+      <catalogNumber>MATH-2400</catalogNumber>
+      <credits>4</credits>
+      <prerequisites/>
+      <corequisites/>
+      <availableTerms>
+        <year-part>FALL</year-part>
+        <year-part>SPRING</year-part>
+      </availableTerms>
+    </course>
+    <course>
+      <title>Physics II</title>
+      <description>The second semester of the two-semester sequence of interactive courses. Topics include Gauss?s Law, current electricity, Ampere?s Law and Faraday?s Law, electromagnetic radiation, physical optics, and quantum physics.</description>
+      <department>Physics, Applied Physics, and Astronomy</department>
+      <catalogNumber>PHYS-1200</catalogNumber>
+      <credits>4</credits>
+      <prerequisites>
+        <course>
+          <catalogNumber>MATH-1020</catalogNumber>
+          <credits>0</credits>
+        </course>
+      </prerequisites>
+      <corequisites/>
+      <availableTerms>
+        <year-part>FALL</year-part>
+        <year-part>SPRING</year-part>
+      </availableTerms>
+    </course>
+    <year>2009</year>
+    <term>SPRING</term>
+  </term>
+  <term>
+    <course>
+      <title>Electric Circuits</title>
+      <description>Techniques for the analysis and simulation of linear electric circuits, and measurements of their properties. Topics include resistive and energy-storage elements, controlled sources and operational amplifiers, systematic analysis methods, AC steady state, power and three-phase systems, magnetic coupling and transformers, transients, s-plane representation and analysis, frequency response, and Laplace transform and computer-aided methods.</description>
+      <department>Electrical, Computer, and Systems Engineering</department>
+      <catalogNumber>ECSE-2010</catalogNumber>
+      <credits>4</credits>
+      <prerequisites>
+        <course>
+          <catalogNumber>MATH-2400</catalogNumber>
+          <credits>0</credits>
+        </course>
+        <course>
+          <catalogNumber>PHYS-1200</catalogNumber>
+          <credits>0</credits>
+        </course>
+      </prerequisites>
+      <corequisites/>
+      <availableTerms>
+        <year-part>FALL</year-part>
+        <year-part>SPRING</year-part>
+      </availableTerms>
+    </course>
+    <course>
+      <title>Introduction to Engineering Design</title>
+      <description>A first course in engineering design which emphasizes creativity, teamwork, communication, and work across engineering disciplines. Students are introduced to the design process through a semester-long project which provides a design-build-test experience. Oral and written communication are important elements of the course. The course meets with ENGR 1010. 
+</description>
+      <department>Core Engineering</department>
+      <catalogNumber>ENGR-2050</catalogNumber>
+      <credits>4</credits>
+      <prerequisites/>
+      <corequisites/>
+      <availableTerms>
+        <year-part>FALL</year-part>
+        <year-part>SPRING</year-part>
+      </availableTerms>
+    </course>
+    <year>2009</year>
+    <term>FALL</term>
+  </term>
+  <term>
+    <course>
+      <title>Signals and Systems</title>
+      <description>Time and frequency-domain representation of continuous-and discrete-time signals and systems, and solutions of their response. Simulation of linear systems. Fourier series and transform. Laplace transform and z-transform. Stability, feedback systems, and root-locus analysis and design. Applications involving communication and control systems.</description>
+      <department>Electrical, Computer, and Systems Engineering</department>
+      <catalogNumber>ECSE-2410</catalogNumber>
+      <credits>4</credits>
+      <prerequisites>
+        <course>
+          <catalogNumber>ECSE-2010</catalogNumber>
+          <credits>0</credits>
+        </course>
+      </prerequisites>
+      <corequisites/>
+      <availableTerms>
+        <year-part>FALL</year-part>
+        <year-part>SPRING</year-part>
+      </availableTerms>
+    </course>
+    <year>2010</year>
+    <term>SPRING</term>
+  </term>
+  <term>
+    <course>
+      <title>Probability for Engineering Applications</title>
+      <description>Axioms of probability, joint and conditional probability, random variables, probability density and distribution functions, functions of random variables, statistical averages, empirical distributions, parameter estimation, regression, tests of hypotheses, and Markov chains. Applications to engineering data such as device characteristics, failure rates, image processing and network traffic.</description>
+      <department>Electrical, Computer, and Systems Engineering</department>
+      <catalogNumber>ECSE-4500</catalogNumber>
+      <credits>4</credits>
+      <prerequisites>
+        <course>
+          <catalogNumber>ECSE-2410</catalogNumber>
+          <credits>0</credits>
+        </course>
+      </prerequisites>
+      <corequisites/>
+      <availableTerms>
+        <year-part>FALL</year-part>
+        <year-part>SPRING</year-part>
+      </availableTerms>
+    </course>
+    <course>
+      <title>Professional Development II</title>
+      <description>This course explores technological contexts for leadership roles. Assignments develop a variety of communication skills. A team-based project gives students the opportunity to demonstrate leadership initiative by proposing solutions to social problems that combine technical expertise with social analysis and communication skills. This is a communication-intensive course. </description>
+      <department>Social Science</department>
+      <catalogNumber>STSS-4840</catalogNumber>
+      <credits>2</credits>
+      <prerequisites/>
+      <corequisites/>
+      <availableTerms>
+        <year-part>FALL</year-part>
+        <year-part>SPRING</year-part>
+      </availableTerms>
+    </course>
+    <year>2010</year>
+    <term>FALL</term>
+  </term>
+  <term>
+    <course>
+      <title>Professional Development III</title>
+      <description>Students will study issues associated with working in teams in a modern work environment. Various styles of leadership, the definitions of power and empowerment and their applications in industry and team settings will be studied. Additionally, other topics to be explored include vision, values and attitudes, and organizational culture. The course format will include small and large group discussions, case studies, experiential exercises, and regular participation from industry guests.
+
+NOTE: Offered in conjunction with senior courses.</description>
+      <department>School of Engineering</department>
+      <catalogNumber>ENGR-4010</catalogNumber>
+      <credits>1</credits>
+      <prerequisites/>
+      <corequisites/>
+      <availableTerms>
+        <year-part>FALL</year-part>
+        <year-part>SPRING</year-part>
+      </availableTerms>
+    </course>
+    <year>2011</year>
+    <term>SPRING</term>
+  </term>
+</plan>

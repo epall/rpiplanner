@@ -12,7 +12,9 @@ $errors << "Communication requirement: #{commclasses} of 2" if commclasses < 2
 require_courses(['CSCI-1200','CSCI-2300','MATH-1010','MATH-1020','MATH-2400','MATH-2800','PHYS-1100','PHYS-1200','CHEM-1100','CSCI-1100'])
 
 # Core Engineering Courses
-require_courses(['ENGR-1100','ENGR-2050','ENGR-2350','ENGR-1200','ENGR-1300','ENGR-4010'])
+require_courses(['ENGR-1100','ENGR-2050','ENGR-2350','ENGR-1200','ENGR-4010'])
+
+require_one_of(['ENGR-1300','ENGR-1310'])
 
 # Required Courses
 require_courses(['ECSE-2010','ECSE-2610','ECSE-2660','ECSE-2410','ECSE-4500'])
