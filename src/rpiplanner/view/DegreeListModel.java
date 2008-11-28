@@ -72,4 +72,8 @@ public class DegreeListModel extends AbstractListModel implements ComboBoxModel 
 	public void setSelectedItem(Object anItem) {
 		selectedItem = anItem;
 	}
+
+	public void planChanged() {
+		fireContentsChanged(this, 0, getSize());
+	}
 }

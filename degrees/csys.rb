@@ -9,7 +9,16 @@ end
 $errors << "Communication requirement: #{commclasses} of 2" if commclasses < 2
 
 # Math & Science Courses
-require_courses(['CSCI-1200','CSCI-2300','MATH-1010','MATH-1020','MATH-2400','MATH-2800','PHYS-1100','PHYS-1200','CHEM-1100','CSCI-1100'])
+require_courses(['CSCI-1200','CSCI-2300','MATH-1010','MATH-1020','MATH-2400','MATH-2800','PHYS-1100','PHYS-1200','CHEM-1100'])
+
+# Comp Sci I variance
+csI = false
+each_course do |course|
+  if course.catalogNumber == 'CSCI-1100'
+    $taken_courses << course
+    csI = true
+  end
+end
 
 # Core Engineering Courses
 require_courses(['ENGR-1100','ENGR-2050','ENGR-2350','ENGR-1200','ENGR-4010'])
@@ -27,6 +36,20 @@ require_one_of(['ECSE-4690','ECSE-4750','CSCI-4380','CSCI-4440','CSCI-4600'])
 
 # Design Elective
 require_one_of(['ECSE-4780','ECSE-4900','ECSE-4980','MANE-4220','EPOW-4850'])
+
+# no comp sci I, look for another class
+csalternative = false
+if !csI
+  each_course do |course|
+    if !csalternative && course.catalogNumber[0..3] == 'CSCI' && !($taken_courses.include?(course))
+      csalternative = true
+      $warnings << "CSCI-1100 replaced with #{course.catalogNumber}"
+      $taken_courses << course
+    end
+  end
+end
+
+$errors << "Required course not present: CSCI-1100" if !csalternative
 
 # Restricted Electives
 restricted_credits = 0

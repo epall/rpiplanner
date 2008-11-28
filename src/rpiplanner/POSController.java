@@ -112,6 +112,7 @@ public class POSController {
 		toModify.add(toAdd);
 		updateSemesterPanel(term, toModify);
 		totalCredits();
+		planDegreeListModel.planChanged();
 		validatePlan();
 	}
 
@@ -164,6 +165,7 @@ public class POSController {
 		courses.remove(courseIndex);
 		updateSemesterPanel(semester, plan.getTerm(semester));
 		totalCredits();
+		planDegreeListModel.planChanged();
 		validatePlan();
 	}
 
