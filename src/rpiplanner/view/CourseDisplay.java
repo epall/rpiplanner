@@ -19,7 +19,6 @@
 
 package rpiplanner.view;
 
-import java.awt.Color;
 import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.Graphics;
@@ -45,9 +44,6 @@ public class CourseDisplay extends JPanel {
 	private Course course;
 	private POSController controller;
 	private CourseTransferHandler handler;
-	private boolean prerequisitesSatisfied = true;
-	private boolean corequisitesSatisfied = true;
-	private boolean inAppropriateTerm = true;
 	
 	public CourseDisplay(POSController controller){
 		this.controller = controller;
@@ -112,28 +108,6 @@ public class CourseDisplay extends JPanel {
 	
 	public Course getCourse(){
 		return course;
-	}
-	public void setPrerequisitesSatisfied(boolean prerequisitesSatisfied) {
-		this.prerequisitesSatisfied = prerequisitesSatisfied;
-		updateBackground();
-	}
-	public void setCorequisitesSatisfied(boolean corequisitesSatisfied) {
-		this.corequisitesSatisfied = corequisitesSatisfied;
-		updateBackground();
-	}
-	
-	public void setIsAppropriateTerm(boolean inAppropriateTerm){
-		this.inAppropriateTerm = inAppropriateTerm;
-		updateBackground();
-	}
-	
-	private void updateBackground(){
-		if(!prerequisitesSatisfied)
-			setBackground(Color.RED);
-		else if(!inAppropriateTerm || !corequisitesSatisfied)
-			setBackground(Color.YELLOW);
-		else
-			setBackground(null);
 	}
 	
 	@Override

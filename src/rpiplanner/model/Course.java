@@ -28,8 +28,8 @@ public class Course implements Comparable<Course> {
     protected String department;
     protected String catalogNumber;
     protected int credits;
-    protected Course[] prerequisites;
-    protected Course[] corequisites;
+    protected RequisiteSet prerequisites;
+    protected RequisiteSet corequisites;
     protected YearPart[] availableTerms;
     
 	public String getTitle() {
@@ -47,14 +47,14 @@ public class Course implements Comparable<Course> {
 	public int getCredits() {
 		return credits;
 	}
-	public Course[] getPrerequisites() {
+	public RequisiteSet getPrerequisites() {
 		if(prerequisites == null)
-			prerequisites = new Course[0];
+			prerequisites = new RequisiteSet();
 		return prerequisites;
 	}
-	public Course[] getCorequisites() {
+	public RequisiteSet getCorequisites() {
 		if(corequisites == null)
-			corequisites = new Course[0];
+			corequisites = new RequisiteSet();
 		return corequisites;
 	}
 	public YearPart[] getAvailableTerms() {

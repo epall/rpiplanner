@@ -20,11 +20,13 @@
 package rpiplanner;
 
 import java.awt.CardLayout;
+import java.awt.Color;
 import java.awt.Component;
 import java.awt.Container;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.AbstractListModel;
 import javax.swing.ComboBoxModel;
@@ -43,6 +45,7 @@ import rpiplanner.model.Term;
 import rpiplanner.model.PlanOfStudy;
 import rpiplanner.model.ValidationError;
 import rpiplanner.model.YearPart;
+import rpiplanner.model.ValidationError.Type;
 import rpiplanner.view.CourseDatabaseFilter;
 import rpiplanner.view.CourseDisplay;
 import rpiplanner.view.CourseTransferHandler;
@@ -242,9 +245,12 @@ public class POSController {
 		for(Term t : plan.getTerms()){
 			ArrayList<Course> courses = t.getCourses();
 			for(int j = 0; j < courses.size(); j++){
-				courses.set(j, courseDatabase.getCourse(courses.get(j).getCatalogNumber()));
+				Course replacement = courseDatabase.getCourse(courses.get(j).getCatalogNumber());
+				if(replacement != null)
+					courses.set(j, replacement);
 			}
 		}
+		validatePlan();
 	}
 
 	public ComboBoxModel getDegreeListModel() {
@@ -293,42 +299,36 @@ public class POSController {
 						availableInTerm = true;
 				}
 				CourseDisplay cd = (CourseDisplay) semesterPanels.get(i).getComponent(courseIdx);
-				cd.setCorequisitesSatisfied(true);
-				cd.setPrerequisitesSatisfied(true);
-				cd.setIsAppropriateTerm(availableInTerm);
+				List<ValidationError> errors = new ArrayList<ValidationError>();
+
 				if(!availableInTerm)
-					tooltip.append("Not offered during "+currentTerm.getTerm().toString()+" term\n");
+					errors.add(new ValidationError(
+							ValidationError.Type.WARNING, "Not offered during "
+									+ currentTerm.getTerm().toString()
+									+ " term"));
 				
-				for(Course coreq : course.getCorequisites()){
-					// search within this term and previous terms
-					boolean found = false;
-					for(int j = 0; j <= i; j++){
-						Term testTerm = plan.getTerm(j);
-						for(Course c : testTerm.getCourses()){
-							if(coreq.equals(c))
-								found = true;
-						}
-					}
-					if(!found){
-						tooltip.append("Corequisite not satisfied: "+coreq.toString()+"\n");
-						cd.setCorequisitesSatisfied(false);
-					}
+				List<ValidationError> thisErrors;
+				
+				thisErrors = course.getCorequisites().check(plan, i, false);
+				errors.addAll(thisErrors);
+
+				thisErrors = course.getPrerequisites().check(plan, i-1, true);
+				errors.addAll(thisErrors);
+				
+				// now set its properties
+				ValidationError worstError = new ValidationError(Type.NONE, "");
+				for(ValidationError e : errors){
+					if(e.compareTo(worstError) > 0)
+						worstError = e;
+					tooltip.append(e.getMessage());
+					tooltip.append("\n");
 				}
-				for(Course prereq : course.getPrerequisites()){
-					// search within previous terms
-					boolean found = false;
-					for(int j = 0; j < i; j++){
-						Term testTerm = plan.getTerm(j);
-						for(Course c : testTerm.getCourses()){
-							if(prereq.equals(c))
-								found = true;
-						}
-					}
-					if (!found){
-						tooltip.append("Prerequisite not satisfied: "+prereq.toString()+"\n");
-						cd.setPrerequisitesSatisfied(false);
-					}
-				}
+				if(worstError.getType() == Type.ERROR)
+					cd.setBackground(Color.red);
+				else if(worstError.getType() == Type.WARNING)
+					cd.setBackground(Color.yellow);
+				else
+					cd.setBackground(null);
 				cd.setToolTipText(tooltip.toString());
 				courseIdx++;
 			}

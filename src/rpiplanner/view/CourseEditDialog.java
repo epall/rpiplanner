@@ -252,14 +252,14 @@ public class CourseEditDialog extends JDialog {
 			if(toAdd != null)
 				prerequisites.add(toAdd);
 		}
-		toEdit.setPrerequisites(prerequisites.toArray(new Course[0]));
+		toEdit.setPrerequisites(prerequisites);
 		ArrayList<Course> corequisites = new ArrayList<Course>(coreqNames.length);
 		for(String name : coreqNames){
 			Course toAdd = db.getCourse(name);
 			if(toAdd != null)
 				corequisites.add(toAdd);
 		}
-		toEdit.setCorequisites(corequisites.toArray(new Course[0]));
+		toEdit.setCorequisites(corequisites);
 		
 		ArrayList<YearPart> offeredDuring = new ArrayList<YearPart>();
 		for(Component c : offeredDuringPanel.getComponents()){

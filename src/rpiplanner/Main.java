@@ -58,6 +58,7 @@ import rpiplanner.model.PlanOfStudy;
 import rpiplanner.model.ShadowCourseDatabase;
 import rpiplanner.model.Term;
 import rpiplanner.model.YearPart;
+import xml.RequisiteSetConverter;
 
 import com.apple.eawt.ApplicationEvent;
 import com.thoughtworks.xstream.XStream;
@@ -310,6 +311,7 @@ public class Main extends Application {
 		xs.processAnnotations(DefaultCourseDatabase.class);
 		xs.processAnnotations(ShadowCourseDatabase.class);
 		xs.processAnnotations(YearPart.class);
+		xs.registerConverter(new RequisiteSetConverter(xs.getMapper()));
         Application.launch(Main.class, args);
     }
 }

@@ -19,8 +19,8 @@
 
 package rpiplanner.model;
 
-public class ValidationError {
-	public enum Type {WARNING, ERROR};
+public class ValidationError implements Comparable<ValidationError> {
+	public enum Type {NONE, WARNING, ERROR};
 	
 	private Type type;
 	private String message;
@@ -44,5 +44,17 @@ public class ValidationError {
 	}
 	public String toString(){
 		return message;
+	}
+
+	public int compareTo(ValidationError o) {
+		if(type == Type.NONE && o.type == Type.NONE)
+			return 0;
+		if(type == Type.NONE && o.type != Type.NONE || type == Type.WARNING && o.type == Type.ERROR)
+			return -1;
+		if(type == Type.ERROR && o.type != Type.ERROR || type == Type.WARNING && o.type == Type.NONE)
+			return 1;
+		
+		// unreachable
+		return 0;
 	}
 }
