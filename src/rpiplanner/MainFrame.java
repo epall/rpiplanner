@@ -187,7 +187,7 @@ public class MainFrame extends JFrame {
 	private void manualSave() {
 		controller.initializeTerms((Integer)comboBox.getSelectedItem());
 		ArrayList<Degree> degrees = controller.getPlan().getDegrees();
-		if(degrees.contains(majorComboBox.getSelectedItem()))
+		if(degrees.contains(majorComboBox.getSelectedItem()) || majorComboBox.getSelectedItem() == null)
 			;
 		else
 			controller.addDegree((Degree)majorComboBox.getSelectedItem());
