@@ -87,7 +87,7 @@ def parse_year_parts(description, b)
 
   b.availableTerms {
     case description
-    when /^(Offered )?[Ee]ach term.$/
+    when /^(Offered )?(each term|Fall and spring).$/i
       b.tag!('year-part', 'FALL')
       b.tag!('year-part', 'SPRING')
     when /^Fall, spring,? (and )?summer (terms|session 2) annually.$/
@@ -122,7 +122,7 @@ def parse_year_parts(description, b)
     when /^(Spring|Fall)(,| term) odd-numbered years.$/i
       retval = "odd-numbered years ONLY"
       b.tag!('year-part', $1.upcase)
-    when /^(Spring|Fall) term even-numbered years.$/i
+    when /^(Spring|Fall) term even.?numbered years.$/i
       retval = "even-numbered years ONLY"
       b.tag!('year-part', $1.upcase)
     when "Fall term alternate years."
@@ -141,6 +141,10 @@ def parse_year_parts(description, b)
       b.tag!('year-part', 'SPRING')
     when /^A fall-spring sequence annually.$/
       retval = "A fall-spring sequence annually"
+      b.tag!('year-part', 'FALL')
+      b.tag!('year-part', 'SPRING')
+    when /^Spring-fall sequence annually.$/
+      retval = "A spring-fall sequence annually"
       b.tag!('year-part', 'FALL')
       b.tag!('year-part', 'SPRING')
     when /^Consult department( about when offered)?.$/
@@ -190,7 +194,10 @@ def parse_requisites(requisites, b)
 ( or (permission|consent) of instructor)?( and programming experience)?\
 ( and knowledge of PASCAL, C, or LISP)?\
 ( or thorough knowledge of a scientific computer language, preferably C)?\
-(, linear systems theory and transform theory)?(;.*)?.?$/
+(, linear systems theory and transform theory)?(;.*)?\
+(. Consult department about when offered)?\
+( and some knowledge of matrices)?\
+( and familiarity with elementary ordinary and partial differential equations)?.?$/
     prerequisites << $1.upcase+'-'+$2
     messages = []
     requiredP =  false if $3 || $4
@@ -201,6 +208,8 @@ def parse_requisites(requisites, b)
     messages << "prerequisite can be skipped with thorough knowledge of a scientific computer language, preferably C" if $8
     messages << "linear systems theory and transform theory required" if $9
     messages << $10 if $10
+    messages << "some knowledge of matrices required" if $12
+    messages << "familiarity with elementary ordinary and partial differential equations required"
     retval = messages.join("\n")
   # sometimes they use dashes
   when /^Prerequisite: #{HYPHENATED_CATALOG_NUMBER}( or permission of instructor).?$/
@@ -208,31 +217,54 @@ def parse_requisites(requisites, b)
     retval = "prerequisite can be skipped on permission of instructor" if $2
   when /^Prerequisite\/Corequisite: #{CATALOG_NUMBER}/
     corequisites << $1+'-'+$2
-  when /^Prerequisite: #{CATALOG_NUMBER} recommended.$/
+  when /^Prerequisite:.{1,3}#{CATALOG_NUMBER} recommended.$/
     requiredP = false
     retval = $1
   when /^Prerequisites?: (probability theory and )?#{CATALOG_NUMBER}.$/
     prerequisites << $2+'-'+$3
     retval = "probability theory required" if $1
   #two prerequisites
-  when /^Prerequisites?: #{CATALOG_NUMBER}( and|,) #{CATALOG_NUMBER}\
-( or equivalent)?( or permission of instructor)?\
+  when /^Prerequisites?:.{1,3}#{CATALOG_NUMBER}( and|,) #{CATALOG_NUMBER}\
+( or equivalent)?( or graduate standing)?( or permission of (the )?instructor)?\
 (. (ECSE 2800 or BMED 2800 or permission of instructor also required))?\
-( or basic knowledge \(at the graduate level\) of semiconductor devices or permission of the instructor)?.$/
+( or basic knowledge \(at the graduate level\) of semiconductor devices or permission of the instructor)?\
+(\..{3}Spring term even-numbered years)?.{0,3}$/
     prerequisites << $1+'-'+$2
     prerequisites << $4+'-'+$5
     messages = []
     messages << "#{$4+'-'+$5} can be replaced with equivalent" if $6
-    messages << "#{$4+'-'+$5} can be skipped on permission of instructor" if $7
-    messages << $9 if $8
-    messages << "basic knowledge (at the graduate level) of semiconductor devices or permission of the instructor required" if $10
+    messages << "#{$4+'-'+$5} can be skipped if in graduate standing" if $8
+    messages << "#{$4+'-'+$5} can be skipped on permission of instructor" if $8
+    messages << $11 if $10
+    messages << "basic knowledge (at the graduate level) of semiconductor devices or permission of the instructor required" if $12
     retval = messages.join("\n")
+  # two either-or prerequisites
+  when /^Prerequisite:.{1,3}#{CATALOG_NUMBER} or #{CATALOG_NUMBER}( or equivalent)?( or permission of instructor)?.?$/
+    prerequisites << $1+'-'+$2
+    prerequisites << $3+'-'+$4
+    requiredP = false
+    pickOneP = true
+    messages = []
+    messages << "prerequisite can be replaced with equivalent" if $5
+    messages << "prerequisite can be skipped on permission of instructor" if $6
+    retval = messages.join("\n")
+  when /^Prerequisites: #{CATALOG_NUMBER}, #{CATALOG_NUMBER}, or permission of instructor; (.*).$/
+    prerequisites << $1+'-'+$2
+    prerequisites << $3+'-'+$4
+    requiredP = false
+    pickOneP = true
+    retval = $5
   # three prerequisites
   when /^Prerequisites: #{CATALOG_NUMBER} and #{CATALOG_NUMBER}(; #{CATALOG_NUMBER} recommended)?.$/
     prerequisites << $1+'-'+$2
     prerequisites << $3+'-'+$4
     prerequisites << $6+'-'+$7
     retval = "#{$6+'-'+$7} only recommended"
+  when /^Prerequisites: #{CATALOG_NUMBER}, #{CATALOG_NUMBER}, and #{CATALOG_NUMBER} or permission of instructor.$/
+    prerequisites << $1+'-'+$2
+    prerequisites << $3+'-'+$4
+    prerequisites << $5+'-'+$6
+    messages << "#{$5+'-'+$6} can be skipped on permission of instructor" if $7
   # three pick-one prerequisites
   when /^Prerequisite: #{CATALOG_NUMBER} or #{CATALOG_NUMBER} or #{CATALOG_NUMBER}.$/
     prerequisites << $1+'-'+$2
@@ -249,6 +281,11 @@ def parse_requisites(requisites, b)
     prerequisites << $5+'-'+$6
     pickOneP = true
     requiredP = false
+  when /^Prerequisites: ([A-Z]{4}) (\d{4})\/(\d{4}) and ([A-Z]{4}) (\d{4})\/(\d{4}).$/
+    prerequisites << $1+'-'+$2
+    prerequisites << $1+'-'+$3
+    prerequisites << $4+'-'+$5
+    prerequisites << $4+'-'+$6
   when /^Prerequisites: #{CATALOG_NUMBER} or #{CATALOG_NUMBER}, and #{CATALOG_NUMBER} or equivalent.$/
     prerequisites << $1+'-'+$2
     prerequisites << $3+'-'+$4
@@ -256,6 +293,11 @@ def parse_requisites(requisites, b)
     pickOneP = true
     requiredC = false
     retval = "#{$5+'-'+$6} can be replaced with equivalent"
+  when /^Prerequisites: #{CATALOG_NUMBER} \(or #{CATALOG_NUMBER}\) and #{CATALOG_NUMBER}.$/
+    prerequisites << $1+'-'+$2
+    prerequisites << $3+'-'+$4
+    corequisites << $5+'-'+$6
+    pickOneP = true
   when /^Prerequisites: #{CATALOG_NUMBER}, #{CATALOG_NUMBER} or equivalent, some familiarity with Java\/C\+\+.$/
     prerequisites << $1+'-'+$2
     prerequisites << $3+'-'+$4
@@ -266,15 +308,20 @@ def parse_requisites(requisites, b)
     prerequisites << $3+'-'+$4
     corequisites << $5+'-'+$6
     retval = 'senior standing required' if $7
-  when /^Prerequisites?: (#{CATALOG_NUMBER}|C programming skills). Corequisite: #{CATALOG_NUMBER}( and senior standing)?.$/
+  # one prerequisite, one corequisite
+  when /^Prerequisites?: (#{CATALOG_NUMBER}|C programming skills)( or equivalent,? or permission of instructor)?.{2,4}Corequisite: #{CATALOG_NUMBER}( and senior standing)?.$/
     messages = []
     if $1 == 'C programming skills'
       messages << 'C programming skills required'
     else
       prerequisites << $2+'-'+$3
     end
-    corequisites << $4+'-'+$5
-    messages << 'senior standing required' if $6
+    if $4
+      messages << "#{$2+'-'+$3} can be replaced with equivalent or skipped on permission of instructor"
+      requiredP = false
+    end
+    corequisites << $5+'-'+$6
+    messages << 'senior standing required' if $7
     retval = messages.join("\n")
   when /^Prerequisites: #{CATALOG_NUMBER} and #{CATALOG_NUMBER} or #{CATALOG_NUMBER}. Corequisite: #{CATALOG_NUMBER}./
     prerequisites << $1+'-'+$2
@@ -355,14 +402,17 @@ def parse_requisites(requisites, b)
     corequisites << $1
     requiredC = false
     retval = "Must be mathematics major. Corequisite can be skipped on permission of instructor."
-  when /^Prerequisite:.{1,3}#{CATALOG_NUMBER} or graduate standing or permission of the instructor.$/
+  when /^Prerequisite:.{1,3}#{CATALOG_NUMBER} or graduate standing or permission of the instructor.( MATH 4100 is desirable but not required.)?$/
+    messages = []
     prerequisites << $1+'-'+$2
     requiredP = false
-    retval = "Prerequisite can be skipped with graduate standing or permission of the instructor."
+    messages << "Prerequisite can be skipped with graduate standing or permission of the instructor."
+    messages << "MATH 4100 is desirable but not required" if $3
   when /^Prerequisites or corequisites: #{CATALOG_NUMBER} or #{CATALOG_NUMBER} or equivalent.$/
     corequisites << $1+'-'+$2
     corequisites << $3+'-'+$4
     pickOneC = true
+  when /^Prerequisite:.{1,3}PHYS 2510 or permission of instructor. Consult department about when offered.$/
   when /^Prerequisites: #{CATALOG_NUMBER} and #{CATALOG_NUMBER} or equivalent.$/
     prerequisites << $1+'-'+$2
     prerequisites << $3+'-'+$4
@@ -376,10 +426,16 @@ def parse_requisites(requisites, b)
     retval = requisites
   when /^Prerequisite:.{1,3}(permission of instructor|[Ff]irst-year math majors( only)?|one graduate course in mechanics of solids|a working knowledge of fluid mechanics and heat transfer).$/
     retval = "Prerequisite: "+$1
-  when /^Prerequisite:.{1,3}(major in Management, Architecture or H&SS|first-year math TA|graduate student in mathematics|Open to mathematics seniors only|Mathematical Methods in Physics or permission of the instructor).$/
+  when /^Prerequisites?:.{1,3}(major in Management, Architecture or H&SS|first-year math TA|graduate student in mathematics|Open to mathematics seniors only|Mathematical Methods in Physics or permission of the instructor).$/
     retval = "Prerequisite: "+$1
   when /^Prerequisites?:.{1,3}(PDI I or PDI II|any 2000-level STS course|junior or senior status|graduate status|graduate standing in STS|junior or senior standing|one philosophy or STS course)( or permission of instructor)?.$/
     retval = requisites
+  when /^Prerequisites: #{CATALOG_NUMBER} or #{CATALOG_NUMBER} and major in Management or Economics, or permission of instructor.$/
+    prerequisites << $1+'-'+$2
+    prerequisites << $3+'-'+$4
+    pickOneP = true
+    requiredP = false
+    retval = "Must be majoring in Management or Economics\nprerequisite can be skipped on permission of instructor"
   when /^Prerequisite:.{1,3}(1000-level course \(or higher\) in STS|a 1000-level social science course|permission of a supervising faculty member).$/
     retval = requisites
   when /^Prerequisites:.{1,3}Vary with topic.$/
@@ -413,7 +469,7 @@ def parse_requisites(requisites, b)
   end
 end
 
-# puts pull_class(8444).inspect
+# puts pull_class(8103).inspect
 # exit
 
 # builderX = Builder::XmlMarkup.new(:indent => 2)
@@ -423,7 +479,8 @@ end
 # puts xmlX
 # exit
 
-#actually successful: 'CSCI', 'ECSE', 'ENGR'
+#actually successful: 'CSCI', 'ECSE', 'ENGR', 'PHYS', 'MATH', 'IHSS'
+#in progress: 'STSS', 'STSH'
 
 successfully_parsed_departments = ['CSCI', 'ECSE', 'ENGR', 'BIOL', 'MANE',
   'MATH', 'CHEM', 'ECON','PHYS', 'IHSS', 'STSS', 'STSH', 'PSYC','BMED',
@@ -432,7 +489,7 @@ successfully_parsed_departments = ['CSCI', 'ECSE', 'ENGR', 'BIOL', 'MANE',
 builder = Builder::XmlMarkup.new(:indent => 2)
 xml = builder.courses do |b|
   # successfully_parsed_departments.each do |dept|
-  ['CSCI', 'ECSE', 'ENGR'].each do |dept|
+  ['CSCI', 'ECSE', 'ENGR', 'PHYS', 'MATH', 'IHSS'].each do |dept|
     pull_dept(dept).each do |coid|
       course = pull_class(coid)
       description = course[:description]
