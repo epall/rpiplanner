@@ -116,21 +116,13 @@ public class Main extends Application {
 		final JMenuBar menu = new JMenuBar();
 		final JMenu fileMenu = new JMenu("Plan");
 		
-		final JMenuItem fileSave = new JMenuItem("Save");
-		fileSave.setAction(getAction("savePlan"));
-		fileMenu.add(fileSave);
-
-		final JMenuItem fileOpen = new JMenuItem();
-		fileOpen.setAction(getAction("loadPlan"));
-		fileMenu.add(fileOpen);
+		fileMenu.add(getAction("savePlan"));
+		fileMenu.add(getAction("loadPlan"));
+		fileMenu.add(getAction("print"));
+		fileMenu.add(getAction("details"));
 		
-		final JMenuItem print = new JMenuItem();
-		print.setAction(getAction("print"));
-		fileMenu.add(print);
-
-		final JMenuItem details = new JMenuItem();
-		details.setAction(getAction("details"));
-		fileMenu.add(details);
+		final JMenu helpMenu = new JMenu("Help");
+		helpMenu.add(getAction("feedback"));
 
 		final JMenuItem fileUpdate = new JMenuItem("Update from course database");
 		fileUpdate.addActionListener(new ActionListener() {
@@ -141,6 +133,7 @@ public class Main extends Application {
 		fileMenu.add(fileUpdate);
 
 		menu.add(fileMenu);
+		menu.add(helpMenu);
 		mainFrame.setJMenuBar(menu);
 	}
 
@@ -303,6 +296,16 @@ public class Main extends Application {
     @Action
     public void details(){
     	mainFrame.goToDetailsPanel();
+    }
+    
+    @Action
+    public void feedback(){
+		BrowserLauncher.openURL("http://rpiplanner.uservoice.com/");
+    }
+    
+    @Action
+    public void about(){
+    	AboutDialog.showDialog();
     }
 
 	public static void main(String[] args) {
