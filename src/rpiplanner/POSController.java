@@ -97,6 +97,8 @@ public class POSController {
 			setSemesterPanels(semesterPanels);
 		if(planDegreeListModel != null)
 			planDegreeListModel.newPlan(plan);
+
+		totalCredits();
 	}
 
 	public ListModel getCourseListModel() {

@@ -248,6 +248,7 @@ public class Main extends Application {
 	    	File file = chooser.getSelectedFile();
 			try {
 				planControl.setPlan((PlanOfStudy) xs.fromXML(new FileInputStream(file)));
+				planControl.validatePlan();
 			} catch (FileNotFoundException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
