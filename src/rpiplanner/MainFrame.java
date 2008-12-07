@@ -99,9 +99,7 @@ public class MainFrame extends JFrame {
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(final ActionEvent e) {
 				manualSave();
-				CardLayout l = (CardLayout)getContentPane().getLayout();
-				controller.validatePlan();
-				l.next(getContentPane());
+				goToPlanEditor(true);
 			}
 		});
 		button.setText("Continue");
@@ -207,7 +205,10 @@ public class MainFrame extends JFrame {
 		CardLayout l = (CardLayout)getContentPane().getLayout();
 		l.first(getContentPane());
 	}
-	public void goToPlanEditor() {
+	public void goToPlanEditor(boolean newPlan) {
+		if(newPlan)
+			controller.loadTemplate();
+		controller.validatePlan();
 		CardLayout l = (CardLayout)getContentPane().getLayout();
 		l.last(getContentPane());
 	}

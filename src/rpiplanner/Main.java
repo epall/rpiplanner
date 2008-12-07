@@ -36,6 +36,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
 
 import javax.print.attribute.HashPrintRequestAttributeSet;
 import javax.print.attribute.PrintRequestAttributeSet;
@@ -85,7 +86,7 @@ public class Main extends Application {
         planControl.setView(mainFrame.getPlanCard());
         mainFrame.setController(planControl);
         if(!newPlan)
-        	mainFrame.goToPlanEditor();
+        	mainFrame.goToPlanEditor(false);
         
         mainFrame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
         mainFrame.addWindowListener(new WindowAdapter() {
@@ -248,6 +249,17 @@ public class Main extends Application {
 			}
 	    }
     }
+
+	public static PlanOfStudy loadPlanFromFile(String filePath) {
+		InputStream in = Main.class.getResourceAsStream("/"+filePath);
+		if(in == null)
+			return null;
+		PlanOfStudy plan = (PlanOfStudy) xs.fromXML(in);
+		try {
+			in.close();
+		} catch (IOException e) {}
+		return plan;
+	}
     
     @Action
     public void print() {

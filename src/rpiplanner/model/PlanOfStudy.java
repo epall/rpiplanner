@@ -127,4 +127,8 @@ public class PlanOfStudy {
 	public ArrayList<Term> getTerms() {
 		return terms;
 	}
+	
+	public void setTerms(ArrayList<Term> terms){
+		this.terms = terms;
+	}
 }

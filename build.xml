@@ -23,6 +23,7 @@
 				<include name="course_database.xml"/>
 				<include name="plan_validation.rb"/>
 				<include name="*.png"/>
+				<include name="degrees/*.plan" />
 			</fileset>
 		</jar>
 	</target>

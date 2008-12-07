@@ -1,0 +1,431 @@
+<plan>
+  <school>Rensselaer Polytechnic Institute</school>
+  <startingYear>2007</startingYear>
+  <degrees>
+    <degree>
+      <name>B.S. Computer Science 2011</name>
+      <validationCode>$taken_courses = []
+
+# Communication Requirement
+commclasses = 0
+each_course do |course|
+  commclasses += 1 if course.description =~ /(communication|writing)-intensive/i
+end
+$errors &lt;&lt; &quot;Communication requirement: #{commclasses} of 2&quot; if commclasses &lt; 2
+
+# Math &amp; Science Courses
+require_courses([&apos;CSCI-1100&apos;, &apos;CSCI-1200&apos;,&apos;CSCI-2300&apos;,&apos;CSCI-2400&apos;,&apos;CSCI-2500&apos;,&apos;CSCI-4430&apos;,&apos;CSCI-4210&apos;,&apos;CSCI-4440&apos;])
+require_courses([&apos;MATH-1010&apos;,&apos;MATH-1020&apos;,&apos;MATH-2800&apos;,&apos;PHYS-1100&apos;,&apos;BIOL-1010&apos;,&apos;CHEM-1100&apos;])
+
+# Mathematics Option
+mathematics = false
+each_course do |course|
+  if course.catalogNumber =~ /MAT[HP]-[2346].../
+    $taken_courses &lt;&lt; course
+    mathematics = true
+  end
+end
+$errors &lt;&lt; &quot;Mathematics option not satsifed&quot; unless mathematics
+
+# Computer Science Option (3 classes)
+compsci_opt = 0
+each_course do |course|
+  if course.catalogNumber =~ /CSCI-[46].../
+    $taken_courses &lt;&lt; course
+    compsci_opt += 1
+  elsif course.catalogNumber =~ /ECSE-4[67]../ &amp;&amp; ![&apos;4630&apos;,&apos;4640&apos;,&apos;4720&apos;].include?(course.catalogNumber[5..8])
+    $taken_courses &lt;&lt; course
+    compsci_opt += 1
+  elsif course.catalogNumber == &apos;ECSE-4490&apos;
+    $taken_courses &lt;&lt; course
+    compsci_opt += 1
+  end
+end
+$errors &lt;&lt; &quot;Only #{compsci_opt} out of 3 Computer Science Option courses&quot; if compsci_opt &lt; 3
+
+# Science Option
+science_opt = false
+each_course do |course|
+  if [&apos;ASTR&apos;,&apos;BIOL&apos;,&apos;CHEM&apos;,&apos;ERTH&apos;,&apos;PHYS&apos;].include?(course.catalogNumber[0..3]) &amp;&amp; 
+    course.credits == 4 &amp;&amp;
+    course.catalogNumber != &apos;ERTH-1030&apos;
+    $taken_courses &lt;&lt; course
+  end
+end
+$errors &lt;&lt; &quot;Science option not satisfied&quot; unless science_opt
+
+# H&amp;SS Core
+humanities_credits = 0
+socialscience_credits = 0
+thousandlevel = 0
+humanities_courses = []
+socialscience_courses = []
+fourcredits_hum = 0
+fourcredits_soc = 0
+fourthousand = false
+each_course do |course|
+  if [&apos;IHSS&apos;,&apos;ARTS&apos;,&apos;LANG&apos;,&apos;LITR&apos;,&apos;COMM&apos;,&apos;WRIT&apos;,&apos;STSH&apos;,&apos;PHIL&apos;].include?(course.catalogNumber[0..3])
+    fourcredits_hum += 1 if course.credits == 4
+    fourthousand |= (course.catalogNumber[5..5] == &apos;4&apos; &amp;&amp; course.credits == 4)
+    if course.catalogNumber[5..5] == &apos;1&apos; # 1000-level course
+      if thousandlevel &lt; 3
+        humanities_credits += course.credits
+        humanities_courses &lt;&lt; course
+        $taken_courses &lt;&lt; course
+      end
+      thousandlevel+=1
+    else
+      humanities_credits += course.credits
+      humanities_courses &lt;&lt; course
+      $taken_courses &lt;&lt; course
+    end
+  elsif [&apos;COGS&apos;,&apos;ECON&apos;,&apos;IHSS&apos;,&apos;PSYC&apos;,&apos;STSS&apos;].include?(course.catalogNumber[0..3])
+    fourcredits_soc += 1 if course.credits == 4
+    fourthousand |= (course.catalogNumber[5..5] == &apos;4&apos; &amp;&amp; course.credits == 4)
+    if course.catalogNumber[5..5] == &apos;1&apos; # 1000-level course
+      if thousandlevel &lt; 3
+        socialscience_credits += course.credits
+        socialscience_courses &lt;&lt; course
+        $taken_courses &lt;&lt; course
+      end
+      thousandlevel+=1
+    else
+      socialscience_credits += course.credits
+      socialscience_courses &lt;&lt; course
+      $taken_courses &lt;&lt; course
+    end
+  end
+end
+$errors &lt;&lt; &quot;Only #{humanities_credits+socialscience_credits} out of 22 H&amp;SS credits&quot; if (humanities_credits+socialscience_credits) &lt; 22
+$errors &lt;&lt; &quot;Minimum of 2 4-credit courses in Humanities&quot; if fourcredits_hum &lt; 2
+$errors &lt;&lt; &quot;Minimum of 2 4-credit courses in Social Sciences&quot; if fourcredits_soc &lt; 2
+$errors &lt;&lt; &quot;At least ONE 4 credit course must be at the 4000 level&quot; if !fourthousand
+
+#depth requirement
+has_depth = false
+departments = {}
+(humanities_courses + socialscience_courses).each do |course|
+  if departments[course.catalogNumber[0..3]].nil?
+    departments[course.catalogNumber[0..3]] = [course]
+  else
+    departments[course.catalogNumber[0..3]] &lt;&lt; course
+  end
+end
+
+departments.each do |key, dept|
+  if dept.size &gt;= 2 &amp;&amp;
+    dept[0].credits &gt;= 4 &amp;&amp; dept[1].credits &gt;= 4 &amp;&amp;
+    (dept.find{|course| course.catalogNumber =~ /^.....[^1]/})
+      has_depth = true
+  end
+end
+
+$errors &lt;&lt; &quot;H&amp;SS Depth Requirement not satisfied&quot; if !has_depth
+
+# Free Electives
+free_credits = 0
+each_course do |course|
+  if !$taken_courses.include?(course)
+    free_credits += course.credits
+    $taken_courses &lt;&lt; course
+  end
+end
+$errors &lt;&lt; &quot;Only #{free_credits} out of 28 free elective credits&quot; if free_credits &lt; 28
+
+# Total credit hours required
+total_credits = 0
+each_course do |course|
+  total_credits += course.credits
+end
+$errors &lt;&lt; &quot;Only #{total_credits} out of 128 total credits&quot; if total_credits &lt; 128
+</validationCode>
+      <id>2</id>
+    </degree>
+  </degrees>
+  <term>
+    <year>0</year>
+  </term>
+  <term>
+    <course>
+      <title>Computer Science I</title>
+      <description>An introduction to computer programming algorithm design and analysis. Additional topics include basic computer organization; internal representation of scalar and array data; use of top-down design and subprograms to tackle complex problems; abstract data types. Enrichment material as time allows. Interdisciplinary case studies, numerical and nonnumerical applications. Students who have passed CSCI 1200 cannot register for this course.</description>
+      <department>Computer Science</department>
+      <catalogNumber>CSCI-1100</catalogNumber>
+      <credits>4</credits>
+      <prerequisites required="true" pickOne="false"/>
+      <corequisites required="true" pickOne="false"/>
+      <availableTerms>
+        <year-part>FALL</year-part>
+        <year-part>SPRING</year-part>
+      </availableTerms>
+    </course>
+    <course>
+      <title>Calculus I</title>
+      <description>Functions, limits, continuity, derivatives, implicit differentiation, related rates, maxima and minima, elementary transcendental functions, introduction to definite integral with applications to area and volumes of revolution.</description>
+      <department>Mathematical Sciences</department>
+      <catalogNumber>MATH-1010</catalogNumber>
+      <credits>4</credits>
+      <prerequisites required="true" pickOne="false"/>
+      <corequisites required="true" pickOne="false"/>
+      <availableTerms>
+        <year-part>FALL</year-part>
+        <year-part>SPRING</year-part>
+      </availableTerms>
+    </course>
+    <course>
+      <title>Physics I</title>
+      <description>The first semester of a two-semester sequence of interactive courses. Topics include linear and angular kinematics and dynamics, work and energy, momentum and collisions, forces and fields, gravitation, elementary electrostatics, and motion of charged particles in a magnetic field.</description>
+      <department>Physics, Applied Physics, and Astronomy</department>
+      <catalogNumber>PHYS-1100</catalogNumber>
+      <credits>4</credits>
+      <prerequisites required="true" pickOne="false"/>
+      <corequisites required="true" pickOne="false">
+        <course>
+          <catalogNumber>MATH-1010</catalogNumber>
+          <credits>0</credits>
+        </course>
+      </corequisites>
+      <availableTerms>
+        <year-part>FALL</year-part>
+        <year-part>SPRING</year-part>
+      </availableTerms>
+    </course>
+    <year>2007</year>
+    <term>FALL</term>
+  </term>
+  <term>
+    <course>
+      <title>Computer Science II</title>
+      <description>Programming concepts: functions, parameter passing, pointers, arrays, strings, structs, classes, templates. Mathematical tools: sets, functions, and relations, order notation, complexity of algorithms, proof by induction. Data structures and their representations: data abstraction and internal representation, sequences, trees, binary search trees, associative structures. Algorithms: searching and sorting, generic algorithms, iterative and recursive algorithms. Methods of testing correctness and measuring performance.
+
+NOTE: prerequisite can be skipped on permission of instructor
+familiarity with elementary ordinary and partial differential equations required</description>
+      <department>Computer Science</department>
+      <catalogNumber>CSCI-1200</catalogNumber>
+      <credits>4</credits>
+      <prerequisites required="false" pickOne="false">
+        <course>
+          <catalogNumber>CSCI-1100</catalogNumber>
+          <credits>0</credits>
+        </course>
+      </prerequisites>
+      <corequisites required="true" pickOne="false"/>
+      <availableTerms>
+        <year-part>FALL</year-part>
+        <year-part>SPRING</year-part>
+      </availableTerms>
+    </course>
+    <course>
+      <title>Calculus II</title>
+      <description>Techniques and applications of integration, polar coordinates, parametric equations, infinite sequences and series, vector functions and curves in space, functions of several variables, and partial derivatives.
+
+NOTE: familiarity with elementary ordinary and partial differential equations required</description>
+      <department>Mathematical Sciences</department>
+      <catalogNumber>MATH-1020</catalogNumber>
+      <credits>4</credits>
+      <prerequisites required="true" pickOne="false">
+        <course>
+          <catalogNumber>MATH-1010</catalogNumber>
+          <credits>0</credits>
+        </course>
+      </prerequisites>
+      <corequisites required="true" pickOne="false"/>
+      <availableTerms>
+        <year-part>FALL</year-part>
+        <year-part>SPRING</year-part>
+      </availableTerms>
+    </course>
+    <course>
+      <title>Introduction to Discrete Structures</title>
+      <description>Introduction to the mathematical foundation of computer science. Topics include logic and set theory; methods of proof; mathematical induction and wellordering; principles of counting; relations and graphs; recurrences; discrete probability.
+
+NOTE: prerequisite can be replaced with equivalent</description>
+      <department>Mathematical Sciences</department>
+      <catalogNumber>MATH-2800</catalogNumber>
+      <credits>4</credits>
+      <prerequisites required="false" pickOne="true">
+        <course>
+          <catalogNumber>MATH-1010</catalogNumber>
+          <credits>0</credits>
+        </course>
+        <course>
+          <catalogNumber>MATH-1500</catalogNumber>
+          <credits>0</credits>
+        </course>
+      </prerequisites>
+      <corequisites required="true" pickOne="false"/>
+      <availableTerms>
+        <year-part>SPRING</year-part>
+      </availableTerms>
+    </course>
+    <year>2008</year>
+    <term>SPRING</term>
+  </term>
+  <term>
+    <course>
+      <title>Data Structures and Algorithms</title>
+      <description>Data structures and algorithms, and the mathematical techniques necessary to design and analyze them. Basic data structures: lists, associative structures, trees. Mathematical techniques for designing algorithms and analyzing worst-case and expected-case algorithm efficiency. Advanced data structures: balanced trees, tries, heaps, priority queues, graphs. Searching, sorting. Algorithm design techniques: dynamic programming, greedy algorithms, divide-and-conquer, backtracking. Example graph, string, geometric, and numeric algorithms.</description>
+      <department>Computer Science</department>
+      <catalogNumber>CSCI-2300</catalogNumber>
+      <credits>4</credits>
+      <prerequisites required="true" pickOne="false">
+        <course>
+          <catalogNumber>CSCI-1200</catalogNumber>
+          <credits>0</credits>
+        </course>
+        <course>
+          <catalogNumber>MATH-1010</catalogNumber>
+          <credits>0</credits>
+        </course>
+        <course>
+          <catalogNumber>MATH-2800</catalogNumber>
+          <credits>0</credits>
+        </course>
+      </prerequisites>
+      <corequisites required="true" pickOne="false"/>
+      <availableTerms>
+        <year-part>FALL</year-part>
+        <year-part>SPRING</year-part>
+      </availableTerms>
+    </course>
+    <course>
+      <title>Computer Organization</title>
+      <description>Introduction to computer organization, assembler language, and operating systems. Computer systems organization: processors, memory, I/O. Digital logic: gates, Boolean algebra, digital logic circuits, memory, buses. Microprogramming. Machine level: instruction formats, addressing modes, instruction types, flow of control. Operating systems: virtual memory, virtual I/O instructions, processes, interprocess communication. Numeric representation. Assembler language: the assembly process, macros, linking, loading. Advanced architectures: RISC architectures, parallel architectures.
+
+NOTE: familiarity with elementary ordinary and partial differential equations required</description>
+      <department>Computer Science</department>
+      <catalogNumber>CSCI-2500</catalogNumber>
+      <credits>4</credits>
+      <prerequisites required="true" pickOne="false">
+        <course>
+          <catalogNumber>CSCI-1200</catalogNumber>
+          <credits>0</credits>
+        </course>
+      </prerequisites>
+      <corequisites required="true" pickOne="false"/>
+      <availableTerms>
+        <year-part>FALL</year-part>
+        <year-part>SPRING</year-part>
+      </availableTerms>
+    </course>
+    <course>
+      <title>Introduction to Biology</title>
+      <description>Introduction to biological systems. Discussion of problems associated with biological organization, scaling, and hierarchy. Major topics covered include evolution, genetics, molecular biology and biotechnology, and ecology. The course considers the biological components of various societal and individual problems. Taught in web-based, interactive studio mode with emphasis on biological simulations, problem solving, and peer teaching methods. Includes a one-credit laboratory.</description>
+      <department>Biology</department>
+      <catalogNumber>BIOL-1010</catalogNumber>
+      <credits>4</credits>
+      <prerequisites required="true" pickOne="false"/>
+      <corequisites required="true" pickOne="false"/>
+      <availableTerms>
+        <year-part>FALL</year-part>
+        <year-part>SPRING</year-part>
+      </availableTerms>
+    </course>
+    <year>2008</year>
+    <term>FALL</term>
+  </term>
+  <term>
+    <course>
+      <title>Models of Computation</title>
+      <description>This course introduces conceptual tools for reasoning about computational processes and the languages with which they are prescribed. It bears directly upon language translation, program verification, and computability. Topics to be covered include formal languages, finite automata, pushdown automata, nondeterminism, regular expressions, context-free grammars; parsing, compiler design basics; computability, Turing machines, Church?s thesis, unsolvability and intractability.</description>
+      <department>Computer Science</department>
+      <catalogNumber>CSCI-2400</catalogNumber>
+      <credits>4</credits>
+      <prerequisites required="true" pickOne="false">
+        <course>
+          <catalogNumber>CSCI-2300</catalogNumber>
+          <credits>0</credits>
+        </course>
+        <course>
+          <catalogNumber>MATH-2800</catalogNumber>
+          <credits>0</credits>
+        </course>
+      </prerequisites>
+      <corequisites required="true" pickOne="false"/>
+      <availableTerms>
+        <year-part>FALL</year-part>
+        <year-part>SPRING</year-part>
+      </availableTerms>
+    </course>
+    <year>2009</year>
+    <term>SPRING</term>
+  </term>
+  <term>
+    <course>
+      <title>Programming Languages</title>
+      <description>This course is a study of the important concepts found in current programming languages. Topics include language processing (lexical analysis, parsing, type-checking, interpretation and compilation, run-time environment), the role of abstraction (data abstraction and control abstraction), programming paradigms (procedural, functional, object-oriented, logic-oriented, generic), and formal language definition.
+
+NOTE: familiarity with elementary ordinary and partial differential equations required</description>
+      <department>Computer Science</department>
+      <catalogNumber>CSCI-4430</catalogNumber>
+      <credits>4</credits>
+      <prerequisites required="true" pickOne="false">
+        <course>
+          <catalogNumber>CSCI-2400</catalogNumber>
+          <credits>0</credits>
+        </course>
+      </prerequisites>
+      <corequisites required="true" pickOne="false"/>
+      <availableTerms>
+        <year-part>FALL</year-part>
+        <year-part>SPRING</year-part>
+      </availableTerms>
+    </course>
+    <year>2009</year>
+    <term>FALL</term>
+  </term>
+  <term>
+    <course>
+      <title>Operating Systems</title>
+      <description>Discussion of various aspects of computer operating systems design and implementation. Topics include I/O programming, concurrent processes and synchronization problems, process management and scheduling of processes, virtual memory management, device management, file systems, deadlock problems, system calls, and interprocess communication. Programming projects are required.</description>
+      <department>Computer Science</department>
+      <catalogNumber>CSCI-4210</catalogNumber>
+      <credits>4</credits>
+      <prerequisites required="true" pickOne="false">
+        <course>
+          <catalogNumber>CSCI-2300</catalogNumber>
+          <credits>0</credits>
+        </course>
+        <course>
+          <catalogNumber>CSCI-2500</catalogNumber>
+          <credits>0</credits>
+        </course>
+      </prerequisites>
+      <corequisites required="true" pickOne="false"/>
+      <availableTerms>
+        <year-part>FALL</year-part>
+        <year-part>SPRING</year-part>
+      </availableTerms>
+    </course>
+    <year>2010</year>
+    <term>SPRING</term>
+  </term>
+  <term>
+    <course>
+      <title>Software Design and Documentation</title>
+      <description>Software system design methodology emphasizing use of object oriented modeling of application domains and of software systems, and emphasizing the roles of written and oral communication in software engineering. Project management and software testing. Individual and team projects include specification, software architecture, user interfaces, and documentation of the phases of a project.
+
+NOTE: familiarity with elementary ordinary and partial differential equations required</description>
+      <department>Computer Science</department>
+      <catalogNumber>CSCI-4440</catalogNumber>
+      <credits>4</credits>
+      <prerequisites required="true" pickOne="false">
+        <course>
+          <catalogNumber>CSCI-2300</catalogNumber>
+          <credits>0</credits>
+        </course>
+      </prerequisites>
+      <corequisites required="true" pickOne="false"/>
+      <availableTerms>
+        <year-part>FALL</year-part>
+        <year-part>SPRING</year-part>
+      </availableTerms>
+    </course>
+    <year>2010</year>
+    <term>FALL</term>
+  </term>
+  <term>
+    <year>2011</year>
+    <term>SPRING</term>
+  </term>
+</plan>

@@ -151,8 +151,8 @@ public class POSController {
 	public void initializeTerms(int startingYear) {
 		plan.setStartingYear(startingYear);
 		plan.rebuildTerms();
-		for(int i = 0; i < plan.numTerms(); i++)
-		updateSemesterPanel(i, plan.getTerm(i));
+		for (int i = 0; i < plan.numTerms(); i++)
+			updateSemesterPanel(i, plan.getTerm(i));
 	}
 
 	public void removeCourse(Container semesterPanel, CourseDisplay course) {
@@ -350,5 +350,18 @@ public class POSController {
 	public void addPropertyChangeListener(String propertyName,
 			PropertyChangeListener propertyChangeListener) {
 		support.addPropertyChangeListener(propertyName, propertyChangeListener);
+	}
+
+	public void loadTemplate() {
+		ArrayList<Degree> degrees = plan.getDegrees();
+		if(degrees.size() == 1){
+			PlanOfStudy template = Main.loadPlanFromFile("degrees/"+degrees.get(0).getID()+".plan");
+			if(template != null){
+				plan.setTerms(template.getTerms());
+				for (int i = 0; i < plan.numTerms(); i++)
+					updateSemesterPanel(i, plan.getTerm(i));
+				totalCredits();
+			}
+		}
 	}
 }
