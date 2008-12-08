@@ -489,26 +489,27 @@ successfully_parsed_departments = ['CSCI', 'ECSE', 'ENGR', 'BIOL', 'MANE',
 builder = Builder::XmlMarkup.new(:indent => 2)
 xml = builder.courses do |b|
   # successfully_parsed_departments.each do |dept|
-  ['CSCI', 'ECSE', 'ENGR', 'PHYS', 'MATH', 'IHSS'].each do |dept|
+  ['CSCI', 'ECSE', 'ENGR', 'PHYS', 'MATH', 'IHSS','BIOL'].each do |dept|
     pull_dept(dept).each do |coid|
       course = pull_class(coid)
       description = course[:description]
       raise "Invalid catalog number: #{course[:catalogNumber]}" unless course[:catalogNumber] =~ /[A-Z]{4}-[\d]{4}$/
-
-      begin
-        b.course do |b|
-          description += parse_year_parts(course[:offered], b)
-          description += parse_requisites(course[:requisites], b)
-          b.title(course[:title])
-          b.description(description)
-          b.department(course[:department])
-          b.catalogNumber(course[:catalogNumber])
-          b.credits(course[:credits] || 0)
+      if course[:catalogNumber] =~ /BIOL-1/ || !(course[:catalogNumber] =~ /BIOL/)
+        begin
+          b.course do |b|
+            description += parse_year_parts(course[:offered], b)
+            description += parse_requisites(course[:requisites], b)
+            b.title(course[:title])
+            b.description(description)
+            b.department(course[:department])
+            b.catalogNumber(course[:catalogNumber])
+            b.credits(course[:credits] || 0)
+          end
+        rescue => err
+          $stderr.puts err
+          # $stderr.print err.backtrace.join("\n")
+          $stderr.puts course[:catalogNumber]
         end
-      rescue => err
-        $stderr.puts err
-        # $stderr.print err.backtrace.join("\n")
-        $stderr.puts course[:catalogNumber]
       end
     end
   end

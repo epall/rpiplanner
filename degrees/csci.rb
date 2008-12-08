@@ -10,7 +10,7 @@ $errors << "Communication requirement: #{commclasses} of 2" if commclasses < 2
 
 # Math & Science Courses
 require_courses(['CSCI-1100', 'CSCI-1200','CSCI-2300','CSCI-2400','CSCI-2500','CSCI-4430','CSCI-4210','CSCI-4440'])
-require_courses(['MATH-1010','MATH-1020','MATH-2800','PHYS-1100','BIOL-1010','CHEM-1100'])
+require_courses(['MATH-1010','MATH-1020','MATH-2800','PHYS-1100','BIOL-1010'])
 
 # Mathematics Option
 mathematics = false

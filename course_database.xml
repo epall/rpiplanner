@@ -5445,6 +5445,17 @@ NOTE: Unclear when course is offered</description>
     <catalogNumber>IHSS-6960</catalogNumber>
     <credits>3</credits>
   </course>
+  <course>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+    <title>Introduction to Biology</title>
+    <description>Introduction to biological systems. Discussion of problems associated with biological organization, scaling, and hierarchy. Major topics covered include evolution, genetics, molecular biology and biotechnology, and ecology. The course considers the biological components of various societal and individual problems. Taught in web-based, interactive studio mode with emphasis on biological simulations, problem solving, and peer teaching methods. Includes a one-credit laboratory.</description>
+    <department>Biology</department>
+    <catalogNumber>BIOL-1010</catalogNumber>
+    <credits>4</credits>
+  </course>
   <degree>
     <id>2</id>
     <name>B.S. Computer Science 2011</name>
@@ -5459,7 +5470,7 @@ $errors &lt;&lt; "Communication requirement: #{commclasses} of 2" if commclasses
 
 # Math &amp; Science Courses
 require_courses(['CSCI-1100', 'CSCI-1200','CSCI-2300','CSCI-2400','CSCI-2500','CSCI-4430','CSCI-4210','CSCI-4440'])
-require_courses(['MATH-1010','MATH-1020','MATH-2800','PHYS-1100','BIOL-1010','CHEM-1100'])
+require_courses(['MATH-1010','MATH-1020','MATH-2800','PHYS-1100','BIOL-1010'])
 
 # Mathematics Option
 mathematics = false
