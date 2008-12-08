@@ -8,7 +8,7 @@
     <vendor>Eric Allen</vendor>
     <homepage href="http://rpiplanner.svallens.com/"/>
     <offline-allowed/> 
-    <association mime-type="application-x/riplanner-file" extensions="plan" />
+    <!-- <association mime-type="application-x/riplanner-file" extensions="plan" /> -->
     <shortcut online="false">
       <desktop/>
       <menu submenu="RPI"/>

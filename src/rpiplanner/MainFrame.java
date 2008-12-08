@@ -156,7 +156,7 @@ public class MainFrame extends JFrame {
 		majorComboBox = new JComboBox();
 		introCard.add(majorComboBox, new CellConstraints(4, 7));
 		
-		setTitle("RPI Planner [beta]");
+		setTitle("RPI Planner");
 		//
 	}
 	public PlanOfStudyEditor getPlanCard() {
