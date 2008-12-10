@@ -59,6 +59,7 @@ import rpiplanner.model.PlanOfStudy;
 import rpiplanner.model.ShadowCourseDatabase;
 import rpiplanner.model.Term;
 import rpiplanner.model.YearPart;
+import rpiplanner.view.AboutDialog;
 import xml.RequisiteSetConverter;
 
 import com.apple.eawt.ApplicationEvent;
@@ -124,6 +125,7 @@ public class Main extends Application {
 		
 		final JMenu helpMenu = new JMenu("Help");
 		helpMenu.add(getAction("feedback"));
+		helpMenu.add(getAction("about"));
 
 		final JMenuItem fileUpdate = new JMenuItem("Update from course database");
 		fileUpdate.addActionListener(new ActionListener() {
@@ -317,7 +319,7 @@ public class Main extends Application {
     
     @Action
     public void about(){
-    	AboutDialog.showDialog();
+    	AboutDialog.showDialog(mainFrame);
     }
 
 	public static void main(String[] args) {
