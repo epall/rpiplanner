@@ -1,4 +1,4 @@
-package xml;
+package rpiplanner.xml;
 
 import rpiplanner.model.Course;
 import rpiplanner.model.RequisiteSet;

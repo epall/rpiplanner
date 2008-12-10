@@ -60,7 +60,7 @@ import rpiplanner.model.ShadowCourseDatabase;
 import rpiplanner.model.Term;
 import rpiplanner.model.YearPart;
 import rpiplanner.view.AboutDialog;
-import xml.RequisiteSetConverter;
+import rpiplanner.xml.RequisiteSetConverter;
 
 import com.apple.eawt.ApplicationEvent;
 import com.thoughtworks.xstream.XStream;
