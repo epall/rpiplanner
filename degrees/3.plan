@@ -1,0 +1,596 @@
+<plan>
+  <fullname>Eric Allen</fullname>
+  <school>Rensselaer Polytechnic Institute</school>
+  <studentID>123-456-7890</studentID>
+  <startingYear>2007</startingYear>
+  <degrees>
+    <degree>
+      <name>B.S. Electrical Engineering 2011</name>
+      <validationCode>$taken_courses = []
+
+# Communication Requirement
+commclasses = 0
+each_course do |course|
+  commclasses = commclasses.succ if course.description =~ /(communication|writing)-intensive/i
+end
+$errors &lt;&lt; &quot;Communication requirement: #{commclasses} of 2&quot; if commclasses &lt; 2
+
+# Math &amp; Science Courses
+require_courses([&apos;MATH-1010&apos;, &apos;CHEM-1100&apos;, &apos;MATH-1020&apos;, &apos;PHYS-1100&apos;, &apos;MATH-2400&apos;, &apos;PHYS-1200&apos;, &apos;MATH-2010&apos;])
+
+# Comp Sci I variance
+csI = false
+each_course do |course|
+  if course.catalogNumber == &apos;CSCI-1100&apos;
+    $taken_courses &lt;&lt; course
+    csI = true
+  end
+end
+
+# Core Engineering Courses
+require_courses([&apos;ENGR-1100&apos;,&apos;ENGR-2050&apos;,&apos;ENGR-2350&apos;,&apos;ENGR-1200&apos;,&apos;ENGR-4010&apos;])
+
+require_one_of([&apos;ENGR-1300&apos;,&apos;ENGR-1310&apos;])
+
+# Required Courses
+require_courses([&apos;ECSE-2010&apos;,&apos;ECSE-2610&apos;,&apos;ECSE-2050&apos;,&apos;ECSE-2410&apos;, &apos;ECSE-2100&apos;, &apos;ECSE-2210&apos;,&apos;ECSE-4500&apos;])
+
+# Multidisciplinary Elective
+require_one_of([&apos;ENGR-1600&apos;,&apos;ENGR-2090&apos;,&apos;ENGR-2250&apos;,&apos;ENGR-2530&apos;])
+
+# Design Elective
+require_one_of([&apos;ECSE-4780&apos;,&apos;ECSE-4900&apos;,&apos;ECSE-4980&apos;,&apos;MANE-4220&apos;,&apos;EPOW-4850&apos;])
+
+# Laboratory Elective
+require_one_of([&apos;ECSE-4090&apos;, &apos;ECSE-4220&apos;, &apos;ECSE-4690&apos;, &apos;ECSE-4760&apos;, &apos;ECSE-4770&apos;, &apos;ECSE-4790&apos;, &apos;ECSE-4710&apos;, &apos;ENGR-4710&apos;, &apos;EPOW-4030&apos;])
+
+# no comp sci I, look for another class
+csalternative = false
+if !csI
+  each_course do |course|
+    if !csalternative &amp;&amp; course.catalogNumber[0..3] == &apos;CSCI&apos; &amp;&amp; !($taken_courses.include?(course))
+      csalternative = true
+      $warnings &lt;&lt; &quot;CSCI-1100 replaced with #{course.catalogNumber}&quot;
+      $taken_courses &lt;&lt; course
+    end
+  end
+end
+
+$errors &lt;&lt; &quot;Required course not present: CSCI-1100&quot; if !csalternative
+
+# Restricted Electives
+restricted_credits = 0
+each_course do |course|
+  if course.catalogNumber =~ /(ECSE|EPOW|ENGR-4)/ &amp;&amp; !$taken_courses.include?(course)
+    if restricted_credits &lt; 9
+      restricted_credits += course.credits
+      $taken_courses &lt;&lt; course
+    end
+  end
+end
+$errors &lt;&lt; &quot;Only #{restricted_credits} out of 9 restricted elective credits&quot; if restricted_credits &lt; 9
+
+# H&amp;SS Core
+humanities_credits = 0
+socialscience_credits = 0
+thousandlevel = 0
+humanities_courses = []
+socialscience_courses = []
+fourcredits_hum = 0
+fourcredits_soc = 0
+fourthousand = false
+each_course do |course|
+  if [&apos;IHSS&apos;,&apos;ARTS&apos;,&apos;LANG&apos;,&apos;LITR&apos;,&apos;COMM&apos;,&apos;WRIT&apos;,&apos;STSH&apos;,&apos;PHIL&apos;].include?(course.catalogNumber[0..3])
+    fourcredits_hum += 1 if course.credits == 4
+    fourthousand |= (course.catalogNumber[5..5] == &apos;4&apos; &amp;&amp; course.credits == 4)
+    if course.catalogNumber[5..5] == &apos;1&apos; # 1000-level course
+      if thousandlevel &lt; 3
+        humanities_credits += course.credits
+        humanities_courses &lt;&lt; course
+        $taken_courses &lt;&lt; course
+      end
+      thousandlevel+=1
+    else
+      humanities_credits += course.credits
+      humanities_courses &lt;&lt; course
+      $taken_courses &lt;&lt; course
+    end
+  elsif [&apos;COGS&apos;,&apos;ECON&apos;,&apos;IHSS&apos;,&apos;PSYC&apos;,&apos;STSS&apos;].include?(course.catalogNumber[0..3])
+    fourcredits_soc += 1 if course.credits == 4
+    fourthousand |= (course.catalogNumber[5..5] == &apos;4&apos; &amp;&amp; course.credits == 4)
+    if course.catalogNumber[5..5] == &apos;1&apos; # 1000-level course
+      if thousandlevel &lt; 3
+        socialscience_credits += course.credits
+        socialscience_courses &lt;&lt; course
+        $taken_courses &lt;&lt; course
+      end
+      thousandlevel+=1
+    else
+      socialscience_credits += course.credits
+      socialscience_courses &lt;&lt; course
+      $taken_courses &lt;&lt; course
+    end
+  end
+end
+$errors &lt;&lt; &quot;Only #{humanities_credits+socialscience_credits} out of 22 H&amp;SS credits&quot; if (humanities_credits+socialscience_credits) &lt; 22
+$errors &lt;&lt; &quot;Minimum of 2 4-credit courses in Humanities&quot; if fourcredits_hum &lt; 2
+$errors &lt;&lt; &quot;Minimum of 2 4-credit courses in Social Sciences&quot; if fourcredits_soc &lt; 2
+$errors &lt;&lt; &quot;At least ONE 4 credit course must be at the 4000 level&quot; if !fourthousand
+
+#depth requirement
+has_depth = false
+departments = {}
+(humanities_courses + socialscience_courses).each do |course|
+  if departments[course.catalogNumber[0..3]].nil?
+    departments[course.catalogNumber[0..3]] = [course]
+  else
+    departments[course.catalogNumber[0..3]] &lt;&lt; course
+  end
+end
+
+departments.each do |key, dept|
+  if dept.size &gt;= 2 &amp;&amp;
+    dept[0].credits &gt;= 4 &amp;&amp; dept[1].credits &gt;= 4 &amp;&amp;
+    (dept.find{|course| course.catalogNumber =~ /^.....[^1]/})
+      has_depth = true
+  end
+end
+
+$errors &lt;&lt; &quot;H&amp;SS Depth Requirement not satisfied&quot; if !has_depth
+
+# Free Electives
+free_credits = 0
+each_course do |course|
+  if !$taken_courses.include?(course)
+    free_credits += course.credits
+    $taken_courses &lt;&lt; course
+  end
+end
+$errors &lt;&lt; &quot;Only #{free_credits} out of 12 free elective credits&quot; if free_credits &lt; 12
+
+# Total credit hours required
+total_credits = 0
+each_course do |course|
+  total_credits += course.credits
+end
+$errors &lt;&lt; &quot;Only #{total_credits} out of 128 total credits&quot; if total_credits &lt; 128
+</validationCode>
+      <id>3</id>
+    </degree>
+  </degrees>
+  <term>
+    <year>0</year>
+  </term>
+  <term>
+    <course>
+      <title>Calculus I</title>
+      <description>Functions, limits, continuity, derivatives, implicit differentiation, related rates, maxima and minima, elementary transcendental functions, introduction to definite integral with applications to area and volumes of revolution.</description>
+      <department>Mathematical Sciences</department>
+      <catalogNumber>MATH-1010</catalogNumber>
+      <credits>4</credits>
+      <prerequisites required="true" pickOne="false"/>
+      <corequisites required="true" pickOne="false"/>
+      <availableTerms>
+        <year-part>FALL</year-part>
+        <year-part>SPRING</year-part>
+      </availableTerms>
+    </course>
+    <course>
+      <title>Introduction to Engineering Analysis</title>
+      <description>An integrated development of linear algebra and statics emphasizing engineering applications and also incorporating computer exercises involving matrix techniques and calculations using available software packages.</description>
+      <department>School of Engineering</department>
+      <catalogNumber>ENGR-1100</catalogNumber>
+      <credits>4</credits>
+      <prerequisites required="true" pickOne="false"/>
+      <corequisites required="true" pickOne="false"/>
+      <availableTerms>
+        <year-part>FALL</year-part>
+        <year-part>SPRING</year-part>
+      </availableTerms>
+    </course>
+    <course>
+      <title>Introduction to Engineering Electronics</title>
+      <description>A hands-on experience with electronic circuits and modern laboratory instrumentation. Motivates further study of engineering. The laboratory provides opportunities to build and test simple electronic circuits that illustrate basic concepts. A design project is included.</description>
+      <department>School of Engineering</department>
+      <catalogNumber>ENGR-1310</catalogNumber>
+      <credits>1</credits>
+      <prerequisites required="true" pickOne="false"/>
+      <corequisites required="true" pickOne="false"/>
+      <availableTerms>
+        <year-part>FALL</year-part>
+        <year-part>SPRING</year-part>
+      </availableTerms>
+    </course>
+    <course>
+      <title>Computer Science I</title>
+      <description>An introduction to computer programming algorithm design and analysis. Additional topics include basic computer organization; internal representation of scalar and array data; use of top-down design and subprograms to tackle complex problems; abstract data types. Enrichment material as time allows. Interdisciplinary case studies, numerical and nonnumerical applications. Students who have passed CSCI 1200 cannot register for this course.</description>
+      <department>Computer Science</department>
+      <catalogNumber>CSCI-1100</catalogNumber>
+      <credits>4</credits>
+      <prerequisites required="true" pickOne="false"/>
+      <corequisites required="true" pickOne="false"/>
+      <availableTerms>
+        <year-part>FALL</year-part>
+        <year-part>SPRING</year-part>
+      </availableTerms>
+    </course>
+    <year>2007</year>
+    <term>FALL</term>
+  </term>
+  <term>
+    <course>
+      <title>Calculus II</title>
+      <description>Techniques and applications of integration, polar coordinates, parametric equations, infinite sequences and series, vector functions and curves in space, functions of several variables, and partial derivatives.
+
+NOTE: familiarity with elementary ordinary and partial differential equations required
+</description>
+      <department>Mathematical Sciences</department>
+      <catalogNumber>MATH-1020</catalogNumber>
+      <credits>4</credits>
+      <prerequisites required="true" pickOne="false">
+        <course>
+          <catalogNumber>MATH-1010</catalogNumber>
+          <credits>0</credits>
+        </course>
+      </prerequisites>
+      <corequisites required="true" pickOne="false"/>
+      <availableTerms>
+        <year-part>FALL</year-part>
+        <year-part>SPRING</year-part>
+      </availableTerms>
+    </course>
+    <course>
+      <title>Physics I</title>
+      <description>The first semester of a two-semester sequence of interactive courses. Topics include linear and angular kinematics and dynamics, work and energy, momentum and collisions, forces and fields, gravitation, elementary electrostatics, and motion of charged particles in a magnetic field.</description>
+      <department>Physics, Applied Physics, and Astronomy</department>
+      <catalogNumber>PHYS-1100</catalogNumber>
+      <credits>4</credits>
+      <prerequisites required="true" pickOne="false"/>
+      <corequisites required="true" pickOne="false">
+        <course>
+          <catalogNumber>MATH-1010</catalogNumber>
+          <credits>0</credits>
+        </course>
+      </corequisites>
+      <availableTerms>
+        <year-part>FALL</year-part>
+        <year-part>SPRING</year-part>
+      </availableTerms>
+    </course>
+    <course>
+      <title>Engineering Graphics and CAD</title>
+      <description>An introduction to the techniques for creating solid models of engineering designs. Topics include three-dimensional modeling of parts and assemblies, visualization, orthographic and isometric free-hand sketching, and computer-generated design documentation.</description>
+      <department>School of Engineering</department>
+      <catalogNumber>ENGR-1200</catalogNumber>
+      <credits>1</credits>
+      <prerequisites required="true" pickOne="false"/>
+      <corequisites required="true" pickOne="false"/>
+      <availableTerms>
+        <year-part>FALL</year-part>
+        <year-part>SPRING</year-part>
+      </availableTerms>
+    </course>
+    <course>
+      <title>Chemistry I</title>
+      <description>Ê</description>
+      <department>Chemistry and Chemical Biology</department>
+      <catalogNumber>CHEM-1100</catalogNumber>
+      <credits>4</credits>
+      <prerequisites required="true" pickOne="false"/>
+      <corequisites required="true" pickOne="false"/>
+      <availableTerms>
+        <year-part>FALL</year-part>
+      </availableTerms>
+    </course>
+    <year>2008</year>
+    <term>SPRING</term>
+  </term>
+  <term>
+    <course>
+      <title>Introduction to Differential Equations</title>
+      <description>First-order differential equations, second-order linear equations, eigenvalues and eigenvectors of matrices, systems of first-order equations, stability and qualitative properties of nonlinear autonomous systems in the plane, Fourier series, separation of variables for partial differential equations.
+
+NOTE: some knowledge of matrices required
+NOTE: familiarity with elementary ordinary and partial differential equations required
+</description>
+      <department>Mathematical Sciences</department>
+      <catalogNumber>MATH-2400</catalogNumber>
+      <credits>4</credits>
+      <prerequisites required="true" pickOne="false">
+        <course>
+          <catalogNumber>MATH-1020</catalogNumber>
+          <credits>0</credits>
+        </course>
+      </prerequisites>
+      <corequisites required="true" pickOne="false"/>
+      <availableTerms>
+        <year-part>FALL</year-part>
+        <year-part>SPRING</year-part>
+      </availableTerms>
+    </course>
+    <course>
+      <title>Physics II</title>
+      <description>The second semester of the two-semester sequence of interactive courses. Topics include Gauss?s Law, current electricity, Ampere?s Law and Faraday?s Law, electromagnetic radiation, physical optics, and quantum physics.
+
+NOTE: PHYS-1100 can be replaced with equivalent or skipped on permission of instructor
+</description>
+      <department>Physics, Applied Physics, and Astronomy</department>
+      <catalogNumber>PHYS-1200</catalogNumber>
+      <credits>4</credits>
+      <prerequisites required="false" pickOne="false">
+        <course>
+          <catalogNumber>PHYS-1100</catalogNumber>
+          <credits>0</credits>
+        </course>
+      </prerequisites>
+      <corequisites required="true" pickOne="false">
+        <course>
+          <catalogNumber>MATH-1020</catalogNumber>
+          <credits>0</credits>
+        </course>
+      </corequisites>
+      <availableTerms>
+        <year-part>FALL</year-part>
+        <year-part>SPRING</year-part>
+      </availableTerms>
+    </course>
+    <course>
+      <title>Introduction to Engineering Design</title>
+      <description>A first course in engineering design which emphasizes creativity, teamwork, communication, and work across engineering disciplines. Students are introduced to the design process through a semester-long project which provides a design-build-test experience. Oral and written communication are important elements of the course. The course meets with ENGR 1010.</description>
+      <department>School of Engineering</department>
+      <catalogNumber>ENGR-2050</catalogNumber>
+      <credits>4</credits>
+      <prerequisites required="true" pickOne="false">
+        <course>
+          <catalogNumber>ENGR-1100</catalogNumber>
+          <credits>0</credits>
+        </course>
+        <course>
+          <catalogNumber>ENGR-1200</catalogNumber>
+          <credits>0</credits>
+        </course>
+      </prerequisites>
+      <corequisites required="true" pickOne="false">
+        <course>
+          <catalogNumber>PHYS-1200</catalogNumber>
+          <credits>0</credits>
+        </course>
+      </corequisites>
+      <availableTerms>
+        <year-part>FALL</year-part>
+        <year-part>SPRING</year-part>
+      </availableTerms>
+    </course>
+    <year>2008</year>
+    <term>FALL</term>
+  </term>
+  <term>
+    <course>
+      <title>Embedded Control</title>
+      <description>Engineering laboratory introduction to the microprocessor as an embedded element of engineering systems. Students simultaneously develop the hardware and software of one or more target systems during the semester. Topics include concepts and practices of microcontroller hardware and software for command, sensing, control, and display. Specifically this includes control of dynamic systems and sensor interfaces; analog-digital conversion; parallel input/output; driver circuits, modular programming, and subsystem integration.
+
+NOTE: a programming language, preferably C.
+</description>
+      <department>School of Engineering</department>
+      <catalogNumber>ENGR-2350</catalogNumber>
+      <credits>4</credits>
+      <prerequisites required="true" pickOne="false"/>
+      <corequisites required="true" pickOne="false"/>
+      <availableTerms>
+        <year-part>FALL</year-part>
+        <year-part>SPRING</year-part>
+      </availableTerms>
+    </course>
+    <course>
+      <title>Electric Circuits</title>
+      <description>Techniques for the analysis and simulation of linear electric circuits, and measurements of their properties. Topics include resistive and energy-storage elements, controlled sources and operational amplifiers, systematic analysis methods, AC steady state, power and three-phase systems, magnetic coupling and transformers, transients, s-plane representation and analysis, frequency response, and Laplace transform and computer-aided methods.</description>
+      <department>Electrical, Computer, and Systems Engineering</department>
+      <catalogNumber>ECSE-2010</catalogNumber>
+      <credits>4</credits>
+      <prerequisites required="true" pickOne="false">
+        <course>
+          <catalogNumber>MATH-2400</catalogNumber>
+          <credits>0</credits>
+        </course>
+        <course>
+          <catalogNumber>PHYS-1200</catalogNumber>
+          <credits>0</credits>
+        </course>
+      </prerequisites>
+      <corequisites required="true" pickOne="false"/>
+      <availableTerms>
+        <year-part>FALL</year-part>
+        <year-part>SPRING</year-part>
+      </availableTerms>
+    </course>
+    <course>
+      <title>Computer Components and Operations</title>
+      <description>Design-oriented introduction to computer components and operations. Standard codes, number systems, base conversions, and computer arithmetic. Boolean algebra, minimization and synthesis techniques for combinational and sequential logic. Races, hazards, and asynchronous behavior. Registers, arithmetic logic units, memory structure, buses, and control units. Machine language programming, instruction fetch and execution, input-output devices, interrupts, and microprogram sequencers. Software and hardware tools.</description>
+      <department>Electrical, Computer, and Systems Engineering</department>
+      <catalogNumber>ECSE-2610</catalogNumber>
+      <credits>4</credits>
+      <prerequisites required="true" pickOne="false">
+        <course>
+          <catalogNumber>CSCI-1100</catalogNumber>
+          <credits>0</credits>
+        </course>
+      </prerequisites>
+      <corequisites required="true" pickOne="false">
+        <course>
+          <catalogNumber>ENGR-2350</catalogNumber>
+          <credits>0</credits>
+        </course>
+      </corequisites>
+      <availableTerms>
+        <year-part>FALL</year-part>
+        <year-part>SPRING</year-part>
+      </availableTerms>
+    </course>
+    <year>2009</year>
+    <term>SPRING</term>
+  </term>
+  <term>
+    <course>
+      <title>Multivariable Calculus and Matrix Algebra</title>
+      <description>Directional derivatives, maxima and minima, double integrals, line integrals, div and curl, and Green?s Theorem; matrix algebra and systems of linear equations, vectors and linear transformations in R^n, eigenvectors and eigenvalues, applications in engineering and science.
+
+NOTE: familiarity with elementary ordinary and partial differential equations required
+</description>
+      <department>Mathematical Sciences</department>
+      <catalogNumber>MATH-2010</catalogNumber>
+      <credits>4</credits>
+      <prerequisites required="true" pickOne="false">
+        <course>
+          <catalogNumber>MATH-1020</catalogNumber>
+          <credits>0</credits>
+        </course>
+      </prerequisites>
+      <corequisites required="true" pickOne="false"/>
+      <availableTerms>
+        <year-part>FALL</year-part>
+        <year-part>SPRING</year-part>
+      </availableTerms>
+    </course>
+    <course>
+      <title>Introduction to Electronics</title>
+      <description>The physics and operation of semiconductor diodes, bipolar junction transistors, and field-effect transistors in elementary analog circuits. Amplifier biasing, small-signal analysis, and frequency response. Elementary bipolar and MOSFET digital circuits, analog-to-digital and digital-to- analog conversion.
+
+NOTE: familiarity with elementary ordinary and partial differential equations required
+</description>
+      <department>Electrical, Computer, and Systems Engineering</department>
+      <catalogNumber>ECSE-2050</catalogNumber>
+      <credits>4</credits>
+      <prerequisites required="true" pickOne="false">
+        <course>
+          <catalogNumber>ECSE-2010</catalogNumber>
+          <credits>0</credits>
+        </course>
+      </prerequisites>
+      <corequisites required="true" pickOne="false"/>
+      <availableTerms>
+        <year-part>FALL</year-part>
+        <year-part>SPRING</year-part>
+      </availableTerms>
+    </course>
+    <course>
+      <title>Signals and Systems</title>
+      <description>Time and frequency-domain representation of continuous-and discrete-time signals and systems, and solutions of their response. Simulation of linear systems. Fourier series and transform. Laplace transform and z-transform. Stability, feedback systems, and root-locus analysis and design. Applications involving communication and control systems.
+
+NOTE: familiarity with elementary ordinary and partial differential equations required
+</description>
+      <department>Electrical, Computer, and Systems Engineering</department>
+      <catalogNumber>ECSE-2410</catalogNumber>
+      <credits>4</credits>
+      <prerequisites required="true" pickOne="false">
+        <course>
+          <catalogNumber>ECSE-2010</catalogNumber>
+          <credits>0</credits>
+        </course>
+      </prerequisites>
+      <corequisites required="true" pickOne="false"/>
+      <availableTerms>
+        <year-part>FALL</year-part>
+        <year-part>SPRING</year-part>
+      </availableTerms>
+    </course>
+    <year>2009</year>
+    <term>FALL</term>
+  </term>
+  <term>
+    <course>
+      <title>Fields and Waves I</title>
+      <description>Development and application of Maxwell?s equations in free space and within materials. Introduction to vector calculus and computer-aided analysis and design methods in electromagnetics. Applications include calculation of lumped circuit elements from field theory, plane wave propagation in various materials, and reflection from boundaries. Transmission line concepts, Smith charts, and other design tools for distributed circuits.
+
+NOTE: familiarity with elementary ordinary and partial differential equations required
+</description>
+      <department>Electrical, Computer, and Systems Engineering</department>
+      <catalogNumber>ECSE-2100</catalogNumber>
+      <credits>4</credits>
+      <prerequisites required="true" pickOne="false">
+        <course>
+          <catalogNumber>ECSE-2010</catalogNumber>
+          <credits>0</credits>
+        </course>
+      </prerequisites>
+      <corequisites required="true" pickOne="false"/>
+      <availableTerms>
+        <year-part>FALL</year-part>
+        <year-part>SPRING</year-part>
+      </availableTerms>
+    </course>
+    <course>
+      <title>Microelectronics Technology</title>
+      <description>An introductory survey of microelectronics technology emphasizing physical properties of semiconductors, device and circuit fabrication, semiconductor device operation, IC layout and design, and related CAD software. Topics include semiconductor crystals; energy bands; electronics  and holes; dopant impurities; fabrication and operation of diodes, bipolar junction transistors, and field-effect transistors; CMOS chip design.</description>
+      <department>Electrical, Computer, and Systems Engineering</department>
+      <catalogNumber>ECSE-2210</catalogNumber>
+      <credits>4</credits>
+      <prerequisites required="true" pickOne="false">
+        <course>
+          <catalogNumber>ECSE-2010</catalogNumber>
+          <credits>0</credits>
+        </course>
+      </prerequisites>
+      <corequisites required="true" pickOne="true">
+        <course>
+          <catalogNumber>ECSE-2100</catalogNumber>
+          <credits>0</credits>
+        </course>
+        <course>
+          <catalogNumber>PHYS-4210</catalogNumber>
+          <credits>0</credits>
+        </course>
+      </corequisites>
+      <availableTerms>
+        <year-part>FALL</year-part>
+        <year-part>SPRING</year-part>
+      </availableTerms>
+    </course>
+    <year>2010</year>
+    <term>SPRING</term>
+  </term>
+  <term>
+    <course>
+      <title>Professional Development III</title>
+      <description>Students will study issues associated with working in teams in a modern work environment. Various styles of leadership, the definitions of power and empowerment and their applications in industry and team settings will be studied. Additionally, other topics to be explored include vision, values and attitudes, and organizational culture. The course format will include small and large group discussions, case studies, experiential exercises, and regular participation from industry guests.
+
+NOTE: Offered in conjunction with senior courses.
+</description>
+      <department>School of Engineering</department>
+      <catalogNumber>ENGR-4010</catalogNumber>
+      <credits>1</credits>
+      <prerequisites required="true" pickOne="false"/>
+      <corequisites required="true" pickOne="false"/>
+      <availableTerms>
+        <year-part>FALL</year-part>
+        <year-part>SPRING</year-part>
+      </availableTerms>
+    </course>
+    <course>
+      <title>Probability for Engineering Applications</title>
+      <description>Axioms of probability, joint and conditional probability, random variables, probability density and distribution functions, functions of random variables, statistical averages, empirical distributions, parameter estimation, regression, tests of hypotheses, and Markov chains. Applications to engineering data such as device characteristics, failure rates, image processing and network traffic.
+
+NOTE: familiarity with elementary ordinary and partial differential equations required
+</description>
+      <department>Electrical, Computer, and Systems Engineering</department>
+      <catalogNumber>ECSE-4500</catalogNumber>
+      <credits>4</credits>
+      <prerequisites required="true" pickOne="false">
+        <course>
+          <catalogNumber>ECSE-2410</catalogNumber>
+          <credits>0</credits>
+        </course>
+      </prerequisites>
+      <corequisites required="true" pickOne="false"/>
+      <availableTerms>
+        <year-part>FALL</year-part>
+        <year-part>SPRING</year-part>
+      </availableTerms>
+    </course>
+    <year>2010</year>
+    <term>FALL</term>
+  </term>
+  <term>
+    <year>2011</year>
+    <term>SPRING</term>
+  </term>
+</plan>

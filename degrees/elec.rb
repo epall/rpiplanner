@@ -1,4 +1,4 @@
-#0001 B.S. Computer & Systems Engineering 2011
+#0003 B.S. Electrical Engineering 2011
 $taken_courses = []
 
 # Communication Requirement
@@ -9,7 +9,7 @@ end
 $errors << "Communication requirement: #{commclasses} of 2" if commclasses < 2
 
 # Math & Science Courses
-require_courses(['CSCI-1200','CSCI-2300','MATH-1010','MATH-1020','MATH-2400','MATH-2800','PHYS-1100','PHYS-1200','CHEM-1100'])
+require_courses(['MATH-1010', 'CHEM-1100', 'MATH-1020', 'PHYS-1100', 'MATH-2400', 'PHYS-1200', 'MATH-2010'])
 
 # Comp Sci I variance
 csI = false
@@ -26,16 +26,16 @@ require_courses(['ENGR-1100','ENGR-2050','ENGR-2350','ENGR-1200','ENGR-4010'])
 require_one_of(['ENGR-1300','ENGR-1310'])
 
 # Required Courses
-require_courses(['ECSE-2010','ECSE-2610','ECSE-2660','ECSE-2410','ECSE-4500'])
+require_courses(['ECSE-2010','ECSE-2610','ECSE-2050','ECSE-2410', 'ECSE-2100', 'ECSE-2210','ECSE-4500'])
 
 # Multidisciplinary Elective
 require_one_of(['ENGR-1600','ENGR-2090','ENGR-2250','ENGR-2530'])
 
-#Software Engineering Elective
-require_one_of(['ECSE-4690','ECSE-4750','CSCI-4380','CSCI-4440','CSCI-4600'])
-
 # Design Elective
 require_one_of(['ECSE-4780','ECSE-4900','ECSE-4980','MANE-4220','EPOW-4850'])
+
+# Laboratory Elective
+require_one_of(['ECSE-4090', 'ECSE-4220', 'ECSE-4690', 'ECSE-4760', 'ECSE-4770', 'ECSE-4790', 'ECSE-4710', 'ENGR-4710', 'EPOW-4030'])
 
 # no comp sci I, look for another class
 csalternative = false
@@ -54,7 +54,7 @@ $errors << "Required course not present: CSCI-1100" unless csI | csalternative
 # Restricted Electives
 restricted_credits = 0
 each_course do |course|
-  if course.catalogNumber =~ /(ECSE|CSCI)/ && !$taken_courses.include?(course)
+  if course.catalogNumber =~ /(ECSE|EPOW|ENGR-4)/ && !$taken_courses.include?(course)
     if restricted_credits < 9
       restricted_credits += course.credits
       $taken_courses << course
