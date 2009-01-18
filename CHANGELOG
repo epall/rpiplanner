@@ -1,2 +1,6 @@
+2009-01-18 1.1
+Added Electrical Engineering degree and fixed bug with Computer Science I in Computer & Systems Engineering degree.
+Expanded course database to include most of BIOL and CHEM.
+
 2008-12-10 1.0.1
 Added about dialog and stopped registering as handler for .plan files.
