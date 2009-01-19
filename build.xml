@@ -73,4 +73,10 @@
 			</fileset>
 		</scp>
 	</target>
+	
+	<target name="deploydev" depends="sign">
+		<scp file="rpiplanner.jar" remoteToFile="epall@svallens.com:domains/rpiplanner.svallens.com/web/public/app/development.jar"
+			keyfile="${user.home}/.ssh/id_rsa" passphrase="" verbose="true">
+		</scp>
+	</target>
 </project>
