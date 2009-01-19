@@ -49,7 +49,7 @@ public class CourseDisplay extends JPanel {
 		this.controller = controller;
 		setOpaque(true);
 		initialize();
-		setText("Add Course...");
+		setText("Drop course here");
 		xButton.setVisible(false);
 	}
 	public CourseDisplay(POSController controller, Course course){

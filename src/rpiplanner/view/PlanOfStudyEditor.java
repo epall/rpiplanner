@@ -150,7 +150,7 @@ public class PlanOfStudyEditor extends JPanel {
 		courseList.setBackground(Color.WHITE);
 
 		addCourseButton = new JButton();
-		addCourseButton.setText("Add Course");
+		addCourseButton.setText("Create New Course");
 		searchPanel.add(addCourseButton, new CellConstraints(1, 3));
 
 		detailsPanel = new JPanel();

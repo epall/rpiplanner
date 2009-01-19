@@ -132,7 +132,8 @@ public class POSController {
 			semesterPanel.add(new CourseDisplay(this, c));
 			creditTotal += c.getCredits();
 		}
-		for(int i = 0; i < (SchoolInformation.getDefaultCoursesPerSemester()-courses.size()); i++){
+		semesterPanel.add(new CourseDisplay(this));
+		for(int i = 1; i < (SchoolInformation.getDefaultCoursesPerSemester()-courses.size()); i++){
 			semesterPanel.add(new CourseDisplay(this));
 		}
 		if(model.getYear() == 0){ // AP/transfer credit

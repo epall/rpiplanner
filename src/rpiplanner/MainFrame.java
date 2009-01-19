@@ -64,7 +64,7 @@ public class MainFrame extends JFrame {
 		getContentPane().setLayout(new CardLayout());
 		
 		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-		Dimension windowSize = new Dimension(1200, 730);
+		Dimension windowSize = new Dimension(1200, 800);
 		if(windowSize.width > screenSize.width-200)
 			windowSize.width = screenSize.width-200;
 		setBounds((screenSize.width-windowSize.width)/2, (screenSize.height-windowSize.height)/2, 
