@@ -195,7 +195,7 @@ public class Main extends Application {
     protected void shutdown() {
     	try {
     		File localStorageDir = getContext().getLocalStorage().getDirectory();
-    		localStorageDir.mkdir();
+    		localStorageDir.mkdirs();
 
     		File cdbFile = new File(localStorageDir, "course_database.xml");
        		File planFile = new File(localStorageDir, "default_pos.xml");
