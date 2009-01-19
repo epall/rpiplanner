@@ -119,15 +119,15 @@ def parse_year_parts(description)
     messages << "Offered on availability of #{$5}."
     parts << 'FALL'
     parts << 'SPRING'
-  when /^(Spring|Fall)(,| term) odd-numbered years.$/i
+  when /^(Spring|Fall)(,| term) odd-?numbered years.$/i
     messages << "odd-numbered years ONLY"
     parts << $1.upcase
   when /^(Spring|Fall) term even.?numbered years.$/i
     messages << "even-numbered years ONLY"
     parts << $1.upcase
-  when "Fall term alternate years."
+  when /^(Spring|Fall) term,? alternate years./
     messages << "alternate years ONLY"
-    parts << 'FALL'
+    parts << $1.upcase
   when /^(Graduate course; spring semester, alternate years|Spring term alternate years.)$/
     messages << "alternate years ONLY"
     parts << 'FALL'
@@ -165,7 +165,7 @@ def parse_year_parts(description)
     parts << 'FALL'
     parts << 'SPRING'
   else
-    raise "No match found for year part "+description
+    raise "No match found for year part: #{description}"
   end
   
   return {:parts => parts, :messages => messages}
@@ -426,12 +426,24 @@ def parse_requisites(requisites)
     messages << "Must be majoring in Management or Economics\nprerequisite can be skipped on permission of instructor"
   when /^Prerequisite:.{1,3}(1000-level course \(or higher\) in STS|a 1000-level social science course|permission of a supervising faculty member).$/
     messages << requisites
+  when /^Prerequisites: BIOL 1010, college-level math, or permission of the instructor./
+    prerequisites << 'BIOL-1010'
+    messages << "college-level math, or permission of the instructor required"
+  when /^Prerequisite:.{1,3}ENGR 1010. The course is limited to junior and senior engineering majors. A similar course is offered in Cognitive Science, and students cannot take both courses for credit.$/
+    prerequisites << 'ENGR-1010'
+    messages << "limited to junior and senior engineering majors. A similar course is offered in Cognitive Science, and students cannot take both courses for credit."
+  when /^Prerequisite:.{1,3}STSH 1110\/STSS 1110 or permission of instructor.$/
+    prerequisites << 'STSH-1110'
+    prerequisites << 'STSS-1110'
+    pickOneP = true
+    requiredP = false
+    messages << "Prerequisite can be skipped on permission of instructor"
   when /^Prerequisites:.{1,3}Vary with topic.$/
     nil
   when ''
     nil
   else
-    raise "No match found for /^#{requisites}$/"
+    raise "No match found for #{requisites}"
   end
 
   return {:requiredP => requiredP, :pickOneP => pickOneP,
@@ -459,7 +471,7 @@ successfully_parsed_departments = ['CSCI', 'ECSE', 'ENGR', 'BIOL', 'MANE',
 builder = Builder::XmlMarkup.new(:indent => 2)
 xml = builder.courses do |b|
   # successfully_parsed_departments.each do |dept|
-  ['CSCI', 'ECSE', 'ENGR', 'PHYS', 'MATH', 'IHSS','BIOL','CHEM'].each do |dept|
+  ['BIOL','CSCI','CHEM','ECSE','ENGR','IHSS','MANE','MATH','PHYS','PSYC','STSH','STSS'].each do |dept|
     pull_dept(dept).each do |coid|
       course = pull_class(coid)
       description = course[:description]
@@ -504,21 +516,23 @@ xml = builder.courses do |b|
           end
         end
       rescue => err
-        $stderr.puts course[:catalogNumber]
+        $stderr.puts "#{course[:catalogNumber]} - #{course[:title]}"
         $stderr.puts err
       end
     end
   end
   
   Dir.glob("degrees/*.rb").each do |file|
-    degree = File.new(file, 'r')
-    header = degree.readline.strip
-    builder.degree {
-      builder.id(header[1..4].to_i)
-      builder.name(header[6..1000])
-      builder.validationCode(degree.read(nil))
-    }
-    degree.close
+    unless file =~ /bmed/ # don't include biomed yet
+      degree = File.new(file, 'r')
+      header = degree.readline.strip
+      builder.degree {
+        builder.id(header[1..4].to_i)
+        builder.name(header[6..1000])
+        builder.validationCode(degree.read(nil))
+      }
+      degree.close
+    end
   end
 end
 
