@@ -91,9 +91,6 @@ public class Main extends Application {
         mainFrame = new MainFrame();
         planControl.setView(mainFrame.getPlanCard());
         mainFrame.setController(planControl);
-        if(!newPlan)
-        	mainFrame.goToPlanEditor(false);
-        
         mainFrame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
         mainFrame.addWindowListener(new WindowAdapter() {
             public void windowClosing(WindowEvent e) {
@@ -112,6 +109,11 @@ public class Main extends Application {
         	// silently ignore because we're not on a mac
         }
         mainFrame.setVisible(true);
+        if(newPlan){
+		mainFrame.gettingStarted();
+		planControl.loadTemplate();
+        }
+	planControl.validatePlan();
     }
     
     private javax.swing.Action getAction(String actionName) {
@@ -322,7 +324,7 @@ public class Main extends Application {
     
     @Action
     public void details(){
-    	mainFrame.goToDetailsPanel();
+	mainFrame.gettingStarted();
     }
     
     @Action
