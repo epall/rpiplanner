@@ -18,7 +18,8 @@
       <all-permissions/>
   </security>
   <resources>
-    <j2se version="1.5.0+" java-vm-args="-Dsun.swing.enableImprovedDragGesture"/>
+    <j2se version="1.5.0+"/>
+    <property name="sun.swing.enableImprovedDragGesture" value="true"/>
     <jar href="rpiplanner.jar"/>
     <jar href="swing-worker.jar"/>
     <jar href="xstream-1.3.jar"/>
@@ -29,7 +30,7 @@
     <jar href="jruby.jar"/>
     <jar href="xpp3_min-1.1.4c.jar"/>
     <jar href="swingx-0.9.4.jar"/>
-		<jar href="AppleJavaExtensions.jar"/>
+    <jar href="AppleJavaExtensions.jar"/>
   </resources>
   <application-desc main-class="rpiplanner.Main"/>
 </jnlp>
