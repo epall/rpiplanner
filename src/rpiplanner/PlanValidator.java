@@ -20,8 +20,10 @@
 package rpiplanner;
 
 import java.io.BufferedReader;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 
@@ -110,8 +112,17 @@ public class PlanValidator {
 	private static String readFileAsString(String filePath)
 	throws java.io.IOException{
 	    StringBuffer fileData = new StringBuffer(1000);
+	    InputStream fileStream = PlanValidator.class.getResourceAsStream("/"+filePath);
+	    if(fileStream == null){
+	    	try{
+	    		fileStream = new FileInputStream(filePath);
+	    	} catch (FileNotFoundException e){
+	    		System.err.println("Critical file not found: "+filePath);
+	    		return "";
+	    	}
+	    }
 	    BufferedReader reader = new BufferedReader(
-	            new InputStreamReader(PlanValidator.class.getResourceAsStream("/"+filePath)));
+	            new InputStreamReader(fileStream));
 	    char[] buf = new char[1024];
 	    int numRead=0;
 	    while((numRead=reader.read(buf)) != -1){

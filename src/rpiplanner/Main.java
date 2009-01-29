@@ -142,7 +142,15 @@ public class Main extends Application {
 
 	protected void loadFromXML(){
 		File localStorageDir = getContext().getLocalStorage().getDirectory();
-		DefaultCourseDatabase mainDB = (DefaultCourseDatabase) xs.fromXML(getClass().getResourceAsStream("/course_database.xml"));
+		InputStream databaseStream = getClass().getResourceAsStream("/course_database.xml");
+		if(databaseStream == null)
+			try {
+				databaseStream = new FileInputStream("course_database.xml");
+			} catch (FileNotFoundException e2) {
+				e2.printStackTrace();
+				System.exit(1);
+			}
+		DefaultCourseDatabase mainDB = (DefaultCourseDatabase) xs.fromXML(databaseStream);
 		ShadowCourseDatabase shadowDB = null;
 		try {
 			shadowDB = (ShadowCourseDatabase) (xs.fromXML(new FileInputStream(new File(localStorageDir, "course_database.xml"))));
