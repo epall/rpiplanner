@@ -40,9 +40,10 @@ public class PlanValidator {
 	private BSFManager rubyEnvironment;
 	
 	private PlanValidator(){
-		BSFManager.registerScriptingEngine("ruby", 
-                "org.jruby.javasupport.bsf.JRubyEngine", 
-                new String[] { "rb" });
+		if(!BSFManager.isLanguageRegistered("ruby"))
+			BSFManager.registerScriptingEngine("ruby",
+	                "org.jruby.javasupport.bsf.JRubyEngine",
+	                new String[] { "rb" });
 
 		rubyEnvironment = new BSFManager();
 		try {

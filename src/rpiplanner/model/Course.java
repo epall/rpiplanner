@@ -35,6 +35,9 @@ public class Course implements Comparable<Course> {
 	public String getTitle() {
 		return title;
 	}
+	void setTitle(String title){
+		this.title = title;
+	}
 	public String getDescription() {
 		return description;
 	}
@@ -43,6 +46,9 @@ public class Course implements Comparable<Course> {
 	}
 	public String getCatalogNumber() {
 		return catalogNumber;
+	}
+	void setCatalogNumber(String catalogNumber){
+		this.catalogNumber = catalogNumber;
 	}
 	public int getCredits() {
 		return credits;

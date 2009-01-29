@@ -29,6 +29,16 @@ public class Degree {
 	private String validationCode;
 	private long id = 0;
 	
+	/**
+	 * Constructor for testing.
+	 * @param name A name for the degree.
+	 * @param validationCode Ruby code to execute for validation.
+	 */
+	public Degree(String name, String validationCode){
+		this.name = name;
+		this.validationCode = validationCode;
+	}
+
 	@XStreamOmitField
 	private ValidationError[] errors;
 	
