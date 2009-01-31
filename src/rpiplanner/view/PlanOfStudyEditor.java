@@ -111,9 +111,12 @@ public class PlanOfStudyEditor extends JPanel {
 		planPanel.setLayout(new FormLayout("pref:grow(1.0), pref:grow(1.0)",
 				"top:min, top:min, top:min, top:min, top:min"));
 		add(planPanel, new CellConstraints("2, 2, 1, 1, fill, top"));
+		planPanel.setName("semesters");
+		
 		final JPanel apcreditPanel = new JPanel();
 		apcreditPanel.setBorder(new CompoundBorder(new EmptyBorder(5,5,5,5), new EtchedBorder()));
 		apcreditPanel.setLayout(new BoxLayout(apcreditPanel, BoxLayout.Y_AXIS));
+		apcreditPanel.setName("apcredit");
 		planPanel.add(apcreditPanel, new CellConstraints(1, 1));
 		semesterPanels.add(apcreditPanel);
 		
@@ -121,6 +124,7 @@ public class PlanOfStudyEditor extends JPanel {
 			final JPanel semesterPanel = new JPanel();
 			semesterPanel.setBorder(new CompoundBorder(new EmptyBorder(5,5,5,5), new EtchedBorder()));
 			semesterPanel.setLayout(new BoxLayout(semesterPanel, BoxLayout.Y_AXIS));
+			semesterPanel.setName("semesterPanel"+String.valueOf(i));
 			planPanel.add(semesterPanel, new CellConstraints(i%2+1, i/2+2));
 			semesterPanels.add(semesterPanel);
 		}
@@ -170,7 +174,7 @@ public class PlanOfStudyEditor extends JPanel {
 				FormFactory.DEFAULT_ROWSPEC,
 				FormFactory.RELATED_GAP_ROWSPEC,
 				RowSpec.decode("fill:default:grow(1.0)")}));
-		degreeDetailsPanel.setName("panel_1");
+		degreeDetailsPanel.setName("degreeDetails");
 		detailsPanel.add(degreeDetailsPanel, degreeDetailsPanel.getName());
 
 		final JLabel nameLabel = new JLabel();

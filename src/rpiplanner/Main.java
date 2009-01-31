@@ -76,6 +76,11 @@ public class Main extends Application {
 	private static XStream xs;
 	private boolean newPlan;
 
+	// for testing
+	POSController getController(){
+		return planControl;
+	}
+	
     @Override
     protected void startup() {
         planControl = new POSController();
