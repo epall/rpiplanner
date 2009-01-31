@@ -25,6 +25,7 @@ import java.awt.Rectangle;
 import java.awt.Toolkit;
 
 import javax.swing.JComboBox;
+import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JTextField;
 
@@ -66,7 +67,7 @@ public class MainFrame extends JFrame {
 		this.controller = controller;
 	}
 	
-	public void gettingStarted() {
+	public JDialog gettingStarted() {
 		GettingStartedPopup popup = new GettingStartedPopup(controller);
 		Rectangle bounds = new Rectangle();
 		bounds.x = getBounds().x + getBounds().width/4;
@@ -75,5 +76,6 @@ public class MainFrame extends JFrame {
 		bounds.height = getBounds().height/2;
 		popup.setBounds(bounds);
 		popup.setVisible(true);
+		return popup;
 	}
 }

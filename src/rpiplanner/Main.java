@@ -106,12 +106,17 @@ public class Main extends Application {
         } catch (ClassNotFoundException e){
         	// silently ignore because we're not on a mac
         } catch (NullPointerException e){
-        	// silently ignore because we're not on a mac
+		// silently ignore because we're not on a mac
         }
         mainFrame.setVisible(true);
-        if(newPlan){
-		mainFrame.gettingStarted();
-		planControl.loadTemplate();
+        if (newPlan) {
+            mainFrame.gettingStarted().addWindowListener(new WindowAdapter() {
+                @Override
+                public void windowDeactivated(WindowEvent e) {
+                    planControl.loadTemplate();
+                    planControl.validatePlan();
+                }
+            });
         }
 	planControl.validatePlan();
     }
