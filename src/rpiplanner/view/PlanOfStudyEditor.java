@@ -145,7 +145,6 @@ public class PlanOfStudyEditor extends JPanel {
 		searchPanel.add(searchField, new CellConstraints("1, 1, 1, 1, fill, fill"));
 
 		final JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 		searchPanel.add(scrollPane, new CellConstraints("1, 2, 1, 1, fill, fill"));
 
 		courseList = new JList();
