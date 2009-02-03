@@ -1,6 +1,16 @@
 #0003 B.S. Electrical Engineering 2011
 $taken_courses = []
 
+$taken_courses.instance_eval do
+  def include?(course)
+    if course.catalogNumber =~ /....-4940/
+      return false
+    else
+      return super
+    end
+  end
+end
+
 # Communication Requirement
 commclasses = 0
 each_course do |course|

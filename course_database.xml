@@ -11145,6 +11145,15 @@ NOTE: Unclear when course is offered
     <id>2</id>
     <name>B.S. Computer Science 2011</name>
     <validationCode>$taken_courses = []
+$taken_courses.instance_eval do
+  def include?(course)
+    if course.catalogNumber =~ /....-4940/
+      return false
+    else
+      return super
+    end
+  end
+end
 
 # Communication Requirement
 commclasses = 0
@@ -11284,6 +11293,16 @@ $errors &lt;&lt; "Only #{total_credits} out of 128 total credits" if total_credi
     <id>1</id>
     <name>B.S. Computer &amp; Systems Engineering 2011</name>
     <validationCode>$taken_courses = []
+
+$taken_courses.instance_eval do
+  def include?(course)
+    if course.catalogNumber =~ /....-4940/
+      return false
+    else
+      return super
+    end
+  end
+end
 
 # Communication Requirement
 commclasses = 0
@@ -11437,6 +11456,16 @@ $errors &lt;&lt; "Only #{total_credits} out of 128 total credits" if total_credi
     <id>3</id>
     <name>B.S. Electrical Engineering 2011</name>
     <validationCode>$taken_courses = []
+
+$taken_courses.instance_eval do
+  def include?(course)
+    if course.catalogNumber =~ /....-4940/
+      return false
+    else
+      return super
+    end
+  end
+end
 
 # Communication Requirement
 commclasses = 0
