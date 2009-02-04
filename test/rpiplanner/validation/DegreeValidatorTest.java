@@ -5,8 +5,6 @@ import static org.junit.Assert.*;
 import java.io.FileInputStream;
 import java.io.InputStream;
 
-import org.jruby.RubyArray;
-import org.jruby.RubyHash;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
@@ -17,6 +15,7 @@ import rpiplanner.model.Degree;
 import rpiplanner.model.PlanOfStudy;
 import rpiplanner.model.ShadowCourseDatabase;
 import rpiplanner.model.YearPart;
+import rpiplanner.validation.ValidationResult.Section;
 import rpiplanner.xml.RequisiteSetConverter;
 
 import com.thoughtworks.xstream.XStream;
@@ -43,29 +42,35 @@ public class DegreeValidatorTest {
 	}
 
 	@Test
-	public void testValidateSection(){
+	public void testValidate() {
 		Degree csys = courseDatabase.getDegree(2);
 		PlanOfStudy plan = new PlanOfStudy();
 		plan.getTerm(0).add(courseDatabase.getCourse("CSCI-1100"));
-		
+
 		DegreeValidator validator = csys.getValidator();
-		RubyHash validationOutput = validator.validate("Math & Science", plan);
+		ValidationResult validationOutput = validator.validate(plan);
 		assertNotNull(validationOutput);
 
-		RubyArray missing = (RubyArray) validationOutput.get("missing");
-		RubyArray applied = (RubyArray) validationOutput.get("applied");
-		RubyArray messages = (RubyArray) validationOutput.get("messages");
-		
+		Section sectionResults = validationOutput
+				.getSectionResults("Math & Science");
+
 		boolean found = false;
-		for(Object o : missing){
-			if("CSCI-1100".equals(o))
+		for (String o : sectionResults.missingCourses()) {
+			if ("CSCI-1100".equals(o))
 				found = true;
 		}
 		assertFalse(found);
 
 		found = false;
-		for(Object o : missing){
-			if("CSCI-1200".equals(o))
+		for (String o : sectionResults.appliedCourses()) {
+			if ("CSCI-1100".equals(o))
+				found = true;
+		}
+		assertTrue(found);
+
+		found = false;
+		for (String o : sectionResults.missingCourses()) {
+			if ("CSCI-1200".equals(o))
 				found = true;
 		}
 		assertTrue(found);

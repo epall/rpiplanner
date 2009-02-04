@@ -35,7 +35,7 @@ class SectionDescriptor
     end
     if @one_of
       candidates = potential_courses.find_all{ |course| @one_of.include? course.catalogNumber}.map(&:catalogNumber)
-      if candidates.count == 0
+      if candidates.size == 0
         missing_courses += @one_of
       else
         applied_courses << candidates[0]
@@ -66,6 +66,49 @@ end
 class DegreeDescriptor
   include Java::RpiplannerValidation::DegreeValidator
   attr_writer :total_credits
+  
+  class Results
+    include Java::RpiplannerValidation::ValidationResult
+    
+    def initialize
+      @sections = {}
+    end
+    
+    def add(name, result)
+      @sections[name] = result
+    end
+    
+    def percentComplete
+      return 50
+    end
+    
+    def getSectionResults(name)
+      @sections[name]
+    end
+  end
+  
+  class SectionResult
+    include Java::RpiplannerValidation::ValidationResult::Section
+    def initialize(params)
+      @data = params
+    end
+    
+    def missingCourses
+      @data['missing'].to_java(:string)
+    end
+    
+    def appliedCourses
+      @data['applied'].to_java(:string)
+    end
+    
+    def messages
+      @data['messages'].to_java(:string)
+    end
+    
+    def potentialCourses
+      [].to_java(:string)
+    end
+  end
 
   def initialize
     @sections = {}
@@ -81,8 +124,13 @@ class DegreeDescriptor
     @sections.keys.to_java(:string)
   end
   
-  def validate(section_name, plan)
-    @sections[section_name].validate(plan)
+  def validate(plan)
+    result = Results.new
+    @sections.each do |section_name, descriptor|
+      sectionResult = SectionResult.new(descriptor.validate(plan))
+      result.add(section_name, sectionResult)
+    end
+    return result
   end
 end
 
