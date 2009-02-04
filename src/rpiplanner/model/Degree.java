@@ -19,6 +19,9 @@
 
 package rpiplanner.model;
 
+import rpiplanner.RubyEnvironment;
+import rpiplanner.validation.DegreeValidator;
+
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 import com.thoughtworks.xstream.annotations.XStreamOmitField;
 
@@ -28,6 +31,9 @@ public class Degree {
 	private String note;
 	private String validationCode;
 	private long id = 0;
+	
+	@XStreamOmitField
+	private DegreeValidator descriptor;
 	
 	/**
 	 * Constructor for testing.
@@ -86,5 +92,19 @@ public class Degree {
 				return true;
 		}
 		return false;
+	}
+	
+	public String[] getSectionNames(){
+		initDescriptor();
+		return descriptor.getSectionNames();
+	}
+	
+	private void initDescriptor(){
+		if(descriptor == null)
+			descriptor = RubyEnvironment.getInstance().getDegreeDescriptor(this);
+	}
+	public DegreeValidator getValidator() {
+		initDescriptor();
+		return descriptor;
 	}
 }

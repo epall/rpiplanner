@@ -3,6 +3,7 @@ package rpiplanner;
 
 import org.junit.After;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
@@ -23,7 +24,7 @@ public class PlanValidatorTest {
 	public void tearDown() throws Exception {
 	}
 
-	@Test
+	@Test @Ignore
 	public void testEvalCodeContainedInDegree(){
 		Degree degree = new Degree("test degree", "$errors << 'fail'");
 		PlanOfStudy plan = new PlanOfStudy();
@@ -34,7 +35,7 @@ public class PlanValidatorTest {
 		assertTrue(validator.satisfiesDegree(plan, degree));
 	}
 
-	@Test
+	@Test @Ignore
 	public void testIterationOverCourses(){
 		String validationCode = "each_course do |course|" +
 				"$errors << 'foo'" +

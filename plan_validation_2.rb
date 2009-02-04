@@ -1,7 +1,9 @@
+require 'java'
+
 class SectionDescriptor
   attr_writer :exclusive, :count, :credits, :description
   
-  def initalize
+  def initialize
     @must_haves = {}
   end
   
@@ -29,7 +31,7 @@ class SectionDescriptor
     potential_courses = filter(plan_of_study)
     if @courses
       applied_courses += potential_courses.find_all{ |course| @courses.include? course.catalogNumber}.map(&:catalogNumber)
-      missing_courses += courses - applied_courses
+      missing_courses += @courses - applied_courses
     end
     if @one_of
       candidates = potential_courses.find_all{ |course| @one_of.include? course.catalogNumber}.map(&:catalogNumber)
@@ -61,8 +63,31 @@ class SectionDescriptor
   end
 end
 
-def section(name)
-  descriptor = SectionDescriptor.new
+class DegreeDescriptor
+  include Java::RpiplannerValidation::DegreeValidator
+  attr_writer :total_credits
+
+  def initialize
+    @sections = {}
+  end
+  
+  def section(name)
+    descriptor = SectionDescriptor.new
+    yield(descriptor)
+    @sections[name] = descriptor
+  end
+  
+  def getSectionNames
+    @sections.keys.to_java(:string)
+  end
+  
+  def validate(section_name, plan)
+    @sections[section_name].validate(plan)
+  end
+end
+
+def degree(name, id)
+  descriptor = DegreeDescriptor.new
   yield(descriptor)
-  $sections[name] = descriptor
+  $degrees[id] = descriptor
 end

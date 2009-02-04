@@ -276,6 +276,7 @@ public class POSController {
 	}
 	
 	public void validatePlan(){
+		/*
 		for(Degree degree : plan.getDegrees()){
 			if(degree.getID() != 0){ // legacy check
 				Degree validationDegree = courseDatabase.getDegree(degree.getID());
@@ -336,6 +337,7 @@ public class POSController {
 				courseIdx++;
 			}
 		}
+		*/
 	}
 
 	public DegreeListModel getPlanDegreeListModel() {
