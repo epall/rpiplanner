@@ -75,4 +75,23 @@ public class DegreeValidatorTest {
 		}
 		assertTrue(found);
 	}
+	
+	@Test
+	public void testOneOf(){
+		Degree csys = courseDatabase.getDegree(2);
+		PlanOfStudy plan = new PlanOfStudy();
+		plan.getTerm(0).add(courseDatabase.getCourse("ECSE-4690"));
+		ValidationResult validationOutput = csys.getValidator().validate(plan);
+		Section softEng = validationOutput.getSectionResults("Software Engineering Elective");
+		
+
+		boolean found = false;
+		for (String o : softEng.appliedCourses()) {
+			if ("ECSE-4690".equals(o))
+				found = true;
+		}
+		assertTrue(found);
+		
+		assertEquals(0, softEng.missingCourses().length);
+	}
 }
