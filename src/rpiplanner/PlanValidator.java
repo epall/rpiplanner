@@ -47,7 +47,7 @@ public class PlanValidator {
 
 		rubyEnvironment = new BSFManager();
 		try {
-			rubyEnvironment.eval("ruby", "(java)", 0, 0, readFileAsString("plan_validation.rb"));
+			rubyEnvironment.eval("ruby", "(java)", 0, 0, readFileAsString("plan_validation_2.rb"));
 		} catch (FileNotFoundException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
