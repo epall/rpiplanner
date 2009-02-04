@@ -57,10 +57,10 @@ degree "B.S. Computer & Systems Engineering 2011", 2 do |d|
     The TOTAL H&SS Core Requirement is 22 credits.
     EOF
     numonethousand = 0
-    s.valid_courses do |c|
+    s.valid_courses do |course|
       if ['IHSS','ARTS','LANG','LITR','COMM','WRIT','STSH','PHIL',
         'COGS','ECON','IHSS','PSYC','STSS'].include?(course.catalogNumber[0..3])
-        if c.level = '1000'
+        if course.level = '1000'
           numonethousand += 1
           false if numonethousand > 3
         else

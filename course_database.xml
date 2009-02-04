@@ -11145,6 +11145,7 @@ NOTE: Unclear when course is offered
   
   
 
+    
     <degree>
         <id>2</id>
         <name>B.S. Computer &amp; Systems Engineering 2011</name>
@@ -11206,10 +11207,10 @@ NOTE: Unclear when course is offered
     The TOTAL H&amp;SS Core Requirement is 22 credits.
     EOF
     numonethousand = 0
-    s.valid_courses do |c|
+    s.valid_courses do |course|
       if [&apos;IHSS&apos;,&apos;ARTS&apos;,&apos;LANG&apos;,&apos;LITR&apos;,&apos;COMM&apos;,&apos;WRIT&apos;,&apos;STSH&apos;,&apos;PHIL&apos;,
         &apos;COGS&apos;,&apos;ECON&apos;,&apos;IHSS&apos;,&apos;PSYC&apos;,&apos;STSS&apos;].include?(course.catalogNumber[0..3])
-        if c.level = &apos;1000&apos;
+        if course.level = &apos;1000&apos;
           numonethousand += 1
           false if numonethousand &gt; 3
         else
@@ -11250,5 +11251,6 @@ NOTE: Unclear when course is offered
 end</validationCode>
       </degree>
     </courses>
+
 
 
