@@ -19,12 +19,16 @@
 
 package rpiplanner.model;
 
+import java.beans.PropertyChangeListener;
+import java.beans.PropertyChangeSupport;
 import java.util.ArrayList;
+import java.util.List;
 
 import rpiplanner.SchoolInformation;
 
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 import com.thoughtworks.xstream.annotations.XStreamImplicit;
+import com.thoughtworks.xstream.annotations.XStreamOmitField;
 
 @XStreamAlias("plan")
 public class PlanOfStudy {
@@ -36,6 +40,9 @@ public class PlanOfStudy {
 
 	@XStreamImplicit
 	protected ArrayList<Term> terms;
+	
+	@XStreamOmitField
+	protected PropertyChangeSupport changeSupport;
 	
 	public PlanOfStudy(){
 		initializeTerms();
@@ -67,6 +74,7 @@ public class PlanOfStudy {
 		rebuildTerms();
 	}
 	public Term getTerm(int index){
+		terms.get(index).plan = this;
 		return terms.get(index);
 	}
 	public ArrayList<Degree> getDegrees() {
@@ -85,6 +93,7 @@ public class PlanOfStudy {
 			terms.get(2*i).setYear(startingYear+i);
 		}
 		terms.get(terms.size()-1).setYear(startingYear+SchoolInformation.getDefaultSemesterCount()/2);
+		fireCoursesChanged();
 	}
 	
 	/**
@@ -118,17 +127,33 @@ public class PlanOfStudy {
 		lastTerm.setYear(startingYear + SchoolInformation.getDefaultSemesterCount()/2);
 		lastTerm.setTerm(YearPart.SPRING);
 		terms.add(lastTerm);
+		fireCoursesChanged();
 	}
 
 	public int numTerms(){
 		return terms.size();
 	}
 
-	public ArrayList<Term> getTerms() {
+	public List<Term> getTerms() {
+		for(Term t : terms)
+			t.plan = this;
 		return terms;
 	}
 	
-	public void setTerms(ArrayList<Term> terms){
-		this.terms = terms;
+	public void setTerms(List<Term> terms){
+		this.terms = new ArrayList<Term>(terms);
+		fireCoursesChanged();
+	}
+	
+	public void addPropertyChangeListener(String property, PropertyChangeListener listener){
+		if(changeSupport == null)
+			changeSupport = new PropertyChangeSupport(this);
+		changeSupport.addPropertyChangeListener(property, listener);
+	}
+	
+	protected void fireCoursesChanged(){
+		if(changeSupport == null)
+			changeSupport = new PropertyChangeSupport(this);
+		changeSupport.firePropertyChange("courses", null, null);
 	}
 }
