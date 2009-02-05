@@ -19,30 +19,24 @@
 
 package rpiplanner;
 
-import java.awt.CardLayout;
 import java.awt.Color;
-import java.awt.Component;
 import java.awt.Container;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.swing.AbstractListModel;
 import javax.swing.ComboBoxModel;
 import javax.swing.JList;
 import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.JTextArea;
-import javax.swing.JTextField;
 import javax.swing.ListModel;
 import javax.swing.border.TitledBorder;
 
 import rpiplanner.model.Course;
 import rpiplanner.model.CourseDatabase;
 import rpiplanner.model.Degree;
-import rpiplanner.model.Term;
 import rpiplanner.model.PlanOfStudy;
+import rpiplanner.model.Term;
 import rpiplanner.model.ValidationError;
 import rpiplanner.model.YearPart;
 import rpiplanner.model.ValidationError.Type;
@@ -60,7 +54,6 @@ public class POSController {
 	private CourseDatabaseFilter courseDatabaseModel;
 	private JPanel detailsPanel;
 	private DegreeListModel degreeListModel;
-	private DegreeListModel planDegreeListModel;
 	private JList degreeList;
 	protected final PropertyChangeSupport support = new PropertyChangeSupport(this);
 	
@@ -95,9 +88,6 @@ public class POSController {
 		this.plan = plan;
 		if(semesterPanels != null)
 			setSemesterPanels(semesterPanels);
-		if(planDegreeListModel != null)
-			planDegreeListModel.newPlan(plan);
-
 		totalCredits();
 	}
 
@@ -117,7 +107,6 @@ public class POSController {
 		toModify.add(toAdd);
 		updateSemesterPanel(term, toModify);
 		totalCredits();
-		planDegreeListModel.planChanged();
 		validatePlan();
 	}
 
@@ -167,11 +156,9 @@ public class POSController {
 		while(semesterPanel.getComponent(courseIndex) != course)
 			courseIndex++;
 
-		ArrayList<Course> courses = plan.getTerm(semester).getCourses();
-		courses.remove(courseIndex);
+		plan.getTerm(semester).remove(courseIndex);
 		updateSemesterPanel(semester, plan.getTerm(semester));
 		totalCredits();
-		planDegreeListModel.planChanged();
 		validatePlan();
 	}
 
@@ -189,6 +176,7 @@ public class POSController {
 	 * @param course
 	 */
 	public void setDetailDisplay(Course course) {
+		/*
 		if(course == null)
 			course = new Course();
 		JPanel courseDetailsPanel = (JPanel) detailsPanel.getComponent(1); 
@@ -207,6 +195,7 @@ public class POSController {
 			}
 		}
 		((CardLayout)detailsPanel.getLayout()).last(detailsPanel);
+		*/
 	}
 	
 	/**
@@ -214,6 +203,7 @@ public class POSController {
 	 * @param course
 	 */
 	public void setDetailDisplay(final Degree degree) {
+		/*
 		JPanel degreeDetailsPanel = (JPanel) detailsPanel.getComponent(0); 
 		for(Component c : degreeDetailsPanel.getComponents()){
 			if(c.getName() == "name"){
@@ -234,6 +224,7 @@ public class POSController {
 			}
 		}
 		((CardLayout)detailsPanel.getLayout()).first(detailsPanel);
+		*/
 	}
 
 	public void setDetailsPanel(JPanel detailsPanel) {
@@ -249,8 +240,9 @@ public class POSController {
 			ArrayList<Course> courses = t.getCourses();
 			for(int j = 0; j < courses.size(); j++){
 				Course replacement = courseDatabase.getCourse(courses.get(j).getCatalogNumber());
-				if(replacement != null)
-					courses.set(j, replacement);
+				if(replacement != null){
+					t.replace(j, replacement);
+				}
 			}
 		}
 		validatePlan();
@@ -265,31 +257,10 @@ public class POSController {
 
 	public void addDegree(Degree toAdd) {
 		plan.getDegrees().add(toAdd);
-		planDegreeListModel.degreeAdded();
-		validatePlan();
-	}
-
-	public void removeDegree(Degree selectedValue) {
-		plan.getDegrees().remove(selectedValue);
-		planDegreeListModel.degreeRemoved();
 		validatePlan();
 	}
 	
 	public void validatePlan(){
-		/*
-		for(Degree degree : plan.getDegrees()){
-			if(degree.getID() != 0){ // legacy check
-				Degree validationDegree = courseDatabase.getDegree(degree.getID());
-				ValidationError[] errors = PlanValidator.getInstance().validate(plan, validationDegree);
-				degree.setErrors(errors);
-			}
-			else{
-				ValidationError[] errors = PlanValidator.getInstance().validate(plan, degree);
-				degree.setErrors(errors);
-			}
-		}
-		degreeList.revalidate();
-
 		// validate prerequisites, corequisites, and term restructions
 		for(int i = 1; i < plan.numTerms(); i++){
 			Term currentTerm = plan.getTerm(i);
@@ -337,17 +308,6 @@ public class POSController {
 				courseIdx++;
 			}
 		}
-		*/
-	}
-
-	public DegreeListModel getPlanDegreeListModel() {
-		if(planDegreeListModel == null)
-			planDegreeListModel = new DegreeListModel(plan);
-		return planDegreeListModel;
-	}
-
-	public void setDegreeList(JList degreeList) {
-		this.degreeList = degreeList;
 	}
 
 	public void addPropertyChangeListener(String propertyName,
