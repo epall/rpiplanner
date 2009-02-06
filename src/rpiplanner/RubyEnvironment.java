@@ -11,12 +11,14 @@ import org.jruby.Ruby;
 import org.jruby.RubyHash;
 import org.jruby.runtime.GlobalVariable;
 
+import rpiplanner.model.CourseDatabase;
 import rpiplanner.model.Degree;
 import rpiplanner.validation.DegreeValidator;
 
 public class RubyEnvironment {
 	private Ruby rubyEnvironment;
 	private RubyHash degrees;
+	private CourseDatabase courseDatabase;
 	
 	private static RubyEnvironment instance;
 	
@@ -60,13 +62,19 @@ public class RubyEnvironment {
 	    reader.close();
 	    return fileData.toString();
 	}
+	
+	public void setCourseDatabase(CourseDatabase courseDatabase) {
+		this.courseDatabase = courseDatabase;
+	}
 
 	public DegreeValidator getDegreeDescriptor(Degree degree) {
 		DegreeValidator desc = (DegreeValidator) degrees.get(degree.getID());
 
 		// no descriptor cached
-		if(desc == null)
-			rubyEnvironment.executeScript(degree.getValidationCode(), degree.getName());
+		if(desc == null){
+			rubyEnvironment.executeScript(courseDatabase.getDegree(
+					degree.getID()).getValidationCode(), degree.getName());
+		}
 
 		desc = (DegreeValidator)degrees.get(degree.getID());
 		
