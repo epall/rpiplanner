@@ -1,4 +1,4 @@
-degree "B.S. Computer & Systems Engineering 2011", 2 do |d|
+degree "B.S. Computer & Systems Engineering 2011", 1 do |d|
   d.section "Communication Requirement" do |s|
     s.valid_courses do |course|
       course.description =~ /(communication|writing)-intensive/i
@@ -60,7 +60,7 @@ degree "B.S. Computer & Systems Engineering 2011", 2 do |d|
     s.valid_courses do |course|
       if ['IHSS','ARTS','LANG','LITR','COMM','WRIT','STSH','PHIL',
         'COGS','ECON','IHSS','PSYC','STSS'].include?(course.catalogNumber[0..3])
-        if course.level = '1000'
+        if course.level == '1000'
           numonethousand += 1
           false if numonethousand > 3
         else

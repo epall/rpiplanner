@@ -50,6 +50,9 @@ public class Course implements Comparable<Course> {
 	void setCatalogNumber(String catalogNumber){
 		this.catalogNumber = catalogNumber;
 	}
+	public String getLevel(){
+		return catalogNumber.substring(5,6)+"000";
+	}
 	public int getCredits() {
 		return credits;
 	}

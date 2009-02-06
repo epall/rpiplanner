@@ -11147,10 +11147,12 @@ NOTE: Unclear when course is offered
 
     
     
+    
+    
     <degree>
-        <id>2</id>
+        <id>1</id>
         <name>B.S. Computer &amp; Systems Engineering 2011</name>
-        <validationCode>degree &quot;B.S. Computer &amp; Systems Engineering 2011&quot;, 2 do |d|  d.section &quot;Communication Requirement&quot; do |s|
+        <validationCode>degree &quot;B.S. Computer &amp; Systems Engineering 2011&quot;, 1 do |d|  d.section &quot;Communication Requirement&quot; do |s|
     s.valid_courses do |course|
       course.description =~ /(communication|writing)-intensive/i
     end
@@ -11211,7 +11213,7 @@ NOTE: Unclear when course is offered
     s.valid_courses do |course|
       if [&apos;IHSS&apos;,&apos;ARTS&apos;,&apos;LANG&apos;,&apos;LITR&apos;,&apos;COMM&apos;,&apos;WRIT&apos;,&apos;STSH&apos;,&apos;PHIL&apos;,
         &apos;COGS&apos;,&apos;ECON&apos;,&apos;IHSS&apos;,&apos;PSYC&apos;,&apos;STSS&apos;].include?(course.catalogNumber[0..3])
-        if course.level = &apos;1000&apos;
+        if course.level == &apos;1000&apos;
           numonethousand += 1
           false if numonethousand &gt; 3
         else
@@ -11252,6 +11254,8 @@ NOTE: Unclear when course is offered
 end</validationCode>
       </degree>
     </courses>
+
+
 
 
 
