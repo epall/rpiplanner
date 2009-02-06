@@ -2,6 +2,7 @@ require 'java'
 
 class SectionDescriptor
   attr_writer :exclusive, :count, :credits, :description
+  attr_reader :exclusive
   
   def initialize
     @must_haves = {}
@@ -23,15 +24,38 @@ class SectionDescriptor
     @must_haves[description] = func
   end
   
-  def validate(plan_of_study)
+  def exclusive?
+    @exclusive.nil? ? true : @exclusive
+  end
+  
+  def validate(available_courses)
     missing_courses = []
     applied_courses = []
     messages = []
     @course_filter ||= Proc.new { true }
-    potential_courses = filter(plan_of_study)
+    potential_courses = available_courses.find_all {|course| @course_filter.call(course)}
+
     if @courses
       applied_courses += potential_courses.find_all{ |course| @courses.include? course.catalogNumber}.map(&:catalogNumber)
       missing_courses += @courses - applied_courses
+    elsif @credits
+      running = 0
+      potential_courses.each do |course|
+        if running < @credits
+          applied_courses << course.catalogNumber
+          running += course.credits
+        end
+      end
+      messages << "Minimum of #{@credits} credits" if running < @credits
+    elsif @count
+      running = 0
+      potential_courses.each do |course|
+        if running < @count
+          applied_courses << course.catalogNumber
+          running += 1
+        end
+      end
+      messages << "Minimum of #{@count} courses" if running < @count
     end
     if @one_of
       candidates = potential_courses.find_all{ |course| @one_of.include? course.catalogNumber}.map(&:catalogNumber)
@@ -46,20 +70,10 @@ class SectionDescriptor
         messages << message unless validation.call(potential_courses)
       end
     end
+    
     return {'missing' => missing_courses,
       'applied' => applied_courses,
       'messages' => messages}
-  end
-  
-  private
-  def filter(plan)
-    courses = []
-    plan.terms.each do |term|
-      term.courses.each do |course|
-        courses << course if @course_filter.call(course)
-      end
-    end
-    return courses
   end
 end
 
@@ -131,9 +145,19 @@ class DegreeDescriptor
   
   def validate(plan)
     result = Results.new
+    exclusivecourses = plan.terms.inject([]) { |sum,term| sum + term.courses.to_a }
+    courses = plan.terms.inject([]) { |sum,term| sum + term.courses.to_a }
+    
     @sections.each do |section_name, descriptor|
-      sectionResult = SectionResult.new(descriptor.validate(plan))
-      result.add(section_name, sectionResult)
+      sectionResult = nil
+      
+      if descriptor.exclusive?
+        rawdata = descriptor.validate(exclusivecourses)
+        exclusivecourses.reject! {|course| rawdata['applied'].include? course.catalogNumber}
+        result.add(section_name, SectionResult.new(rawdata))
+      else
+        result.add(section_name, SectionResult.new(descriptor.validate(courses)))
+      end
     end
     return result
   end
