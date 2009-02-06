@@ -4,6 +4,8 @@ import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
+import javax.swing.BoxLayout;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JToggleButton;
@@ -12,6 +14,11 @@ import javax.swing.border.EtchedBorder;
 import org.jdesktop.swingx.JXCollapsiblePane;
 import org.jdesktop.swingx.JXCollapsiblePane.Direction;
 
+import rpiplanner.POSController;
+import rpiplanner.model.Course;
+import rpiplanner.model.EditableCourse;
+import rpiplanner.validation.ValidationResult.Section;
+
 import com.jgoodies.forms.factories.FormFactory;
 import com.jgoodies.forms.layout.CellConstraints;
 import com.jgoodies.forms.layout.ColumnSpec;
@@ -19,14 +26,13 @@ import com.jgoodies.forms.layout.FormLayout;
 import com.jgoodies.forms.layout.RowSpec;
 import com.swtdesigner.SwingResourceManager;
 
-import rpiplanner.validation.ValidationResult.Section;
-
 public class DegreeSectionDisplay extends JPanel {
 
 	private JLabel passFail;
 	private JLabel statusLabel;
 	private JLabel nameLabel;
 	private JXCollapsiblePane detailsPane;
+	private POSController controller;
 	/**
 	 * Create the panel
 	 */
@@ -65,7 +71,8 @@ public class DegreeSectionDisplay extends JPanel {
 		add(detailsToggle, new CellConstraints());
 		
 		detailsPane = new JXCollapsiblePane(Direction.DOWN);
-		add(detailsPane, new CellConstraints("1, 3, 3, 1"));
+		detailsPane.setLayout(new BoxLayout(detailsPane.getContentPane(), BoxLayout.Y_AXIS));
+		add(detailsPane, new CellConstraints("1, 3, 5, 1"));
 		detailsPane.setCollapsed(true);
 
 		statusLabel = new JLabel();
@@ -78,11 +85,44 @@ public class DegreeSectionDisplay extends JPanel {
 		//
 	}
 
+	public DegreeSectionDisplay(POSController controller) {
+		this();
+		this.controller = controller;
+	}
+
 	public void setValidationResult(Section result){
 		if(result.isSuccess())
 			passFail.setIcon(SwingResourceManager.getIcon(DegreeSectionDisplay.class, "resources/pass.png"));
 		else
 			passFail.setIcon(SwingResourceManager.getIcon(DegreeSectionDisplay.class, "resources/fail.png"));
+		
+		detailsPane.removeAll();
+		for(String s : result.appliedCourses()){
+			Course c = controller.getCourseDatabase().getCourse(s);
+			if(c == null){
+				EditableCourse e = new EditableCourse();
+				e.setCatalogNumber(s);
+				c = e;
+			}
+			CourseValidationStatus cvs = new CourseValidationStatus(controller, c);
+			cvs.setStatus(CourseValidationStatus.Status.PASS);
+			detailsPane.add(cvs);
+		}
+		for(String s : result.missingCourses()){
+			Course c = controller.getCourseDatabase().getCourse(s);
+			if(c == null){
+				EditableCourse e = new EditableCourse();
+				e.setCatalogNumber(s);
+				c = e;
+			}
+			CourseValidationStatus cvs = new CourseValidationStatus(controller, c);
+			cvs.setStatus(CourseValidationStatus.Status.FAIL);
+			detailsPane.add(cvs);
+		}
+		
+		for(String s : result.messages()){
+			detailsPane.add(new JLabel(new String(s)));
+		}
 	}
 	
 	@Override

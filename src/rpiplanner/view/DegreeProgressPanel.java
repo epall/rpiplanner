@@ -1,23 +1,22 @@
 package rpiplanner.view;
 
 import java.awt.BorderLayout;
-import java.awt.Component;
-import java.awt.FlowLayout;
+import java.awt.Dimension;
+import java.awt.Rectangle;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.util.HashMap;
-import javax.swing.Box;
 
+import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JComboBox;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JProgressBar;
 import javax.swing.JScrollPane;
 import javax.swing.ScrollPaneConstants;
-import javax.swing.SpringLayout;
+import javax.swing.Scrollable;
 
 import org.jruby.exceptions.RaiseException;
 
@@ -27,14 +26,13 @@ import rpiplanner.model.PlanOfStudy;
 import rpiplanner.validation.ValidationResult;
 
 public class DegreeProgressPanel extends JPanel {
-
-	private SpringLayout springLayout;
 	private JComboBox degreeComboBox;
 	private JPanel sectionContainer;
 	private JProgressBar progressBar;
 	private PlanOfStudy plan;
 	private Degree degree;
 	private HashMap<String, DegreeSectionDisplay> sections = new HashMap<String, DegreeSectionDisplay>();
+	private POSController controller;
 	
 	/**
 	 * Create the panel
@@ -53,9 +51,8 @@ public class DegreeProgressPanel extends JPanel {
 		scrollPane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 		add(scrollPane, BorderLayout.CENTER);
 
-		sectionContainer = new JPanel();
-		springLayout = new SpringLayout();
-		sectionContainer.setLayout(springLayout);
+		sectionContainer = new SectionScrollPanel();
+		sectionContainer.setLayout(new BoxLayout(sectionContainer, BoxLayout.Y_AXIS));
 		scrollPane.setViewportView(sectionContainer);
 		//
 	}
@@ -99,25 +96,19 @@ public class DegreeProgressPanel extends JPanel {
 		sections.clear();
 		sectionContainer.removeAll();
 		if (degree != null) {
-			DegreeSectionDisplay prev = null;
 			for (String s : degree.getSectionNames()) {
-				DegreeSectionDisplay dsd = new DegreeSectionDisplay();
+				DegreeSectionDisplay dsd = new DegreeSectionDisplay(controller);
 				dsd.setName(s);
 				sections.put(s, dsd);
 				sectionContainer.add(dsd);
-				springLayout.putConstraint(SpringLayout.EAST, dsd, -2, SpringLayout.EAST, sectionContainer);
-				springLayout.putConstraint(SpringLayout.WEST, dsd, 2, SpringLayout.WEST, sectionContainer);
-				if(prev == null)
-					springLayout.putConstraint(SpringLayout.NORTH, dsd, 2, SpringLayout.NORTH, sectionContainer);
-				else
-					springLayout.putConstraint(SpringLayout.NORTH, dsd, 2, SpringLayout.SOUTH, prev);
-				prev = dsd;
 			}
+			sectionContainer.add(Box.createVerticalGlue());
 			sectionContainer.revalidate();
 		}
 	}
 
 	public void initialize(POSController controller) {
+		this.controller = controller;
 		if (controller.getPlan().getDegrees().size() == 0)
 			initialize(controller.getPlan(), null);
 		else
@@ -141,5 +132,29 @@ public class DegreeProgressPanel extends JPanel {
 		});
 		
 		validatePlan();
+	}
+	
+	private class SectionScrollPanel extends JPanel implements Scrollable {
+		public Dimension getPreferredScrollableViewportSize() {
+			return getPreferredSize();
+		}
+
+		public int getScrollableBlockIncrement(Rectangle visibleRect,
+				int orientation, int direction) {
+			return 1;
+		}
+
+		public boolean getScrollableTracksViewportHeight() {
+			return false;
+		}
+
+		public boolean getScrollableTracksViewportWidth() {
+			return true;
+		}
+
+		public int getScrollableUnitIncrement(Rectangle visibleRect,
+				int orientation, int direction) {
+			return 1;
+		}
 	}
 }

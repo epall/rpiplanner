@@ -40,10 +40,10 @@ import com.jgoodies.forms.layout.FormLayout;
 import com.jgoodies.forms.layout.RowSpec;
 
 public class CourseDisplay extends JPanel {
-	private JLabel xButton;
-	private Course course;
-	private POSController controller;
-	private CourseTransferHandler handler;
+	protected JLabel xButton;
+	protected Course course;
+	protected POSController controller;
+	protected CourseTransferHandler handler;
 	
 	public CourseDisplay(POSController controller){
 		this.controller = controller;
