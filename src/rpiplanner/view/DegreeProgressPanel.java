@@ -1,17 +1,23 @@
 package rpiplanner.view;
 
 import java.awt.BorderLayout;
+import java.awt.Component;
+import java.awt.FlowLayout;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.util.HashMap;
+import javax.swing.Box;
 
 import javax.swing.BoxLayout;
 import javax.swing.JComboBox;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JProgressBar;
 import javax.swing.JScrollPane;
+import javax.swing.ScrollPaneConstants;
+import javax.swing.SpringLayout;
 
 import org.jruby.exceptions.RaiseException;
 
@@ -22,6 +28,7 @@ import rpiplanner.validation.ValidationResult;
 
 public class DegreeProgressPanel extends JPanel {
 
+	private SpringLayout springLayout;
 	private JComboBox degreeComboBox;
 	private JPanel sectionContainer;
 	private JProgressBar progressBar;
@@ -43,10 +50,12 @@ public class DegreeProgressPanel extends JPanel {
 		add(progressBar, BorderLayout.NORTH);
 
 		final JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 		add(scrollPane, BorderLayout.CENTER);
 
 		sectionContainer = new JPanel();
-		sectionContainer.setLayout(new BoxLayout(sectionContainer, BoxLayout.Y_AXIS));
+		springLayout = new SpringLayout();
+		sectionContainer.setLayout(springLayout);
 		scrollPane.setViewportView(sectionContainer);
 		//
 	}
@@ -68,7 +77,8 @@ public class DegreeProgressPanel extends JPanel {
 						.getSectionResults(sectionName));
 			}
 		} catch (RaiseException e) {
-			System.err.println(e.getException().toString());
+			System.err.println(e.getStackTrace()[0].toString());
+			System.err.println(e.getException().inspect().toString());
 		}
 	}
 	
@@ -89,11 +99,19 @@ public class DegreeProgressPanel extends JPanel {
 		sections.clear();
 		sectionContainer.removeAll();
 		if (degree != null) {
+			DegreeSectionDisplay prev = null;
 			for (String s : degree.getSectionNames()) {
 				DegreeSectionDisplay dsd = new DegreeSectionDisplay();
 				dsd.setName(s);
 				sections.put(s, dsd);
 				sectionContainer.add(dsd);
+				springLayout.putConstraint(SpringLayout.EAST, dsd, -2, SpringLayout.EAST, sectionContainer);
+				springLayout.putConstraint(SpringLayout.WEST, dsd, 2, SpringLayout.WEST, sectionContainer);
+				if(prev == null)
+					springLayout.putConstraint(SpringLayout.NORTH, dsd, 2, SpringLayout.NORTH, sectionContainer);
+				else
+					springLayout.putConstraint(SpringLayout.NORTH, dsd, 2, SpringLayout.SOUTH, prev);
+				prev = dsd;
 			}
 			sectionContainer.revalidate();
 		}

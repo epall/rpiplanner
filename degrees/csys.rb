@@ -73,14 +73,14 @@ degree "B.S. Computer & Systems Engineering 2011", 2 do |d|
       courses = courses.find_all do |course| 
         course.credits == 4 && ['IHSS','ARTS','LANG','LITR','COMM','WRIT','STSH','PHIL'].include?(course.department)
       end
-      courses.count >= 2
+      courses.size >= 2
     end
 
     s.must_have "minimum of 2 4-credit courses in the Social Sciences" do |courses|
       courses = courses.find_all do |course| 
         course.credits == 4 && ['COGS','ECON','IHSS','PSYC','STSS'].include?(course.department)
       end
-      courses.count >= 2
+      courses.size >= 2
     end
 
     s.must_have "one 4 credit course at the 4000 level" do |courses|

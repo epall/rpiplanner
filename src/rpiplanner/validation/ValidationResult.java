@@ -9,5 +9,6 @@ public interface ValidationResult {
 		public String[] appliedCourses();
 		public String[] messages();
 		public String[] potentialCourse();
+		public boolean isSuccess();
 	}
 }

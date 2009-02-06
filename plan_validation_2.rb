@@ -41,7 +41,7 @@ class SectionDescriptor
         applied_courses << candidates[0]
       end
     end
-    if @must_have
+    if @must_haves
       @must_haves.each do |message, validation|
         messages << message unless validation.call(potential_courses)
       end
@@ -79,7 +79,8 @@ class DegreeDescriptor
     end
     
     def percentComplete
-      return 50
+      successful = @sections.inject(0) {|sum, section| section[1].isSuccess ? sum + 1 : sum }
+      return 100 * successful.to_f/@sections.size
     end
     
     def getSectionResults(name)
@@ -107,6 +108,10 @@ class DegreeDescriptor
     
     def potentialCourses
       [].to_java(:string)
+    end
+    
+    def isSuccess
+      @data['missing'].empty? && @data['messages'].empty?
     end
   end
 

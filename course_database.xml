@@ -11146,6 +11146,7 @@ NOTE: Unclear when course is offered
   
 
     
+    
     <degree>
         <id>2</id>
         <name>B.S. Computer &amp; Systems Engineering 2011</name>
@@ -11223,14 +11224,14 @@ NOTE: Unclear when course is offered
       courses = courses.find_all do |course| 
         course.credits == 4 &amp;&amp; [&apos;IHSS&apos;,&apos;ARTS&apos;,&apos;LANG&apos;,&apos;LITR&apos;,&apos;COMM&apos;,&apos;WRIT&apos;,&apos;STSH&apos;,&apos;PHIL&apos;].include?(course.department)
       end
-      courses.count &gt;= 2
+      courses.size &gt;= 2
     end
 
     s.must_have &quot;minimum of 2 4-credit courses in the Social Sciences&quot; do |courses|
       courses = courses.find_all do |course| 
         course.credits == 4 &amp;&amp; [&apos;COGS&apos;,&apos;ECON&apos;,&apos;IHSS&apos;,&apos;PSYC&apos;,&apos;STSS&apos;].include?(course.department)
       end
-      courses.count &gt;= 2
+      courses.size &gt;= 2
     end
 
     s.must_have &quot;one 4 credit course at the 4000 level&quot; do |courses|
@@ -11251,6 +11252,7 @@ NOTE: Unclear when course is offered
 end</validationCode>
       </degree>
     </courses>
+
 
 
 
