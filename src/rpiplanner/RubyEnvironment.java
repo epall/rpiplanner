@@ -9,6 +9,7 @@ import java.io.InputStreamReader;
 
 import org.jruby.Ruby;
 import org.jruby.RubyHash;
+import org.jruby.javasupport.JavaEmbedUtils;
 import org.jruby.runtime.GlobalVariable;
 
 import rpiplanner.model.CourseDatabase;
@@ -65,6 +66,10 @@ public class RubyEnvironment {
 	
 	public void setCourseDatabase(CourseDatabase courseDatabase) {
 		this.courseDatabase = courseDatabase;
+		GlobalVariable databaseGlob = new GlobalVariable(rubyEnvironment,
+				"$courseDatabase", JavaEmbedUtils.javaToRuby(rubyEnvironment,
+						courseDatabase));
+		rubyEnvironment.defineVariable(databaseGlob);
 	}
 
 	public DegreeValidator getDegreeDescriptor(Degree degree) {

@@ -1,14 +1,16 @@
 package rpiplanner.validation;
 
+import rpiplanner.model.Course;
+
 public interface ValidationResult {
 	public int percentComplete();
 	public Section getSectionResults(String name);
 	
 	public interface Section {
-		public String[] missingCourses();
-		public String[] appliedCourses();
+		public Course[] missingCourses();
+		public Course[] appliedCourses();
 		public String[] messages();
-		public String[] potentialCourse();
+		public Course[] potentialCourses();
 		public boolean isSuccess();
 	}
 }

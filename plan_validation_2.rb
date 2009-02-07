@@ -1,5 +1,19 @@
 require 'java'
 
+def str_to_course(str)
+  if str.class == String
+    attempt = $courseDatabase.getCourse(str)
+    if attempt.nil?
+      attempt = Java::RpiplannerModel::EditableCourse.new
+      attempt.catalogNumber = str
+    end
+    return attempt
+  end
+  
+  #otherwise it's an array
+  return str.map {|catalogNumber| str_to_course(catalogNumber)}
+end
+
 class SectionDescriptor
   attr_writer :exclusive, :count, :credits, :description
   attr_reader :exclusive
@@ -33,16 +47,16 @@ class SectionDescriptor
     applied_courses = []
     messages = []
     @course_filter ||= Proc.new { true }
-    potential_courses = available_courses.find_all {|course| @course_filter.call(course)}
+    potential_courses = available_courses.select {|course| @course_filter.call(course)}
 
     if @courses
-      applied_courses += potential_courses.find_all{ |course| @courses.include? course.catalogNumber}.map(&:catalogNumber)
-      missing_courses += @courses - applied_courses
+      applied_courses += potential_courses.select{ |course| @courses.include? course.catalogNumber}
+      missing_courses += str_to_course(@courses - applied_courses.map(&:catalogNumber))
     elsif @credits
       running = 0
       potential_courses.each do |course|
         if running < @credits
-          applied_courses << course.catalogNumber
+          applied_courses << course
           running += course.credits
         end
       end
@@ -51,16 +65,16 @@ class SectionDescriptor
       running = 0
       potential_courses.each do |course|
         if running < @count
-          applied_courses << course.catalogNumber
+          applied_courses << course
           running += 1
         end
       end
       messages << "Minimum of #{@count} courses" if running < @count
     end
     if @one_of
-      candidates = potential_courses.find_all{ |course| @one_of.include? course.catalogNumber}.map(&:catalogNumber)
+      candidates = potential_courses.select { |course| @one_of.include? course.catalogNumber}
       if candidates.size == 0
-        missing_courses += @one_of
+        missing_courses += str_to_course(@one_of)
       else
         applied_courses << candidates[0]
       end
@@ -109,11 +123,11 @@ class DegreeDescriptor
     end
     
     def missingCourses
-      @data['missing'].to_java(:string)
+      @data['missing'].to_java(Java::RpiplannerModel::Course)
     end
     
     def appliedCourses
-      @data['applied'].to_java(:string)
+      @data['applied'].to_java(Java::RpiplannerModel::Course)
     end
     
     def messages
@@ -153,7 +167,7 @@ class DegreeDescriptor
       
       if descriptor.exclusive?
         rawdata = descriptor.validate(exclusivecourses)
-        exclusivecourses.reject! {|course| rawdata['applied'].include? course.catalogNumber}
+        exclusivecourses.reject! {|course| rawdata['applied'].include? course}
         result.add(section_name, SectionResult.new(rawdata))
       else
         result.add(section_name, SectionResult.new(descriptor.validate(courses)))

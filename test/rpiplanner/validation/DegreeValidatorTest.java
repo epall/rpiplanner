@@ -8,6 +8,7 @@ import java.io.InputStream;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import rpiplanner.Fixtures;
 import rpiplanner.model.Course;
 import rpiplanner.model.CourseDatabase;
 import rpiplanner.model.DefaultCourseDatabase;
@@ -43,7 +44,7 @@ public class DegreeValidatorTest {
 
 	@Test
 	public void testValidate() {
-		Degree csys = courseDatabase.getDegree(2);
+		Degree csys = Fixtures.getCSYS();
 		PlanOfStudy plan = new PlanOfStudy();
 		plan.getTerm(0).add(courseDatabase.getCourse("CSCI-1100"));
 
@@ -55,22 +56,22 @@ public class DegreeValidatorTest {
 				.getSectionResults("Math & Science");
 
 		boolean found = false;
-		for (String o : sectionResults.missingCourses()) {
-			if ("CSCI-1100".equals(o))
+		for (Course c : sectionResults.missingCourses()) {
+			if ("CSCI-1100".equals(c.getCatalogNumber()))
 				found = true;
 		}
 		assertFalse(found);
 
 		found = false;
-		for (String o : sectionResults.appliedCourses()) {
-			if ("CSCI-1100".equals(o))
+		for (Course c : sectionResults.appliedCourses()) {
+			if ("CSCI-1100".equals(c.getCatalogNumber()))
 				found = true;
 		}
 		assertTrue(found);
 
 		found = false;
-		for (String o : sectionResults.missingCourses()) {
-			if ("CSCI-1200".equals(o))
+		for (Course c : sectionResults.missingCourses()) {
+			if ("CSCI-1200".equals(c.getCatalogNumber()))
 				found = true;
 		}
 		assertTrue(found);
@@ -78,7 +79,7 @@ public class DegreeValidatorTest {
 	
 	@Test
 	public void testOneOf(){
-		Degree csys = courseDatabase.getDegree(2);
+		Degree csys = Fixtures.getCSYS();
 		PlanOfStudy plan = new PlanOfStudy();
 		plan.getTerm(0).add(courseDatabase.getCourse("ECSE-4690"));
 		ValidationResult validationOutput = csys.getValidator().validate(plan);
@@ -86,8 +87,8 @@ public class DegreeValidatorTest {
 		
 
 		boolean found = false;
-		for (String o : softEng.appliedCourses()) {
-			if ("ECSE-4690".equals(o))
+		for (Course c : softEng.appliedCourses()) {
+			if ("ECSE-4690".equals(c.getCatalogNumber()))
 				found = true;
 		}
 		assertTrue(found);

@@ -9,6 +9,7 @@ import com.thoughtworks.xstream.XStream;
 import rpiplanner.model.Course;
 import rpiplanner.model.CourseDatabase;
 import rpiplanner.model.DefaultCourseDatabase;
+import rpiplanner.model.Degree;
 import rpiplanner.model.PlanOfStudy;
 import rpiplanner.model.ShadowCourseDatabase;
 import rpiplanner.model.YearPart;
@@ -38,7 +39,13 @@ public class Fixtures {
 			shadow.shadow(mainDB);
 			
 			db = shadow;
+			
+			RubyEnvironment.getInstance().setCourseDatabase(db);
 		}
 		return db;
+	}
+
+	public static Degree getCSYS() {
+		return getCourseDatabase().getDegree(1);
 	}
 }

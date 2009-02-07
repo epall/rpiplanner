@@ -97,24 +97,12 @@ public class DegreeSectionDisplay extends JPanel {
 			passFail.setIcon(SwingResourceManager.getIcon(DegreeSectionDisplay.class, "resources/fail.png"));
 		
 		detailsPane.removeAll();
-		for(String s : result.appliedCourses()){
-			Course c = controller.getCourseDatabase().getCourse(s);
-			if(c == null){
-				EditableCourse e = new EditableCourse();
-				e.setCatalogNumber(s);
-				c = e;
-			}
+		for(Course c : result.appliedCourses()){
 			CourseValidationStatus cvs = new CourseValidationStatus(controller, c);
 			cvs.setStatus(CourseValidationStatus.Status.PASS);
 			detailsPane.add(cvs);
 		}
-		for(String s : result.missingCourses()){
-			Course c = controller.getCourseDatabase().getCourse(s);
-			if(c == null){
-				EditableCourse e = new EditableCourse();
-				e.setCatalogNumber(s);
-				c = e;
-			}
+		for(Course c : result.missingCourses()){
 			CourseValidationStatus cvs = new CourseValidationStatus(controller, c);
 			cvs.setStatus(CourseValidationStatus.Status.FAIL);
 			detailsPane.add(cvs);
