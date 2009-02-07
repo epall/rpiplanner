@@ -327,4 +327,8 @@ public class POSController {
 			}
 		}
 	}
+
+	public void setSearchCourses(Course[] potentialCourses) {
+		courseDatabaseModel.setShownCourses(potentialCourses);
+	}
 }

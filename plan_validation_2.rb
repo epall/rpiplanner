@@ -42,6 +42,14 @@ class SectionDescriptor
     @exclusive.nil? ? true : @exclusive
   end
   
+  def specific?
+    !!(@courses || @one_of)
+  end
+  
+  def potential_courses(available_courses)
+    available_courses.select {|course| @course_filter.call(course)}
+  end
+  
   def validate(available_courses)
     missing_courses = []
     applied_courses = []
@@ -134,12 +142,17 @@ class DegreeDescriptor
       @data['messages'].to_java(:string)
     end
     
-    def potentialCourses
-      [].to_java(:string)
-    end
-    
     def isSuccess
       @data['missing'].empty? && @data['messages'].empty?
+    end
+    
+    def potentialCourses
+      return nil if @potentialCourses.nil?
+      return @potentialCourses.call.to_java(Java::RpiplannerModel::Course)
+    end
+    
+    def preparePotentialCourses(&block)
+      @potentialCourses = block
     end
   end
 
@@ -168,9 +181,19 @@ class DegreeDescriptor
       if descriptor.exclusive?
         rawdata = descriptor.validate(exclusivecourses)
         exclusivecourses.reject! {|course| rawdata['applied'].include? course}
-        result.add(section_name, SectionResult.new(rawdata))
+        section = SectionResult.new(rawdata)
+        section.preparePotentialCourses do
+          descriptor.potential_courses($courseDatabase.listCourses)
+        end unless descriptor.specific?
+        
+        result.add(section_name, section)
       else
-        result.add(section_name, SectionResult.new(descriptor.validate(courses)))
+        section = SectionResult.new(descriptor.validate(courses))
+        section.preparePotentialCourses do
+          descriptor.potential_courses($courseDatabase.listCourses)
+        end unless descriptor.specific?
+
+        result.add(section_name, section)
       end
     end
     return result

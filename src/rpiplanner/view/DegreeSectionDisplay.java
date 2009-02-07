@@ -6,6 +6,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.BoxLayout;
+import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JToggleButton;
@@ -32,6 +33,9 @@ public class DegreeSectionDisplay extends JPanel {
 	private JLabel nameLabel;
 	private JXCollapsiblePane detailsPane;
 	private POSController controller;
+	private JButton searchButton;
+	private Section result;
+	
 	/**
 	 * Create the panel
 	 */
@@ -81,6 +85,13 @@ public class DegreeSectionDisplay extends JPanel {
 		passFail = new JLabel();
 		passFail.setIcon(SwingResourceManager.getIcon(DegreeSectionDisplay.class, "resources/fail.png"));
 		add(passFail, new CellConstraints(5, 1));
+		
+		searchButton = new JButton("Search for more");
+		searchButton.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e) {
+				controller.setSearchCourses(result.potentialCourses());
+			}
+		});
 		//
 	}
 
@@ -90,6 +101,7 @@ public class DegreeSectionDisplay extends JPanel {
 	}
 
 	public void setValidationResult(Section result){
+		this.result = result;
 		if(result.isSuccess())
 			passFail.setIcon(SwingResourceManager.getIcon(DegreeSectionDisplay.class, "resources/pass.png"));
 		else
@@ -110,6 +122,9 @@ public class DegreeSectionDisplay extends JPanel {
 		for(String s : result.messages()){
 			detailsPane.add(new JLabel(new String(s)));
 		}
+		
+		if(result.potentialCourses() != null)
+			detailsPane.add(searchButton);
 	}
 	
 	@Override
