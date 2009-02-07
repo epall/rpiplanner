@@ -16,7 +16,6 @@ import org.jdesktop.swingx.JXCollapsiblePane.Direction;
 
 import rpiplanner.POSController;
 import rpiplanner.model.Course;
-import rpiplanner.model.EditableCourse;
 import rpiplanner.validation.ValidationResult.Section;
 
 import com.jgoodies.forms.factories.FormFactory;
