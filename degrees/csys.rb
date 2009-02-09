@@ -84,11 +84,34 @@ degree "B.S. Computer & Systems Engineering 2011", 1 do |d|
     end
 
     s.must_have "one 4 credit course at the 4000 level" do |courses|
-      courses.find {|c| c.level == '4000'}
+      courses.find {|c| c.level == '4000' && c.credits == 4}
     end
 
     s.must_have "Professional Development II" do |courses|
       courses.find {|c| c.catalogNumber == 'PSYC-4170' || c.catalogNumber == 'STSS-4840'}
+    end
+    
+    s.must_have "Depth Requirement" do |courses|
+      departments = {}
+      courses.each do |course|
+        dept = course.catalogNumber[0..3]
+        if course.credits == 4
+          departments[dept] ||= []
+          departments[dept] << course
+        end
+      end
+      
+      success = false
+      departments.each do |dept, courses|
+        above1k = false
+        courses.each do |course|
+          above1k ||= course.level != '1000'
+        end
+        if courses.size >= 2 && above1k
+          success = true
+        end
+      end
+      success
     end
   end
 

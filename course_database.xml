@@ -11149,6 +11149,7 @@ NOTE: Unclear when course is offered
     
     
     
+    
     <degree>
         <id>1</id>
         <name>B.S. Computer &amp; Systems Engineering 2011</name>
@@ -11237,11 +11238,34 @@ NOTE: Unclear when course is offered
     end
 
     s.must_have &quot;one 4 credit course at the 4000 level&quot; do |courses|
-      courses.find {|c| c.level == &apos;4000&apos;}
+      courses.find {|c| c.level == &apos;4000&apos; &amp;&amp; c.credits == 4}
     end
 
     s.must_have &quot;Professional Development II&quot; do |courses|
       courses.find {|c| c.catalogNumber == &apos;PSYC-4170&apos; || c.catalogNumber == &apos;STSS-4840&apos;}
+    end
+    
+    s.must_have &quot;Depth Requirement&quot; do |courses|
+      departments = {}
+      courses.each do |course|
+        dept = course.catalogNumber[0..3]
+        if course.credits == 4
+          departments[dept] ||= []
+          departments[dept] &lt;&lt; course
+        end
+      end
+      
+      success = false
+      departments.each do |dept, courses|
+        above1k = false
+        courses.each do |course|
+          above1k ||= course.level != &apos;1000&apos;
+        end
+        if courses.size &gt;= 2 &amp;&amp; above1k
+          success = true
+        end
+      end
+      success
     end
   end
 
@@ -11254,6 +11278,7 @@ NOTE: Unclear when course is offered
 end</validationCode>
       </degree>
     </courses>
+
 
 
 
