@@ -39,6 +39,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.ListSelectionModel;
+import javax.swing.SwingConstants;
 import javax.swing.border.CompoundBorder;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.EtchedBorder;
@@ -59,8 +60,6 @@ import com.jgoodies.forms.layout.RowSpec;
 
 public class PlanOfStudyEditor extends JPanel {
 	private JPanel planPanel;
-	private JTextField creditTotalField;
-	private JPanel detailsPanel;
 	private JList problemsList;
 	private JTextField nameField;
 	private JButton addCourseButton;
@@ -90,7 +89,7 @@ public class PlanOfStudyEditor extends JPanel {
 				RowSpec.decode("fill:0dlu:grow(1.0)"),
 				FormFactory.RELATED_GAP_ROWSPEC,
 				FormFactory.DEFAULT_ROWSPEC,
-				RowSpec.decode("fill:70dlu")}));
+				RowSpec.decode("fill:90dlu")}));
 
 		final JPanel titlePanel = new JPanel();
 		add(titlePanel, new CellConstraints("1, 1, 6, 1, fill, fill"));
@@ -152,79 +151,45 @@ public class PlanOfStudyEditor extends JPanel {
 		progressPanel = new DegreeProgressPanel();
 		add(progressPanel, new CellConstraints(3, 2, 3, 1));
 		
-		
-/*
 		courseDetailsPanel = new JPanel();
 		courseDetailsPanel.setName("courseDetailsPanel");
-		detailsPanel.add(courseDetailsPanel, courseDetailsPanel.getName());
 		courseDetailsPanel.setLayout(new FormLayout(
 			new ColumnSpec[] {
-				FormFactory.DEFAULT_COLSPEC,
-				FormFactory.RELATED_GAP_COLSPEC,
-				ColumnSpec.decode("default:grow(1.0)")},
+				ColumnSpec.decode("default:grow(1.0)"),
+				FormFactory.RELATED_GAP_COLSPEC},
 			new RowSpec[] {
 				FormFactory.DEFAULT_ROWSPEC,
 				FormFactory.RELATED_GAP_ROWSPEC,
 				FormFactory.DEFAULT_ROWSPEC,
 				FormFactory.RELATED_GAP_ROWSPEC,
-				FormFactory.DEFAULT_ROWSPEC,
-				FormFactory.RELATED_GAP_ROWSPEC,
-				FormFactory.DEFAULT_ROWSPEC,
-				FormFactory.RELATED_GAP_ROWSPEC,
-				RowSpec.decode("fill:default:grow(1.0)")}));
+				RowSpec.decode("fill:default:grow(1.0)"),
+				FormFactory.RELATED_GAP_ROWSPEC}));
 		courseDetailsPanel.setBorder(new TitledBorder(new EtchedBorder(), "Course details"));
 
-		final JLabel titleLabel = new JLabel();
-		titleLabel.setText("Title:");
-		courseDetailsPanel.add(titleLabel, new CellConstraints(1, 3));
-
-		final JLabel departmentLabel = new JLabel();
-		departmentLabel.setText("Department:");
-		courseDetailsPanel.add(departmentLabel, new CellConstraints());
-
-		final JLabel descriptionLabel = new JLabel();
-		descriptionLabel.setText("Description:");
-		courseDetailsPanel.add(descriptionLabel, new CellConstraints(1, 7));
+		final JScrollPane scrollPane_1 = new JScrollPane();
+		scrollPane_1.setName("descriptionViewport");
+		courseDetailsPanel.add(scrollPane_1, new CellConstraints("1, 5, 1, 1, default, default"));
 
 		descriptionTextArea = new JTextArea();
+		scrollPane_1.setViewportView(descriptionTextArea);
 		descriptionTextArea.setLineWrap(true);
 		descriptionTextArea.setWrapStyleWord(true);
 		descriptionTextArea.setName("description");
 		descriptionTextArea.setEditable(false);
-		courseDetailsPanel.add(descriptionTextArea, new CellConstraints(1, 9, 3, 1));
+		add(courseDetailsPanel, new CellConstraints(2,5));
 
-		final JTextField departmentField = new JTextField();
-		departmentField.setEditable(false);
-		departmentField.setName("department");
-		courseDetailsPanel.add(departmentField, new CellConstraints(3, 1));
-
-		final JTextField titleField = new JTextField();
-		titleField.setEditable(false);
-		titleField.setName("title");
-		courseDetailsPanel.add(titleField, new CellConstraints(3, 3));
-
-		final JTextField catalogField = new JTextField();
-		catalogField.setEditable(false);
-		catalogField.setName("catalogNumber");
-		courseDetailsPanel.add(catalogField, new CellConstraints(3, 5));
-
-		final JLabel catalogNumberLabel = new JLabel();
-		catalogNumberLabel.setText("Catalog number:");
-		courseDetailsPanel.add(catalogNumberLabel, new CellConstraints(1, 5));
-*/
-
-		final JLabel creditTotalLabel = new JLabel();
-		creditTotalLabel.setText("Credit total:");
-		add(creditTotalLabel, new CellConstraints(3, 4));
-
-		creditTotalField = new JTextField();
-		add(creditTotalField, new CellConstraints(5, 4));
+		final JLabel basicInfo = new JLabel();
+		basicInfo.setName("basicInfo");
+		basicInfo.setHorizontalAlignment(SwingConstants.CENTER);
+		basicInfo.setText("ENGR-2050 - Introduction to Engineering Design");
+		courseDetailsPanel.add(basicInfo, new CellConstraints());
+		
 		//
 	}
 	
 	public void setController(final POSController controller){
 		controller.setSemesterPanels(semesterPanels);
-		controller.setDetailsPanel(detailsPanel);
+		controller.setDetailsPanel(courseDetailsPanel);
 		progressPanel.initialize(controller);
 		
 		addCourseButton.addActionListener(new ActionListener() {

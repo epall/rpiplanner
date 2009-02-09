@@ -20,16 +20,23 @@
 package rpiplanner;
 
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.Container;
+import java.awt.Point;
+import java.awt.Rectangle;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.ComboBoxModel;
+import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
 import javax.swing.ListModel;
+import javax.swing.SwingUtilities;
 import javax.swing.border.TitledBorder;
 
 import rpiplanner.model.Course;
@@ -176,57 +183,32 @@ public class POSController {
 	 * @param course
 	 */
 	public void setDetailDisplay(Course course) {
-		/*
-		if(course == null)
-			course = new Course();
-		JPanel courseDetailsPanel = (JPanel) detailsPanel.getComponent(1); 
-		for(Component c : courseDetailsPanel.getComponents()){
-			if(c.getName() == "department"){
-				((JTextField)c).setText(course.getDepartment());
-			}
-			if(c.getName() == "title"){
-				((JTextField)c).setText(course.getTitle());
-			}
-			if(c.getName() == "catalogNumber"){
-				((JTextField)c).setText(course.getCatalogNumber());
-			}
-			if(c.getName() == "description"){
-				((JTextArea)c).setText(course.getDescription());
+		if (course == null) {
+			;
+		} else {
+			for (Component c : detailsPanel.getComponents()) {
+				if (c.getName() == "basicInfo") {
+					((JLabel) c).setText(course.toString() + " ("
+							+ course.getCredits() + " credits)");
+				}
+				if (c.getName() == "descriptionViewport") {
+					JTextArea desc = (JTextArea)((JScrollPane) c).getViewport().getComponent(0);
+					desc.setText(course.getDescription());
+					final JScrollPane pane = (JScrollPane)c;
+					SwingUtilities.invokeLater(new Runnable() {
+						public void run() {
+							pane.getViewport().setViewPosition(
+									new Point(0, 0));
+						}
+					});
+				}
+				if (c.getName() == "description") {
+					((JTextArea) c).setText(course.getDescription());
+				}
 			}
 		}
-		((CardLayout)detailsPanel.getLayout()).last(detailsPanel);
-		*/
 	}
 	
-	/**
-	 * Show the details for the specified degree in the course details panel
-	 * @param course
-	 */
-	public void setDetailDisplay(final Degree degree) {
-		/*
-		JPanel degreeDetailsPanel = (JPanel) detailsPanel.getComponent(0); 
-		for(Component c : degreeDetailsPanel.getComponents()){
-			if(c.getName() == "name"){
-				((JTextField)c).setText(degree.getName());
-			}
-			if(c instanceof JScrollPane){
-				JList problemsList = (JList) ((JScrollPane)c).getViewport().getView();
-				problemsList.setModel(new AbstractListModel(){
-
-					public Object getElementAt(int index) {
-						return degree.getErrors()[index];
-					}
-
-					public int getSize() {
-						return degree.getErrors().length;
-					}
-				});
-			}
-		}
-		((CardLayout)detailsPanel.getLayout()).first(detailsPanel);
-		*/
-	}
-
 	public void setDetailsPanel(JPanel detailsPanel) {
 		this.detailsPanel = detailsPanel;
 	}
