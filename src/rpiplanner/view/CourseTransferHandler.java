@@ -94,7 +94,7 @@ public class CourseTransferHandler extends TransferHandler {
 	@Override
 	public boolean canImport(JComponent comp, DataFlavor[] transferFlavors) {
 		for(DataFlavor f : transferFlavors){
-			if(f.getRepresentationClass() == Course.class)
+			if(f.getRepresentationClass() == Course.class && !(comp instanceof CourseValidationStatus))
 				return true;
 		}
 		return false;
