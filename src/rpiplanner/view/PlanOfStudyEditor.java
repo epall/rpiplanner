@@ -139,7 +139,12 @@ public class PlanOfStudyEditor extends JPanel {
 		final JScrollPane scrollPane = new JScrollPane();
 		searchPanel.add(scrollPane, new CellConstraints("1, 2, 1, 1, fill, fill"));
 
-		courseList = new JList();
+		courseList = new JList(){
+			@Override
+			public boolean getScrollableTracksViewportWidth() {
+				return true;
+			}
+		};
 		scrollPane.setViewportView(courseList);
 		courseList.setBorder(new EtchedBorder(EtchedBorder.LOWERED));
 		courseList.setBackground(Color.WHITE);
