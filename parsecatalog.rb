@@ -257,11 +257,13 @@ def parse_requisites(requisites)
     prerequisites << $5+'-'+$6
     messages << "#{$5+'-'+$6} can be skipped on permission of instructor" if $7
   # three pick-one prerequisites
-  when /^Prerequisite: #{CATALOG_NUMBER} or #{CATALOG_NUMBER} or #{CATALOG_NUMBER}.$/
+  # A or B or C
+  when /^Prerequisite: #{CATALOG_NUMBER} or #{CATALOG_NUMBER} or #{CATALOG_NUMBER}(, or permission of instructor)?.$/
     prerequisites << $1+'-'+$2
     prerequisites << $3+'-'+$4
     prerequisites << $5+'-'+$6
     pickOneP = true
+    requiredP = false if $7
   when /^Prerequisites: #{CATALOG_NUMBER} and #{CATALOG_NUMBER} \(or equivalent\); #{CATALOG_NUMBER} desirable.$/
     prerequisites << $1+'-'+$2
     prerequisites << $3+'-'+$4
@@ -289,6 +291,13 @@ def parse_requisites(requisites)
     prerequisites << $3+'-'+$4
     corequisites << $5+'-'+$6
     pickOneP = true
+  # A or B, C, D
+  # This isn't possible to do correctly with current scheme
+  when /^Prerequisites: #{CATALOG_NUMBER} or #{CATALOG_NUMBER}, #{CATALOG_NUMBER}, #{CATALOG_NUMBER}. ?(Not recommended for Freshmen and Sophomores.)?$/
+    prerequisites << $1+'-'+$2
+    prerequisites << $5+'-'+$6
+    prerequisites << $7+'-'+$8
+    messages << $9
   when /^Prerequisites: #{CATALOG_NUMBER}, #{CATALOG_NUMBER} or equivalent, some familiarity with Java\/C\+\+.$/
     prerequisites << $1+'-'+$2
     prerequisites << $3+'-'+$4
@@ -461,17 +470,10 @@ end
 # puts xmlX
 # exit
 
-#actually successful: 'CSCI', 'ECSE', 'ENGR', 'PHYS', 'MATH', 'IHSS'
-#in progress: 'STSS', 'STSH'
-
-successfully_parsed_departments = ['CSCI', 'ECSE', 'ENGR', 'BIOL', 'MANE',
-  'MATH', 'CHEM', 'ECON','PHYS', 'IHSS', 'STSS', 'STSH', 'PSYC','BMED',
-  'EPOW']
-
 builder = Builder::XmlMarkup.new(:indent => 2)
 xml = builder.courses do |b|
   # successfully_parsed_departments.each do |dept|
-  ['BIOL','CSCI','CHEM','ECSE','ENGR','IHSS','MANE','MATH','PHYS','PSYC','STSH','STSS'].each do |dept|
+  ['BIOL','CSCI','CHEM','ECON','ECSE','ENGR','EPOW','IHSS','MANE','MATH','MTLE','PHYS','PSYC','STSH','STSS'].each do |dept|
     pull_dept(dept).each do |coid|
       course = pull_class(coid)
       description = course[:description]

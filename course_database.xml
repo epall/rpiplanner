@@ -203,6 +203,30 @@ NOTE: familiarity with elementary ordinary and partial differential equations re
     </availableTerms>
   </course>
   <course>
+    <title>Human Physiology</title>
+    <description>Fundamental physiological processes and their mechanism of action in human and higher mammalian organisms. Emphasis on the control and interaction of physiological systems. Introduction to the muscle, nervous, circulatory, renal, respiratory, digestive, reproductive and hormonal systems. Limited to biology, biochemistry and biophysics, bioinformatics and molecular biology majors and biology accelerated medical students.&#160;
+
+NOTE: Not recommended for Freshmen and Sophomores.
+</description>
+    <department>Biology</department>
+    <catalogNumber>BIOL-4270</catalogNumber>
+    <credits>4</credits>
+    <prerequisites required="true" pickOne="false">
+      <course>
+        <catalogNumber>BIOL-2120</catalogNumber>
+      </course>
+      <course>
+        <catalogNumber>CHEM-2250</catalogNumber>
+      </course>
+      <course>
+        <catalogNumber>PHYS-1100</catalogNumber>
+      </course>
+    </prerequisites>
+    <availableTerms>
+      <year-part>FALL</year-part>
+    </availableTerms>
+  </course>
+  <course>
     <title>Human Physiological Systems</title>
     <description>Study of basic physiological principles in human and higher mammalian organisms. Emphasis on interaction and control of physiological systems. Introduction to neural, motor, sensory, circulatory, renal, respiratory, reproductive, and hormonal systems.</description>
     <department>Biology</department>
@@ -210,6 +234,27 @@ NOTE: familiarity with elementary ordinary and partial differential equations re
     <credits>4</credits>
     <availableTerms>
       <year-part>FALL</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Geomicrobiology</title>
+    <description>Microbial activities on rock and minerals; in soils and sediments. Microbial relationships to fossil fuels. Pertinent topics in limnology and marine microbiology.</description>
+    <department>Biology</department>
+    <catalogNumber>BIOL-4320</catalogNumber>
+    <credits>3</credits>
+    <prerequisites required="false" pickOne="true">
+      <course>
+        <catalogNumber>BIOL-2310</catalogNumber>
+      </course>
+      <course>
+        <catalogNumber>BIOL-6310</catalogNumber>
+      </course>
+      <course>
+        <catalogNumber>ERTH-1010</catalogNumber>
+      </course>
+    </prerequisites>
+    <availableTerms>
+      <year-part>SPRING</year-part>
     </availableTerms>
   </course>
   <course>
@@ -3009,6 +3054,641 @@ NOTE: Unclear when course is offered
     </availableTerms>
   </course>
   <course>
+    <title>Introductory Economics</title>
+    <description>Every society faces the question of choosing how to use its natural and human resources to produce goods and services and how to distribute these resources among its people. This course studies how these choices are made in markets. It also explains the determinants of total output, employment, and inflation. Attention may also be given to special topics such as the environment, trade, and population.</description>
+    <department>Economics</department>
+    <catalogNumber>ECON-1200</catalogNumber>
+    <credits>4</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Managerial Economics</title>
+    <description>Applies the microeconomic theory of the firm to price, cost, and output decisions of business enterprises under  different market structures. Regression analysis of demand and cost, linear programming of production and simulation analysis of risk, and capital budgeting are also presented.
+
+NOTE: prerequisite can be skipped on permission of instructor
+NOTE: familiarity with elementary ordinary and partial differential equations required
+</description>
+    <department>Economics</department>
+    <catalogNumber>ECON-2010</catalogNumber>
+    <credits>4</credits>
+    <prerequisites required="false" pickOne="false">
+      <course>
+        <catalogNumber>ECON-1200</catalogNumber>
+      </course>
+    </prerequisites>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Intermediate Macroeconomics</title>
+    <description>Attention is directed primarily to variations in the aggregate volume of output, income, and employment. Cyclical fluctuations and long-term economic trends are examined and the interrelations of business and government policies are analyzed. The applicability of economic theory to the problems of business forecasting is discussed.
+
+NOTE: prerequisite can be skipped on permission of instructor
+NOTE: familiarity with elementary ordinary and partial differential equations required
+</description>
+    <department>Economics</department>
+    <catalogNumber>ECON-2020</catalogNumber>
+    <credits>4</credits>
+    <prerequisites required="false" pickOne="false">
+      <course>
+        <catalogNumber>ECON-1200</catalogNumber>
+      </course>
+    </prerequisites>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Readings in Economics</title>
+    <description>
+
+NOTE: Unclear when course is offered
+</description>
+    <department>Economics</department>
+    <catalogNumber>ECON-2940</catalogNumber>
+    <credits>3</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Topics in Economics</title>
+    <description>Selected topics in economics designed to acquaint students with modern economic problems and analysis in special areas beyond the introductory level.
+
+NOTE: Unclear when course is offered
+NOTE: prerequisite can be replaced with an equivalent
+NOTE: familiarity with elementary ordinary and partial differential equations required
+</description>
+    <department>Economics</department>
+    <catalogNumber>ECON-2960</catalogNumber>
+    <credits>4</credits>
+    <prerequisites required="false" pickOne="false">
+      <course>
+        <catalogNumber>ECON-1200</catalogNumber>
+      </course>
+    </prerequisites>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Economic Analysis of Technological Change</title>
+    <description>An examination of the economic considerations that influence the creation and assimilation of new products and processes, and of the impact of technological change on the structures and evolution of the American economy and environment. Topics include productivity growth, the organization and management of industrial research and development, the interaction between technological change and industrial structure, diffusion of innovations, and technological unemployment. This is a communication-intensive course.
+
+NOTE: Offered on availability of instructor.
+NOTE: prerequisite can be skipped on permission of instructor
+</description>
+    <department>Economics</department>
+    <catalogNumber>ECON-4110</catalogNumber>
+    <credits>4</credits>
+    <prerequisites required="true" pickOne="false">
+      <course>
+        <catalogNumber>ECON-1200</catalogNumber>
+      </course>
+    </prerequisites>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Money and Banking</title>
+    <description>Financial institutions, especially commercial banking and the Federal Reserve System, are considered from three perspectives: their monetary roles; trends in the economic, organizational, and technological aspects of their operations; and their other economic roles-a critical view. Also, the role of money in macroeconomic theory is considered along with the role of monetary policies in relation to the problems of inflation and unemployment.
+
+NOTE: prerequisite can be skipped on permission of instructor
+NOTE: familiarity with elementary ordinary and partial differential equations required
+</description>
+    <department>Economics</department>
+    <catalogNumber>ECON-4130</catalogNumber>
+    <credits>4</credits>
+    <prerequisites required="false" pickOne="false">
+      <course>
+        <catalogNumber>ECON-1200</catalogNumber>
+      </course>
+    </prerequisites>
+    <availableTerms>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Structure of American Industry</title>
+    <description>Acquaints students with the structural characteristics and philosophical foundations of American enterprise. Several important industries are considered from the viewpoint of market structure, conduct, and performance. Such concepts as the corporation, technological competition, and private property, together with criteria for appropriate public policy toward business are examined to orient the student to contemporary American industrial activity.
+
+NOTE: prerequisite can be skipped on permission of instructor
+NOTE: familiarity with elementary ordinary and partial differential equations required
+</description>
+    <department>Economics</department>
+    <catalogNumber>ECON-4140</catalogNumber>
+    <credits>4</credits>
+    <prerequisites required="false" pickOne="false">
+      <course>
+        <catalogNumber>ECON-1200</catalogNumber>
+      </course>
+    </prerequisites>
+    <availableTerms>
+      <year-part>FALL</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Economics of Government Regulation</title>
+    <description>Can government intervention improve the performance of private markets and if so, when and how? How is regulatory policy actually made, and what effects has it had? We apply these questions to the experience in the U.S. and elsewhere with telecommunications, electricity, transportation, financial services, job safety, and environmental regulation.
+
+NOTE: Offered on availability of instructor.
+NOTE: prerequisite can be skipped on permission of instructor
+NOTE: familiarity with elementary ordinary and partial differential equations required
+</description>
+    <department>Economics</department>
+    <catalogNumber>ECON-4150</catalogNumber>
+    <credits>3</credits>
+    <prerequisites required="false" pickOne="false">
+      <course>
+        <catalogNumber>ECON-2010</catalogNumber>
+      </course>
+    </prerequisites>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Public Finance</title>
+    <description>Emphasis is placed on the analysis of efficient resource use in the public sector at the federal level. Expenditure theory, tax incidence, and income distribution policies are discussed. The effects of personal income, corporation, sales, payroll, and property taxes on resource allocation, equity, and growth are considered.
+
+NOTE: prerequisite can be skipped on permission of instructor
+NOTE: familiarity with elementary ordinary and partial differential equations required
+</description>
+    <department>Economics</department>
+    <catalogNumber>ECON-4160</catalogNumber>
+    <credits>4</credits>
+    <prerequisites required="false" pickOne="false">
+      <course>
+        <catalogNumber>ECON-1200</catalogNumber>
+      </course>
+    </prerequisites>
+    <availableTerms>
+      <year-part>FALL</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Development of Economic Thought</title>
+    <description>A critical examination in which comparisons are made and contrasts emphasized between different schools of economic thinking such as classicism, marginalism, socialism, institutionalism, neoclassicism, and Keynesianism. Special attention is given to historical theories and attitudes of economists toward technological change and its impact on human welfare.
+
+NOTE: Offered on availability of instructor.
+NOTE: prerequisite can be skipped on permission of instructor
+NOTE: familiarity with elementary ordinary and partial differential equations required
+</description>
+    <department>Economics</department>
+    <catalogNumber>ECON-4180</catalogNumber>
+    <credits>4</credits>
+    <prerequisites required="false" pickOne="false">
+      <course>
+        <catalogNumber>ECON-1200</catalogNumber>
+      </course>
+    </prerequisites>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>International Economics and Globalization</title>
+    <description>This course investigates the significance of economic globalization, covering the following topics: international trade and financial flows, technological innovation and intellectual property, technology transfer, national government and transnational corporations, natural resources, health and the environment, impacts on selected industries and countries, and roles of the world trade organization and international monetary fund. The major controversies surrounding globalization are identified, and alternative arguments are evaluated based on available evidence.
+
+NOTE: prerequisite can be skipped on permission of instructor
+NOTE: familiarity with elementary ordinary and partial differential equations required
+</description>
+    <department>Economics</department>
+    <catalogNumber>ECON-4190</catalogNumber>
+    <credits>4</credits>
+    <prerequisites required="false" pickOne="false">
+      <course>
+        <catalogNumber>ECON-1200</catalogNumber>
+      </course>
+    </prerequisites>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Cost-Benefit Analysis</title>
+    <description>Addresses the identification and measurement of the economic gains and losses to different sectors of the economy resulting from public projects and policies. Among the projects studied are those in the area of transportation, energy, environment, and urban development. Also considered is the evaluation of the effects of government on business, as for example, consumer product and workplace safety regulation.
+
+NOTE: familiarity with elementary ordinary and partial differential equations required
+</description>
+    <department>Economics</department>
+    <catalogNumber>ECON-4210</catalogNumber>
+    <credits>4</credits>
+    <prerequisites required="true" pickOne="false">
+      <course>
+        <catalogNumber>ECON-2010</catalogNumber>
+      </course>
+    </prerequisites>
+    <availableTerms>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Natural Resource Economics</title>
+    <description>Addresses the allocation of natural resources through applied study of fisheries, forestry, oil, minerals, water, and biodiversity resources. Mathematical analysis will be done using Microsoft Excel with Solver. Social and policy dynamics of allocation decisions will be explored through case studies. Field trips will address ecological and physical aspects of resource management. The intent is to develop a balanced perspective and tools to address resource management decisions across their diverse economic, social, and environmental dimensions. This is a communication-intensive course.
+
+NOTE: prerequisite can be skipped on permission of instructor
+NOTE: familiarity with elementary ordinary and partial differential equations required
+</description>
+    <department>Economics</department>
+    <catalogNumber>ECON-4240</catalogNumber>
+    <credits>4</credits>
+    <prerequisites required="false" pickOne="false">
+      <course>
+        <catalogNumber>ECON-1200</catalogNumber>
+      </course>
+    </prerequisites>
+    <availableTerms>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Environmental and Resource Economics</title>
+    <description>
+
+(Students cannot received credit for both ECON 4260 and ECON 6260.)
+
+NOTE: prerequisite can be replaced with an equivalent
+NOTE: prerequisite can be skipped on permission of instructor
+NOTE: familiarity with elementary ordinary and partial differential equations required
+</description>
+    <department>Economics</department>
+    <catalogNumber>ECON-4260</catalogNumber>
+    <credits>4</credits>
+    <prerequisites required="false" pickOne="false">
+      <course>
+        <catalogNumber>ECON-2010</catalogNumber>
+      </course>
+    </prerequisites>
+    <availableTerms>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Seminar in Economics</title>
+    <description>Discussion and analysis of selected topics in economic theory and of current economic issues. This is a communication-intensive course.</description>
+    <department>Economics</department>
+    <catalogNumber>ECON-4900</catalogNumber>
+    <credits>2</credits>
+    <availableTerms>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Readings in Economics</title>
+    <description>
+
+NOTE: Unclear when course is offered
+</description>
+    <department>Economics</department>
+    <catalogNumber>ECON-4940</catalogNumber>
+    <credits>3</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Advanced Quantitative Analysis</title>
+    <description>Application of mathematical techniques to economic modeling and analysis.&#160;Construction of models to describe aspects of the economy and to analyze potential policies.&#160;Solution methods for issues including optimal choice with and without constraints, equilibria among multiple actors, marginal effects of policies, and dynamic economic models.&#160;Some mathematical maturity is assumed, and mathematical skills are taught throughout the course.
+
+(Students cannot receive credit for both ECON 4120 and ECON 6120.)</description>
+    <department>Economics</department>
+    <catalogNumber>ECON-6120</catalogNumber>
+    <credits>3</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Current Problems of American Industry</title>
+    <description>An advanced analysis of current problems confronting major American industries, regulated and unregulated. Recent changes in growth patterns, market structures, and pricing policies are examined. Considerable emphasis is placed on emerging trends in technology and public policy, which are likely to affect significantly the future of these industries.
+
+NOTE: ECON-4140 can be skipped if in graduate standing
+NOTE: ECON-4140 can be skipped on permission of instructor
+</description>
+    <department>Economics</department>
+    <catalogNumber>ECON-6140</catalogNumber>
+    <credits>3</credits>
+    <prerequisites required="true" pickOne="false">
+      <course>
+        <catalogNumber>ECON-2010</catalogNumber>
+      </course>
+      <course>
+        <catalogNumber>ECON-4140</catalogNumber>
+      </course>
+    </prerequisites>
+    <availableTerms>
+      <year-part>FALL</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Economics of Regulation and Deregulation</title>
+    <description>Can government intervention improve the performance of private markets and if so, when and how? How is regulatory policy actually made, and what effects has it had? We apply these questions to the experience in the U.S. and elsewhere with telecommunications, electricity, transportation, financial services, job safety, health, and environmental regulation.
+
+NOTE: prerequisite can be skipped on permission of instructor
+NOTE: familiarity with elementary ordinary and partial differential equations required
+</description>
+    <department>Economics</department>
+    <catalogNumber>ECON-6150</catalogNumber>
+    <credits>3</credits>
+    <prerequisites required="false" pickOne="false">
+      <course>
+        <catalogNumber>ECON-2010</catalogNumber>
+      </course>
+    </prerequisites>
+    <availableTerms>
+      <year-part>FALL</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Advanced Public Finance</title>
+    <description>Emphasis is placed on the analysis of efficient resource use in the public sector at the federal level. Expenditure theory and tax incidence are discussed. The effects of personal income, corporation, sales, payroll, and property taxes on resource allocation, equity, growth, and technological change are considered.
+
+NOTE: prerequisite can be skipped on permission of instructor
+NOTE: familiarity with elementary ordinary and partial differential equations required
+</description>
+    <department>Economics</department>
+    <catalogNumber>ECON-6160</catalogNumber>
+    <credits>3</credits>
+    <prerequisites required="false" pickOne="false">
+      <course>
+        <catalogNumber>ECON-1200</catalogNumber>
+      </course>
+    </prerequisites>
+    <availableTerms>
+      <year-part>FALL</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>International Economics and Globalization</title>
+    <description>This course investigates the significance of economic globalization, covering the following topics: international trade and financial flows, technological innovation and intellectual property, technology transfer, national governments and transnational corporations, natural resources, health and the environment, impacts on selected industries and countries, and roles of the World Trade Organization and International Monetary Fund.&#160;The major controversies surrounding globalization are identified, and alternative arguments are evaluated based on available evidence.
+
+(Students cannot receive credit for both this course and ECON 4190.)</description>
+    <department>Economics</department>
+    <catalogNumber>ECON-6190</catalogNumber>
+    <credits>3</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Advanced Cost-Benefit Analysis</title>
+    <description>The techniques necessary to appraise the economic desirability and private-sector impact of various public projects and policies are studied. Concepts such as discounting, capital rationing, project selection, shadow pricing, risk assessment, unpriced goods, and economic surplus are developed. Among the topics from which illustrative case studies are drawn are urban and transport planning, energy, water resources, government regulation, and the environment. Suitable for graduate students in professional programs.</description>
+    <department>Economics</department>
+    <catalogNumber>ECON-6210</catalogNumber>
+    <credits>3</credits>
+    <prerequisites required="false" pickOne="true">
+      <course>
+        <catalogNumber>ECON-6490</catalogNumber>
+      </course>
+      <course>
+        <catalogNumber>ECON-2010</catalogNumber>
+      </course>
+    </prerequisites>
+    <availableTerms>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Advanced Environmental Economics</title>
+    <description>Develops a critical understanding of environmental issues and policy and the environmental economics literature. Covers the economics of environmental quality including the links between the economy and the environment, the causes of environmental problems, evaluation of environmental projects and policies, and policies to address environmental issues with an emphasis on efficiency, equity, and sustainability, and the international dimensions of environmental issues.
+
+NOTE: prerequisite can be skipped on permission of instructor
+NOTE: familiarity with elementary ordinary and partial differential equations required
+</description>
+    <department>Economics</department>
+    <catalogNumber>ECON-6230</catalogNumber>
+    <credits>3</credits>
+    <prerequisites required="false" pickOne="false">
+      <course>
+        <catalogNumber>ECON-2010</catalogNumber>
+      </course>
+    </prerequisites>
+    <availableTerms>
+      <year-part>FALL</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Advanced Natural Resource Economics</title>
+    <description>Addresses the allocation of natural resources through applied study of fisheries, forestry, oil, minerals, water, and biodiversity resources. Mathematical analysis will be done using Microsoft Excel with Solver. Social and policy dynamics of allocation decisions will be explored through case studies. Field trips will address ecological and physical aspects of resource management. The intent is to develop a balanced perspective and tools to address resource management decisions across their diverse economic, social, and environmental dimensions.</description>
+    <department>Economics</department>
+    <catalogNumber>ECON-6240</catalogNumber>
+    <credits>3</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Advanced Ecological Economics</title>
+    <description>A multidisciplinary course that explores linkages between economic, social, ecological, biological, and physical systems. Given its multidisciplinary approach to economic analysis, the course seeks to take a fresh look at economic theory and application. Contributing disciplines include psychology, philosophy of science, biology, and ecology.</description>
+    <department>Economics</department>
+    <catalogNumber>ECON-6250</catalogNumber>
+    <credits>3</credits>
+    <prerequisites required="false" pickOne="true">
+      <course>
+        <catalogNumber>ECON-6230</catalogNumber>
+      </course>
+      <course>
+        <catalogNumber>ECON-6240</catalogNumber>
+      </course>
+    </prerequisites>
+    <availableTerms>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Advanced Environmental and Resource Economics</title>
+    <description>Develops a critical understanding of environmental and natural resource issues and policy and the environmental and natural resource economics literature. Covers the economics of environmental quality and natural resources including the links between the economy and the environment, the causes of environmental problems, the economics of resource exploitation, environmental and resource project evaluation, and policies to address environmental and resource issues. Emphasizes efficiency, equity, sustainability, and international dimensions of the issues.
+
+Students cannot receive credit for both ECON 4260 and ECON 6260.</description>
+    <department>Economics</department>
+    <catalogNumber>ECON-6260</catalogNumber>
+    <credits>3</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Introduction to Economic Theory</title>
+    <description>The course examines the basic concepts and techniques of economic analysis and their applications to economics problems at the level of the firm, industry, and economy as a whole. Topics include theory of product and factor pricing, national income and employment theory, monetary and fiscal theories, economic growth and fluctuations.
+
+NOTE: Offered on availability of instructor.
+</description>
+    <department>Economics</department>
+    <catalogNumber>ECON-6490</catalogNumber>
+    <credits>3</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Advanced Microeconomic Analysis</title>
+    <description>The central propositions of contemporary economic analysis are set forth. Topics include interaction of firms and households; determination through the market of resource allocation, outputs, prices, and incomes; capital and interest; theories of general equilibrium; static and dynamic models.
+
+NOTE: prerequisite can be skipped on permission of instructor
+</description>
+    <department>Economics</department>
+    <catalogNumber>ECON-6550</catalogNumber>
+    <credits>3</credits>
+    <prerequisites required="false" pickOne="true">
+      <course>
+        <catalogNumber>ECON-2010</catalogNumber>
+      </course>
+      <course>
+        <catalogNumber>ECON-6490</catalogNumber>
+      </course>
+    </prerequisites>
+    <availableTerms>
+      <year-part>FALL</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Advanced Econometrics</title>
+    <description>Application of statistical and mathematical techniques to analyze economic data. The formulation and interpretation of mathematical models that involve quantifiable economic relationships. The role of probability theory and statistical inference in the solution of model systems. Small-sample and asymptotic OLS regression, instrumental variables and GMM, multi-equation systems, panel data analysis, and maximum likelihood estimation including for binary, censored, and truncated dependent variables. Some mathematical facility is assumed.</description>
+    <department>Economics</department>
+    <catalogNumber>ECON-6570</catalogNumber>
+    <credits>3</credits>
+    <availableTerms>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Topics in Applied Econometrics</title>
+    <description>Applications of advanced econometric techniques such as two-and three-stage least squares, maximum likelihood, seemingly unrelated regression, full information likelihood, distributed lags, and autocorrelation correction to a variety of business and economic problems, including the capital asset pricing model, learning curve, economies of scale, hedonic price indexes, investment, production, and limited dependent variable models.
+
+NOTE: alternate years ONLY
+NOTE: prerequisite can be skipped on permission of instructor
+NOTE: familiarity with elementary ordinary and partial differential equations required
+</description>
+    <department>Economics</department>
+    <catalogNumber>ECON-6580</catalogNumber>
+    <credits>3</credits>
+    <prerequisites required="false" pickOne="false">
+      <course>
+        <catalogNumber>ECON-6570</catalogNumber>
+      </course>
+    </prerequisites>
+    <availableTerms>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Advanced Macroeconomic Analysis</title>
+    <description>This course examines theory of national income determination, the role of monetary and nonmonetary factors in our economic system as described by various schools of macroeconomics. Alternative perspectives on monetary and fiscal policies are critically examined.
+
+NOTE: prerequisite can be skipped on permission of instructor
+</description>
+    <department>Economics</department>
+    <catalogNumber>ECON-6590</catalogNumber>
+    <credits>3</credits>
+    <prerequisites required="false" pickOne="true">
+      <course>
+        <catalogNumber>ECON-2020</catalogNumber>
+      </course>
+      <course>
+        <catalogNumber>ECON-6490</catalogNumber>
+      </course>
+    </prerequisites>
+    <availableTerms>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Seminar in Ecological Economics, Values, and Policy</title>
+    <description>This seminar in the Ecological Economics, Values, and Policy Professional Master&#8217;s Program surveys the theories, methods, and world views of the approaches of ecological economics and science and technology studies to social scientific and humanistic environmental inquiry. Topics include: valuation, social construction, market failure, cultural studies, externalities, environmental policy and politics, Pareto optimality, and environmental ethics and philosophy.</description>
+    <department>Economics</department>
+    <catalogNumber>ECON-6600</catalogNumber>
+    <credits>3</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Ecological Economics Values and Policy Professional Projects</title>
+    <description>This seminar focuses on the development of practical proposals for responding to environmental problems and opportunities. Research projects will include both primary data collection and the formulation of policy recommendations. Course readings will focus on case studies that involve disputes over environmental and economic issues, providing the basis for class discussion about how such disputes can be documented, analyzed, and resolved through various scientific, legal, managerial, and policy initiatives.
+
+NOTE: Must be EEVP Professional Master&#8217;s students or have permission of instructor
+</description>
+    <department>Economics</department>
+    <catalogNumber>ECON-6650</catalogNumber>
+    <credits>3</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Readings in Economics</title>
+    <description>
+
+NOTE: Unclear when course is offered
+</description>
+    <department>Economics</department>
+    <catalogNumber>ECON-6940</catalogNumber>
+    <credits>3</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Professional Project</title>
+    <description>Active participation in a semester-long project, under the supervision of a faculty adviser. A Professional Project often serves as a culminating experience for a Professional Master&#8217;s program but, with departmental or school approval, can be used to fulfill other program requirements. With approval, students may register for more than one Professional Project. Professional Projects must result in documentation established by each department or school, but are not submitted to the Graduate School and are not archived in the library. Grades of A,B,C, or F are assigned by the faculty adviser at the end of the semester. If not completed on time, a formal Incomplete grade may be assigned by the faculty adviser, listing the work remaining to be completed and the time limit for completing this work.
+
+NOTE: Unclear when course is offered
+</description>
+    <department>Economics</department>
+    <catalogNumber>ECON-6970</catalogNumber>
+    <credits>0</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Master&#8217;s Thesis</title>
+    <description>Active participation in research, under the supervision of a faculty adviser, leading to a master&#8217;s thesis. Grades of IP are assigned until the thesis has been approved by the faculty adviser and accepted by the Office of Graduate Education to be archived in a standard format in the library. Grades will then be listed as S.
+
+NOTE: Unclear when course is offered
+</description>
+    <department>Economics</department>
+    <catalogNumber>ECON-6990</catalogNumber>
+    <credits>1</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Dissertation</title>
+    <description>Active participation in research, under the supervision of a faculty adviser, leading to a doctoral dissertation. Grades of IP are assigned until the dissertation has been publicly defended, approved by the doctoral committee, and accepted by the Office of Graduate Education to be archived in a standard format in the library. Grades will then be listed as S.
+
+NOTE: Unclear when course is offered
+</description>
+    <department>Economics</department>
+    <catalogNumber>ECON-9990</catalogNumber>
+    <credits>0</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+  <course>
     <title>Electric Circuits</title>
     <description>Techniques for the analysis and simulation of linear electric circuits, and measurements of their properties. Topics include resistive and energy-storage elements, controlled sources and operational amplifiers, systematic analysis methods, AC steady state, power and three-phase systems, magnetic coupling and transformers, transients, s-plane representation and analysis, frequency response, and Laplace transform and computer-aided methods.</description>
     <department>Electrical, Computer, and Systems Engineering</department>
@@ -5389,6 +6069,308 @@ NOTE: Unclear when course is offered
 </description>
     <department>School of Engineering</department>
     <catalogNumber>ENGR-6970</catalogNumber>
+    <credits>0</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Power Engineering Fundamentals</title>
+    <description>Study of the principal components of electric power systems as individual pieces of equipment and as parts of a system. Balanced 3-phase circuits, per unit quantities. Circle diagrams, control of voltage, and power flow. Unbalanced faults. Symmetrical components. The study includes physical modeling and the use of standard software simulation tools.
+
+NOTE: prerequisite can be skipped on permission of instructor
+NOTE: familiarity with elementary ordinary and partial differential equations required
+</description>
+    <department>Electrical, Computer, and Systems Engineering</department>
+    <catalogNumber>EPOW-4010</catalogNumber>
+    <credits>4</credits>
+    <prerequisites required="false" pickOne="false">
+      <course>
+        <catalogNumber>ECSE-2010</catalogNumber>
+      </course>
+    </prerequisites>
+    <availableTerms>
+      <year-part>FALL</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Electromechanics</title>
+    <description>This course studies electromechanical interactions in lumped-parameter systems. These interactions describe the operation of electric machines, electromechanical actuators and transducers. The fundamental laws of Faraday, Ampere and Gauss are considered to develop physical models of magnetic circuits, including those which use permanent magnets. These models are then expanded to include equations of motion and the thermodynamics of electromechanical coupling. Applications include transformers, induction machines, synchronous machines, DC machines, and reluctance machines.
+
+NOTE: ENGR-4300 can be skipped if in graduate standing
+NOTE: ENGR-4300 can be skipped on permission of instructor
+</description>
+    <department>Electrical, Computer, and Systems Engineering</department>
+    <catalogNumber>EPOW-4020</catalogNumber>
+    <credits>3</credits>
+    <prerequisites required="true" pickOne="false">
+      <course>
+        <catalogNumber>ECSE-2010</catalogNumber>
+      </course>
+      <course>
+        <catalogNumber>ENGR-4300</catalogNumber>
+      </course>
+    </prerequisites>
+    <availableTerms>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>EPE Laboratory</title>
+    <description>A laboratory based examination of static and rotating energy conversion equipment. Topics include the experimental study of the physical phenomena and characteristics of magnetic circuits, transformers, electric machines, rectifiers, DC/DC converters and inverters. The interaction between static power converters and electric machines is emphasized.
+
+NOTE: prerequisite can be skipped on permission of instructor
+</description>
+    <department>Electrical, Computer, and Systems Engineering</department>
+    <catalogNumber>EPOW-4030</catalogNumber>
+    <credits>4</credits>
+    <prerequisites required="false" pickOne="true">
+      <course>
+        <catalogNumber>EPOW-4020</catalogNumber>
+      </course>
+      <course>
+        <catalogNumber>EPOW-4080</catalogNumber>
+      </course>
+    </prerequisites>
+    <availableTerms>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Semiconductor Power Electronics</title>
+    <description>The application of power semiconductor devices to the efficient conversion of electrical energy. Circuit analysis, signal analysis, and energy concepts are integrated to develop steady-state and dynamic models of generic power converters. Specific topics include AC/DC conversion, DC/DC conversion, DC/AC conversion, and AC/AC conversion. These generic converters are applied as controlled rectifiers, switching power supplies, motor drives, HVDC transmission, induction heating, and others. Ancillary circuits needed for the proper operation and control of power semiconductor devices are also discussed.
+
+Cross-listed as ECSE 4080. Students cannot obtain credit for both this course and ECSE 4080.</description>
+    <department>Electrical, Computer, and Systems Engineering</department>
+    <catalogNumber>EPOW-4080</catalogNumber>
+    <credits>3</credits>
+    <prerequisites required="false" pickOne="true">
+      <course>
+        <catalogNumber>ENGR-4300</catalogNumber>
+      </course>
+      <course>
+        <catalogNumber>ECSE-2050</catalogNumber>
+      </course>
+    </prerequisites>
+    <availableTerms>
+      <year-part>FALL</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Industrial Power System Design</title>
+    <description>Industrial power system design considerations: planning (safety, reliability, simplicity, maintenance, flexibility, cost), voltages (control, selection, effects of variation), protection (devices, limitations, requirements, coordination, testing), fault calculations, grounding (static and lightning protection, earth connections), power factor control and effects, switching and voltage transformation, instruments and meters, cable construction and installation, busways.
+
+NOTE: prerequisite can be replaced with an equivalent
+NOTE: prerequisite can be skipped on permission of instructor
+NOTE: familiarity with elementary ordinary and partial differential equations required
+</description>
+    <department>Electrical, Computer, and Systems Engineering</department>
+    <catalogNumber>EPOW-4840</catalogNumber>
+    <credits>3</credits>
+    <prerequisites required="false" pickOne="false">
+      <course>
+        <catalogNumber>EPOW-4010</catalogNumber>
+      </course>
+    </prerequisites>
+    <availableTerms>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Electric Power Engineering Project</title>
+    <description>
+
+NOTE: Unclear when course is offered
+</description>
+    <department>Electrical, Computer, and Systems Engineering</department>
+    <catalogNumber>EPOW-4940</catalogNumber>
+    <credits>1</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Senior Project</title>
+    <description>
+
+NOTE: Unclear when course is offered
+</description>
+    <department>Electrical, Computer, and Systems Engineering</department>
+    <catalogNumber>EPOW-4980</catalogNumber>
+    <credits>3</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Power Engineering Analysis</title>
+    <description>Characteristics and equivalent circuits for transmission lines and transformers. Per unit system. Balanced three-phase systems and power transfer limits. Symmetrical components and sequence network characteristics of transmission lines and transformers. Symmetrical component fault analysis. Clarke components.</description>
+    <department>Electrical, Computer, and Systems Engineering</department>
+    <catalogNumber>EPOW-6810</catalogNumber>
+    <credits>3</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Protective Relaying</title>
+    <description>Basic relaying philosophy. Current and potential transformers. Operating principles of electromagnetic, electronic, and digital relays. Application of relays to protect generators, busses, transformers and transmission lines.</description>
+    <department>Electrical, Computer, and Systems Engineering</department>
+    <catalogNumber>EPOW-6830</catalogNumber>
+    <credits>3</credits>
+    <prerequisites required="true" pickOne="false">
+      <course>
+        <catalogNumber>EPOW-4010</catalogNumber>
+      </course>
+    </prerequisites>
+    <corequisites required="true" pickOne="false">
+      <course>
+        <catalogNumber>EPOW-6810</catalogNumber>
+      </course>
+    </corequisites>
+    <availableTerms>
+      <year-part>FALL</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Power Generation Operation and Control</title>
+    <description>Economics of the operation of power systems. Control of hydro and thermal generating units. Aspects of interconnected operation. Transmission losses and techniques for optimum economic generation. Hydrothermal coordination problems. Modern power markets. State estimation.</description>
+    <department>Electrical, Computer, and Systems Engineering</department>
+    <catalogNumber>EPOW-6840</catalogNumber>
+    <credits>3</credits>
+    <corequisites required="true" pickOne="false">
+      <course>
+        <catalogNumber>EPOW-6810</catalogNumber>
+      </course>
+    </corequisites>
+    <availableTerms>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Surge Phenomena in Electric Power Engineering</title>
+    <description>Analysis and computation of electrical transients in lumpy and distributed power circuits; switching surges, lightning surges, traveling waves. Impact of surges on terminal equipment. Insulation coordination; system protection; design of electric power apparatus and systems to operate reliably and economically in a transient environment.</description>
+    <department>Electrical, Computer, and Systems Engineering</department>
+    <catalogNumber>EPOW-6860</catalogNumber>
+    <credits>3</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Mechanical Aspects of Electric Power Apparatus</title>
+    <description>General theory of kinematics and dynamics of machines and structures with emphasis on power generating and distributing equipment. Special topics include basic concepts of vibration phenomena in mechanical systems, dynamic behavior of turbine-generator sets, self-excited vibrations in mechanical systems, earthquakes, circuit breaker linkages, short circuit forces on windings and bus structures.
+
+NOTE: permission of instructor.
+</description>
+    <department>Electrical, Computer, and Systems Engineering</department>
+    <catalogNumber>EPOW-6870</catalogNumber>
+    <credits>3</credits>
+    <availableTerms>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Computer Methods in Electric Power Engineering</title>
+    <description>Applies the student&#8217;s knowledge of power engineering to the solution of large problems by computer methods. Treats matrix techniques, load-flow analysis, network building, short circuit studies, numerical integration, and finite element analysis as it applies to power systems and power apparatus.
+
+NOTE: prerequisite can be replaced with an equivalent
+NOTE: prerequisite can be skipped on permission of instructor
+NOTE: familiarity with elementary ordinary and partial differential equations required
+</description>
+    <department>Electrical, Computer, and Systems Engineering</department>
+    <catalogNumber>EPOW-6890</catalogNumber>
+    <credits>3</credits>
+    <prerequisites required="false" pickOne="false">
+      <course>
+        <catalogNumber>EPOW-6810</catalogNumber>
+      </course>
+    </prerequisites>
+    <availableTerms>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Seminar in Electric Power Engineering</title>
+    <description>
+
+NOTE: Unclear when course is offered
+</description>
+    <department>Electrical, Computer, and Systems Engineering</department>
+    <catalogNumber>EPOW-6900</catalogNumber>
+    <credits>0</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Electric Power Engineering Project</title>
+    <description>
+
+NOTE: Unclear when course is offered
+</description>
+    <department>Electrical, Computer, and Systems Engineering</department>
+    <catalogNumber>EPOW-6940</catalogNumber>
+    <credits>1</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Professional Project</title>
+    <description>Active participation in a semester-long project, under the supervision of a faculty adviser. A Professional Project often serves as a culminating experience for a Professional Master&#8217;s program but, with departmental or school approval, can be used to fulfill other program requirements. With approval, students may register for more than one Professional Project. Professional Projects must result in documentation established by each department or school, but are not submitted to the Graduate School and are not archived in the library. Grades of A, B, C, or F are assigned by the faculty adviser at the end of the semester. If not completed on time, a formal Incomplete grade may be assigned by the faculty adviser, listing the work remaining to be completed and the time limit for completing this work.
+
+NOTE: Unclear when course is offered
+</description>
+    <department>Electrical, Computer, and Systems Engineering</department>
+    <catalogNumber>EPOW-6970</catalogNumber>
+    <credits>0</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Master&#8217;s Project</title>
+    <description>Active participation in a master&#8217;s-level project under the supervision of a faculty adviser, leading to a master&#8217;s project report. Grades of IP are assigned until the master&#8217;s project has been approved by the faculty adviser. If recommended by the adviser, the master&#8217;s project may be accepted by the Office of Graduate Education to be archived in the Library. Grades will then be listed as S.
+
+NOTE: Unclear when course is offered
+</description>
+    <department>Electrical, Computer, and Systems Engineering</department>
+    <catalogNumber>EPOW-6980</catalogNumber>
+    <credits>1</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Master&#8217;s Thesis</title>
+    <description>Active participation in research, under the supervision of a faculty adviser, leading to a master&#8217;s thesis. Grades of IP are assigned until the thesis has been approved by the faculty adviser and accepted by the Office of Graduate Education to be archived in a standard format in the library. Grades will then be listed as S.
+
+NOTE: Unclear when course is offered
+</description>
+    <department>Electrical, Computer, and Systems Engineering</department>
+    <catalogNumber>EPOW-6990</catalogNumber>
+    <credits>1</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Dissertation</title>
+    <description>Active participation in research, under the supervision of a faculty adviser, leading to a doctoral dissertation. Grades of IP are assigned until the dissertation has been publicly defended, approved by the doctoral committee, and accepted by the Office of Graduate Education to be archived in a standard format in the library. Grades will then be listed as S.
+
+NOTE: Unclear when course is offered
+</description>
+    <department>Electrical, Computer, and Systems Engineering</department>
+    <catalogNumber>EPOW-9990</catalogNumber>
     <credits>0</credits>
     <availableTerms>
       <year-part>FALL</year-part>
@@ -8827,6 +9809,600 @@ NOTE: Unclear when course is offered
     </availableTerms>
   </course>
   <course>
+    <title>Introduction to Ceramic Materials</title>
+    <description>Structure and properties of crystalline ceramic materials. Atomic bonding, crystal structure, structural imperfections, nonstoichiometry, surfaces, and interfaces. Reactions in ceramic systems in terms of phase equilibria, nucleation and crystal growth, diffusion, grain growth, and sintering. Ceramic microstructures and various properties.</description>
+    <department>Materials Science and Engineering</department>
+    <catalogNumber>MTLE-2020</catalogNumber>
+    <credits>3</credits>
+    <availableTerms>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Structure of Engineering Materials</title>
+    <description>The first course in Materials Science and Engineering. Structures of metals, ceramics, and polymers and experimental techniques for their determination are discussed. Laboratory experience is included.
+
+NOTE: prerequisite can be replaced with an equivalent
+NOTE: familiarity with elementary ordinary and partial differential equations required
+</description>
+    <department>Materials Science and Engineering</department>
+    <catalogNumber>MTLE-2100</catalogNumber>
+    <credits>4</credits>
+    <prerequisites required="false" pickOne="false">
+      <course>
+        <catalogNumber>ENGR-1600</catalogNumber>
+      </course>
+    </prerequisites>
+    <availableTerms>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Readings in Materials</title>
+    <description>
+
+NOTE: Unclear when course is offered
+</description>
+    <department>Materials Science and Engineering</department>
+    <catalogNumber>MTLE-2940</catalogNumber>
+    <credits>3</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Senior Project</title>
+    <description>
+
+NOTE: Unclear when course is offered
+</description>
+    <department>Materials Science and Engineering</department>
+    <catalogNumber>MTLE-2980</catalogNumber>
+    <credits>3</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Glass Science</title>
+    <description>Glasses are used in optical communications (optical fibers), electronics (insulator) and nuclear waste processing in addition to conventional use as windows, light bulbs, and containers. Subjects covered include: Formation and structure of inorganic glasses. The relationship between properties and cooling rate. Viscosity and structural relaxation. Phase separation and crystallization. Ionic diffusion and electrical properties. Mechanical strength and fatigue. Glass surface and chemical durability. Optical properties.</description>
+    <department>Materials Science and Engineering</department>
+    <catalogNumber>MTLE-4030</catalogNumber>
+    <credits>3</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Introduction to Polymers</title>
+    <description>A first course on polymer physics and structure-property relationships. Topics include molecular structure; morphology of amorphous and crystalline polymers; physical properties of polymers in relation to structure, including rubber elasticity, viscoelasticity, and glass transition; mechanical testing. This is a companion course to CHEM 4620. Course is open to advanced juniors, seniors, and graduate students in science or engineering and others by permission of instructor.</description>
+    <department>Materials Science and Engineering</department>
+    <catalogNumber>MTLE-4050</catalogNumber>
+    <credits>3</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Kinetics in Materials Systems</title>
+    <description>Kinetic processes in materials. Overview of kinetics in relation to equilibrium thermodynamics, atomistics and mathematics of diffusion, phase transformations, and microstructural evolution. All materials classes, including metals and alloys, ionic and intermetallic compounds, glasses, semiconductors, and polymers, will be considered in terms of similarities and differences. Includes laboratory component.</description>
+    <department>Materials Science and Engineering</department>
+    <catalogNumber>MTLE-4150</catalogNumber>
+    <credits>4</credits>
+    <prerequisites required="true" pickOne="false">
+      <course>
+        <catalogNumber>MTLE-4100</catalogNumber>
+      </course>
+      <course>
+        <catalogNumber>CHEM-1100</catalogNumber>
+      </course>
+      <course>
+        <catalogNumber>ENGR-1600</catalogNumber>
+      </course>
+    </prerequisites>
+    <availableTerms>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Semiconducting Materials</title>
+    <description>Review of electronic properties of materials. Growth and structure of semiconductors. Diffusion, ion implantation, oxidation, microlithography, plasma etching, thin film deposition, metallization, with emphasis on Si technology. Introduction to compound semiconductors.
+
+NOTE: prerequisite can be replaced with an equivalent
+NOTE: familiarity with elementary ordinary and partial differential equations required
+</description>
+    <department>Materials Science and Engineering</department>
+    <catalogNumber>MTLE-4160</catalogNumber>
+    <credits>3</credits>
+    <prerequisites required="false" pickOne="false">
+      <course>
+        <catalogNumber>MTLE-4200</catalogNumber>
+      </course>
+    </prerequisites>
+    <availableTerms>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Properties of Engineering Materials I</title>
+    <description>Introduction to wave mechanics of particles. Applications to harmonic oscillator, free electrons, Kronig-Penney and Ziman models. Electron energy bands in solids. Charge carrier transport. Electrical conductivity of metals and semiconductors. Junctions and devices based on them. Microelectronics, dielectric and optical properties of materials. Optoelectronic devices. Includes laboratory.</description>
+    <department>Materials Science and Engineering</department>
+    <catalogNumber>MTLE-4200</catalogNumber>
+    <credits>4</credits>
+    <prerequisites required="true" pickOne="false">
+      <course>
+        <catalogNumber>ENGR-1600</catalogNumber>
+      </course>
+      <course>
+        <catalogNumber>MTLE-2100</catalogNumber>
+      </course>
+      <course>
+        <catalogNumber>PHYS-1200</catalogNumber>
+      </course>
+    </prerequisites>
+    <availableTerms>
+      <year-part>FALL</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Properties of Engineering Materials II</title>
+    <description>This is a required departmental course, but is also appropriate for biomedical engineers and other engineering disciplines as an elective. This course teaches the mechanical properties of metals, ceramics, and polymers from both the macroscopic and atomistic or micromechanical viewpoints. An introduction to three-dimensional stresses and strains. Elastic behavior, plastic behavior, strengthening mechanisms, fracture, creep, and fatigue are all addressed. Includes laboratory component.</description>
+    <department>Materials Science and Engineering</department>
+    <catalogNumber>MTLE-4250</catalogNumber>
+    <credits>4</credits>
+    <prerequisites required="true" pickOne="false">
+      <course>
+        <catalogNumber>ENGR-1600</catalogNumber>
+      </course>
+      <course>
+        <catalogNumber>MTLE-2100</catalogNumber>
+      </course>
+    </prerequisites>
+    <availableTerms>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>High Temperature Alloys</title>
+    <description>
+
+NOTE: Unclear when course is offered
+</description>
+    <department>Engineering at Hartford</department>
+    <catalogNumber>MTLE-4260</catalogNumber>
+    <credits>3</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Corrosion</title>
+    <description>Mechanisms, characteristics, and types of corrosion. Methods for testing, combating, and evaluating corrosion resistance. Suitability of metals, ceramics, and organic materials in corrosive environments. Oxidation and other high-temperature gas-metal reactions.</description>
+    <department>Materials Science and Engineering</department>
+    <catalogNumber>MTLE-4310</catalogNumber>
+    <credits>3</credits>
+    <availableTerms>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Welding Processes and Metallurgy</title>
+    <description>Fundamental principles, primary variables, and metallurgical changes associated with both fusion and nonfusion welding processes. Energy sources, rates and modes of energy transfer to the work, and distribution of energy in the work as these affect plastic softening or melting, plastic flow or solidification, post-solidification transformations, heat-affected zone microstructures, residual stresses and distortion, defect formation, and resultant properties; attention to the effects of weldment material, joint design, process, and procedural variables. Physical metallurgy is emphasized throughout. Practical examples highlight theory. Hands-on laboratory exercises complement lectures.
+
+NOTE: familiarity with elementary ordinary and partial differential equations required
+</description>
+    <department>Materials Science and Engineering</department>
+    <catalogNumber>MTLE-4410</catalogNumber>
+    <credits>3</credits>
+    <prerequisites required="true" pickOne="false">
+      <course>
+        <catalogNumber>ENGR-1600</catalogNumber>
+      </course>
+    </prerequisites>
+    <availableTerms>
+      <year-part>FALL</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Joining of Advanced Materials</title>
+    <description>Individual joining processes including mechanical fastening, adhesive bonding, welding, brazing, soldering, thermal spraying, and variants or hybrids of these. Advantages and disadvantages, mechanisms for attaining joint strength, various specific methods and procedures, joint design and analysis, expected properties, practical issues in production, safety, and economics, and special problems with each process. Joining of similar and dissimilar combinations of metals and alloys, intermetallics, ceramics, glasses, polymers, and composites, with special attention to attaining optimum properties. Team term project.</description>
+    <department>Materials Science and Engineering</department>
+    <catalogNumber>MTLE-4420</catalogNumber>
+    <credits>3</credits>
+    <prerequisites required="true" pickOne="false">
+      <course>
+        <catalogNumber>ENGR-1600</catalogNumber>
+      </course>
+      <course>
+        <catalogNumber>ENGR-2010</catalogNumber>
+      </course>
+    </prerequisites>
+    <availableTerms>
+      <year-part>FALL</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Materials Synthesis and Processing II</title>
+    <description>Emphasis is on materials processing, with four instruction modules drawn from aspects of casting and molding, deformation processing, powder processing, joining and additive processes, cutting and removal processes, and annealing/heat treatment processes. Includes laboratory component.
+
+NOTE: familiarity with elementary ordinary and partial differential equations required
+</description>
+    <department>Materials Science and Engineering</department>
+    <catalogNumber>MTLE-4450</catalogNumber>
+    <credits>4</credits>
+    <prerequisites required="true" pickOne="false">
+      <course>
+        <catalogNumber>MTLE-4400</catalogNumber>
+      </course>
+    </prerequisites>
+    <availableTerms>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Topics in Materials Engineering</title>
+    <description></description>
+    <department>Materials Science and Engineering</department>
+    <catalogNumber>MTLE-4960</catalogNumber>
+    <credits>3</credits>
+    <availableTerms>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Advanced Thermodynamics</title>
+    <description>Review of classical thermodynamics. Development of basic concepts of statistical thermodynamics. Application of both classical and statistical techniques to the determination of phase and chemical equilibrium in real systems.
+
+NOTE: prerequisite can be replaced with an equivalent
+NOTE: familiarity with elementary ordinary and partial differential equations required
+</description>
+    <department>Materials Science and Engineering</department>
+    <catalogNumber>MTLE-6030</catalogNumber>
+    <credits>4</credits>
+    <prerequisites required="false" pickOne="false">
+      <course>
+        <catalogNumber>MTLE-4100</catalogNumber>
+      </course>
+    </prerequisites>
+    <availableTerms>
+      <year-part>FALL</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Principles of Crystallography and XRay Diffraction</title>
+    <description>Symmetry operations, point groups and space groups, X-ray and electron diffraction techniques, reciprocal lattice, Ewald sphere, mathematics of diffraction, crystal chemistry, crystal structure-property relationships.</description>
+    <department>Materials Science and Engineering</department>
+    <catalogNumber>MTLE-6040</catalogNumber>
+    <credits>3</credits>
+    <availableTerms>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Advanced Kinetics of Materials Reactions</title>
+    <description>Diffusion and phase transformations: solutions to the diffusion equation, moving boundaries, concentration-dependent diffusion coefficient, interdiffusion, nucleation, crystal growth from the vapor and solution, solidification. Precipitation: general, cellular, and G-P zones. Allotropic and martensitic transformations. Grain growth. Sintering.
+
+NOTE: prerequisite can be replaced with equivalent
+</description>
+    <department>Materials Science and Engineering</department>
+    <catalogNumber>MTLE-6060</catalogNumber>
+    <credits>3</credits>
+    <prerequisites required="false" pickOne="true">
+      <course>
+        <catalogNumber>MTLE-4100</catalogNumber>
+      </course>
+      <course>
+        <catalogNumber>MTLE-6030</catalogNumber>
+      </course>
+    </prerequisites>
+    <availableTerms>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Electron Microscopy of Materials</title>
+    <description>Introduction to electron optics, electron diffraction contrast mechanisms, specimen preparation, and microanalysis. Theory and operating fundamentals of the SEM, TEM, STEM, and the electron microprobe. Analysis of images from crystalline materials using kinematical and dynamical theories of electron diffraction.</description>
+    <department>Materials Science and Engineering</department>
+    <catalogNumber>MTLE-6080</catalogNumber>
+    <credits>3</credits>
+    <prerequisites required="false" pickOne="true">
+      <course>
+        <catalogNumber>MTLE-2100</catalogNumber>
+      </course>
+      <course>
+        <catalogNumber>MTLE-6040</catalogNumber>
+      </course>
+    </prerequisites>
+    <availableTerms>
+      <year-part>FALL</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Diffusion in Solids</title>
+    <description>The diffusion process in metals and alloys. Solution to Fick&#8217;s law. Self-diffusion. Effect of temperature upon diffusion. Grain boundary and surface diffusion. Solution and diffusion of gases in metals. Diffusion in carburizing, the austenite transformation, powder metallurgy, and the scaling of metals and alloys.
+
+NOTE: alternate years ONLY
+</description>
+    <department>Materials Science and Engineering</department>
+    <catalogNumber>MTLE-6110</catalogNumber>
+    <credits>3</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Advanced Electronic Properties of Materials</title>
+    <description></description>
+    <department>Materials Science and Engineering</department>
+    <catalogNumber>MTLE-6120</catalogNumber>
+    <credits>3</credits>
+    <availableTerms>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Fracture of Solids</title>
+    <description>Review of elasticity and plasticity theory. Calculation of theoretical cohesive strength of crystalline solids; influence of stress concentrations on fracture strength. Fractography. Theory and applications of linear elastic fracture mechanics. Fracture testing. Elastic-plastic fracture mechanics. Dislocation theories of cleavage fracture. Phenomenology and theories of stress corrosion cracking, creep rupture, fatigue.</description>
+    <department>Materials Science and Engineering</department>
+    <catalogNumber>MTLE-6150</catalogNumber>
+    <credits>3</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Advanced Semiconducting Materials and Processing</title>
+    <description>Discussion of selected advanced and emerging topics in microelectronics materials and fabrication. These may include metallization, thin film deposition, interconnection technology, microlithography, plasma etching and processing.
+
+NOTE: Unclear when course is offered
+</description>
+    <department>Materials Science and Engineering</department>
+    <catalogNumber>MTLE-6220</catalogNumber>
+    <credits>3</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Advanced Mechanical Properties of Materials</title>
+    <description>The phenomenological, mechanistic and micro-structural aspects of the mechanical properties of materials are developed, with particular emphasis on the similarities and differences among various material systems including metals, ceramics and polymers.&#160;Phenomenological aspects of the three-dimensional characteristics of stress and strain, various yield criteria, elastic behavior, viscoelastic behavior, plastic behavior, statistical aspects of brittle fracture and fracture mechanics are presented.&#160;Mechanistic and micro-structural topics include edge and screw dislocation behavior, slip systems, critical resolved shear stress, dislocation multiplication and interactions, barriers to motion, polymer chain conformation and entropy.</description>
+    <department>Materials Science and Engineering</department>
+    <catalogNumber>MTLE-6250</catalogNumber>
+    <credits>4</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Integrated Circuit Fabrication Laboratory</title>
+    <description>Theory and practice of IC fabrication in a research laboratory environment. Test chips are fabricated and the resulting devices and circuits evaluated. Processes and fabrication equipment studied and used include oxidation/diffusion, CVD reactors, photolithography, plasma etching, vacuum evaporator, ion implantation, etc. Instruments used in process monitoring and final testing include thin film profilometer, ellipsometer, resistivity probe, scanning electron microscope, capacitance-voltage system, etc. The fundamentals of hazardous material handling and clean room procedures are studied.
+
+Cross-listed as ECSE 6300. Students cannot obtain credit for both this course and ECSE 6300.
+
+NOTE: prerequisite can be replaced with an equivalent
+NOTE: familiarity with elementary ordinary and partial differential equations required
+</description>
+    <department>Materials Science and Engineering</department>
+    <catalogNumber>MTLE-6300</catalogNumber>
+    <credits>3</credits>
+    <prerequisites required="false" pickOne="false">
+      <course>
+        <catalogNumber>ECSE-4250</catalogNumber>
+      </course>
+    </prerequisites>
+    <availableTerms>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Vacuum Techniques</title>
+    <description>Principles and practice of producing, measuring, and using pressures from atmospheric down to 10-15 atmospheres. Gas kinetics and flow of gases at low pressures. Basic vacuum system calculations. System design and leak detection. Physical and chemisorption of gases. Generation of clean surfaces and study of reactions on them.</description>
+    <department>Materials Science and Engineering</department>
+    <catalogNumber>MTLE-6400</catalogNumber>
+    <credits>3</credits>
+    <availableTerms>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Surface Phenomena</title>
+    <description>The thermodynamics and reactivity of surfaces. Classical thermodynamics of surfaces. Atomistic models of the crystal surfaces. Electron diffraction from surface layers. Surface diffusion. Physical and chemisorption of gases, chemical reactions at surfaces. Nucleation of surface and bulk phases.</description>
+    <department>Materials Science and Engineering</department>
+    <catalogNumber>MTLE-6420</catalogNumber>
+    <credits>3</credits>
+    <availableTerms>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Melting and Solidification</title>
+    <description>Thermodynamics, kinetics, and morphologies of solid-liquid interfaces. Heat flow phenomena in casting and crystal growth. Structure of molten systems. Physical chemistry of vacuum processing. Mechanics of solidification of metals under equilibrium and nonequilibrium conditions. Nucleation and growth phenomena. Solute redistribution during freezing. Metal transport during freezing. Grain size control. Application of theory to production of engineering alloys.
+
+NOTE: alternate years ONLY
+</description>
+    <department>Materials Science and Engineering</department>
+    <catalogNumber>MTLE-6450</catalogNumber>
+    <credits>3</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Advanced Structure and Bonding in Materials</title>
+    <description></description>
+    <department>Materials Science and Engineering</department>
+    <catalogNumber>MTLE-6460</catalogNumber>
+    <credits>4</credits>
+    <availableTerms>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Modeling of Materials</title>
+    <description>This course introduces basic concepts used in the modeling of material properties. The course will include classical molecular mechanics, molecular dynamics, Monte Carlo, quantum mechanics based tight binding, continuum level analysis, and multiscale methods as applied to modeling of soft and hard matter. The methods are introduced in a computer laboratory environment. Open to graduates and qualified undergraduates.
+
+NOTE: even-numbered years ONLY
+</description>
+    <department>Materials Science and Engineering</department>
+    <catalogNumber>MTLE-6500</catalogNumber>
+    <credits>3</credits>
+    <availableTerms>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Deformation Processing</title>
+    <description>Mechanical metallurgy and mechanics of the classical metal-working operations. Analytical techniques. Friction and lubrication. Workability. Effects on as-worked properties. Technological discussions of forging, rolling, extrusion, drawing, and other unit operations.
+
+NOTE: prerequisite can be replaced with an equivalent
+NOTE: familiarity with elementary ordinary and partial differential equations required
+</description>
+    <department>Materials Science and Engineering</department>
+    <catalogNumber>MTLE-6610</catalogNumber>
+    <credits>3</credits>
+    <prerequisites required="false" pickOne="false">
+      <course>
+        <catalogNumber>ENGR-1600</catalogNumber>
+      </course>
+    </prerequisites>
+    <availableTerms>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Special Topics in Ceramics</title>
+    <description>A course in physical ceramics, the content of which will be modified in accordance with current interests and technology.</description>
+    <department>Materials Science and Engineering</department>
+    <catalogNumber>MTLE-6750</catalogNumber>
+    <credits>3</credits>
+    <availableTerms>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Polymer Engineering</title>
+    <description>Survey and engineering analysis of industrial processes and commercial polymers. Topics include introductory fluid mechanics, non-Newtonian fluids, molecular theory of viscoelasticity, analysis of extrusion and other selected processes.</description>
+    <department>Materials Science and Engineering</department>
+    <catalogNumber>MTLE-6840</catalogNumber>
+    <credits>3</credits>
+    <availableTerms>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Graduate Seminar</title>
+    <description></description>
+    <department>Materials Science and Engineering</department>
+    <catalogNumber>MTLE-6900</catalogNumber>
+    <credits>0</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Literature Study</title>
+    <description>A special course assignment open to graduate students working toward a master&#8217;s degree. Applicable where a student cannot reasonably arrange to submit a thesis. A written report on the study must be submitted and defended before a committee of the faculty.
+
+NOTE: Unclear when course is offered
+</description>
+    <department>Materials Science and Engineering</department>
+    <catalogNumber>MTLE-6930</catalogNumber>
+    <credits>1</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Materials Engineering Project</title>
+    <description>
+
+NOTE: Unclear when course is offered
+</description>
+    <department>Materials Science and Engineering</department>
+    <catalogNumber>MTLE-6940</catalogNumber>
+    <credits>3</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Topics in Materials Engineering</title>
+    <description>
+
+NOTE: Unclear when course is offered
+</description>
+    <department>Materials Science and Engineering</department>
+    <catalogNumber>MTLE-6960</catalogNumber>
+    <credits>3</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Professional Project</title>
+    <description>Active participation in a semester-long project, under the supervision of a faculty adviser. A Professional Project often serves as a culminating experience for a Professional Master&#8217;s program but, with departmental or school approval, can be used to fulfill other program requirements. With approval, students may register for more than one Professional Project. Professional Projects must result in documentation established by each department or school, but are not submitted to the Graduate School and are not archived in the library. Grades of A,B,C, or F are assigned by the faculty adviser at the end of the semester. If not completed on time, a formal Incomplete grade may be assigned by the faculty adviser, listing the work remaining to be completed and the time limit for completing this work.
+
+NOTE: Unclear when course is offered
+</description>
+    <department>Materials Science and Engineering</department>
+    <catalogNumber>MTLE-6970</catalogNumber>
+    <credits>0</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Master&#8217;s Project</title>
+    <description>Active participation in a master&#8217;s-level project under the supervision of a faculty adviser, leading to a master&#8217;s project report. Grades of IP are assigned until the master&#8217;s project has been approved by the faculty adviser. If recommended by the adviser, the master&#8217;s project may be accepted by the Office of Graduate Education to be archived in the Library.
+
+NOTE: Unclear when course is offered
+</description>
+    <department>Materials Science and Engineering</department>
+    <catalogNumber>MTLE-6980</catalogNumber>
+    <credits>1</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Master&#8217;s Thesis</title>
+    <description>Active participation in research, under the supervision of a faculty adviser, leading to a master&#8217;s thesis. Grades of IP are assigned until the thesis has been approved by the faculty adviser and accepted by the Office of Graduate Education to be archived in a standard format in the library.
+
+NOTE: Unclear when course is offered
+</description>
+    <department>Materials Science and Engineering</department>
+    <catalogNumber>MTLE-6990</catalogNumber>
+    <credits>1</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Dissertation</title>
+    <description>Active participation in research, under the supervision of a faculty adviser, leading to a master&#8217;s thesis. Grades of IP are assigned until the thesis has been approved by the faculty adviser and accepted by the Office of Graduate Education to be archived in a standard format in the library.
+
+NOTE: Unclear when course is offered
+</description>
+    <department>Materials Science and Engineering</department>
+    <catalogNumber>MTLE-9990</catalogNumber>
+    <credits>0</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+  <course>
     <title>A Passion for Physics</title>
     <description>A weekly one-hour seminar by physics department faculty members, in which they describe their scientific and research interests, at a level suitable for first-year college students. This course is graded satisfactory/unsatisfactory.</description>
     <department>Physics, Applied Physics, and Astronomy</department>
@@ -11145,6 +12721,7 @@ NOTE: Unclear when course is offered
     <id>2</id>
     <name>B.S. Computer Science 2011</name>
     <validationCode>$taken_courses = []
+
 $taken_courses.instance_eval do
   def include?(course)
     if course.catalogNumber =~ /....-4940/
@@ -11154,6 +12731,7 @@ $taken_courses.instance_eval do
     end
   end
 end
+
 
 # Communication Requirement
 commclasses = 0
@@ -11303,6 +12881,7 @@ $taken_courses.instance_eval do
     end
   end
 end
+
 
 # Communication Requirement
 commclasses = 0
