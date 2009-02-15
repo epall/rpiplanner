@@ -1,10 +1,11 @@
+require 'java'
+
 class apcredit
-  
-  def initialize
 
-  end
+  include Java::Rpiplanner::Apcredit
 
-  def getcourse(test, score)
+ 
+def getcourse(test, score)
 
 
   end
@@ -13,4 +14,4 @@ class apcredit
 
   end
 
-end
+  end

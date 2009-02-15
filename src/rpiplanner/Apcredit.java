@@ -1,5 +1,7 @@
 package rpiplanner;
 
+import rpiplanner.model.Course;
+
 /**
  * Created by IntelliJ IDEA.
  * User: Administrator
@@ -8,4 +10,5 @@ package rpiplanner;
  * To change this template use File | Settings | File Templates.
  */
 public interface Apcredit {
+    Course getcourse(String test, int score);
 }
