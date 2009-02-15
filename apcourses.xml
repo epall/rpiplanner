@@ -1,0 +1,74 @@
+<course>
+    <title>Social Science Elective</title>
+    <description>Social Science elective Credits.</description>
+    <department>Science, Technology and Society</department>
+    <catalogNumber>STSS-1000</catalogNumber>
+    <credits>4</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+
+<course>
+    <title>Biology Elective </title>
+    <description>Biology elective credits.</description>
+    <department>Biology</department>
+    <catalogNumber>BIOL-1000</catalogNumber>
+    <credits>4</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+
+<course>
+    <title>Writing Elective</title>
+    <description>Humanities writing elective credits.</description>
+    <department>Writing</department>
+    <catalogNumber>WRIT-1000</catalogNumber>
+    <credits>4</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+
+<course>
+    <title>Humanitites Elective</title>
+    <description>Humanities elective credits.</description>
+    <department>Science, Technology and Society</department>
+    <catalogNumber>STSH-1000</catalogNumber>
+    <credits>4</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+
+<course>
+    <title>Environmental Science Elective</title>
+    <description>Environmental science elective credits.</description>
+    <department>Interdisciplinary Environmental</department>
+    <catalogNumber>IENV-1000</catalogNumber>
+    <credits>4</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+
+<course>
+    <title>Language Elective</title>
+    <description>Foreign Language elective credits.</description>
+    <department>Foreign Languages</department>
+    <catalogNumber>LANG-1000</catalogNumber>
+    <credits>4</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+
+        
+
