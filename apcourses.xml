@@ -70,5 +70,88 @@
     </availableTerms>
   </course>
 
-        
+<course>
+    <title>Introduction to Economics (non-credit)</title>
+    <description>Introduction to Economics, 0-credit for placement purposes only.</description>
+    <department>Economics</department>
+    <catalogNumber>ECON-1200</catalogNumber>
+    <credits>0</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+
+<course>
+    <title>French I (non-credit)</title>
+    <description>French I (placement purposes only).</description>
+    <department>Foreign Language</department>
+    <catalogNumber>LANG-1110</catalogNumber>
+    <credits>0</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+
+        <course>
+    <title>Spanish I (non-credit)</title>
+    <description>Spanish I (placement purposes only).</description>
+    <department>Foreign Language</department>
+    <catalogNumber>LANG-1510</catalogNumber>
+    <credits>0</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+
+        <course>
+    <title>Japanese I (non-credit)</title>
+    <description>Japanese I (placement purposes only).</description>
+    <department>Foreign Language</department>
+    <catalogNumber>LANG-1210</catalogNumber>
+    <credits>0</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+
+        <course>
+    <title>Chinese I (non-credit)</title>
+    <description>Chinese I (placement purposes only).</description>
+    <department>Foreign Language</department>
+    <catalogNumber>LANG-1410</catalogNumber>
+    <credits>0</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+
+        <course>
+    <title>German I (non-credit)</title>
+    <description>German I (placement purposes only).</description>
+    <department>Foreign Language</department>
+    <catalogNumber>LANG-1310</catalogNumber>
+    <credits>0</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+
+        <course>
+    <title>Italian I (non-credit)</title>
+    <description>Italian I (placement purposes only).</description>
+    <department>Foreign Language</department>
+    <catalogNumber>LANG-1610</catalogNumber>
+    <credits>0</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+          
 
