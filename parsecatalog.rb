@@ -87,7 +87,7 @@ def parse_year_parts(description)
   messages = []
 
   case description
-  when /^(Offered )?(each term|Fall and spring).$/i
+  when /^(Offered )?(each term|Fall and spring( term)?)( annually)?.$/i
     parts << 'FALL'
     parts << 'SPRING'
   when /^Fall, spring,? (and )?summer (terms|session 2) annually.$/
@@ -98,7 +98,7 @@ def parse_year_parts(description)
     parts << 'SPRING'
   when /^Spring( term| semester)?( annually)?( only)?.?( .)?$/i
     parts << 'SPRING'
-  when /^(Offered )?Fall( term)?( annually)?.?$/i
+  when /^(Offered )?Fall( term)?( annually)?.?( Includes laboratory experience.)?$/i
     parts << 'FALL'
   when /^Offered on (sufficient )?demand.$/
     messages << "Offered on sufficient demand."
@@ -119,19 +119,22 @@ def parse_year_parts(description)
     messages << "Offered on availability of #{$5}."
     parts << 'FALL'
     parts << 'SPRING'
-  when /^(Spring|Fall)(,| term) odd-?numbered years.$/i
+  when /^(Spring|Fall)(,| term) odd(-| )?numbered years.$/i
     messages << "odd-numbered years ONLY"
     parts << $1.upcase
-  when /^(Spring|Fall) term even.?numbered years.$/i
+  when /^(Spring|Fall)(,| term),? even(-| )number(ed|s) years.$/i
+    messages << "odd-numbered years ONLY"
+    parts << $1.upcase
+  when /^(Spring|Fall)(,| term)? (\(of )?even.?numbered years(\))?.$/i
     messages << "even-numbered years ONLY"
     parts << $1.upcase
-  when /^(Spring|Fall) term,? alternate years./
+  when /^(Spring|Fall) term,? alternat(e|ive) years./
     messages << "alternate years ONLY"
     parts << $1.upcase
   when /^(Graduate course; spring semester, alternate years|Spring term alternate years.)$/
     messages << "alternate years ONLY"
     parts << 'FALL'
-  when /^(Offered )?Annually.?$/
+  when /^(Offered )? ?(Fall and spring)? ?Annually.?$/
     messages << "Offered anually. Unclear which term"
     parts << 'FALL'
     parts << 'SPRING'
@@ -157,6 +160,8 @@ def parse_year_parts(description)
     parts << 'SPRING'
   when /^Summer term annually.$/
     messages << "Only offered during the summer"
+  when /^Spring or summer term( annually)?.$/i
+    parts << 'SPRING'
   when /^4 credit hours/  
     parts << 'FALL'
     parts << 'SPRING'
