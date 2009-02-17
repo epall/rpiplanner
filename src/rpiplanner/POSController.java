@@ -23,7 +23,6 @@ import java.awt.Color;
 import java.awt.Component;
 import java.awt.Container;
 import java.awt.Point;
-import java.awt.Rectangle;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 import java.util.ArrayList;
@@ -51,6 +50,7 @@ import rpiplanner.view.CourseDatabaseFilter;
 import rpiplanner.view.CourseDisplay;
 import rpiplanner.view.CourseTransferHandler;
 import rpiplanner.view.DegreeListModel;
+import rpiplanner.view.DegreeProgressPanel;
 import rpiplanner.view.PlanOfStudyEditor;
 
 public class POSController {
@@ -63,6 +63,7 @@ public class POSController {
 	private DegreeListModel degreeListModel;
 	private JList degreeList;
 	protected final PropertyChangeSupport support = new PropertyChangeSupport(this);
+	private DegreeProgressPanel progressPanel;
 	
 	public POSController(){
 		plan = new PlanOfStudy();
@@ -239,6 +240,7 @@ public class POSController {
 
 	public void addDegree(Degree toAdd) {
 		plan.getDegrees().add(toAdd);
+		progressPanel.rebuildSections();
 		validatePlan();
 	}
 	
@@ -312,5 +314,10 @@ public class POSController {
 
 	public void setSearchCourses(Course[] potentialCourses) {
 		courseDatabaseModel.setShownCourses(potentialCourses);
+	}
+
+	public void setProgressPanel(DegreeProgressPanel progressPanel) {
+		this.progressPanel = progressPanel;
+		progressPanel.initialize(this);
 	}
 }

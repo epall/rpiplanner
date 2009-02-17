@@ -92,9 +92,11 @@ public class DegreeProgressPanel extends JPanel {
 		rebuildSections();
 	}
 	
-	private void rebuildSections(){
+	public void rebuildSections(){
 		sections.clear();
 		sectionContainer.removeAll();
+		if(plan.getDegrees().size() > 0)
+			this.degree = plan.getDegrees().get(0);
 		if (degree != null) {
 			for (String s : degree.getSectionNames()) {
 				DegreeSectionDisplay dsd = new DegreeSectionDisplay(controller);
@@ -131,6 +133,7 @@ public class DegreeProgressPanel extends JPanel {
 			}
 		});
 		
+		rebuildSections();
 		validatePlan();
 	}
 	

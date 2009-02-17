@@ -195,7 +195,7 @@ public class PlanOfStudyEditor extends JPanel {
 	public void setController(final POSController controller){
 		controller.setSemesterPanels(semesterPanels);
 		controller.setDetailsPanel(courseDetailsPanel);
-		progressPanel.initialize(controller);
+		controller.setProgressPanel(progressPanel);
 		
 		addCourseButton.addActionListener(new ActionListener() {
 			public void actionPerformed(final ActionEvent e) {
