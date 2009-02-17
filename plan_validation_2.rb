@@ -51,7 +51,11 @@ class SectionDescriptor
   end
   
   def potential_courses(available_courses)
-    available_courses.select {|course| @course_filter.call(course)}
+    if @course_filter_special
+      @course_filter_special.call(available_courses)
+    else
+      available_courses.select {|course| @course_filter.call(course)}
+    end
   end
   
   def validate(available_courses)
