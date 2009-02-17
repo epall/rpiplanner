@@ -11150,6 +11150,13 @@ NOTE: Unclear when course is offered
     
     
     
+    
+    
+    
+    
+    
+    
+    
     <degree>
         <id>1</id>
         <name>B.S. Computer &amp; Systems Engineering 2011</name>
@@ -11210,29 +11217,33 @@ NOTE: Unclear when course is offered
     (PSYC 4170 or STSS 4840 Professional Development). 
     The TOTAL H&amp;SS Core Requirement is 22 credits.
     EOF
-    numonethousand = 0
-    s.valid_courses do |course|
-      if [&apos;IHSS&apos;,&apos;ARTS&apos;,&apos;LANG&apos;,&apos;LITR&apos;,&apos;COMM&apos;,&apos;WRIT&apos;,&apos;STSH&apos;,&apos;PHIL&apos;,
-        &apos;COGS&apos;,&apos;ECON&apos;,&apos;IHSS&apos;,&apos;PSYC&apos;,&apos;STSS&apos;].include?(course.catalogNumber[0..3])
-        if course.level == &apos;1000&apos;
-          numonethousand += 1
-          false if numonethousand &gt; 3
+    s.valid_courses_special do |courses|
+      numonethousand = 0
+      courses.select do |course|
+        if [&apos;IHSS&apos;,&apos;ARTS&apos;,&apos;LANG&apos;,&apos;LITR&apos;,&apos;COMM&apos;,&apos;WRIT&apos;,&apos;STSH&apos;,&apos;PHIL&apos;,
+          &apos;COGS&apos;,&apos;ECON&apos;,&apos;IHSS&apos;,&apos;PSYC&apos;,&apos;STSS&apos;].include?(course.catalogNumber[0..3])
+          if course.level == &apos;1000&apos;
+            numonethousand += 1
+            numonethousand &lt;= 3
+          else
+            true
+          end
         else
-          true
+          false
         end
       end
     end
 
     s.must_have &quot;minimum of 2 4-credit courses in Humanities&quot; do |courses|
       courses = courses.find_all do |course| 
-        course.credits == 4 &amp;&amp; [&apos;IHSS&apos;,&apos;ARTS&apos;,&apos;LANG&apos;,&apos;LITR&apos;,&apos;COMM&apos;,&apos;WRIT&apos;,&apos;STSH&apos;,&apos;PHIL&apos;].include?(course.department)
+        course.credits == 4 &amp;&amp; [&apos;IHSS&apos;,&apos;ARTS&apos;,&apos;LANG&apos;,&apos;LITR&apos;,&apos;COMM&apos;,&apos;WRIT&apos;,&apos;STSH&apos;,&apos;PHIL&apos;].include?(course.catalogNumber[0..3])
       end
       courses.size &gt;= 2
     end
 
     s.must_have &quot;minimum of 2 4-credit courses in the Social Sciences&quot; do |courses|
       courses = courses.find_all do |course| 
-        course.credits == 4 &amp;&amp; [&apos;COGS&apos;,&apos;ECON&apos;,&apos;IHSS&apos;,&apos;PSYC&apos;,&apos;STSS&apos;].include?(course.department)
+        course.credits == 4 &amp;&amp; [&apos;COGS&apos;,&apos;ECON&apos;,&apos;IHSS&apos;,&apos;PSYC&apos;,&apos;STSS&apos;].include?(course.catalogNumber[0..3])
       end
       courses.size &gt;= 2
     end
@@ -11278,6 +11289,13 @@ NOTE: Unclear when course is offered
 end</validationCode>
       </degree>
     </courses>
+
+
+
+
+
+
+
 
 
 

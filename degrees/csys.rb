@@ -56,29 +56,33 @@ degree "B.S. Computer & Systems Engineering 2011", 1 do |d|
     (PSYC 4170 or STSS 4840 Professional Development). 
     The TOTAL H&SS Core Requirement is 22 credits.
     EOF
-    numonethousand = 0
-    s.valid_courses do |course|
-      if ['IHSS','ARTS','LANG','LITR','COMM','WRIT','STSH','PHIL',
-        'COGS','ECON','IHSS','PSYC','STSS'].include?(course.catalogNumber[0..3])
-        if course.level == '1000'
-          numonethousand += 1
-          false if numonethousand > 3
+    s.valid_courses_special do |courses|
+      numonethousand = 0
+      courses.select do |course|
+        if ['IHSS','ARTS','LANG','LITR','COMM','WRIT','STSH','PHIL',
+          'COGS','ECON','IHSS','PSYC','STSS'].include?(course.catalogNumber[0..3])
+          if course.level == '1000'
+            numonethousand += 1
+            numonethousand <= 3
+          else
+            true
+          end
         else
-          true
+          false
         end
       end
     end
 
     s.must_have "minimum of 2 4-credit courses in Humanities" do |courses|
       courses = courses.find_all do |course| 
-        course.credits == 4 && ['IHSS','ARTS','LANG','LITR','COMM','WRIT','STSH','PHIL'].include?(course.department)
+        course.credits == 4 && ['IHSS','ARTS','LANG','LITR','COMM','WRIT','STSH','PHIL'].include?(course.catalogNumber[0..3])
       end
       courses.size >= 2
     end
 
     s.must_have "minimum of 2 4-credit courses in the Social Sciences" do |courses|
       courses = courses.find_all do |course| 
-        course.credits == 4 && ['COGS','ECON','IHSS','PSYC','STSS'].include?(course.department)
+        course.credits == 4 && ['COGS','ECON','IHSS','PSYC','STSS'].include?(course.catalogNumber[0..3])
       end
       courses.size >= 2
     end
