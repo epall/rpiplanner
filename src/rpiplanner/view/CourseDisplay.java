@@ -96,21 +96,15 @@ public class CourseDisplay extends JPanel {
 			}
 		});
 		
-		addMouseListener(new MouseAdapter()
-		{
-			public void mouseClicked(MouseEvent e) 
-			{
-				if(e.getButton() == MouseEvent.BUTTON3)
-				{
-					if (course != null)
-					{
+		addMouseListener(new MouseAdapter() {
+			public void mouseClicked(MouseEvent e) {
+				if(e.getButton() == MouseEvent.BUTTON3) {
+					if (course != null) {
 						JPopupMenu contextMenu = new JPopupMenu();
 						
-						contextMenu.add("Fill Requisites").addActionListener(new ActionListener()
-						{
-							public void actionPerformed(ActionEvent e) 
-							{
-								fillRequisites(course, getTerm(course));
+						contextMenu.add("Fill Requisites").addActionListener(new ActionListener() {
+							public void actionPerformed(ActionEvent e) {
+								fillRequisites(course, controller.getTerm(course));
 							}
 						});
 						
@@ -129,6 +123,7 @@ public class CourseDisplay extends JPanel {
 				controller.setDetailDisplay((Course)null);
 			}
 		});
+				//
 	}
 	
 	public void setText(String text){
@@ -149,8 +144,7 @@ public class CourseDisplay extends JPanel {
 		text.setSize(oldSize);
 	}
 	
-	private void fillRequisites(Course fillCourse, int term)
-	{
+	private void fillRequisites(Course fillCourse, int term) {
 		// for some reason, fillCourse.getPrerequisites() didnt work, but it WOULD work
 		// if i set fillCourse to controller.getCourseDatabase().getCourse(fillCourse.getCatalogNumber())
 		// no idea why
@@ -159,26 +153,22 @@ public class CourseDisplay extends JPanel {
 		fillCourse = controller.getCourseDatabase().getCourse(fillCourse.getCatalogNumber());	
 		RequisiteSet reqs = fillCourse.getPrerequisites();
 		
-		for (int i = 0; i < reqs.size(); i++)
-		{
+		for (int i = 0; i < reqs.size(); i++) {
 			// if the course isnt offered in both spring and fall, and we arent in the term that its offered in,
 			// go back one term so that we are in the term its offered in
-			if ((fillCourse.getAvailableTerms().length < 2) && (fillCourse.getAvailableTerms()[0] != controller.getPlan().getTerm(term).getTerm()))
-			{
+			if ((fillCourse.getAvailableTerms().length < 2) && (fillCourse.getAvailableTerms()[0] != controller.getPlan().getTerm(term).getTerm())) {
 				term--;
 			}
 			
 			// make sure theres still terms
 			// the ap/transfer term is term 0,
 			// if we dont want to use that then make it (term - 1 >= 1)
-			if (term - 1 >= 0)
-			{
+			if (term - 1 >= 0) {
 				fillRequisites(reqs.get(i), term - 1);
 			}
 			
 			// ran out of terms for this line of prereqs
-			else
-			{
+			else {
 				return;
 			}
 		}
@@ -188,14 +178,11 @@ public class CourseDisplay extends JPanel {
 		// not sure if theres an easier way to check or not
 		ArrayList<Term> dupes = controller.getPlan().getTerms();
 		boolean dupeCourse = false;
-		for (int t = 0; t < dupes.size(); t++)
-		{
+		for (int t = 0; t < dupes.size(); t++) {
 			ArrayList<Course> dupeCourses = dupes.get(t).getCourses();
 			
-			for (int dc = 0; dc < dupeCourses.size(); dc++)
-			{
-				if (dupeCourses.get(dc).equals(fillCourse))
-				{
+			for (int dc = 0; dc < dupeCourses.size(); dc++) {
+				if (dupeCourses.get(dc).equals(fillCourse)) {
 					dupeCourse = true;
 					break;
 				}
@@ -203,38 +190,14 @@ public class CourseDisplay extends JPanel {
 		}
 		
 		// add course if no duplicate found
-		if (!dupeCourse)
-		{
+		if (!dupeCourse) {
 			controller.addCourse(term, fillCourse);
 		}
 		
 		// now do corequisites and their requisites
 		RequisiteSet coreqs = fillCourse.getCorequisites();
-		for (int k = 0; k < coreqs.size(); k++)
-		{
+		for (int k = 0; k < coreqs.size(); k++) {
 			fillRequisites(coreqs.get(k), term);
 		}
-	}
-	
-	// this returns the term number that a course is in
-	// maybe should be in POSController or PlanOfStudy class?
-	private int getTerm(Course toFind)
-	{
-		ArrayList<Term> terms = controller.getPlan().getTerms();
-		
-		for (int i = 0; i < terms.size(); i++)
-		{
-			ArrayList<Course> termCourses = terms.get(i).getCourses();
-			
-			for (int k = 0; k < termCourses.size(); k++)
-			{
-				if (toFind.equals(termCourses.get(k)))
-				{
-					return i;
-				}
-			}
-		}
-		
-		return -1; // course not found
 	}
 }

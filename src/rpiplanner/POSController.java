@@ -365,4 +365,20 @@ public class POSController {
 			}
 		}
 	}
+	
+	public int getTerm(Course toFind) {
+		ArrayList<Term> terms = getPlan().getTerms();
+		
+		for (int i = 0; i < terms.size(); i++) {
+			ArrayList<Course> termCourses = terms.get(i).getCourses();
+			
+			for (int k = 0; k < termCourses.size(); k++) {
+				if (toFind.equals(termCourses.get(k))) {
+					return i;
+				}
+			}
+		}
+		
+		return -1; // course not found
+	}
 }
