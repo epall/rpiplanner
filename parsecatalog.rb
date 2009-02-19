@@ -123,7 +123,7 @@ def parse_year_parts(description)
     messages << "odd-numbered years ONLY"
     parts << $1.upcase
   when /^(Spring|Fall)(,| term),? even(-| )number(ed|s) years.$/i
-    messages << "odd-numbered years ONLY"
+    messages << "even-numbered years ONLY"
     parts << $1.upcase
   when /^(Spring|Fall)(,| term)? (\(of )?even.?numbered years(\))?.$/i
     messages << "even-numbered years ONLY"
@@ -191,7 +191,7 @@ def parse_requisites(requisites)
   
   # primary catchall
   when /^Prerequisites?:.{1,3}([A-Z]{4}|Chem) (\d*)( or equivalent)?\
-( or (permission|consent) of instructor)?( and programming experience)?\
+( (and|or) (permission|consent) of instructor)?( and programming experience)?\
 ( and knowledge of PASCAL, C, or LISP)?\
 ( or thorough knowledge of a scientific computer language, preferably C)?\
 (, linear systems theory and transform theory)?(;.*)?\
