@@ -78,21 +78,18 @@ public class PlanOfStudyEditor extends JPanel {
 		super();
 		setLayout(new FormLayout(
 			new ColumnSpec[] {
-				ColumnSpec.decode("200px:grow(1.0)"),
-				ColumnSpec.decode("300px:grow(3.5)"),
-				ColumnSpec.decode("right:80px:grow(1.0)"),
-				FormFactory.RELATED_GAP_COLSPEC,
-				ColumnSpec.decode("80px:grow(1.0)"),
-				FormFactory.RELATED_GAP_COLSPEC},
+				ColumnSpec.decode("250px:grow(1)"),
+				ColumnSpec.decode("400px:grow(5)"),
+				FormFactory.MIN_COLSPEC},
 			new RowSpec[] {
 				FormFactory.MIN_ROWSPEC,
 				RowSpec.decode("fill:0dlu:grow(1.0)"),
 				FormFactory.RELATED_GAP_ROWSPEC,
 				FormFactory.DEFAULT_ROWSPEC,
-				RowSpec.decode("fill:90dlu")}));
+				RowSpec.decode("fill:150dlu")}));
 
 		final JPanel titlePanel = new JPanel();
-		add(titlePanel, new CellConstraints("1, 1, 6, 1, fill, fill"));
+		add(titlePanel, new CellConstraints("1, 1, 3, 1, fill, fill"));
 
 		final JLabel rpiPlannerLabel = new JLabel();
 		rpiPlannerLabel.setFont(new Font("Lucida Grande", Font.BOLD, 18));
@@ -154,7 +151,7 @@ public class PlanOfStudyEditor extends JPanel {
 		searchPanel.add(addCourseButton, new CellConstraints(1, 3));
 
 		progressPanel = new DegreeProgressPanel();
-		add(progressPanel, new CellConstraints(3, 2, 3, 1));
+		add(progressPanel, new CellConstraints(3, 2, 1, 4));
 		
 		courseDetailsPanel = new JPanel();
 		courseDetailsPanel.setName("courseDetailsPanel");
