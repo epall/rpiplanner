@@ -152,7 +152,7 @@ public class CourseDisplay extends JPanel {
 		// dont know why this happens, either
 		fillCourse = controller.getCourseDatabase().getCourse(fillCourse.getCatalogNumber());	
 		RequisiteSet reqs = fillCourse.getPrerequisites();
-		
+		reqs = sortCourses(reqs); // quickfix for demo
 		for (int i = 0; i < reqs.size(); i++) {
 			// if the course isnt offered in both spring and fall, and we arent in the term that its offered in,
 			// go back one term so that we are in the term its offered in
@@ -182,7 +182,7 @@ public class CourseDisplay extends JPanel {
 			ArrayList<Course> dupeCourses = dupes.get(t).getCourses();
 			
 			for (int dc = 0; dc < dupeCourses.size(); dc++) {
-				if (dupeCourses.get(dc).equals(fillCourse)) {
+				if (dupeCourses.get(dc).equals(fillCourse) || fillCourse.getCatalogNumber().equals("MATH-1500")) {
 					dupeCourse = true;
 					break;
 				}
@@ -199,5 +199,30 @@ public class CourseDisplay extends JPanel {
 		for (int k = 0; k < coreqs.size(); k++) {
 			fillRequisites(coreqs.get(k), term);
 		}
+	}
+	
+	// quickfix for demo
+	private RequisiteSet sortCourses(RequisiteSet courses) {
+		for (int i = 0; i < courses.size(); i++)
+		{
+			for (int k = 0; k < courses.size(); k++)
+			{
+				String iSub = courses.get(i).getCatalogNumber();
+				String kSub = courses.get(k).getCatalogNumber();
+				int iIndex = iSub.indexOf('-');
+				int kIndex = kSub.indexOf('-');
+				iSub = iSub.substring(iIndex + 1, iSub.length());
+				kSub = kSub.substring(kIndex + 1, kSub.length());
+				
+				if (Integer.parseInt(kSub) < Integer.parseInt(iSub))
+				{
+					Course tmp = courses.get(i);
+					courses.set(i, courses.get(k));
+					courses.set(k, tmp);
+				}
+			}
+		}
+		
+		return courses;
 	}
 }
