@@ -11150,7 +11150,141 @@ NOTE: Unclear when course is offered
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
     <degree>
+        <id>2</id>
+        <name>B.S. Computer Science 2011</name>
+        <validationCode>degree &quot;B.S. Computer Science 2011&quot;, 2 do |d|  d.section &quot;Communication Requirement&quot; do |s|
+    s.valid_courses do |course|
+      course.description =~ /(communication|writing)-intensive/i
+    end
+    s.exclusive = false
+    s.count = 2
+  end
+
+  d.section &quot;Math &amp; Science&quot; do |s|
+    s.courses &apos;CSCI-1100&apos;, &apos;CSCI-1200&apos;,&apos;CSCI-2300&apos;,&apos;CSCI-2400&apos;,&apos;CSCI-2500&apos;,&apos;CSCI-4430&apos;,&apos;CSCI-4210&apos;,&apos;CSCI-4440&apos;,&apos;MATH-1010&apos;,&apos;MATH-1020&apos;,&apos;MATH-2800&apos;,&apos;PHYS-1100&apos;,&apos;BIOL-1010&apos;
+  end
+
+  d.section &quot;Mathematics Option&quot; do |s|
+    s.valid_courses {|course| course.catalogNumber =~ /MAT[HP]-[2346].../}
+    s.count = 1
+  end
+  
+  d.section &quot;Computer Science Option&quot; do |s|
+    s.valid_courses do |course|
+      course.catalogNumber =~ /CSCI-[46].../ ||
+        (course.catalogNumber =~ /ECSE-4[67]../ &amp;&amp; ![&apos;4630&apos;,&apos;4640&apos;,&apos;4720&apos;].include?(course.catalogNumber[5..8])) ||
+        course.catalogNumber == &apos;ECSE-4490&apos;
+    end
+    s.count = 3
+  end
+  
+  d.section &quot;Science Option&quot; do |s|
+    s.valid_courses do |course|
+      [&apos;ASTR&apos;,&apos;BIOL&apos;,&apos;CHEM&apos;,&apos;ERTH&apos;,&apos;PHYS&apos;].include?(course.catalogNumber[0..3]) &amp;&amp; 
+        course.credits == 4 &amp;&amp;
+        course.catalogNumber != &apos;ERTH-1030&apos;
+    end
+    s.count = 1
+  end
+
+  d.section &quot;H&amp;SS Core&quot; do |s|
+    s.credits = 22
+    s.description = &lt;&lt;-EOF
+    Select a minimum of 2 4-credit courses in Humanities 
+    Select a minimum of 2 4-credit courses in the Social Sciences 
+    No more than 3 1000-level H&amp;SS courses may be applied to the H&amp;SS Core 
+    No more than 6 credits may be taken P/NC 
+    At least ONE 4 credit course must be at the 4000 level 
+    No more than 2 courses may transfer towards the 
+    H&amp;SS Core (including Adv Placement), excludes Transfer Students. 
+    Depth Requirement: 2 4-credit courses in same H or SS 
+    subject area with at least 1 above the .1000 level and none on Pass/No Credit 
+    Engineering majors (except ROTC cadets) choose a 2 credit 
+    course to meet their Profess Development II requirement. 
+    (PSYC 4170 or STSS 4840 Professional Development). 
+    The TOTAL H&amp;SS Core Requirement is 22 credits.
+    EOF
+    s.valid_courses_special do |courses|
+      numonethousand = 0
+      courses.select do |course|
+        if [&apos;IHSS&apos;,&apos;ARTS&apos;,&apos;LANG&apos;,&apos;LITR&apos;,&apos;COMM&apos;,&apos;WRIT&apos;,&apos;STSH&apos;,&apos;PHIL&apos;,
+          &apos;COGS&apos;,&apos;ECON&apos;,&apos;IHSS&apos;,&apos;PSYC&apos;,&apos;STSS&apos;].include?(course.catalogNumber[0..3])
+          if course.level == &apos;1000&apos;
+            numonethousand += 1
+            numonethousand &lt;= 3
+          else
+            true
+          end
+        else
+          false
+        end
+      end
+    end
+
+    s.must_have &quot;minimum of 2 4-credit courses in Humanities&quot; do |courses|
+      courses = courses.find_all do |course| 
+        course.credits == 4 &amp;&amp; [&apos;IHSS&apos;,&apos;ARTS&apos;,&apos;LANG&apos;,&apos;LITR&apos;,&apos;COMM&apos;,&apos;WRIT&apos;,&apos;STSH&apos;,&apos;PHIL&apos;].include?(course.catalogNumber[0..3])
+      end
+      courses.size &gt;= 2
+    end
+
+    s.must_have &quot;minimum of 2 4-credit courses in the Social Sciences&quot; do |courses|
+      courses = courses.find_all do |course| 
+        course.credits == 4 &amp;&amp; [&apos;COGS&apos;,&apos;ECON&apos;,&apos;IHSS&apos;,&apos;PSYC&apos;,&apos;STSS&apos;].include?(course.catalogNumber[0..3])
+      end
+      courses.size &gt;= 2
+    end
+
+    s.must_have &quot;one 4 credit course at the 4000 level&quot; do |courses|
+      courses.find {|c| c.level == &apos;4000&apos; &amp;&amp; c.credits == 4}
+    end
+
+    s.must_have &quot;Professional Development II&quot; do |courses|
+      courses.find {|c| c.catalogNumber == &apos;PSYC-4170&apos; || c.catalogNumber == &apos;STSS-4840&apos;}
+    end
+    
+    s.must_have &quot;Depth Requirement&quot; do |courses|
+      departments = {}
+      courses.each do |course|
+        dept = course.catalogNumber[0..3]
+        if course.credits == 4
+          departments[dept] ||= []
+          departments[dept] &lt;&lt; course
+        end
+      end
+      
+      success = false
+      departments.each do |dept, courses|
+        above1k = false
+        courses.each do |course|
+          above1k ||= course.level != &apos;1000&apos;
+        end
+        if courses.size &gt;= 2 &amp;&amp; above1k
+          success = true
+        end
+      end
+      success
+    end
+  end
+
+  d.section &quot;Free Electives&quot; do |s|
+    s.valid_courses {|c| true}
+    s.credits = 28
+  end
+
+  d.total_credits = 128
+end</validationCode>
+      </degree>
+      <degree>
         <id>1</id>
         <name>B.S. Computer &amp; Systems Engineering 2011</name>
         <validationCode>degree &quot;B.S. Computer &amp; Systems Engineering 2011&quot;, 1 do |d|  d.section &quot;Communication Requirement&quot; do |s|
@@ -11210,29 +11344,33 @@ NOTE: Unclear when course is offered
     (PSYC 4170 or STSS 4840 Professional Development). 
     The TOTAL H&amp;SS Core Requirement is 22 credits.
     EOF
-    numonethousand = 0
-    s.valid_courses do |course|
-      if [&apos;IHSS&apos;,&apos;ARTS&apos;,&apos;LANG&apos;,&apos;LITR&apos;,&apos;COMM&apos;,&apos;WRIT&apos;,&apos;STSH&apos;,&apos;PHIL&apos;,
-        &apos;COGS&apos;,&apos;ECON&apos;,&apos;IHSS&apos;,&apos;PSYC&apos;,&apos;STSS&apos;].include?(course.catalogNumber[0..3])
-        if course.level == &apos;1000&apos;
-          numonethousand += 1
-          false if numonethousand &gt; 3
+    s.valid_courses_special do |courses|
+      numonethousand = 0
+      courses.select do |course|
+        if [&apos;IHSS&apos;,&apos;ARTS&apos;,&apos;LANG&apos;,&apos;LITR&apos;,&apos;COMM&apos;,&apos;WRIT&apos;,&apos;STSH&apos;,&apos;PHIL&apos;,
+          &apos;COGS&apos;,&apos;ECON&apos;,&apos;IHSS&apos;,&apos;PSYC&apos;,&apos;STSS&apos;].include?(course.catalogNumber[0..3])
+          if course.level == &apos;1000&apos;
+            numonethousand += 1
+            numonethousand &lt;= 3
+          else
+            true
+          end
         else
-          true
+          false
         end
       end
     end
 
     s.must_have &quot;minimum of 2 4-credit courses in Humanities&quot; do |courses|
       courses = courses.find_all do |course| 
-        course.credits == 4 &amp;&amp; [&apos;IHSS&apos;,&apos;ARTS&apos;,&apos;LANG&apos;,&apos;LITR&apos;,&apos;COMM&apos;,&apos;WRIT&apos;,&apos;STSH&apos;,&apos;PHIL&apos;].include?(course.department)
+        course.credits == 4 &amp;&amp; [&apos;IHSS&apos;,&apos;ARTS&apos;,&apos;LANG&apos;,&apos;LITR&apos;,&apos;COMM&apos;,&apos;WRIT&apos;,&apos;STSH&apos;,&apos;PHIL&apos;].include?(course.catalogNumber[0..3])
       end
       courses.size &gt;= 2
     end
 
     s.must_have &quot;minimum of 2 4-credit courses in the Social Sciences&quot; do |courses|
       courses = courses.find_all do |course| 
-        course.credits == 4 &amp;&amp; [&apos;COGS&apos;,&apos;ECON&apos;,&apos;IHSS&apos;,&apos;PSYC&apos;,&apos;STSS&apos;].include?(course.department)
+        course.credits == 4 &amp;&amp; [&apos;COGS&apos;,&apos;ECON&apos;,&apos;IHSS&apos;,&apos;PSYC&apos;,&apos;STSS&apos;].include?(course.catalogNumber[0..3])
       end
       courses.size &gt;= 2
     end
@@ -11277,7 +11415,146 @@ NOTE: Unclear when course is offered
   d.total_credits = 128
 end</validationCode>
       </degree>
+      <degree>
+        <id>3</id>
+        <name>B.S. Electrical Engineering 2011</name>
+        <validationCode>degree &quot;B.S. Electrical Engineering 2011&quot;, 3 do |d|  d.section &quot;Communication Requirement&quot; do |s|
+    s.valid_courses do |course|
+      course.description =~ /(communication|writing)-intensive/i
+    end
+    s.exclusive = false
+    s.count = 2
+  end
+
+  d.section &quot;Math &amp; Science&quot; do |s|
+    s.courses &apos;MATH-1010&apos;, &apos;CHEM-1100&apos;, &apos;MATH-1020&apos;, &apos;PHYS-1100&apos;, &apos;MATH-2400&apos;, &apos;PHYS-1200&apos;, &apos;MATH-2010&apos;
+  end
+
+  d.section &quot;Core Engineering&quot; do |s|
+    s.courses &apos;ENGR-1100&apos;,&apos;ENGR-2050&apos;,&apos;ENGR-2350&apos;,&apos;ENGR-1200&apos;,&apos;ENGR-4010&apos;
+    s.one_of &apos;ENGR-1300&apos;,&apos;ENGR-1310&apos;
+  end
+
+  d.section &quot;Required Courses&quot; do |s|
+    s.courses &apos;ECSE-2010&apos;,&apos;ECSE-2610&apos;,&apos;ECSE-2050&apos;,&apos;ECSE-2410&apos;, &apos;ECSE-2100&apos;, &apos;ECSE-2210&apos;,&apos;ECSE-4500&apos;
+  end
+
+  d.section &quot;Multidisciplinary Elective&quot; do |s|
+    s.one_of &apos;ENGR-1600&apos;,&apos;ENGR-2090&apos;,&apos;ENGR-2250&apos;,&apos;ENGR-2530&apos;
+  end
+  
+  d.section &quot;Design Elective&quot; do |s|
+    s.one_of &apos;ECSE-4780&apos;,&apos;ECSE-4900&apos;,&apos;ECSE-4980&apos;,&apos;MANE-4220&apos;,&apos;EPOW-4850&apos;
+  end
+  
+  d.section &quot;Laboratory Elective&quot; do |s|
+    s.one_of &apos;ECSE-4090&apos;, &apos;ECSE-4220&apos;, &apos;ECSE-4690&apos;, &apos;ECSE-4760&apos;, &apos;ECSE-4770&apos;, &apos;ECSE-4790&apos;, &apos;ECSE-4710&apos;, &apos;ENGR-4710&apos;, &apos;EPOW-4030&apos;
+  end
+
+  d.section &quot;Restricted Electives&quot; do |s|
+    s.credits = 9
+    s.valid_courses do |course|
+       course.catalogNumber =~ /(ECSE|EPOW|ENGR-4)/
+    end
+  end
+
+  d.section &quot;H&amp;SS Core&quot; do |s|
+    s.credits = 22
+    s.description = &lt;&lt;-EOF
+    Select a minimum of 2 4-credit courses in Humanities 
+    Select a minimum of 2 4-credit courses in the Social Sciences 
+    No more than 3 1000-level H&amp;SS courses may be applied to the H&amp;SS Core 
+    No more than 6 credits may be taken P/NC 
+    At least ONE 4 credit course must be at the 4000 level 
+    No more than 2 courses may transfer towards the 
+    H&amp;SS Core (including Adv Placement), excludes Transfer Students. 
+    Depth Requirement: 2 4-credit courses in same H or SS 
+    subject area with at least 1 above the .1000 level and none on Pass/No Credit 
+    Engineering majors (except ROTC cadets) choose a 2 credit 
+    course to meet their Profess Development II requirement. 
+    (PSYC 4170 or STSS 4840 Professional Development). 
+    The TOTAL H&amp;SS Core Requirement is 22 credits.
+    EOF
+    s.valid_courses_special do |courses|
+      numonethousand = 0
+      courses.select do |course|
+        if [&apos;IHSS&apos;,&apos;ARTS&apos;,&apos;LANG&apos;,&apos;LITR&apos;,&apos;COMM&apos;,&apos;WRIT&apos;,&apos;STSH&apos;,&apos;PHIL&apos;,
+          &apos;COGS&apos;,&apos;ECON&apos;,&apos;IHSS&apos;,&apos;PSYC&apos;,&apos;STSS&apos;].include?(course.catalogNumber[0..3])
+          if course.level == &apos;1000&apos;
+            numonethousand += 1
+            numonethousand &lt;= 3
+          else
+            true
+          end
+        else
+          false
+        end
+      end
+    end
+
+    s.must_have &quot;minimum of 2 4-credit courses in Humanities&quot; do |courses|
+      courses = courses.find_all do |course| 
+        course.credits == 4 &amp;&amp; [&apos;IHSS&apos;,&apos;ARTS&apos;,&apos;LANG&apos;,&apos;LITR&apos;,&apos;COMM&apos;,&apos;WRIT&apos;,&apos;STSH&apos;,&apos;PHIL&apos;].include?(course.catalogNumber[0..3])
+      end
+      courses.size &gt;= 2
+    end
+
+    s.must_have &quot;minimum of 2 4-credit courses in the Social Sciences&quot; do |courses|
+      courses = courses.find_all do |course| 
+        course.credits == 4 &amp;&amp; [&apos;COGS&apos;,&apos;ECON&apos;,&apos;IHSS&apos;,&apos;PSYC&apos;,&apos;STSS&apos;].include?(course.catalogNumber[0..3])
+      end
+      courses.size &gt;= 2
+    end
+
+    s.must_have &quot;one 4 credit course at the 4000 level&quot; do |courses|
+      courses.find {|c| c.level == &apos;4000&apos; &amp;&amp; c.credits == 4}
+    end
+
+    s.must_have &quot;Professional Development II&quot; do |courses|
+      courses.find {|c| c.catalogNumber == &apos;PSYC-4170&apos; || c.catalogNumber == &apos;STSS-4840&apos;}
+    end
+
+    s.must_have &quot;Depth Requirement&quot; do |courses|
+      departments = {}
+      courses.each do |course|
+        dept = course.catalogNumber[0..3]
+        if course.credits == 4
+          departments[dept] ||= []
+          departments[dept] &lt;&lt; course
+        end
+      end
+
+      success = false
+      departments.each do |dept, courses|
+        above1k = false
+        courses.each do |course|
+          above1k ||= course.level != &apos;1000&apos;
+        end
+        if courses.size &gt;= 2 &amp;&amp; above1k
+          success = true
+        end
+      end
+      success
+    end
+  end
+
+  d.section &quot;Free Electives&quot; do |s|
+    s.valid_courses {|c| true}
+    s.credits = 12
+  end
+
+  d.total_credits = 128
+end</validationCode>
+      </degree>
     </courses>
+
+
+
+
+
+
+
+
 
 
 

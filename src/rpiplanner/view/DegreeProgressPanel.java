@@ -1,6 +1,5 @@
 package rpiplanner.view;
 
-import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.Rectangle;
 import java.awt.event.ItemEvent;
@@ -19,6 +18,11 @@ import javax.swing.ScrollPaneConstants;
 import javax.swing.Scrollable;
 
 import org.jruby.exceptions.RaiseException;
+import com.jgoodies.forms.factories.FormFactory;
+import com.jgoodies.forms.layout.CellConstraints;
+import com.jgoodies.forms.layout.ColumnSpec;
+import com.jgoodies.forms.layout.FormLayout;
+import com.jgoodies.forms.layout.RowSpec;
 
 import rpiplanner.POSController;
 import rpiplanner.model.Degree;
@@ -39,17 +43,23 @@ public class DegreeProgressPanel extends JPanel {
 	 */
 	public DegreeProgressPanel() {
 		super();
-		setLayout(new BorderLayout());
-
+		setLayout(new FormLayout(
+			new ColumnSpec[] {
+				FormFactory.DEFAULT_COLSPEC},
+			new RowSpec[] {
+				FormFactory.DEFAULT_ROWSPEC,
+				FormFactory.DEFAULT_ROWSPEC,
+				RowSpec.decode("fill:default:grow(1.0)")}));
+		
 		degreeComboBox = new JComboBox();
-		add(degreeComboBox, BorderLayout.SOUTH);
+		add(degreeComboBox, new CellConstraints("1, 2, 1, 1, fill, fill"));
 
 		progressBar = new JProgressBar();
-		add(progressBar, BorderLayout.NORTH);
+		add(progressBar, new CellConstraints("1, 1, 1, 1, fill, fill"));
 
 		final JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
-		add(scrollPane, BorderLayout.CENTER);
+		add(scrollPane, new CellConstraints("1, 3, 1, 1, fill, fill"));
 
 		sectionContainer = new SectionScrollPanel();
 		sectionContainer.setLayout(new BoxLayout(sectionContainer, BoxLayout.Y_AXIS));
@@ -92,9 +102,11 @@ public class DegreeProgressPanel extends JPanel {
 		rebuildSections();
 	}
 	
-	private void rebuildSections(){
+	public void rebuildSections(){
 		sections.clear();
 		sectionContainer.removeAll();
+		if(plan.getDegrees().size() > 0)
+			this.degree = plan.getDegrees().get(0);
 		if (degree != null) {
 			for (String s : degree.getSectionNames()) {
 				DegreeSectionDisplay dsd = new DegreeSectionDisplay(controller);
@@ -131,6 +143,7 @@ public class DegreeProgressPanel extends JPanel {
 			}
 		});
 		
+		rebuildSections();
 		validatePlan();
 	}
 	

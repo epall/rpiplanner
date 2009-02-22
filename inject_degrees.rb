@@ -8,27 +8,25 @@ doc.elements.delete_all '//degree'
 
 Dir.glob("degrees/*.rb").each do |file|
   degree = REXML::Element.new "degree"
-  if file =~ /csys/ # don't include biomed yet
-    contents = File.new(file, 'r')
-    validationCode = contents.readline.strip
-    validationCode =~ /degree "(.*)", ([0123456789]*) do |d|/
-    validationCode << contents.read(nil)
-    contents.close
-    
-    id = REXML::Element.new("id")
-    id.text = $2.to_s
-    degree.add id
-    
-    name = REXML::Element.new("name")
-    name.text = $1
-    degree.add name
-    
-    code = REXML::Element.new("validationCode")
-    code.text = validationCode
-    degree.add code
-    
-    doc.root.add degree
-  end
+  contents = File.new(file, 'r')
+  validationCode = contents.readline.strip
+  validationCode =~ /degree "(.*)", ([0123456789]*) do |d|/
+  validationCode << contents.read(nil)
+  contents.close
+  
+  id = REXML::Element.new("id")
+  id.text = $2.to_s
+  degree.add id
+  
+  name = REXML::Element.new("name")
+  name.text = $1
+  degree.add name
+  
+  code = REXML::Element.new("validationCode")
+  code.text = validationCode
+  degree.add code
+  
+  doc.root.add degree
 end
 
 # formatter = REXML::Formatters::Pretty.new

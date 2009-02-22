@@ -26,6 +26,10 @@ class SectionDescriptor
     @course_filter = func
   end
   
+  def valid_courses_special(&func)
+    @course_filter_special = func
+  end
+  
   def courses(*courses)
     @courses = courses
   end
@@ -47,15 +51,24 @@ class SectionDescriptor
   end
   
   def potential_courses(available_courses)
-    available_courses.select {|course| @course_filter.call(course)}
+    if @course_filter_special
+      @course_filter_special.call(available_courses)
+    else
+      available_courses.select {|course| @course_filter.call(course)}
+    end
   end
   
   def validate(available_courses)
     missing_courses = []
     applied_courses = []
+    potential_courses = []
     messages = []
     @course_filter ||= Proc.new { true }
-    potential_courses = available_courses.select {|course| @course_filter.call(course)}
+    if @course_filter_special
+      potential_courses = @course_filter_special.call(available_courses)
+    else
+      potential_courses = available_courses.select {|course| @course_filter.call(course)}
+    end
 
     if @courses
       applied_courses += potential_courses.select{ |course| @courses.include? course.catalogNumber}
