@@ -78,9 +78,9 @@ public class PlanOfStudyEditor extends JPanel {
 		super();
 		setLayout(new FormLayout(
 			new ColumnSpec[] {
-				ColumnSpec.decode("250px:grow(1)"),
-				ColumnSpec.decode("400px:grow(5)"),
-				FormFactory.MIN_COLSPEC},
+				ColumnSpec.decode("250px:grow(2)"),
+				ColumnSpec.decode("400px:grow(11)"),
+				ColumnSpec.decode("fill:default:grow(1)")},
 			new RowSpec[] {
 				FormFactory.MIN_ROWSPEC,
 				RowSpec.decode("fill:0dlu:grow(1.0)"),

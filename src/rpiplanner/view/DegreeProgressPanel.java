@@ -18,6 +18,7 @@ import javax.swing.ScrollPaneConstants;
 import javax.swing.Scrollable;
 
 import org.jruby.exceptions.RaiseException;
+
 import com.jgoodies.forms.factories.FormFactory;
 import com.jgoodies.forms.layout.CellConstraints;
 import com.jgoodies.forms.layout.ColumnSpec;
@@ -45,7 +46,7 @@ public class DegreeProgressPanel extends JPanel {
 		super();
 		setLayout(new FormLayout(
 			new ColumnSpec[] {
-				FormFactory.DEFAULT_COLSPEC},
+				ColumnSpec.decode("fill:default:grow(1.0)")},
 			new RowSpec[] {
 				FormFactory.DEFAULT_ROWSPEC,
 				FormFactory.DEFAULT_ROWSPEC,
