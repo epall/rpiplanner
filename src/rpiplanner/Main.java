@@ -154,6 +154,18 @@ public class Main extends Application {
 
 	protected void loadFromXML(){
 		File localStorageDir = getContext().getLocalStorage().getDirectory();
+		localStorageDir.mkdirs();
+		// 1.1.1 -> 1.2 upgrade (adding vendorId)
+		File oldStorageDir = new File(localStorageDir.getParentFile().getParentFile(), "\\UnknownApplicationVendor\\RPI Planner");
+		if(oldStorageDir.exists()){
+			File oldDatabase = new File(oldStorageDir, "course_database.xml");
+			oldDatabase.renameTo(new File(localStorageDir, "course_database.xml"));
+			File oldPlan = new File(oldStorageDir, "default_pos.xml");
+			oldPlan.renameTo(new File(localStorageDir, "default_pos.xml"));
+			oldStorageDir.delete();
+		}
+		// normal startup
+		
 		InputStream databaseStream = getClass().getResourceAsStream("/course_database.xml");
 		if(databaseStream == null)
 			try {
