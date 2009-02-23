@@ -67,7 +67,12 @@ degree "B.S. Computer Science 2011", 2 do |d|
         end
       end
     end
-
+    
+    s.valid_courses do |course|
+        ['IHSS','ARTS','LANG','LITR','COMM','WRIT','STSH','PHIL',
+          'COGS','ECON','IHSS','PSYC','STSS'].include?(course.catalogNumber[0..3])
+    end
+    
     s.must_have "minimum of 2 4-credit courses in Humanities" do |courses|
       courses = courses.find_all do |course| 
         course.credits == 4 && ['IHSS','ARTS','LANG','LITR','COMM','WRIT','STSH','PHIL'].include?(course.catalogNumber[0..3])
