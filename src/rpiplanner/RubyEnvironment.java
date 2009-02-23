@@ -44,7 +44,7 @@ public class RubyEnvironment {
 	private static String readFileAsString(String filePath)
 	throws java.io.IOException{
 	    StringBuffer fileData = new StringBuffer(1000);
-	    InputStream fileStream = PlanValidator.class.getResourceAsStream("/"+filePath);
+	    InputStream fileStream = RubyEnvironment.class.getResourceAsStream("/"+filePath);
 	    if(fileStream == null){
 	    	try{
 	    		fileStream = new FileInputStream(filePath);
