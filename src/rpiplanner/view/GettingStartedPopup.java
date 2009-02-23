@@ -48,69 +48,23 @@ import rpiplanner.model.PlanOfStudy;
 public class GettingStartedPopup extends JDialog {
 	private JComboBox majorComboBox;
 	private JComboBox startingYearComboBox;
-	private JTextArea descriptionTextArea;
-	private JTextArea textArea;
+    private JTextArea textArea;
 	private POSController controller;
+    private JPanel contentPane;
+    private JButton nextButton;
 
-	// for Swing Designer
+    // for Swing Designer
 	public GettingStartedPopup() {
+        setContentPane(contentPane);
 		setTitle("Getting Started");
 
-		descriptionTextArea = new JTextArea();
-		descriptionTextArea.setLineWrap(true);
-		descriptionTextArea.setAutoscrolls(false);
-		descriptionTextArea
-				.setText("Welcome to RPI Planner. Please enter your starting year and degree to get started.");
-		getContentPane().add(descriptionTextArea, BorderLayout.NORTH);
-		getContentPane().setLayout(new BorderLayout());
-
-		final JPanel panel = new JPanel();
-		panel.setLayout(new BorderLayout());
-		getContentPane().add(panel, BorderLayout.SOUTH);
-
-		final JButton nextButton = new JButton();
-		nextButton.addActionListener(new ActionListener() {
-			public void actionPerformed(final ActionEvent e) {
-				save();
-				setVisible(false);
-			}
-		});
-		nextButton.setText("Next >>");
-		panel.add(nextButton);
-
-		final JPanel inputPanel = new JPanel();
-		inputPanel.setLayout(new FormLayout(
-			new ColumnSpec[] {
-				ColumnSpec.decode("4dlu:grow(1.0)"),
-				ColumnSpec.decode("right:default"),
-				FormFactory.RELATED_GAP_COLSPEC,
-				FormFactory.DEFAULT_COLSPEC,
-				ColumnSpec.decode("4dlu:grow(1.0)")},
-			new RowSpec[] {
-				RowSpec.decode("default:grow(1.0)"),
-				FormFactory.RELATED_GAP_ROWSPEC,
-				FormFactory.DEFAULT_ROWSPEC,
-				FormFactory.RELATED_GAP_ROWSPEC,
-				FormFactory.DEFAULT_ROWSPEC,
-				FormFactory.RELATED_GAP_ROWSPEC,
-				RowSpec.decode("default:grow(1.0)")}));
-		getContentPane().add(inputPanel, BorderLayout.CENTER);
-
-		final JLabel startingYearLabel = new JLabel();
-		startingYearLabel.setText("Starting Year:");
-		inputPanel.add(startingYearLabel, new CellConstraints(2, 3));
-
-		Integer[] years = { 2006, 2007, 2008, 2009, 2010, 2011 };
-		startingYearComboBox = new JComboBox(years);
-		inputPanel.add(startingYearComboBox, new CellConstraints(4, 3));
-
-		final JLabel majorLabel = new JLabel();
-		majorLabel.setText("Major:");
-		inputPanel.add(majorLabel, new CellConstraints(2, 5));
-
-		majorComboBox = new JComboBox();
-		inputPanel.add(majorComboBox, new CellConstraints(4, 5));
-	}
+        nextButton.addActionListener(new ActionListener() {
+            public void actionPerformed(final ActionEvent e) {
+                save();
+                setVisible(false);
+            }
+        });
+    }
 
 	public GettingStartedPopup(POSController controller){
 		this();
@@ -130,7 +84,7 @@ public class GettingStartedPopup extends JDialog {
 	}
 
 	private void save(){
-		controller.initializeTerms((Integer)startingYearComboBox.getSelectedItem());
+		controller.initializeTerms(Integer.valueOf((String)startingYearComboBox.getSelectedItem()));
 		ArrayList<Degree> degrees = controller.getPlan().getDegrees();
 		if(degrees.contains(majorComboBox.getSelectedItem()) || majorComboBox.getSelectedItem() == null)
 			;

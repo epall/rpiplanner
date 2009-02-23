@@ -213,6 +213,9 @@
     <option name="projectName" value="RPI Planner" />
   </component>
   <component name="ProjectFileVersion" converted="true" />
+  <component name="ProjectKey">
+    <option name="state" value="project:///Users/epall/programming/rpiplanner/RPI Planner.ipr" />
+  </component>
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/RPI Planner.iml" filepath="$PROJECT_DIR$/RPI Planner.iml" />
