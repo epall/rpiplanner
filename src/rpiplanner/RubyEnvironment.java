@@ -11,6 +11,7 @@ import org.jruby.Ruby;
 import org.jruby.RubyHash;
 import org.jruby.javasupport.JavaEmbedUtils;
 import org.jruby.runtime.GlobalVariable;
+import org.jruby.runtime.builtin.IRubyObject;
 
 import rpiplanner.model.CourseDatabase;
 import rpiplanner.model.Degree;
@@ -71,6 +72,12 @@ public class RubyEnvironment {
 						courseDatabase));
 		rubyEnvironment.defineVariable(databaseGlob);
 	}
+
+    public Apcredit getApcredit(){
+			rubyEnvironment.executeScript(readFileAsString("apcredit.rb"), "apcredit.rb");
+        IRubyObject raw = rubyEnvironment.getClass("apcredit").newInstance(null, null, null);
+        return (Apcredit)raw;
+    }
 
 	public DegreeValidator getDegreeDescriptor(Degree degree) {
 		DegreeValidator desc = (DegreeValidator) degrees.get(degree.getID());
