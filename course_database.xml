@@ -11158,6 +11158,9 @@ NOTE: Unclear when course is offered
     
     
     
+    
+      
+      
     <degree>
         <id>2</id>
         <name>B.S. Computer Science 2011</name>
@@ -11229,7 +11232,12 @@ NOTE: Unclear when course is offered
         end
       end
     end
-
+    
+    s.valid_courses do |course|
+        [&apos;IHSS&apos;,&apos;ARTS&apos;,&apos;LANG&apos;,&apos;LITR&apos;,&apos;COMM&apos;,&apos;WRIT&apos;,&apos;STSH&apos;,&apos;PHIL&apos;,
+          &apos;COGS&apos;,&apos;ECON&apos;,&apos;IHSS&apos;,&apos;PSYC&apos;,&apos;STSS&apos;].include?(course.catalogNumber[0..3])
+    end
+    
     s.must_have &quot;minimum of 2 4-credit courses in Humanities&quot; do |courses|
       courses = courses.find_all do |course| 
         course.credits == 4 &amp;&amp; [&apos;IHSS&apos;,&apos;ARTS&apos;,&apos;LANG&apos;,&apos;LITR&apos;,&apos;COMM&apos;,&apos;WRIT&apos;,&apos;STSH&apos;,&apos;PHIL&apos;].include?(course.catalogNumber[0..3])
@@ -11359,6 +11367,11 @@ end</validationCode>
           false
         end
       end
+    end
+    
+    s.valid_courses do |course|
+        [&apos;IHSS&apos;,&apos;ARTS&apos;,&apos;LANG&apos;,&apos;LITR&apos;,&apos;COMM&apos;,&apos;WRIT&apos;,&apos;STSH&apos;,&apos;PHIL&apos;,
+          &apos;COGS&apos;,&apos;ECON&apos;,&apos;IHSS&apos;,&apos;PSYC&apos;,&apos;STSS&apos;].include?(course.catalogNumber[0..3])
     end
 
     s.must_have &quot;minimum of 2 4-credit courses in Humanities&quot; do |courses|
@@ -11492,6 +11505,11 @@ end</validationCode>
       end
     end
 
+    s.valid_courses do |course|
+      [&apos;IHSS&apos;,&apos;ARTS&apos;,&apos;LANG&apos;,&apos;LITR&apos;,&apos;COMM&apos;,&apos;WRIT&apos;,&apos;STSH&apos;,&apos;PHIL&apos;,
+        &apos;COGS&apos;,&apos;ECON&apos;,&apos;IHSS&apos;,&apos;PSYC&apos;,&apos;STSS&apos;].include?(course.catalogNumber[0..3])
+      end
+
     s.must_have &quot;minimum of 2 4-credit courses in Humanities&quot; do |courses|
       courses = courses.find_all do |course| 
         course.credits == 4 &amp;&amp; [&apos;IHSS&apos;,&apos;ARTS&apos;,&apos;LANG&apos;,&apos;LITR&apos;,&apos;COMM&apos;,&apos;WRIT&apos;,&apos;STSH&apos;,&apos;PHIL&apos;].include?(course.catalogNumber[0..3])
@@ -11547,6 +11565,7 @@ end</validationCode>
 end</validationCode>
       </degree>
     </courses>
+
 
 
 

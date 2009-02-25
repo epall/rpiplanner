@@ -21,7 +21,7 @@
 			<fileset dir="build/classes" />
 			<fileset dir=".">
 				<include name="course_database.xml"/>
-				<include name="plan_validation.rb"/>
+				<include name="plan_validation_2.rb"/>
 				<include name="*.png"/>
 				<include name="degrees/*.plan" />
 			</fileset>
