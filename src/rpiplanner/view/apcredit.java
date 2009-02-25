@@ -10,6 +10,9 @@ import javax.swing.*;
  * To change this template use File | Settings | File Templates.
  */
 public class apcredit {
-    private JComboBox comboBox1;
-    private JComboBox comboBox2;
+    private JComboBox test1;
+    private JComboBox score1;
+
+    public apcredit() {
+    }
 }
