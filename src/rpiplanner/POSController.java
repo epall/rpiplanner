@@ -93,10 +93,13 @@ public class POSController {
 	}
 	
 	public void setPlan(PlanOfStudy plan){
+        PlanOfStudy oldPlan = this.plan;
 		this.plan = plan;
-		if(semesterPanels != null)
-			setSemesterPanels(semesterPanels);
-		totalCredits();
+        if(semesterPanels != null){
+            setSemesterPanels(semesterPanels);
+            validatePlan();
+        }
+        support.firePropertyChange("plan", oldPlan, plan);
 	}
 
 	public ListModel getCourseListModel() {
