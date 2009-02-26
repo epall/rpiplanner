@@ -103,6 +103,11 @@ public class Degree {
 		if(descriptor == null)
 			descriptor = RubyEnvironment.getInstance().getDegreeDescriptor(this);
 	}
+
+    /**
+     * Obtain an object capable of validating a PlanOfStudy against this degree.
+     * @return An instance of DegreeValidator obtained by some means.
+     */
 	public DegreeValidator getValidator() {
 		initDescriptor();
 		return descriptor;
