@@ -87,7 +87,7 @@ def parse_year_parts(description)
   messages = []
 
   case description
-  when /^(Offered )?(each term|Fall and spring).$/i
+  when /^(Offered )?(each term|Fall and spring( term)?)( annually)?.$/i
     parts << 'FALL'
     parts << 'SPRING'
   when /^Fall, spring,? (and )?summer (terms|session 2) annually.$/
@@ -98,7 +98,7 @@ def parse_year_parts(description)
     parts << 'SPRING'
   when /^Spring( term| semester)?( annually)?( only)?.?( .)?$/i
     parts << 'SPRING'
-  when /^(Offered )?Fall( term)?( annually)?.?$/i
+  when /^(Offered )?Fall( term)?( annually)?.?( Includes laboratory experience.)?$/i
     parts << 'FALL'
   when /^Offered on (sufficient )?demand.$/
     messages << "Offered on sufficient demand."
@@ -119,19 +119,22 @@ def parse_year_parts(description)
     messages << "Offered on availability of #{$5}."
     parts << 'FALL'
     parts << 'SPRING'
-  when /^(Spring|Fall)(,| term) odd-?numbered years.$/i
+  when /^(Spring|Fall)(,| term) odd(-| )?numbered years.$/i
     messages << "odd-numbered years ONLY"
     parts << $1.upcase
-  when /^(Spring|Fall) term even.?numbered years.$/i
+  when /^(Spring|Fall)(,| term),? even(-| )number(ed|s) years.$/i
     messages << "even-numbered years ONLY"
     parts << $1.upcase
-  when /^(Spring|Fall) term,? alternate years./
+  when /^(Spring|Fall)(,| term)? (\(of )?even.?numbered years(\))?.$/i
+    messages << "even-numbered years ONLY"
+    parts << $1.upcase
+  when /^(Spring|Fall) term,? alternat(e|ive) years./
     messages << "alternate years ONLY"
     parts << $1.upcase
   when /^(Graduate course; spring semester, alternate years|Spring term alternate years.)$/
     messages << "alternate years ONLY"
     parts << 'FALL'
-  when /^(Offered )?Annually.?$/
+  when /^(Offered )? ?(Fall and spring)? ?Annually.?$/
     messages << "Offered anually. Unclear which term"
     parts << 'FALL'
     parts << 'SPRING'
@@ -157,6 +160,8 @@ def parse_year_parts(description)
     parts << 'SPRING'
   when /^Summer term annually.$/
     messages << "Only offered during the summer"
+  when /^Spring or summer term( annually)?.$/i
+    parts << 'SPRING'
   when /^4 credit hours/  
     parts << 'FALL'
     parts << 'SPRING'
@@ -186,15 +191,16 @@ def parse_requisites(requisites)
   
   # primary catchall
   when /^Prerequisites?:.{1,3}([A-Z]{4}|Chem) (\d*)( or equivalent)?\
-( or (permission|consent) of instructor)?( and programming experience)?\
+( (and|or) (permission|consent) of instructor)?( and programming experience)?\
 ( and knowledge of PASCAL, C, or LISP)?\
 ( or thorough knowledge of a scientific computer language, preferably C)?\
 (, linear systems theory and transform theory)?(;.*)?\
 (. Consult department about when offered)?\
 ( and some knowledge of matrices)?\
-( and familiarity with elementary ordinary and partial differential equations)?.?$/
+( and familiarity with elementary ordinary and partial differential equations)?\
+(. Restricted to junior and senior engineering majors only)?.?$/
     prerequisites << $1.upcase+'-'+$2
-    requiredP =  false if $3 || $4
+    requiredP =  false if $3 || $4 || $8
     messages << "prerequisite can be replaced with an equivalent" if $3
     messages << "prerequisite can be skipped on permission of instructor" if $4
     messages << "programming experience recommended" if $6
@@ -203,7 +209,8 @@ def parse_requisites(requisites)
     messages << "linear systems theory and transform theory required" if $9
     messages << $10 if $10
     messages << "some knowledge of matrices required" if $12
-    messages << "familiarity with elementary ordinary and partial differential equations required"
+    messages << "familiarity with elementary ordinary and partial differential equations required" if $13
+    messages << "restricted to junior and senior engineering majors only" if $14
   # sometimes they use dashes
   when /^Prerequisite: #{HYPHENATED_CATALOG_NUMBER}( or permission of instructor).?$/
     prerequisites << $1
@@ -216,6 +223,8 @@ def parse_requisites(requisites)
   when /^Prerequisites?: (probability theory and )?#{CATALOG_NUMBER}.$/
     prerequisites << $2+'-'+$3
     messages << "probability theory required" if $1
+  when /^Prerequisites?:.{1,2}satisfactory completion of #{CATALOG_NUMBER}.$/
+    prerequisites << $1+'-'+$2
   #two prerequisites
   when /^Prerequisites?:.{1,3}#{CATALOG_NUMBER}( and|,) #{CATALOG_NUMBER}\
 ( or equivalent)?( or graduate standing)?( or permission of (the )?instructor)?\
@@ -229,6 +238,9 @@ def parse_requisites(requisites)
     messages << "#{$4+'-'+$5} can be skipped on permission of instructor" if $8
     messages << $11 if $10
     messages << "basic knowledge (at the graduate level) of semiconductor devices or permission of the instructor required" if $12
+  when /Prerequisites: #{CATALOG_NUMBER} and #{CATALOG_NUMBER} (or concurrent).$/
+    prerequisites << $1+'-'+$2
+    corequisites << $3+'-'+$4
   # two either-or prerequisites
   when /^Prerequisite:.{1,3}#{CATALOG_NUMBER} or #{CATALOG_NUMBER}( or equivalent)?( (and|or) permission of instructor)?.?$/
     prerequisites << $1+'-'+$2
@@ -256,12 +268,22 @@ def parse_requisites(requisites)
     prerequisites << $3+'-'+$4
     prerequisites << $5+'-'+$6
     messages << "#{$5+'-'+$6} can be skipped on permission of instructor" if $7
+  when /^Prerequisites: #{CATALOG_NUMBER}, #{CATALOG_NUMBER}, #{CATALOG_NUMBER} or equivalent.$/
+    #FIXME not quite right, but the best we can do with our current format
+    prerequisites << $1+'-'+$2
+    prerequisites << $3+'-'+$4
+    prerequisites << $5+'-'+$6
   # three pick-one prerequisites
-  when /^Prerequisite: #{CATALOG_NUMBER} or #{CATALOG_NUMBER} or #{CATALOG_NUMBER}.$/
+  # A or B or C
+  when /^Prerequisite: #{CATALOG_NUMBER} or #{CATALOG_NUMBER} or #{CATALOG_NUMBER}(, or permission of instructor)?.$/
     prerequisites << $1+'-'+$2
     prerequisites << $3+'-'+$4
     prerequisites << $5+'-'+$6
     pickOneP = true
+    requiredP = false if $7
+  when /^Prerequisites:.{1,2}CHEM 1100 and ENGR 1600 or ENGR 2010.$/
+    prerequisites << 'CHEM-1100'
+    prerequisites << 'ENGR-1600'
   when /^Prerequisites: #{CATALOG_NUMBER} and #{CATALOG_NUMBER} \(or equivalent\); #{CATALOG_NUMBER} desirable.$/
     prerequisites << $1+'-'+$2
     prerequisites << $3+'-'+$4
@@ -289,6 +311,13 @@ def parse_requisites(requisites)
     prerequisites << $3+'-'+$4
     corequisites << $5+'-'+$6
     pickOneP = true
+  # A or B, C, D
+  # This isn't possible to do correctly with current scheme
+  when /^Prerequisites: #{CATALOG_NUMBER} or #{CATALOG_NUMBER}, #{CATALOG_NUMBER}, #{CATALOG_NUMBER}. ?(Not recommended for Freshmen and Sophomores.)?$/
+    prerequisites << $1+'-'+$2
+    prerequisites << $5+'-'+$6
+    prerequisites << $7+'-'+$8
+    messages << $9
   when /^Prerequisites: #{CATALOG_NUMBER}, #{CATALOG_NUMBER} or equivalent, some familiarity with Java\/C\+\+.$/
     prerequisites << $1+'-'+$2
     prerequisites << $3+'-'+$4
@@ -463,8 +492,7 @@ end
 
 builder = Builder::XmlMarkup.new(:indent => 2)
 xml = builder.courses do |b|
-  # successfully_parsed_departments.each do |dept|
-  ['BIOL','CSCI','CHEM','ECSE','ENGR','IHSS','MANE','MATH','MTLE','PHYS','PSYC','STSH','STSS'].each do |dept|
+  ['BIOL','CSCI','CHEM','ECON','ECSE','ENGR','EPOW','IHSS','MANE','MATH','MTLE','PHYS','PSYC','STSH','STSS'].each do |dept|
     pull_dept(dept).each do |coid|
       course = pull_class(coid)
       description = course[:description]
@@ -516,16 +544,17 @@ xml = builder.courses do |b|
   end
   
   Dir.glob("degrees/*.rb").each do |file|
-    unless file =~ /bmed/ # don't include biomed yet
-      degree = File.new(file, 'r')
-      header = degree.readline.strip
-      builder.degree {
-        builder.id(header[1..4].to_i)
-        builder.name(header[6..1000])
-        builder.validationCode(degree.read(nil))
-      }
-      degree.close
-    end
+    contents = File.new(file, 'r')
+    validationCode = contents.readline.strip
+    validationCode =~ /degree "(.*)", ([0123456789]*) do |d|/
+    validationCode << "\n"
+    validationCode << contents.read(nil)
+    contents.close
+    builder.degree {
+      builder.id($2.to_s)
+      builder.name($1)
+      builder.validationCode(validationCode)
+    }
   end
 end
 
