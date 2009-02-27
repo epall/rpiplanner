@@ -461,17 +461,10 @@ end
 # puts xmlX
 # exit
 
-#actually successful: 'CSCI', 'ECSE', 'ENGR', 'PHYS', 'MATH', 'IHSS'
-#in progress: 'STSS', 'STSH'
-
-successfully_parsed_departments = ['CSCI', 'ECSE', 'ENGR', 'BIOL', 'MANE',
-  'MATH', 'CHEM', 'ECON','PHYS', 'IHSS', 'STSS', 'STSH', 'PSYC','BMED',
-  'EPOW']
-
 builder = Builder::XmlMarkup.new(:indent => 2)
 xml = builder.courses do |b|
   # successfully_parsed_departments.each do |dept|
-  ['BIOL','CSCI','CHEM','ECSE','ENGR','IHSS','MANE','MATH','PHYS','PSYC','STSH','STSS'].each do |dept|
+  ['BIOL','CSCI','CHEM','ECSE','ENGR','IHSS','MANE','MATH','MTLE','PHYS','PSYC','STSH','STSS'].each do |dept|
     pull_dept(dept).each do |coid|
       course = pull_class(coid)
       description = course[:description]
