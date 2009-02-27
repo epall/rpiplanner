@@ -7,6 +7,15 @@ class apcredit
 def getcourse(tests, scores)
 
 apcourses = []
+i = 0
+
+tests.each do
+
+i++
+
+test = tests[i]
+score = scores[i]
+
   if test == "Computer Science AB"  && score == 5
   	apcourses << str_to_course("CSCI-1100")
   	apcourses << str_to_course("CHEM-1200")
@@ -31,9 +40,17 @@ apcourses = []
   	apcourses << str_to_course("MGMT-2100")
   elsif test == "Psychology" && [4,5].include?(score)
   	apcourses << str_to_course("PSYC-1200")
-
-  apcourses.to_java(Java::RpiplannerModel::Course)
+  elsif test == "Physics C: Mechanics" && [4,5].include?(score) do
+  	if tests.include?("Physics C: Electricity/Magnetism") do
+  		pos = tests.index("Physics C: Electricity/Magnetism")
+  		if scores[pos] == 4 || scores[pos] == 5
+  			apcourses << str_to_course("PHYS-1200")
+  	end
+  	apcourses << str_to_course("PHYS-1100")
   end
+  end
+  
+  apcourses.to_java(Java::RpiplannerModel::Course)  end
 
   def getscore(course)
 
