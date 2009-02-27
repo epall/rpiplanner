@@ -11,14 +11,14 @@
 		<jtestr-server port="20333" runtimes="3"/>
 	</target>
 
-	<target name="package" depends="build">
+	<target name="package">
 		<jar destfile="rpiplanner.jar" filesetmanifest="mergewithoutmain">
 			<manifest>
 				<attribute name="Built-By" value="Eric Allen" />
 				<attribute name="Main-Class" value="rpiplanner.Main" />
 				<attribute name="Class-Path" value="." />
 			</manifest>
-			<fileset dir="build/classes" />
+			<fileset dir="build/classes/production/RPI Planner" />
 			<fileset dir=".">
 				<include name="course_database.xml"/>
 				<include name="plan_validation_2.rb"/>

@@ -1,3 +1,9 @@
+2009-02-27 1.2.1rc1
+Release candidate because we're still experimenting with IntelliJ IDEA.
+Added B.S. Materials Engineering degree and associated courses to database.
+Expanded course database to include several more departments.
+Fixed bug when loading a saved plan.
+
 2009-02-22 1.2
 Completely re-designed degree validation.
 New "Getting Started" window for simpler first-time experience.
