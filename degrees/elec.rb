@@ -1,7 +1,7 @@
 degree "B.S. Electrical Engineering 2011", 3 do |d|
   d.section "Communication Requirement" do |s|
     s.valid_courses do |course|
-      course.description =~ /(communication|writing)-intensive/i
+      course.description =~ /(communication|writing)[- ]intensive/i
     end
     s.exclusive = false
     s.count = 2
