@@ -286,8 +286,13 @@ public class Main extends Application {
 
 	public static PlanOfStudy loadPlanFromFile(String filePath) {
 		InputStream in = Main.class.getResourceAsStream("/"+filePath);
-		if(in == null)
-			return null;
+		if(in == null){
+            try{
+                in = new FileInputStream(filePath);
+            } catch (FileNotFoundException e){
+                return null;
+            }
+        }
 		PlanOfStudy plan = (PlanOfStudy) xs.fromXML(in);
 		try {
 			in.close();
