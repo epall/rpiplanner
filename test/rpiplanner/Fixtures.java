@@ -20,13 +20,8 @@ public class Fixtures {
 	
 	public static CourseDatabase getCourseDatabase(){
 		if(db == null){
-			XStream xs = new XStream();
-			xs.processAnnotations(PlanOfStudy.class);
-			xs.processAnnotations(Course.class);
-			xs.processAnnotations(DefaultCourseDatabase.class);
-			xs.processAnnotations(ShadowCourseDatabase.class);
-			xs.processAnnotations(YearPart.class);
-			xs.registerConverter(new RequisiteSetConverter(xs.getMapper()));
+            XStream xs = Main.initializeXStream();
+
 			InputStream databaseStream;
 			try {
 				databaseStream = new FileInputStream("course_database.xml");
