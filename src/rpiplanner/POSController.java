@@ -25,17 +25,11 @@ import java.awt.Container;
 import java.awt.Point;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
+import java.beans.PropertyChangeEvent;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.swing.ComboBoxModel;
-import javax.swing.JLabel;
-import javax.swing.JList;
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.JTextArea;
-import javax.swing.ListModel;
-import javax.swing.SwingUtilities;
+import javax.swing.*;
 import javax.swing.border.TitledBorder;
 
 import rpiplanner.model.Course;
@@ -74,8 +68,8 @@ public class POSController {
 		for(int i = 0; i < semesterPanels.size(); i++){
 			JPanel p = semesterPanels.get(i);
 			p.setTransferHandler(new CourseTransferHandler(this));
-			updateSemesterPanel(i, plan.getTerm(i));
 		}
+        updateSemesterPanels();
 	}
 
 	public void setCourseDatabase(CourseDatabase courseDatabase) {
@@ -99,6 +93,16 @@ public class POSController {
             setSemesterPanels(semesterPanels);
             validatePlan();
         }
+        plan.addPropertyChangeListener("courses", new PropertyChangeListener() {
+            public void propertyChange(PropertyChangeEvent evt) {
+                PlanOfStudy plan = (PlanOfStudy) evt.getSource();
+                if(semesterPanels != null){
+                    updateSemesterPanels();
+                    validatePlan();
+                }
+                totalCredits();
+            }
+        });
         support.firePropertyChange("plan", oldPlan, plan);
 	}
 
@@ -116,10 +120,13 @@ public class POSController {
 	public void addCourse(int term, Course toAdd) {
 		Term toModify = plan.getTerm(term);
 		toModify.add(toAdd);
-		updateSemesterPanel(term, toModify);
-		totalCredits();
-		validatePlan();
 	}
+
+    private void updateSemesterPanels() {
+        for (int i = 0; i < plan.numTerms(); i++)
+            updateSemesterPanel(i, plan.getTerm(i));
+        ((JComponent)semesterPanels.get(0).getParent()).revalidate();
+    }
 
 	private void updateSemesterPanel(int term, Term model) {
 		ArrayList<Course> courses = model.getCourses();
@@ -145,15 +152,12 @@ public class POSController {
 					+ " " + String.valueOf(model.getYear()) + " ("
 					+ String.valueOf(creditTotal) + ")"));
 		}
-		
-		semesterPanel.revalidate();
 	}
 
 	public void initializeTerms(int startingYear) {
 		plan.setStartingYear(startingYear);
 		plan.rebuildTerms();
-		for (int i = 0; i < plan.numTerms(); i++)
-			updateSemesterPanel(i, plan.getTerm(i));
+        updateSemesterPanels();
 	}
 
 	public void removeCourse(Container semesterPanel, CourseDisplay course) {
@@ -168,9 +172,6 @@ public class POSController {
 			courseIndex++;
 
 		plan.getTerm(semester).remove(courseIndex);
-		updateSemesterPanel(semester, plan.getTerm(semester));
-		totalCredits();
-		validatePlan();
 	}
 
 	private void totalCredits() {
@@ -231,7 +232,6 @@ public class POSController {
 				}
 			}
 		}
-		validatePlan();
 	}
 
 	public ComboBoxModel getDegreeListModel() {
@@ -308,9 +308,6 @@ public class POSController {
 			PlanOfStudy template = Main.loadPlanFromFile("degrees/"+degrees.get(0).getID()+".plan");
 			if(template != null){
 				plan.setTerms(template.getTerms());
-				for (int i = 0; i < plan.numTerms(); i++)
-					updateSemesterPanel(i, plan.getTerm(i));
-				totalCredits();
 			}
 		}
 	}
