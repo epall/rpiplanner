@@ -308,6 +308,7 @@ public class POSController {
 			PlanOfStudy template = Main.loadPlanFromFile("degrees/"+degrees.get(0).getID()+".plan");
 			if(template != null){
 				plan.setTerms(template.getTerms());
+                plan.rebuildTerms();
 			}
 		}
 	}
