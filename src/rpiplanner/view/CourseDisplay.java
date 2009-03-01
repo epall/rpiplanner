@@ -28,6 +28,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionAdapter;
 import java.util.ArrayList;
+import java.util.Collections;
 
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -36,6 +37,7 @@ import javax.swing.TransferHandler;
 
 import rpiplanner.POSController;
 import rpiplanner.model.Course;
+import rpiplanner.model.CourseComparator;
 import rpiplanner.model.RequisiteSet;
 import rpiplanner.model.Term;
 
@@ -145,14 +147,10 @@ public class CourseDisplay extends JPanel {
 	}
 	
 	private void fillRequisites(Course fillCourse, int term) {
-		// for some reason, fillCourse.getPrerequisites() didnt work, but it WOULD work
-		// if i set fillCourse to controller.getCourseDatabase().getCourse(fillCourse.getCatalogNumber())
-		// no idea why
-		// for some courses, controller.getCourseDatabase().getCourse(fillCourse.getCatalogNumber()) returns null
-		// dont know why this happens, either
 		fillCourse = controller.getCourseDatabase().getCourse(fillCourse.getCatalogNumber());	
 		RequisiteSet reqs = fillCourse.getPrerequisites();
-		reqs = sortCourses(reqs); // quickfix for demo
+		Collections.sort(reqs, new CourseComparator());
+		
 		for (int i = 0; i < reqs.size(); i++) {
 			// if the course isnt offered in both spring and fall, and we arent in the term that its offered in,
 			// go back one term so that we are in the term its offered in
@@ -161,8 +159,6 @@ public class CourseDisplay extends JPanel {
 			}
 			
 			// make sure theres still terms
-			// the ap/transfer term is term 0,
-			// if we dont want to use that then make it (term - 1 >= 1)
 			if (term - 1 >= 0) {
 				fillRequisites(reqs.get(i), term - 1);
 			}
@@ -175,7 +171,6 @@ public class CourseDisplay extends JPanel {
 		
 		// this looks to see if the requisite class were trying to add
 		// has already been added.
-		// not sure if theres an easier way to check or not
 		ArrayList<Term> dupes = controller.getPlan().getTerms();
 		boolean dupeCourse = false;
 		for (int t = 0; t < dupes.size(); t++) {
@@ -196,33 +191,9 @@ public class CourseDisplay extends JPanel {
 		
 		// now do corequisites and their requisites
 		RequisiteSet coreqs = fillCourse.getCorequisites();
+		Collections.sort(coreqs, new CourseComparator());
 		for (int k = 0; k < coreqs.size(); k++) {
 			fillRequisites(coreqs.get(k), term);
 		}
-	}
-	
-	// quickfix for demo
-	private RequisiteSet sortCourses(RequisiteSet courses) {
-		for (int i = 0; i < courses.size(); i++)
-		{
-			for (int k = 0; k < courses.size(); k++)
-			{
-				String iSub = courses.get(i).getCatalogNumber();
-				String kSub = courses.get(k).getCatalogNumber();
-				int iIndex = iSub.indexOf('-');
-				int kIndex = kSub.indexOf('-');
-				iSub = iSub.substring(iIndex + 1, iSub.length());
-				kSub = kSub.substring(kIndex + 1, kSub.length());
-				
-				if (Integer.parseInt(kSub) < Integer.parseInt(iSub))
-				{
-					Course tmp = courses.get(i);
-					courses.set(i, courses.get(k));
-					courses.set(k, tmp);
-				}
-			}
-		}
-		
-		return courses;
 	}
 }
