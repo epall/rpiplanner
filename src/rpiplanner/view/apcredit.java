@@ -9,10 +9,9 @@ import javax.swing.*;
  * Time: 6:42:26 PM
  * To change this template use File | Settings | File Templates.
  */
-public class apcredit {
-    private JComboBox test1;
-    private JComboBox score1;
+public class Apcredit {
+    private JPanel tests;
 
-    public apcredit() {
+    public Apcredit() {
     }
 }
