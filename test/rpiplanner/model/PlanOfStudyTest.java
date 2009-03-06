@@ -2,9 +2,7 @@ package rpiplanner.model;
 
 import static org.junit.Assert.*;
 
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.*;
 import rpiplanner.Fixtures;
 import static org.junit.Assert.*;
 
@@ -13,26 +11,27 @@ import java.util.List;
 
 
 public class PlanOfStudyTest {
-	// TODO
-	@Before
-	public void setUp() throws Exception {
+	@BeforeClass
+	public static void setUpBeforeClass() throws Exception {
+        // ensure course database is loaded
+        Fixtures.getCourseDatabase();
 	}
 
 	@After
 	public void tearDown() throws Exception {
 	}
 
-	@Test
+	@Test @Ignore
 	public void testPlanOfStudy() {
 		fail("Not yet implemented");
 	}
 
-	@Test
+	@Test @Ignore
 	public void testRebuildTerms() {
 		fail("Not yet implemented");
 	}
 
-	@Test
+	@Test @Ignore
 	public void testSetTerms() {
 		fail("Not yet implemented");
 	}
@@ -42,10 +41,10 @@ public class PlanOfStudyTest {
         PlanOfStudy plan = new PlanOfStudy();
         Term t1 = new Term();
         t1.plan = plan;
-        t1.add(Fixtures.getCourseDatabase().getCourse("CSCI-1100"));
+        t1.add(Course.get("CSCI-1100"));
         Term t2 = new Term();
         t2.plan = plan;
-        t1.add(Fixtures.getCourseDatabase().getCourse("CSCI-1200"));
+        t1.add(Course.get("CSCI-1200"));
 
         ArrayList<Term> terms = new ArrayList<Term>();
         terms.add(t1);
@@ -53,8 +52,8 @@ public class PlanOfStudyTest {
         plan.setTerms(terms);
 
         ArrayList<Course> courses = new ArrayList<Course>();
-        courses.add(Fixtures.getCourseDatabase().getCourse("CSCI-1100"));
-        courses.add(Fixtures.getCourseDatabase().getCourse("CSCI-1200"));
+        courses.add(Course.get("CSCI-1100"));
+        courses.add(Course.get("CSCI-1200"));
 
         assertEquals((List<Course>)courses, plan.getCourses());
     }
