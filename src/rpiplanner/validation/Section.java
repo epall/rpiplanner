@@ -1,4 +1,4 @@
-package rpiplanner.validation.validation.xml;
+package rpiplanner.validation;
 
 import rpiplanner.model.Course;
 
@@ -9,6 +9,9 @@ import rpiplanner.model.Course;
  */
 public class Section
 {
+        String name;
+        String description;
+    
 		public Course[] missingCourses()
         {
             return null;

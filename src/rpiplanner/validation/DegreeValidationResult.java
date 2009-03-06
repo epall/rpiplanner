@@ -1,4 +1,4 @@
-package rpiplanner.validation.validation.xml;
+package rpiplanner.validation;
 
 import rpiplanner.validation.ValidationResult;
 
