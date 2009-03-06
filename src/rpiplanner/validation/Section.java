@@ -29,6 +29,7 @@ public class Section
 
         ArrayList<Course> missingCourses;
         ArrayList<Course> appliedCourses;
+        ArrayList<Course> potentialCourses;
 
     
 		public Course[] missingCourses()
