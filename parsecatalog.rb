@@ -443,16 +443,6 @@ def parse_requisites(requisites)
     :prerequisites => prerequisites, :corequisites => corequisites}
 end
 
-# puts pull_class(8103).inspect
-# exit
-
-# builderX = Builder::XmlMarkup.new(:indent => 2)
-# xmlX = builderX.foo{
-#   parse_requisites('Prerequisites: ENGR 2530 and CIVL 2630 or equivalent.', builderX)
-# }
-# puts xmlX
-# exit
-
 builder = Builder::XmlMarkup.new(:indent => 2)
 xml = builder.courses do |b|
   ['ARTS','BIOL','CSCI','CHEM','CHME','COMM','ECON','ECSE','ENGR','EPOW','IHSS','MANE',
@@ -502,6 +492,12 @@ xml = builder.courses do |b|
               year_parts[:parts].each {|part| b.tag!('year-part', part)}
             }
           end
+          
+          b.isOfficial('true')
+          
+          # 4900 courses are seminars, independent study, etc and should be counted
+          # each time they are taken
+          b.doubleCount(!!(course[:catalogNumber] =~ /....-49../))
         end
       rescue => err
         $stderr.puts "#{course[:catalogNumber]} - #{course[:title]}"
