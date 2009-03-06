@@ -74,6 +74,11 @@
     <option name="MAXIMUM_HEAP_SIZE" value="128" />
   </component>
   <component name="Encoding" useUTFGuessing="true" native2AsciiForPropertiesFiles="false" />
+  <component name="FacetAutodetectingManager">
+    <autodetection-disabled>
+      <facet-type id="JRUBY" />
+    </autodetection-disabled>
+  </component>
   <component name="IdProvider" IDEtalkID="7940436B32AF022ADFD88FE6AA0D1501" />
   <component name="InspectionProjectProfileManager">
     <option name="PROJECT_PROFILE" value="Project Default" />
