@@ -156,4 +156,18 @@ public class PlanOfStudy {
 			changeSupport = new PropertyChangeSupport(this);
 		changeSupport.firePropertyChange("courses", null, null);
 	}
+
+    /**
+     * Get a list of all courses included in this plan in the sequence in
+     * which they are taken. If a course is taken twice, it is included
+     * twice in the returned list.
+     * @return A list of the courses in this plan of study.
+     */
+    public List<Course> getCourses(){
+        ArrayList<Course> courses = new ArrayList<Course>(50);
+        for(Term t : terms){
+            courses.addAll(t.getCourses());
+        }
+        return courses;
+    }
 }
