@@ -29,6 +29,7 @@ public class Degree
     String name;
 
     ArrayList<CoreRequirement> coreRequirements;
+    ArrayList<SubjectRequirement> subjRequirements;
 
     public ValidationResult validate (PlanOfStudy pos)
     {
