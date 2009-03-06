@@ -20,10 +20,16 @@ package rpiplanner.validation;
 
 import rpiplanner.model.Course;
 
+import java.util.ArrayList;
+
 public class Section
 {
         String name;
         String description;
+
+        ArrayList<Course> missingCourses;
+        ArrayList<Course> appliedCourses;
+
     
 		public Course[] missingCourses()
         {
@@ -35,7 +41,9 @@ public class Section
         }
 		public String[] messages()
         {
-            return null;
+            String[] messages = new String[1];
+            messages[0] = description;
+            return messages;
         }
 		public Course[] potentialCourses()
         {
