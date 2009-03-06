@@ -21,10 +21,14 @@ package rpiplanner.validation;
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 import rpiplanner.model.PlanOfStudy;
 
+import java.util.ArrayList;
+
 public class Degree
 {
     @XStreamAlias("DegreeName")
     String name;
+
+    ArrayList<CoreRequirement> coreRequirements;
 
     public ValidationResult validate (PlanOfStudy pos)
     {
