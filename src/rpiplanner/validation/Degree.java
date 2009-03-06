@@ -19,6 +19,7 @@
 package rpiplanner.validation;
 
 import com.thoughtworks.xstream.annotations.XStreamAlias;
+import rpiplanner.model.PlanOfStudy;
 
 /**
  * Created by IntelliJ IDEA.
@@ -30,7 +31,7 @@ public class Degree
     @XStreamAlias("DegreeName")
     String name;
 
-    public ValidationResult validate ()
+    public ValidationResult validate (PlanOfStudy pos)
     {
         DegreeValidationResult result = new DegreeValidationResult();
         return result;
