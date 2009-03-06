@@ -7,11 +7,10 @@ require 'builder'
 CATALOG_NUMBER = /([A-Z]{4}) (\d*)/
 HYPHENATED_CATALOG_NUMBER = /([A-Z0-9-]{9})/
 
-# TODO:
+require 'ripcatalog' unless File.exist?('catalog')
 
-def pull_class(coid)
-  res = Net::HTTP.get(URI.parse("http://catalog.rpi.edu/preview_course.php?catoid=5&coid=#{coid}&print"))
-  doc = Hpricot(res)
+def parse_course(rawdoc)
+  doc = Hpricot(rawdoc)
   course = {}
   fulltitle = doc.search("td h1").inner_text
   titleparts = fulltitle.match('(.*) - (.*)')
@@ -44,42 +43,6 @@ def pull_class(coid)
   course[:department] = doc.search('td span.n1_header')[0].inner_text
 
   return course
-end
-
-def pull_dept(department)
-  req = Net::HTTP::Post.new('http://catalog.rpi.edu/content.php?catoid=5&navoid=111')
-  req.set_form_data({'filter[27]' => department,
-        'filter[29]' => '', 'cpage' => 1, 'cur_cat_oid' => 5, 'filter[32]' => 1,
-        'search_database' => 'Filter', 'filter[keyword]' => ''})
-
-  doc = Hpricot(Net::HTTP.new('catalog.rpi.edu').start {|http| http.request(req) }.body)
-
-  courses = []
-
-  doc.search("a:not(.footer) [@target=\"_blank\"]").each do |c|
-    onclick = c.get_attribute('onclick')
-    coid = onclick.match('showCourse\(\'5\', \'(.*)\',this.*')[1]
-    name = c.inner_html
-    courses << coid
-  end
-  
-  if doc.search("a[@href=\"javascript:course_search(2);\"]")
-    req = Net::HTTP::Post.new('http://catalog.rpi.edu/content.php?catoid=5&navoid=111')
-    req.set_form_data({'filter[27]' => department,
-          'filter[29]' => '', 'cpage' => 2, 'cur_cat_oid' => 5, 'filter[32]' => 1,
-          'search_database' => 'Filter', 'filter[keyword]' => ''})
-
-    doc = Hpricot(Net::HTTP.new('catalog.rpi.edu').start {|http| http.request(req) }.body)
-
-    doc.search("a:not(.footer) [@target=\"_blank\"]").each do |c|
-      onclick = c.get_attribute('onclick')
-      coid = onclick.match('showCourse\(\'5\', \'(.*)\',this.*')[1]
-      name = c.inner_html
-      courses << coid
-    end
-  end
-
-  return courses
 end
 
 def parse_year_parts(description)
@@ -494,8 +457,11 @@ builder = Builder::XmlMarkup.new(:indent => 2)
 xml = builder.courses do |b|
   ['ARTS','BIOL','CSCI','CHEM','CHME','COMM','ECON','ECSE','ENGR','EPOW','IHSS','MANE',
           'MATH','MTLE','PHYS','PSYC','STSH','STSS'].each do |dept|
-    pull_dept(dept).each do |coid|
-      course = pull_class(coid)
+    files = Dir["catalog/#{dept}/*.html"]
+    files.each do |filename|
+      file = File.open(filename, 'r')
+      course = parse_course(file.read(nil))
+      file.close
       description = course[:description]
       raise "Invalid catalog number: #{course[:catalogNumber]}" unless course[:catalogNumber] =~ /[A-Z]{4}-[\d]{4}$/
       begin
