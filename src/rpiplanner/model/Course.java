@@ -31,6 +31,11 @@ public class Course implements Comparable<Course> {
     protected RequisiteSet prerequisites;
     protected RequisiteSet corequisites;
     protected YearPart[] availableTerms;
+
+    /**
+     * Protected constructor to prevent spurious creation of courses.
+     */
+    protected Course(){}
     
 	public String getTitle() {
 		return title;
@@ -87,4 +92,11 @@ public class Course implements Comparable<Course> {
 	public int hashCode() {
         return catalogNumber.hashCode();
 	}
+
+    public static Course get(String prefix, String number){
+        return ShadowCourseDatabase.getMainDatabase().getCourse(prefix+"-"+number);
+    }
+    public static Course get(String catalogNumber){
+        return ShadowCourseDatabase.getMainDatabase().getCourse(catalogNumber);
+    }
 }

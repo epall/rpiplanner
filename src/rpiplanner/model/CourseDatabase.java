@@ -29,6 +29,7 @@ public interface CourseDatabase {
 
 	public Degree[] listDegrees();
 
+    @Deprecated
 	public Course getCourse(String name);
 
 	public List<String> getDepartments();
