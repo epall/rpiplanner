@@ -20,6 +20,8 @@ package rpiplanner.validation;
 
 import rpiplanner.validation.ValidationResult;
 
+import java.util.HashMap;
+
 /**
  * Created by IntelliJ IDEA.
  * User: Matt Murphy
@@ -27,14 +29,22 @@ import rpiplanner.validation.ValidationResult;
  */
 public class DegreeValidationResult implements ValidationResult
 {
+    HashMap<String,Section> sectionMap;
+
+    DegreeValidationResult()
+    {
+        sectionMap = new HashMap<String,Section>();
+    }
 	public int percentComplete()
     {
+        //TODO: Add algorithm to compute completenness
         return 0;
     }
 
 
 	public Section getSectionResults(String name)
     {
+        //TODO:Add GetSectionResults
         return null;
     }
 }

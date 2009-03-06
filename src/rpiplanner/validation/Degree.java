@@ -30,4 +30,10 @@ public class Degree
     @XStreamAlias("DegreeName")
     String name;
 
+    public ValidationResult validate ()
+    {
+        DegreeValidationResult result = new DegreeValidationResult();
+        return result;
+    }
+
 }
