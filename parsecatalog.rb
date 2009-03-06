@@ -492,7 +492,8 @@ end
 
 builder = Builder::XmlMarkup.new(:indent => 2)
 xml = builder.courses do |b|
-  ['BIOL','CSCI','CHEM','ECON','ECSE','ENGR','EPOW','IHSS','MANE','MATH','MTLE','PHYS','PSYC','STSH','STSS'].each do |dept|
+  ['ARTS','BIOL','CSCI','CHEM','CHME','COMM','ECON','ECSE','ENGR','EPOW','IHSS','MANE',
+          'MATH','MTLE','PHYS','PSYC','STSH','STSS'].each do |dept|
     pull_dept(dept).each do |coid|
       course = pull_class(coid)
       description = course[:description]
@@ -547,12 +548,16 @@ xml = builder.courses do |b|
     contents = File.new(file, 'r')
     validationCode = contents.readline.strip
     validationCode =~ /degree "(.*)", ([0123456789]*) do |d|/
-    validationCode << "\n"
+    id = $2.to_s
+    name = $1.to_s
+    school = contents.readline.strip
+    school = school.match(/d.school "(.*)"/)[1]
     validationCode << contents.read(nil)
     contents.close
     builder.degree {
-      builder.id($2.to_s)
-      builder.name($1)
+      builder.id(id)
+      builder.name(name)
+      builder.school(school)
       builder.validationCode(validationCode)
     }
   end

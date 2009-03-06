@@ -1,5 +1,690 @@
 <courses>
   <course>
+    <title>Media Studio: Video/Audio</title>
+    <description>This course is divided into two half-semester sessions, with each student receiving an intensive seven-week introduction to basic techniques of computer music, and a similar introduction to video. Students develop critical listening and viewing skills through reading, listening, and viewing assignments, and by discussing historical and contemporary examples of computer music and video art.&#160; Individual and group&#160;projects are created and critiqued in class sections.</description>
+    <department>Arts</department>
+    <catalogNumber>ARTS-1010</catalogNumber>
+    <credits>4</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Media Studio: Imaging</title>
+    <description>This course introduces students to digital photography, web design, and interactive multimedia in making art. Students broaden their understanding of such topics as composition, effective use of images, color theory, typography, and narrative flow. Inquiry and experimentation are encouraged, leading towards the development of the skill and techniques needed to create visual art with electronic media.</description>
+    <department>Arts</department>
+    <catalogNumber>ARTS-1020</catalogNumber>
+    <credits>4</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Basic Drawing</title>
+    <description>An introductory course in drawing designed to develop seeing ability and means of expressing visual ideas through graphic skills. The course consists of exercises in drawing  from observation and studies from the history of art.</description>
+    <department>Arts</department>
+    <catalogNumber>ARTS-1200</catalogNumber>
+    <credits>4</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Music Fundamentals</title>
+    <description>A creative approach for students with no previous experience to the concepts of music theory (rhythm, scales, keys, intervals, chords, etc.) and elementary harmony. Also an introduction to some of the monuments of Western repertory through listening, reading, and discussion.</description>
+    <department>Arts</department>
+    <catalogNumber>ARTS-1400</catalogNumber>
+    <credits>4</credits>
+    <availableTerms>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Intermediate Video</title>
+    <description>This course explores contemporary video practice, concentrating on creating, presenting, and analyzing video art. It is an introduction to the Arts Department production facilities and equipment, and a prerequisite for 4000-level video classes.
+
+NOTE: prerequisite can be skipped on permission of instructor
+NOTE: programming experience recommended
+</description>
+    <department>Arts</department>
+    <catalogNumber>ARTS-2010</catalogNumber>
+    <credits>4</credits>
+    <prerequisites required="false" pickOne="false">
+      <course>
+        <catalogNumber>ARTS-1010</catalogNumber>
+      </course>
+    </prerequisites>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Computer Music</title>
+    <description>Music composition taught in the context of modern computerized production methods. Technical topics include basic principles of computer sound generation, digital sound sampling, and the use of small computers for musical control of electronic instruments. Musical topics include a study of important musical works and compositional techniques of the 20th century. Student projects involve hands-on work on a variety of computer instruments and software. This course is a prerequisite for further creative work with Rensselaer&#8217;s computer music facilities.
+
+NOTE: prerequisite can be skipped on permission of instructor
+NOTE: programming experience recommended
+</description>
+    <department>Arts</department>
+    <catalogNumber>ARTS-2020</catalogNumber>
+    <credits>4</credits>
+    <prerequisites required="false" pickOne="false">
+      <course>
+        <catalogNumber>ARTS-1010</catalogNumber>
+      </course>
+    </prerequisites>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Intermediate Digital Imaging</title>
+    <description>Intermediate Digital Imaging is a hands-on studio course exploring the use of computer technologies in making visual art. A study of contemporary issues in digital media and photography facilitates individual innovation and experimentation. Digital imaging and input/output techniques are employed in terms of giving visual form to ideas and personal expression in private and public settings.
+
+NOTE: prerequisite can be skipped on permission of instructor
+NOTE: programming experience recommended
+</description>
+    <department>Arts</department>
+    <catalogNumber>ARTS-2040</catalogNumber>
+    <credits>4</credits>
+    <prerequisites required="false" pickOne="false">
+      <course>
+        <catalogNumber>ARTS-1020</catalogNumber>
+      </course>
+    </prerequisites>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Fundamentals of Animation</title>
+    <description>Fundamentals of Animation is an introduction to animation as an art form. Most of this course will be traditional based assignments designed to encourage spontaneous creativity, explore animation concepts, and learn animation terminology. Assignments will build a solid foundation for entrance into Animation 1. This course will also be a historical and theoretical investigation with screenings and readings followed with discussion.</description>
+    <department>Arts</department>
+    <catalogNumber>ARTS-2060</catalogNumber>
+    <credits>4</credits>
+    <prerequisites required="false" pickOne="true">
+      <course>
+        <catalogNumber>ARTS-1010</catalogNumber>
+      </course>
+      <course>
+        <catalogNumber>ARTS-1020</catalogNumber>
+      </course>
+    </prerequisites>
+    <availableTerms>
+      <year-part>FALL</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Sculpture I</title>
+    <description>A beginning sculpture course combining hands-on studio work sessions with lectures on the history and theory of sculpture practice. The studio component involves explorations of materials and techniques as tools for the enhancing of visual sensitivity and creative expression.</description>
+    <department>Arts</department>
+    <catalogNumber>ARTS-2210</catalogNumber>
+    <credits>4</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Fundamentals of 2-D Design</title>
+    <description>An introductory course which will present basic concepts about composition, line, pictorial space, light, and color in the visual arts in order to help students develop the means for expressing visual ideas effectively. Weekly homework design projects, using both traditional and electronic media, will be complemented by in-class slide lectures, video tapes, and critiques.</description>
+    <department>Arts</department>
+    <catalogNumber>ARTS-2220</catalogNumber>
+    <credits>4</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Rensselaer Orchestra</title>
+    <description>Readings, rehearsals, and performances of works from the standard repertoire for orchestra from the Baroque through the 20th century.
+
+NOTE: demonstration of adequate skill in playing an orchestral instrument through audition.
+</description>
+    <department>Arts</department>
+    <catalogNumber>ARTS-2300</catalogNumber>
+    <credits>1</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Rensselaer Concert Choir</title>
+    <description>Readings, rehearsals, and performances of works from the standard choral repertoire, from the Renaissance through the 20th century. Attendance is mandatory and preparation expected.</description>
+    <department>Arts</department>
+    <catalogNumber>ARTS-2310</catalogNumber>
+    <credits>1</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Percussion Ensemble</title>
+    <description>Readings, rehearsals, and performances of works from the repertoire for percussion ensemble as well as special arrangements and original compositions, spanning the diverse styles of the genre from ragtime music and popular traditions to the classical, standard, and avant-garde. Regular attendance at rehearsals is required and preparation of music expected.
+
+NOTE: demonstration of adequate skills in at least some areas of percussion through formal or informal auditions.
+</description>
+    <department>Arts</department>
+    <catalogNumber>ARTS-2320</catalogNumber>
+    <credits>1</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Introduction to Afro-Cuban Percussion</title>
+    <description>This course is an introduction to Afro-Cuban folkloric music traditions through lecture demonstration and class participation.&#160; The emphasis is on learning to play Afro-Cuban rhythms and percussion instruments (clave, conga, cowbell, shekere).</description>
+    <department>Arts</department>
+    <catalogNumber>ARTS-2340</catalogNumber>
+    <credits>2</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Music Theory I</title>
+    <description>A course that explores the fundamental concepts of music theory, for the students with at least some musical background. Rhythm, scales, keys, intervals, chords, and elementary harmony will be covered as well as an introduction to counterpoint and analysis. Correlative studies in ear-training and keyboard skills.</description>
+    <department>Arts</department>
+    <catalogNumber>ARTS-2400</catalogNumber>
+    <credits>4</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>History of Western Music</title>
+    <description>The objective of this course is for students to be able to recognize and appreciate the stylistic elements of the major periods and composers from the earliest known music to the present. The influences on music by broad cultural and historical forces will also be explored. Beginning with the Greeks, the course will progress chronologically from the polyphonic religious music of the Middle Ages through the Renaissance, Baroque, Classical, Romantic, and modern periods.</description>
+    <department>Arts</department>
+    <catalogNumber>ARTS-2500</catalogNumber>
+    <credits>4</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>History of Jazz</title>
+    <description>Using rare film and video footage as well as records, CDs, texts, and live musicians, this course traces the development of jazz over its century of existence.</description>
+    <department>Arts</department>
+    <catalogNumber>ARTS-2510</catalogNumber>
+    <credits>4</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Art History I: From Paleolithic to Renaissance</title>
+    <description>This course is a survey of the visual arts from the Paleolithic to the Renaissance era. Nearly 500 images are analyzed according to style, time, place and character. Relationship of art to ritual, magic, religion, philosophy, literature and music are examined. Material is presented in a form accessible to students without previous knowledge of Art History.</description>
+    <department>Arts</department>
+    <catalogNumber>ARTS-2530</catalogNumber>
+    <credits>4</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>The Multimedia Century</title>
+    <description>This course will survey the history and theory of the diverse artistic practices of the twentieth century in relation to the development of the mass media and new technologies. Topics will include the Bauhaus, Surrealism, Pop Art, and Postmodernism and will span a spectrum of media from the more traditional, such as painting and photography, to electronic and new media, such as video and digital arts. This is a communication-intensive course.</description>
+    <department>Arts</department>
+    <catalogNumber>ARTS-2540</catalogNumber>
+    <credits>4</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>History through Sound:  Modern Music and Beyond</title>
+    <description>This course is about 20th century music and sound art, stressing the styles and genres that descend from the traditions of European-American art music.&#160;The course covers the advent of and reactions to Modernism in music and the growth of experimentalism to 1950; then post-World-War-Two practices and theories including indeterminacy, improvisation, electronic music, and recent computer based practices.</description>
+    <department>Arts</department>
+    <catalogNumber>ARTS-2550</catalogNumber>
+    <credits>4</credits>
+    <availableTerms>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>The American Musical</title>
+    <description>This course surveys the American Musical, introducing students to its basic components and concepts. Since the musical integrates different media, it is studied through the contribution of major artists as well as in historical, social, and cultural contexts. The course also analyzes music and musical theater genres, which influenced the musical, including European opera and operetta; American blues, ragtime, and jazz; and Latin-American rhythms.</description>
+    <department>Arts</department>
+    <catalogNumber>ARTS-2560</catalogNumber>
+    <credits>4</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Acting I</title>
+    <description>This course introduces students to the principles of acting. Students participate in theatre games and improvisations; explore the stage environment; study dramatic conflict and transformation into different characters; and learn stage terminology and blocking. The emphasis is on individual and group projects that develop students&#8217; creativity and imagination. The culmination of the course is the presentation of monologues and scenes from international plays.</description>
+    <department>Arts</department>
+    <catalogNumber>ARTS-2600</catalogNumber>
+    <credits>4</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Studies in the Arts</title>
+    <description>Projects adapted to the needs of individual students.
+
+NOTE: Unclear when course is offered
+</description>
+    <department>Arts</department>
+    <catalogNumber>ARTS-2940</catalogNumber>
+    <credits>1</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Topics in the Arts</title>
+    <description>Experimental courses offered for one or two terms as the general program requires.
+
+NOTE: Unclear when course is offered
+</description>
+    <department>Arts</department>
+    <catalogNumber>ARTS-2960</catalogNumber>
+    <credits>2</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Advanced Digital 3-D Projects</title>
+    <description>This studio/seminar consists of longer projects with attention to concept, process, and finish. The student will either work individually or as a member on a team and be expected to have a vision or concept they are driven to create. Some possible topics covered may include virtual environments, advanced shader networks, MEL, compositing, non photorealistic rendering, 3-D graphics programming, game engines, or motion capture.
+
+NOTE: prerequisite can be skipped on permission of instructor
+NOTE: programming experience recommended
+</description>
+    <department>Arts</department>
+    <catalogNumber>ARTS-4020</catalogNumber>
+    <credits>4</credits>
+    <prerequisites required="false" pickOne="false">
+      <course>
+        <catalogNumber>ARTS-4070</catalogNumber>
+      </course>
+    </prerequisites>
+    <availableTerms>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Professional Collaboration</title>
+    <description>Arts Practicum provides professional training and experience for graduates and upper-level undergraduates by involving them in the production of a significant artistic project from start to finish. Projects often involve assisting or collaborating with prominent artists in residence at the iEAR studios.
+
+NOTE: graduate standing, or two 2000-level electronic arts courses, or permission of instructor.
+</description>
+    <department>Arts</department>
+    <catalogNumber>ARTS-4050</catalogNumber>
+    <credits>4</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Animation I</title>
+    <description>An introduction to the techniques and principles of computer animation with a concentration on modeling, texturing, and rendering. Students use advanced software to develop directed creative 3-D animations in a hands-on studio. Lectures, discussion, and exposure to contemporary work enable students to develop skills in this rapidly evolving field.
+
+NOTE: prerequisite can be skipped on permission of instructor
+</description>
+    <department>Arts</department>
+    <catalogNumber>ARTS-4060</catalogNumber>
+    <credits>4</credits>
+    <prerequisites required="false" pickOne="true">
+      <course>
+        <catalogNumber>ARTS-2060</catalogNumber>
+      </course>
+      <course>
+        <catalogNumber>ARTS-2040</catalogNumber>
+      </course>
+    </prerequisites>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Animation II</title>
+    <description>An intermediate hands-on studio course in 3-D computer animation, in basic character animation, advanced modeling, advanced lighting, advanced rendering, dynamics, particle animation, scene description, and story building.
+
+NOTE: prerequisite can be skipped on permission of instructor
+NOTE: programming experience recommended
+</description>
+    <department>Arts</department>
+    <catalogNumber>ARTS-4070</catalogNumber>
+    <credits>4</credits>
+    <prerequisites required="false" pickOne="false">
+      <course>
+        <catalogNumber>ARTS-4060</catalogNumber>
+      </course>
+    </prerequisites>
+    <availableTerms>
+      <year-part>FALL</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Radio: Theory and Practice</title>
+    <description>This course is an investigation of radio as a unique artistic form. To provide a context for student&#8217;s own production work (which will be aired over WRPI) the class incorporates readings on aesthetics, culture, history, politics, and economics of the world&#8217;s first electronic broadcast technology.</description>
+    <department>Arts</department>
+    <catalogNumber>ARTS-4120</catalogNumber>
+    <credits>4</credits>
+    <prerequisites required="true" pickOne="false">
+      <course>
+        <catalogNumber>ARTS-1010</catalogNumber>
+      </course>
+      <course>
+        <catalogNumber>COMM-1510</catalogNumber>
+      </course>
+    </prerequisites>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Advanced Drawing</title>
+    <description>Advanced Drawing is designed to help students who have mastered basic drawing skills to enhance those skills and utilize them to explore visual ideas. Emphasis is placed on individual development of skills and subject matter to help students express themselves visually. Examples and studies are used from master drawings of the past to learn about the history of art and to stimulate ideas for the students&#8217; own work.
+
+NOTE: Unclear when course is offered
+NOTE: prerequisite can be skipped on permission of instructor
+NOTE: programming experience recommended
+</description>
+    <department>Arts</department>
+    <catalogNumber>ARTS-4200</catalogNumber>
+    <credits>4</credits>
+    <prerequisites required="false" pickOne="false">
+      <course>
+        <catalogNumber>ARTS-1200</catalogNumber>
+      </course>
+    </prerequisites>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Sculpture 2</title>
+    <description>An advanced studio course in sculpture for students who have taken Sculpture I. Students are encouraged to explore personal areas of interest and are required to develop a familiarity with the history of sculpture as well as mastering fabrication techniques.
+
+NOTE: Offered on availability of instructor.
+</description>
+    <department>Arts</department>
+    <catalogNumber>ARTS-4210</catalogNumber>
+    <credits>4</credits>
+    <prerequisites required="true" pickOne="false">
+      <course>
+        <catalogNumber>ARTS-2210</catalogNumber>
+      </course>
+    </prerequisites>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Painting</title>
+    <description>A painting course in water media with emphasis on color interaction, composition, and pictorial design. Using sources from observation and the history of painting, students are taught to see and convey effects of color on/in 2-D pictorial space and to develop critical skills in looking at paintings.
+
+NOTE: Unclear when course is offered
+</description>
+    <department>Arts</department>
+    <catalogNumber>ARTS-4220</catalogNumber>
+    <credits>4</credits>
+    <prerequisites required="true" pickOne="false">
+      <course>
+        <catalogNumber>ARTS-1200</catalogNumber>
+      </course>
+    </prerequisites>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Music Theory II</title>
+    <description>A continuation of studies in harmony, analysis, and ear-training. With an introduction to orchestration and 20th century techniques, the course will culminate with an original composition.</description>
+    <department>Arts</department>
+    <catalogNumber>ARTS-4400</catalogNumber>
+    <credits>4</credits>
+    <prerequisites required="true" pickOne="false">
+      <course>
+        <catalogNumber>ARTS-2400</catalogNumber>
+      </course>
+    </prerequisites>
+    <availableTerms>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Deep Listening</title>
+    <description>Deep Listening is a practice created by the instructor to enhance and expand listening abilities and to encourage creative work. The class will explore different forms of listening including field recording. Each class time will involve experiential exercises, sound pieces, readings, and discussion. Musical training is not prerequisite.</description>
+    <department>Arts</department>
+    <catalogNumber>ARTS-4410</catalogNumber>
+    <credits>4</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Experimental Game Design</title>
+    <description>Experimental Game Design is an upper level studio arts course focusing on the creation of innovative workable game prototypes using a variety of interactive multimedia. Games are considered as a new genre and are analyzed as cultural artifacts. The aesthetics of game design including character development, level design, game play experience, and delivery systems are covered. Flow, game theory, and game play gestalt are considered. Alternate gaming paradigms and emerging forms are encouraged.
+
+NOTE: prerequisite can be skipped on permission of instructor
+NOTE: programming experience recommended
+</description>
+    <department>Arts</department>
+    <catalogNumber>ARTS-4510</catalogNumber>
+    <credits>4</credits>
+    <prerequisites required="false" pickOne="false">
+      <course>
+        <catalogNumber>ARTS-1020</catalogNumber>
+      </course>
+    </prerequisites>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Theatre Performance</title>
+    <description>This course gives students a practical background in the field of theatre, introducing them to all aspects of a theatre production. Students rehearse a play in the classroom and then give performances on the RPI campus. Students also participate in directing, stage managing, writing press releases, and designing set, costumes, lighting, and sound for the show. Auditions take place on the first day of class.</description>
+    <department>Arts</department>
+    <catalogNumber>ARTS-4620</catalogNumber>
+    <credits>4</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Writing and Directing for Video</title>
+    <description>The course introduces students to the art of writing and directing short videos, with an emphasis on generating ideas, and realizing them in a well developed final project. Major theories and principles are studied through a comparative analysis of scripts and films. Students learn to work with actors, write their own scripts, and direct videos. Two final projects &#8211; a script and a video &#8211; will integrate all of the elements covered in class. Lecture/Practicum.
+
+NOTE: one 2000-level video and one 2000-level writing course, or permission of instructor.
+</description>
+    <department>Arts</department>
+    <catalogNumber>ARTS-4630</catalogNumber>
+    <credits>4</credits>
+    <availableTerms>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Technical Production and Documentation</title>
+    <description>This course teaches the skills needed to produce and document professional electronic arts events, including live concerts, installations, and multimedia presentations. It is an intensive, hands-on course designed to give students direct experience with sound, video, and lighting equipment in live performance environments. Students will learn technical and creative skills essential for artistic practice in the field of electronic arts.
+
+NOTE: limited to upper class B.S. EARTS, EMAC, IT ARTS students, MFA students, or by permission of instructor.
+</description>
+    <department>Arts</department>
+    <catalogNumber>ARTS-4710</catalogNumber>
+    <credits>4</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Studies in the Arts</title>
+    <description>
+
+NOTE: Unclear when course is offered
+</description>
+    <department>Arts</department>
+    <catalogNumber>ARTS-4940</catalogNumber>
+    <credits>1</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Topics in the Arts</title>
+    <description>
+
+NOTE: Unclear when course is offered
+</description>
+    <department>Arts</department>
+    <catalogNumber>ARTS-4960</catalogNumber>
+    <credits>3</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>B.S. EARTS Thesis</title>
+    <description>The thesis is independent research and creative work, supervised by a faculty member, culminating in a written thesis paper and a public presentation of work.
+
+NOTE: Prerequisite: permission of instructor
+</description>
+    <department>Arts</department>
+    <catalogNumber>ARTS-4990</catalogNumber>
+    <credits>4</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Electronic Arts Practice</title>
+    <description>Development and completion of individual creative projects in electronic arts with discussions and critiques of student work in a seminar format. Projects may use any of the studios and combinations of media available in the iEAR Studios. All projects will be presented or performed in public concerts, exhibitions, and installations.
+
+NOTE: limited to MFA students in electronic arts.
+</description>
+    <department>Arts</department>
+    <catalogNumber>ARTS-6080</catalogNumber>
+    <credits>3</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Electronic Arts Overview</title>
+    <description>This seminar will deal with the history, theory, and creation of art, popular culture, and mass media from a contemporary perspective. Theoretical and historical texts and a spectrum of electronic arts and media will be investigated. This course is to be taken in conjunction with ARTS 6080, Electronic Arts Practice, in the first semester of graduate work in the M.F.A. program. It will support the students&#8217; development and articulation of the aesthetic, cultural,and theoretical underpinnings of their artistic work produced in ARTS 6080 and in other studio courses.</description>
+    <department>Arts</department>
+    <catalogNumber>ARTS-6110</catalogNumber>
+    <credits>3</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Fieldwork as Art</title>
+    <description>This course is an introduction to fieldwork and ethnographic methods in support of artistic creation. The class will guide students through interviews, participant-observation and documentation at various field sites to produce diverse creative projects ranging from ethnographic essays to video to installations. Students will be encouraged to work on topical materials of their choice, focused on issues such as technological change, artistic subcultures, or environmentalism. Enrollment is restricted to students with graduate standing or by permission of the instructor.</description>
+    <department>Arts</department>
+    <catalogNumber>ARTS-6120</catalogNumber>
+    <credits>3</credits>
+    <availableTerms>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>New Media Theory</title>
+    <description>This course asks what is really new about New Media, and looks at creative practices, theoretical discourses and social contexts to find answers.&#160; The course concentrates on cutting edge cultural expression using information and communication technologies. The objective is to equip students with multiple perspectives - aesthetic, communications, historical - with which to analyze, critique, and develop original concepts about the uses of new media in art and culture. Cross-listed with ARTS 4130.&#160; Student cannot obtain credit for both courses.
+
+NOTE: Unclear when course is offered
+</description>
+    <department>Arts</department>
+    <catalogNumber>ARTS-6130</catalogNumber>
+    <credits>3</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Strategic Manifesto: Curatorial Practices</title>
+    <description>A graduate-level course focusing on the development of curatorial practices, and will include emphasis research including how curators conceive, organize and execute exhibitions. This course is important for practicing artists, not only to allow them to function as programmers and curators themselves &#8212; extending their own area of expertise &#8212; but to also give students the opportunity to see what curators need to exhibit work. What kind of press materials, timelines, writing materials are necessary for curators to produce exhibitions? In other words, what do artists need to provide to curators to be successful?</description>
+    <department>Arts</department>
+    <catalogNumber>ARTS-6210</catalogNumber>
+    <credits>3</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Studies in Electronic Arts</title>
+    <description>Individual and collaborative projects and readings adapted to the needs of individual students at the advanced level.</description>
+    <department>Arts</department>
+    <catalogNumber>ARTS-6940</catalogNumber>
+    <credits>4</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Topics in Electronic Arts</title>
+    <description>
+
+NOTE: Unclear when course is offered
+</description>
+    <department>Arts</department>
+    <catalogNumber>ARTS-6960</catalogNumber>
+    <credits>3</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Master&#8217;s Thesis</title>
+    <description>Active participation in research, under the supervision of a faculty adviser, leading to a master&#8217;s thesis. Grades of IP are assigned until the thesis has been approved by the faculty adviser and accepted by the Office of Graduate Education to be archived in a standard format in the library. Grades will then be listed as S.
+
+NOTE: Unclear when course is offered
+</description>
+    <department>Arts</department>
+    <catalogNumber>ARTS-6990</catalogNumber>
+    <credits>1</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Dissertation</title>
+    <description>Active participation in research, under the supervision of a faculty adviser, leading to a doctoral dissertation.&#160; Grades of IP are assigned until the dissertation has been publicly defended approved by the doctoral committee, and accepted by the Office of Graduate Education to be archived in a standard format in the library.&#160; Grades will then be listed as S.</description>
+    <department>Arts</department>
+    <catalogNumber>ARTS-9990</catalogNumber>
+    <credits>0</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+  <course>
     <title>Introduction to Biology</title>
     <description>Introduction to biological systems. Discussion of problems associated with biological organization, scaling, and hierarchy. Major topics covered include evolution, genetics, molecular biology and biotechnology, and ecology. The course considers the biological components of various societal and individual problems. Taught in web-based, interactive studio mode with emphasis on biological simulations, problem solving, and peer teaching methods. Includes a one-credit laboratory.</description>
     <department>Biology</department>
@@ -2990,6 +3675,1380 @@ NOTE: Unclear when course is offered
 </description>
     <department>Chemistry and Chemical Biology</department>
     <catalogNumber>CHEM-9990</catalogNumber>
+    <credits>0</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Material, Energy, and Entropy Balances</title>
+    <description>Development of the ability to apply and solve equations of balance for chemical-process systems, laying the foundation for subsequent chemical engineering courses in unit operations and process design. Topics include process flowsheeting, mass and mole balances for nonreactive and reactive systems, properties of fluids, and the first and second laws of thermodynamics.</description>
+    <department>Chemical and Biological Engineering</department>
+    <catalogNumber>CHME-2010</catalogNumber>
+    <credits>4</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Energy, Entropy, and Equilibrium</title>
+    <description>A continuation of CHME 2010. Topics include process flowsheeting, solution thermodynamics, phase equilibria, chemical-reaction equilibria, and applications of thermodynamics to problems in chemical-process design. One credit hour of this course is devoted to Professional Development.</description>
+    <department>Chemical and Biological Engineering</department>
+    <catalogNumber>CHME-2020</catalogNumber>
+    <credits>4</credits>
+    <prerequisites required="true" pickOne="false">
+      <course>
+        <catalogNumber>CHME-2010</catalogNumber>
+      </course>
+    </prerequisites>
+    <availableTerms>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Readings in Chemical Engineering</title>
+    <description>
+
+NOTE: Unclear when course is offered
+</description>
+    <department>Chemical and Biological Engineering</department>
+    <catalogNumber>CHME-2940</catalogNumber>
+    <credits>1</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Topics in Chemical Engineering</title>
+    <description>
+
+NOTE: Unclear when course is offered
+</description>
+    <department>Chemical and Biological Engineering</department>
+    <catalogNumber>CHME-2960</catalogNumber>
+    <credits>3</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Senior Project</title>
+    <description>
+
+NOTE: Unclear when course is offered
+</description>
+    <department>Chemical and Biological Engineering</department>
+    <catalogNumber>CHME-2980</catalogNumber>
+    <credits>1</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Transport Phenomena I</title>
+    <description>An introductory course in transport phenomena covering fluid statics, and one-dimensional diffusive processes including laminar flow, heat conduction and mass diffusion.&#160; Course focuses on developing the equations of change, introducing sum-of-resistance concepts and couple fluid flow, heat transfer, and mass transfer problems.&#160;&#160;The concept of extended surfaces as a means of enhancing transport process is included.&#160; The course introduces numerical simulation concepts for solving simple, one-dimensional transport problems.&#160; Credit not allowed for both this course and ENGR-2250.</description>
+    <department>Chemical and Biological Engineering</department>
+    <catalogNumber>CHME-4010</catalogNumber>
+    <credits>4</credits>
+    <prerequisites required="true" pickOne="false">
+      <course>
+        <catalogNumber>MATH-2400</catalogNumber>
+      </course>
+    </prerequisites>
+    <availableTerms>
+      <year-part>FALL</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Chemical Process Dynamics and Control</title>
+    <description>Introduction to modeling and control of dynamic chemical processes. Topics include the development of first-principles models, linearization and state space form, input/output (transfer function) form, design and tuning of PID controllers, model-based control, frequency response for robustness analysis, case studies in multivariable control, numerical analysis and simulation.</description>
+    <department>Chemical and Biological Engineering</department>
+    <catalogNumber>CHME-4030</catalogNumber>
+    <credits>4</credits>
+    <prerequisites required="true" pickOne="false">
+      <course>
+        <catalogNumber>MATH-2400</catalogNumber>
+      </course>
+    </prerequisites>
+    <availableTerms>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Chemical Process Design</title>
+    <description>The design of equipment, processes, and systems of interest in chemical engineering through application of scientific, technological, and economic principles. The concepts of product design, design for the environment, and the ethical and safety issues of design are introduced. Emphasis is placed on problem formulation and the conceptual, analytical, and decision aspects of open-ended design situations. The work integrates knowledge and skills gained in previous and concurrent courses. This is a writing-intensive course.</description>
+    <department>Chemical and Biological Engineering</department>
+    <catalogNumber>CHME-4050</catalogNumber>
+    <credits>4</credits>
+    <prerequisites required="true" pickOne="false">
+      <course>
+        <catalogNumber>CHME-4040</catalogNumber>
+      </course>
+      <course>
+        <catalogNumber>CHME-4500</catalogNumber>
+      </course>
+    </prerequisites>
+    <availableTerms>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Chemical Engineering Laboratory I</title>
+    <description>A two-term laboratory course on experimental analysis of the operations and processes of chemical engineering. Emphasis is placed on planning of experiments, data evaluation, and report writing.</description>
+    <department>Chemical and Biological Engineering</department>
+    <catalogNumber>CHME-4150</catalogNumber>
+    <credits>3</credits>
+    <prerequisites required="true" pickOne="false">
+      <course>
+        <catalogNumber>CHME-4010</catalogNumber>
+      </course>
+      <course>
+        <catalogNumber>CHME-4020</catalogNumber>
+      </course>
+      <course>
+        <catalogNumber>CHME-2020</catalogNumber>
+      </course>
+    </prerequisites>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Chemical Engineering Laboratory II</title>
+    <description>A two-term laboratory course on experimental analysis of the operations and processes of chemical engineering. Emphasis is placed on planning of experiments, data evaluation, and report writing.</description>
+    <department>Chemical and Biological Engineering</department>
+    <catalogNumber>CHME-4160</catalogNumber>
+    <credits>3</credits>
+    <prerequisites required="true" pickOne="false">
+      <course>
+        <catalogNumber>CHME-4150</catalogNumber>
+      </course>
+      <course>
+        <catalogNumber>CHME-4040</catalogNumber>
+      </course>
+      <course>
+        <catalogNumber>CHME-4500</catalogNumber>
+      </course>
+    </prerequisites>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Chromatographic Separation Processes</title>
+    <description>Theory and practice of chromatographic separation processes. Dynamics of zone migration, diffusion, and kinetics. Multicomponent adsorption, nonequilibrium adsorption, zone spreading, and control of separation. Modern analytical and preparative bioseparation techniques of liquid chromatography.
+
+NOTE: senior or graduate standing in chemical engineering or permission of instructor.
+</description>
+    <department>Chemical and Biological Engineering</department>
+    <catalogNumber>CHME-4400</catalogNumber>
+    <credits>3</credits>
+    <availableTerms>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Introduction to Biochemical Engineering</title>
+    <description>Description, fundamentals, and engineering features of processes using microbial, plant, or animal cells or their enzymes. Topics include review of biochemistry, review of microbiology, computer simulation, growth, death, aseptic techniques, continuous culture, fermenter design, sterilization, mixed cultures, process scale up, immobilized cells and enzymes, recovery of products, and process economics. Weekly exercises requiring personal computers.
+
+NOTE: background in chemical engineering or microbiology. Biochemistry strongly recommended.
+</description>
+    <department>Chemical and Biological Engineering</department>
+    <catalogNumber>CHME-4430</catalogNumber>
+    <credits>3</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Introduction to Semiconductor Processing</title>
+    <description>The basic processes of fabrication of silicon-based semiconductor devices with emphasis on the chemical principles and systems involved. Topics include materials preparation, oxide growth, lithography, diffusion, ion implantation, epitaxial growth, chemical-vapor deposition, vacuum deposition, reactive ion etching, and packaging technologies. Fabrication of both bipolar and FET devices is discussed with emphasis on manufacturing process flow and control. Process design methodology.
+
+NOTE: senior standing in chemical engineering or permission of instructor.
+</description>
+    <department>Chemical and Biological Engineering</department>
+    <catalogNumber>CHME-4600</catalogNumber>
+    <credits>3</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Readings in Chemical Engineering</title>
+    <description>
+
+NOTE: Unclear when course is offered
+</description>
+    <department>Chemical and Biological Engineering</department>
+    <catalogNumber>CHME-4940</catalogNumber>
+    <credits>1</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Topics in Chemical Engineering</title>
+    <description>
+
+NOTE: Unclear when course is offered
+</description>
+    <department>Chemical and Biological Engineering</department>
+    <catalogNumber>CHME-4960</catalogNumber>
+    <credits>3</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Advanced Membrane Concepts</title>
+    <description>An in-depth and comprehensive treatment of membrane technology. Membrane preparation and morphology. Models for transport through membranes. Fluid-dynamic phenomena across membrane systems. Particle dynamics, membrane fouling, and concentration polarization. Applications to chemical and biochemical separations. Critical reviews of the current literature.
+
+NOTE: even-numbered years ONLY
+NOTE: a general knowledge of transport phenomena.
+</description>
+    <department>Chemical and Biological Engineering</department>
+    <catalogNumber>CHME-6410</catalogNumber>
+    <credits>3</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Separation and Recovery Processes</title>
+    <description>The application of theoretical and fundamental principles and pilot plant data to the design and operation of biochemical separation processes and advanced waste treatment systems. Topics covered include characterization and dispersion, coagulation and flocculation, sedimentation, filtration, adsorption, ion exchange, membrane processes, aeration and gas transfer, centrifugation, and related subjects.</description>
+    <department>Chemical and Biological Engineering</department>
+    <catalogNumber>CHME-6420</catalogNumber>
+    <credits>3</credits>
+    <availableTerms>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Biochemical Engineering</title>
+    <description>Engineering aspects of microbial processes and of conversions with immobilized enzymes. Topics are mixed-culture processes, sterilization, aseptic techniques, mass transfer, bioprocess control, product isolation, enzyme technology, bioprocess development. There are heavy emphases on continuous fermentation and on chemicals from biomass.
+
+NOTE: microbiology or assigned reading.
+</description>
+    <department>Chemical and Biological Engineering</department>
+    <catalogNumber>CHME-6430</catalogNumber>
+    <credits>3</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Advanced Biochemical Engineering</title>
+    <description>Selected topics beyond the scope of CHME-6430. Particular emphasis on the current literature and the applications of computers and graphics. Extensive coverage is given to purification and separation technology, kinetic analysis, design of bioreactors, exploitation of genetic engineering, and bioprocess development. An individual project is required.
+
+NOTE: Only offered during the summer
+NOTE: prerequisite can be skipped on permission of instructor
+NOTE: programming experience recommended
+</description>
+    <department>Chemical and Biological Engineering</department>
+    <catalogNumber>CHME-6450</catalogNumber>
+    <credits>3</credits>
+    <prerequisites required="false" pickOne="false">
+      <course>
+        <catalogNumber>CHME-6430</catalogNumber>
+      </course>
+    </prerequisites>
+  </course>
+  <course>
+    <title>Downstream Processing in Biochemical Engineering</title>
+    <description>The course focuses on the concentration, recovery, and isolation of biological molecules relevant in biotechnology. The characteristics of biological molecules such as proteins and biological fluids such as blood, fermentation, and cell culture broth, are discussed. The principles, advantages, and limitations of centrifugation, membranes, cell-disruption, two-phase extraction, precipitation crystallization, and electrical processes are discussed. Integrated bioseparation schemes are presented and many specific applications are discussed in detail.
+
+NOTE: odd-numbered years ONLY
+NOTE: a course in biochemical engineering or permission of instructor.
+</description>
+    <department>Chemical and Biological Engineering</department>
+    <catalogNumber>CHME-6470</catalogNumber>
+    <credits>3</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Advanced Fluid Mechanics I</title>
+    <description>Continuity, momentum, and energy equations for continuous fluids; constitutive relations. Kinematics of fluid motion; vorticity and circulation. Potential flow. Navier-Stokes equations. Boundary layer theory. Turbulence. Multicomponent reacting systems. Selected applications.</description>
+    <department>Chemical and Biological Engineering</department>
+    <catalogNumber>CHME-6510</catalogNumber>
+    <credits>3</credits>
+    <prerequisites required="true" pickOne="false">
+      <course>
+        <catalogNumber>CHME-4010</catalogNumber>
+      </course>
+    </prerequisites>
+    <availableTerms>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Advanced Fluid Mechanics II</title>
+    <description>A continuation of CHME 6510. Treats irrotational flow, flow around bubbles, and other free surface problems, turbulent flow, jets, and wakes. Presumes an understanding of continuum mechanics, viscous flow, and boundary layer flow.
+
+NOTE: odd-numbered years ONLY
+NOTE: prerequisite can be skipped on permission of instructor
+NOTE: programming experience recommended
+</description>
+    <department>Chemical and Biological Engineering</department>
+    <catalogNumber>CHME-6520</catalogNumber>
+    <credits>3</credits>
+    <prerequisites required="false" pickOne="false">
+      <course>
+        <catalogNumber>CHME-6510</catalogNumber>
+      </course>
+    </prerequisites>
+    <availableTerms>
+      <year-part>FALL</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Convective Heat Transfer</title>
+    <description>A review of basic concepts of mass, momentum, and energy conservation as related to convective heat transfer. The analysis of laminar and turbulent forces and free convection problems in both internal and external flows. Also a study of the current state of the art in boiling and condensation heat transfer.</description>
+    <department>Chemical and Biological Engineering</department>
+    <catalogNumber>CHME-6540</catalogNumber>
+    <credits>3</credits>
+    <availableTerms>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Chemical and Phase Equilibria</title>
+    <description>Classical solution thermodynamics, equations of state, and topics in chemical reaction and phase equilibria. Emphasis is on the rigorous formulation of equilibrium problems, and on the measurement, reduction, correlation, and interpretation of experimental data.</description>
+    <department>Chemical and Biological Engineering</department>
+    <catalogNumber>CHME-6570</catalogNumber>
+    <credits>3</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Mathematical Methods in Chemical Engineering I</title>
+    <description>Development and application of mathematical methods for the solution of chemical engineering problems. Classical solution methods for ordinary and partial differential equations. Major emphasis is given to the mathematical implications of describing and solving representation of chemical reactors and other systems. Case studies relevant to other departmental graduate courses and ongoing research activities are discussed. The mathematical methods include series solutions, special function representations, boundary-value problems, and operational calculus.</description>
+    <department>Chemical and Biological Engineering</department>
+    <catalogNumber>CHME-6610</catalogNumber>
+    <credits>3</credits>
+    <prerequisites required="true" pickOne="false">
+      <course>
+        <catalogNumber>MATH-2400</catalogNumber>
+      </course>
+    </prerequisites>
+    <availableTerms>
+      <year-part>FALL</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Mathematical Methods in Chemical Engineering II</title>
+    <description>Modern solution techniques including semi-analytical, approximation, and numerical methods are introduced and applied to linear and nonlinear transport phenomena problems and chemical engineering systems. Similarity theory and integral methods, perturbation techniques, and orthogonal collocation, indispensable to chemical engineering, are discussed.
+
+NOTE: prerequisite can be skipped on permission of instructor
+NOTE: programming experience recommended
+</description>
+    <department>Chemical and Biological Engineering</department>
+    <catalogNumber>CHME-6620</catalogNumber>
+    <credits>3</credits>
+    <prerequisites required="false" pickOne="false">
+      <course>
+        <catalogNumber>CHME-6610</catalogNumber>
+      </course>
+    </prerequisites>
+    <availableTerms>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Advanced Chemical Reactor Design</title>
+    <description>Analysis of ideal and nonideal chemical reactor operation with simple and multiple homogeneous, heterogeneous, and catalytic reactions. Interplay of chemical and mass, energy and momentum transport processes in model reactors and catalytic particles. Topics include transient and steady-state operation, residence time distribution, multiplicity, stability, selectivity control, and catalyst deactivation.
+
+NOTE: prerequisite can be skipped on permission of instructor
+NOTE: programming experience recommended
+</description>
+    <department>Chemical and Biological Engineering</department>
+    <catalogNumber>CHME-6640</catalogNumber>
+    <credits>3</credits>
+    <prerequisites required="false" pickOne="false">
+      <course>
+        <catalogNumber>CHME-4500</catalogNumber>
+      </course>
+    </prerequisites>
+    <availableTerms>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Advanced Process Control</title>
+    <description>Application of modern control theory to chemical processes. Introduction to on-line data acquisition and computer control. Real-time process optimization and optimal control theory. Estimation theory and adaptive control. Introduction to stochastic control and to the control of large-scale distribution systems. Case studies via computer-aided design programs.
+
+NOTE: Offered on sufficient demand.
+NOTE: prerequisite can be replaced with an equivalent
+</description>
+    <department>Chemical and Biological Engineering</department>
+    <catalogNumber>CHME-6650</catalogNumber>
+    <credits>3</credits>
+    <prerequisites required="false" pickOne="false">
+      <course>
+        <catalogNumber>CHME-4030</catalogNumber>
+      </course>
+    </prerequisites>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Advanced Process Design</title>
+    <description>Process synthesis with applications to heat exchange networks, energy-integrated separation sequences, and reactor networks. Analysis, design, and optimization of large-scale systems.
+
+NOTE: Offered on sufficient demand.
+NOTE: chemical engineering degree or permission of instructor.
+</description>
+    <department>Chemical and Biological Engineering</department>
+    <catalogNumber>CHME-6670</catalogNumber>
+    <credits>3</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Combustion</title>
+    <description>
+
+Cross-listed as MANE 6830. Students cannot receive credit for both this course and MANE 6830.
+
+NOTE: odd-numbered years ONLY
+NOTE: permission of instructor.
+</description>
+    <department>Chemical and Biological Engineering</department>
+    <catalogNumber>CHME-6830</catalogNumber>
+    <credits>3</credits>
+    <availableTerms>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>An Introduction to Multiphase Flow and Heat Transfer I</title>
+    <description>This course is intended to give students a state-of-the-art understanding about single and multicomponent boiling and condensation heat transfer phenomena. Applications include the analysis of nuclear reactors, oil wells, and chemical process equipment. Students satisfactorily completing this course are expected to be able to thoroughly understand the current thermal-hydraulics literature on multiphase heat and mass transfer and be able to conduct independent research in this field.
+
+Cross-listed as MANE 6840. Students cannot obtain credit for both this course and MANE 6840.
+
+NOTE: a working knowledge of fluid mechanics and heat transfer.
+</description>
+    <department>Chemical and Biological Engineering</department>
+    <catalogNumber>CHME-6840</catalogNumber>
+    <credits>3</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>An Introduction to Multiphase Flow and Heat Transfer II</title>
+    <description>This course is intended to give students a state-of-the-art understanding in multicomponent flow phenomena. Applications in the chemical process, petroleum recovery, and fossil/nuclear power industries will be given. Specific areas of coverage include two-phase: fluid mechanics, pressure drop, modeling and analysis, stability analysis, critical flow and dynamic waves, flow regime analysis, and phase separation and distribution phenomena.
+
+Cross-listed as MANE 6850. Students cannot obtain credit for this course and MANE 6850.</description>
+    <department>Chemical and Biological Engineering</department>
+    <catalogNumber>CHME-6850</catalogNumber>
+    <credits>3</credits>
+    <prerequisites required="false" pickOne="true">
+      <course>
+        <catalogNumber>CHME-6840</catalogNumber>
+      </course>
+      <course>
+        <catalogNumber>MANE-6840</catalogNumber>
+      </course>
+    </prerequisites>
+    <availableTerms>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Readings in Chemical Engineering</title>
+    <description>
+
+NOTE: Unclear when course is offered
+</description>
+    <department>Chemical and Biological Engineering</department>
+    <catalogNumber>CHME-6940</catalogNumber>
+    <credits>1</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Topics in Chemical Engineering</title>
+    <description>State-of the-art formal courses in specialized areas suitable for master&#8217;s and doctoral programs. Usually two topics offered per term. Typical topics include colloidal dynamics, dispersion and mixing, fluidation, heterogeneous catalysis, polymer reaction engineering, stochastic processes, and statistical mechanics.</description>
+    <department>Chemical and Biological Engineering</department>
+    <catalogNumber>CHME-6960</catalogNumber>
+    <credits>1</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Professional Project</title>
+    <description>Active participation in a semester-long project, under the supervision of a faculty adviser. A Professional Project often serves as a culminating experience for a Professional Master&#8217;s program but, with departmental or school approval, can be used to fulfill other program requirements. With approval, students may register for more than one Professional Project. Professional Projects must result in documentation established by each department or school, but are not submitted to the Graduate School and are not archived in the library. Grades of A, B, C, or F are assigned by the faculty adviser at the end of the semester. If not completed on time, a formal Incomplete grade may be assigned by the faculty adviser, listing the work remaining to be completed and the time limit for completing this work.
+
+NOTE: Unclear when course is offered
+</description>
+    <department>Chemical and Biological Engineering</department>
+    <catalogNumber>CHME-6970</catalogNumber>
+    <credits>0</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Master&#8217;s Thesis</title>
+    <description>Active participation in research, under the supervision of a faculty adviser, leading to a master&#8217;s thesis. Grades of IP are assigned until the thesis has been approved by the faculty adviser and accepted by the Office of Graduate Education to be archived in a standard format in the library. Grades will then be listed as S.
+
+NOTE: Unclear when course is offered
+</description>
+    <department>Chemical and Biological Engineering</department>
+    <catalogNumber>CHME-6990</catalogNumber>
+    <credits>1</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Dissertation</title>
+    <description>Active participation in research, under the supervision of a faculty adviser, leading to a doctoral dissertation. Grades of IP are assigned until the dissertation has been publicly defended, approved by the doctoral committee, and accepted by the Office of Graduate Education to be archived in a standard format in the library. Grades will then be listed as S.
+
+NOTE: Unclear when course is offered
+</description>
+    <department>Chemical and Biological Engineering</department>
+    <catalogNumber>CHME-9990</catalogNumber>
+    <credits>1</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Introduction to Communication Theory</title>
+    <description>This course introduces students to basic topics in communication theory, including interpersonal, small group, organizational, and mass communication. Students will study a variety of theories related to these topics and will also study the cultural impact of new communication technologies and contemporary media systems.</description>
+    <department>Language, Literature, and Communication</department>
+    <catalogNumber>COMM-1510</catalogNumber>
+    <credits>4</credits>
+    <availableTerms>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Introduction to Communication and Information Technology</title>
+    <description>Introduces the terms, theories, and issues associated with the use of the Internet in personal and social contexts. The lectures and labs focus on helping students understand how computer-mediated communication (CMC) is used in contemporary society, providing different ways to understand how CMC is used to build interpersonal relationships, develop group communication, and support public communication while exploring social issues facing those who communicate via the computer.</description>
+    <department>Language, Literature, and Communication</department>
+    <catalogNumber>COMM-1610</catalogNumber>
+    <credits>4</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Web and Database Programming</title>
+    <description>This course introduces the fundamentals for creating dynamic web page content generated using relational databases. This course is structured around Microsoft Visual Studio .NET and modern object-oriented programming languages like C#. Fundamental technologies like ADO.NET database connectivity, ASP.NET active page technology, XML, SOAP, and Web Services are examined. Students will construct actual non-trivial working web sites that employ databases from which dynamic content is generated.</description>
+    <department>Language, Literature, and Communication</department>
+    <catalogNumber>COMM-2210</catalogNumber>
+    <credits>4</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Introduction to Visual Communication</title>
+    <description>This course is an introduction to basic principles of visual communication and an exploration of the graphic design process. The study approach is through laboratory work utilizing software applications currently used in the field. Topics include type and image; logo design and application; foundation statement creation; and print production methods.</description>
+    <department>Language, Literature, and Communication</department>
+    <catalogNumber>COMM-2610</catalogNumber>
+    <credits>4</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Communication Studies</title>
+    <description>Readings and projects adapted to the needs of individual students.
+
+NOTE: Unclear when course is offered
+</description>
+    <department>Language, Literature, and Communication</department>
+    <catalogNumber>COMM-2940</catalogNumber>
+    <credits>4</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Topics in Communication</title>
+    <description>Experimental courses tried out in one or two terms.
+
+NOTE: Unclear when course is offered
+</description>
+    <department>Language, Literature, and Communication</department>
+    <catalogNumber>COMM-2960</catalogNumber>
+    <credits>4</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Designing Interactive Characters for Digital Games</title>
+    <description>This course takes a multi-disciplinary approach to teaching the design of interactive characters for games. Students learn and apply principles from psychology, traditional media, and best practices from the games industry to the crafting of engaging characters. Students develop critical analysis and design skills, as well as team-based project skills. The course includes industry guest speakers, and culminates with the creation of concept prototypes.
+
+NOTE: prerequisite can be skipped on permission of instructor
+NOTE: programming experience recommended
+</description>
+    <department>Language, Literature, and Communication</department>
+    <catalogNumber>COMM-4210</catalogNumber>
+    <credits>4</credits>
+    <prerequisites required="false" pickOne="false">
+      <course>
+        <catalogNumber>PSYC-2520</catalogNumber>
+      </course>
+    </prerequisites>
+    <availableTerms>
+      <year-part>FALL</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Communication Internship</title>
+    <description>This course is designed for communication majors who wish to incorporate field experience in their educational programs. Students work with local business, industrial, civic, or educational organizations in positions where they can observe communication processes and apply written, interpersonal, and public communication skills to the solution of real problems.
+
+Cross-listed with COMM 4310 and COMM 6300.
+
+NOTE: undergraduate major in communication at junior or senior level.
+</description>
+    <department>Language, Literature, and Communication</department>
+    <catalogNumber>COMM-4300</catalogNumber>
+    <credits>4</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Cross-Cultural Graphics</title>
+    <description>This course examines the role of user research in visual communication. Discussions analyze how culture affects the interpretation of visual language. Students use a research-oriented approach to design a term-long project. Systematically, they derive a visual communication problem, determine user-requirements, and create aesthetics based upon audience input.&#160;
+
+Cross-listed with COMM 6400.  Students cannot obtain credit for both courses.</description>
+    <department>Language, Literature, and Communication</department>
+    <catalogNumber>COMM-4400</catalogNumber>
+    <credits>4</credits>
+    <prerequisites required="true" pickOne="false">
+      <course>
+        <catalogNumber>COMM-4570</catalogNumber>
+      </course>
+    </prerequisites>
+    <availableTerms>
+      <year-part>FALL</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Foundations of HCI Usability</title>
+    <description>In this course, students will consider methods of gathering users&#8217; requirements for product functions and information, ways to test products and information for usability and suitability, and procedures for incorporating the results learned through testing. Students will design and conduct usability tests on products, documents, and interfaces of interest.
+
+Cross-listed with COMM 6420; an additional assignment is required for COMM 6420. Students cannot obtain credit for both courses.
+
+NOTE: one H&amp;SS course.
+</description>
+    <department>Language, Literature, and Communication</department>
+    <catalogNumber>COMM-4420</catalogNumber>
+    <credits>4</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Visual Design: Theory and Application</title>
+    <description>This course introduces students to the theoretical and practical use of graphics as a form of visual communication. Discussions include topics such as the psychology of visual perception, design theory, creative process, formatted text, and graphics. Students have an opportunity to put theory into practice using computer graphics.
+
+Cross-listed with COMM 6560. Students cannot obtain credit for both courses.
+
+NOTE: prerequisite can be skipped on permission of instructor
+NOTE: programming experience recommended
+</description>
+    <department>Language, Literature, and Communication</department>
+    <catalogNumber>COMM-4460</catalogNumber>
+    <credits>4</credits>
+    <prerequisites required="false" pickOne="false">
+      <course>
+        <catalogNumber>COMM-2610</catalogNumber>
+      </course>
+    </prerequisites>
+    <availableTerms>
+      <year-part>FALL</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Information Design</title>
+    <description>This course examines methods of graphic representation of data. Course work requires graphing of information derived from researched databases. Visual presentations of historic data will be examined to determine the most efficient way to represent complex information without distorting the data within. Information designers clarify these displays and enrich our understanding of our modern world.</description>
+    <department>Language, Literature, and Communication</department>
+    <catalogNumber>COMM-4470</catalogNumber>
+    <credits>4</credits>
+    <prerequisites required="true" pickOne="false">
+      <course>
+        <catalogNumber>COMM-2610</catalogNumber>
+      </course>
+    </prerequisites>
+    <availableTerms>
+      <year-part>FALL</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Religion, Culture, and Media</title>
+    <description>How are religious fundamentalists using new media? Can religious conversion take place in a theme park? How are religious &#8220;crossover&#8221; films transforming political and popular cultural landscapes? This course maps the complex intersections of religion, culture and media in the global transformations of religious traditions and explores, through a media frame, the &#8220;the return of religion&#8221; within the secular consensus of modernity.
+
+NOTE: prerequisite can be skipped on permission of instructor
+NOTE: programming experience recommended
+</description>
+    <department>Language, Literature, and Communication</department>
+    <catalogNumber>COMM-4550</catalogNumber>
+    <credits>4</credits>
+    <prerequisites required="false" pickOne="false">
+      <course>
+        <catalogNumber>COMM-1510</catalogNumber>
+      </course>
+    </prerequisites>
+    <availableTerms>
+      <year-part>FALL</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Media and Popular Culture</title>
+    <description>A survey of the historical origins and cultural impact of several mass media, including television, film, radio, the Internet, and print media. The course aims to increase media literacy through analysis of specific media products as well as discussion of broad topics such as: advertising and commercialization; politics and censorship; gender, race, and social identity.
+
+NOTE: any COMM or LITR course, graduate standing, or permission of instructor.
+</description>
+    <department>Language, Literature, and Communication</department>
+    <catalogNumber>COMM-4560</catalogNumber>
+    <credits>4</credits>
+    <availableTerms>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Typography</title>
+    <description>This course examines typography&#8212;the design of text. Students learn the fundamentals of how to choose appropriate fonts, design with type, and integrate text with graphics in print and screen-based compositions. Discussion topics include type anatomy, classification, measurement, readability, and legibility; typographic grids; type and technology; copy fitting and editing type.
+
+Cross-listed with COMM 6570. Students cannot obtain credit for both courses.</description>
+    <department>Language, Literature, and Communication</department>
+    <catalogNumber>COMM-4570</catalogNumber>
+    <credits>4</credits>
+    <prerequisites required="true" pickOne="false">
+      <course>
+        <catalogNumber>COMM-2610</catalogNumber>
+      </course>
+    </prerequisites>
+    <availableTerms>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Advertising and Culture</title>
+    <description>An examination of the cultural impact of advertising in various media: TV, radio, print, and the Web. How does advertising inform our experience and identity? How has it shaped our culture? Who pays for it and why? These are the types of questions this course will address.
+
+NOTE: any COMM or LITR course or permission of instructor.
+</description>
+    <department>Language, Literature, and Communication</department>
+    <catalogNumber>COMM-4580</catalogNumber>
+    <credits>4</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Rhetorical Analysis</title>
+    <description>A study of the persuasive use of language. Some basic theories of argument and style are explored as a means of improving the students&#8217; ability to both analyze and create rhetorical discourse.
+
+NOTE: Offered on availability of instructor.
+NOTE: prerequisite can be skipped on permission of instructor
+NOTE: programming experience recommended
+</description>
+    <department>Language, Literature, and Communication</department>
+    <catalogNumber>COMM-4610</catalogNumber>
+    <credits>4</credits>
+    <prerequisites required="false" pickOne="false">
+      <course>
+        <catalogNumber>WRIT-2110</catalogNumber>
+      </course>
+    </prerequisites>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Marketing Communication Design</title>
+    <description>This course examines communication design for marketing purposes. It evaluates the effectiveness of designs for information, persuasion, education, and administration. Discussions on denotation and connotation, gestalt theory, and semiotics aim to investigate how theory influences design and the political, social, and cultural dimensions of visual language. In a term-long project, students analyze how design from an entrepreneurial perspective can provide marketable solutions to communication problems.</description>
+    <department>Language, Literature, and Communication</department>
+    <catalogNumber>COMM-4650</catalogNumber>
+    <credits>4</credits>
+    <prerequisites required="true" pickOne="false">
+      <course>
+        <catalogNumber>COMM-2610</catalogNumber>
+      </course>
+      <course>
+        <catalogNumber>COMM-4570</catalogNumber>
+      </course>
+    </prerequisites>
+    <availableTerms>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Visual Literacy</title>
+    <description>This course examines the notion of visual literacy&#8212;the ability to create effective visual layouts and analyze visual language for meaning. Through readings, discussions, and praxis exercises, students learn the lexicon of visual communication, how to critically evaluate a visual argument, and how to apply visual literacy theory to practice.
+
+Cross-listed with COMM 6660. Students cannot obtain credit for both courses.</description>
+    <department>Language, Literature, and Communication</department>
+    <catalogNumber>COMM-4660</catalogNumber>
+    <credits>4</credits>
+    <prerequisites required="true" pickOne="false">
+      <course>
+        <catalogNumber>COMM-2610</catalogNumber>
+      </course>
+    </prerequisites>
+    <availableTerms>
+      <year-part>FALL</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Communication Design for the WWW</title>
+    <description>In this course, students will examine the design and use of web sites from initial gathering of user requirement, through design, development, and evaluation of a site&#8217;s graphic and textual content and the assessment of customer satisfaction with the site.
+
+Cross-listed with COMM 6750. Students cannot obtain credit for both courses.</description>
+    <department>Language, Literature, and Communication</department>
+    <catalogNumber>COMM-4710</catalogNumber>
+    <credits>4</credits>
+    <prerequisites required="true" pickOne="false">
+      <course>
+        <catalogNumber>COMM-4420</catalogNumber>
+      </course>
+    </prerequisites>
+    <availableTerms>
+      <year-part>FALL</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Graphic Design for Corporate Identity</title>
+    <description>This course examines historical and modern visual communication symbols in relationship to a company&#8217;s overall industry and marketplace identity. The course focuses on design processes relative to the dissemination of consistent visual information. Projects will include an identity program for a fictitious company. The course study is structured as a design studio and is aimed at exploring unique methodologies of ever-changing media marketing tools.
+
+NOTE: prerequisite can be skipped on permission of instructor
+NOTE: programming experience recommended
+</description>
+    <department>Language, Literature, and Communication</department>
+    <catalogNumber>COMM-4730</catalogNumber>
+    <credits>4</credits>
+    <prerequisites required="false" pickOne="false">
+      <course>
+        <catalogNumber>COMM-2610</catalogNumber>
+      </course>
+    </prerequisites>
+    <availableTerms>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Principles of Web Advertising</title>
+    <description>This course covers fundamental economic and communication issues in advertising, economics, measurement of audience demographics and psychographics, advertising effectiveness, applied persuasion techniques. Technical issues in Web advertising are outlined, and unique characteristics of Web advertising are addressed. Design of cost-effective Web advertising, privacy vs. personalization issues, control of content by advertisers, junk Web advertising and information clutter, and other relevant topics are discussed.
+
+NOTE: prerequisite can be skipped on permission of instructor
+NOTE: programming experience recommended
+</description>
+    <department>Language, Literature, and Communication</department>
+    <catalogNumber>COMM-4740</catalogNumber>
+    <credits>4</credits>
+    <prerequisites required="false" pickOne="false">
+      <course>
+        <catalogNumber>COMM-2610</catalogNumber>
+      </course>
+    </prerequisites>
+    <availableTerms>
+      <year-part>FALL</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Electronic User Interfaces</title>
+    <description>Application of research on computer usability to the design of Web sites, graphic user interfaces (GUIs), personal digital assistants (PDAs), persuasive computing, and electronic performance support systems.
+
+NOTE: an introductory course in communication or another social science.
+</description>
+    <department>Language, Literature, and Communication</department>
+    <catalogNumber>COMM-4750</catalogNumber>
+    <credits>4</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Task-Oriented Communication</title>
+    <description>Teaches the practices of developing instructions for people performing mental and physical tasks. This course covers evaluating task performance, choosing instructional media, developing instructional objectives, and producing procedural information. Attention is given to graphic media and to nonverbal tasks and skills.
+
+NOTE: alternate years ONLY
+NOTE: an introductory course in communication or another social science.
+</description>
+    <department>Language, Literature, and Communication</department>
+    <catalogNumber>COMM-4760</catalogNumber>
+    <credits>4</credits>
+    <availableTerms>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>User-Centered Design</title>
+    <description>Explore how users get involved in design: as specifiers of requirements, as evaluators, as sounding boards, and as collaborators. We will gather requirements, design to meet those requirements, and evaluate our success.
+
+Cross-listed with COMM 6770; students taking COMM 6770 will be assigned an additional project. Students cannot obtain credit for both courses.
+
+NOTE: prerequisite can be skipped on permission of instructor
+NOTE: programming experience recommended
+</description>
+    <department>Language, Literature, and Communication</department>
+    <catalogNumber>COMM-4770</catalogNumber>
+    <credits>4</credits>
+    <prerequisites required="false" pickOne="false">
+      <course>
+        <catalogNumber>COMM-4420</catalogNumber>
+      </course>
+    </prerequisites>
+    <availableTerms>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Social Impact of Electronic Media</title>
+    <description>An exploration of the effects of electronic media such as the Internet, multimedia, computers, pop music, and television. The effects examined include changes in social and work relationships, time displacement, audience aggression, child socialization, education, and consumer behavior.
+
+NOTE: Offered on availability of instructor.
+NOTE: any communication course or permission of the instructor.
+</description>
+    <department>Language, Literature, and Communication</department>
+    <catalogNumber>COMM-4790</catalogNumber>
+    <credits>4</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Media and Memory</title>
+    <description>Most memories of the past are stories that circulate in the present through a variety of media. To probe the rhetorical mechanism of collective memory, this course combines exploration of several visual media with case studies that interpret the rhetorical potential of specific photographs, films, museums, and monuments.
+
+Cross-listed with COMM 6800. Students cannot obtain credit for both courses.</description>
+    <department>Language, Literature, and Communication</department>
+    <catalogNumber>COMM-4800</catalogNumber>
+    <credits>4</credits>
+    <prerequisites required="false" pickOne="true">
+      <course>
+        <catalogNumber>COMM-2610</catalogNumber>
+      </course>
+      <course>
+        <catalogNumber>WRIT-1110</catalogNumber>
+      </course>
+    </prerequisites>
+    <availableTerms>
+      <year-part>FALL</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Electronic Media and Society</title>
+    <description>Electronic media such as the Internet, cable television, movies, and pop music are both producers of information and large organizational structures. The course analyzes the interplay between media organizations and society at large.
+
+NOTE: Offered on availability of instructor.
+</description>
+    <department>Language, Literature, and Communication</department>
+    <catalogNumber>COMM-4810</catalogNumber>
+    <credits>4</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Organizational Communication</title>
+    <description>Focuses on the central role of communication in organizations by exploring the way that communication is used in exercising authority, power, and control. Organizations with hierarchical and nontraditional structures are considered. The course also examines the role of communication in the social construction of organizational life.
+
+NOTE: an introductory course in the social sciences or management or permission of instructor.
+</description>
+    <department>Language, Literature, and Communication</department>
+    <catalogNumber>COMM-4830</catalogNumber>
+    <credits>4</credits>
+    <availableTerms>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Communication Studies</title>
+    <description>Readings and projects adapted to the needs of individual students.
+
+NOTE: Unclear when course is offered
+</description>
+    <department>Language, Literature, and Communication</department>
+    <catalogNumber>COMM-4940</catalogNumber>
+    <credits>1</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Topics in Communication</title>
+    <description>Experimental courses tried out in one or two terms.
+
+NOTE: Unclear when course is offered
+</description>
+    <department>Language, Literature, and Communication</department>
+    <catalogNumber>COMM-4960</catalogNumber>
+    <credits>4</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Rhetorical Theory I</title>
+    <description>Introduces classical rhetoric and emphasizes the use of language as a means of winning the assent, sympathy, or cooperation of an audience. It examines the rhetorical theories of figures such as Gorgias, Isocrates, Plato, Aristotle, Cicero, Quintilian, and Saint Augustine.</description>
+    <department>Language, Literature, and Communication</department>
+    <catalogNumber>COMM-6240</catalogNumber>
+    <credits>3</credits>
+    <availableTerms>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Rhetorical Theory II</title>
+    <description>An introduction to modern rhetoric, with an emphasis upon the use of language as a means of generating knowledge and understanding and establishing and maintaining human communities. A study of the thetorical theories of figures such as Francis Bacon, George Campbell, Richard Whately, Kenneth Burke, C. Perelman, L. Olbrechts-Tyteca, and Michel Foucault.</description>
+    <department>Language, Literature, and Communication</department>
+    <catalogNumber>COMM-6250</catalogNumber>
+    <credits>3</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Rhetoric, Culture, and Communication Technology</title>
+    <description>This is a graduate seminar designed to introduce Ph.D. students to the history of rhetorical theory and its intersections with culture and technology.&#160; The course will consider how theoretical reflection about language and other forms of communication is entwined with changes in technology of communication as well as cultural paradigm shifts.&#160; Rather than trace a linear evolution of rhetorical theory from Classical Antiquity to the present, the course will focus on competing conceptualizations of rhetoric and rhetorical power in different historical periods.</description>
+    <department>Language, Literature, and Communication</department>
+    <catalogNumber>COMM-6260</catalogNumber>
+    <credits>3</credits>
+    <availableTerms>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Rhetorical Analysis</title>
+    <description>The application of rhetorical concepts in the analysis and appraisal of discourse. Students pursue projects under the direction of the instructor; weekly seminar meetings are devoted principally to discussions of ongoing projects.
+
+NOTE: Offered on availability of instructor.
+</description>
+    <department>Language, Literature, and Communication</department>
+    <catalogNumber>COMM-6280</catalogNumber>
+    <credits>3</credits>
+    <prerequisites required="true" pickOne="false">
+      <course>
+        <catalogNumber>COMM-6240</catalogNumber>
+      </course>
+    </prerequisites>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Communication Internship</title>
+    <description>This course is designed for communication majors who wish to incorporate field experience in their educational programs. Students work with local business, industrial, civic or educational organizations in positions where they can observe communication processes and apply written, interpersonal, and public communication skills to the solution of real problems.
+
+Cross-listed with COMM 4300 and COMM 4310.
+
+NOTE: graduate status.
+</description>
+    <department>Language, Literature, and Communication</department>
+    <catalogNumber>COMM-6300</catalogNumber>
+    <credits>3</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Techniques for Verbal Analysis</title>
+    <description>This course introduces students to techniques for seeing the underlying patterns in verbal data, including conversations, texts, interviews, and protocols. Topics include: conversation analysis; content analysis; activity analysis; narrative analysis; protocol analysis; theme analysis; and discourse analysis. Students will have a chance to read a range of studies, discuss issues relevant to research in the field, practice analytic techniques, and conduct preliminary field research.
+
+NOTE: alternate years ONLY
+</description>
+    <department>Language, Literature, and Communication</department>
+    <catalogNumber>COMM-6340</catalogNumber>
+    <credits>3</credits>
+    <availableTerms>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Literacy Seminar</title>
+    <description>In this seminar, we examine new communication technologies that depend upon reading and writing in counterpoint to four concepts in literacy studies: literacy as practice, literacy as control, literacy as mediation, and vernacular literacy. Our goal is to understand the scope and limits of these concepts for new technologically mediated environments &#8212; to see, in what sense, literate technologies challenge, extend or modulate the ways we use texts.
+
+NOTE: alternate years ONLY
+</description>
+    <department>Language, Literature, and Communication</department>
+    <catalogNumber>COMM-6350</catalogNumber>
+    <credits>3</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Cross-Cultural Graphics</title>
+    <description>This course examines the role of user research in visual communication. &#160;Readings in cross-cultural communication theory generate discussions on how culture affects the interpretation of visual language&#8211;that includes text and graphics. &#160;Students analyze the important role of graphics in cross-cultural communication and develop heuristics for the creation and use of effective cross-cultural graphics.
+
+Cross-listed with COMM 4400.  Students cannot obtain credit for both courses.</description>
+    <department>Language, Literature, and Communication</department>
+    <catalogNumber>COMM-6400</catalogNumber>
+    <credits>3</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Foundations of Human-Computer Interaction Usability</title>
+    <description>In this course, we will consider methods for gathering users&#8217; requirements for product functions and information, ways to test products and information for usability and suitability, and procedures for incorporating the results learned through testing. We will design and conduct usability tests on products, documents, and interfaces of interest.
+
+Cross-listed with COMM 4420. Students cannot obtain credit for both courses.</description>
+    <department>Language, Literature, and Communication</department>
+    <catalogNumber>COMM-6420</catalogNumber>
+    <credits>3</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Theory and Research in Technical Communication and Human-Computer Interaction</title>
+    <description>This seminar course examines theories that have shaped, and continue to drive, the fields of technical communication and human-computer interaction with an emphasis upon the ways each field makes new knowledge. Connections between theoretical findings, research results, and the evolution of both fields as they are practiced in industry, government, and academia are important themes. Course work includes lectures, discussions, student presentations, and written projects.
+
+NOTE: prerequisite can be replaced with an equivalent
+</description>
+    <department>Language, Literature, and Communication</department>
+    <catalogNumber>COMM-6480</catalogNumber>
+    <credits>3</credits>
+    <prerequisites required="false" pickOne="false">
+      <course>
+        <catalogNumber>COMM-1510</catalogNumber>
+      </course>
+    </prerequisites>
+    <availableTerms>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Communication Theory</title>
+    <description>Introduces students to a range of theories from across the humanities and social sciences: theories of meaning, discourse, persuasion, interpersonal communication, and mass communication. Also introduces students to how theories are constructed and how knowledge is generated in communication studies.</description>
+    <department>Language, Literature, and Communication</department>
+    <catalogNumber>COMM-6510</catalogNumber>
+    <credits>3</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Communication Research I</title>
+    <description>This course is designed to give training in field and experimental research methods, especially in scientific and technological communication. The student designs and conducts preliminary research projects as time permits.
+
+NOTE: A fall-spring sequence annually
+</description>
+    <department>Language, Literature, and Communication</department>
+    <catalogNumber>COMM-6530</catalogNumber>
+    <credits>3</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Communication Research II</title>
+    <description>This course is designed to give training in field and experimental research methods, especially in scientific and technological communication. The student designs and conducts preliminary research projects as time permits.
+
+NOTE: A fall-spring sequence annually
+</description>
+    <department>Language, Literature, and Communication</department>
+    <catalogNumber>COMM-6540</catalogNumber>
+    <credits>3</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Visual Design: Theory and Application</title>
+    <description>This course introduces students to the theoretical and practical use of graphics as a form of visual communication. Discussions include such topics as visual perception, design theory, formatted text, and graphics. Students have an opportunity to put theory into practice using computer graphics software.
+
+Cross-listed with COMM 4460. Students cannot obtain credit for both courses. For graduate students, one additional assignment will be required and their work will be evaluated at a higher level.</description>
+    <department>Language, Literature, and Communication</department>
+    <catalogNumber>COMM-6560</catalogNumber>
+    <credits>3</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Typography</title>
+    <description>This course examines typography&#8212;the design of text. Students learn the fundamentals of how to choose appropriate fonts, design with type, and integrate text with graphics in print and screen-based compositions. Discussion topics include type anatomy, classification, measurement, readability, and legibility; typographic grids; type and technology; copy fitting and editing type.
+
+Cross-listed with COMM 4570.</description>
+    <department>Language, Literature, and Communication</department>
+    <catalogNumber>COMM-6570</catalogNumber>
+    <credits>3</credits>
+    <availableTerms>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Visual Literacy</title>
+    <description>This course examines the notion of visual literacy&#8212;the ability to create effective visual layouts and analyze visual language for meaning. Through readings, discussions, and praxis exercises, students learn the lexicon of visual communication, how to critically evaluate a visual argument, and how to apply visual literacy theory to practice.
+
+Cross-listed with COMM 4660. Students cannot obtain credit for both courses.</description>
+    <department>Language, Literature, and Communication</department>
+    <catalogNumber>COMM-6660</catalogNumber>
+    <credits>3</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Rhetoric of the Photograph</title>
+    <description>This is a theoretical course exploring three aspects of photography that have a rhetorical component. These aspects are the formal &#8220;aesthetic&#8221; elements of the photographic image; the psychological, psychoanalytical relationship between viewer, model, camera, and photographer; and the social/political effects of photography in our culture.
+
+NOTE: Offered on availability of instructor.
+NOTE: graduate standing or permission of instructor.
+</description>
+    <department>Language, Literature, and Communication</department>
+    <catalogNumber>COMM-6700</catalogNumber>
+    <credits>3</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Computer-Mediated Communication</title>
+    <description>This seminar examines the social uses and impacts of computer-mediated communication in contexts such as education, industry, and informal social interaction. Students may examine traditionally important variables such as self-disclosure, rules, status, power, message sequencing, etc., as well as processes such as reality construction, learning, decision making, and group development. The course introduces analytic procedures that are as useful for spoken or written discourse as for computer-mediated discourse.
+
+NOTE: alternate years ONLY
+</description>
+    <department>Language, Literature, and Communication</department>
+    <catalogNumber>COMM-6730</catalogNumber>
+    <credits>3</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>User-Centered Design</title>
+    <description>Explore how users get involved in design: as specifiers of requirements, as evaluators, as sounding boards, and as collaborators. Students will gather requirements, design to meet those requirements, and evaluate their success. Cross listed with COMM-4770; students taking COMM 6770 will be assigned an additional project. Students cannot obtain credit for both courses.
+
+NOTE: prerequisite can be skipped on permission of instructor
+NOTE: programming experience recommended
+</description>
+    <department>Language, Literature, and Communication</department>
+    <catalogNumber>COMM-6770</catalogNumber>
+    <credits>3</credits>
+    <prerequisites required="false" pickOne="false">
+      <course>
+        <catalogNumber>COMM-4420</catalogNumber>
+      </course>
+    </prerequisites>
+    <availableTerms>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Media and Memory</title>
+    <description>Most memories of the past are stories that circulate in the present through a variety of media. To probe the mechanism of collective memory, this course combines exploration of several visual media with case studies that interpret the rhetorical potential of specific photographs, films, museums, and monuments.
+
+Cross-listed with COMM 4800. Students cannot obtain credit for both courses. Graduate students are required to complete additional assignments.</description>
+    <department>Language, Literature, and Communication</department>
+    <catalogNumber>COMM-6800</catalogNumber>
+    <credits>3</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Usability Testing</title>
+    <description>In this course, students will examine and practice several methods of formal usability testing. Classes will consist of classroom discussion of scenario-based testing methods and statistical analysis of data collected and of laboratory sessions in which students develop, conduct, record, and analyze usability tests.
+
+Cross-listed with COMM 4820. For COMM 6820, additional statistical analysis as part of each assignment and a literature-based paper on a usability topic are required.</description>
+    <department>Language, Literature, and Communication</department>
+    <catalogNumber>COMM-6820</catalogNumber>
+    <credits>3</credits>
+    <availableTerms>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Communication Studies</title>
+    <description>Readings and projects adapted to the needs of individual students.
+
+NOTE: Unclear when course is offered
+</description>
+    <department>Language, Literature, and Communication</department>
+    <catalogNumber>COMM-6940</catalogNumber>
+    <credits>1</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Topics in Communication</title>
+    <description>Experimental courses tried out in one or two terms.
+
+NOTE: Unclear when course is offered
+</description>
+    <department>Language, Literature, and Communication</department>
+    <catalogNumber>COMM-6960</catalogNumber>
+    <credits>3</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Master&#8217;s Thesis</title>
+    <description>Active participation in research, under the supervision of a faculty adviser, leading to a master&#8217;s thesis. Grades of IP are assigned until the thesis has been approved by the faculty adviser and accepted by the Office of Graduate Education to be archived in a standard format in the library. Grades will then be listed as S.
+
+NOTE: Unclear when course is offered
+</description>
+    <department>Language, Literature, and Communication</department>
+    <catalogNumber>COMM-6990</catalogNumber>
+    <credits>1</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Dissertation</title>
+    <description>Active participation in research, under the supervision of a faculty adviser, leading to a doctoral dissertation. Grades of IP are assigned until the dissertation has been publicly defended, approved by the doctoral committee, and accepted by the Office of Graduate Education to be archived in a standard format in the library. Grades will then be listed as S.
+
+NOTE: Unclear when course is offered
+</description>
+    <department>Language, Literature, and Communication</department>
+    <catalogNumber>COMM-9990</catalogNumber>
     <credits>0</credits>
     <availableTerms>
       <year-part>FALL</year-part>
@@ -12648,10 +14707,11 @@ NOTE: Unclear when course is offered
   <degree>
     <id>2</id>
     <name>B.S. Computer Science 2011</name>
+    <school>School of Science</school>
     <validationCode>degree "B.S. Computer Science 2011", 2 do |d|
   d.section "Communication Requirement" do |s|
     s.valid_courses do |course|
-      course.description =~ /(communication|writing)-intensive/i
+      course.description =~ /(communication|writing)[- ]intensive/i
     end
     s.exclusive = false
     s.count = 2
@@ -12780,10 +14840,11 @@ end</validationCode>
   <degree>
     <id>1</id>
     <name>B.S. Computer &amp; Systems Engineering 2011</name>
+    <school>School of Engineering</school>
     <validationCode>degree "B.S. Computer &amp; Systems Engineering 2011", 1 do |d|
   d.section "Communication Requirement" do |s|
     s.valid_courses do |course|
-      course.description =~ /(communication|writing)-intensive/i
+      course.description =~ /(communication|writing)[- ]intensive/i
     end
     s.exclusive = false
     s.count = 2
@@ -12917,10 +14978,11 @@ end</validationCode>
   <degree>
     <id>3</id>
     <name>B.S. Electrical Engineering 2011</name>
+    <school>School of Engineering</school>
     <validationCode>degree "B.S. Electrical Engineering 2011", 3 do |d|
   d.section "Communication Requirement" do |s|
     s.valid_courses do |course|
-      course.description =~ /(communication|writing)-intensive/i
+      course.description =~ /(communication|writing)[- ]intensive/i
     end
     s.exclusive = false
     s.count = 2
@@ -13054,10 +15116,11 @@ end</validationCode>
   <degree>
     <id>4</id>
     <name>B.S. Materials Engineering 2011</name>
+    <school>School of Engineering</school>
     <validationCode>degree "B.S. Materials Engineering 2011", 4 do |d|
   d.section "Communication Requirement" do |s|
     s.valid_courses do |course|
-      course.description =~ /(communication|writing)-intensive/i
+      course.description =~ /(communication|writing)[- ]intensive/i
     end
     s.exclusive = false
     s.count = 2
