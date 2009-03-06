@@ -21,11 +21,6 @@ package rpiplanner.validation;
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 import rpiplanner.model.PlanOfStudy;
 
-/**
- * Created by IntelliJ IDEA.
- * User: Matt Murphy
- * Date: Mar 5, 2009
- */
 public class Degree
 {
     @XStreamAlias("DegreeName")
