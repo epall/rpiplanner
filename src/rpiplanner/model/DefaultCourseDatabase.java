@@ -40,6 +40,8 @@ public class DefaultCourseDatabase implements CourseDatabase {
 	@XStreamOmitField
 	private ArrayList<String> departments;
 	
+    protected DefaultCourseDatabase(){}
+
 	public int getNumCourses() {
 		return courses.size();
 	}

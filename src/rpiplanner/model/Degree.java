@@ -28,6 +28,7 @@ import com.thoughtworks.xstream.annotations.XStreamOmitField;
 public class Degree {
 	private String name;
 	private String note;
+    private String school;
 	private String validationCode;
 	private long id = 0;
 	
@@ -53,6 +54,9 @@ public class Degree {
 	public String getNote() {
 		return note;
 	}
+    public String getSchool() {
+        return school;
+    }
 	public String getValidationCode(){
 		return validationCode;
 	}

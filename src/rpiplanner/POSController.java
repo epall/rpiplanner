@@ -225,7 +225,7 @@ public class POSController {
 		for(Term t : plan.getTerms()){
 			ArrayList<Course> courses = t.getCourses();
 			for(int j = 0; j < courses.size(); j++){
-				Course replacement = courseDatabase.getCourse(courses.get(j).getCatalogNumber());
+				Course replacement = Course.get(courses.get(j).getCatalogNumber());
 				if(replacement != null){
 					t.replace(j, replacement);
 				}

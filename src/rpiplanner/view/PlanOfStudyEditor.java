@@ -229,16 +229,19 @@ public class PlanOfStudyEditor extends JPanel {
 				if(e.getButton() == MouseEvent.BUTTON3){
 					// right click
 					int idx = courseList.locationToIndex(e.getPoint()); 
-					courseList.setSelectedIndex(idx); 
-					JPopupMenu contextMenu = new JPopupMenu();
-					contextMenu.add("Edit").addActionListener(new ActionListener(){
-						public void actionPerformed(ActionEvent e) {
-							CourseEditDialog d = new CourseEditDialog((Course)courseList.getSelectedValue());
-							d.setController(controller);
-							d.setVisible(true);
-						}
-					});
-					contextMenu.show(courseList, e.getX(), e.getY());
+					courseList.setSelectedIndex(idx);
+                    Course c = (Course)courseList.getSelectedValue();
+                    if(!c.isOfficial()){
+                        JPopupMenu contextMenu = new JPopupMenu();
+                        contextMenu.add("Edit").addActionListener(new ActionListener(){
+                            public void actionPerformed(ActionEvent e) {
+                                CourseEditDialog d = new CourseEditDialog((Course)courseList.getSelectedValue());
+                                d.setController(controller);
+                                d.setVisible(true);
+                            }
+                        });
+                        contextMenu.show(courseList, e.getX(), e.getY());
+                    }
 				}
 			}
 		});

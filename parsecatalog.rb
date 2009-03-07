@@ -7,11 +7,10 @@ require 'builder'
 CATALOG_NUMBER = /([A-Z]{4}) (\d*)/
 HYPHENATED_CATALOG_NUMBER = /([A-Z0-9-]{9})/
 
-# TODO:
+require 'ripcatalog' unless File.exist?('catalog')
 
-def pull_class(coid)
-  res = Net::HTTP.get(URI.parse("http://catalog.rpi.edu/preview_course.php?catoid=5&coid=#{coid}&print"))
-  doc = Hpricot(res)
+def parse_course(rawdoc)
+  doc = Hpricot(rawdoc)
   course = {}
   fulltitle = doc.search("td h1").inner_text
   titleparts = fulltitle.match('(.*) - (.*)')
@@ -44,42 +43,6 @@ def pull_class(coid)
   course[:department] = doc.search('td span.n1_header')[0].inner_text
 
   return course
-end
-
-def pull_dept(department)
-  req = Net::HTTP::Post.new('http://catalog.rpi.edu/content.php?catoid=5&navoid=111')
-  req.set_form_data({'filter[27]' => department,
-        'filter[29]' => '', 'cpage' => 1, 'cur_cat_oid' => 5, 'filter[32]' => 1,
-        'search_database' => 'Filter', 'filter[keyword]' => ''})
-
-  doc = Hpricot(Net::HTTP.new('catalog.rpi.edu').start {|http| http.request(req) }.body)
-
-  courses = []
-
-  doc.search("a:not(.footer) [@target=\"_blank\"]").each do |c|
-    onclick = c.get_attribute('onclick')
-    coid = onclick.match('showCourse\(\'5\', \'(.*)\',this.*')[1]
-    name = c.inner_html
-    courses << coid
-  end
-  
-  if doc.search("a[@href=\"javascript:course_search(2);\"]")
-    req = Net::HTTP::Post.new('http://catalog.rpi.edu/content.php?catoid=5&navoid=111')
-    req.set_form_data({'filter[27]' => department,
-          'filter[29]' => '', 'cpage' => 2, 'cur_cat_oid' => 5, 'filter[32]' => 1,
-          'search_database' => 'Filter', 'filter[keyword]' => ''})
-
-    doc = Hpricot(Net::HTTP.new('catalog.rpi.edu').start {|http| http.request(req) }.body)
-
-    doc.search("a:not(.footer) [@target=\"_blank\"]").each do |c|
-      onclick = c.get_attribute('onclick')
-      coid = onclick.match('showCourse\(\'5\', \'(.*)\',this.*')[1]
-      name = c.inner_html
-      courses << coid
-    end
-  end
-
-  return courses
 end
 
 def parse_year_parts(description)
@@ -480,21 +443,15 @@ def parse_requisites(requisites)
     :prerequisites => prerequisites, :corequisites => corequisites}
 end
 
-# puts pull_class(8103).inspect
-# exit
-
-# builderX = Builder::XmlMarkup.new(:indent => 2)
-# xmlX = builderX.foo{
-#   parse_requisites('Prerequisites: ENGR 2530 and CIVL 2630 or equivalent.', builderX)
-# }
-# puts xmlX
-# exit
-
 builder = Builder::XmlMarkup.new(:indent => 2)
 xml = builder.courses do |b|
-  ['BIOL','CSCI','CHEM','ECON','ECSE','ENGR','EPOW','IHSS','MANE','MATH','MTLE','PHYS','PSYC','STSH','STSS'].each do |dept|
-    pull_dept(dept).each do |coid|
-      course = pull_class(coid)
+  ['ARTS','BIOL','CSCI','CHEM','CHME','COMM','ECON','ECSE','ENGR','EPOW','IHSS','MANE',
+          'MATH','MTLE','PHYS','PSYC','STSH','STSS'].each do |dept|
+    files = Dir["catalog/#{dept}/*.html"]
+    files.each do |filename|
+      file = File.open(filename, 'r')
+      course = parse_course(file.read(nil))
+      file.close
       description = course[:description]
       raise "Invalid catalog number: #{course[:catalogNumber]}" unless course[:catalogNumber] =~ /[A-Z]{4}-[\d]{4}$/
       begin
@@ -535,6 +492,12 @@ xml = builder.courses do |b|
               year_parts[:parts].each {|part| b.tag!('year-part', part)}
             }
           end
+          
+          b.isOfficial('true')
+          
+          # 4900 courses are seminars, independent study, etc and should be counted
+          # each time they are taken
+          b.doubleCount(!!(course[:catalogNumber] =~ /....-49../))
         end
       rescue => err
         $stderr.puts "#{course[:catalogNumber]} - #{course[:title]}"
@@ -547,12 +510,16 @@ xml = builder.courses do |b|
     contents = File.new(file, 'r')
     validationCode = contents.readline.strip
     validationCode =~ /degree "(.*)", ([0123456789]*) do |d|/
-    validationCode << "\n"
+    id = $2.to_s
+    name = $1.to_s
+    school = contents.readline.strip
+    school = school.match(/d.school "(.*)"/)[1]
     validationCode << contents.read(nil)
     contents.close
     builder.degree {
-      builder.id($2.to_s)
-      builder.name($1)
+      builder.id(id)
+      builder.name(name)
+      builder.school(school)
       builder.validationCode(validationCode)
     }
   end

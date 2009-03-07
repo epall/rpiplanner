@@ -1,4 +1,6 @@
 degree "B.S. Computer Science 2011", 2 do |d|
+  d.school "School of Science"
+
   d.section "Communication Requirement" do |s|
     s.valid_courses do |course|
       course.description =~ /(communication|writing)[- ]intensive/i
