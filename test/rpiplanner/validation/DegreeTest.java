@@ -18,6 +18,80 @@
 
 package rpiplanner.validation;
 
+import org.junit.Before;
+import org.junit.After;
+import org.junit.Test;
+import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import rpiplanner.model.Course;
+import rpiplanner.model.PlanOfStudy;
+
+import java.util.List;
+import java.util.ArrayList;
+
 public class DegreeTest
 {
+    @Before
+    public void setUp()
+    {
+
+    }
+
+    @After
+    public void tearDown()
+    {
+        // Add your code here
+    }
+
+    @Test
+    public void testValidateCoreRequirement()
+    {
+        Degree testDegree = new Degree();
+        String name = "Test Requirement";
+        String desc = "Testing the Core Requirement Validator";
+        CoreRequirement coreMathScienceReq = new CoreRequirement(name, desc);
+
+		coreMathScienceReq.addCourse(Course.get("CSCI","1100"));
+		coreMathScienceReq.addCourse(Course.get("CSCI","1200"));
+		coreMathScienceReq.addCourse(Course.get("CSCI","2300"));
+		coreMathScienceReq.addCourse(Course.get("MATH","1010"));
+		coreMathScienceReq.addCourse(Course.get("MATH","1020"));
+		coreMathScienceReq.addCourse(Course.get("MATH","2400"));
+		coreMathScienceReq.addCourse(Course.get("MATH","2800"));
+		coreMathScienceReq.addCourse(Course.get("PHYS","1100"));
+		coreMathScienceReq.addCourse(Course.get("PHYS","2400"));
+		coreMathScienceReq.addCourse(Course.get("CHEM","1100"));
+
+        coreMathScienceReq.addReplacementCourse(Course.get("MATH","1010"), Course.get("Arts","1010"));
+
+        testDegree.addCoreRequirement(coreMathScienceReq);
+
+        ArrayList<Course> courseList = new ArrayList<Course>();
+
+        courseList.add(Course.get("CSCI","1100"));
+        courseList.add(Course.get("CSCI","1200"));
+        courseList.add(Course.get("Arts","1010"));
+
+        ArrayList<Course> missingCourseList = new ArrayList<Course>();
+
+        missingCourseList.add(Course.get("CSCI","2300"));
+        missingCourseList.add(Course.get("MATH","1020"));
+        missingCourseList.add(Course.get("MATH","2400"));
+        missingCourseList.add(Course.get("MATH","2800"));
+        missingCourseList.add(Course.get("PHYS","1100"));
+        missingCourseList.add(Course.get("PHYS","2400"));
+        missingCourseList.add(Course.get("CHEM","1100"));
+
+
+
+        DegreeValidationResult result = testDegree.validate(courseList);
+
+        result.getSectionResults("Test Requirement");
+
+        assertEquals(courseList, result.getSectionResults("Test Requirement").appliedCourses());
+        assertEquals(missingCourseList, result.getSectionResults("Test Requirement").missingCourses());
+
+    }
+    
+
 }
