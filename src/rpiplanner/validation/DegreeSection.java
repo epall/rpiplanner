@@ -22,36 +22,41 @@ import rpiplanner.model.Course;
 
 import java.util.ArrayList;
 
-public class Section
+public class DegreeSection implements ISection
 {
-        String name;
-        String description;
+    String name;
+    String description;
 
-        ArrayList<Course> missingCourses;
-        ArrayList<Course> appliedCourses;
-        ArrayList<Course> potentialCourses;
+    ArrayList<Course> missingCourses;
+    ArrayList<Course> appliedCourses;
+    ArrayList<Course> potentialCourses;
 
-    
-		public Course[] missingCourses()
-        {
-            return null;
-        }
-		public Course[] appliedCourses()
-        {
-            return null;
-        }
-		public String[] messages()
-        {
-            String[] messages = new String[1];
-            messages[0] = description;
-            return messages;
-        }
-		public Course[] potentialCourses()
-        {
-            return null;
-        }
-		public boolean isSuccess()
-        {
-            return false;
-        }
+    public DegreeSection()
+    {
+        missingCourses = new ArrayList<Course>();
+        appliedCourses = new ArrayList<Course>();
+        potentialCourses = new ArrayList<Course>();
+    }
+
+    public boolean isSuccess()
+    {
+        return false;
+    }
+    public Course[] missingCourses()
+    {
+        //TODO
+        return null;
+    }
+    public Course[] appliedCourses()
+    {
+        return null;
+    }
+    public String[] messages()
+    {
+        return null;
+    }
+    public Course[] potentialCourses()
+    {
+        return null;
+    }
 }

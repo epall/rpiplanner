@@ -19,7 +19,7 @@
 package rpiplanner.validation;
 
 import rpiplanner.model.Course;
-import rpiplanner.validation.DegreeValidationResult;
+import rpiplanner.validation.DegreeSection;
 
 /**
  * A {@link DegreeValidator}'s <code>validate()</code> method will produce a
@@ -28,7 +28,7 @@ import rpiplanner.validation.DegreeValidationResult;
  * were missing, which courses were applied, which courses could possibly
  * be applied, and any other messages the validation caused.
  */
-public interface ValidationResult {
+public interface IDegreeValidationResult {
     /**
      * An implementation-specific percentage of completion for progress
      * indication in the GUI. Currently implemented in Ruby as # of successful
@@ -44,13 +44,5 @@ public interface ValidationResult {
      * @return The results for the requested section, or <code>null</code>.
      * if it does not exist.
      */
-    public Section getSectionResults(String name);
-    
-    public interface Section {
-		public Course[] missingCourses();
-		public Course[] appliedCourses();
-		public String[] messages();
-		public Course[] potentialCourses();
-		public boolean isSuccess();
-	}
+	public DegreeSection getSectionResults(String name);
 }

@@ -22,18 +22,13 @@ import rpiplanner.validation.ValidationResult;
 
 import java.util.HashMap;
 
-/**
- * Created by IntelliJ IDEA.
- * User: Matt Murphy
- * Date: Mar 5, 2009
- */
-public class DegreeValidationResult implements ValidationResult
+public class DegreeValidationResult implements IDegreeValidationResult
 {
-    HashMap<String,Section> sectionMap;
+    HashMap<String,DegreeSection> sectionMap;
 
     DegreeValidationResult()
     {
-        sectionMap = new HashMap<String,Section>();
+        sectionMap = new HashMap<String,DegreeSection>();
     }
 	public int percentComplete()
     {
@@ -42,9 +37,16 @@ public class DegreeValidationResult implements ValidationResult
     }
 
 
-	public Section getSectionResults(String name)
+	public DegreeSection getSectionResults(String name)
     {
         //TODO:Add GetSectionResults
         return null;
     }
+
+
+    void addSection (DegreeSection newSection)
+    {
+        sectionMap.put(newSection.name,newSection);
+    }
+
 }
