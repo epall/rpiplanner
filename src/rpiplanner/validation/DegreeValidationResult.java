@@ -39,8 +39,7 @@ public class DegreeValidationResult implements IDegreeValidationResult
 
 	public DegreeSection getSectionResults(String name)
     {
-        //TODO:Add GetSectionResults
-        return null;
+        return sectionMap.get(name);
     }
 
 
