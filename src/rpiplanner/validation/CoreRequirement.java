@@ -80,4 +80,17 @@ public class CoreRequirement
     {
         return replacementCourses.containsKey(course);
     }
+
+    public Course[] getCourses() {
+        Course[] tmp = new Course[reqCourse.size()];
+        reqCourse.toArray(tmp);
+        return tmp;
+    }
+
+    public Course[] getReplacementCourses(Course course) {
+        if (replacementCourses.containsKey(course))
+            return replacementCourses.get(course).toArray(new Course[replacementCourses.get(course).size()]);  //To change body of created methods use File | Settings | File Templates.
+        else
+            return null;
+    }
 }
