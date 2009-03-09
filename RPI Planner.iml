@@ -1,5 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module relativePaths="false" type="JAVA_MODULE" version="4">
+  <component name="CodeStyleSettingsManager" />
+  <component name="FacetAutodetectingManager" />
+  <component name="FacetManager">
+    <facet type="JRUBY" name="JRuby">
+      <configuration>
+        <JRUBY_FACET_CONFIG_ID NAME="JRUBY_SDK_NAME" VALUE="" />
+        <JRUBY_FACET_CONFIG_ID NAME="NUMBER" VALUE="0" />
+      </configuration>
+    </facet>
+  </component>
   <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_5" inherit-compiler-output="true">
     <exclude-output />
     <content url="file://$MODULE_DIR$">
@@ -110,6 +120,8 @@
       </library>
     </orderEntry>
   </component>
+  <component name="ProjectFileVersion" />
+  <component name="ProjectRunConfigurationManager" />
   <component name="RModuleSettingsStorage">
     <RMODULE_SETTINGS_STORAGE_ID NAME="NUMBER" VALUE="0" />
   </component>

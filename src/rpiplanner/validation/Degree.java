@@ -31,9 +31,47 @@ public class Degree
     ArrayList<CoreRequirement> coreRequirements;
     ArrayList<SubjectRequirement> subjRequirements;
 
-    public ValidationResult validate (PlanOfStudy pos)
+
+    public DegreeValidationResult validate (PlanOfStudy pos)
     {
         DegreeValidationResult result = new DegreeValidationResult();
+
+        
+        for (SpecialDesignationRequirement currentReq : specialReq)
+        {
+            DegreeSection newSection = new DegreeSection();
+            newSection.name = currentReq.getName();
+            newSection.description = currentReq.getDescription();
+
+            result.addSection(newSection);
+        }
+
+        for (CoreRequirement currentReq : coreReq)
+			{
+                DegreeSection newSection = new DegreeSection();
+                newSection.name = currentReq.getName();
+                newSection.description = currentReq.getDescription();
+
+                result.addSection(newSection);
+			}
+
+        for (RestrictedRequirement currentReq : restReq)
+			{
+                DegreeSection newSection = new DegreeSection();
+                newSection.name = currentReq.getName();
+                newSection.description = currentReq.getDescription();
+
+                result.addSection(newSection);
+			}
+
+        for (SubjectRequirement currentReq : subjReq)
+			{
+                DegreeSection newSection = new DegreeSection();
+                newSection.name = currentReq.getName();
+                newSection.description = currentReq.getDescription();
+
+                result.addSection(newSection);
+			}
         return result;
     }
 

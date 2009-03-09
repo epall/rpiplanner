@@ -18,9 +18,9 @@
 
 package rpiplanner.view;
 
+
 import org.junit.Test;
 import org.uispec4j.UISpecTestCase;
-
 import rpiplanner.TestUILauncher;
 
 /**
@@ -40,4 +40,5 @@ public class UIRegressionTests extends UISpecTestCase {
 	@Test public void testTitle(){
 		assertEquals("RPI Planner", getMainWindow().getTitle());
 	}
+
 }

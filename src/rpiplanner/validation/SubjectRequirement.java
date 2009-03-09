@@ -18,13 +18,20 @@
 
 package rpiplanner.validation;
 
-/**
- * Created by IntelliJ IDEA.
- * User: Matt Murphy
- * Date: Mar 6, 2009
- * Time: 12:18:50 PM
- * To change this template use File | Settings | File Templates.
- */
 public class SubjectRequirement
 {
+
+    String name;
+    String description;
+
+    public String getName()
+	{
+		return name;
+	}
+
+    public String getDescription()
+    {
+        return description;
+    }
+
 }

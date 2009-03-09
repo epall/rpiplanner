@@ -18,29 +18,36 @@
 
 package rpiplanner.validation;
 
-import com.thoughtworks.xstream.annotations.XStreamImplicit;
 import rpiplanner.model.Course;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import com.thoughtworks.xstream.annotations.XStreamImplicit;
+import com.thoughtworks.xstream.annotations.XStreamAlias;
 
-public class CoreRequirement
+@XStreamAlias("RestrictedRequirement")
+public class RestrictedRequirement
 {
     String name;
 	String description;
 
+	int numCredits = 0;
+	int numCourses = 0;
+
+
 	@XStreamImplicit(itemFieldName="course")
 	ArrayList<Course> reqCourse;
-	
 
 	HashMap<Course, ArrayList<Course>> replacementCourses;
 
 
-	CoreRequirement(String name, String description)
+	RestrictedRequirement(String name,String description,int numCredits,int numCourses)
 	{
 		this.name = name;
 		this.description = description;
+		this.numCredits = numCredits;
+		this.numCourses = numCourses;
 
 		reqCourse = new ArrayList<Course>();
 		replacementCourses = new HashMap<Course, ArrayList<Course> >();
@@ -52,10 +59,19 @@ public class CoreRequirement
 		return name;
 	}
 
-	public int getNumCourses ()
+	public int getNumClasses ()
 	{
-		return reqCourse.size();
+		return numCourses;
 	}
+
+	public int getNumCredits ()
+	{
+		return numCredits;
+	}
+    public String getDescription()
+    {
+        return description;
+    }
 
 	public void addCourse (Course course)
 	{
@@ -70,14 +86,4 @@ public class CoreRequirement
 		}
 		replacementCourses.get(originalCourse).add(replacementCourse);
 	}
-
-	public String getDescription()
-    {
-		return description;
-	}
-
-    public Boolean hasReplacementCourse(Course course)
-    {
-        return replacementCourses.containsKey(course);
-    }
 }
