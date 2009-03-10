@@ -37,9 +37,12 @@ public class Degree
 
 
 
-    public DegreeValidationResult validate (PlanOfStudy pos)
+
+    //TODO: Supposed to take PlanOfStudy pos as argument
+    public DegreeValidationResult validate (ArrayList<Course> pos)
     {
         DegreeValidationResult result = new DegreeValidationResult();
+         HashMap<Course,Integer> courseMap = createHash(pos);
 
         for (SpecialDesignationRequirement currentReq : specialReq)
         {
@@ -51,7 +54,7 @@ public class Degree
         }
 
         for (CoreRequirement currentReq : coreReq)
-			{
+        {
                 DegreeSection newSection = new DegreeSection();
                 newSection.name = currentReq.getName();
                 newSection.description = currentReq.getDescription();
@@ -78,14 +81,24 @@ public class Degree
                     //We didn't find the course so it must be missing.
                     else
                     {
+                        //TODO:Check to see if we want the replacement course to be in missing courses also.
                         newSection.missingCourses.add(course);
                         newSection.potentialCourses.add(course);
+                        if (currentReq.hasReplacementCourse(course))
+                        {
+                            for (Course repCourse : currentReq.getReplacementCourses(course))
+                            {
+                                if (courseMap.containsKey(repCourse))
+                                {
+                                    newSection.potentialCourses.add(repCourse);
+                                }
+                            }
+                        }
+
                     }
-                }
-
-
                 result.addSection(newSection);
 			}
+        }
 
         for (RestrictedRequirement currentReq : restReq)
 			{
@@ -106,6 +119,7 @@ public class Degree
 			}
         return result;
     }
+
 
     //TODO: Add PlanOfStudy pos as argument
     private HashMap <Course,Integer> createHash (ArrayList<Course> pos)
@@ -129,8 +143,11 @@ public class Degree
         return courseMap;
     }
 
-    public void addCoreRequirement(CoreRequirement newCoreReq) {
-        coreReq.add(newCoreReq);
+    public void addCoreRequirement(CoreRequirement req) {
+        coreReq.add(req);
     }
 
+    public void addRestrictedRequirement(RestrictedRequirement req) {
+        restReq.add(req);
+    }
 }

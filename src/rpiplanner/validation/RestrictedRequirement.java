@@ -54,17 +54,22 @@ public class RestrictedRequirement
 
 	}
 
-	public String getName()
+    public RestrictedRequirement(String name, String desc) {
+        this.name = name;
+        this.description = desc;
+    }
+
+    public String getName()
 	{
 		return name;
 	}
 
-	public int getNumClasses ()
+	public int getNumCourses()
 	{
 		return numCourses;
 	}
 
-	public int getNumCredits ()
+	public int getNumCredits()
 	{
 		return numCredits;
 	}
