@@ -26,6 +26,7 @@ import static org.junit.Assert.assertEquals;
 import rpiplanner.model.Course;
 import rpiplanner.model.PlanOfStudy;
 import rpiplanner.validation.RestrictedRequirement;
+import rpiplanner.Fixtures;
 
 import java.util.List;
 import java.util.ArrayList;
@@ -35,7 +36,7 @@ public class DegreeTest
     @Before
     public void setUp()
     {
-
+        Fixtures.getCourseDatabase();
     }
 
     @After

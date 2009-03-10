@@ -30,10 +30,10 @@ public class Degree
     @XStreamAlias("DegreeName")
     String name;
 
-    ArrayList<SpecialDesignationRequirement>  specialReq;
-    ArrayList<CoreRequirement> coreReq;
-    ArrayList<SubjectRequirement> subjReq;
-    ArrayList<RestrictedRequirement> restReq;
+    ArrayList<SpecialDesignationRequirement> specialReq = new ArrayList<SpecialDesignationRequirement>();
+    ArrayList<CoreRequirement> coreReq = new ArrayList<CoreRequirement>();
+    ArrayList<SubjectRequirement> subjReq = new ArrayList<SubjectRequirement>();
+    ArrayList<RestrictedRequirement> restReq = new ArrayList<RestrictedRequirement>();
 
 
 

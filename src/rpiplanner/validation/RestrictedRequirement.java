@@ -37,7 +37,7 @@ public class RestrictedRequirement
 
 
 	@XStreamImplicit(itemFieldName="course")
-	ArrayList<Course> reqCourse;
+	ArrayList<Course> reqCourse = new ArrayList<Course>();
 
 	HashMap<Course, ArrayList<Course>> replacementCourses;
 
