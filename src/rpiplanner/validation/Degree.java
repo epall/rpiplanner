@@ -42,7 +42,7 @@ public class Degree
     public DegreeValidationResult validate (ArrayList<Course> pos)
     {
         DegreeValidationResult result = new DegreeValidationResult();
-         HashMap<Course,Integer> courseMap = createHash(pos);
+        HashMap<Course,Integer> courseMap = createHash(pos);
 
         for (SpecialDesignationRequirement currentReq : specialReq)
         {
@@ -60,6 +60,7 @@ public class Degree
                 newSection.description = currentReq.getDescription();
 
                 //TODO:Decrement HashMap when Course used
+                //TODO:Create fuction for this block
                 for (Course course : currentReq.getCourses())
                 {
                     //Check to see if we have taken this course;
@@ -123,7 +124,6 @@ public class Degree
 			}
         return result;
     }
-
 
     //TODO: Add PlanOfStudy pos as argument
     private HashMap <Course,Integer> createHash (ArrayList<Course> pos)
