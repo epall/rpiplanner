@@ -25,6 +25,7 @@ import static org.junit.Assert.*;
 import static org.junit.Assert.assertEquals;
 import rpiplanner.model.Course;
 import rpiplanner.model.PlanOfStudy;
+import rpiplanner.validation.RestrictedRequirement;
 
 import java.util.List;
 import java.util.ArrayList;
@@ -50,6 +51,8 @@ public class DegreeTest
         String name = "Test Requirement";
         String desc = "Testing the Core Requirement Validator";
         CoreRequirement coreMathScienceReq = new CoreRequirement(name, desc);
+
+        assertNotNull(Course.get("CSCI","1100"));
 
 		coreMathScienceReq.addCourse(Course.get("CSCI","1100"));
 		coreMathScienceReq.addCourse(Course.get("CSCI","1200"));
@@ -91,6 +94,49 @@ public class DegreeTest
         assertEquals(courseList, result.getSectionResults("Test Requirement").appliedCourses());
         assertEquals(missingCourseList, result.getSectionResults("Test Requirement").missingCourses());
 
+    }
+    @Test
+    public void testValidateRestrictedElective ()
+    {
+        Degree testDegree = new Degree();
+        String name = "Test Requirement";
+        String desc = "Testing the Core Requirement Validator";
+        RestrictedRequirement multiReq = new RestrictedRequirement(name, desc);
+
+		multiReq.addCourse(Course.get("CSCI","1100"));
+		multiReq.addCourse(Course.get("CSCI","1200"));
+		multiReq.addCourse(Course.get("CSCI","2300"));
+		multiReq.addCourse(Course.get("MATH","1010"));
+
+
+        multiReq.addReplacementCourse(Course.get("MATH","1010"), Course.get("Arts","1010"));
+
+        testDegree.addRestrictedRequirement(multiReq);
+
+        ArrayList<Course> courseList = new ArrayList<Course>();
+
+        courseList.add(Course.get("CSCI","1100"));
+        courseList.add(Course.get("CSCI","1200"));
+        courseList.add(Course.get("Arts","1010"));
+
+        ArrayList<Course> missingCourseList = new ArrayList<Course>();
+
+        missingCourseList.add(Course.get("CSCI","2300"));
+        missingCourseList.add(Course.get("MATH","1020"));
+        missingCourseList.add(Course.get("MATH","2400"));
+        missingCourseList.add(Course.get("MATH","2800"));
+        missingCourseList.add(Course.get("PHYS","1100"));
+        missingCourseList.add(Course.get("PHYS","2400"));
+        missingCourseList.add(Course.get("CHEM","1100"));
+
+
+
+        DegreeValidationResult result = testDegree.validate(courseList);
+
+        result.getSectionResults("Test Requirement");
+
+        assertEquals(courseList, result.getSectionResults("Test Requirement").appliedCourses());
+        assertEquals(missingCourseList, result.getSectionResults("Test Requirement").missingCourses());
     }
     
 
