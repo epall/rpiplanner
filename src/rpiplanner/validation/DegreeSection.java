@@ -30,9 +30,11 @@ public class DegreeSection implements ISection
     ArrayList<Course> missingCourses;
     ArrayList<Course> appliedCourses;
     ArrayList<Course> potentialCourses;
+    public boolean isSuccess;
 
     public DegreeSection()
     {
+        isSuccess = false;
         missingCourses = new ArrayList<Course>();
         appliedCourses = new ArrayList<Course>();
         potentialCourses = new ArrayList<Course>();
@@ -40,7 +42,7 @@ public class DegreeSection implements ISection
 
     public boolean isSuccess()
     {
-        return false;
+       return isSuccess;
     }
     public Course[] missingCourses()
     {

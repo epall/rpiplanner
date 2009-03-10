@@ -96,6 +96,10 @@ public class Degree
                         }
 
                     }
+                    if (newSection.missingCourses.size() == 0)
+                    {
+                        newSection.isSuccess = true;
+                    }
                 result.addSection(newSection);
 			}
         }
