@@ -19,11 +19,14 @@
 package rpiplanner.validation;
 
 import rpiplanner.model.Course;
+
+import java.util.ArrayList;
+
 public interface ISection {
-    public Course[] missingCourses();
-    public Course[] appliedCourses();
-    public String[] messages();
-    public Course[] potentialCourses();
+    public ArrayList<Course> missingCourses();
+    public ArrayList<Course> appliedCourses();
+    public String messages();
+    public ArrayList<Course> potentialCourses();
     public boolean isSuccess();
 }
 

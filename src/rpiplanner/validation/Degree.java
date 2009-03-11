@@ -74,7 +74,7 @@ public class Degree
                         for (Course repCourse : currentReq.getReplacementCourses(course))
                         {
                             if (courseMap.containsKey(repCourse))
-                            {
+                            {   //TODO: Do we want the applied course to show original course or rep course?
                                 newSection.appliedCourses.add(repCourse);
                             }
                         }

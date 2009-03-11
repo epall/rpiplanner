@@ -74,7 +74,7 @@ public class DegreeTest
 
         courseList.add(Course.get("CSCI","1100"));
         courseList.add(Course.get("CSCI","1200"));
-        courseList.add(Course.get("Arts","1010"));
+        courseList.add(Course.get("MATH","1010"));
 
         ArrayList<Course> missingCourseList = new ArrayList<Course>();
 
@@ -110,8 +110,7 @@ public class DegreeTest
 		multiReq.addCourse(Course.get("ENGR","2250"));
 		multiReq.addCourse(Course.get("ENGR","2530"));
 
-         //TODO: Add test for replacement courses
-        //multiReq.addReplacementCourse(Course.get("MATH","1010"), Course.get("Arts","1010"));
+        multiReq.addReplacementCourse(Course.get("MATH","1010"), Course.get("Arts","1010"));
 
         testDegree.addRestrictedRequirement(multiReq);
 

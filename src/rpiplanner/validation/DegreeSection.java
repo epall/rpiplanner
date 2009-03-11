@@ -44,21 +44,20 @@ public class DegreeSection implements ISection
     {
        return isSuccess;
     }
-    public Course[] missingCourses()
+    public ArrayList<Course> missingCourses()
     {
-        //TODO
-        return null;
+        return missingCourses;
     }
-    public Course[] appliedCourses()
+    public ArrayList<Course> appliedCourses()
     {
-        return null;
+        return appliedCourses;
     }
-    public String[] messages()
+    public String messages()
     {
-        return null;
+        return description;
     }
-    public Course[] potentialCourses()
+    public ArrayList<Course> potentialCourses()
     {
-        return null;
+        return potentialCourses;
     }
 }
