@@ -111,6 +111,7 @@ public class Course implements Comparable<Course> {
 	}
 
     public static Course get(String prefix, String number){
+        //TODO: Do we want to use .toUpperCase() just to make sure all input works?
         return ShadowCourseDatabase.getMainDatabase().getCourse(prefix+"-"+number);
     }
     public static Course get(String catalogNumber){
