@@ -24,25 +24,39 @@ import rpiplanner.model.Course;
 
 public class CourseComparator implements Comparator {
 	public int compare(Object lhs, Object rhs) {
-		String lSub = ((Course) lhs).getCatalogNumber();
-		String rSub = ((Course) rhs).getCatalogNumber();
-		
-		int lIndex = lSub.indexOf('-');
-		int rIndex = rSub.indexOf('-');
-		
-		lSub = lSub.substring(lIndex + 1, lSub.length());
-		rSub = rSub.substring(rIndex + 1, rSub.length());
-		
-		if (Integer.parseInt(rSub) < Integer.parseInt(lSub)) {
+		if (requisiteDepth((Course) lhs) > requisiteDepth((Course) rhs)) {
 			return -1;
 		}
 		
-		else if (Integer.parseInt(rSub) > Integer.parseInt(lSub)) {
+		else if (requisiteDepth((Course) lhs) < requisiteDepth((Course) rhs)) {
 			return 1;
 		}
 		
 		else {
-			return 0;
+			String lSub = ((Course) lhs).getCatalogNumber();
+			String rSub = ((Course) rhs).getCatalogNumber();
+			
+			int lIndex = lSub.indexOf('-');
+			int rIndex = rSub.indexOf('-');
+			
+			lSub = lSub.substring(lIndex + 1, lSub.length());
+			rSub = rSub.substring(rIndex + 1, rSub.length());
+			
+			if (Integer.parseInt(rSub) < Integer.parseInt(lSub)) {
+				return -1;
+			}
+			
+			else if (Integer.parseInt(rSub) > Integer.parseInt(lSub)) {
+				return 1;
+			}
+			
+			else {
+				return 0;
+			}
 		}
+	}
+	
+	public int requisiteDepth(Course c) {
+		return 0;
 	}
 }
