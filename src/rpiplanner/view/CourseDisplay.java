@@ -106,7 +106,7 @@ public class CourseDisplay extends JPanel {
 						
 						contextMenu.add("Fill Requisites").addActionListener(new ActionListener() {
 							public void actionPerformed(ActionEvent e) {
-								fillRequisites(course, controller.getTerm(course));
+								fillRequisites(course, 0, controller.getTerm(course));
 							}
 						});
 						
@@ -146,7 +146,7 @@ public class CourseDisplay extends JPanel {
 		text.setSize(oldSize);
 	}
 	
-	private void fillRequisites(Course fillCourse, int term) {
+	private void fillRequisites(Course fillCourse, int term, int finalTerm) {
 		fillCourse = controller.getCourseDatabase().getCourse(fillCourse.getCatalogNumber());	
 		RequisiteSet reqs = fillCourse.getPrerequisites();
 		Collections.sort(reqs, new CourseComparator());
@@ -155,12 +155,12 @@ public class CourseDisplay extends JPanel {
 			// if the course isnt offered in both spring and fall, and we arent in the term that its offered in,
 			// go back one term so that we are in the term its offered in
 			if ((fillCourse.getAvailableTerms().length < 2) && (fillCourse.getAvailableTerms()[0] != controller.getPlan().getTerm(term).getTerm())) {
-				term--;
+				term++;
 			}
 			
 			// make sure theres still terms
-			if (term - 1 >= 0) {
-				fillRequisites(reqs.get(i), term - 1);
+			if (term + 1 <= finalTerm) {
+				fillRequisites(reqs.get(i), term + 1, finalTerm);
 			}
 			
 			// ran out of terms for this line of prereqs
@@ -193,7 +193,7 @@ public class CourseDisplay extends JPanel {
 		RequisiteSet coreqs = fillCourse.getCorequisites();
 		Collections.sort(coreqs, new CourseComparator());
 		for (int k = 0; k < coreqs.size(); k++) {
-			fillRequisites(coreqs.get(k), term);
+			fillRequisites(coreqs.get(k), term, finalTerm);
 		}
 	}
 }

@@ -20,15 +20,21 @@
 package rpiplanner.model;
 
 import java.util.Comparator;
+import java.util.Stack;
+
 import rpiplanner.model.Course;
 
 public class CourseComparator implements Comparator {
 	public int compare(Object lhs, Object rhs) {
-		if (requisiteDepth((Course) lhs) > requisiteDepth((Course) rhs)) {
+		((Course) lhs).DFS();
+		((Course) rhs).DFS();
+		System.out.println(((Course) lhs).getDFSpost());
+		System.out.println(((Course) rhs).getDFSpost());
+		if (((Course) lhs).getDFSpost() > ((Course) rhs).getDFSpost()) {
 			return -1;
 		}
 		
-		else if (requisiteDepth((Course) lhs) < requisiteDepth((Course) rhs)) {
+		else if (((Course) lhs).getDFSpost() < ((Course) rhs).getDFSpost()) {
 			return 1;
 		}
 		
@@ -43,20 +49,16 @@ public class CourseComparator implements Comparator {
 			rSub = rSub.substring(rIndex + 1, rSub.length());
 			
 			if (Integer.parseInt(rSub) < Integer.parseInt(lSub)) {
-				return -1;
+				return 1;
 			}
 			
 			else if (Integer.parseInt(rSub) > Integer.parseInt(lSub)) {
-				return 1;
+				return -1;
 			}
 			
 			else {
 				return 0;
 			}
 		}
-	}
-	
-	public int requisiteDepth(Course c) {
-		return 0;
 	}
 }
