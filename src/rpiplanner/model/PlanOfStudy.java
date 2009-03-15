@@ -155,6 +155,15 @@ public class PlanOfStudy {
 			changeSupport = new PropertyChangeSupport(this);
 		changeSupport.firePropertyChange("courses", null, null);
 	}
+    
+    public ArrayList<Course> getCourseList() {
+        ArrayList<Course> courses = new ArrayList<Course>();
+        for (Term current : terms)
+        {
+            courses.addAll(current.getCourses());
+        }
+         return courses;
+    }
 
     /**
      * Get a list of all courses included in this plan in the sequence in
