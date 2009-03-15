@@ -25,6 +25,7 @@ import java.util.HashMap;
 public class DegreeValidationResult implements IDegreeValidationResult
 {
     HashMap<String,DegreeSection> sectionMap;
+    private int totalCredits;
 
     DegreeValidationResult()
     {
@@ -34,6 +35,10 @@ public class DegreeValidationResult implements IDegreeValidationResult
     {
         //TODO: Add algorithm to compute completenness
         return 0;
+    }
+    void setTotalCredits(int totalCredits)
+    {
+        this.totalCredits = totalCredits;
     }
 
 
@@ -46,6 +51,11 @@ public class DegreeValidationResult implements IDegreeValidationResult
     void addSection (DegreeSection newSection)
     {
         sectionMap.put(newSection.name,newSection);
+    }
+
+    int getTotalCredits()
+    {
+        return totalCredits;
     }
 
 }
