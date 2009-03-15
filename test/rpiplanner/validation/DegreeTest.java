@@ -128,6 +128,12 @@ public class DegreeTest
 
         result.getSectionResults("Test Requirement");
         assertTrue(result.getSectionResults("Test Requirement").isSuccess());
+
+        //Shows what I need to fix
+        courseList.add(Course.get("ENGR","2250"));
+        result = testDegree.validate(courseList);
+        assertTrue(result.getSectionResults("Test Requirement").isSuccess());
+
     }
     
 

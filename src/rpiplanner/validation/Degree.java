@@ -39,6 +39,8 @@ public class Degree
 
 
     //TODO: Supposed to take PlanOfStudy pos as argument
+    //TODO: Put validate functions in respective requirements?
+    //Have them return validtionresult and then run another function to update Hash
     public DegreeValidationResult validate (ArrayList<Course> pos)
     {
         ArrayList<Course> courseList = pos;
