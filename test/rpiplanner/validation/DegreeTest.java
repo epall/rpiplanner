@@ -30,6 +30,7 @@ import rpiplanner.Fixtures;
 
 import java.util.List;
 import java.util.ArrayList;
+import java.io.Console;
 
 public class DegreeTest
 {
@@ -87,14 +88,13 @@ public class DegreeTest
         missingCourseList.add(Course.get("CHEM","1100"));
 
 
-
         DegreeValidationResult result = testDegree.validate(courseList);
 
         result.getSectionResults("Test Requirement");
 
         assertEquals(courseList, result.getSectionResults("Test Requirement").appliedCourses());
         assertEquals(missingCourseList, result.getSectionResults("Test Requirement").missingCourses());
-        assertTrue(result.getSectionResults("Test Requirement").isSuccess());
+        assertFalse(result.getSectionResults("Test Requirement").isSuccess());
 
     }
     @Test
