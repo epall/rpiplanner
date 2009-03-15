@@ -56,11 +56,11 @@ public class Degree
 
         for (CoreRequirement currentReq : coreReq)
         {
-                DegreeSection newSection = new DegreeSection();
-                newSection.name = currentReq.getName();
-                newSection.description = currentReq.getDescription();
+            DegreeSection newSection = new DegreeSection();
+            newSection.name = currentReq.getName();
+            newSection.description = currentReq.getDescription();
 
-                //TODO:Decrement HashMap when Course used
+
                 //TODO:Create fuction for this block
                 for (Course course : currentReq.getCourses())
                 {
