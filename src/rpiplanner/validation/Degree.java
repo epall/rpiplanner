@@ -44,6 +44,7 @@ public class Degree
         ArrayList<Course> courseList = pos;
         DegreeValidationResult result = new DegreeValidationResult();
         HashMap<Course,Integer> courseMap = createHash(courseList);
+        int totalCredits = 0;
 
         for (SpecialDesignationRequirement currentReq : specialReq)
         {
@@ -75,6 +76,7 @@ public class Degree
                             number--;
                             courseMap.put(course,number);
                             found = true;
+                            totalCredits += course.getCredits();
                         }
                     }
                     if (currentReq.hasReplacementCourse(course) && !found)
@@ -89,6 +91,7 @@ public class Degree
                                 number--;
                                 courseMap.put(repCourse,number);
                                 found = true;
+                                totalCredits += course.getCredits();
                             }
                         }
                     }
@@ -193,8 +196,10 @@ public class Degree
                     ssUpperList.add(course);
                 }
             }
-            result.addSection(humSSSection);
         }
+        humSSSection.isSuccess = false;
+        result.addSection(humSSSection);
+
         //Free Electives
         DegreeSection freeElective = new DegreeSection();
         freeElective.name = "Free Electives";
@@ -212,11 +217,13 @@ public class Degree
                     for (int i = 0;i < courseMap.get(course);i++)
                     {
                         freeElective.appliedCourses.add(course);
+                        totalCredits += course.getCredits();
                     }
                 }
             }
         }
         result.addSection(freeElective);
+        result.setTotalCredits(totalCredits);
         
         return result;
     }
