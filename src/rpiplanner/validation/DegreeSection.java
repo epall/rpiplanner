@@ -26,6 +26,7 @@ public class DegreeSection implements ISection
 {
     String name;
     String description;
+    int credits;
 
     ArrayList<Course> missingCourses;
     ArrayList<Course> appliedCourses;

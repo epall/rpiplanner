@@ -91,4 +91,16 @@ public class RestrictedRequirement
 		}
 		replacementCourses.get(originalCourse).add(replacementCourse);
 	}
+
+    public ArrayList<Course> getCourses() {
+        return reqCourse;
+    }
+
+    public boolean hasReplacementCourse(Course course) {
+        return replacementCourses.containsKey(course);
+    }
+
+    public ArrayList<Course> getReplacementCourses(Course course) {
+        return replacementCourses.get(course);
+    }
 }

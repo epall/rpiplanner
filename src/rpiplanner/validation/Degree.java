@@ -72,6 +72,7 @@ public class Degree
                         if (courseMap.get(course) > 0)
                         {
                             newSection.appliedCourses.add(course);
+                            newSection.credits += course.getCredits();
                             int number = courseMap.get(course);
                             number--;
                             courseMap.put(course,number);
@@ -87,6 +88,7 @@ public class Degree
                             if (courseMap.containsKey(repCourse))
                             {   //TODO: Do we want the applied course to show original course or rep course?
                                 newSection.appliedCourses.add(repCourse);
+                                newSection.credits += course.getCredits();
                                 int number = courseMap.get(repCourse);
                                 number--;
                                 courseMap.put(repCourse,number);
@@ -124,7 +126,58 @@ public class Degree
                 DegreeSection newSection = new DegreeSection();
                 newSection.name = currentReq.getName();
                 newSection.description = currentReq.getDescription();
-
+                for (Course course : currentReq.getCourses())
+                {
+                    if (courseMap.containsKey(course))
+                    {
+                        newSection.appliedCourses.add(course);
+                        newSection.credits += course.getCredits();
+                        int number = courseMap.get(course);
+                        number--;
+                        courseMap.put(course,number);
+                        totalCredits += course.getCredits();
+                    }
+                    else if (currentReq.hasReplacementCourse(course))
+                    {
+                        //Check for replacement courses for the current course.
+                        for (Course repCourse : currentReq.getReplacementCourses(course))
+                            {
+                                if (courseMap.containsKey(repCourse))
+                                {   //TODO: Do we want the applied course to show original course or rep course?
+                                    newSection.appliedCourses.add(repCourse);
+                                    newSection.credits += course.getCredits();
+                                    int number = courseMap.get(repCourse);
+                                    number--;
+                                    courseMap.put(repCourse,number);
+                                    totalCredits += course.getCredits();
+                                }
+                            }
+                    }
+                    else
+                    {
+                        //TODO:Check to see if we want the replacement course to be in missing courses also.
+                        newSection.missingCourses.add(course);
+                        newSection.potentialCourses.add(course);
+                        if (currentReq.hasReplacementCourse(course))
+                        {
+                            for (Course repCourse : currentReq.getReplacementCourses(course))
+                            {
+                                if (courseMap.containsKey(repCourse))
+                                {
+                                    newSection.potentialCourses.add(repCourse);
+                                }
+                            }
+                        }
+                    }
+                }
+                //TODO: Add support for if more than one course that meets the requirement is taken.
+                if (newSection.appliedCourses.size() == currentReq.getNumCourses() && newSection.credits >= currentReq.getNumCredits())
+                {
+                    newSection.isSuccess = true;
+                    newSection.missingCourses.clear();
+                    newSection.potentialCourses.clear();
+                }
+                else newSection.isSuccess = false;
                 result.addSection(newSection);
 			}
 
@@ -209,6 +262,7 @@ public class Degree
             if (courseMap.get(course) > 0)
             {
                 freeElective.appliedCourses.add(course);
+                freeElective.credits += course.getCredits();
                 int number = courseMap.get(course);
                 number--;
                 courseMap.put(course,number);
@@ -217,6 +271,7 @@ public class Degree
                     for (int i = 0;i < courseMap.get(course);i++)
                     {
                         freeElective.appliedCourses.add(course);
+                        freeElective.credits += course.getCredits();
                         totalCredits += course.getCredits();
                     }
                 }
