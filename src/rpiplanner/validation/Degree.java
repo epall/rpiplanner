@@ -24,6 +24,8 @@ import rpiplanner.model.Course;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Set;
 
 public class Degree
 {
@@ -36,13 +38,12 @@ public class Degree
     ArrayList<RestrictedRequirement> restReq = new ArrayList<RestrictedRequirement>();
 
 
-
-
     //TODO: Supposed to take PlanOfStudy pos as argument
     public DegreeValidationResult validate (ArrayList<Course> pos)
     {
+        ArrayList<Course> courseList = pos;
         DegreeValidationResult result = new DegreeValidationResult();
-        HashMap<Course,Integer> courseMap = createHash(pos);
+        HashMap<Course,Integer> courseMap = createHash(courseList);
 
         for (SpecialDesignationRequirement currentReq : specialReq)
         {
@@ -63,12 +64,20 @@ public class Degree
                 //TODO:Create fuction for this block
                 for (Course course : currentReq.getCourses())
                 {
+                    Boolean found = false;
                     //Check to see if we have taken this course;
                     if (courseMap.containsKey(course))
                     {
-                        newSection.appliedCourses.add(course);
+                        if (courseMap.get(course) > 0)
+                        {
+                            newSection.appliedCourses.add(course);
+                            int number = courseMap.get(course);
+                            number--;
+                            courseMap.put(course,number);
+                            found = true;
+                        }
                     }
-                    else if (currentReq.hasReplacementCourse(course))
+                    if (currentReq.hasReplacementCourse(course) && !found)
                     {
                         //Check for replacement courses for the current course.
                         for (Course repCourse : currentReq.getReplacementCourses(course))
@@ -76,11 +85,15 @@ public class Degree
                             if (courseMap.containsKey(repCourse))
                             {   //TODO: Do we want the applied course to show original course or rep course?
                                 newSection.appliedCourses.add(repCourse);
+                                int number = courseMap.get(repCourse);
+                                number--;
+                                courseMap.put(repCourse,number);
+                                found = true;
                             }
                         }
                     }
                     //We didn't find the course so it must be missing.
-                    else
+                   if (!found)
                     {
                         //TODO:Check to see if we want the replacement course to be in missing courses also.
                         newSection.missingCourses.add(course);
@@ -97,12 +110,10 @@ public class Degree
                         }
 
                     }
-                    if (newSection.missingCourses.size() == 0)
-                    {
-                        newSection.isSuccess = true;
-                    }
-                result.addSection(newSection);
-			}
+                }
+            if (newSection.missingCourses.size() == 0) newSection.isSuccess = true;
+            else newSection.isSuccess = false;
+            result.addSection(newSection);
         }
 
         for (RestrictedRequirement currentReq : restReq)
@@ -122,10 +133,95 @@ public class Degree
 
                 result.addSection(newSection);
 			}
+                /*
+        Humanities and Social Sciences RPI Version
+        Humanities: LANG LITR COMM WRIT ARTS PHIL STSH IHSS
+        Social Sciences: ECON STSS PSYC
+        STSS and STSH can count as one area for depth
+        PD2 is a humanities requirement so 20 credits required
+        Must take one class above 1000 level in the same prefix as you took a 1000 level
+        Max 3 1000 level courses
+        */
+        String description = "To ensure that students have some depth in their H&SS core, students must take at least two courses within a single area prefix (STSH and STSS can be counted as a single area), at least one of which is taken at an advanced level (above 1000). No course within the depth sequence may be taken as Pass/No Credit.\n" +
+                "\n" +
+                "No more than three 1000-level H&SS courses may be applied toward the H&SS core requirement, no more than 6 credits may be taken as Pass/No credit and at least one course (4 credits) must be at the 4000 level.";
+        DegreeSection humSSSection = new DegreeSection();
+        humSSSection.name = "Humanities and Social Sciences";
+        humSSSection.description = description;
+        int numHum = 0;
+        int numSocSci = 0;
+        int num1000Hum = 0;
+        int num1000SocSci = 0;
+        int numUpperHum = 0;
+        int numUpperSocSci = 0;
+        Boolean depthSatisfied;
+        ArrayList<Course> hum1000List = new ArrayList<Course>();
+        ArrayList<Course> ss1000List = new ArrayList<Course>();
+        ArrayList<Course> humUpperList = new ArrayList<Course>();
+        ArrayList<Course> ssUpperList = new ArrayList<Course>();
+
+        for (Course course : courseList)
+        {
+            //Humanities
+            if (course.getPrefix() == "LANG" || course.getPrefix() == "LITR" || course.getPrefix() == "WRIT" || course.getPrefix() == "COMM"
+                    || course.getPrefix() == "ARTS" || course.getPrefix() == "PHIL" || course.getPrefix() == "STSH" || course.getPrefix() == "IHSS")
+            {
+                numHum++;
+                if (course.getLevel() == "1000")
+                {
+                    num1000Hum++;
+                    hum1000List.add(course);
+                }
+                if (course.getLevel() == "2000" || course.getLevel() == "4000" || course.getLevel() == "6000")
+                {
+                    numUpperHum++;
+                    humUpperList.add(course);
+                }
+            }
+            //Social Sciences
+            else if (course.getPrefix() == "ECON" || course.getPrefix() == "STSS" || course.getPrefix() == "PSYC")
+            {
+                numSocSci++;
+                if (course.getLevel() == "1000")
+                {
+                    num1000SocSci++;
+                    ss1000List.add(course);
+                }
+                if (course.getLevel() == "2000" || course.getLevel() == "4000" || course.getLevel() == "6000")
+                {
+                    numUpperSocSci++;
+                    ssUpperList.add(course);
+                }
+            }
+            result.addSection(humSSSection);
+        }
+        //Free Electives
+        DegreeSection freeElective = new DegreeSection();
+        freeElective.name = "Free Electives";
+        freeElective.description = "Courses that are not applied to any other requirements";
+        for (Course course : courseList)
+        {
+            if (courseMap.get(course) > 0)
+            {
+                freeElective.appliedCourses.add(course);
+                int number = courseMap.get(course);
+                number--;
+                courseMap.put(course,number);
+                if (courseMap.get(course) > 0 && course.isDoubleCount())
+                {
+                    for (int i = 0;i < courseMap.get(course);i++)
+                    {
+                        freeElective.appliedCourses.add(course);
+                    }
+                }
+            }
+        }
+        result.addSection(freeElective);
+        
         return result;
     }
 
-    //TODO: Add PlanOfStudy pos as argument
+
     private HashMap <Course,Integer> createHash (ArrayList<Course> pos)
     {
         HashMap <Course,Integer> courseMap = new HashMap <Course,Integer>();
