@@ -39,7 +39,7 @@ public class RestrictedRequirement
 	@XStreamImplicit(itemFieldName="course")
 	ArrayList<Course> reqCourse = new ArrayList<Course>();
 
-	HashMap<Course, ArrayList<Course>> replacementCourses;
+	HashMap<Course, ArrayList<Course>> replacementCourses = new HashMap<Course, ArrayList<Course> >();
 
 
 	RestrictedRequirement(String name,String description,int numCredits,int numCourses)
@@ -50,8 +50,6 @@ public class RestrictedRequirement
 		this.numCourses = numCourses;
 
 		reqCourse = new ArrayList<Course>();
-		replacementCourses = new HashMap<Course, ArrayList<Course> >();
-
 	}
 
     public RestrictedRequirement(String name, String desc) {
@@ -102,5 +100,13 @@ public class RestrictedRequirement
 
     public ArrayList<Course> getReplacementCourses(Course course) {
         return replacementCourses.get(course);
+    }
+
+    public void setNumCredits(int i) {
+        numCredits = i;
+    }
+
+    public void setNumCourses(int i) {
+        numCourses = i;
     }
 }

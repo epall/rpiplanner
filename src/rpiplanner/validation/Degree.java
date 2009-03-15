@@ -189,7 +189,7 @@ public class Degree
 
                 result.addSection(newSection);
 			}
-                /*
+        /*
         Humanities and Social Sciences RPI Version
         Humanities: LANG LITR COMM WRIT ARTS PHIL STSH IHSS
         Social Sciences: ECON STSS PSYC
@@ -215,7 +215,7 @@ public class Degree
         ArrayList<Course> ss1000List = new ArrayList<Course>();
         ArrayList<Course> humUpperList = new ArrayList<Course>();
         ArrayList<Course> ssUpperList = new ArrayList<Course>();
-
+        
         for (Course course : courseList)
         {
             //Humanities

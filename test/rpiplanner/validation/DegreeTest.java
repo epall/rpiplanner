@@ -67,7 +67,7 @@ public class DegreeTest
 		coreMathScienceReq.addCourse(Course.get("PHYS","2400"));
 		coreMathScienceReq.addCourse(Course.get("CHEM","1100"));
 
-        coreMathScienceReq.addReplacementCourse(Course.get("MATH","1010"), Course.get("Arts","1010"));
+        coreMathScienceReq.addReplacementCourse(Course.get("MATH","1010"), Course.get("ARTS","1010"));
 
         testDegree.addCoreRequirement(coreMathScienceReq);
 
@@ -104,13 +104,15 @@ public class DegreeTest
         String name = "Test Requirement";
         String desc = "Testing the Restricted Requirement Validator";
         RestrictedRequirement multiReq = new RestrictedRequirement(name, desc);
+        multiReq.setNumCredits(4);
+        multiReq.setNumCourses(1);
 
 		multiReq.addCourse(Course.get("ENGR","1600"));
 		multiReq.addCourse(Course.get("ENGR","2090"));
 		multiReq.addCourse(Course.get("ENGR","2250"));
 		multiReq.addCourse(Course.get("ENGR","2530"));
 
-        multiReq.addReplacementCourse(Course.get("MATH","1010"), Course.get("Arts","1010"));
+        multiReq.addReplacementCourse(Course.get("MATH","1010"), Course.get("ARTS","1010"));
 
         testDegree.addRestrictedRequirement(multiReq);
 
@@ -118,25 +120,14 @@ public class DegreeTest
 
         courseList.add(Course.get("CSCI","1100"));
         courseList.add(Course.get("CSCI","1200"));
-        courseList.add(Course.get("Arts","1010"));
-
-        ArrayList<Course> missingCourseList = new ArrayList<Course>();
-
-        missingCourseList.add(Course.get("ENGR","1600"));
-        missingCourseList.add(Course.get("ENGR","2090"));
-        missingCourseList.add(Course.get("ENGR","2250"));
-        missingCourseList.add(Course.get("ENGR","2530"));
-
-
+        courseList.add(Course.get("ARTS","1010"));
+        courseList.add(Course.get("ENGR","2530"));
 
 
         DegreeValidationResult result = testDegree.validate(courseList);
 
         result.getSectionResults("Test Requirement");
-
-        assertEquals(courseList, result.getSectionResults("Test Requirement").appliedCourses());
-        assertEquals(missingCourseList, result.getSectionResults("Test Requirement").missingCourses());
-        assertFalse(result.getSectionResults("Test Requirement").isSuccess());
+        assertTrue(result.getSectionResults("Test Requirement").isSuccess());
     }
     
 
