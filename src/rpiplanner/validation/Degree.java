@@ -59,127 +59,13 @@ public class Degree
 
         for (CoreRequirement currentReq : coreReq)
         {
-            DegreeSection newSection = new DegreeSection();
-            newSection.name = currentReq.getName();
-            newSection.description = currentReq.getDescription();
-
-
-                //TODO:Create fuction for this block
-                for (Course course : currentReq.getCourses())
-                {
-                    Boolean found = false;
-                    //Check to see if we have taken this course;
-                    if (courseMap.containsKey(course))
-                    {
-                        if (courseMap.get(course) > 0)
-                        {
-                            newSection.appliedCourses.add(course);
-                            newSection.credits += course.getCredits();
-                            int number = courseMap.get(course);
-                            number--;
-                            courseMap.put(course,number);
-                            found = true;
-                            totalCredits += course.getCredits();
-                        }
-                    }
-                    if (currentReq.hasReplacementCourse(course) && !found)
-                    {
-                        //Check for replacement courses for the current course.
-                        for (Course repCourse : currentReq.getReplacementCourses(course))
-                        {
-                            if (courseMap.containsKey(repCourse))
-                            {   //TODO: Do we want the applied course to show original course or rep course?
-                                newSection.appliedCourses.add(repCourse);
-                                newSection.credits += course.getCredits();
-                                int number = courseMap.get(repCourse);
-                                number--;
-                                courseMap.put(repCourse,number);
-                                found = true;
-                                totalCredits += course.getCredits();
-                            }
-                        }
-                    }
-                    //We didn't find the course so it must be missing.
-                   if (!found)
-                    {
-                        //TODO:Check to see if we want the replacement course to be in missing courses also.
-                        newSection.missingCourses.add(course);
-                        newSection.potentialCourses.add(course);
-                        if (currentReq.hasReplacementCourse(course))
-                        {
-                            for (Course repCourse : currentReq.getReplacementCourses(course))
-                            {
-                                if (courseMap.containsKey(repCourse))
-                                {
-                                    newSection.potentialCourses.add(repCourse);
-                                }
-                            }
-                        }
-
-                    }
-                }
-            if (newSection.missingCourses.size() == 0) newSection.isSuccess = true;
-            else newSection.isSuccess = false;
+            DegreeSection newSection = currentReq.validate(courseMap);
             result.addSection(newSection);
         }
 
         for (RestrictedRequirement currentReq : restReq)
 			{
-                DegreeSection newSection = new DegreeSection();
-                newSection.name = currentReq.getName();
-                newSection.description = currentReq.getDescription();
-                for (Course course : currentReq.getCourses())
-                {
-                    if (courseMap.containsKey(course))
-                    {
-                        newSection.appliedCourses.add(course);
-                        newSection.credits += course.getCredits();
-                        int number = courseMap.get(course);
-                        number--;
-                        courseMap.put(course,number);
-                        totalCredits += course.getCredits();
-                    }
-                    else if (currentReq.hasReplacementCourse(course))
-                    {
-                        //Check for replacement courses for the current course.
-                        for (Course repCourse : currentReq.getReplacementCourses(course))
-                            {
-                                if (courseMap.containsKey(repCourse))
-                                {   //TODO: Do we want the applied course to show original course or rep course?
-                                    newSection.appliedCourses.add(repCourse);
-                                    newSection.credits += course.getCredits();
-                                    int number = courseMap.get(repCourse);
-                                    number--;
-                                    courseMap.put(repCourse,number);
-                                    totalCredits += course.getCredits();
-                                }
-                            }
-                    }
-                    else
-                    {
-                        //TODO:Check to see if we want the replacement course to be in missing courses also.
-                        newSection.missingCourses.add(course);
-                        newSection.potentialCourses.add(course);
-                        if (currentReq.hasReplacementCourse(course))
-                        {
-                            for (Course repCourse : currentReq.getReplacementCourses(course))
-                            {
-                                if (courseMap.containsKey(repCourse))
-                                {
-                                    newSection.potentialCourses.add(repCourse);
-                                }
-                            }
-                        }
-                    }
-                }
-                //TODO: Add support for if more than one course that meets the requirement is taken.
-                if (newSection.appliedCourses.size() == currentReq.getNumCourses() && newSection.credits >= currentReq.getNumCredits())
-                {
-                    newSection.isSuccess = true;
-                    newSection.missingCourses.clear();
-                    newSection.potentialCourses.clear();
-                }
-                else newSection.isSuccess = false;
+                DegreeSection newSection = currentReq.validate(courseMap);
                 result.addSection(newSection);
 			}
 

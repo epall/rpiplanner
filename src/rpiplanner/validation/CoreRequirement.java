@@ -93,4 +93,68 @@ public class CoreRequirement
         else
             return null;
     }
+
+    public DegreeSection validate(HashMap<Course, Integer> courseMap) {
+         DegreeSection newSection = new DegreeSection();
+            newSection.name = this.getName();
+            newSection.description = this.getDescription();
+
+
+                //TODO:Create fuction for this block
+                for (Course course : this.getCourses())
+                {
+                    Boolean found = false;
+                    //Check to see if we have taken this course;
+                    if (courseMap.containsKey(course))
+                    {
+                        if (courseMap.get(course) > 0)
+                        {
+                            newSection.appliedCourses.add(course);
+                            newSection.credits += course.getCredits();
+                            int number = courseMap.get(course);
+                            number--;
+                            courseMap.put(course,number);
+                            found = true;
+
+                        }
+                    }
+                    if (this.hasReplacementCourse(course) && !found)
+                    {
+                        //Check for replacement courses for the current course.
+                        for (Course repCourse : getReplacementCourses(course))
+                        {
+                            if (courseMap.containsKey(repCourse))
+                            {   //TODO: Do we want the applied course to show original course or rep course?
+                                newSection.appliedCourses.add(repCourse);
+                                newSection.credits += course.getCredits();
+                                int number = courseMap.get(repCourse);
+                                number--;
+                                courseMap.put(repCourse,number);
+                                found = true;
+                            }
+                        }
+                    }
+                    //We didn't find the course so it must be missing.
+                   if (!found)
+                    {
+                        //TODO:Check to see if we want the replacement course to be in missing courses also.
+                        newSection.missingCourses.add(course);
+                        newSection.potentialCourses.add(course);
+                        if (hasReplacementCourse(course))
+                        {
+                            for (Course repCourse : getReplacementCourses(course))
+                            {
+                                if (courseMap.containsKey(repCourse))
+                                {
+                                    newSection.potentialCourses.add(repCourse);
+                                }
+                            }
+                        }
+
+                    }
+                }
+            if (newSection.missingCourses.size() == 0) newSection.isSuccess = true;
+            else newSection.isSuccess = false;
+        return newSection;
+    }
 }

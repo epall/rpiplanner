@@ -109,4 +109,61 @@ public class RestrictedRequirement
     public void setNumCourses(int i) {
         numCourses = i;
     }
+
+    public DegreeSection validate(HashMap<Course, Integer> courseMap) {
+        DegreeSection newSection = new DegreeSection();
+                newSection.name = getName();
+                newSection.description = getDescription();
+                for (Course course : getCourses())
+                {
+                    if (courseMap.containsKey(course))
+                    {
+                        newSection.appliedCourses.add(course);
+                        newSection.credits += course.getCredits();
+                        int number = courseMap.get(course);
+                        number--;
+                        courseMap.put(course,number);
+                    }
+                    else if (hasReplacementCourse(course))
+                    {
+                        //Check for replacement courses for the current course.
+                        for (Course repCourse : getReplacementCourses(course))
+                            {
+                                if (courseMap.containsKey(repCourse))
+                                {   //TODO: Do we want the applied course to show original course or rep course?
+                                    newSection.appliedCourses.add(repCourse);
+                                    newSection.credits += course.getCredits();
+                                    int number = courseMap.get(repCourse);
+                                    number--;
+                                    courseMap.put(repCourse,number);
+                                }
+                            }
+                    }
+                    else
+                    {
+                        //TODO:Check to see if we want the replacement course to be in missing courses also.
+                        newSection.missingCourses.add(course);
+                        newSection.potentialCourses.add(course);
+                        if (hasReplacementCourse(course))
+                        {
+                            for (Course repCourse : getReplacementCourses(course))
+                            {
+                                if (courseMap.containsKey(repCourse))
+                                {
+                                    newSection.potentialCourses.add(repCourse);
+                                }
+                            }
+                        }
+                    }
+                }
+                //TODO: Add support for if more than one course that meets the requirement is taken.
+                if (newSection.appliedCourses.size() == getNumCourses() && newSection.credits >= getNumCredits())
+                {
+                    newSection.isSuccess = true;
+                    newSection.missingCourses.clear();
+                    newSection.potentialCourses.clear();
+                }
+                else newSection.isSuccess = false;
+        return newSection;
+    }
 }
