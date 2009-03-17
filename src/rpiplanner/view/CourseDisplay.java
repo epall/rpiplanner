@@ -157,7 +157,10 @@ public class CourseDisplay extends JPanel {
 			}
 		}
 		
-		lowestTerm--;
+		if (lowestTerm > 0) {
+			lowestTerm--;
+		}
+		
 		for (int i = 0; i < dummyPOS.size(); i++) {
 			controller.addCourse(dummyPOS.get(i).getSecond() - lowestTerm, dummyPOS.get(i).getFirst());
 		}
