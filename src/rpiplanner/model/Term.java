@@ -49,6 +49,15 @@ public class Term {
 	public void setTerm(YearPart term) {
 		this.term = term;
 	}
+	
+	public int getCredits() {
+		int credits = 0;
+		for (int i = 0; i < courses.size(); i++) {
+			credits += courses.get(i).getCredits();
+		}
+		
+		return credits;
+	}
 
 	public ArrayList<Course> getCourses() {
 		if(courses == null){
