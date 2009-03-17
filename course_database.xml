@@ -95,6 +95,29 @@ NOTE: programming experience recommended
     <doubleCount>false</doubleCount>
   </course>
   <course>
+    <title>Net Art</title>
+    <description>Net Art is a hands-on studio course that uses the examination of the historical and theoretical aspects of Web-based art and virtual social spaces as a launching pad for individual student work. Considerable work at the conceptual level and a survey of Web-oriented software and programming enable students to create new works in net-based art.
+
+NOTE: Offered anually. Unclear which term
+NOTE: prerequisite can be skipped on permission of instructor
+NOTE: programming experience recommended
+</description>
+    <department>Arts</department>
+    <catalogNumber>ARTS-2030</catalogNumber>
+    <credits>4</credits>
+    <prerequisites required="false" pickOne="false">
+      <course>
+        <catalogNumber>ARTS-1020</catalogNumber>
+      </course>
+    </prerequisites>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>false</doubleCount>
+  </course>
+  <course>
     <title>Intermediate Digital Imaging</title>
     <description>Intermediate Digital Imaging is a hands-on studio course exploring the use of computer technologies in making visual art. A study of contemporary issues in digital media and photography facilitates individual innovation and experimentation. Digital imaging and input/output techniques are employed in terms of giving visual form to ideas and personal expression in private and public settings.
 
@@ -657,7 +680,7 @@ NOTE: Prerequisite: permission of instructor
       <year-part>SPRING</year-part>
     </availableTerms>
     <isOfficial>true</isOfficial>
-    <doubleCount>true</doubleCount>
+    <doubleCount>false</doubleCount>
   </course>
   <course>
     <title>Electronic Arts Practice</title>
@@ -737,7 +760,7 @@ NOTE: Unclear when course is offered
       <year-part>SPRING</year-part>
     </availableTerms>
     <isOfficial>true</isOfficial>
-    <doubleCount>false</doubleCount>
+    <doubleCount>true</doubleCount>
   </course>
   <course>
     <title>Topics in Electronic Arts</title>
@@ -753,7 +776,7 @@ NOTE: Unclear when course is offered
       <year-part>SPRING</year-part>
     </availableTerms>
     <isOfficial>true</isOfficial>
-    <doubleCount>false</doubleCount>
+    <doubleCount>true</doubleCount>
   </course>
   <course>
     <title>Master&#8217;s Thesis</title>
@@ -1309,23 +1332,6 @@ NOTE: prerequisite can be replaced with an equivalent
     <doubleCount>false</doubleCount>
   </course>
   <course>
-    <title>Cell-Extracellular Matrix Interactions</title>
-    <description>Comprehensive examination of cellular interactions with the extracellular matrix (ECM), as well as analysis of the structure and function of the ECM in a variety of tissues.&#160;Topics to be covered include: ECM proteins, cell-matrix interactions, ECM signaling, mechanics of the ECM, ECM pathology and recent advances in ECM research.
-
-Cross-listed with BMED 4420/6420.
-
-NOTE: even-numbered years ONLY
-</description>
-    <department>Biology</department>
-    <catalogNumber>BIOL-4750</catalogNumber>
-    <credits>4</credits>
-    <availableTerms>
-      <year-part>SPRING</year-part>
-    </availableTerms>
-    <isOfficial>true</isOfficial>
-    <doubleCount>false</doubleCount>
-  </course>
-  <course>
     <title>Molecular Biochemistry II</title>
     <description>The second semester of the molecular biochemistry sequence. Topics include lipids and lipid metabolism, amino acid metabolism and the coenzymes involved in this metabolism, nucleic acid synthesis and chemistry, protein synthesis and degradation, integration of metabolism, photobiology, and photosynthesis. This course is taught in studio mode.(Students cannot obtain credit for both this course and either BCBP 4770 or CHEM 4770.)
 
@@ -1396,7 +1402,7 @@ NOTE: permission of instructor.
       <year-part>SPRING</year-part>
     </availableTerms>
     <isOfficial>true</isOfficial>
-    <doubleCount>true</doubleCount>
+    <doubleCount>false</doubleCount>
   </course>
   <course>
     <title>Microbiology</title>
@@ -1567,23 +1573,6 @@ NOTE: programming experience recommended
     <doubleCount>false</doubleCount>
   </course>
   <course>
-    <title>Cell-Extracellular Matrix Interactions</title>
-    <description>Comprehensive examination of cellular interactions with the extracellular matrix (ECM), as well as anaylsis of the structure and function of the ECM in a variety of tissues. Topics to be covered include: ECM proteins, cell-matris interactions, ECM signaling, mechanics of the ECM, ECM pathology and recent advances in ECM research.&#160;
-
-Cross-listed with BMED 4420/6420.
-
-NOTE: even-numbered years ONLY
-</description>
-    <department>Biology</department>
-    <catalogNumber>BIOL-6750</catalogNumber>
-    <credits>4</credits>
-    <availableTerms>
-      <year-part>SPRING</year-part>
-    </availableTerms>
-    <isOfficial>true</isOfficial>
-    <doubleCount>false</doubleCount>
-  </course>
-  <course>
     <title>Seminar in Biology</title>
     <description>Weekly discussion of selected topics in biology by graduate students and staff.</description>
     <department>Biology</department>
@@ -1610,7 +1599,7 @@ NOTE: permission of instructor.
       <year-part>SPRING</year-part>
     </availableTerms>
     <isOfficial>true</isOfficial>
-    <doubleCount>false</doubleCount>
+    <doubleCount>true</doubleCount>
   </course>
   <course>
     <title>Professional Project</title>
@@ -1652,6 +1641,422 @@ NOTE: Unclear when course is offered
 </description>
     <department>Biology</department>
     <catalogNumber>BIOL-9990</catalogNumber>
+    <credits>0</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>false</doubleCount>
+  </course>
+  <course>
+    <title>Introduction to Biomedical Engineering</title>
+    <description>This is a course for first and second year engineering students which provides an overview and introduction to the field of Biomedical Engineering. It will present the many aspects of the discipline, with information about the state of the art, current practices and challenges confronting the field. Career opportunities will be identified, and the education and training needed to qualify for different jobs will be outlined.</description>
+    <department>Biomedical Engineering</department>
+    <catalogNumber>BMED-1330</catalogNumber>
+    <credits>1</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>false</doubleCount>
+  </course>
+  <course>
+    <title>Biomaterials Science and Engineering</title>
+    <description>Presents structure-property relationships of implant materials including metals, polymers, ceramics, and composites, with an emphasis on mechanical and surface properties in the broader context of implant design. Biological performance of biomaterials, case studies of traditional implants&#8212;as well as emerging, tissue-engineered materials&#8212; are emphasized.</description>
+    <department>Biomedical Engineering</department>
+    <catalogNumber>BMED-2100</catalogNumber>
+    <credits>4</credits>
+    <availableTerms>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>false</doubleCount>
+  </course>
+  <course>
+    <title>Modeling of Biomedical Systems</title>
+    <description>Introduction of mathematical and computational methods to model physiological systems in biomedical engineering that include examples drawn from thermal and therapeutic diffusion, biomechanics of the musculoskeletal system, and lumped parameter models of the cardiac cycle.&#160; Mathematical methods include partial differential equations and systems of ordinary differential equation. Computational methods include finite difference, finite element, and lumped parameter methods.&#160; Computational methods are programmed using commercial programming and finite element software.</description>
+    <department>Biomedical Engineering</department>
+    <catalogNumber>BMED-2200</catalogNumber>
+    <credits>4</credits>
+    <availableTerms>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>false</doubleCount>
+  </course>
+  <course>
+    <title>Sensing and Imaging</title>
+    <description>An introduction to sensing and imaging methods using electromagnetic radiation, including hands-on experiments.&#160; Topics include physical principles of sensing/imaging, instrumentation and data acquisition strategies and computational methods for image formation and sensing.&#160; Emphasis is placed on imaging with visible light and near infrared spectrum, diffuse optical imaging and spectroscopy, x-ray imaging and computed tomography and radar.&#160; Application areas include medicine and biology, security and surveillance, environmental and chemical sensing, and buried or hidden objects.
+
+ECSE 2800
+
+NOTE: alternate years ONLY
+</description>
+    <department>Biomedical Engineering</department>
+    <catalogNumber>BMED-2800</catalogNumber>
+    <credits>3</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>false</doubleCount>
+  </course>
+  <course>
+    <title>Studies in Biomedical Engineering</title>
+    <description></description>
+    <department>Biomedical Engineering</department>
+    <catalogNumber>BMED-2940</catalogNumber>
+    <credits>1</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>false</doubleCount>
+  </course>
+  <course>
+    <title>Topics in Biomedical Engineering</title>
+    <description></description>
+    <department>Biomedical Engineering</department>
+    <catalogNumber>BMED-2960</catalogNumber>
+    <credits>1</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>false</doubleCount>
+  </course>
+  <course>
+    <title>Biomedical Engineering Laboratory</title>
+    <description>Theory and practice of biomedical measurements. An introduction to instruments and procedures for measurement of pressure, flow, bioelectrical potentials, biomechanical and biomaterial properties, using invasive and noninvasive techniques. Transducers studied include strain gauge, differential transformer, spectrometer, blood gas electrodes, bipotential electrodes, microscope with camera, mechanical testing machine, piezoelectric transducer (or sensor). Also studied are instruments for determination of material properties.
+
+NOTE: BMED-4500 can be skipped if in graduate standing
+NOTE: BMED-4500 can be skipped on permission of instructor
+</description>
+    <department>Biomedical Engineering</department>
+    <catalogNumber>BMED-4010</catalogNumber>
+    <credits>4</credits>
+    <prerequisites required="true" pickOne="false">
+      <course>
+        <catalogNumber>BMED-2200</catalogNumber>
+      </course>
+      <course>
+        <catalogNumber>BMED-4500</catalogNumber>
+      </course>
+    </prerequisites>
+    <availableTerms>
+      <year-part>FALL</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>false</doubleCount>
+  </course>
+  <course>
+    <title>BioMEMs</title>
+    <description>This course discusses state-of-the-art techniques in patterning biomolecules, biosensors, machining three-dimensional microstructures and building microfluidic devices (Lab-on-a-Chip).&#160; Seminal and current literature will be used to discuss topics in BioMEMs ranging from device fabrication to applications in cell biology and medicine. Students cannot get credit for both BMED 4410 and BMED 6410.
+
+NOTE: Junior or senior standing required
+</description>
+    <department>Biomedical Engineering</department>
+    <catalogNumber>BMED-4410</catalogNumber>
+    <credits>3</credits>
+    <availableTerms>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>false</doubleCount>
+  </course>
+  <course>
+    <title>Advanced Systems Physiology</title>
+    <description>Applications of control theory and systems techniques to physiology. Emphasis is on entire systems and their interactions rather than isolated phenomena. Areas covered include cardiac, respiratory, renal, and gastrointestinal systems. Includes laboratory on the application of engineering techniques in the study of physiological systems.
+
+NOTE: prerequisite can be replaced with an equivalent
+</description>
+    <department>Biomedical Engineering</department>
+    <catalogNumber>BMED-4500</catalogNumber>
+    <credits>4</credits>
+    <prerequisites required="false" pickOne="false">
+      <course>
+        <catalogNumber>BIOL-4290</catalogNumber>
+      </course>
+    </prerequisites>
+    <availableTerms>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>false</doubleCount>
+  </course>
+  <course>
+    <title>Biomechanics</title>
+    <description>Application of mechanics to the study of normal, diseased, and traumatized musculo-skeletal system. Areas covered include determination of joint and muscle forces, mechanical properties of biological tissues, and structural analysis of bone-implant systems. Case studies are discussed to illustrate the role of biomechanics and biomaterials in the design of implants.</description>
+    <department>Biomedical Engineering</department>
+    <catalogNumber>BMED-4540</catalogNumber>
+    <credits>4</credits>
+    <prerequisites required="true" pickOne="false">
+      <course>
+        <catalogNumber>ENGR-2050</catalogNumber>
+      </course>
+      <course>
+        <catalogNumber>BMED-2200</catalogNumber>
+      </course>
+    </prerequisites>
+    <availableTerms>
+      <year-part>FALL</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>false</doubleCount>
+  </course>
+  <course>
+    <title>Biomedical Engineering Design</title>
+    <description>A guided approach to development of design skills. Students work individually and in teams to tackle a biomedical design problem using methods drawn as necessary from engineering and from the physical and mathematical sciences. Discussion sessions involve students in presentations of work. This is a writing-intensive course.
+
+NOTE: senior standing.
+</description>
+    <department>Biomedical Engineering</department>
+    <catalogNumber>BMED-4600</catalogNumber>
+    <credits>3</credits>
+    <availableTerms>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>false</doubleCount>
+  </course>
+  <course>
+    <title>Subsurface Sensing and Imaging Systems</title>
+    <description>An introduction to the basics of subsurface sensing and imaging; properties of probes such as optical beams, x-rays, ultrasonic waves and electromagnetic waves.&#160; Physical interaction of probes with various media-transmission, reflection, attenuation, scattering, diffusion, fluorescence.&#160;Contrast agents and molecular sensing/imaging systems.&#160; Biomedical and security applications.&#160; Extracting information from subsurface signals using multi-view tomography (MVT), localized probing and mosaicing (LPM), and multi-spectral discrimination (MSD).</description>
+    <department>Biomedical Engineering</department>
+    <catalogNumber>BMED-4800</catalogNumber>
+    <credits>3</credits>
+    <prerequisites required="true" pickOne="false">
+      <course>
+        <catalogNumber>ECSE-2410</catalogNumber>
+      </course>
+      <course>
+        <catalogNumber>ECSE-2100</catalogNumber>
+      </course>
+    </prerequisites>
+    <availableTerms>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>false</doubleCount>
+  </course>
+  <course>
+    <title>Studies in Biomedical Engineering</title>
+    <description></description>
+    <department>Biomedical Engineering</department>
+    <catalogNumber>BMED-4940</catalogNumber>
+    <credits>1</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>true</doubleCount>
+  </course>
+  <course>
+    <title>Topics in Biomedical Engineering</title>
+    <description></description>
+    <department>Biomedical Engineering</department>
+    <catalogNumber>BMED-4960</catalogNumber>
+    <credits>1</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>true</doubleCount>
+  </course>
+  <course>
+    <title>Tissue-Implant Interfaces</title>
+    <description>An examination of biomaterial and biomechanical factors affecting events at tissue-implant interfaces, with emphasis on biomaterial surface properties as well as cell and molecular interactions.
+
+NOTE: BMED-4500 can be skipped if in graduate standing
+NOTE: BMED-4500 can be skipped on permission of instructor
+</description>
+    <department>Biomedical Engineering</department>
+    <catalogNumber>BMED-6240</catalogNumber>
+    <credits>3</credits>
+    <prerequisites required="true" pickOne="false">
+      <course>
+        <catalogNumber>BIOL-4290</catalogNumber>
+      </course>
+      <course>
+        <catalogNumber>BMED-4500</catalogNumber>
+      </course>
+    </prerequisites>
+    <availableTerms>
+      <year-part>FALL</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>false</doubleCount>
+  </course>
+  <course>
+    <title>Biomechanics of Soft Tissues</title>
+    <description>Application of continuum mechanics in modeling the biomechanical behavior of nonmineralized tissues such as tendons, ligaments, skin, cartilage, blood vessels, etc. Topics include structure of collagen, elastin, proteoglycans, and other tissue components, nonlinear elastic models (including Fung&#8217;s pseudoelasticity approach and strain energy functions), linear viscoelasticity, Fung&#8217;s quasilinear viscoelasticity, hereditary integral formulation of constitutive equations, and introduction to mixture theory.
+
+NOTE: odd-numbered years ONLY
+</description>
+    <department>Biomedical Engineering</department>
+    <catalogNumber>BMED-6280</catalogNumber>
+    <credits>3</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>false</doubleCount>
+  </course>
+  <course>
+    <title>Biomechanics of Hard Tissues</title>
+    <description>Structure-property relationships for mineralized connective tissues of the human body. Discussion centers on various types of bone (e.g., lamellar, woven) with an emphasis on models for biomechanical behavior. Topics include elastic models for bone (isotropic and anisotropic), theories of yielding and fatigue, strength properties, composite and hierarchical models, and models of bone remodeling/modeling.
+
+NOTE: even-numbered years ONLY
+</description>
+    <department>Biomedical Engineering</department>
+    <catalogNumber>BMED-6290</catalogNumber>
+    <credits>3</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>false</doubleCount>
+  </course>
+  <course>
+    <title>Fluid Dynamics and Transport in the Vascular Circulation</title>
+    <description>The principles of convective diffusion in liquids are discussed as applied to the vascular circulation. Topics include: convective and diffusion boundary layers in internal flows with reacting and/or permeable walls, Taylor dispersion, microhydrodynamics of macromolecules and particles, Brownian motion, mass transport to arterial walls and across cell membranes. This course is intended for first year graduate students in Biomedical Engineering and undergraduate seniors with permission of the instructor.
+
+NOTE: even-numbered years ONLY
+</description>
+    <department>Biomedical Engineering</department>
+    <catalogNumber>BMED-6350</catalogNumber>
+    <credits>3</credits>
+    <availableTerms>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>false</doubleCount>
+  </course>
+  <course>
+    <title>BioMEMs</title>
+    <description>This course discusses state-of-the-art techniques in patterning biomolecules, biosensors, machining three-dimensional microstructures and building microfluidic devices (Lab-on-a-Chip).&#160; Seminal and current literature will be used to discuss topics in BioMEMs ranging from device fabrication to applications in cell biology and medicine.&#160; Students cannot get credit for both BMED 4410 and BMED 6410.</description>
+    <department>Biomedical Engineering</department>
+    <catalogNumber>BMED-6410</catalogNumber>
+    <credits>3</credits>
+    <availableTerms>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>false</doubleCount>
+  </course>
+  <course>
+    <title>Adaptive Systems</title>
+    <description>This course contains the fundamental theory required to design adaptive systems. Topics include parameter identification, ARMA modeling, model reference systems, model algorithmic control, self-tuning systems, and adaptive filtering. Applications to physical and physiological systems are introduced. ().
+
+Cross-listed as ECSE 6480.
+
+NOTE: odd-numbered years ONLY
+NOTE: prerequisite can be replaced with an equivalent
+</description>
+    <department>Biomedical Engineering</department>
+    <catalogNumber>BMED-6480</catalogNumber>
+    <credits>3</credits>
+    <prerequisites required="false" pickOne="false">
+      <course>
+        <catalogNumber>ECSE-6400</catalogNumber>
+      </course>
+    </prerequisites>
+    <availableTerms>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>false</doubleCount>
+  </course>
+  <course>
+    <title>Studies in Biomedical Engineering</title>
+    <description></description>
+    <department>Biomedical Engineering</department>
+    <catalogNumber>BMED-6940</catalogNumber>
+    <credits>1</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>true</doubleCount>
+  </course>
+  <course>
+    <title>Topics in Biomedical Engineering</title>
+    <description>New courses or special course offerings are given under this number from time to time. Graduate students in biomedical engineering may pursue special interests under this number when sponsored by a biomedical engineering faculty member and with the permission of the department.
+
+NOTE: Offered by individual arrangement.
+</description>
+    <department>Biomedical Engineering</department>
+    <catalogNumber>BMED-6960</catalogNumber>
+    <credits>1</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>true</doubleCount>
+  </course>
+  <course>
+    <title>Professional Project</title>
+    <description>Active participation in a semester-long project, under the supervision of a faculty adviser. A Professional Project often serves as a culminating experience for a Professional Master&#8217;s program but, with departmental or school approval, can be used to fulfill other program requirements. With approval, students may register for more than one Professional Project. Professional Projects must result in documentation established by each department or school, but are not submitted to the Graduate School and are not archived in the library. Grades of A, B, C, or F are assigned by the faculty adviser at the end of the semester. If not completed on time, a formal Incomplete grade may be assigned by the faculty adviser, listing the work remaining to be completed and the time limit for completing this work.
+
+NOTE: Unclear when course is offered
+</description>
+    <department>Biomedical Engineering</department>
+    <catalogNumber>BMED-6970</catalogNumber>
+    <credits>0</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>false</doubleCount>
+  </course>
+  <course>
+    <title>Master&#8217;s Project</title>
+    <description>Active participation in a master&#8217;s-level project under the supervision of a faculty adviser, leading to a master&#8217;s project report. Grades of IP are assigned until the master&#8217;s project has been approved by the faculty adviser. If recommended by the adviser, the Master&#8217;s Project may be accepted by the Office of Graduate Education to be archived in the Library. Grades will then be listed as S.
+
+NOTE: Unclear when course is offered
+</description>
+    <department>Biomedical Engineering</department>
+    <catalogNumber>BMED-6980</catalogNumber>
+    <credits>1</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>false</doubleCount>
+  </course>
+  <course>
+    <title>Master&#8217;s Thesis</title>
+    <description>Active participation in research, under the supervision of a faculty adviser, leading to a master&#8217;s thesis. Grades of IP are assigned until the thesis has been approved by the faculty adviser and accepted by the Office of Graduate Education to be archived in a standard format in the library. Grades will then be listed as S.
+
+NOTE: Unclear when course is offered
+</description>
+    <department>Biomedical Engineering</department>
+    <catalogNumber>BMED-6990</catalogNumber>
+    <credits>1</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>false</doubleCount>
+  </course>
+  <course>
+    <title>Dissertation</title>
+    <description>Active participation in research, under the supervision of a faculty adviser, leading to a doctoral dissertation. Grades of IP are assigned until the dissertation has been publicly defended, approved by the doctoral committee, and accepted by the Office of Graduate Education to be archived in a standard format in the library. Grades will then be listed as S.
+
+NOTE: Unclear when course is offered
+</description>
+    <department>Biomedical Engineering</department>
+    <catalogNumber>BMED-9990</catalogNumber>
     <credits>0</credits>
     <availableTerms>
       <year-part>FALL</year-part>
@@ -2857,7 +3262,7 @@ NOTE: Unclear when course is offered
       <year-part>SPRING</year-part>
     </availableTerms>
     <isOfficial>true</isOfficial>
-    <doubleCount>false</doubleCount>
+    <doubleCount>true</doubleCount>
   </course>
   <course>
     <title>Topics in Computer Science</title>
@@ -2873,7 +3278,7 @@ NOTE: Unclear when course is offered
       <year-part>SPRING</year-part>
     </availableTerms>
     <isOfficial>true</isOfficial>
-    <doubleCount>false</doubleCount>
+    <doubleCount>true</doubleCount>
   </course>
   <course>
     <title>Professional Project</title>
@@ -3291,24 +3696,6 @@ NOTE: CHEM-2120 can be skipped on permission of instructor
     <doubleCount>false</doubleCount>
   </course>
   <course>
-    <title>Nuclear Magnetic Resonance Spectroscopy</title>
-    <description>A lecture-laboratory course that begins by establishing a knowledge base in the fundamental physical principles of NMR and then provides an understanding of basic and some advanced NMR experiments. This understanding extends to the actual performance of many of these experiements in the laboratory portion of the course. The use of NMR as a powerful tool to solve chemical problems will be explored. Topics included will be: Relaxation, Coupling and NOE, Multinuclear NMR, Spectral Editing, Multidimensional NMR, Solid State NMR, and the special challenges of Macromolecular NMR. Enrollment limited to advanced undergraduates.
-
-Students cannot get credit for both this course and CHEM 6160.
-
-NOTE: even-numbered years ONLY
-NOTE: permission of instructor.
-</description>
-    <department>Chemistry and Chemical Biology</department>
-    <catalogNumber>CHEM-4160</catalogNumber>
-    <credits>3</credits>
-    <availableTerms>
-      <year-part>SPRING</year-part>
-    </availableTerms>
-    <isOfficial>true</isOfficial>
-    <doubleCount>false</doubleCount>
-  </course>
-  <course>
     <title>Environmental Measurements</title>
     <description>Modern methods used in analysis of environmental samples for monitoring and research purposes. Standard and advanced techniques of air, water, sediment, and soil analysis are covered including spectrometric and chromatographic methods.
 
@@ -3573,7 +3960,7 @@ NOTE: prerequisite can be replaced with an equivalent
       <year-part>FALL</year-part>
     </availableTerms>
     <isOfficial>true</isOfficial>
-    <doubleCount>true</doubleCount>
+    <doubleCount>false</doubleCount>
   </course>
   <course>
     <title>Senior Experience</title>
@@ -3589,7 +3976,7 @@ NOTE: Unclear when course is offered
       <year-part>SPRING</year-part>
     </availableTerms>
     <isOfficial>true</isOfficial>
-    <doubleCount>true</doubleCount>
+    <doubleCount>false</doubleCount>
   </course>
   <course>
     <title>Selected Topics in Chemistry</title>
@@ -4093,7 +4480,7 @@ NOTE: Unclear when course is offered
       <year-part>SPRING</year-part>
     </availableTerms>
     <isOfficial>true</isOfficial>
-    <doubleCount>false</doubleCount>
+    <doubleCount>true</doubleCount>
   </course>
   <course>
     <title>Selected Topics in Chemistry</title>
@@ -4109,7 +4496,7 @@ NOTE: Unclear when course is offered
       <year-part>SPRING</year-part>
     </availableTerms>
     <isOfficial>true</isOfficial>
-    <doubleCount>false</doubleCount>
+    <doubleCount>true</doubleCount>
   </course>
   <course>
     <title>Professional Project</title>
@@ -4725,7 +5112,7 @@ NOTE: Unclear when course is offered
       <year-part>SPRING</year-part>
     </availableTerms>
     <isOfficial>true</isOfficial>
-    <doubleCount>false</doubleCount>
+    <doubleCount>true</doubleCount>
   </course>
   <course>
     <title>Topics in Chemical Engineering</title>
@@ -4738,7 +5125,7 @@ NOTE: Unclear when course is offered
       <year-part>SPRING</year-part>
     </availableTerms>
     <isOfficial>true</isOfficial>
-    <doubleCount>false</doubleCount>
+    <doubleCount>true</doubleCount>
   </course>
   <course>
     <title>Professional Project</title>
@@ -4789,6 +5176,984 @@ NOTE: Unclear when course is offered
     <doubleCount>false</doubleCount>
   </course>
   <course>
+    <title>Introduction to Transportation Engineering</title>
+    <description>Introduction to the planning, design, and analysis of transportation problems. Studies of costs of providing transportation, level of service offered to travelers, and demand for transportation services. Evaluation of various service strategies and the policy implications of each alternative. Various modes of travel and their physical facilities.</description>
+    <department>Civil and Environmental Engineering</department>
+    <catalogNumber>CIVL-2030</catalogNumber>
+    <credits>4</credits>
+    <prerequisites required="true" pickOne="false">
+      <course>
+        <catalogNumber>MATH-2400</catalogNumber>
+      </course>
+    </prerequisites>
+    <corequisites required="true" pickOne="false">
+      <course>
+        <catalogNumber>ENGR-2600</catalogNumber>
+      </course>
+    </corequisites>
+    <availableTerms>
+      <year-part>FALL</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>false</doubleCount>
+  </course>
+  <course>
+    <title>Professional Practice</title>
+    <description>Contract essentials; types of contracts for construction and for engineering services. Bidding procedure, surety bonds, insurance, litigation. Standard contract documents, the compilation of specifications. Engineering ethical principles and codes.
+
+NOTE: alternate years ONLY
+</description>
+    <department>Civil and Environmental Engineering</department>
+    <catalogNumber>CIVL-2040</catalogNumber>
+    <credits>3</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>false</doubleCount>
+  </course>
+  <course>
+    <title>Surveying</title>
+    <description>The organization, planning, instrumentation, and execution of surveys for engineering projects including precise control systems for both horizontal and vertical control, astronomic observations for the establishment of precise directions, terrestrial and photogrammetric mapping, statewide plane coordinate systems, and the legal aspects of boundary surveys.
+
+NOTE: alternate years ONLY
+</description>
+    <department>Civil and Environmental Engineering</department>
+    <catalogNumber>CIVL-2130</catalogNumber>
+    <credits>3</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>false</doubleCount>
+  </course>
+  <course>
+    <title>Introduction to Geotechnical Engineering</title>
+    <description>The application of the basic laws and phenomena of science to particulate matter, specifically soils. Basic physical and mechanical structural characteristics of soil. Equilibrium and movement of water. Flow through porous media. Effective stress. Stress-strain-time relations. Basic laboratory work as related to practice.</description>
+    <department>Civil and Environmental Engineering</department>
+    <catalogNumber>CIVL-2630</catalogNumber>
+    <credits>4</credits>
+    <prerequisites required="true" pickOne="false">
+      <course>
+        <catalogNumber>ENGR-2530</catalogNumber>
+      </course>
+    </prerequisites>
+    <availableTerms>
+      <year-part>FALL</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>false</doubleCount>
+  </course>
+  <course>
+    <title>Introduction to Structural Engineering</title>
+    <description>Introduction to the elastic behavior of structural components. Analysis of statically determinate systems. Deflection calculations by virtual work and elastic load methods. Analysis of simple statically indeterminate structures. Influence lines. Interaction of structural components. Typical structural engineering loads.
+
+NOTE: prerequisite can be replaced with an equivalent
+</description>
+    <department>Civil and Environmental Engineering</department>
+    <catalogNumber>CIVL-2670</catalogNumber>
+    <credits>4</credits>
+    <prerequisites required="false" pickOne="false">
+      <course>
+        <catalogNumber>ENGR-2530</catalogNumber>
+      </course>
+    </prerequisites>
+    <availableTerms>
+      <year-part>FALL</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>false</doubleCount>
+  </course>
+  <course>
+    <title>Readings in Civil Engineering</title>
+    <description>
+
+NOTE: Unclear when course is offered
+</description>
+    <department>Civil and Environmental Engineering</department>
+    <catalogNumber>CIVL-2940</catalogNumber>
+    <credits>1</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>false</doubleCount>
+  </course>
+  <course>
+    <title>Foundation Engineering</title>
+    <description>Subsurface investigation. The application of the principles of soil mechanics to the design of footings, retaining walls, pile foundations, bulkheads, cofferdams, bridge piers and abutments, and underpinnings.
+
+NOTE: CIVL-2630 can be replaced with equivalent
+</description>
+    <department>Civil and Environmental Engineering</department>
+    <catalogNumber>CIVL-4010</catalogNumber>
+    <credits>3</credits>
+    <prerequisites required="true" pickOne="false">
+      <course>
+        <catalogNumber>ENGR-2530</catalogNumber>
+      </course>
+      <course>
+        <catalogNumber>CIVL-2630</catalogNumber>
+      </course>
+    </prerequisites>
+    <availableTerms>
+      <year-part>FALL</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>false</doubleCount>
+  </course>
+  <course>
+    <title>Steel Design</title>
+    <description>Analysis and design of metal structures. Structural materials and loads. Design of beams, columns, bolted and welded connections. Composite construction.</description>
+    <department>Civil and Environmental Engineering</department>
+    <catalogNumber>CIVL-4070</catalogNumber>
+    <credits>3</credits>
+    <prerequisites required="true" pickOne="false">
+      <course>
+        <catalogNumber>CIVL-2670</catalogNumber>
+      </course>
+    </prerequisites>
+    <availableTerms>
+      <year-part>FALL</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>false</doubleCount>
+  </course>
+  <course>
+    <title>Concrete Design</title>
+    <description>Analysis and design of reinforced concrete structures using ultimate strength methods. Design of beams, columns, slabs, and footings. Development and anchorage of reinforcing bars.</description>
+    <department>Civil and Environmental Engineering</department>
+    <catalogNumber>CIVL-4080</catalogNumber>
+    <credits>3</credits>
+    <prerequisites required="true" pickOne="false">
+      <course>
+        <catalogNumber>CIVL-2670</catalogNumber>
+      </course>
+    </prerequisites>
+    <availableTerms>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>false</doubleCount>
+  </course>
+  <course>
+    <title>Civil Engineering Instrumentation and Sensors</title>
+    <description>Various experimental techniques for the collection and analysis of laboratory and field data. Theory and application of electrical resistance strain gages and other data gathering equipment are introduced. Students are also introduced to the concepts involved with the interfacing of personal computers to machines for data acquisition and control.</description>
+    <department>Civil and Environmental Engineering</department>
+    <catalogNumber>CIVL-4120</catalogNumber>
+    <credits>4</credits>
+    <prerequisites required="true" pickOne="false">
+      <course>
+        <catalogNumber>ENGR-2530</catalogNumber>
+      </course>
+      <course>
+        <catalogNumber>ENGR-2600</catalogNumber>
+      </course>
+    </prerequisites>
+    <availableTerms>
+      <year-part>FALL</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>false</doubleCount>
+  </course>
+  <course>
+    <title>Geoenvironmental Engineering</title>
+    <description>The application of geotechnical engineering to the environmental area. Deals with waste disposal, waste containment systems, waste stabilization, and landfills. Emphasis on design of such facilities. Includes related topics necessary for design, e.g., geosynthetics, groundwater, contaminant transport, and slurry walls. Some field trips are possible. (Students cannot receive credit for both this course and CIVL 6550.)</description>
+    <department>Civil and Environmental Engineering</department>
+    <catalogNumber>CIVL-4140</catalogNumber>
+    <credits>3</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>false</doubleCount>
+  </course>
+  <course>
+    <title>Experimental Soil Mechanics</title>
+    <description>Second course in geotechnical engineering, emphasizing experimental aspects of soil behavior. Laboratory experiments to measure the following soil properties: consolidation, compressibility, shear strength, permeability, various moduli, and bearing capacity. Theory, practical applications of theory, and laboratory.
+
+NOTE: prerequisite can be replaced with an equivalent
+</description>
+    <department>Civil and Environmental Engineering</department>
+    <catalogNumber>CIVL-4150</catalogNumber>
+    <credits>3</credits>
+    <prerequisites required="false" pickOne="false">
+      <course>
+        <catalogNumber>CIVL-2630</catalogNumber>
+      </course>
+    </prerequisites>
+    <availableTerms>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>false</doubleCount>
+  </course>
+  <course>
+    <title>Construction Management</title>
+    <description>Application of engineering principles to planning construction operations. Network scheduling (CPM, PERT), resource allocation. Cost engineering and control.
+
+NOTE: senior standing.
+</description>
+    <department>Civil and Environmental Engineering</department>
+    <catalogNumber>CIVL-4270</catalogNumber>
+    <credits>3</credits>
+    <availableTerms>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>false</doubleCount>
+  </course>
+  <course>
+    <title>Advanced Structural Analysis</title>
+    <description>Computer analysis of structures. Advanced topics in the behavior of structural components. Bending of plates, buckling of columns and frames. Beam-columns. Torsion in structural members. Inelastic behavior and limit analysis of structures.</description>
+    <department>Civil and Environmental Engineering</department>
+    <catalogNumber>CIVL-4440</catalogNumber>
+    <credits>3</credits>
+    <prerequisites required="true" pickOne="false">
+      <course>
+        <catalogNumber>CIVL-2670</catalogNumber>
+      </course>
+    </prerequisites>
+    <availableTerms>
+      <year-part>FALL</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>false</doubleCount>
+  </course>
+  <course>
+    <title>Analytical Methods in Civil Engineering Systems</title>
+    <description>
+
+NOTE: even-numbered years ONLY
+</description>
+    <department>Civil and Environmental Engineering</department>
+    <catalogNumber>CIVL-4570</catalogNumber>
+    <credits>3</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>false</doubleCount>
+  </course>
+  <course>
+    <title>Mass Transit Systems</title>
+    <description>The basic concepts of planning, design, and operation of urban mass transit systems. Topics include travel demand, network configurations, communication and control systems, power systems, vehicle technology, guideway and vehicle support and guidance technology, routing and scheduling, operating practice, marketing and financing of transit service, interface design, and implementation. These topics are discussed with relation to bus transit systems, guided transit systems, and several new systems. Several case studies examined.
+
+NOTE: odd-numbered years ONLY
+</description>
+    <department>Civil and Environmental Engineering</department>
+    <catalogNumber>CIVL-4620</catalogNumber>
+    <credits>3</credits>
+    <prerequisites required="true" pickOne="false">
+      <course>
+        <catalogNumber>CIVL-2030</catalogNumber>
+      </course>
+    </prerequisites>
+    <availableTerms>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>false</doubleCount>
+  </course>
+  <course>
+    <title>Transportation Facility Design and Planning</title>
+    <description>Approaches to the planning, design, and engineering of airports, rail yards, and marine terminals. Special attention is paid to the operational requirements of each mode of transportation and the impact these have on facility design. Innovative designs are encouraged through a series of design projects.
+
+NOTE: odd-numbered years ONLY
+</description>
+    <department>Civil and Environmental Engineering</department>
+    <catalogNumber>CIVL-4640</catalogNumber>
+    <credits>3</credits>
+    <prerequisites required="true" pickOne="false">
+      <course>
+        <catalogNumber>CIVL-2030</catalogNumber>
+      </course>
+    </prerequisites>
+    <availableTerms>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>false</doubleCount>
+  </course>
+  <course>
+    <title>Traffic Engineering</title>
+    <description>Basic characteristics of traffic, including driver, vehicle, volume, speed delay, capacity, and accidents; traffic surveys, administration, laws and ordinances; traffic regulation and control, signs, markings, signals, and signal systems.</description>
+    <department>Civil and Environmental Engineering</department>
+    <catalogNumber>CIVL-4660</catalogNumber>
+    <credits>3</credits>
+    <prerequisites required="true" pickOne="false">
+      <course>
+        <catalogNumber>CIVL-2030</catalogNumber>
+      </course>
+    </prerequisites>
+    <availableTerms>
+      <year-part>FALL</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>false</doubleCount>
+  </course>
+  <course>
+    <title>Highway Engineering</title>
+    <description>Principles of geometric design of highways, intersections, interchanges, and terminals. Practical issues of vertical and horizontal curvature, highway evaluation, driver and vehicle dynamics, and traffic safety are also addressed. Computer-aided design and modeling.
+
+NOTE: even-numbered years ONLY
+</description>
+    <department>Civil and Environmental Engineering</department>
+    <catalogNumber>CIVL-4670</catalogNumber>
+    <credits>3</credits>
+    <prerequisites required="true" pickOne="false">
+      <course>
+        <catalogNumber>CIVL-2030</catalogNumber>
+      </course>
+    </prerequisites>
+    <availableTerms>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>false</doubleCount>
+  </course>
+  <course>
+    <title>Civil Engineering Capstone Design</title>
+    <description>Open-ended design project in which students work in teams. Oral presentations and written reports cover alternates considered, design assumptions, cost, safety, and feasibility. This is a writing-intensive course.
+
+NOTE: senior status and CIVL 4070 and CIVL 4080, or CIVL 4010 and CIVL 4150, or CIVL 2030 and CIVL 4660 or CIVL 4640 or ENVE 2110 and either ENVE 4200, ENVE 4350, ENVE 4310 or ENVE 4340.
+</description>
+    <department>Civil and Environmental Engineering</department>
+    <catalogNumber>CIVL-4920</catalogNumber>
+    <credits>3</credits>
+    <availableTerms>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>false</doubleCount>
+  </course>
+  <course>
+    <title>Readings in Civil Engineering</title>
+    <description>
+
+NOTE: Unclear when course is offered
+</description>
+    <department>Civil and Environmental Engineering</department>
+    <catalogNumber>CIVL-4940</catalogNumber>
+    <credits>1</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>true</doubleCount>
+  </course>
+  <course>
+    <title>Topics in Civil Engineering</title>
+    <description>
+
+NOTE: Unclear when course is offered
+</description>
+    <department>Civil and Environmental Engineering</department>
+    <catalogNumber>CIVL-4960</catalogNumber>
+    <credits>3</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>true</doubleCount>
+  </course>
+  <course>
+    <title>Mechanics of Solids</title>
+    <description>Introduction to Cartesian tensors, infinitesimal strain kinematics, equations of motion. Models of material behavior: isothermal linear isotropic and anisotropic elasticity, thermoelasticity, linear viscoelasticity and rate-independent plasticity. General principles in elasticity: minimum potential and complementary energy, reciprocal theorem. Formulation of linear elastic boundary value problems, methods of solutions for 2-D and 3-D elasticity problems. Correspondence principle of linear viscoelasticity, applications to simple structural components. Use of symbolic computations in the solution of BVP.
+
+(Cross listed as MANE 6170. Students cannot obtain credit for both this course and MANE 6170.)</description>
+    <department>Civil and Environmental Engineering</department>
+    <catalogNumber>CIVL-6170</catalogNumber>
+    <credits>3</credits>
+    <availableTerms>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>false</doubleCount>
+  </course>
+  <course>
+    <title>Mechanics of Composite Materials</title>
+    <description>Micromechanics of elastic heterogeneous solids. Plasticity of composite materials. Thermoelastic and thermoplastic behavior. Mechanics of distributed damage. Mechanical behavior.
+
+(Cross listed as MANE 6180. Students cannot obtain credit for both this course and MANE 6180.)
+
+NOTE: one graduate course in mechanics of solids.
+</description>
+    <department>Civil and Environmental Engineering</department>
+    <catalogNumber>CIVL-6180</catalogNumber>
+    <credits>3</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>false</doubleCount>
+  </course>
+  <course>
+    <title>Plates and Shells</title>
+    <description>Preliminaries on linear, three-dimensional elasticity theory. Reduction of the elasticity theory to theories of plates and shells. Anisotropy. Nonlinear theories. Applications.
+
+(Cross listed as MANE 6200. Students cannot obtain credit for both this course and MANE 6200.)
+
+NOTE: Offered anually. Unclear which term
+</description>
+    <department>Civil and Environmental Engineering</department>
+    <catalogNumber>CIVL-6200</catalogNumber>
+    <credits>3</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>false</doubleCount>
+  </course>
+  <course>
+    <title>Structural Stability</title>
+    <description>Concepts of stability pertaining to structural and mechanical systems. Static and dynamic theories of stability. Configurations include bars, plates, shells, and structural complexes.
+
+Cross-listed as MANE 6210. Students cannot obtain credit for both this course and MANE 6210.
+
+NOTE: Offered anually. Unclear which term
+</description>
+    <department>Civil and Environmental Engineering</department>
+    <catalogNumber>CIVL-6210</catalogNumber>
+    <credits>3</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>false</doubleCount>
+  </course>
+  <course>
+    <title>Intelligent Transportation Systems</title>
+    <description>This course covers concepts and models applicable to intelligent transportation systems (ITS). ITS uses information system technology to create seamless multi-modal transportation systems with enhanced performance and productivity. Term projects focus on assessment and evaluation of candidate ITS treatments for site-specific locations based on network models that capture real-time phenomena. Simulation and other modeling techniques are employed heavily.
+
+NOTE: even-numbered years ONLY
+</description>
+    <department>Civil and Environmental Engineering</department>
+    <catalogNumber>CIVL-6240</catalogNumber>
+    <credits>3</credits>
+    <prerequisites required="true" pickOne="false">
+      <course>
+        <catalogNumber>CIVL-2030</catalogNumber>
+      </course>
+      <course>
+        <catalogNumber>CIVL-4660</catalogNumber>
+      </course>
+    </prerequisites>
+    <availableTerms>
+      <year-part>FALL</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>false</doubleCount>
+  </course>
+  <course>
+    <title>Transportation Systems Planning</title>
+    <description>The analysis and planning of transportation systems. Study of the basic interaction between transportation supply and demand. Modeling these relationships for a variety of transportation problems. Role of transportation systems analysis in the social, environmental, and political framework of policy decision making.
+
+NOTE: even-numbered years ONLY
+</description>
+    <department>Civil and Environmental Engineering</department>
+    <catalogNumber>CIVL-6250</catalogNumber>
+    <credits>3</credits>
+    <prerequisites required="true" pickOne="false">
+      <course>
+        <catalogNumber>CIVL-2030</catalogNumber>
+      </course>
+    </prerequisites>
+    <availableTerms>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>false</doubleCount>
+  </course>
+  <course>
+    <title>Transportation Algorithms</title>
+    <description>Quantitative techniques applied in transportation analysis. Included are shortest path algorithms, equilibrium traffic assignment, routing and scheduling heuristics, demand forecasting techniques. Computer applications stressed. GIS-based packages employed.</description>
+    <department>Civil and Environmental Engineering</department>
+    <catalogNumber>CIVL-6260</catalogNumber>
+    <credits>3</credits>
+    <prerequisites required="true" pickOne="false">
+      <course>
+        <catalogNumber>CIVL-2030</catalogNumber>
+      </course>
+      <course>
+        <catalogNumber>MATH-2400</catalogNumber>
+      </course>
+    </prerequisites>
+    <availableTerms>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>false</doubleCount>
+  </course>
+  <course>
+    <title>Traffic Control Systems</title>
+    <description>Detailed exploration of advanced traffic control systems with emphasis on design and analysis. Topics include control system functions, hardware and software technology; isolated, arterial, and network applications. Several sessions focus on state-of-the-art software packages including CORSIM, TRANSYT-7F, HCS, VISSIM, and Sim Traffic. An ITS perspective maintained and stressed.
+
+NOTE: odd-numbered years ONLY
+</description>
+    <department>Civil and Environmental Engineering</department>
+    <catalogNumber>CIVL-6270</catalogNumber>
+    <credits>3</credits>
+    <prerequisites required="true" pickOne="false">
+      <course>
+        <catalogNumber>CIVL-4660</catalogNumber>
+      </course>
+    </prerequisites>
+    <availableTerms>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>false</doubleCount>
+  </course>
+  <course>
+    <title>Advanced Concrete Structures</title>
+    <description>Advanced analysis and design of reinforced concrete structures. Design of deep beams, slender columns, two-way floor systems. Deflection computations. Design for torsion. Prestressed concrete fundamentals.
+
+NOTE: prerequisite can be replaced with an equivalent
+</description>
+    <department>Civil and Environmental Engineering</department>
+    <catalogNumber>CIVL-6310</catalogNumber>
+    <credits>3</credits>
+    <prerequisites required="false" pickOne="false">
+      <course>
+        <catalogNumber>CIVL-4080</catalogNumber>
+      </course>
+    </prerequisites>
+    <availableTerms>
+      <year-part>FALL</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>false</doubleCount>
+  </course>
+  <course>
+    <title>Advanced Steel Design</title>
+    <description>Advanced analysis and design of complex metal structures. Flexible, semi-rigid, and rigid connections. Plate girders, torsional design. Effects of semi-rigid connections on structural stability.
+
+NOTE: prerequisite can be replaced with an equivalent
+</description>
+    <department>Civil and Environmental Engineering</department>
+    <catalogNumber>CIVL-6320</catalogNumber>
+    <credits>3</credits>
+    <prerequisites required="false" pickOne="false">
+      <course>
+        <catalogNumber>CIVL-4070</catalogNumber>
+      </course>
+    </prerequisites>
+    <availableTerms>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>false</doubleCount>
+  </course>
+  <course>
+    <title>Structural Dynamics</title>
+    <description>Analysis of elastic and inelastic single and multiple degree-of-freedom structural systems under time-dependent loads including harmonic, impulse, earthquake, and other general dynamic loads. Development of equations of motion. Analytical and numerical evaluation of free and forced vibration response. Identification of dynamic system properties. Modal analysis. Vibration isolation and force transmissibility. Dynamic measurement sensors. Shock loading spectrum. Frequency-domain analysis.</description>
+    <department>Civil and Environmental Engineering</department>
+    <catalogNumber>CIVL-6450</catalogNumber>
+    <credits>3</credits>
+    <prerequisites required="true" pickOne="false">
+      <course>
+        <catalogNumber>CIVL-2670</catalogNumber>
+      </course>
+    </prerequisites>
+    <availableTerms>
+      <year-part>FALL</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>false</doubleCount>
+  </course>
+  <course>
+    <title>Advanced Structural Dynamics</title>
+    <description>Stochastic response of lumped parameter and continuous systems to random excitation, wave propagation, power spectral densities, covariance and cross covariance functions, transfer functions, application of procedure to wind and earthquake engineering. Review of current literature.
+
+NOTE: alternate years ONLY
+</description>
+    <department>Civil and Environmental Engineering</department>
+    <catalogNumber>CIVL-6460</catalogNumber>
+    <credits>3</credits>
+    <prerequisites required="true" pickOne="false">
+      <course>
+        <catalogNumber>CIVL-6450</catalogNumber>
+      </course>
+    </prerequisites>
+    <availableTerms>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>false</doubleCount>
+  </course>
+  <course>
+    <title>Designing with Geosynthetics</title>
+    <description>Civil Engineering applications of geosynthetics including geotextiles, geogrids, geonets, geomembranes, geosynthetic clay liners, geopipe and geocomposites. Designing by function, including separation, reinforcement, filtration, drainage, liquid barrier, and combined functions. Applications in the areas of landfills, groundwater drains, geotextile reinforced walls and slopes, roadways, and other civil engineered type structures.
+
+NOTE: alternate years ONLY
+NOTE: prerequisite can be replaced with an equivalent
+</description>
+    <department>Civil and Environmental Engineering</department>
+    <catalogNumber>CIVL-6480</catalogNumber>
+    <credits>3</credits>
+    <prerequisites required="false" pickOne="false">
+      <course>
+        <catalogNumber>CIVL-2630</catalogNumber>
+      </course>
+    </prerequisites>
+    <availableTerms>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>false</doubleCount>
+  </course>
+  <course>
+    <title>Earthquake Engineering</title>
+    <description>Seismology concepts including plate tectonics, fault mechanisms, quantification of earthquake size, and wave propagation. Dynamic sensors for earthquake ground motion measurement. Estimation of ground motion parameters using attenuation relationships. Linear and nonlinear dynamic analyses for evaluation of the seismic response of structures. Code-based approach to the seismic analysis and design of structural systems. Seismic design considerations for various construction materials. Base isolation and energy dissipation systems for seismic protection of structures.
+
+NOTE: alternate years ONLY
+</description>
+    <department>Civil and Environmental Engineering</department>
+    <catalogNumber>CIVL-6490</catalogNumber>
+    <credits>3</credits>
+    <prerequisites required="true" pickOne="false">
+      <course>
+        <catalogNumber>CIVL-6450</catalogNumber>
+      </course>
+    </prerequisites>
+    <availableTerms>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>false</doubleCount>
+  </course>
+  <course>
+    <title>Advanced Soil Mechanics</title>
+    <description>An intensive study of the fundamentals of soil mechanics at the graduate level. Transmission of stresses between particles. Soils in which the pore water is either stationary or flowing under steady conditions. Soils in which pore pressures are influenced by applied loads, and hence the pore water is flowing under transient conditions.</description>
+    <department>Civil and Environmental Engineering</department>
+    <catalogNumber>CIVL-6510</catalogNumber>
+    <credits>3</credits>
+    <prerequisites required="true" pickOne="false">
+      <course>
+        <catalogNumber>CIVL-4150</catalogNumber>
+      </course>
+    </prerequisites>
+    <availableTerms>
+      <year-part>FALL</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>false</doubleCount>
+  </course>
+  <course>
+    <title>Advanced Foundations and Earth Structures</title>
+    <description>The applications of the principles of soil mechanics to the design of foundations, at the graduate level. Subsurface investigation. Design of footings, retaining walls, pile foundations, flexible retaining structures, anchor tie-backs, bridge piers, abutments, embankments and natural slopes. Slope stability analysis and landslide prevention. Earthquake effects. Case studies.</description>
+    <department>Civil and Environmental Engineering</department>
+    <catalogNumber>CIVL-6520</catalogNumber>
+    <credits>3</credits>
+    <prerequisites required="true" pickOne="false">
+      <course>
+        <catalogNumber>CIVL-4010</catalogNumber>
+      </course>
+      <course>
+        <catalogNumber>CIVL-4150</catalogNumber>
+      </course>
+    </prerequisites>
+    <availableTerms>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>false</doubleCount>
+  </course>
+  <course>
+    <title>Seepage, Drainage, and Groundwater</title>
+    <description>Introduction to groundwater hydrology, well hydraulics, permeability, seepage, flow nets, filter criteria, dewatering, slope stabilization, practical applications.
+
+NOTE: alternate years ONLY
+NOTE: prerequisite can be replaced with an equivalent
+</description>
+    <department>Civil and Environmental Engineering</department>
+    <catalogNumber>CIVL-6530</catalogNumber>
+    <credits>3</credits>
+    <prerequisites required="false" pickOne="false">
+      <course>
+        <catalogNumber>CIVL-2630</catalogNumber>
+      </course>
+    </prerequisites>
+    <availableTerms>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>false</doubleCount>
+  </course>
+  <course>
+    <title>Dynamics of Soil and Soil-Foundation Systems</title>
+    <description>Basics of dynamic response of soil and soil-foundation systems, including applications to earthquake engineering and machine foundations. Systems studies include shallow and deep foundations, buried structures, earth structures, slopes, and earthquake site response.</description>
+    <department>Civil and Environmental Engineering</department>
+    <catalogNumber>CIVL-6540</catalogNumber>
+    <credits>3</credits>
+    <prerequisites required="true" pickOne="false">
+      <course>
+        <catalogNumber>CIVL-6450</catalogNumber>
+      </course>
+    </prerequisites>
+    <availableTerms>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>false</doubleCount>
+  </course>
+  <course>
+    <title>Advanced Geoenvironmental Engineering</title>
+    <description>An intensive study of the application of geotechnical engineering to the environmental area. Deals with waste disposal, waste containment systems, waste stabilization and landfills. Emphasis on design of such facilities. Includes related topics necessary for design, e.g., geosynthetics, groundwater, contaminant transport, and slurry walls. Some field trips are possible. This course meets concurrently with CIVL 4140. CIVL 6550 students are required to do a term paper and/or project, read additional professional papers and publications, and do additional laboratory experiments. (Students cannot receive credit for both this course and CIVL 4140.)</description>
+    <department>Civil and Environmental Engineering</department>
+    <catalogNumber>CIVL-6550</catalogNumber>
+    <credits>3</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>false</doubleCount>
+  </course>
+  <course>
+    <title>Fundamentals of Finite Elements</title>
+    <description>Graduate-level course on the fundamental concepts and technologies underlying finite element methods for the numerical solution of continuum problems. The course emphasizes the construction of integral weak forms for elliptic partial differential equations and the construction of the elemental level matrices using multi-dimensional shape functions, element level mappings and numerical integration. The basic convergence properties of the finite element method will be given. This course serves as preparation for students working on finite element methods.
+
+Cross-listed as MANE 6660. Students cannot receive credit for both this course and MANE 6660.
+
+NOTE: differential equations.
+</description>
+    <department>Civil and Environmental Engineering</department>
+    <catalogNumber>CIVL-6660</catalogNumber>
+    <credits>3</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>false</doubleCount>
+  </course>
+  <course>
+    <title>Nonlinear Finite Element Methods</title>
+    <description>The formulations and solution strategies for finite element analysis of nonlinear problems are developed. Topics include the sources of nonlinear behavior (geometric, constitutive, boundary condition), derivation of the governing discrete equations for nonlinear systems such as large displacement, nonlinear elasticity, rate independent and dependent plasticity and other nonlinear constitutive laws, solution strategies for nonlinear problems (e.g., incrementation, iteration), and computational procedures for large systems of nonlinear algebraic equations.
+
+(Cross listed as MANE 6670. Students cannot obtain credit for both this course and MANE 6670.)
+
+NOTE: odd-numbered years ONLY
+</description>
+    <department>Civil and Environmental Engineering</department>
+    <catalogNumber>CIVL-6670</catalogNumber>
+    <credits>3</credits>
+    <prerequisites required="false" pickOne="true">
+      <course>
+        <catalogNumber>CIVL-6660</catalogNumber>
+      </course>
+      <course>
+        <catalogNumber>MANE-6660</catalogNumber>
+      </course>
+    </prerequisites>
+    <availableTerms>
+      <year-part>FALL</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>false</doubleCount>
+  </course>
+  <course>
+    <title>Advanced Finite Element Formulations</title>
+    <description>This course focuses on generalized weighted residual methods and multifield variational principles for constructing approximate solutions to sets of governing differential equations and associated boundary conditions. Topics include hybrid and mixed methods, boundary element formulations, p-version finite elements, global/local procedures, and penalty methods. Problem areas include solid mechanics (nearly incompressible solids, plates, and shells), fluid mechanics including compressible flows, and heat transfer.
+
+(Cross listed as MANE 6690. Students cannot obtain credit for both this course and MANE 6690.)
+
+NOTE: even-numbered years ONLY
+</description>
+    <department>Civil and Environmental Engineering</department>
+    <catalogNumber>CIVL-6690</catalogNumber>
+    <credits>3</credits>
+    <prerequisites required="false" pickOne="true">
+      <course>
+        <catalogNumber>CIVL-6660</catalogNumber>
+      </course>
+      <course>
+        <catalogNumber>MANE-6660</catalogNumber>
+      </course>
+    </prerequisites>
+    <availableTerms>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>false</doubleCount>
+  </course>
+  <course>
+    <title>Finite Element Methods in Structural Dynamics</title>
+    <description>Solutions to the free vibration and transient dynamic responses of two-and three-dimensional structures by the finite element method are considered. The governing finite element matrix equations are derived and numerical aspects of solving these time-dependent equations considered. Topics include the formulation of the eigenvalue problem, algorithms for eigenvalue extraction, time integration methods including stability and accuracy analysis, and finite elements in time. Modal analysis and direct time integration techniques are compared for a variety of two-and three-dimensional problems.
+
+Cross-listed as MANE 6700. Students cannot obtain credit for both this course and MANE 6700.
+
+NOTE: odd-numbered years ONLY
+</description>
+    <department>Civil and Environmental Engineering</department>
+    <catalogNumber>CIVL-6700</catalogNumber>
+    <credits>3</credits>
+    <prerequisites required="false" pickOne="true">
+      <course>
+        <catalogNumber>CIVL-6660</catalogNumber>
+      </course>
+      <course>
+        <catalogNumber>MANE-6660</catalogNumber>
+      </course>
+    </prerequisites>
+    <availableTerms>
+      <year-part>FALL</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>false</doubleCount>
+  </course>
+  <course>
+    <title>Numerical Modeling of Failure Processes in Materials</title>
+    <description>State-of-the-art in computational modeling of failure processes in materials. Topics include numerical modeling of discrete defects, distributed damage and multiscale computational techniques including multiple scale perturbation techniques, boundary layer techniques, and various global-local approaches.
+
+Cross-listed as MANE 6780.
+
+NOTE: even-numbered years ONLY
+</description>
+    <department>Civil and Environmental Engineering</department>
+    <catalogNumber>CIVL-6780</catalogNumber>
+    <credits>3</credits>
+    <prerequisites required="false" pickOne="true">
+      <course>
+        <catalogNumber>CIVL-6660</catalogNumber>
+      </course>
+      <course>
+        <catalogNumber>MANE-6660</catalogNumber>
+      </course>
+    </prerequisites>
+    <availableTerms>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>false</doubleCount>
+  </course>
+  <course>
+    <title>Civil Engineering Graduate Seminar</title>
+    <description>Civil engineering graduate students present seminars about their research to an audience composed of students and faculty and participate in discussions about the research of others. The course consists of one-hour weekly meetings. The faculty member in charge of the course helps the students develop their presentation skills. This course is required to be taken once by master&#8217;s students and twice by Ph.D. students.</description>
+    <department>Civil and Environmental Engineering</department>
+    <catalogNumber>CIVL-6900</catalogNumber>
+    <credits>0</credits>
+    <availableTerms>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>false</doubleCount>
+  </course>
+  <course>
+    <title>Colloquium Series</title>
+    <description>Seminars by distinguished guest speakers. All undergraduates and graduates are strongly encouraged to attend as many lectures as possible.</description>
+    <department>Civil and Environmental Engineering</department>
+    <catalogNumber>CIVL-6910</catalogNumber>
+    <credits>0</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>false</doubleCount>
+  </course>
+  <course>
+    <title>Readings in Civil Engineering</title>
+    <description>
+
+NOTE: Unclear when course is offered
+</description>
+    <department>Civil and Environmental Engineering</department>
+    <catalogNumber>CIVL-6940</catalogNumber>
+    <credits>1</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>true</doubleCount>
+  </course>
+  <course>
+    <title>Topics in Civil Engineering</title>
+    <description>
+
+NOTE: Unclear when course is offered
+</description>
+    <department>Civil and Environmental Engineering</department>
+    <catalogNumber>CIVL-6960</catalogNumber>
+    <credits>3</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>true</doubleCount>
+  </course>
+  <course>
+    <title>Professional Project</title>
+    <description>Active participation in a semester-long project, under the supervision of a faculty adviser. A Professional Project often serves as a culminating experience for a Professional Master&#8217;s program but, with departmental or school approval, can be used to fulfill other program requirements. With approval, students may register for more than one Professional Project. Professional Projects must result in documentation established by each department or school, but are not submitted to the Graduate School and are not archived in the library. Grades of A, B, C, or F are assigned by the faculty adviser at the end of the semester. If not completed on time, a formal Incomplete grade may be assigned by the faculty adviser, listing the work remaining to be completed and the time limit for completing this work.
+
+NOTE: Unclear when course is offered
+</description>
+    <department>Civil and Environmental Engineering</department>
+    <catalogNumber>CIVL-6970</catalogNumber>
+    <credits>0</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>false</doubleCount>
+  </course>
+  <course>
+    <title>Master&#8217;s Project</title>
+    <description>Active participation in a master&#8217;s-level project under the supervision of a faculty adviser, leading to a master&#8217;s project report. Grades of IP are assigned until the master&#8217;s project has been approved by the faculty adviser. If recommended by the adviser, the Master&#8217;s Project may be accepted by the Office of Graduate Education to be archived in the Library. Grades will then be listed as S.
+
+NOTE: Unclear when course is offered
+</description>
+    <department>Civil and Environmental Engineering</department>
+    <catalogNumber>CIVL-6980</catalogNumber>
+    <credits>1</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>false</doubleCount>
+  </course>
+  <course>
+    <title>Master&#8217;s Thesis</title>
+    <description>Active participation in research, under the supervision of a faculty adviser, leading to a master&#8217;s thesis. Grades of IP are assigned until the thesis has been approved by the faculty adviser and accepted by the Office of Graduate Education to be archived in a standard format in the library. Grades will then be listed as S.
+
+NOTE: Unclear when course is offered
+</description>
+    <department>Civil and Environmental Engineering</department>
+    <catalogNumber>CIVL-6990</catalogNumber>
+    <credits>1</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>false</doubleCount>
+  </course>
+  <course>
+    <title>Dissertation</title>
+    <description>Active participation in research, under the supervision of a faculty adviser, leading to a doctoral dissertation. Grades of IP are assigned until the dissertation has been publicly defended, approved by the doctoral committee, and accepted by the Office of Graduate Education to be archived in a standard format in the library. Grades will then be listed as S.
+
+NOTE: Unclear when course is offered
+</description>
+    <department>Civil and Environmental Engineering</department>
+    <catalogNumber>CIVL-9990</catalogNumber>
+    <credits>0</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>false</doubleCount>
+  </course>
+  <course>
     <title>Introduction to Communication Theory</title>
     <description>This course introduces students to basic topics in communication theory, including interpersonal, small group, organizational, and mass communication. Students will study a variety of theories related to these topics and will also study the cultural impact of new communication technologies and contemporary media systems.</description>
     <department>Language, Literature, and Communication</department>
@@ -4818,6 +6183,22 @@ NOTE: Unclear when course is offered
     <description>This course introduces the fundamentals for creating dynamic web page content generated using relational databases. This course is structured around Microsoft Visual Studio .NET and modern object-oriented programming languages like C#. Fundamental technologies like ADO.NET database connectivity, ASP.NET active page technology, XML, SOAP, and Web Services are examined. Students will construct actual non-trivial working web sites that employ databases from which dynamic content is generated.</description>
     <department>Language, Literature, and Communication</department>
     <catalogNumber>COMM-2210</catalogNumber>
+    <credits>4</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>false</doubleCount>
+  </course>
+  <course>
+    <title>Perspectives on Photography</title>
+    <description>This course helps students understand the meaning and emotional complexity of visual images in our culture. Students examine photographic imagery through three perspectives. The first&#8212;formal&#8212;addresses the design components of the image, such as vantage point and contrast. The second&#8212;psychodynamic&#8212;concerns the emotional dynamics of viewing. The third&#8212;social political&#8212; explores photographs as instruments for preserving or challenging cultural values. No technical knowledge of photography is needed.
+
+NOTE: Offered anually. Unclear which term
+</description>
+    <department>Language, Literature, and Communication</department>
+    <catalogNumber>COMM-2410</catalogNumber>
     <credits>4</credits>
     <availableTerms>
       <year-part>FALL</year-part>
@@ -5669,7 +7050,7 @@ NOTE: Unclear when course is offered
       <year-part>SPRING</year-part>
     </availableTerms>
     <isOfficial>true</isOfficial>
-    <doubleCount>false</doubleCount>
+    <doubleCount>true</doubleCount>
   </course>
   <course>
     <title>Topics in Communication</title>
@@ -5685,7 +7066,7 @@ NOTE: Unclear when course is offered
       <year-part>SPRING</year-part>
     </availableTerms>
     <isOfficial>true</isOfficial>
-    <doubleCount>false</doubleCount>
+    <doubleCount>true</doubleCount>
   </course>
   <course>
     <title>Master&#8217;s Thesis</title>
@@ -6039,7 +7420,7 @@ NOTE: programming experience recommended
       <year-part>SPRING</year-part>
     </availableTerms>
     <isOfficial>true</isOfficial>
-    <doubleCount>true</doubleCount>
+    <doubleCount>false</doubleCount>
   </course>
   <course>
     <title>Readings in Economics</title>
@@ -6399,7 +7780,7 @@ NOTE: Unclear when course is offered
       <year-part>SPRING</year-part>
     </availableTerms>
     <isOfficial>true</isOfficial>
-    <doubleCount>false</doubleCount>
+    <doubleCount>true</doubleCount>
   </course>
   <course>
     <title>Topics in Economic Theory</title>
@@ -6422,7 +7803,7 @@ NOTE: programming experience recommended
       <year-part>SPRING</year-part>
     </availableTerms>
     <isOfficial>true</isOfficial>
-    <doubleCount>false</doubleCount>
+    <doubleCount>true</doubleCount>
   </course>
   <course>
     <title>Professional Project</title>
@@ -7269,7 +8650,7 @@ NOTE: senior standing required
       <year-part>SPRING</year-part>
     </availableTerms>
     <isOfficial>true</isOfficial>
-    <doubleCount>true</doubleCount>
+    <doubleCount>false</doubleCount>
   </course>
   <course>
     <title>Independent Studies in Electrical, Computer, and Systems Engineering</title>
@@ -7322,7 +8703,7 @@ NOTE: Unclear when course is offered
       <year-part>SPRING</year-part>
     </availableTerms>
     <isOfficial>true</isOfficial>
-    <doubleCount>true</doubleCount>
+    <doubleCount>false</doubleCount>
   </course>
   <course>
     <title>Network Theory</title>
@@ -8451,7 +9832,7 @@ NOTE: Unclear when course is offered
       <year-part>SPRING</year-part>
     </availableTerms>
     <isOfficial>true</isOfficial>
-    <doubleCount>false</doubleCount>
+    <doubleCount>true</doubleCount>
   </course>
   <course>
     <title>Topics in Electrical, Computer, and Systems Engineering</title>
@@ -8467,7 +9848,7 @@ NOTE: Unclear when course is offered
       <year-part>SPRING</year-part>
     </availableTerms>
     <isOfficial>true</isOfficial>
-    <doubleCount>false</doubleCount>
+    <doubleCount>true</doubleCount>
   </course>
   <course>
     <title>Professional Project</title>
@@ -9177,7 +10558,7 @@ NOTE: Unclear when course is offered
       <year-part>SPRING</year-part>
     </availableTerms>
     <isOfficial>true</isOfficial>
-    <doubleCount>true</doubleCount>
+    <doubleCount>false</doubleCount>
   </course>
   <course>
     <title>Advanced Power Electronics</title>
@@ -9345,7 +10726,7 @@ NOTE: Unclear when course is offered
       <year-part>SPRING</year-part>
     </availableTerms>
     <isOfficial>true</isOfficial>
-    <doubleCount>false</doubleCount>
+    <doubleCount>true</doubleCount>
   </course>
   <course>
     <title>Topics in Electric Power Engineering</title>
@@ -9357,7 +10738,7 @@ NOTE: Unclear when course is offered
       <year-part>SPRING</year-part>
     </availableTerms>
     <isOfficial>true</isOfficial>
-    <doubleCount>false</doubleCount>
+    <doubleCount>true</doubleCount>
   </course>
   <course>
     <title>Professional Project</title>
@@ -9599,7 +10980,291 @@ NOTE: Unclear when course is offered
       <year-part>SPRING</year-part>
     </availableTerms>
     <isOfficial>true</isOfficial>
+    <doubleCount>true</doubleCount>
+  </course>
+  <course>
+    <title>Introduction to Literature</title>
+    <description>A study of major literary works that introduces students to basic ideas and terminology in literary criticism. Students learn to read and interpret a selection of novels, plays, poetry, or other forms of writing to be determined each semester by the instructor.</description>
+    <department>Language, Literature, and Communication</department>
+    <catalogNumber>LITR-2110</catalogNumber>
+    <credits>4</credits>
+    <availableTerms>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
     <doubleCount>false</doubleCount>
+  </course>
+  <course>
+    <title>Contemporary Literature</title>
+    <description>A study of significant works of world literature of the 20th century. Each work provides the student with a concrete experience of some overriding problem of our time&#8212;for example, the difficulty of becoming one&#8217;s self in the modern age.</description>
+    <department>Language, Literature, and Communication</department>
+    <catalogNumber>LITR-2150</catalogNumber>
+    <credits>4</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>false</doubleCount>
+  </course>
+  <course>
+    <title>Shakespeare</title>
+    <description>A study of the major plays of William Shakespeare, including his comedies, histories, and tragedies. As well as textual discussion, students will have an opportunity to view film versions of the dramatic works and to perform or read extracts in class.</description>
+    <department>Language, Literature, and Communication</department>
+    <catalogNumber>LITR-2350</catalogNumber>
+    <credits>4</credits>
+    <availableTerms>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>false</doubleCount>
+  </course>
+  <course>
+    <title>The Novel</title>
+    <description>Study of about seven representative novels. Each book is reviewed as a unique work of art, as an outgrowth of certain traditions, as a mirror of its time, and as an expression of one author&#8217;s personal vision of human nature and the human condition.
+
+NOTE: alternate years ONLY
+</description>
+    <department>Language, Literature, and Communication</department>
+    <catalogNumber>LITR-2360</catalogNumber>
+    <credits>4</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>false</doubleCount>
+  </course>
+  <course>
+    <title>Art of the Film</title>
+    <description>A survey of selected films whose directors have contributed to the resources of the medium, as well as a study of technical and aesthetic considerations that distinguish film from other arts. Reading assignments in film history, techniques, scripts, and special research projects.</description>
+    <department>Language, Literature, and Communication</department>
+    <catalogNumber>LITR-2420</catalogNumber>
+    <credits>4</credits>
+    <availableTerms>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>false</doubleCount>
+  </course>
+  <course>
+    <title>Utopian Literature</title>
+    <description>An exploration of the use of fiction to propagate ideas about ideal or nightmarish societies. This course examines the artistic techniques employed in this distinct tradition and the unusual interplay between fiction and reality that this popular genre represents. Students work toward the design of their own utopian scheme in short story or other form. This is a communication-intensive course.
+
+NOTE: alternate years ONLY
+</description>
+    <department>Language, Literature, and Communication</department>
+    <catalogNumber>LITR-2450</catalogNumber>
+    <credits>4</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>false</doubleCount>
+  </course>
+  <course>
+    <title>Black Film</title>
+    <description>A survey of black films of the 20th century and an analysis of the plot, theme, cultural construction, characterization, moral-,philosophical implications, black images, and historical context to black life and national conditions.
+
+NOTE: Offered on availability of instructor.
+</description>
+    <department>Language, Literature, and Communication</department>
+    <catalogNumber>LITR-2460</catalogNumber>
+    <credits>4</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>false</doubleCount>
+  </course>
+  <course>
+    <title>Study of African-American Literature</title>
+    <description>This course provides an introduction to black authors and their literary contributions and an analysis of their relationship to black thought and culture. Various forms of literature, such as folk tales, poetry, short story, prose, and essay, will be presented with emphasis on literary style and content as influenced by the social environment of the periods of America&#8217;s historical development from 1619 to the present. Students will write about these works in class, including a 30-page (typed) critical research paper outside of class. Workshops, lectures, oral reports, and group discussions will be the methodology for each class session.
+
+NOTE: Offered on availability of instructor.
+</description>
+    <department>Language, Literature, and Communication</department>
+    <catalogNumber>LITR-2470</catalogNumber>
+    <credits>4</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>false</doubleCount>
+  </course>
+  <course>
+    <title>The Short Story</title>
+    <description>A study of outstanding short stories from 19th-and 20th-century Europe and America, usually including works by such writers as Boccaccio, Flaubert, Chekhov, Borges, Ellison, Faulkner, Hemingway, Chopin, Joyce, Kafka, O&#8217;Connor, and Welty.
+
+NOTE: Offered on availability of instructor.
+</description>
+    <department>Language, Literature, and Communication</department>
+    <catalogNumber>LITR-2500</catalogNumber>
+    <credits>4</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>false</doubleCount>
+  </course>
+  <course>
+    <title>Modern Drama</title>
+    <description>A survey of the work of modern dramatists such as Shaw, Ibsen, and O&#8217;Neill, as well as more contemporary playwrights such as Miller, Williams, Brecht, Beckett, Orton, and Stoppard.
+
+NOTE: Offered on availability of instructor.
+</description>
+    <department>Language, Literature, and Communication</department>
+    <catalogNumber>LITR-2540</catalogNumber>
+    <credits>4</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>false</doubleCount>
+  </course>
+  <course>
+    <title>Women Writers</title>
+    <description>A study of works of literature written by women, featuring such writers as Jane Austen, Charlotte Bronte, Emily Bronte, George Eliot, and Virginia Woolf, and including the work of selected contemporary writers. This is a communication-intensive course.</description>
+    <department>Language, Literature, and Communication</department>
+    <catalogNumber>LITR-2770</catalogNumber>
+    <credits>4</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>false</doubleCount>
+  </course>
+  <course>
+    <title>Literature Studies</title>
+    <description>Readings and projects adapted to the needs of individual students.
+
+NOTE: Unclear when course is offered
+</description>
+    <department>Language, Literature, and Communication</department>
+    <catalogNumber>LITR-2940</catalogNumber>
+    <credits>4</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>false</doubleCount>
+  </course>
+  <course>
+    <title>Topics in Literature</title>
+    <description>Experimental courses tried out in one or two terms.
+
+NOTE: Unclear when course is offered
+</description>
+    <department>Language, Literature, and Communication</department>
+    <catalogNumber>LITR-2960</catalogNumber>
+    <credits>4</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>false</doubleCount>
+  </course>
+  <course>
+    <title>Science and Fiction</title>
+    <description>An exploration of the ongoing dialogue between science/technology and literature through the reading of landmark works about science and fictional works that describe scientific ideas and methods. Topics include artificial intelligence, genetic engineering, and cyborgs.
+
+NOTE: alternate years ONLY
+</description>
+    <department>Language, Literature, and Communication</department>
+    <catalogNumber>LITR-4150</catalogNumber>
+    <credits>4</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>false</doubleCount>
+  </course>
+  <course>
+    <title>Humor, Comedy, and Satire</title>
+    <description>Readings of literature from various periods in these three modes, including works by classical, renaissance, and contemporary writers. May include film, videos, and audio recordings.
+
+NOTE: alternate years ONLY
+NOTE: one literature course.
+</description>
+    <department>Language, Literature, and Communication</department>
+    <catalogNumber>LITR-4210</catalogNumber>
+    <credits>4</credits>
+    <availableTerms>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>false</doubleCount>
+  </course>
+  <course>
+    <title>Film Theory</title>
+    <description>The purpose of this course is to study significant theories of representation that analyze the visual codifications generically called &#8220;film.&#8221; We will examine theories of visual rhetoric and of narrativity; look at the way economic and technological factors have affected the construction of cinematic codes, styles, and trends; examine influential psychoanalytic theories and feminist theories; and consider the ways in which popular films participate in the cultural narratives specific to their moment of production. This is a communication-intensive course.
+
+NOTE: Offered anually. Unclear which term
+NOTE: any film course or permission of instructor.
+</description>
+    <department>Language, Literature, and Communication</department>
+    <catalogNumber>LITR-4410</catalogNumber>
+    <credits>4</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>false</doubleCount>
+  </course>
+  <course>
+    <title>Topics in Literature</title>
+    <description>Experimental courses tried out in one or two terms.
+
+NOTE: Unclear when course is offered
+</description>
+    <department>Language, Literature, and Communication</department>
+    <catalogNumber>LITR-4960</catalogNumber>
+    <credits>4</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>true</doubleCount>
+  </course>
+  <course>
+    <title>Literature Studies</title>
+    <description>Readings and projects adapted to the needs of individual students.
+
+NOTE: Unclear when course is offered
+</description>
+    <department>Language, Literature, and Communication</department>
+    <catalogNumber>LITR-6940</catalogNumber>
+    <credits>3</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>true</doubleCount>
+  </course>
+  <course>
+    <title>Topics in Literature</title>
+    <description>Experimental courses tried out in one or two terms.
+
+NOTE: Unclear when course is offered
+</description>
+    <department>Language, Literature, and Communication</department>
+    <catalogNumber>LITR-6960</catalogNumber>
+    <credits>3</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>true</doubleCount>
   </course>
   <course>
     <title>Fundamentals of Flight</title>
@@ -10582,7 +12247,7 @@ NOTE: alternate years ONLY
       <year-part>FALL</year-part>
     </availableTerms>
     <isOfficial>true</isOfficial>
-    <doubleCount>true</doubleCount>
+    <doubleCount>false</doubleCount>
   </course>
   <course>
     <title>Aerospace Structures and Control Laboratory</title>
@@ -10599,7 +12264,7 @@ NOTE: alternate years ONLY
       <year-part>SPRING</year-part>
     </availableTerms>
     <isOfficial>true</isOfficial>
-    <doubleCount>true</doubleCount>
+    <doubleCount>false</doubleCount>
   </course>
   <course>
     <title>Individual Projects in Mechanical Engineering, Aeronautical Engineering, Nuclear Engineering, or Engineering Physics</title>
@@ -11894,7 +13559,7 @@ NOTE: Prerequisite: permission of instructor
       <year-part>SPRING</year-part>
     </availableTerms>
     <isOfficial>true</isOfficial>
-    <doubleCount>false</doubleCount>
+    <doubleCount>true</doubleCount>
   </course>
   <course>
     <title>Topics in Mechanical Engineering, Aeronautical Engineering, Nuclear Engineering, or Engineering Physics</title>
@@ -11907,7 +13572,7 @@ NOTE: Prerequisite: permission of instructor
       <year-part>SPRING</year-part>
     </availableTerms>
     <isOfficial>true</isOfficial>
-    <doubleCount>false</doubleCount>
+    <doubleCount>true</doubleCount>
   </course>
   <course>
     <title>Professional Project</title>
@@ -12654,7 +14319,7 @@ NOTE: Prerequisite: Open to mathematics seniors only
       <year-part>FALL</year-part>
     </availableTerms>
     <isOfficial>true</isOfficial>
-    <doubleCount>true</doubleCount>
+    <doubleCount>false</doubleCount>
   </course>
   <course>
     <title>Topics in Mathematics</title>
@@ -12686,7 +14351,7 @@ NOTE: Unclear when course is offered
       <year-part>SPRING</year-part>
     </availableTerms>
     <isOfficial>true</isOfficial>
-    <doubleCount>true</doubleCount>
+    <doubleCount>false</doubleCount>
   </course>
   <course>
     <title>Topics from Pure Mathematics</title>
@@ -13103,7 +14768,7 @@ NOTE: Unclear when course is offered
       <year-part>SPRING</year-part>
     </availableTerms>
     <isOfficial>true</isOfficial>
-    <doubleCount>false</doubleCount>
+    <doubleCount>true</doubleCount>
   </course>
   <course>
     <title>Teaching Seminar for Teaching Assistants</title>
@@ -13149,7 +14814,7 @@ NOTE: Unclear when course is offered
       <year-part>SPRING</year-part>
     </availableTerms>
     <isOfficial>true</isOfficial>
-    <doubleCount>false</doubleCount>
+    <doubleCount>true</doubleCount>
   </course>
   <course>
     <title>Master&#8217;s Practicum in Mathematics</title>
@@ -13519,7 +15184,7 @@ NOTE: Unclear when course is offered
       <year-part>FALL</year-part>
     </availableTerms>
     <isOfficial>true</isOfficial>
-    <doubleCount>true</doubleCount>
+    <doubleCount>false</doubleCount>
   </course>
   <course>
     <title>Applications of Materials</title>
@@ -13536,7 +15201,7 @@ NOTE: Unclear when course is offered
       <year-part>SPRING</year-part>
     </availableTerms>
     <isOfficial>true</isOfficial>
-    <doubleCount>true</doubleCount>
+    <doubleCount>false</doubleCount>
   </course>
   <course>
     <title>Topics in Materials Engineering</title>
@@ -13882,7 +15547,7 @@ NOTE: Unclear when course is offered
       <year-part>SPRING</year-part>
     </availableTerms>
     <isOfficial>true</isOfficial>
-    <doubleCount>false</doubleCount>
+    <doubleCount>true</doubleCount>
   </course>
   <course>
     <title>Topics in Materials Engineering</title>
@@ -13898,7 +15563,7 @@ NOTE: Unclear when course is offered
       <year-part>SPRING</year-part>
     </availableTerms>
     <isOfficial>true</isOfficial>
-    <doubleCount>false</doubleCount>
+    <doubleCount>true</doubleCount>
   </course>
   <course>
     <title>Professional Project</title>
@@ -14743,7 +16408,7 @@ NOTE: Unclear when course is offered
       <year-part>SPRING</year-part>
     </availableTerms>
     <isOfficial>true</isOfficial>
-    <doubleCount>false</doubleCount>
+    <doubleCount>true</doubleCount>
   </course>
   <course>
     <title>Topics in Physics</title>
@@ -14759,7 +16424,7 @@ NOTE: Unclear when course is offered
       <year-part>SPRING</year-part>
     </availableTerms>
     <isOfficial>true</isOfficial>
-    <doubleCount>false</doubleCount>
+    <doubleCount>true</doubleCount>
   </course>
   <course>
     <title>Professional Project</title>
@@ -15360,7 +17025,7 @@ NOTE: Prerequisite:  permission of a supervising faculty member.
       <year-part>SPRING</year-part>
     </availableTerms>
     <isOfficial>true</isOfficial>
-    <doubleCount>true</doubleCount>
+    <doubleCount>false</doubleCount>
   </course>
   <course>
     <title>Science, Technology, and Society</title>
@@ -15661,7 +17326,7 @@ NOTE: Unclear when course is offered
       <year-part>SPRING</year-part>
     </availableTerms>
     <isOfficial>true</isOfficial>
-    <doubleCount>true</doubleCount>
+    <doubleCount>false</doubleCount>
   </course>
   <course>
     <title>Values and Policy</title>
@@ -15721,7 +17386,7 @@ NOTE: Unclear when course is offered
       <year-part>SPRING</year-part>
     </availableTerms>
     <isOfficial>true</isOfficial>
-    <doubleCount>false</doubleCount>
+    <doubleCount>true</doubleCount>
   </course>
   <course>
     <title>Topics in Science and Technology Studies</title>
@@ -15737,7 +17402,7 @@ NOTE: Unclear when course is offered
       <year-part>SPRING</year-part>
     </availableTerms>
     <isOfficial>true</isOfficial>
-    <doubleCount>false</doubleCount>
+    <doubleCount>true</doubleCount>
   </course>
   <course>
     <title>Professional Project</title>
@@ -16492,7 +18157,7 @@ NOTE: Unclear when course is offered
       <year-part>SPRING</year-part>
     </availableTerms>
     <isOfficial>true</isOfficial>
-    <doubleCount>false</doubleCount>
+    <doubleCount>true</doubleCount>
   </course>
   <course>
     <title>Topics in Science and Technology Studies</title>
@@ -16508,7 +18173,7 @@ NOTE: Unclear when course is offered
       <year-part>SPRING</year-part>
     </availableTerms>
     <isOfficial>true</isOfficial>
-    <doubleCount>false</doubleCount>
+    <doubleCount>true</doubleCount>
   </course>
   <course>
     <title>Master&#8217;s Internship</title>
@@ -16599,7 +18264,7 @@ NOTE: Unclear when course is offered
   end
 
   d.section "H&amp;SS Core" do |s|
-    s.credits = 22
+    s.credits = 24
     s.description = &lt;&lt;-EOF
     Select a minimum of 2 4-credit courses in Humanities 
     Select a minimum of 2 4-credit courses in the Social Sciences 
@@ -16653,10 +18318,6 @@ NOTE: Unclear when course is offered
 
     s.must_have "one 4 credit course at the 4000 level" do |courses|
       courses.find {|c| c.level == '4000' &amp;&amp; c.credits == 4}
-    end
-
-    s.must_have "Professional Development II" do |courses|
-      courses.find {|c| c.catalogNumber == 'PSYC-4170' || c.catalogNumber == 'STSS-4840'}
     end
     
     s.must_have "Depth Requirement" do |courses|

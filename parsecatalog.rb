@@ -61,7 +61,7 @@ def parse_year_parts(description)
     parts << 'SPRING'
   when /^Spring( term| semester)?( annually)?( only)?.?( .)?$/i
     parts << 'SPRING'
-  when /^(Offered )?Fall( term)?( annually)?.?( Includes laboratory experience.)?$/i
+  when /^(Offered )?Fall( term| semester)?( annually)?.?( Includes laboratory experience.)?$/i
     parts << 'FALL'
   when /^Offered on (sufficient )?demand.$/
     messages << "Offered on sufficient demand."
@@ -88,16 +88,23 @@ def parse_year_parts(description)
   when /^(Spring|Fall)(,| term),? even(-| )number(ed|s) years.$/i
     messages << "even-numbered years ONLY"
     parts << $1.upcase
-  when /^(Spring|Fall)(,| term)? (\(of )?even.?numbered years(\))?.$/i
+  when /^(Spring|Fall)(,| term)? (\(of )?even[.-]?numbered years(\))?.$/i
     messages << "even-numbered years ONLY"
     parts << $1.upcase
   when /^(Spring|Fall) term,? alternat(e|ive) years./
     messages << "alternate years ONLY"
     parts << $1.upcase
-  when /^(Graduate course; spring semester, alternate years|Spring term alternate years.)$/
+  when /^Fall, every other year.$/i
     messages << "alternate years ONLY"
     parts << 'FALL'
-  when /^(Offered )? ?(Fall and spring)? ?Annually.?$/
+  when /^(Graduate course; spring semester, alternate years|Spring term alternate years.)$/
+    messages << "alternate years ONLY"
+    parts << 'SPRING'
+  when /^Offered alternate years.$/
+    messages << "alternate years ONLY"
+    parts << 'FALL'
+    parts << 'SPRING'
+  when /^(Offered )? ?(Fall and spring)? ?Annually.?$/i
     messages << "Offered anually. Unclear which term"
     parts << 'FALL'
     parts << 'SPRING'
@@ -445,8 +452,9 @@ end
 
 builder = Builder::XmlMarkup.new(:indent => 2)
 xml = builder.courses do |b|
-  ['ARTS','BIOL','CSCI','CHEM','CHME','COMM','ECON','ECSE','ENGR','EPOW','IHSS','MANE',
-          'MATH','MTLE','PHYS','PSYC','STSH','STSS'].each do |dept|
+  ['ARTS','BIOL','BMED','CSCI','CHEM','CHME','CIVL','COMM','ECON','ECSE',
+    'ENGR','EPOW','IHSS','LITR','MANE','MATH','MTLE','PHYS','PSYC','STSH',
+    'STSS'].each do |dept|
     files = Dir["catalog/#{dept}/*.html"]
     files.each do |filename|
       file = File.open(filename, 'r')
@@ -497,7 +505,7 @@ xml = builder.courses do |b|
           
           # 4900 courses are seminars, independent study, etc and should be counted
           # each time they are taken
-          b.doubleCount(!!(course[:catalogNumber] =~ /....-49../))
+          b.doubleCount(!!(course[:catalogNumber] =~ /....-[46]9[46]0/))
         end
       rescue => err
         $stderr.puts "#{course[:catalogNumber]} - #{course[:title]}"
