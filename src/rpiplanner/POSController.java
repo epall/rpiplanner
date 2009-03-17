@@ -379,6 +379,16 @@ public class POSController {
 			}
 		}
 		
-		return -1; // course not found
+		return -1;
+	}
+	
+	public Term getTerm(int termNum) {
+		if (termNum >= 0 && getPlan().getTerms().size() > termNum) {
+			return getPlan().getTerms().get(termNum);
+		}
+		
+		else {
+			return null;
+		}
 	}
 }
