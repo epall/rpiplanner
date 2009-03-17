@@ -111,12 +111,12 @@ def parse_year_parts(description)
   when "Fall term on sufficient demand."
     messages << "Offered on sufficient demand."
     parts << 'FALL'
-  when /^(Offered on sufficient demand. )?(Offered biannually|Alternate years).$/
+  when /^(Offered on sufficient demand. )?(Offered biannually|Alternate years|every two years).$/
     messages << "Offered on sufficient demand." if $1
     messages << "Offered biannually"
     parts << 'FALL'
     parts << 'SPRING'
-  when /^(Offered (on|upon)) (the )?availability (of )?(the )?(instructor|faculty).?$/i
+  when /^(Term: )?(Offered )?(on|upon) (the )?availability (of )?(the )?(instructor|faculty).?$/i
     messages << "Offered on availability of #{$5}."
     parts << 'FALL'
     parts << 'SPRING'
@@ -142,7 +142,7 @@ def parse_year_parts(description)
     messages << "alternate years ONLY"
     parts << 'FALL'
     parts << 'SPRING'
-  when /^(Offered )? ?(Fall and spring)? ?Annually.?$/i
+  when /^(Offered )? ?(Fall and spring)?(once)? ?Annually.?$/i
     messages << "Offered anually. Unclear which term"
     parts << 'FALL'
     parts << 'SPRING'
