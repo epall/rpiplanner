@@ -40,6 +40,7 @@ import rpiplanner.model.Course;
 import rpiplanner.model.CourseComparator;
 import rpiplanner.model.RequisiteSet;
 import rpiplanner.model.Term;
+import rpiplanner.model.Pair;
 
 import com.jgoodies.forms.factories.FormFactory;
 import com.jgoodies.forms.layout.CellConstraints;
@@ -106,7 +107,9 @@ public class CourseDisplay extends JPanel {
 						
 						contextMenu.add("Fill Requisites").addActionListener(new ActionListener() {
 							public void actionPerformed(ActionEvent e) {
-								fillRequisites(course, 0, controller.getTerm(course));
+								ArrayList<Pair<Course, Integer>> dummyPOS = new ArrayList<Pair<Course, Integer>>();
+								dummyPOS = fillRequisites(course, controller.getTerm(course), dummyPOS);
+								fillCourses(dummyPOS);
 							}
 						});
 						
@@ -146,54 +149,70 @@ public class CourseDisplay extends JPanel {
 		text.setSize(oldSize);
 	}
 	
-	private void fillRequisites(Course fillCourse, int term, int finalTerm) {
+	private void fillCourses(ArrayList<Pair<Course, Integer>> dummyPOS) {
+		int lowestTerm = 8;
+		for (int i = 0; i < dummyPOS.size(); i++) {
+			if (dummyPOS.get(i).getSecond() < lowestTerm) {
+				lowestTerm = dummyPOS.get(i).getSecond();
+			}
+		}
+		
+		lowestTerm--;
+		for (int i = 0; i < dummyPOS.size(); i++) {
+			controller.addCourse(dummyPOS.get(i).getSecond() - lowestTerm, dummyPOS.get(i).getFirst());
+		}
+	}
+	
+	private ArrayList<Pair<Course, Integer>> fillRequisites(Course fillCourse, int term, ArrayList<Pair<Course, Integer>> dummyPOS) {
 		fillCourse = controller.getCourseDatabase().getCourse(fillCourse.getCatalogNumber());	
 		RequisiteSet reqs = fillCourse.getPrerequisites();
 		Collections.sort(reqs, new CourseComparator());
 		
 		for (int i = 0; i < reqs.size(); i++) {
-			// if the course isnt offered in both spring and fall, and we arent in the term that its offered in,
-			// go back one term so that we are in the term its offered in
 			if ((fillCourse.getAvailableTerms().length < 2) && (fillCourse.getAvailableTerms()[0] != controller.getPlan().getTerm(term).getTerm())) {
-				term++;
+				term--;
 			}
 			
-			// make sure theres still terms
-			if (term + 1 <= finalTerm) {
-				fillRequisites(reqs.get(i), term + 1, finalTerm);
+			if (term - 1 >= 0) {
+				dummyPOS = fillRequisites(reqs.get(i), term - 1, dummyPOS);
 			}
 			
-			// ran out of terms for this line of prereqs
 			else {
-				return;
+				return dummyPOS;
 			}
 		}
 		
-		// this looks to see if the requisite class were trying to add
-		// has already been added.
-		ArrayList<Term> dupes = controller.getPlan().getTerms();
 		boolean dupeCourse = false;
-		for (int t = 0; t < dupes.size(); t++) {
-			ArrayList<Course> dupeCourses = dupes.get(t).getCourses();
-			
-			for (int dc = 0; dc < dupeCourses.size(); dc++) {
-				if (dupeCourses.get(dc).equals(fillCourse) || fillCourse.getCatalogNumber().equals("MATH-1500")) {
-					dupeCourse = true;
-					break;
-				}
+		ArrayList<Term> dupes = controller.getPlan().getTerms();
+		ArrayList<Course> dupeCourses = new ArrayList<Course>();
+		for (int i = 0; i < dupes.size(); i++) {
+			ArrayList<Course> tmp = dupes.get(i).getCourses();
+			for (int k = 0; k < tmp.size(); k++) {
+				dupeCourses.add(tmp.get(k));
 			}
 		}
 		
-		// add course if no duplicate found
-		if (!dupeCourse) {
-			controller.addCourse(term, fillCourse);
+		for (int i = 0; i < dummyPOS.size(); i++) {
+			dupeCourses.add(dummyPOS.get(i).getFirst());
 		}
 		
-		// now do corequisites and their requisites
+		for (int dc = 0; dc < dupeCourses.size(); dc++) {
+			if (dupeCourses.get(dc).equals(fillCourse) || fillCourse.getCatalogNumber().equals("MATH-1500")) {
+				dupeCourse = true;
+				break;
+			}
+		}
+		
+		if (!dupeCourse) {
+			dummyPOS.add(new Pair<Course, Integer>(fillCourse, term));
+		}
+		
 		RequisiteSet coreqs = fillCourse.getCorequisites();
 		Collections.sort(coreqs, new CourseComparator());
 		for (int k = 0; k < coreqs.size(); k++) {
-			fillRequisites(coreqs.get(k), term, finalTerm);
+			dummyPOS = fillRequisites(coreqs.get(k), term, dummyPOS);
 		}
+		
+		return dummyPOS;
 	}
 }

@@ -20,45 +20,29 @@
 package rpiplanner.model;
 
 import java.util.Comparator;
-import java.util.Stack;
-
 import rpiplanner.model.Course;
 
 public class CourseComparator implements Comparator {
 	public int compare(Object lhs, Object rhs) {
-		((Course) lhs).DFS();
-		((Course) rhs).DFS();
-		System.out.println(((Course) lhs).getDFSpost());
-		System.out.println(((Course) rhs).getDFSpost());
-		if (((Course) lhs).getDFSpost() > ((Course) rhs).getDFSpost()) {
+		String lSub = ((Course) lhs).getCatalogNumber();
+		String rSub = ((Course) rhs).getCatalogNumber();
+		
+		int lIndex = lSub.indexOf('-');
+		int rIndex = rSub.indexOf('-');
+		
+		lSub = lSub.substring(lIndex + 1, lSub.length());
+		rSub = rSub.substring(rIndex + 1, rSub.length());
+		
+		if (Integer.parseInt(rSub) < Integer.parseInt(lSub)) {
 			return -1;
 		}
 		
-		else if (((Course) lhs).getDFSpost() < ((Course) rhs).getDFSpost()) {
+		else if (Integer.parseInt(rSub) > Integer.parseInt(lSub)) {
 			return 1;
 		}
 		
 		else {
-			String lSub = ((Course) lhs).getCatalogNumber();
-			String rSub = ((Course) rhs).getCatalogNumber();
-			
-			int lIndex = lSub.indexOf('-');
-			int rIndex = rSub.indexOf('-');
-			
-			lSub = lSub.substring(lIndex + 1, lSub.length());
-			rSub = rSub.substring(rIndex + 1, rSub.length());
-			
-			if (Integer.parseInt(rSub) < Integer.parseInt(lSub)) {
-				return 1;
-			}
-			
-			else if (Integer.parseInt(rSub) > Integer.parseInt(lSub)) {
-				return -1;
-			}
-			
-			else {
-				return 0;
-			}
+			return 0;
 		}
 	}
 }

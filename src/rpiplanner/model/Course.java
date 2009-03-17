@@ -19,8 +19,6 @@
 
 package rpiplanner.model;
 
-import java.util.Stack;
-
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 
 @XStreamAlias("course")
@@ -33,32 +31,7 @@ public class Course implements Comparable<Course> {
     protected RequisiteSet prerequisites;
     protected RequisiteSet corequisites;
     protected YearPart[] availableTerms;
-    protected int DFSpost;
     
-    
-    public int getDFSpost() {
-    	return DFSpost;
-    }
-    
-    private void setDFSpost(int num) {
-    	DFSpost = num;
-    }
-    
-    public void DFS() {
-		Stack<Course> dfs = new Stack<Course>();
-		dfs.push(this);
-		int DFSnum = 0;
-		Course tmp = this;
-		while (!dfs.isEmpty()) {
-			for (int i = 0; i < tmp.getPrerequisites().size(); i++) {
-				dfs.push(tmp.getPrerequisites().get(i));
-			}
-			
-			tmp = dfs.pop();
-			DFSnum++;
-			tmp.setDFSpost(DFSnum);
-		}
-	}
     
 	public String getTitle() {
 		return title;
