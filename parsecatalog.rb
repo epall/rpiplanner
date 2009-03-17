@@ -99,7 +99,7 @@ def parse_year_parts(description)
     parts << 'SPRING'
   when /^Spring( term| semester)?( annually)?( only)?.?( .)?$/i
     parts << 'SPRING'
-  when /^(Offered )?Fall( term| semester)?( annually)?.?( Includes laboratory experience.)?$/i
+  when /^(Offered )?Fall( term| semester)?( annually| yearly)?.?( Includes laboratory experience.)?$/i
     parts << 'FALL'
   when /^Offered on (sufficient )?demand.$/
     messages << "Offered on sufficient demand."
@@ -116,7 +116,7 @@ def parse_year_parts(description)
     messages << "Offered biannually"
     parts << 'FALL'
     parts << 'SPRING'
-  when /^(Offered on|On) (the )?availability (of )?(the )?(instructor|faculty).?$/
+  when /^(Offered (on|upon)) (the )?availability (of )?(the )?(instructor|faculty).?$/i
     messages << "Offered on availability of #{$5}."
     parts << 'FALL'
     parts << 'SPRING'
@@ -490,8 +490,8 @@ end
 
 builder = Builder::XmlMarkup.new(:indent => 2)
 xml = builder.courses do |b|
-  ['ARTS','BIOL','BMED','CSCI','CHEM','CHME','CIVL','COMM','ECON','ECSE',
-    'ENGR','EPOW','IHSS','LITR','MANE','MATH','MTLE','PHYS','PSYC','STSH',
+  ['ARTS','ASTR','BIOL','BMED','CSCI','CHEM','CHME','CIVL','COMM','ECON','ECSE',
+    'ENGR','EPOW','IHSS','LITR','MANE','MATH','MTLE','PHIL','PHYS','PSYC','STSH',
     'STSS'].each do |dept|
     files = Dir["catalog/#{dept}/*.html"]
     files.each do |filename|
