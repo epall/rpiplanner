@@ -27,8 +27,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Set;
 
-public class Degree
-{
+public class Degree {
     @XStreamAlias("DegreeName")
     String name;
 
@@ -41,15 +40,13 @@ public class Degree
     //TODO: Supposed to take PlanOfStudy pos as argument
     //TODO: Put validate functions in respective requirements?
     //Have them return validtionresult and then run another function to update Hash
-    public DegreeValidationResult validate (ArrayList<Course> pos)
-    {
+    public DegreeValidationResult validate(ArrayList<Course> pos) {
         ArrayList<Course> courseList = pos;
         DegreeValidationResult result = new DegreeValidationResult();
-        HashMap<Course,Integer> courseMap = createHash(courseList);
+        HashMap<Course, Integer> courseMap = createHash(courseList);
         int totalCredits = 0;
 
-        for (SpecialDesignationRequirement currentReq : specialReq)
-        {
+        for (SpecialDesignationRequirement currentReq : specialReq) {
             DegreeSection newSection = new DegreeSection();
             newSection.name = currentReq.getName();
             newSection.description = currentReq.getDescription();
@@ -57,26 +54,20 @@ public class Degree
             result.addSection(newSection);
         }
 
-        for (CoreRequirement currentReq : coreReq)
-        {
+        for (CoreRequirement currentReq : coreReq) {
             DegreeSection newSection = currentReq.validate(courseMap);
             result.addSection(newSection);
         }
 
-        for (RestrictedRequirement currentReq : restReq)
-			{
-                DegreeSection newSection = currentReq.validate(courseMap);
-                result.addSection(newSection);
-			}
+        for (RestrictedRequirement currentReq : restReq) {
+            DegreeSection newSection = currentReq.validate(courseMap);
+            result.addSection(newSection);
+        }
 
-        for (SubjectRequirement currentReq : subjReq)
-			{
-                DegreeSection newSection = new DegreeSection();
-                newSection.name = currentReq.getName();
-                newSection.description = currentReq.getDescription();
-
-                result.addSection(newSection);
-			}
+        for (SubjectRequirement currentReq : subjReq) {
+            DegreeSection newSection = currentReq.validate(courseMap, courseList);
+            result.addSection(newSection);
+        }
         /*
         Humanities and Social Sciences RPI Version
         Humanities: LANG LITR COMM WRIT ARTS PHIL STSH IHSS
@@ -86,9 +77,7 @@ public class Degree
         Must take one class above 1000 level in the same prefix as you took a 1000 level
         Max 3 1000 level courses
         */
-        String description = "To ensure that students have some depth in their H&SS core, students must take at least two courses within a single area prefix (STSH and STSS can be counted as a single area), at least one of which is taken at an advanced level (above 1000). No course within the depth sequence may be taken as Pass/No Credit.\n" +
-                "\n" +
-                "No more than three 1000-level H&SS courses may be applied toward the H&SS core requirement, no more than 6 credits may be taken as Pass/No credit and at least one course (4 credits) must be at the 4000 level.";
+        String description = "Humanities and Social Sciences Stuff";
         DegreeSection humSSSection = new DegreeSection();
         humSSSection.name = "Humanities and Social Sciences";
         humSSSection.description = description;
@@ -103,41 +92,59 @@ public class Degree
         ArrayList<Course> ss1000List = new ArrayList<Course>();
         ArrayList<Course> humUpperList = new ArrayList<Course>();
         ArrayList<Course> ssUpperList = new ArrayList<Course>();
-        
-        for (Course course : courseList)
-        {
+
+        for (Course course : courseList) {
             //Humanities
             if (course.getPrefix() == "LANG" || course.getPrefix() == "LITR" || course.getPrefix() == "WRIT" || course.getPrefix() == "COMM"
-                    || course.getPrefix() == "ARTS" || course.getPrefix() == "PHIL" || course.getPrefix() == "STSH" || course.getPrefix() == "IHSS")
-            {
+                    || course.getPrefix() == "ARTS" || course.getPrefix() == "PHIL" || course.getPrefix() == "STSH" || course.getPrefix() == "IHSS") {
                 numHum++;
-                if (course.getLevel() == "1000")
-                {
+                if (course.getLevel() == "1000") {
                     num1000Hum++;
                     hum1000List.add(course);
                 }
-                if (course.getLevel() == "2000" || course.getLevel() == "4000" || course.getLevel() == "6000")
-                {
+                if (course.getLevel() == "2000" || course.getLevel() == "4000" || course.getLevel() == "6000") {
                     numUpperHum++;
                     humUpperList.add(course);
                 }
             }
             //Social Sciences
-            else if (course.getPrefix() == "ECON" || course.getPrefix() == "STSS" || course.getPrefix() == "PSYC")
-            {
+            else if (course.getPrefix() == "ECON" || course.getPrefix() == "STSS" || course.getPrefix() == "PSYC") {
                 numSocSci++;
-                if (course.getLevel() == "1000")
-                {
+                if (course.getLevel() == "1000") {
                     num1000SocSci++;
                     ss1000List.add(course);
                 }
-                if (course.getLevel() == "2000" || course.getLevel() == "4000" || course.getLevel() == "6000")
-                {
+                if (course.getLevel() == "2000" || course.getLevel() == "4000" || course.getLevel() == "6000") {
                     numUpperSocSci++;
                     ssUpperList.add(course);
                 }
             }
         }
+        //Minimum 2 4 credit Courses in Humanities
+
+        //minimum of 2 4-credit courses in the Social Sciences
+
+        //one 4 credit course at the 4000 level
+
+        //depth requirement
+        
+        //Professional Development II
+        if (courseMap.containsKey(Course.get("PSYC", "4170")) || courseMap.containsKey(Course.get("STSS", "4840"))) {
+            if (courseMap.containsKey(Course.get("PSYC", "4170"))) {
+                courseMap.put(Course.get("PSYC", "4170"), 0);
+                humSSSection.appliedCourses.add(Course.get("PSYC", "4170"));
+            }
+            if (courseMap.containsKey(Course.get("STSS", "4840"))) {
+                courseMap.put(Course.get("STSS", "4840"), 0);
+                humSSSection.appliedCourses.add(Course.get("STSS", "4840"));
+            }
+        } else {
+            humSSSection.missingCourses.add(Course.get("PSYC", "4170"));
+            humSSSection.missingCourses.add(Course.get("STSS", "4840"));
+            humSSSection.potentialCourses.add(Course.get("PSYC", "4170"));
+            humSSSection.potentialCourses.add(Course.get("STSS", "4840"));
+        }
+
         humSSSection.isSuccess = false;
         result.addSection(humSSSection);
 
@@ -145,19 +152,15 @@ public class Degree
         DegreeSection freeElective = new DegreeSection();
         freeElective.name = "Free Electives";
         freeElective.description = "Courses that are not applied to any other requirements";
-        for (Course course : courseList)
-        {
-            if (courseMap.get(course) > 0)
-            {
+        for (Course course : courseList) {
+            if (courseMap.get(course) > 0) {
                 freeElective.appliedCourses.add(course);
                 freeElective.credits += course.getCredits();
                 int number = courseMap.get(course);
                 number--;
-                courseMap.put(course,number);
-                if (courseMap.get(course) > 0 && course.isDoubleCount())
-                {
-                    for (int i = 0;i < courseMap.get(course);i++)
-                    {
+                courseMap.put(course, number);
+                if (courseMap.get(course) > 0 && course.isDoubleCount()) {
+                    for (int i = 0; i < courseMap.get(course); i++) {
                         freeElective.appliedCourses.add(course);
                         freeElective.credits += course.getCredits();
                         totalCredits += course.getCredits();
@@ -167,26 +170,21 @@ public class Degree
         }
         result.addSection(freeElective);
         result.setTotalCredits(totalCredits);
-        
+
         return result;
     }
 
 
-    private HashMap <Course,Integer> createHash (ArrayList<Course> pos)
-    {
-        HashMap <Course,Integer> courseMap = new HashMap <Course,Integer>();
+    private HashMap<Course, Integer> createHash(ArrayList<Course> pos) {
+        HashMap<Course, Integer> courseMap = new HashMap<Course, Integer>();
         //pos.getCourses() for PoS
-        for (Course course : pos)
-        {
-            if (courseMap.containsKey(course))
-            {
+        for (Course course : pos) {
+            if (courseMap.containsKey(course)) {
                 int num = courseMap.get(course);
                 num++;
-                courseMap.put(course,num);
-            }
-            else
-            {
-                courseMap.put(course,1);
+                courseMap.put(course, num);
+            } else {
+                courseMap.put(course, 1);
             }
         }
 
