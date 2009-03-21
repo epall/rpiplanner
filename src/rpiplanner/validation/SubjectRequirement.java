@@ -18,11 +18,21 @@
 
 package rpiplanner.validation;
 
+import rpiplanner.model.Course;
+
+import java.util.HashMap;
+import java.util.ArrayList;
+import java.util.Iterator;
+
 public class SubjectRequirement
 {
 
     String name;
     String description;
+    int numCredits;
+    int numCourses;
+    ArrayList<Course> reqCourse;
+    ArrayList<Subject> subjectList;
 
     public String getName()
 	{
@@ -34,4 +44,33 @@ public class SubjectRequirement
         return description;
     }
 
+    public DegreeSection validate(HashMap<Course, Integer> courseMap, ArrayList<Course> courseList) {
+        DegreeSection newSection = new DegreeSection();
+        newSection.name = name;
+        newSection.description = description;
+
+        //Check for specific courses required in the requirement
+        for (Course course : reqCourse)
+        {
+                if (courseMap.get(course) > 0)
+                {
+                    newSection.appliedCourses.add(course);
+                    int newNum = courseMap.get(course);
+                    newNum--;
+                    courseMap.put(course,newNum);
+                } else {
+                    newSection.missingCourses.add(course);
+                    newSection.potentialCourses.add(course);
+                }
+
+        }
+        //Get courses that apply to the subjects
+        //If they exist check to see if requirement is fufilled
+        //Return the section
+
+        ArrayList<Course> applicableCourses = new ArrayList<Course>();
+
+
+        return newSection;
+    }
 }

@@ -68,85 +68,10 @@ public class Degree {
             DegreeSection newSection = currentReq.validate(courseMap, courseList);
             result.addSection(newSection);
         }
-        /*
-        Humanities and Social Sciences RPI Version
-        Humanities: LANG LITR COMM WRIT ARTS PHIL STSH IHSS
-        Social Sciences: ECON STSS PSYC
-        STSS and STSH can count as one area for depth
-        PD2 is a humanities requirement so 20 credits required
-        Must take one class above 1000 level in the same prefix as you took a 1000 level
-        Max 3 1000 level courses
-        */
-        String description = "Humanities and Social Sciences Stuff";
-        DegreeSection humSSSection = new DegreeSection();
-        humSSSection.name = "Humanities and Social Sciences";
-        humSSSection.description = description;
-        int numHum = 0;
-        int numSocSci = 0;
-        int num1000Hum = 0;
-        int num1000SocSci = 0;
-        int numUpperHum = 0;
-        int numUpperSocSci = 0;
-        Boolean depthSatisfied;
-        ArrayList<Course> hum1000List = new ArrayList<Course>();
-        ArrayList<Course> ss1000List = new ArrayList<Course>();
-        ArrayList<Course> humUpperList = new ArrayList<Course>();
-        ArrayList<Course> ssUpperList = new ArrayList<Course>();
 
-        for (Course course : courseList) {
-            //Humanities
-            if (course.getPrefix() == "LANG" || course.getPrefix() == "LITR" || course.getPrefix() == "WRIT" || course.getPrefix() == "COMM"
-                    || course.getPrefix() == "ARTS" || course.getPrefix() == "PHIL" || course.getPrefix() == "STSH" || course.getPrefix() == "IHSS") {
-                numHum++;
-                if (course.getLevel() == "1000") {
-                    num1000Hum++;
-                    hum1000List.add(course);
-                }
-                if (course.getLevel() == "2000" || course.getLevel() == "4000" || course.getLevel() == "6000") {
-                    numUpperHum++;
-                    humUpperList.add(course);
-                }
-            }
-            //Social Sciences
-            else if (course.getPrefix() == "ECON" || course.getPrefix() == "STSS" || course.getPrefix() == "PSYC") {
-                numSocSci++;
-                if (course.getLevel() == "1000") {
-                    num1000SocSci++;
-                    ss1000List.add(course);
-                }
-                if (course.getLevel() == "2000" || course.getLevel() == "4000" || course.getLevel() == "6000") {
-                    numUpperSocSci++;
-                    ssUpperList.add(course);
-                }
-            }
-        }
-        //Minimum 2 4 credit Courses in Humanities
-
-        //minimum of 2 4-credit courses in the Social Sciences
-
-        //one 4 credit course at the 4000 level
-
-        //depth requirement
-        
-        //Professional Development II
-        if (courseMap.containsKey(Course.get("PSYC", "4170")) || courseMap.containsKey(Course.get("STSS", "4840"))) {
-            if (courseMap.containsKey(Course.get("PSYC", "4170"))) {
-                courseMap.put(Course.get("PSYC", "4170"), 0);
-                humSSSection.appliedCourses.add(Course.get("PSYC", "4170"));
-            }
-            if (courseMap.containsKey(Course.get("STSS", "4840"))) {
-                courseMap.put(Course.get("STSS", "4840"), 0);
-                humSSSection.appliedCourses.add(Course.get("STSS", "4840"));
-            }
-        } else {
-            humSSSection.missingCourses.add(Course.get("PSYC", "4170"));
-            humSSSection.missingCourses.add(Course.get("STSS", "4840"));
-            humSSSection.potentialCourses.add(Course.get("PSYC", "4170"));
-            humSSSection.potentialCourses.add(Course.get("STSS", "4840"));
-        }
-
-        humSSSection.isSuccess = false;
-        result.addSection(humSSSection);
+        //Humanities
+        DegreeSection humanitiesSocialSciencesResult = humanitiesValidate(courseMap,courseList);
+        result.addSection(humanitiesSocialSciencesResult);
 
         //Free Electives
         DegreeSection freeElective = new DegreeSection();
@@ -189,6 +114,102 @@ public class Degree {
         }
 
         return courseMap;
+    }
+
+    private DegreeSection humanitiesValidate(HashMap <Course,Integer> courseMap,ArrayList<Course> courseList)
+    {
+        DegreeSection humSSSection = new DegreeSection();
+        humSSSection.name = "Humanities and Social Sciences";
+        humSSSection.description = "Humanities and Social Sciences Stuff";
+
+        int numHum = 0;
+        int numSocSci = 0;
+        int num1000Hum = 0;
+        int num1000SocSci = 0;
+        int numUpperHum = 0;
+        int numUpperSocSci = 0;
+        int num4000Level = 0;
+
+        ArrayList<Course> hum1000List = new ArrayList<Course>();
+        ArrayList<Course> ss1000List = new ArrayList<Course>();
+        ArrayList<Course> humUpperList = new ArrayList<Course>();
+        ArrayList<Course> ssUpperList = new ArrayList<Course>();
+        ArrayList<Course> usedCourses = new ArrayList<Course>();
+
+        //Professional Development II
+        if (courseMap.containsKey(Course.get("PSYC", "4170")) || courseMap.containsKey(Course.get("STSS", "4840"))) {
+            if (courseMap.containsKey(Course.get("PSYC", "4170"))) {
+                courseMap.put(Course.get("PSYC", "4170"), 0);
+                humSSSection.appliedCourses.add(Course.get("PSYC", "4170"));
+                courseList.remove(Course.get("PSYC", "4170"));
+            }
+            if (courseMap.containsKey(Course.get("STSS", "4840"))) {
+                courseMap.put(Course.get("STSS", "4840"), 0);
+                humSSSection.appliedCourses.add(Course.get("STSS", "4840"));
+                courseList.remove(Course.get("STSS", "4840"));
+            }
+        } else {
+            humSSSection.missingCourses.add(Course.get("PSYC", "4170"));
+            humSSSection.missingCourses.add(Course.get("STSS", "4840"));
+            humSSSection.potentialCourses.add(Course.get("PSYC", "4170"));
+            humSSSection.potentialCourses.add(Course.get("STSS", "4840"));
+        }
+
+        //Get Courses that apply
+        for (Course course : courseList) {
+            //Humanities
+            if (course.getPrefix() == "LANG" || course.getPrefix() == "LITR" || course.getPrefix() == "WRIT" || course.getPrefix() == "COMM"
+                    || course.getPrefix() == "ARTS" || course.getPrefix() == "PHIL" || course.getPrefix() == "STSH" || course.getPrefix() == "IHSS") {
+                numHum++;
+                if (course.getLevel() == "1000") {
+                    num1000Hum++;
+                    hum1000List.add(course);
+                }
+                if (course.getLevel() == "2000" || course.getLevel() == "4000" || course.getLevel() == "6000") {
+                    numUpperHum++;
+                    humUpperList.add(course);
+                    if (course.getLevel() == "4000") num4000Level++;
+                }
+            }
+            //Social Sciences
+            else if (course.getPrefix() == "ECON" || course.getPrefix() == "STSS" || course.getPrefix() == "PSYC") {
+                numSocSci++;
+                if (course.getLevel() == "1000") {
+                    num1000SocSci++;
+                    ss1000List.add(course);
+                }
+                if (course.getLevel() == "2000" || course.getLevel() == "4000" || course.getLevel() == "6000") {
+                    numUpperSocSci++;
+                    ssUpperList.add(course);
+                    if (course.getLevel() == "4000") num4000Level++;
+                }
+            }
+        }
+        Boolean humFufilled = false;
+        Boolean ssFufilled = false;
+        Boolean topLevelFufilled = false;
+        Boolean depthFufilled = false;
+        Boolean pd2Fufilled = false;
+
+        //one 4 credit course at the 4000 level
+        if (num4000Level++ >= 1) topLevelFufilled = true;
+
+        //depth requirement
+
+        //Minimum 2 4 credit Courses in Humanities
+        if (num1000Hum + numUpperHum >= 2) humFufilled = true;
+
+        //minimum of 2 4-credit courses in the Social Sciences
+        if (num1000Hum + numUpperHum >= 2) ssFufilled = true;
+
+
+
+
+
+        humSSSection.isSuccess = false;
+
+
+        return humSSSection;
     }
 
     public void addCoreRequirement(CoreRequirement req) {
