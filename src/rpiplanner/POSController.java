@@ -41,6 +41,7 @@ import javax.swing.border.TitledBorder;
 import rpiplanner.model.Course;
 import rpiplanner.model.CourseDatabase;
 import rpiplanner.model.Degree;
+import rpiplanner.model.Pair;
 import rpiplanner.model.Term;
 import rpiplanner.model.PlanOfStudy;
 import rpiplanner.model.ValidationError;
@@ -392,11 +393,17 @@ public class POSController {
 		}
 	}
 	
-	public boolean wouldCourseBeValid(Course course, int term) {
+	public boolean wouldCourseBeValid(Course course, int term, ArrayList<Pair<Course, Integer>> dummyPOS) {
 		ArrayList<Course> coursesUpToTerm = new ArrayList<Course>();
 		for (int i = 0; i < term; i++) {
 			for (int k = 0; k < getPlan().getTerms().get(i).getCourses().size(); k++) {
 				coursesUpToTerm.add(getPlan().getTerms().get(i).getCourses().get(k));
+			}
+		}
+		
+		for (int i = 0; i < dummyPOS.size(); i++) {
+			if (dummyPOS.get(i).getSecond() < term) {
+				coursesUpToTerm.add(dummyPOS.get(i).getFirst());
 			}
 		}
 		
@@ -421,6 +428,17 @@ public class POSController {
 				if (course.getCorequisites().get(k).equals(getPlan().getTerms().get(term).getCourses().get(i))) {
 					courseFound = true;
 					break;
+				}
+			}
+			
+			if (!courseFound) {
+				for (int j = 0; j < dummyPOS.size(); j++) {
+					if (dummyPOS.get(j).getSecond() == term) {
+						if (course.getCorequisites().get(k).equals(dummyPOS.get(j).getFirst())) {
+							courseFound = true;
+							break;
+						}
+					}
 				}
 			}
 		}
