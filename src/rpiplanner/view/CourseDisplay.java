@@ -38,6 +38,7 @@ import javax.swing.TransferHandler;
 import rpiplanner.POSController;
 import rpiplanner.model.Course;
 import rpiplanner.model.CourseComparator;
+import rpiplanner.model.DummyPOSComparator;
 import rpiplanner.model.RequisiteSet;
 import rpiplanner.model.Term;
 import rpiplanner.model.Pair;
@@ -150,6 +151,7 @@ public class CourseDisplay extends JPanel {
 	}
 	
 	private void fillCourses(ArrayList<Pair<Course, Integer>> dummyPOS) {
+		/*
 		int lowestTerm = 8;
 		for (int i = 0; i < dummyPOS.size(); i++) {
 			if (dummyPOS.get(i).getSecond() < lowestTerm) {
@@ -166,6 +168,22 @@ public class CourseDisplay extends JPanel {
 				lowestTerm--;
 			}
 			controller.addCourse(dummyPOS.get(i).getSecond() - lowestTerm, dummyPOS.get(i).getFirst());
+		}
+		*/
+		
+		Collections.sort(dummyPOS, new DummyPOSComparator());
+		for (int i = 0; i < dummyPOS.size(); i++) {
+			int term = dummyPOS.get(i).getSecond();
+			while (controller.wouldCourseBeValid(dummyPOS.get(i).getFirst(), term, dummyPOS) && term > 0) {
+				term--;
+			}
+			
+			term++;
+			dummyPOS.get(i).setSecond(term);
+		}
+		
+		for (int i = 0; i < dummyPOS.size(); i++) {
+			controller.addCourse(dummyPOS.get(i).getSecond(), dummyPOS.get(i).getFirst());
 		}
 	}
 	

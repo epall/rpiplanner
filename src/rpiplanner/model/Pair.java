@@ -35,4 +35,12 @@ public class Pair<First, Second> {
     public First getFirst() {
         return first;
     }
+    
+    public void setFirst(First first) {
+    	this.first = first;
+    }
+    
+    public void setSecond(Second second) {
+    	this.second = second;
+    }
 }
