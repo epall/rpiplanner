@@ -391,4 +391,40 @@ public class POSController {
 			return null;
 		}
 	}
+	
+	public boolean wouldCourseBeValid(Course course, int term) {
+		ArrayList<Course> coursesUpToTerm = new ArrayList<Course>();
+		for (int i = 0; i < term; i++) {
+			for (int k = 0; k < getPlan().getTerms().get(i).getCourses().size(); k++) {
+				coursesUpToTerm.add(getPlan().getTerms().get(i).getCourses().get(k));
+			}
+		}
+		
+		boolean courseFound = false;
+		for (int i = 0; i < course.getPrerequisites().size(); i++) {
+			courseFound = false;
+			for (int k = 0; k < coursesUpToTerm.size(); k++) {
+				if (course.getPrerequisites().get(i).equals(coursesUpToTerm.get(k))) {
+					courseFound = true;
+					break;
+				}
+			}
+			
+			if (!courseFound) {
+				return false;
+			}
+		}
+		
+		for (int k = 0; k < course.getCorequisites().size(); k++) {
+			courseFound = false;
+			for (int i = 0; i < getPlan().getTerms().get(term).getCourses().size(); i++) {
+				if (course.getCorequisites().get(k).equals(getPlan().getTerms().get(term).getCourses().get(i))) {
+					courseFound = true;
+					break;
+				}
+			}
+		}
+		
+		return courseFound;
+	}
 }
