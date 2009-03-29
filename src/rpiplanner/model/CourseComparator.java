@@ -33,12 +33,12 @@ public class CourseComparator implements Comparator {
 		lSub = lSub.substring(lIndex + 1, lSub.length());
 		rSub = rSub.substring(rIndex + 1, rSub.length());
 		
-		if (Integer.parseInt(rSub) < Integer.parseInt(lSub)) {
-			return -1;
+		if (Integer.parseInt(rSub) > Integer.parseInt(lSub)) {
+			return 1;
 		}
 		
-		else if (Integer.parseInt(rSub) > Integer.parseInt(lSub)) {
-			return 1;
+		else if (Integer.parseInt(rSub) < Integer.parseInt(lSub)) {
+			return -1;
 		}
 		
 		else {

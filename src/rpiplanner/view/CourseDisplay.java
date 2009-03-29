@@ -172,6 +172,10 @@ public class CourseDisplay extends JPanel {
 		*/
 		
 		Collections.sort(dummyPOS, new DummyPOSComparator());
+		/*
+		for (int i = 0; i < dummyPOS.size(); i++) {
+			System.out.println(dummyPOS.get(i).getFirst() + " " + dummyPOS.get(i).getSecond());
+		}*/
 		for (int i = 0; i < dummyPOS.size(); i++) {
 			int term = dummyPOS.get(i).getSecond();
 			while (controller.wouldCourseBeValid(dummyPOS.get(i).getFirst(), term, dummyPOS) && term > 0) {
@@ -198,7 +202,10 @@ public class CourseDisplay extends JPanel {
 			}
 			
 			if (term - 1 >= 0) {
-				dummyPOS = fillRequisites(reqs.get(i), term - 1, dummyPOS);
+				ArrayList<Pair<Course, Integer>> tmp = fillRequisites(reqs.get(i), term - 1, dummyPOS);
+				for (int k = 0; k < tmp.size(); k++) {
+					dummyPOS.add(tmp.get(k));
+				}
 			}
 			
 			else {
@@ -234,7 +241,10 @@ public class CourseDisplay extends JPanel {
 		RequisiteSet coreqs = fillCourse.getCorequisites();
 		Collections.sort(coreqs, new CourseComparator());
 		for (int k = 0; k < coreqs.size(); k++) {
-			dummyPOS = fillRequisites(coreqs.get(k), term, dummyPOS);
+			ArrayList<Pair<Course, Integer>> tmp = fillRequisites(coreqs.get(k), term, dummyPOS);
+			for (int j = 0; j < tmp.size(); j++) {
+				dummyPOS.add(tmp.get(j));
+			}
 		}
 		
 		return dummyPOS;
