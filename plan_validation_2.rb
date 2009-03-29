@@ -132,6 +132,10 @@ class DegreeDescriptor
     def getSectionResults(name)
       @sections[name]
     end
+
+    def getSectionNames
+      @sections.keys.to_java(:string)
+    end
   end
   
   class SectionResult

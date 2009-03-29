@@ -77,9 +77,9 @@ public class DegreeProgressPanel extends JPanel {
 		if(degree == null)
 			return;
 		try{
-			ValidationResult validation = degree.getValidator().validate(plan);
+			ValidationResult validation = degree.validate(plan);
 			progressBar.setValue(validation.percentComplete());
-			for (String sectionName : degree.getSectionNames()) {
+			for (String sectionName : validation.getSectionNames()) {
 				DegreeSectionDisplay dsd = sections.get(sectionName);
 				dsd.setValidationResult(validation
 						.getSectionResults(sectionName));

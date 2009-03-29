@@ -35,8 +35,7 @@ public class DegreeValidatorTest {
 		PlanOfStudy plan = new PlanOfStudy();
 		plan.getTerm(0).add(Course.get("CSCI-1100"));
 
-		DegreeValidator validator = csys.getValidator();
-		ValidationResult validationOutput = validator.validate(plan);
+		ValidationResult validationOutput = csys.validate(plan);
 		assertNotNull(validationOutput);
 
 		Section sectionResults = validationOutput
@@ -69,7 +68,7 @@ public class DegreeValidatorTest {
 		Degree csys = Fixtures.getCSYS();
 		PlanOfStudy plan = new PlanOfStudy();
 		plan.getTerm(0).add(Course.get("ECSE-4690"));
-		ValidationResult validationOutput = csys.getValidator().validate(plan);
+		ValidationResult validationOutput = csys.validate(plan);
 		Section softEng = validationOutput.getSectionResults("Software Engineering Elective");
 		
 

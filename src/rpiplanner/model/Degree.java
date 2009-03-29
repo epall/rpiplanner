@@ -21,6 +21,7 @@ package rpiplanner.model;
 
 import rpiplanner.RubyEnvironment;
 import rpiplanner.validation.DegreeValidator;
+import rpiplanner.validation.ValidationResult;
 
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 import com.thoughtworks.xstream.annotations.XStreamOmitField;
@@ -111,9 +112,10 @@ public class Degree {
     /**
      * Obtain an object capable of validating a PlanOfStudy against this degree.
      * @return An instance of DegreeValidator obtained by some means.
+     * @param plan A Plan of Study to validate
      */
-	public DegreeValidator getValidator() {
+	public ValidationResult validate(PlanOfStudy plan) {
 		initDescriptor();
-		return descriptor;
+		return descriptor.validate(plan);
 	}
 }
