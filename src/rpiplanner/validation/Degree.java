@@ -22,10 +22,7 @@ import com.thoughtworks.xstream.annotations.XStreamAlias;
 import rpiplanner.model.PlanOfStudy;
 import rpiplanner.model.Course;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Set;
+import java.util.*;
 
 public class Degree {
     @XStreamAlias("DegreeName")
@@ -38,7 +35,6 @@ public class Degree {
 
 
     //TODO: Supposed to take PlanOfStudy pos as argument
-    //TODO: Put validate functions in respective requirements?
     //Have them return validtionresult and then run another function to update Hash
     public DegreeValidationResult validate(ArrayList<Course> pos) {
         ArrayList<Course> courseList = pos;
@@ -122,30 +118,28 @@ public class Degree {
         humSSSection.name = "Humanities and Social Sciences";
         humSSSection.description = "Humanities and Social Sciences Stuff";
 
-        int numHum = 0;
-        int numSocSci = 0;
-        int num1000Hum = 0;
-        int num1000SocSci = 0;
-        int numUpperHum = 0;
-        int numUpperSocSci = 0;
-        int num4000Level = 0;
+        Boolean pdReq = false;
+        Boolean depthReq = false;
 
-        ArrayList<Course> hum1000List = new ArrayList<Course>();
-        ArrayList<Course> ss1000List = new ArrayList<Course>();
-        ArrayList<Course> humUpperList = new ArrayList<Course>();
-        ArrayList<Course> ssUpperList = new ArrayList<Course>();
-        ArrayList<Course> usedCourses = new ArrayList<Course>();
+        int numHum = 0;
+        int numIHSS = 0;
+        int numSS = 0;
+
+        ArrayList<Course> humCourses = new ArrayList<Course>();
+
 
         //Professional Development II
         if (courseMap.containsKey(Course.get("PSYC", "4170")) || courseMap.containsKey(Course.get("STSS", "4840"))) {
             if (courseMap.containsKey(Course.get("PSYC", "4170"))) {
                 courseMap.put(Course.get("PSYC", "4170"), 0);
                 humSSSection.appliedCourses.add(Course.get("PSYC", "4170"));
+                pdReq = true;
                 courseList.remove(Course.get("PSYC", "4170"));
             }
             if (courseMap.containsKey(Course.get("STSS", "4840"))) {
                 courseMap.put(Course.get("STSS", "4840"), 0);
                 humSSSection.appliedCourses.add(Course.get("STSS", "4840"));
+                pdReq = true;
                 courseList.remove(Course.get("STSS", "4840"));
             }
         } else {
@@ -154,59 +148,50 @@ public class Degree {
             humSSSection.potentialCourses.add(Course.get("PSYC", "4170"));
             humSSSection.potentialCourses.add(Course.get("STSS", "4840"));
         }
+        
+        ArrayList<String> upperDepthPrefix = new ArrayList<String>();
+        ArrayList<String> lowerDepthPrefix = new ArrayList<String>();
 
-        //Get Courses that apply
+        //Get Courses that apply to humanities
         for (Course course : courseList) {
             //Humanities
-            if (course.getPrefix() == "LANG" || course.getPrefix() == "LITR" || course.getPrefix() == "WRIT" || course.getPrefix() == "COMM"
-                    || course.getPrefix() == "ARTS" || course.getPrefix() == "PHIL" || course.getPrefix() == "STSH" || course.getPrefix() == "IHSS") {
+            if (course.getPrefix() == "LANG" || course.getPrefix() == "LITR" || course.getPrefix() == "WRIT"
+                    || course.getPrefix() == "COMM"|| course.getPrefix() == "ARTS" || course.getPrefix() == "PHIL"
+                    || course.getPrefix() == "STSH"){
                 numHum++;
-                if (course.getLevel() == "1000") {
-                    num1000Hum++;
-                    hum1000List.add(course);
-                }
-                if (course.getLevel() == "2000" || course.getLevel() == "4000" || course.getLevel() == "6000") {
-                    numUpperHum++;
-                    humUpperList.add(course);
-                    if (course.getLevel() == "4000") num4000Level++;
-                }
+                humCourses.add(course);
+                if (course.getLevel() == "4000")  {}
+                if (course.getLevel() == "4000" || course.getLevel() == "2000" || course.getLevel() == "6000")
+                    if (!upperDepthPrefix.contains(course.getPrefix())) upperDepthPrefix.add(course.getPrefix()); //Depth Requirement list
+                else lowerDepthPrefix.add(course.getPrefix());
             }
-            //Social Sciences
-            else if (course.getPrefix() == "ECON" || course.getPrefix() == "STSS" || course.getPrefix() == "PSYC") {
-                numSocSci++;
-                if (course.getLevel() == "1000") {
-                    num1000SocSci++;
-                    ss1000List.add(course);
-                }
-                if (course.getLevel() == "2000" || course.getLevel() == "4000" || course.getLevel() == "6000") {
-                    numUpperSocSci++;
-                    ssUpperList.add(course);
-                    if (course.getLevel() == "4000") num4000Level++;
+            if (course.getPrefix() == "IHSS"){
+                numIHSS++;
+                humCourses.add(course);
+                if (course.getLevel() == "4000"){}
+                if (course.getLevel() == "4000" || course.getLevel() == "2000" || course.getLevel() == "6000")
+                    if (!upperDepthPrefix.contains(course.getPrefix())) upperDepthPrefix.add(course.getPrefix()); //Depth Requirement list
+            }
+            if (course.getPrefix() == "ECON" || course.getPrefix() == "STSS" || course.getPrefix() == "PSYC"){
+                numSS++;
+                humCourses.add(course);
+                if (course.getLevel() == "4000") {}
+                if (course.getLevel() == "4000" || course.getLevel() == "2000" || course.getLevel() == "6000"){
+                    if (!upperDepthPrefix.contains(course.getPrefix())) upperDepthPrefix.add(course.getPrefix()); //Depth Requirement list
+                }else{
+                    
                 }
             }
         }
-        Boolean humFufilled = false;
-        Boolean ssFufilled = false;
-        Boolean topLevelFufilled = false;
-        Boolean depthFufilled = false;
-        Boolean pd2Fufilled = false;
-
-        //one 4 credit course at the 4000 level
-        if (num4000Level++ >= 1) topLevelFufilled = true;
-
-        //depth requirement
-
-        //Minimum 2 4 credit Courses in Humanities
-        if (num1000Hum + numUpperHum >= 2) humFufilled = true;
-
-        //minimum of 2 4-credit courses in the Social Sciences
-        if (num1000Hum + numUpperHum >= 2) ssFufilled = true;
 
 
 
 
 
-        humSSSection.isSuccess = false;
+
+
+        if (pdReq && depthReq) humSSSection.isSuccess = true;
+        else humSSSection.isSuccess = false;
 
 
         return humSSSection;
