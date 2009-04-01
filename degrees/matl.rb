@@ -1,4 +1,4 @@
-degree "B.S. Computer & Systems Engineering 2011", 1 do |d|
+degree "B.S. Materials Engineering 2011", 4 do |d|
   d.school "School of Engineering"
 
   d.section "Communication Requirement" do |s|
@@ -10,34 +10,35 @@ degree "B.S. Computer & Systems Engineering 2011", 1 do |d|
   end
 
   d.section "Math & Science" do |s|
-    s.courses 'CSCI-1100','CSCI-1200','CSCI-2300','MATH-1010','MATH-1020','MATH-2400','MATH-2800','PHYS-1100','PHYS-1200','CHEM-1100'
+    s.courses 'CHEM-1100', 'MATH-1010', 'MATH-1020', 'MATH-2400', 'PHYS-1100', 'PHYS-1200','CSCI-1190'
   end
 
   d.section "Core Engineering" do |s|
-    s.courses 'ENGR-1100','ENGR-2050','ENGR-2350','ENGR-1200','ENGR-4010'
+    s.courses 'ENGR-1100','ENGR-1200','ENGR-1600','ENGR-2050','ENGR-2250','ENGR-2600','ENGR-4010'
     s.one_of 'ENGR-1300','ENGR-1310'
   end
 
   d.section "Required Courses" do |s|
-    s.courses 'ECSE-2010','ECSE-2610','ECSE-2660','ECSE-2410','ECSE-4500'
+    s.courses 'MTLE-2100','MTLE-4100','MTLE-4200','MTLE-4150','MTLE-4250','MTLE-4400','MTLE-4910','MTLE-4450','MTLE-4920'
   end
 
-  d.section "Multidisciplinary Elective" do |s|
-    s.one_of 'ENGR-1600','ENGR-2090','ENGR-2250','ENGR-2530'
-  end
-
-  d.section "Software Engineering Elective" do |s|
-    s.one_of 'ECSE-4690','ECSE-4750','CSCI-4380','CSCI-4440','CSCI-4600'
-  end
-
-  d.section "Design Elective" do |s|
-    s.one_of 'ECSE-4780','ECSE-4900','ECSE-4980','MANE-4220','EPOW-4850'
-  end
-
-  d.section "Restricted Electives" do |s|
-    s.credits = 9
+  d.section "Science Elective" do |s|
     s.valid_courses do |course|
-      course.catalogNumber =~ /(ECSE|CSCI)/
+      ['ASTR','BIOL','CHEM','ERTH','PHYS'].include?(course.catalogNumber[0..3]) && 
+      course.credits == 4 &&
+      course.catalogNumber != 'ERTH-1030'
+    end
+    s.count = 1
+  end
+  
+  d.section "Restricted Elective" do |s|
+    s.one_of 'ECSE-2010','ENGR-2090','ENGR-2350','ENGR-2530','ENGR-4300'
+  end
+  
+  d.section "Materials Electives" do |s|
+    s.credits = 6
+    s.valid_courses do |course|
+      ['MTLE-4030','MTLE-4050','MTLE-4160','MTLE-4310','MTLE-4410','MTLE-4420'].include? course.catalogNumber
     end
   end
 
@@ -74,11 +75,11 @@ degree "B.S. Computer & Systems Engineering 2011", 1 do |d|
         end
       end
     end
-    
+
     s.valid_courses do |course|
-        ['IHSS','ARTS','LANG','LITR','COMM','WRIT','STSH','PHIL',
-          'COGS','ECON','IHSS','PSYC','STSS'].include?(course.catalogNumber[0..3])
-    end
+      ['IHSS','ARTS','LANG','LITR','COMM','WRIT','STSH','PHIL',
+        'COGS','ECON','IHSS','PSYC','STSS'].include?(course.catalogNumber[0..3])
+      end
 
     s.must_have "minimum of 2 4-credit courses in Humanities" do |courses|
       courses = courses.find_all do |course| 
@@ -101,7 +102,7 @@ degree "B.S. Computer & Systems Engineering 2011", 1 do |d|
     s.must_have "Professional Development II" do |courses|
       courses.find {|c| c.catalogNumber == 'PSYC-4170' || c.catalogNumber == 'STSS-4840'}
     end
-    
+
     s.must_have "Depth Requirement" do |courses|
       departments = {}
       courses.each do |course|
@@ -111,7 +112,7 @@ degree "B.S. Computer & Systems Engineering 2011", 1 do |d|
           departments[dept] << course
         end
       end
-      
+
       success = false
       departments.each do |dept, courses|
         above1k = false

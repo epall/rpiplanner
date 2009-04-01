@@ -53,13 +53,11 @@ public class EditableCourse extends Course {
 		this.credits = credits;
 	}
 	public void setPrerequisites(List<Course> prerequisites) {
-		if(this.prerequisites == null)
-			this.prerequisites = new RequisiteSet();
+		this.prerequisites = new RequisiteSet();
 		this.prerequisites.addAll(prerequisites);
 	}
 	public void setCorequisites(List<Course> corequisites) {
-		if(this.corequisites == null)
-			this.corequisites = new RequisiteSet();
+		this.corequisites = new RequisiteSet();
 		this.corequisites.addAll(corequisites);
 	}
 	public void setAvailableTerms(YearPart[] availableTerms) {

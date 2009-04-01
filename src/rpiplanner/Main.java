@@ -86,7 +86,7 @@ public class Main extends Application {
         planControl = new POSController();
 
         loadFromXML();
-        PlanValidator.getInstance(); // boot up ruby environment
+        RubyEnvironment.getInstance().setCourseDatabase(courseDatabase);
         planControl.setCourseDatabase(courseDatabase);
         mainFrame = new MainFrame();
         planControl.setView(mainFrame.getPlanCard());
@@ -154,6 +154,18 @@ public class Main extends Application {
 
 	protected void loadFromXML(){
 		File localStorageDir = getContext().getLocalStorage().getDirectory();
+		localStorageDir.mkdirs();
+		// 1.1.1 -> 1.2 upgrade (adding vendorId)
+		File oldStorageDir = new File(localStorageDir.getParentFile().getParentFile(), "\\UnknownApplicationVendor\\RPI Planner");
+		if(oldStorageDir.exists()){
+			File oldDatabase = new File(oldStorageDir, "course_database.xml");
+			oldDatabase.renameTo(new File(localStorageDir, "course_database.xml"));
+			File oldPlan = new File(oldStorageDir, "default_pos.xml");
+			oldPlan.renameTo(new File(localStorageDir, "default_pos.xml"));
+			oldStorageDir.delete();
+		}
+		// normal startup
+		
 		InputStream databaseStream = getClass().getResourceAsStream("/course_database.xml");
 		if(databaseStream == null)
 			try {
@@ -274,8 +286,13 @@ public class Main extends Application {
 
 	public static PlanOfStudy loadPlanFromFile(String filePath) {
 		InputStream in = Main.class.getResourceAsStream("/"+filePath);
-		if(in == null)
-			return null;
+		if(in == null){
+            try{
+                in = new FileInputStream(filePath);
+            } catch (FileNotFoundException e){
+                return null;
+            }
+        }
 		PlanOfStudy plan = (PlanOfStudy) xs.fromXML(in);
 		try {
 			in.close();
@@ -342,14 +359,19 @@ public class Main extends Application {
     	AboutDialog.showDialog(mainFrame);
     }
 
+    public static XStream initializeXStream(){
+        xs = new XStream();
+        xs.processAnnotations(PlanOfStudy.class);
+        xs.processAnnotations(Course.class);
+        xs.processAnnotations(DefaultCourseDatabase.class);
+        xs.processAnnotations(ShadowCourseDatabase.class);
+        xs.processAnnotations(YearPart.class);
+        xs.registerConverter(new RequisiteSetConverter(xs.getMapper()));
+        return xs;
+    }
+
 	public static void main(String[] args) {
-		xs = new XStream();
-		xs.processAnnotations(PlanOfStudy.class);
-		xs.processAnnotations(Course.class);
-		xs.processAnnotations(DefaultCourseDatabase.class);
-		xs.processAnnotations(ShadowCourseDatabase.class);
-		xs.processAnnotations(YearPart.class);
-		xs.registerConverter(new RequisiteSetConverter(xs.getMapper()));
+        initializeXStream();
         Application.launch(Main.class, args);
     }
 }

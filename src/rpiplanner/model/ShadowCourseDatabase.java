@@ -42,6 +42,16 @@ public class ShadowCourseDatabase implements CourseDatabase {
 	
 	@XStreamOmitField
 	private PropertyChangeSupport support;
+
+    private static ShadowCourseDatabase instance;
+
+    public ShadowCourseDatabase() {
+        instance = this;
+    }
+
+    static CourseDatabase getMainDatabase(){
+        return instance;
+    }
 	
 	public void shadow(DefaultCourseDatabase mainDB) {
 		this.shadowee = mainDB;
@@ -105,4 +115,9 @@ public class ShadowCourseDatabase implements CourseDatabase {
 	public Degree getDegree(long id) {
 		return shadowee.getDegree(id);
 	}
+
+    protected Object readResolve(){
+        instance = this;
+        return this;
+    }
 }

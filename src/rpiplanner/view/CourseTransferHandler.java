@@ -45,7 +45,7 @@ public class CourseTransferHandler extends TransferHandler {
 			Course toExport = (Course)((JList)c).getSelectedValue();
 			return new CourseTransfer(toExport); 
 		}
-		else if(c instanceof CourseDisplay){ // dragging from plan
+		else if(c instanceof CourseDisplay){ // dragging from plan or validation
 			CourseDisplay cd = (CourseDisplay)c;
 			Course toExport = cd.getCourse();
 			return new CourseTransfer(toExport, cd); 
@@ -59,9 +59,9 @@ public class CourseTransferHandler extends TransferHandler {
 	}
 
 	@Override
-	public boolean importData(JComponent comp, Transferable t) {
+	public boolean importData(JComponent dropTarget, Transferable t) {
 		try {
-			if(comp instanceof JList){ // dropping on catalog, so just remove
+			if(dropTarget instanceof JList){ // dropping on catalog, so just remove
 				CourseDisplay home = (CourseDisplay) t.getTransferData(new DataFlavor(DataFlavor.javaJVMLocalObjectMimeType+";class=rpiplanner.view.CourseDisplay"));
 				if(home != null)
 					controller.removeCourse(home.getParent(), home);
@@ -69,14 +69,14 @@ public class CourseTransferHandler extends TransferHandler {
 			}
 			
 			Course toAdd = (Course) t.getTransferData(new DataFlavor(DataFlavor.javaJVMLocalObjectMimeType+";class=rpiplanner.model.Course"));
-			if(comp instanceof CourseDisplay)
-				comp = (JComponent) comp.getParent();
-			Component[] panels = comp.getParent().getComponents();
+			if(dropTarget instanceof CourseDisplay)
+				dropTarget = (JComponent) dropTarget.getParent();
+			Component[] panels = dropTarget.getParent().getComponents();
 			int index = 0;
-			while(comp != panels[index])
+			while(dropTarget != panels[index])
 				index++;
 			CourseDisplay home = (CourseDisplay) t.getTransferData(new DataFlavor(DataFlavor.javaJVMLocalObjectMimeType+";class=rpiplanner.view.CourseDisplay"));
-			if(home != null)
+			if(home != null && !(home instanceof CourseValidationStatus))
 				controller.removeCourse(home.getParent(), home);
 			controller.addCourse(index, toAdd);
 			return true;
@@ -94,7 +94,7 @@ public class CourseTransferHandler extends TransferHandler {
 	@Override
 	public boolean canImport(JComponent comp, DataFlavor[] transferFlavors) {
 		for(DataFlavor f : transferFlavors){
-			if(f.getRepresentationClass() == Course.class)
+			if(f.getRepresentationClass() == Course.class && !(comp instanceof CourseValidationStatus))
 				return true;
 		}
 		return false;

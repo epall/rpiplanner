@@ -23,6 +23,7 @@ import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 
 
+import rpiplanner.model.Course;
 import rpiplanner.model.CourseDatabase;
 
 public class CourseDatabaseFilter extends CourseListModel implements PropertyChangeListener {
@@ -45,5 +46,10 @@ public class CourseDatabaseFilter extends CourseListModel implements PropertyCha
 		if(evt.getPropertyName() == "courses"){
 			setSearchText("");
 		}
+	}
+
+	public void setShownCourses(Course[] potentialCourses) {
+		visibleCourses = potentialCourses;
+		fireContentsChanged(this, 0, visibleCourses.length-1);
 	}
 }

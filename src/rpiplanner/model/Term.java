@@ -25,9 +25,13 @@ import rpiplanner.SchoolInformation;
 
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 import com.thoughtworks.xstream.annotations.XStreamImplicit;
+import com.thoughtworks.xstream.annotations.XStreamOmitField;
 
 @XStreamAlias("term")
 public class Term {
+	@XStreamOmitField
+	PlanOfStudy plan;
+	
 	@XStreamImplicit
 	private ArrayList<Course> courses = new ArrayList<Course>(SchoolInformation.getDefaultCoursesPerSemester());
 	
@@ -68,5 +72,16 @@ public class Term {
 
 	public void add(Course toAdd) {
 		courses.add(toAdd);
+		plan.fireCoursesChanged();
+	}
+	
+	public void remove(int index){
+		courses.remove(index);
+		plan.fireCoursesChanged();
+	}
+
+	public void replace(int index, Course replacement) {
+		courses.set(index, replacement);
+		plan.fireCoursesChanged();
 	}
 }

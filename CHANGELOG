@@ -1,3 +1,19 @@
+2009-03-17 1.2.1
+Small GUI tweaks to improve user experience.
+Added revised B.S. Computer & Systems Engineering 2011 degree.
+Expanded course database further.
+Fixed some bugs in B.S. Computer Science 2011
+
+2009-02-27 1.2.1rc1
+Release candidate because we're still experimenting with IntelliJ IDEA.
+Added B.S. Materials Engineering 2011 degree and associated courses to database.
+Expanded course database to include several more departments.
+Fixed bug when loading a saved plan.
+
+2009-02-22 1.2
+Completely re-designed degree validation.
+New "Getting Started" window for simpler first-time experience.
+
 2009-01-23 1.1.1
 Many more courses in the database and some minor usability fixes.
 
