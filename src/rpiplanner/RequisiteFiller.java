@@ -77,54 +77,56 @@ public class RequisiteFiller {
 	
 	private void fillRequisites(Course fillCourse, int term, ArrayList<Pair<Course, Integer>> dummyPOS) {
 		fillCourse = controller.getCourseDatabase().getCourse(fillCourse.getCatalogNumber());	
-		RequisiteSet reqs = fillCourse.getPrerequisites();
-		Collections.sort(reqs, new CourseComparator());
-		
-		for (int i = 0; i < reqs.size(); i++) {
-			if ((fillCourse.getAvailableTerms().length < 2) && (fillCourse.getAvailableTerms()[0] != controller.getPlan().getTerm(term).getTerm())) {
-				term--;
+		if (fillCourse != null) {
+			RequisiteSet reqs = fillCourse.getPrerequisites();
+			Collections.sort(reqs, new CourseComparator());
+			
+			for (int i = 0; i < reqs.size(); i++) {
+				if ((fillCourse.getAvailableTerms().length < 2) && (fillCourse.getAvailableTerms()[0] != controller.getPlan().getTerm(term).getTerm())) {
+					term--;
+				}
+				
+				if (term - 1 >= 0) {
+					fillRequisites(reqs.get(i), term - 1, dummyPOS);
+				}
+				
+				else {
+					return;
+				}
 			}
 			
-			if (term - 1 >= 0) {
-				fillRequisites(reqs.get(i), term - 1, dummyPOS);
+			boolean dupeCourse = false;
+			ArrayList<Term> dupes = controller.getPlan().getTerms();
+			ArrayList<Course> dupeCourses = new ArrayList<Course>();
+			for (int i = 0; i < dupes.size(); i++) {
+				ArrayList<Course> tmp = dupes.get(i).getCourses();
+				for (int k = 0; k < tmp.size(); k++) {
+					dupeCourses.add(tmp.get(k));
+				}
 			}
 			
-			else {
-				return;
+			for (int i = 0; i < dummyPOS.size(); i++) {
+				dupeCourses.add(dummyPOS.get(i).getFirst());
 			}
-		}
-		
-		boolean dupeCourse = false;
-		ArrayList<Term> dupes = controller.getPlan().getTerms();
-		ArrayList<Course> dupeCourses = new ArrayList<Course>();
-		for (int i = 0; i < dupes.size(); i++) {
-			ArrayList<Course> tmp = dupes.get(i).getCourses();
-			for (int k = 0; k < tmp.size(); k++) {
-				dupeCourses.add(tmp.get(k));
+			
+			for (int dc = 0; dc < dupeCourses.size(); dc++) {
+				if (dupeCourses.get(dc).equals(fillCourse) || fillCourse.getCatalogNumber().equals("MATH-1500")) {
+					dupeCourse = true;
+					break;
+				}
 			}
-		}
-		
-		for (int i = 0; i < dummyPOS.size(); i++) {
-			dupeCourses.add(dummyPOS.get(i).getFirst());
-		}
-		
-		for (int dc = 0; dc < dupeCourses.size(); dc++) {
-			if (dupeCourses.get(dc).equals(fillCourse) || fillCourse.getCatalogNumber().equals("MATH-1500")) {
-				dupeCourse = true;
-				break;
+			
+			if (!dupeCourse) {
+				dummyPOS.add(new Pair<Course, Integer>(fillCourse, term));
 			}
+			
+			RequisiteSet coreqs = fillCourse.getCorequisites();
+			Collections.sort(coreqs, new CourseComparator());
+			for (int k = 0; k < coreqs.size(); k++) {
+				fillRequisites(coreqs.get(k), term, dummyPOS);
+			}
+			
+			return;
 		}
-		
-		if (!dupeCourse) {
-			dummyPOS.add(new Pair<Course, Integer>(fillCourse, term));
-		}
-		
-		RequisiteSet coreqs = fillCourse.getCorequisites();
-		Collections.sort(coreqs, new CourseComparator());
-		for (int k = 0; k < coreqs.size(); k++) {
-			fillRequisites(coreqs.get(k), term, dummyPOS);
-		}
-		
-		return;
 	}
 }
