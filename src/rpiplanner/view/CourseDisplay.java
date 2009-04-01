@@ -202,10 +202,7 @@ public class CourseDisplay extends JPanel {
 			}
 			
 			if (term - 1 >= 0) {
-				ArrayList<Pair<Course, Integer>> tmp = fillRequisites(reqs.get(i), term - 1, dummyPOS);
-				for (int k = 0; k < tmp.size(); k++) {
-					dummyPOS.add(tmp.get(k));
-				}
+				dummyPOS.addAll(fillRequisites(reqs.get(i), term - 1, dummyPOS));
 			}
 			
 			else {
