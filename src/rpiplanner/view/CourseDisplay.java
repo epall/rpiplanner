@@ -36,6 +36,7 @@ import javax.swing.JPopupMenu;
 import javax.swing.TransferHandler;
 
 import rpiplanner.POSController;
+import rpiplanner.RequisiteFiller;
 import rpiplanner.model.Course;
 import rpiplanner.model.CourseComparator;
 import rpiplanner.model.DummyPOSComparator;
@@ -108,9 +109,7 @@ public class CourseDisplay extends JPanel {
 						
 						contextMenu.add("Fill Requisites").addActionListener(new ActionListener() {
 							public void actionPerformed(ActionEvent e) {
-								ArrayList<Pair<Course, Integer>> dummyPOS = new ArrayList<Pair<Course, Integer>>();
-								fillRequisites(course, controller.getTerm(course), dummyPOS);
-								fillCourses(dummyPOS);
+								new RequisiteFiller(controller, course);
 							}
 						});
 						
@@ -148,91 +147,5 @@ public class CourseDisplay extends JPanel {
 		text.setSize(this.getWidth(), this.getHeight());
 		getComponent(0).paint(g);
 		text.setSize(oldSize);
-	}
-	
-	private void fillCourses(ArrayList<Pair<Course, Integer>> dummyPOS) {
-		Collections.sort(dummyPOS, new DummyPOSComparator());
-		
-		for (int i = 0; i < dummyPOS.size(); i++) {
-			int term = dummyPOS.get(i).getSecond();
-			boolean adjusted = false;
-			boolean validToPushBack = true;
-			while (validToPushBack) {
-				validToPushBack = controller.wouldCourseBeValid(dummyPOS.get(i).getFirst(), term, dummyPOS) && term > 0;
-				if (!validToPushBack) {
-					if ((dummyPOS.get(i).getFirst().getAvailableTerms().length < 2) && (dummyPOS.get(i).getFirst().getAvailableTerms()[0] != controller.getPlan().getTerm(term).getTerm())) {
-						validToPushBack = controller.wouldCourseBeValid(dummyPOS.get(i).getFirst(), term - 1, dummyPOS) && term > 0;
-					}
-				}
-				
-				if (validToPushBack) {
-					term--;
-					adjusted = true;
-				}
-			}
-			
-			if (adjusted) {
-				term++;
-			}
-			
-			dummyPOS.get(i).setSecond(term);
-		}
-		
-		for (int i = 0; i < dummyPOS.size(); i++) {
-			controller.addCourse(dummyPOS.get(i).getSecond(), dummyPOS.get(i).getFirst());
-		}
-	}
-	
-	private void fillRequisites(Course fillCourse, int term, ArrayList<Pair<Course, Integer>> dummyPOS) {
-		fillCourse = controller.getCourseDatabase().getCourse(fillCourse.getCatalogNumber());	
-		RequisiteSet reqs = fillCourse.getPrerequisites();
-		Collections.sort(reqs, new CourseComparator());
-		
-		for (int i = 0; i < reqs.size(); i++) {
-			if ((fillCourse.getAvailableTerms().length < 2) && (fillCourse.getAvailableTerms()[0] != controller.getPlan().getTerm(term).getTerm())) {
-				term--;
-			}
-			
-			if (term - 1 >= 0) {
-				fillRequisites(reqs.get(i), term - 1, dummyPOS);
-			}
-			
-			else {
-				return;
-			}
-		}
-		
-		boolean dupeCourse = false;
-		ArrayList<Term> dupes = controller.getPlan().getTerms();
-		ArrayList<Course> dupeCourses = new ArrayList<Course>();
-		for (int i = 0; i < dupes.size(); i++) {
-			ArrayList<Course> tmp = dupes.get(i).getCourses();
-			for (int k = 0; k < tmp.size(); k++) {
-				dupeCourses.add(tmp.get(k));
-			}
-		}
-		
-		for (int i = 0; i < dummyPOS.size(); i++) {
-			dupeCourses.add(dummyPOS.get(i).getFirst());
-		}
-		
-		for (int dc = 0; dc < dupeCourses.size(); dc++) {
-			if (dupeCourses.get(dc).equals(fillCourse) || fillCourse.getCatalogNumber().equals("MATH-1500")) {
-				dupeCourse = true;
-				break;
-			}
-		}
-		
-		if (!dupeCourse) {
-			dummyPOS.add(new Pair<Course, Integer>(fillCourse, term));
-		}
-		
-		RequisiteSet coreqs = fillCourse.getCorequisites();
-		Collections.sort(coreqs, new CourseComparator());
-		for (int k = 0; k < coreqs.size(); k++) {
-			fillRequisites(coreqs.get(k), term, dummyPOS);
-		}
-		
-		return;
 	}
 }
