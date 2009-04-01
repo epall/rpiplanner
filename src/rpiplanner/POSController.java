@@ -318,7 +318,7 @@ public class POSController {
 	}
 	
 	public int getTerm(Course toFind) {
-		ArrayList<Term> terms = getPlan().getTerms();
+		List<Term> terms = getPlan().getTerms();
 		
 		for (int i = 0; i < terms.size(); i++) {
 			ArrayList<Course> termCourses = terms.get(i).getCourses();

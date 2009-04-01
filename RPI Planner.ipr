@@ -256,19 +256,16 @@
   <component name="ProjectDetails">
     <option name="projectName" value="RPI Planner" />
   </component>
-  <component name="ProjectFileVersion" converted="true">
-    <converter id="ror-modules" />
-    <converter id="SelenaRunConfToDiana" />
-  </component>
+  <component name="ProjectFileVersion" converted="true" />
   <component name="ProjectKey">
-    <option name="state" value="project:///Users/epall/programming/rpiplanner/RPI Planner.ipr" />
+    <option name="state" value="project://C:\Users\schuln3\Desktop\RPI Planner\rpiplanner\RPI Planner.ipr" />
   </component>
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/RPI Planner.iml" filepath="$PROJECT_DIR$/RPI Planner.iml" />
     </modules>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_5" assert-keyword="true" jdk-15="true" project-jdk-name="1.5" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_6" assert-keyword="true" jdk-15="true" project-jdk-name="1.6" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectRunConfigurationManager">

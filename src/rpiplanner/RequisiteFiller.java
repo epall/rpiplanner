@@ -21,6 +21,7 @@ package rpiplanner;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 
 import rpiplanner.model.Course;
 import rpiplanner.model.CourseComparator;
@@ -76,7 +77,7 @@ public class RequisiteFiller {
 	}
 	
 	private void fillRequisites(Course fillCourse, int term, ArrayList<Pair<Course, Integer>> dummyPOS) {
-		fillCourse = controller.getCourseDatabase().getCourse(fillCourse.getCatalogNumber());	
+		fillCourse = Course.get(fillCourse.getCatalogNumber());	
 		if (fillCourse != null) {
 			RequisiteSet reqs = fillCourse.getPrerequisites();
 			Collections.sort(reqs, new CourseComparator());
@@ -96,7 +97,7 @@ public class RequisiteFiller {
 			}
 			
 			boolean dupeCourse = false;
-			ArrayList<Term> dupes = controller.getPlan().getTerms();
+			List<Term> dupes = controller.getPlan().getTerms();
 			ArrayList<Course> dupeCourses = new ArrayList<Course>();
 			for (int i = 0; i < dupes.size(); i++) {
 				ArrayList<Course> tmp = dupes.get(i).getCourses();
