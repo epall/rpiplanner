@@ -28,11 +28,11 @@ public class DummyPOSComparator implements Comparator {
 		Pair<Course, Integer> r = (Pair<Course, Integer>) rhs;
 		
 		if (l.getSecond() < r.getSecond()) {
-			return 1;
+			return -1;
 		}
 		
 		else if (l.getSecond() > r.getSecond()) {
-			return -1;
+			return 1;
 		}
 		
 		else {

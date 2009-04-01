@@ -109,7 +109,7 @@ public class CourseDisplay extends JPanel {
 						contextMenu.add("Fill Requisites").addActionListener(new ActionListener() {
 							public void actionPerformed(ActionEvent e) {
 								ArrayList<Pair<Course, Integer>> dummyPOS = new ArrayList<Pair<Course, Integer>>();
-								dummyPOS = fillRequisites(course, controller.getTerm(course), dummyPOS);
+								fillRequisites(course, controller.getTerm(course), dummyPOS);
 								fillCourses(dummyPOS);
 							}
 						});
@@ -151,38 +151,20 @@ public class CourseDisplay extends JPanel {
 	}
 	
 	private void fillCourses(ArrayList<Pair<Course, Integer>> dummyPOS) {
-		/*
-		int lowestTerm = 8;
-		for (int i = 0; i < dummyPOS.size(); i++) {
-			if (dummyPOS.get(i).getSecond() < lowestTerm) {
-				lowestTerm = dummyPOS.get(i).getSecond();
-			}
-		}
-		
-		if (lowestTerm > 0) {
-			lowestTerm--;
-		}
-		
-		for (int i = 0; i < dummyPOS.size(); i++) {
-			if (controller.getTerm(dummyPOS.get(i).getSecond()).getCredits() >= 21) {
-				lowestTerm--;
-			}
-			controller.addCourse(dummyPOS.get(i).getSecond() - lowestTerm, dummyPOS.get(i).getFirst());
-		}
-		*/
-		
 		Collections.sort(dummyPOS, new DummyPOSComparator());
-		/*
-		for (int i = 0; i < dummyPOS.size(); i++) {
-			System.out.println(dummyPOS.get(i).getFirst() + " " + dummyPOS.get(i).getSecond());
-		}*/
+		
 		for (int i = 0; i < dummyPOS.size(); i++) {
 			int term = dummyPOS.get(i).getSecond();
+			boolean adjusted = false;
 			while (controller.wouldCourseBeValid(dummyPOS.get(i).getFirst(), term, dummyPOS) && term > 0) {
 				term--;
+				adjusted = true;
 			}
 			
-			term++;
+			if (adjusted) {
+				term++;
+			}
+			
 			dummyPOS.get(i).setSecond(term);
 		}
 		
@@ -191,7 +173,7 @@ public class CourseDisplay extends JPanel {
 		}
 	}
 	
-	private ArrayList<Pair<Course, Integer>> fillRequisites(Course fillCourse, int term, ArrayList<Pair<Course, Integer>> dummyPOS) {
+	private void fillRequisites(Course fillCourse, int term, ArrayList<Pair<Course, Integer>> dummyPOS) {
 		fillCourse = controller.getCourseDatabase().getCourse(fillCourse.getCatalogNumber());	
 		RequisiteSet reqs = fillCourse.getPrerequisites();
 		Collections.sort(reqs, new CourseComparator());
@@ -202,11 +184,11 @@ public class CourseDisplay extends JPanel {
 			}
 			
 			if (term - 1 >= 0) {
-				dummyPOS.addAll(fillRequisites(reqs.get(i), term - 1, dummyPOS));
+				fillRequisites(reqs.get(i), term - 1, dummyPOS);
 			}
 			
 			else {
-				return dummyPOS;
+				return;
 			}
 		}
 		
@@ -238,12 +220,9 @@ public class CourseDisplay extends JPanel {
 		RequisiteSet coreqs = fillCourse.getCorequisites();
 		Collections.sort(coreqs, new CourseComparator());
 		for (int k = 0; k < coreqs.size(); k++) {
-			ArrayList<Pair<Course, Integer>> tmp = fillRequisites(coreqs.get(k), term, dummyPOS);
-			for (int j = 0; j < tmp.size(); j++) {
-				dummyPOS.add(tmp.get(j));
-			}
+			fillRequisites(coreqs.get(k), term, dummyPOS);
 		}
 		
-		return dummyPOS;
+		return;
 	}
 }

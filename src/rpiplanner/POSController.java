@@ -422,6 +422,7 @@ public class POSController {
 			}
 		}
 		
+		courseFound = true;
 		for (int k = 0; k < course.getCorequisites().size(); k++) {
 			courseFound = false;
 			for (int i = 0; i < getPlan().getTerms().get(term).getCourses().size(); i++) {
