@@ -156,9 +156,19 @@ public class CourseDisplay extends JPanel {
 		for (int i = 0; i < dummyPOS.size(); i++) {
 			int term = dummyPOS.get(i).getSecond();
 			boolean adjusted = false;
-			while (controller.wouldCourseBeValid(dummyPOS.get(i).getFirst(), term, dummyPOS) && term > 0) {
-				term--;
-				adjusted = true;
+			boolean validToPushBack = true;
+			while (validToPushBack) {
+				validToPushBack = controller.wouldCourseBeValid(dummyPOS.get(i).getFirst(), term, dummyPOS) && term > 0;
+				if (!validToPushBack) {
+					if ((dummyPOS.get(i).getFirst().getAvailableTerms().length < 2) && (dummyPOS.get(i).getFirst().getAvailableTerms()[0] != controller.getPlan().getTerm(term).getTerm())) {
+						validToPushBack = controller.wouldCourseBeValid(dummyPOS.get(i).getFirst(), term - 1, dummyPOS) && term > 0;
+					}
+				}
+				
+				if (validToPushBack) {
+					term--;
+					adjusted = true;
+				}
 			}
 			
 			if (adjusted) {

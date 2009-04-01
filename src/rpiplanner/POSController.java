@@ -411,7 +411,7 @@ public class POSController {
 		for (int i = 0; i < course.getPrerequisites().size(); i++) {
 			courseFound = false;
 			for (int k = 0; k < coursesUpToTerm.size(); k++) {
-				if (course.getPrerequisites().get(i).equals(coursesUpToTerm.get(k))) {
+				if (course.getPrerequisites().get(i).equals(coursesUpToTerm.get(k)) || course.getPrerequisites().get(i).getCatalogNumber().equals("MATH-1500")) {
 					courseFound = true;
 					break;
 				}
