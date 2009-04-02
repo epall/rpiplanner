@@ -1,6 +1,8 @@
 package rpiplanner.view;
 
 import javax.swing.*;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 /**
  * Created by IntelliJ IDEA.
@@ -11,7 +13,29 @@ import javax.swing.*;
  */
 public class Apcredit {
     private JPanel tests;
+    private JPanel buttons;
+    private JComboBox Score;
+    private JComboBox Test;
+    private JButton AddApButton;
+    private JButton CancelButton;
+    private JButton OkButton;
+
 
     public Apcredit() {
+        AddApButton.addActionListener(new ActionListener() {
+            public void actionPerformed(final ActionEvent e) {
+
+            }
+        });
+        CancelButton.addActionListener(new ActionListener() {
+            public void actionPerformed(final ActionEvent e) {
+
+            }
+        });
+        OkButton.addActionListener(new ActionListener() {
+            public void actionPerformed(final ActionEvent e) {
+
+            }
+        });
     }
 }
