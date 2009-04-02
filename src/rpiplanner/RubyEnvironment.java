@@ -74,7 +74,11 @@ public class RubyEnvironment {
 	}
 
     public Apcredit getApcredit(){
-			rubyEnvironment.executeScript(readFileAsString("apcredit.rb"), "apcredit.rb");
+        try {
+            rubyEnvironment.executeScript(readFileAsString("apcredit.rb"), "apcredit.rb");
+        } catch (IOException e) {
+            return null;
+        }
         IRubyObject raw = rubyEnvironment.getClass("apcredit").newInstance(null, null, null);
         return (Apcredit)raw;
     }

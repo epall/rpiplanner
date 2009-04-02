@@ -19,6 +19,7 @@ public class Apcredit {
     private JButton AddApButton;
     private JButton CancelButton;
     private JButton OkButton;
+    private JPanel panel1;
 
 
     public Apcredit() {
