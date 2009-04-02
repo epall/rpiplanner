@@ -69,7 +69,7 @@
         <SOURCES />
       </library>
     </orderEntry>
-    <orderEntry type="jdk" jdkName="1.5" jdkType="JavaSDK" />
+    <orderEntry type="jdk" jdkName="1.6" jdkType="JavaSDK" />
     <orderEntry type="module-library">
       <library>
         <CLASSES>
@@ -118,5 +118,6 @@
       </library>
     </orderEntry>
   </component>
+  <component name="RModuleSettingsStorage" />
 </module>
 
