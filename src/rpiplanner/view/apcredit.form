@@ -80,6 +80,23 @@
             <properties>
               <model>
                 <item value="Test"/>
+                <item value="American History"/>
+                <item value="Biology"/>
+                <item value="Chemistry"/>
+                <item value="Computer Science A"/>
+                <item value="Computer Science AB"/>
+                <item value="English Language"/>
+                <item value="English Literature"/>
+                <item value="Environmental Science"/>
+                <item value="European History"/>
+                <item value="Government &amp; Politics"/>
+                <item value="Microeconomics/Macroeconomics"/>
+                <item value="Physics B"/>
+                <item value="Physics C: Mechanics"/>
+                <item value="Physics C: Electricity/Magnetism"/>
+                <item value="Psychology"/>
+                <item value="Statistics"/>
+                <item value="World History"/>
               </model>
             </properties>
           </component>

@@ -41,6 +41,8 @@ class Apcredit
         apcourses << str_to_course("WRIT-1000")
       elsif test == "English Literature" && score == 5
         apcourses << str_to_course("WRIT-1000")
+      elsif test == "Environmental Science" && score >= 4
+        apcourses << str_to_course("IENV-1000")
       elsif test == "American History" && score == 4
         apcourses << str_to_course("STSH-1000")
       elsif test == "European History" && score == 4
