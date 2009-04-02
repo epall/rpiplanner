@@ -286,8 +286,13 @@ public class Main extends Application {
 
 	public static PlanOfStudy loadPlanFromFile(String filePath) {
 		InputStream in = Main.class.getResourceAsStream("/"+filePath);
-		if(in == null)
-			return null;
+		if(in == null){
+            try{
+                in = new FileInputStream(filePath);
+            } catch (FileNotFoundException e){
+                return null;
+            }
+        }
 		PlanOfStudy plan = (PlanOfStudy) xs.fromXML(in);
 		try {
 			in.close();
@@ -354,14 +359,19 @@ public class Main extends Application {
     	AboutDialog.showDialog(mainFrame);
     }
 
+    public static XStream initializeXStream(){
+        xs = new XStream();
+        xs.processAnnotations(PlanOfStudy.class);
+        xs.processAnnotations(Course.class);
+        xs.processAnnotations(DefaultCourseDatabase.class);
+        xs.processAnnotations(ShadowCourseDatabase.class);
+        xs.processAnnotations(YearPart.class);
+        xs.registerConverter(new RequisiteSetConverter(xs.getMapper()));
+        return xs;
+    }
+
 	public static void main(String[] args) {
-		xs = new XStream();
-		xs.processAnnotations(PlanOfStudy.class);
-		xs.processAnnotations(Course.class);
-		xs.processAnnotations(DefaultCourseDatabase.class);
-		xs.processAnnotations(ShadowCourseDatabase.class);
-		xs.processAnnotations(YearPart.class);
-		xs.registerConverter(new RequisiteSetConverter(xs.getMapper()));
+        initializeXStream();
         Application.launch(Main.class, args);
     }
 }

@@ -31,6 +31,23 @@ public class Course implements Comparable<Course> {
     protected RequisiteSet prerequisites;
     protected RequisiteSet corequisites;
     protected YearPart[] availableTerms;
+
+    /**
+     * If this course is taken more than once, does each instance count
+     * toward the degree? Things like independent study doubleCount,
+     * while most courses do not.
+     */
+    protected boolean doubleCount;
+
+    /**
+     * Whether the Course is from the catalog (true) or user-generated (false)
+     */
+    protected boolean isOfficial = false;
+
+    /**
+     * Protected constructor to prevent spurious creation of courses.
+     */
+    protected Course(){}
     
 	public String getTitle() {
 		return title;
@@ -56,6 +73,12 @@ public class Course implements Comparable<Course> {
 	public int getCredits() {
 		return credits;
 	}
+    public boolean isOfficial() {
+        return isOfficial;
+    }
+    public boolean isDoubleCount() {
+        return doubleCount;
+    }
 	public RequisiteSet getPrerequisites() {
 		if(prerequisites == null)
 			prerequisites = new RequisiteSet();
@@ -87,4 +110,11 @@ public class Course implements Comparable<Course> {
 	public int hashCode() {
         return catalogNumber.hashCode();
 	}
+
+    public static Course get(String prefix, String number){
+        return ShadowCourseDatabase.getMainDatabase().getCourse(prefix+"-"+number);
+    }
+    public static Course get(String catalogNumber){
+        return ShadowCourseDatabase.getMainDatabase().getCourse(catalogNumber);
+    }
 }

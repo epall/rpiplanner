@@ -1,4 +1,4 @@
-degree "B.S. Computer & Systems Engineering 2011", 1 do |d|
+degree "B.S. Computer & Systems Engineering 2011 [revised]", 5 do |d|
   d.school "School of Engineering"
 
   d.section "Communication Requirement" do |s|
@@ -10,28 +10,24 @@ degree "B.S. Computer & Systems Engineering 2011", 1 do |d|
   end
 
   d.section "Math & Science" do |s|
-    s.courses 'CSCI-1100','CSCI-1200','CSCI-2300','MATH-1010','MATH-1020','MATH-2400','MATH-2800','PHYS-1100','PHYS-1200','CHEM-1100'
+    s.courses 'CSCI-1100','CSCI-1200','CSCI-2300','MATH-1010','MATH-1020',
+      'MATH-2010','MATH-2400','MATH-2800','PHYS-1100','PHYS-1200','CHEM-1100'
   end
 
   d.section "Core Engineering" do |s|
-    s.courses 'ENGR-1100','ENGR-2050','ENGR-2350','ENGR-1200','ENGR-4010'
-    s.one_of 'ENGR-1300','ENGR-1310'
+    s.courses 'ENGR-1100','ENGR-1200','ENGR-2350','ENGR-2050','ENGR-4010'
   end
 
   d.section "Required Courses" do |s|
-    s.courses 'ECSE-2010','ECSE-2610','ECSE-2660','ECSE-2410','ECSE-4500'
+    s.courses 'ECSE-2610','ECSE-2660','ECSE-2010','ECSE-2410','ECSE-2050','ECSE-2500'
   end
 
-  d.section "Multidisciplinary Elective" do |s|
-    s.one_of 'ENGR-1600','ENGR-2090','ENGR-2250','ENGR-2530'
-  end
-
-  d.section "Software Engineering Elective" do |s|
-    s.one_of 'ECSE-4690','ECSE-4750','CSCI-4380','CSCI-4440','CSCI-4600'
+  d.section "Computer Engineering Elective" do |s|
+    s.one_of 'ECSE-4690','ECSE-4670','ECSE-4750','ECSE-4790','CSCI-4380','CSCI-4440'
   end
 
   d.section "Design Elective" do |s|
-    s.one_of 'ECSE-4780','ECSE-4900','ECSE-4980','MANE-4220','EPOW-4850'
+    s.one_of 'ECSE-4900','MANE-4220'
   end
 
   d.section "Restricted Electives" do |s|
@@ -131,5 +127,5 @@ degree "B.S. Computer & Systems Engineering 2011", 1 do |d|
     s.credits = 12
   end
 
-  d.total_credits = 128
+  d.total_credits = 129
 end

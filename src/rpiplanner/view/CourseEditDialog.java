@@ -230,11 +230,15 @@ public class CourseEditDialog extends JDialog {
 		for(Component c : offeredDuringPanel.getComponents()){
 			JCheckBox box = (JCheckBox)c;
 			box.setSelected(false);
-			if(toEdit.getAvailableTerms() != null)
+			if(toEdit.getAvailableTerms() != null){
 				for(YearPart t : toEdit.getAvailableTerms()){
 					if(box.getText().equals(t.toString()))
 						box.setSelected(true);
 				}
+            }
+            else{
+                box.setSelected(true);
+            }
 		}
 }
 	
@@ -248,14 +252,14 @@ public class CourseEditDialog extends JDialog {
 		String[] coreqNames = corequisitesField.getText().split(" ?, ?");
 		ArrayList<Course> prerequisites = new ArrayList<Course>(prereqNames.length);
 		for(String name : prereqNames){
-			Course toAdd = db.getCourse(name);
+			Course toAdd = Course.get(name);
 			if(toAdd != null)
 				prerequisites.add(toAdd);
 		}
 		toEdit.setPrerequisites(prerequisites);
 		ArrayList<Course> corequisites = new ArrayList<Course>(coreqNames.length);
 		for(String name : coreqNames){
-			Course toAdd = db.getCourse(name);
+			Course toAdd = Course.get(name);
 			if(toAdd != null)
 				corequisites.add(toAdd);
 		}

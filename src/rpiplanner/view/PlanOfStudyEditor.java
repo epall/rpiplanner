@@ -86,7 +86,7 @@ public class PlanOfStudyEditor extends JPanel {
 				RowSpec.decode("fill:0dlu:grow(1.0)"),
 				FormFactory.RELATED_GAP_ROWSPEC,
 				FormFactory.DEFAULT_ROWSPEC,
-				RowSpec.decode("fill:150dlu")}));
+				RowSpec.decode("fill:110dlu")}));
 
 		final JPanel titlePanel = new JPanel();
 		add(titlePanel, new CellConstraints("1, 1, 3, 1, fill, fill"));
@@ -178,6 +178,7 @@ public class PlanOfStudyEditor extends JPanel {
 		descriptionTextArea.setWrapStyleWord(true);
 		descriptionTextArea.setName("description");
 		descriptionTextArea.setEditable(false);
+        descriptionTextArea.setFont(descriptionTextArea.getFont().deriveFont(11.0f));
 		add(courseDetailsPanel, new CellConstraints(2,5));
 
 		final JLabel basicInfo = new JLabel();
@@ -230,16 +231,19 @@ public class PlanOfStudyEditor extends JPanel {
 				if(e.getButton() == MouseEvent.BUTTON3){
 					// right click
 					int idx = courseList.locationToIndex(e.getPoint()); 
-					courseList.setSelectedIndex(idx); 
-					JPopupMenu contextMenu = new JPopupMenu();
-					contextMenu.add("Edit").addActionListener(new ActionListener(){
-						public void actionPerformed(ActionEvent e) {
-							CourseEditDialog d = new CourseEditDialog((Course)courseList.getSelectedValue());
-							d.setController(controller);
-							d.setVisible(true);
-						}
-					});
-					contextMenu.show(courseList, e.getX(), e.getY());
+					courseList.setSelectedIndex(idx);
+                    Course c = (Course)courseList.getSelectedValue();
+                    if(!c.isOfficial()){
+                        JPopupMenu contextMenu = new JPopupMenu();
+                        contextMenu.add("Edit").addActionListener(new ActionListener(){
+                            public void actionPerformed(ActionEvent e) {
+                                CourseEditDialog d = new CourseEditDialog((Course)courseList.getSelectedValue());
+                                d.setController(controller);
+                                d.setVisible(true);
+                            }
+                        });
+                        contextMenu.show(courseList, e.getX(), e.getY());
+                    }
 				}
 			}
 		});

@@ -1,0 +1,640 @@
+<plan>
+  <startingYear>2007</startingYear>
+  <degrees>
+    <degree>
+      <name>B.S. Materials Engineering 2011</name>
+      <validationCode>degree &quot;B.S. Materials Engineering 2011&quot;, 4 do |d|
+  d.section &quot;Communication Requirement&quot; do |s|
+    s.valid_courses do |course|
+      course.description =~ /(communication|writing)-intensive/i
+    end
+    s.exclusive = false
+    s.count = 2
+  end
+
+  d.section &quot;Math &amp; Science&quot; do |s|
+    s.courses &apos;CHEM-1100&apos;, &apos;MATH-1010&apos;, &apos;MATH-1020&apos;, &apos;MATH-2400&apos;, &apos;PHYS-1100&apos;, &apos;PHYS-1200&apos;,&apos;CSCI-1190&apos;
+  end
+
+  d.section &quot;Core Engineering&quot; do |s|
+    s.courses &apos;ENGR-1100&apos;,&apos;ENGR-1200&apos;,&apos;ENGR-1600&apos;,&apos;ENGR-2050&apos;,&apos;ENGR-2250&apos;,&apos;ENGR-2600&apos;,&apos;ENGR-4010&apos;
+    s.one_of &apos;ENGR-1300&apos;,&apos;ENGR-1310&apos;
+  end
+
+  d.section &quot;Required Courses&quot; do |s|
+    s.courses &apos;MTLE-2100&apos;,&apos;MTLE-4100&apos;,&apos;MTLE-4200&apos;,&apos;MTLE-4150&apos;,&apos;MTLE-4250&apos;,&apos;MTLE-4400&apos;,&apos;MTLE-4910&apos;,&apos;MTLE-4450&apos;,&apos;MTLE-4920&apos;
+  end
+
+  d.section &quot;Science Elective&quot; do |s|
+    s.valid_courses do |course|
+      [&apos;ASTR&apos;,&apos;BIOL&apos;,&apos;CHEM&apos;,&apos;ERTH&apos;,&apos;PHYS&apos;].include?(course.catalogNumber[0..3]) &amp;&amp; 
+      course.credits == 4 &amp;&amp;
+      course.catalogNumber != &apos;ERTH-1030&apos;
+    end
+    s.count = 1
+  end
+  
+  d.section &quot;Restricted Elective&quot; do |s|
+    s.one_of &apos;ECSE-2010&apos;,&apos;ENGR-2090&apos;,&apos;ENGR-2350&apos;,&apos;ENGR-2530&apos;,&apos;ENGR-4300&apos;
+  end
+  
+  d.section &quot;Materials Electives&quot; do |s|
+    s.credits = 6
+    s.valid_courses do |course|
+      [&apos;MTLE-4030&apos;,&apos;MTLE-4050&apos;,&apos;MTLE-4160&apos;,&apos;MTLE-4310&apos;,&apos;MTLE-4410&apos;,&apos;MTLE-4420&apos;].include? course.catalogNumber
+    end
+  end
+
+  d.section &quot;H&amp;SS Core&quot; do |s|
+    s.credits = 22
+    s.description = &lt;&lt;-EOF
+    Select a minimum of 2 4-credit courses in Humanities 
+    Select a minimum of 2 4-credit courses in the Social Sciences 
+    No more than 3 1000-level H&amp;SS courses may be applied to the H&amp;SS Core 
+    No more than 6 credits may be taken P/NC 
+    At least ONE 4 credit course must be at the 4000 level 
+    No more than 2 courses may transfer towards the 
+    H&amp;SS Core (including Adv Placement), excludes Transfer Students. 
+    Depth Requirement: 2 4-credit courses in same H or SS 
+    subject area with at least 1 above the .1000 level and none on Pass/No Credit 
+    Engineering majors (except ROTC cadets) choose a 2 credit 
+    course to meet their Profess Development II requirement. 
+    (PSYC 4170 or STSS 4840 Professional Development). 
+    The TOTAL H&amp;SS Core Requirement is 22 credits.
+    EOF
+    s.valid_courses_special do |courses|
+      numonethousand = 0
+      courses.select do |course|
+        if [&apos;IHSS&apos;,&apos;ARTS&apos;,&apos;LANG&apos;,&apos;LITR&apos;,&apos;COMM&apos;,&apos;WRIT&apos;,&apos;STSH&apos;,&apos;PHIL&apos;,
+          &apos;COGS&apos;,&apos;ECON&apos;,&apos;IHSS&apos;,&apos;PSYC&apos;,&apos;STSS&apos;].include?(course.catalogNumber[0..3])
+          if course.level == &apos;1000&apos;
+            numonethousand += 1
+            numonethousand &lt;= 3
+          else
+            true
+          end
+        else
+          false
+        end
+      end
+    end
+
+    s.valid_courses do |course|
+      [&apos;IHSS&apos;,&apos;ARTS&apos;,&apos;LANG&apos;,&apos;LITR&apos;,&apos;COMM&apos;,&apos;WRIT&apos;,&apos;STSH&apos;,&apos;PHIL&apos;,
+        &apos;COGS&apos;,&apos;ECON&apos;,&apos;IHSS&apos;,&apos;PSYC&apos;,&apos;STSS&apos;].include?(course.catalogNumber[0..3])
+      end
+
+    s.must_have &quot;minimum of 2 4-credit courses in Humanities&quot; do |courses|
+      courses = courses.find_all do |course| 
+        course.credits == 4 &amp;&amp; [&apos;IHSS&apos;,&apos;ARTS&apos;,&apos;LANG&apos;,&apos;LITR&apos;,&apos;COMM&apos;,&apos;WRIT&apos;,&apos;STSH&apos;,&apos;PHIL&apos;].include?(course.catalogNumber[0..3])
+      end
+      courses.size &gt;= 2
+    end
+
+    s.must_have &quot;minimum of 2 4-credit courses in the Social Sciences&quot; do |courses|
+      courses = courses.find_all do |course| 
+        course.credits == 4 &amp;&amp; [&apos;COGS&apos;,&apos;ECON&apos;,&apos;IHSS&apos;,&apos;PSYC&apos;,&apos;STSS&apos;].include?(course.catalogNumber[0..3])
+      end
+      courses.size &gt;= 2
+    end
+
+    s.must_have &quot;one 4 credit course at the 4000 level&quot; do |courses|
+      courses.find {|c| c.level == &apos;4000&apos; &amp;&amp; c.credits == 4}
+    end
+
+    s.must_have &quot;Professional Development II&quot; do |courses|
+      courses.find {|c| c.catalogNumber == &apos;PSYC-4170&apos; || c.catalogNumber == &apos;STSS-4840&apos;}
+    end
+
+    s.must_have &quot;Depth Requirement&quot; do |courses|
+      departments = {}
+      courses.each do |course|
+        dept = course.catalogNumber[0..3]
+        if course.credits == 4
+          departments[dept] ||= []
+          departments[dept] &lt;&lt; course
+        end
+      end
+
+      success = false
+      departments.each do |dept, courses|
+        above1k = false
+        courses.each do |course|
+          above1k ||= course.level != &apos;1000&apos;
+        end
+        if courses.size &gt;= 2 &amp;&amp; above1k
+          success = true
+        end
+      end
+      success
+    end
+  end
+
+  d.section &quot;Free Electives&quot; do |s|
+    s.valid_courses {|c| true}
+    s.credits = 12
+  end
+
+  d.total_credits = 128
+end</validationCode>
+      <id>4</id>
+    </degree>
+  </degrees>
+  <term>
+    <year>0</year>
+  </term>
+  <term>
+    <course>
+      <title>Chemistry I</title>
+      <description> </description>
+      <department>Chemistry and Chemical Biology</department>
+      <catalogNumber>CHEM-1100</catalogNumber>
+      <credits>4</credits>
+      <prerequisites required="true" pickOne="false"/>
+      <corequisites required="true" pickOne="false"/>
+      <availableTerms>
+        <year-part>FALL</year-part>
+      </availableTerms>
+    </course>
+    <course>
+      <title>Calculus I</title>
+      <description>Functions, limits, continuity, derivatives, implicit differentiation, related rates, maxima and minima, elementary transcendental functions, introduction to definite integral with applications to area and volumes of revolution.</description>
+      <department>Mathematical Sciences</department>
+      <catalogNumber>MATH-1010</catalogNumber>
+      <credits>4</credits>
+      <prerequisites required="true" pickOne="false"/>
+      <corequisites required="true" pickOne="false"/>
+      <availableTerms>
+        <year-part>FALL</year-part>
+        <year-part>SPRING</year-part>
+      </availableTerms>
+    </course>
+    <course>
+      <title>Introduction to Engineering Analysis</title>
+      <description>An integrated development of linear algebra and statics emphasizing engineering applications and also incorporating computer exercises involving matrix techniques and calculations using available software packages.</description>
+      <department>School of Engineering</department>
+      <catalogNumber>ENGR-1100</catalogNumber>
+      <credits>4</credits>
+      <prerequisites required="true" pickOne="false"/>
+      <corequisites required="true" pickOne="false"/>
+      <availableTerms>
+        <year-part>FALL</year-part>
+        <year-part>SPRING</year-part>
+      </availableTerms>
+    </course>
+    <year>2007</year>
+    <term>FALL</term>
+  </term>
+  <term>
+    <course>
+      <title>Calculus II</title>
+      <description>Techniques and applications of integration, polar coordinates, parametric equations, infinite sequences and series, vector functions and curves in space, functions of several variables, and partial derivatives.</description>
+      <department>Mathematical Sciences</department>
+      <catalogNumber>MATH-1020</catalogNumber>
+      <credits>4</credits>
+      <prerequisites required="true" pickOne="false">
+        <course>
+          <catalogNumber>MATH-1010</catalogNumber>
+          <credits>0</credits>
+        </course>
+      </prerequisites>
+      <corequisites required="true" pickOne="false"/>
+      <availableTerms>
+        <year-part>FALL</year-part>
+        <year-part>SPRING</year-part>
+      </availableTerms>
+    </course>
+    <course>
+      <title>Physics I</title>
+      <description>The first semester of a two-semester sequence of interactive courses. Topics include linear and angular kinematics and dynamics, work and energy, momentum and collisions, forces and fields, gravitation, elementary electrostatics, and motion of charged particles in a magnetic field.</description>
+      <department>Physics, Applied Physics, and Astronomy</department>
+      <catalogNumber>PHYS-1100</catalogNumber>
+      <credits>4</credits>
+      <prerequisites required="true" pickOne="false"/>
+      <corequisites required="true" pickOne="false">
+        <course>
+          <catalogNumber>MATH-1010</catalogNumber>
+          <credits>0</credits>
+        </course>
+      </corequisites>
+      <availableTerms>
+        <year-part>FALL</year-part>
+        <year-part>SPRING</year-part>
+      </availableTerms>
+    </course>
+    <course>
+      <title>Engineering Processes</title>
+      <description>The use of basic machine tools such as lathes, milling machines, drill presses, band saws, and grinders, including micrometers, vernier calipers, and other devices of use in a machine shop or laboratory. Welding techniques and tool making are also considered.</description>
+      <department>School of Engineering</department>
+      <catalogNumber>ENGR-1300</catalogNumber>
+      <credits>1</credits>
+      <prerequisites required="true" pickOne="false"/>
+      <corequisites required="true" pickOne="false"/>
+      <availableTerms>
+        <year-part>FALL</year-part>
+        <year-part>SPRING</year-part>
+      </availableTerms>
+    </course>
+    <course>
+      <title>Materials Science for Engineers</title>
+      <description>Introduction to “real” (defect-containing) solids, and equilibria and kinetic processes in solids. Macroscopic properties, such as mechanical strength and electrical conductivity, are dominated by structure and bonding, and the course continuously emphasizes this connection. Each of the materials classes (metals, ceramics, semiconductors, and polymers) is discussed in detail in this context.</description>
+      <department>School of Engineering</department>
+      <catalogNumber>ENGR-1600</catalogNumber>
+      <credits>4</credits>
+      <prerequisites required="true" pickOne="false">
+        <course>
+          <catalogNumber>CHEM-1100</catalogNumber>
+          <credits>0</credits>
+        </course>
+      </prerequisites>
+      <corequisites required="true" pickOne="false"/>
+      <availableTerms>
+        <year-part>FALL</year-part>
+        <year-part>SPRING</year-part>
+      </availableTerms>
+    </course>
+    <year>2008</year>
+    <term>SPRING</term>
+  </term>
+  <term>
+    <course>
+      <title>Introduction to Differential Equations</title>
+      <description>First-order differential equations, second-order linear equations, eigenvalues and eigenvectors of matrices, systems of first-order equations, stability and qualitative properties of nonlinear autonomous systems in the plane, Fourier series, separation of variables for partial differential equations.
+
+NOTE: familiarity with elementary ordinary and partial differential equations required
+</description>
+      <department>Mathematical Sciences</department>
+      <catalogNumber>MATH-2400</catalogNumber>
+      <credits>4</credits>
+      <prerequisites required="true" pickOne="false">
+        <course>
+          <catalogNumber>MATH-1020</catalogNumber>
+          <credits>0</credits>
+        </course>
+      </prerequisites>
+      <corequisites required="true" pickOne="false"/>
+      <availableTerms>
+        <year-part>FALL</year-part>
+        <year-part>SPRING</year-part>
+      </availableTerms>
+    </course>
+    <course>
+      <title>Physics II</title>
+      <description>The second semester of the two-semester sequence of interactive courses. Topics include Gauss’s Law, current electricity, Ampere’s Law and Faraday’s Law, electromagnetic radiation, physical optics, and quantum physics.
+
+NOTE: PHYS-1100 can be replaced with equivalent or skipped on permission of instructor
+</description>
+      <department>Physics, Applied Physics, and Astronomy</department>
+      <catalogNumber>PHYS-1200</catalogNumber>
+      <credits>4</credits>
+      <prerequisites required="false" pickOne="false">
+        <course>
+          <catalogNumber>PHYS-1100</catalogNumber>
+          <credits>0</credits>
+        </course>
+      </prerequisites>
+      <corequisites required="true" pickOne="false">
+        <course>
+          <catalogNumber>MATH-1020</catalogNumber>
+          <credits>0</credits>
+        </course>
+      </corequisites>
+      <availableTerms>
+        <year-part>FALL</year-part>
+        <year-part>SPRING</year-part>
+      </availableTerms>
+    </course>
+    <course>
+      <title>Engineering Graphics and CAD</title>
+      <description>An introduction to the techniques for creating solid models of engineering designs. Topics include three-dimensional modeling of parts and assemblies, visualization, orthographic and isometric free-hand sketching, and computer-generated design documentation.</description>
+      <department>School of Engineering</department>
+      <catalogNumber>ENGR-1200</catalogNumber>
+      <credits>1</credits>
+      <prerequisites required="true" pickOne="false"/>
+      <corequisites required="true" pickOne="false"/>
+      <availableTerms>
+        <year-part>FALL</year-part>
+        <year-part>SPRING</year-part>
+      </availableTerms>
+    </course>
+    <course>
+      <title>Thermal and Fluids Engineering I</title>
+      <description>Application of control volume balances of mass, momentum, energy and entropy in systems of practical importance to all engineers. Identification of control volumes, properties of pure materials, mass and energy conservation for closed and open systems, second law of thermodynamics, Bernoulli equation, fluid statics, forces and heat transfer in external and internal flows, conduction and radiative heat transfer.</description>
+      <department>School of Engineering</department>
+      <catalogNumber>ENGR-2250</catalogNumber>
+      <credits>4</credits>
+      <prerequisites required="true" pickOne="false">
+        <course>
+          <catalogNumber>ENGR-1100</catalogNumber>
+          <credits>0</credits>
+        </course>
+        <course>
+          <catalogNumber>PHYS-1100</catalogNumber>
+          <credits>0</credits>
+        </course>
+      </prerequisites>
+      <corequisites required="true" pickOne="false">
+        <course>
+          <catalogNumber>MATH-2400</catalogNumber>
+          <credits>0</credits>
+        </course>
+      </corequisites>
+      <availableTerms>
+        <year-part>FALL</year-part>
+        <year-part>SPRING</year-part>
+      </availableTerms>
+    </course>
+    <year>2008</year>
+    <term>FALL</term>
+  </term>
+  <term>
+    <course>
+      <title>Beginning C Programming for Engineers</title>
+      <description>This course will teach elementary programming concepts using the C language for engineering students with little or no prior programming experience. Students cannot get credit for this course and any other Computer Science course.</description>
+      <department>Computer Science</department>
+      <catalogNumber>CSCI-1190</catalogNumber>
+      <credits>1</credits>
+      <prerequisites required="true" pickOne="false"/>
+      <corequisites required="true" pickOne="false"/>
+      <availableTerms>
+        <year-part>FALL</year-part>
+        <year-part>SPRING</year-part>
+      </availableTerms>
+    </course>
+    <course>
+      <title>Introduction to Engineering Design</title>
+      <description>A first course in engineering design which emphasizes creativity, teamwork, communication, and work across engineering disciplines. Students are introduced to the design process through a semester-long project which provides a design-build-test experience. Oral and written communication are important elements of the course. The course meets with ENGR 1010.</description>
+      <department>School of Engineering</department>
+      <catalogNumber>ENGR-2050</catalogNumber>
+      <credits>4</credits>
+      <prerequisites required="true" pickOne="false">
+        <course>
+          <catalogNumber>ENGR-1100</catalogNumber>
+          <credits>0</credits>
+        </course>
+        <course>
+          <catalogNumber>ENGR-1200</catalogNumber>
+          <credits>0</credits>
+        </course>
+      </prerequisites>
+      <corequisites required="true" pickOne="false">
+        <course>
+          <catalogNumber>PHYS-1200</catalogNumber>
+          <credits>0</credits>
+        </course>
+      </corequisites>
+      <availableTerms>
+        <year-part>FALL</year-part>
+        <year-part>SPRING</year-part>
+      </availableTerms>
+    </course>
+    <course>
+      <title>Structure of Engineering Materials</title>
+      <description>The first course in Materials Science and Engineering. Structures of metals, ceramics, and polymers and experimental techniques for their determination are discussed. Laboratory experience is included.
+
+NOTE: prerequisite can be replaced with an equivalent
+</description>
+      <department>Materials Science and Engineering</department>
+      <catalogNumber>MTLE-2100</catalogNumber>
+      <credits>4</credits>
+      <prerequisites required="false" pickOne="false">
+        <course>
+          <catalogNumber>ENGR-1600</catalogNumber>
+          <credits>0</credits>
+        </course>
+      </prerequisites>
+      <corequisites required="true" pickOne="false"/>
+      <availableTerms>
+        <year-part>SPRING</year-part>
+      </availableTerms>
+    </course>
+    <year>2009</year>
+    <term>SPRING</term>
+  </term>
+  <term>
+    <course>
+      <title>Modeling and Analysis of Uncertainty</title>
+      <description>Appreciation and understanding of uncertainties and the conditions under which they occur, within the context of the engineering problem-solving pedagogy of measurements, models, validation, and analysis. Problems and concerns in obtaining measurements; tabular and graphical organization of data to minimize misinformation and maximize information; and development and evaluation of models. Concepts will be supported with computer demonstration. Applications to problems in engineering are emphasized.</description>
+      <department>School of Engineering</department>
+      <catalogNumber>ENGR-2600</catalogNumber>
+      <credits>3</credits>
+      <prerequisites required="true" pickOne="false">
+        <course>
+          <catalogNumber>MATH-1010</catalogNumber>
+          <credits>0</credits>
+        </course>
+      </prerequisites>
+      <corequisites required="true" pickOne="false"/>
+      <availableTerms>
+        <year-part>FALL</year-part>
+        <year-part>SPRING</year-part>
+      </availableTerms>
+    </course>
+    <course>
+      <title>Thermodynamics of Materials</title>
+      <description>Rigorous development of classical thermodynamics as applied to prediction of materials properties. Nonideal gases, solutions, phase equilibria, chemical equilibria, defects.</description>
+      <department>Materials Science and Engineering</department>
+      <catalogNumber>MTLE-4100</catalogNumber>
+      <credits>4</credits>
+      <prerequisites required="true" pickOne="false">
+        <course>
+          <catalogNumber>ENGR-2250</catalogNumber>
+          <credits>0</credits>
+        </course>
+        <course>
+          <catalogNumber>CHEM-1100</catalogNumber>
+          <credits>0</credits>
+        </course>
+        <course>
+          <catalogNumber>ENGR-1600</catalogNumber>
+          <credits>0</credits>
+        </course>
+      </prerequisites>
+      <corequisites required="true" pickOne="false"/>
+      <availableTerms>
+        <year-part>FALL</year-part>
+      </availableTerms>
+    </course>
+    <course>
+      <title>Properties of Engineering Materials I</title>
+      <description>Introduction to wave mechanics of particles. Applications to harmonic oscillator, free electrons, Kronig-Penney and Ziman models. Electron energy bands in solids. Charge carrier transport. Electrical conductivity of metals and semiconductors. Junctions and devices based on them. Microelectronics, dielectric and optical properties of materials. Optoelectronic devices. Includes laboratory.</description>
+      <department>Materials Science and Engineering</department>
+      <catalogNumber>MTLE-4200</catalogNumber>
+      <credits>4</credits>
+      <prerequisites required="true" pickOne="false">
+        <course>
+          <catalogNumber>ENGR-1600</catalogNumber>
+          <credits>0</credits>
+        </course>
+        <course>
+          <catalogNumber>MTLE-2100</catalogNumber>
+          <credits>0</credits>
+        </course>
+        <course>
+          <catalogNumber>PHYS-1200</catalogNumber>
+          <credits>0</credits>
+        </course>
+      </prerequisites>
+      <corequisites required="true" pickOne="false"/>
+      <availableTerms>
+        <year-part>FALL</year-part>
+      </availableTerms>
+    </course>
+    <year>2009</year>
+    <term>FALL</term>
+  </term>
+  <term>
+    <course>
+      <title>Kinetics in Materials Systems</title>
+      <description>Kinetic processes in materials. Overview of kinetics in relation to equilibrium thermodynamics, atomistics and mathematics of diffusion, phase transformations, and microstructural evolution. All materials classes, including metals and alloys, ionic and intermetallic compounds, glasses, semiconductors, and polymers, will be considered in terms of similarities and differences. Includes laboratory component.</description>
+      <department>Materials Science and Engineering</department>
+      <catalogNumber>MTLE-4150</catalogNumber>
+      <credits>4</credits>
+      <prerequisites required="true" pickOne="false">
+        <course>
+          <catalogNumber>MTLE-4100</catalogNumber>
+          <credits>0</credits>
+        </course>
+        <course>
+          <catalogNumber>CHEM-1100</catalogNumber>
+          <credits>0</credits>
+        </course>
+        <course>
+          <catalogNumber>ENGR-1600</catalogNumber>
+          <credits>0</credits>
+        </course>
+      </prerequisites>
+      <corequisites required="true" pickOne="false"/>
+      <availableTerms>
+        <year-part>SPRING</year-part>
+      </availableTerms>
+    </course>
+    <course>
+      <title>Properties of Engineering Materials II</title>
+      <description>This is a required departmental course, but is also appropriate for biomedical engineers and other engineering disciplines as an elective. This course teaches the mechanical properties of metals, ceramics, and polymers from both the macroscopic and atomistic or micromechanical viewpoints. An introduction to three-dimensional stresses and strains. Elastic behavior, plastic behavior, strengthening mechanisms, fracture, creep, and fatigue are all addressed. Includes laboratory component.</description>
+      <department>Materials Science and Engineering</department>
+      <catalogNumber>MTLE-4250</catalogNumber>
+      <credits>4</credits>
+      <prerequisites required="true" pickOne="false">
+        <course>
+          <catalogNumber>ENGR-1600</catalogNumber>
+          <credits>0</credits>
+        </course>
+        <course>
+          <catalogNumber>MTLE-2100</catalogNumber>
+          <credits>0</credits>
+        </course>
+      </prerequisites>
+      <corequisites required="true" pickOne="false"/>
+      <availableTerms>
+        <year-part>SPRING</year-part>
+      </availableTerms>
+    </course>
+    <year>2010</year>
+    <term>SPRING</term>
+  </term>
+  <term>
+    <course>
+      <title>Professional Development III</title>
+      <description>Students will study issues associated with working in teams in a modern work environment. Various styles of leadership, the definitions of power and empowerment and their applications in industry and team settings will be studied. Additionally, other topics to be explored include vision, values and attitudes, and organizational culture. The course format will include small and large group discussions, case studies, experiential exercises, and regular participation from industry guests.
+
+NOTE: Offered in conjunction with senior courses.
+</description>
+      <department>School of Engineering</department>
+      <catalogNumber>ENGR-4010</catalogNumber>
+      <credits>1</credits>
+      <prerequisites required="true" pickOne="false"/>
+      <corequisites required="true" pickOne="false"/>
+      <availableTerms>
+        <year-part>FALL</year-part>
+        <year-part>SPRING</year-part>
+      </availableTerms>
+    </course>
+    <course>
+      <title>Materials Synthesis and Processing I</title>
+      <description>Emphasis is on materials synthesis, with four instructional modules drawn from aspects of melt and extractive metallurgy and from the synthesis of polymers, ceramics and glasses, electronic materials, composite materials and nanophase materials.</description>
+      <department>Materials Science and Engineering</department>
+      <catalogNumber>MTLE-4400</catalogNumber>
+      <credits>4</credits>
+      <prerequisites required="true" pickOne="false">
+        <course>
+          <catalogNumber>MTLE-4200</catalogNumber>
+          <credits>0</credits>
+        </course>
+        <course>
+          <catalogNumber>MTLE-4150</catalogNumber>
+          <credits>0</credits>
+        </course>
+        <course>
+          <catalogNumber>MTLE-4250</catalogNumber>
+          <credits>0</credits>
+        </course>
+      </prerequisites>
+      <corequisites required="true" pickOne="false"/>
+      <availableTerms>
+        <year-part>FALL</year-part>
+      </availableTerms>
+    </course>
+    <course>
+      <title>Design in Materials Engineering</title>
+      <description>Basic design concepts and the underlying structureproperty-process-performance interaction. Engineering materials, structures and properties, principles and process of materials selection, generation of materials performances indices, assessment and optimization of performance, processing routes and manufacturing issues, role of reverse engineering and failure analysis in design are covered. Generic design against yielding, fracture, flexure, buckling, fatigue, creep, corrosion, and wear are addressed, as opposed to design of specific products or in specific areas. A semester-long team design project is a principal focus. Team-building and leadership skills are developed. Non-technical issues of environmental impact, cultural and societal impact, safety and health, ethics, and cost are discussed. Writing assignments and oral reports develop communication skills. Enrollment for MS&amp;E majors is restricted to seniors or graduates.</description>
+      <department>Materials Science and Engineering</department>
+      <catalogNumber>MTLE-4910</catalogNumber>
+      <credits>3</credits>
+      <prerequisites required="true" pickOne="false">
+        <course>
+          <catalogNumber>CHEM-1100</catalogNumber>
+          <credits>0</credits>
+        </course>
+        <course>
+          <catalogNumber>ENGR-1600</catalogNumber>
+          <credits>0</credits>
+        </course>
+      </prerequisites>
+      <corequisites required="true" pickOne="false"/>
+      <availableTerms>
+        <year-part>FALL</year-part>
+      </availableTerms>
+    </course>
+    <year>2010</year>
+    <term>FALL</term>
+  </term>
+  <term>
+    <course>
+      <title>Materials Synthesis and Processing II</title>
+      <description>Emphasis is on materials processing, with four instruction modules drawn from aspects of casting and molding, deformation processing, powder processing, joining and additive processes, cutting and removal processes, and annealing/heat treatment processes. Includes laboratory component.</description>
+      <department>Materials Science and Engineering</department>
+      <catalogNumber>MTLE-4450</catalogNumber>
+      <credits>4</credits>
+      <prerequisites required="true" pickOne="false">
+        <course>
+          <catalogNumber>MTLE-4400</catalogNumber>
+          <credits>0</credits>
+        </course>
+      </prerequisites>
+      <corequisites required="true" pickOne="false"/>
+      <availableTerms>
+        <year-part>SPRING</year-part>
+      </availableTerms>
+    </course>
+    <course>
+      <title>Applications of Materials</title>
+      <description>A capstone experience to afford seniors in MS&amp;E the unique and invaluable opportunity to participate as a vital member of a truly multidisciplinary design team (comprised of engineering students from other disciplines, as well as MBAs) and function just as they will as professionals in practice, in preparation for practice. The course revolves totally around a design project, focusing on the structure-property-process-performance interaction underlying all design, with no homework or exams; just memos on progress, individual and group meetings with the instructor, conceptual design report, project notebook or journal, and final report.</description>
+      <department>Materials Science and Engineering</department>
+      <catalogNumber>MTLE-4920</catalogNumber>
+      <credits>2</credits>
+      <prerequisites required="true" pickOne="false">
+        <course>
+          <catalogNumber>MTLE-4910</catalogNumber>
+          <credits>0</credits>
+        </course>
+      </prerequisites>
+      <corequisites required="true" pickOne="false"/>
+      <availableTerms>
+        <year-part>SPRING</year-part>
+      </availableTerms>
+    </course>
+    <year>2011</year>
+    <term>SPRING</term>
+  </term>
+</plan>

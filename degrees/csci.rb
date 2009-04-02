@@ -1,7 +1,9 @@
 degree "B.S. Computer Science 2011", 2 do |d|
+  d.school "School of Science"
+
   d.section "Communication Requirement" do |s|
     s.valid_courses do |course|
-      course.description =~ /(communication|writing)-intensive/i
+      course.description =~ /(communication|writing)[- ]intensive/i
     end
     s.exclusive = false
     s.count = 2
@@ -35,7 +37,7 @@ degree "B.S. Computer Science 2011", 2 do |d|
   end
 
   d.section "H&SS Core" do |s|
-    s.credits = 22
+    s.credits = 24
     s.description = <<-EOF
     Select a minimum of 2 4-credit courses in Humanities 
     Select a minimum of 2 4-credit courses in the Social Sciences 
@@ -89,10 +91,6 @@ degree "B.S. Computer Science 2011", 2 do |d|
 
     s.must_have "one 4 credit course at the 4000 level" do |courses|
       courses.find {|c| c.level == '4000' && c.credits == 4}
-    end
-
-    s.must_have "Professional Development II" do |courses|
-      courses.find {|c| c.catalogNumber == 'PSYC-4170' || c.catalogNumber == 'STSS-4840'}
     end
     
     s.must_have "Depth Requirement" do |courses|

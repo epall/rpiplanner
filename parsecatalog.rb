@@ -7,11 +7,10 @@ require 'builder'
 CATALOG_NUMBER = /([A-Z]{4}) (\d*)/
 HYPHENATED_CATALOG_NUMBER = /([A-Z0-9-]{9})/
 
-# TODO:
+require 'ripcatalog' unless File.exist?('catalog')
 
-def pull_class(coid)
-  res = Net::HTTP.get(URI.parse("http://catalog.rpi.edu/preview_course.php?catoid=5&coid=#{coid}&print"))
-  doc = Hpricot(res)
+def parse_course(rawdoc)
+  doc = Hpricot(rawdoc)
   course = {}
   fulltitle = doc.search("td h1").inner_text
   titleparts = fulltitle.match('(.*) - (.*)')
@@ -46,48 +45,12 @@ def pull_class(coid)
   return course
 end
 
-def pull_dept(department)
-  req = Net::HTTP::Post.new('http://catalog.rpi.edu/content.php?catoid=5&navoid=111')
-  req.set_form_data({'filter[27]' => department,
-        'filter[29]' => '', 'cpage' => 1, 'cur_cat_oid' => 5, 'filter[32]' => 1,
-        'search_database' => 'Filter', 'filter[keyword]' => ''})
-
-  doc = Hpricot(Net::HTTP.new('catalog.rpi.edu').start {|http| http.request(req) }.body)
-
-  courses = []
-
-  doc.search("a:not(.footer) [@target=\"_blank\"]").each do |c|
-    onclick = c.get_attribute('onclick')
-    coid = onclick.match('showCourse\(\'5\', \'(.*)\',this.*')[1]
-    name = c.inner_html
-    courses << coid
-  end
-  
-  if doc.search("a[@href=\"javascript:course_search(2);\"]")
-    req = Net::HTTP::Post.new('http://catalog.rpi.edu/content.php?catoid=5&navoid=111')
-    req.set_form_data({'filter[27]' => department,
-          'filter[29]' => '', 'cpage' => 2, 'cur_cat_oid' => 5, 'filter[32]' => 1,
-          'search_database' => 'Filter', 'filter[keyword]' => ''})
-
-    doc = Hpricot(Net::HTTP.new('catalog.rpi.edu').start {|http| http.request(req) }.body)
-
-    doc.search("a:not(.footer) [@target=\"_blank\"]").each do |c|
-      onclick = c.get_attribute('onclick')
-      coid = onclick.match('showCourse\(\'5\', \'(.*)\',this.*')[1]
-      name = c.inner_html
-      courses << coid
-    end
-  end
-
-  return courses
-end
-
 def parse_year_parts(description)
   parts = []
   messages = []
 
   case description
-  when /^(Offered )?(each term|Fall and spring).$/i
+  when /^(Offered )?(each term|Fall and spring( term)?)( annually)?.$/i
     parts << 'FALL'
     parts << 'SPRING'
   when /^Fall, spring,? (and )?summer (terms|session 2) annually.$/
@@ -98,7 +61,7 @@ def parse_year_parts(description)
     parts << 'SPRING'
   when /^Spring( term| semester)?( annually)?( only)?.?( .)?$/i
     parts << 'SPRING'
-  when /^(Offered )?Fall( term)?( annually)?.?$/i
+  when /^(Offered )?Fall( term| semester)?( annually)?.?( Includes laboratory experience.)?$/i
     parts << 'FALL'
   when /^Offered on (sufficient )?demand.$/
     messages << "Offered on sufficient demand."
@@ -119,19 +82,29 @@ def parse_year_parts(description)
     messages << "Offered on availability of #{$5}."
     parts << 'FALL'
     parts << 'SPRING'
-  when /^(Spring|Fall)(,| term) odd-?numbered years.$/i
+  when /^(Spring|Fall)(,| term) odd(-| )?numbered years.$/i
     messages << "odd-numbered years ONLY"
     parts << $1.upcase
-  when /^(Spring|Fall) term even.?numbered years.$/i
+  when /^(Spring|Fall)(,| term),? even(-| )number(ed|s) years.$/i
     messages << "even-numbered years ONLY"
     parts << $1.upcase
-  when /^(Spring|Fall) term,? alternate years./
+  when /^(Spring|Fall)(,| term)? (\(of )?even[.-]?numbered years(\))?.$/i
+    messages << "even-numbered years ONLY"
+    parts << $1.upcase
+  when /^(Spring|Fall) term,? alternat(e|ive) years./
     messages << "alternate years ONLY"
     parts << $1.upcase
-  when /^(Graduate course; spring semester, alternate years|Spring term alternate years.)$/
+  when /^Fall, every other year.$/i
     messages << "alternate years ONLY"
     parts << 'FALL'
-  when /^(Offered )?Annually.?$/
+  when /^(Graduate course; spring semester, alternate years|Spring term alternate years.)$/
+    messages << "alternate years ONLY"
+    parts << 'SPRING'
+  when /^Offered alternate years.$/
+    messages << "alternate years ONLY"
+    parts << 'FALL'
+    parts << 'SPRING'
+  when /^(Offered )? ?(Fall and spring)? ?Annually.?$/i
     messages << "Offered anually. Unclear which term"
     parts << 'FALL'
     parts << 'SPRING'
@@ -157,6 +130,8 @@ def parse_year_parts(description)
     parts << 'SPRING'
   when /^Summer term annually.$/
     messages << "Only offered during the summer"
+  when /^Spring or summer term( annually)?.$/i
+    parts << 'SPRING'
   when /^4 credit hours/  
     parts << 'FALL'
     parts << 'SPRING'
@@ -186,15 +161,16 @@ def parse_requisites(requisites)
   
   # primary catchall
   when /^Prerequisites?:.{1,3}([A-Z]{4}|Chem) (\d*)( or equivalent)?\
-( or (permission|consent) of instructor)?( and programming experience)?\
+( (and|or) (permission|consent) of instructor)?( and programming experience)?\
 ( and knowledge of PASCAL, C, or LISP)?\
 ( or thorough knowledge of a scientific computer language, preferably C)?\
 (, linear systems theory and transform theory)?(;.*)?\
 (. Consult department about when offered)?\
 ( and some knowledge of matrices)?\
-( and familiarity with elementary ordinary and partial differential equations)?.?$/
+( and familiarity with elementary ordinary and partial differential equations)?\
+(. Restricted to junior and senior engineering majors only)?.?$/
     prerequisites << $1.upcase+'-'+$2
-    requiredP =  false if $3 || $4
+    requiredP =  false if $3 || $4 || $8
     messages << "prerequisite can be replaced with an equivalent" if $3
     messages << "prerequisite can be skipped on permission of instructor" if $4
     messages << "programming experience recommended" if $6
@@ -203,7 +179,8 @@ def parse_requisites(requisites)
     messages << "linear systems theory and transform theory required" if $9
     messages << $10 if $10
     messages << "some knowledge of matrices required" if $12
-    messages << "familiarity with elementary ordinary and partial differential equations required"
+    messages << "familiarity with elementary ordinary and partial differential equations required" if $13
+    messages << "restricted to junior and senior engineering majors only" if $14
   # sometimes they use dashes
   when /^Prerequisite: #{HYPHENATED_CATALOG_NUMBER}( or permission of instructor).?$/
     prerequisites << $1
@@ -216,6 +193,8 @@ def parse_requisites(requisites)
   when /^Prerequisites?: (probability theory and )?#{CATALOG_NUMBER}.$/
     prerequisites << $2+'-'+$3
     messages << "probability theory required" if $1
+  when /^Prerequisites?:.{1,2}satisfactory completion of #{CATALOG_NUMBER}.$/
+    prerequisites << $1+'-'+$2
   #two prerequisites
   when /^Prerequisites?:.{1,3}#{CATALOG_NUMBER}( and|,) #{CATALOG_NUMBER}\
 ( or equivalent)?( or graduate standing)?( or permission of (the )?instructor)?\
@@ -229,6 +208,9 @@ def parse_requisites(requisites)
     messages << "#{$4+'-'+$5} can be skipped on permission of instructor" if $8
     messages << $11 if $10
     messages << "basic knowledge (at the graduate level) of semiconductor devices or permission of the instructor required" if $12
+  when /Prerequisites: #{CATALOG_NUMBER} and #{CATALOG_NUMBER} (or concurrent).$/
+    prerequisites << $1+'-'+$2
+    corequisites << $3+'-'+$4
   # two either-or prerequisites
   when /^Prerequisite:.{1,3}#{CATALOG_NUMBER} or #{CATALOG_NUMBER}( or equivalent)?( (and|or) permission of instructor)?.?$/
     prerequisites << $1+'-'+$2
@@ -256,12 +238,22 @@ def parse_requisites(requisites)
     prerequisites << $3+'-'+$4
     prerequisites << $5+'-'+$6
     messages << "#{$5+'-'+$6} can be skipped on permission of instructor" if $7
+  when /^Prerequisites: #{CATALOG_NUMBER}, #{CATALOG_NUMBER}, #{CATALOG_NUMBER} or equivalent.$/
+    #FIXME not quite right, but the best we can do with our current format
+    prerequisites << $1+'-'+$2
+    prerequisites << $3+'-'+$4
+    prerequisites << $5+'-'+$6
   # three pick-one prerequisites
-  when /^Prerequisite: #{CATALOG_NUMBER} or #{CATALOG_NUMBER} or #{CATALOG_NUMBER}.$/
+  # A or B or C
+  when /^Prerequisite: #{CATALOG_NUMBER} or #{CATALOG_NUMBER} or #{CATALOG_NUMBER}(, or permission of instructor)?.$/
     prerequisites << $1+'-'+$2
     prerequisites << $3+'-'+$4
     prerequisites << $5+'-'+$6
     pickOneP = true
+    requiredP = false if $7
+  when /^Prerequisites:.{1,2}CHEM 1100 and ENGR 1600 or ENGR 2010.$/
+    prerequisites << 'CHEM-1100'
+    prerequisites << 'ENGR-1600'
   when /^Prerequisites: #{CATALOG_NUMBER} and #{CATALOG_NUMBER} \(or equivalent\); #{CATALOG_NUMBER} desirable.$/
     prerequisites << $1+'-'+$2
     prerequisites << $3+'-'+$4
@@ -289,6 +281,13 @@ def parse_requisites(requisites)
     prerequisites << $3+'-'+$4
     corequisites << $5+'-'+$6
     pickOneP = true
+  # A or B, C, D
+  # This isn't possible to do correctly with current scheme
+  when /^Prerequisites: #{CATALOG_NUMBER} or #{CATALOG_NUMBER}, #{CATALOG_NUMBER}, #{CATALOG_NUMBER}. ?(Not recommended for Freshmen and Sophomores.)?$/
+    prerequisites << $1+'-'+$2
+    prerequisites << $5+'-'+$6
+    prerequisites << $7+'-'+$8
+    messages << $9
   when /^Prerequisites: #{CATALOG_NUMBER}, #{CATALOG_NUMBER} or equivalent, some familiarity with Java\/C\+\+.$/
     prerequisites << $1+'-'+$2
     prerequisites << $3+'-'+$4
@@ -451,29 +450,16 @@ def parse_requisites(requisites)
     :prerequisites => prerequisites, :corequisites => corequisites}
 end
 
-# puts pull_class(8103).inspect
-# exit
-
-# builderX = Builder::XmlMarkup.new(:indent => 2)
-# xmlX = builderX.foo{
-#   parse_requisites('Prerequisites: ENGR 2530 and CIVL 2630 or equivalent.', builderX)
-# }
-# puts xmlX
-# exit
-
-#actually successful: 'CSCI', 'ECSE', 'ENGR', 'PHYS', 'MATH', 'IHSS'
-#in progress: 'STSS', 'STSH'
-
-successfully_parsed_departments = ['CSCI', 'ECSE', 'ENGR', 'BIOL', 'MANE',
-  'MATH', 'CHEM', 'ECON','PHYS', 'IHSS', 'STSS', 'STSH', 'PSYC','BMED',
-  'EPOW']
-
 builder = Builder::XmlMarkup.new(:indent => 2)
 xml = builder.courses do |b|
-  # successfully_parsed_departments.each do |dept|
-  ['BIOL','CSCI','CHEM','ECSE','ENGR','IHSS','MANE','MATH','PHYS','PSYC','STSH','STSS'].each do |dept|
-    pull_dept(dept).each do |coid|
-      course = pull_class(coid)
+  ['ARTS','BIOL','BMED','CSCI','CHEM','CHME','CIVL','COMM','ECON','ECSE',
+    'ENGR','EPOW','IHSS','LITR','MANE','MATH','MTLE','PHYS','PSYC','STSH',
+    'STSS'].each do |dept|
+    files = Dir["catalog/#{dept}/*.html"]
+    files.each do |filename|
+      file = File.open(filename, 'r')
+      course = parse_course(file.read(nil))
+      file.close
       description = course[:description]
       raise "Invalid catalog number: #{course[:catalogNumber]}" unless course[:catalogNumber] =~ /[A-Z]{4}-[\d]{4}$/
       begin
@@ -514,6 +500,12 @@ xml = builder.courses do |b|
               year_parts[:parts].each {|part| b.tag!('year-part', part)}
             }
           end
+          
+          b.isOfficial('true')
+          
+          # 4900 courses are seminars, independent study, etc and should be counted
+          # each time they are taken
+          b.doubleCount(!!(course[:catalogNumber] =~ /....-[46]9[46]0/))
         end
       rescue => err
         $stderr.puts "#{course[:catalogNumber]} - #{course[:title]}"
@@ -523,16 +515,21 @@ xml = builder.courses do |b|
   end
   
   Dir.glob("degrees/*.rb").each do |file|
-    unless file =~ /bmed/ # don't include biomed yet
-      degree = File.new(file, 'r')
-      header = degree.readline.strip
-      builder.degree {
-        builder.id(header[1..4].to_i)
-        builder.name(header[6..1000])
-        builder.validationCode(degree.read(nil))
-      }
-      degree.close
-    end
+    contents = File.new(file, 'r')
+    validationCode = contents.readline.strip
+    validationCode =~ /degree "(.*)", ([0123456789]*) do |d|/
+    id = $2.to_s
+    name = $1.to_s
+    school = contents.readline.strip
+    school = school.match(/d.school "(.*)"/)[1]
+    validationCode << contents.read(nil)
+    contents.close
+    builder.degree {
+      builder.id(id)
+      builder.name(name)
+      builder.school(school)
+      builder.validationCode(validationCode)
+    }
   end
 end
 

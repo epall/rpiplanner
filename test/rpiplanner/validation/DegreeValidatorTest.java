@@ -23,33 +23,19 @@ import com.thoughtworks.xstream.XStream;
 
 
 public class DegreeValidatorTest {
-	private static CourseDatabase courseDatabase;
-	@BeforeClass
-	public static void setUpBeforeClass() throws Exception {
-		XStream xs = new XStream();
-		xs.processAnnotations(PlanOfStudy.class);
-		xs.processAnnotations(Course.class);
-		xs.processAnnotations(DefaultCourseDatabase.class);
-		xs.processAnnotations(ShadowCourseDatabase.class);
-		xs.processAnnotations(YearPart.class);
-		xs.registerConverter(new RequisiteSetConverter(xs.getMapper()));
-		InputStream databaseStream = new FileInputStream("course_database.xml");
-		DefaultCourseDatabase mainDB = (DefaultCourseDatabase) xs.fromXML(databaseStream);
 
-		ShadowCourseDatabase shadow = new ShadowCourseDatabase();
-		shadow.shadow(mainDB);
-		
-		courseDatabase = shadow;
-	}
-
+    @BeforeClass
+    public static void setUpBeforeClass(){
+        Fixtures.getCourseDatabase();
+    }
+    
 	@Test
 	public void testValidate() {
 		Degree csys = Fixtures.getCSYS();
 		PlanOfStudy plan = new PlanOfStudy();
-		plan.getTerm(0).add(courseDatabase.getCourse("CSCI-1100"));
+		plan.getTerm(0).add(Course.get("CSCI-1100"));
 
-		DegreeValidator validator = csys.getValidator();
-		ValidationResult validationOutput = validator.validate(plan);
+		ValidationResult validationOutput = csys.validate(plan);
 		assertNotNull(validationOutput);
 
 		Section sectionResults = validationOutput
@@ -81,8 +67,8 @@ public class DegreeValidatorTest {
 	public void testOneOf(){
 		Degree csys = Fixtures.getCSYS();
 		PlanOfStudy plan = new PlanOfStudy();
-		plan.getTerm(0).add(courseDatabase.getCourse("ECSE-4690"));
-		ValidationResult validationOutput = csys.getValidator().validate(plan);
+		plan.getTerm(0).add(Course.get("ECSE-4690"));
+		ValidationResult validationOutput = csys.validate(plan);
 		Section softEng = validationOutput.getSectionResults("Software Engineering Elective");
 		
 

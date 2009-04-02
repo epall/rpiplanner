@@ -51,7 +51,9 @@
         </constraints>
         <properties>
           <model>
+            <item value="2008"/>
             <item value="2007"/>
+            <item value="2006"/>
           </model>
         </properties>
       </component>
