@@ -25,7 +25,7 @@ public class Apcredit {
     public Apcredit() {
         AddApButton.addActionListener(new ActionListener() {
             public void actionPerformed(final ActionEvent e) {
-
+            System.out.println("This does something.");
             }
         });
         CancelButton.addActionListener(new ActionListener() {
@@ -40,3 +40,4 @@ public class Apcredit {
         });
     }
 }
+
