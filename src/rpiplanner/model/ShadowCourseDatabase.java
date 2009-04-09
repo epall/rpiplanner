@@ -118,6 +118,8 @@ public class ShadowCourseDatabase implements CourseDatabase {
 
     protected Object readResolve(){
         instance = this;
+        if(courses == null)
+            courses = new HashSet<Course>();
         return this;
     }
 }

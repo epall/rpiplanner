@@ -48,7 +48,11 @@ public class Course implements Comparable<Course> {
      * Protected constructor to prevent spurious creation of courses.
      */
     protected Course(){}
-    
+
+    public Course(String catalogNumber){
+        this.catalogNumber = catalogNumber;
+    }
+
 	public String getTitle() {
 		return title;
 	}

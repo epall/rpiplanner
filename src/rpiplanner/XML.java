@@ -20,6 +20,11 @@
 package rpiplanner;
 
 import com.thoughtworks.xstream.XStream;
+import com.thoughtworks.xstream.io.HierarchicalStreamWriter;
+import com.thoughtworks.xstream.io.HierarchicalStreamReader;
+import com.thoughtworks.xstream.converters.Converter;
+import com.thoughtworks.xstream.converters.MarshallingContext;
+import com.thoughtworks.xstream.converters.UnmarshallingContext;
 import rpiplanner.model.*;
 import rpiplanner.xml.RequisiteSetConverter;
 
@@ -43,6 +48,34 @@ public class XML {
         if(planReader == null){
             planReader = new XStream();
             initializeXStream(planReader);
+            planReader.registerConverter(new Converter(){
+
+                public void marshal(Object o, HierarchicalStreamWriter hierarchicalStreamWriter, MarshallingContext marshallingContext) {
+                    Course c = (Course)o;
+                    hierarchicalStreamWriter.startNode("catalogNumber");
+                    hierarchicalStreamWriter.setValue(c.getCatalogNumber());
+                    hierarchicalStreamWriter.endNode();
+                }
+
+                public Object unmarshal(HierarchicalStreamReader hierarchicalStreamReader, UnmarshallingContext unmarshallingContext) {
+                    while(hierarchicalStreamReader.hasMoreChildren()){
+                        hierarchicalStreamReader.moveDown();
+                        if(hierarchicalStreamReader.getNodeName().equals("catalogNumber")){
+                            Course read = Course.get(hierarchicalStreamReader.getValue());
+                            hierarchicalStreamReader.moveUp();
+                            return read;
+                        }
+                        else
+                            hierarchicalStreamReader.moveUp();
+                    }
+                    // couldn't find course
+                    return null;
+                }
+
+                public boolean canConvert(Class aClass) {
+                    return Course.class.equals(aClass);
+                }
+            });
         }
         return planReader;
     }
