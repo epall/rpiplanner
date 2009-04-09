@@ -20,15 +20,13 @@ public class Fixtures {
 	
 	public static CourseDatabase getCourseDatabase(){
 		if(db == null){
-            XStream xs = Main.initializeXStream();
-
 			InputStream databaseStream;
 			try {
 				databaseStream = new FileInputStream("course_database.xml");
 			} catch (FileNotFoundException e) {
 				throw new RuntimeException(e);
 			}
-			DefaultCourseDatabase mainDB = (DefaultCourseDatabase) xs.fromXML(databaseStream);
+			DefaultCourseDatabase mainDB = (DefaultCourseDatabase) XML.readDefaultCourseDatabase(databaseStream);
 
 			ShadowCourseDatabase shadow = new ShadowCourseDatabase();
 			shadow.shadow(mainDB);

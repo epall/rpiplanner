@@ -53,17 +53,13 @@ import org.jdesktop.application.Action;
 import org.jdesktop.application.Application;
 import org.jdesktop.application.ApplicationContext;
 
-import rpiplanner.model.Course;
 import rpiplanner.model.DefaultCourseDatabase;
 import rpiplanner.model.PlanOfStudy;
 import rpiplanner.model.ShadowCourseDatabase;
 import rpiplanner.model.Term;
-import rpiplanner.model.YearPart;
 import rpiplanner.view.AboutDialog;
-import rpiplanner.xml.RequisiteSetConverter;
 
 import com.apple.eawt.ApplicationEvent;
-import com.thoughtworks.xstream.XStream;
 
 /**
  *
@@ -73,7 +69,6 @@ public class Main extends Application {
     private MainFrame mainFrame;
     private static POSController planControl;
     private static ShadowCourseDatabase courseDatabase;
-	private static XStream xs;
 	private boolean newPlan;
 
 	// for testing
@@ -174,10 +169,10 @@ public class Main extends Application {
 				e2.printStackTrace();
 				System.exit(1);
 			}
-		DefaultCourseDatabase mainDB = (DefaultCourseDatabase) xs.fromXML(databaseStream);
+		DefaultCourseDatabase mainDB = XML.readDefaultCourseDatabase(databaseStream);
 		ShadowCourseDatabase shadowDB = null;
 		try {
-			shadowDB = (ShadowCourseDatabase) (xs.fromXML(new FileInputStream(new File(localStorageDir, "course_database.xml"))));
+			shadowDB = XML.readShadowCourseDatabase(new FileInputStream(new File(localStorageDir, "course_database.xml")));
 		} catch (IOException e1) {
 			shadowDB = new ShadowCourseDatabase();
 		}
@@ -188,7 +183,7 @@ public class Main extends Application {
 		courseDatabase = shadowDB;
 
 		try {
-			planControl.setPlan((PlanOfStudy) xs.fromXML(new FileInputStream(new File(localStorageDir, "default_pos.xml"))));
+			planControl.setPlan(XML.readPlan(new FileInputStream(new File(localStorageDir, "default_pos.xml"))));
 			if(planControl.getPlan().numTerms() == SchoolInformation.getDefaultSemesterCount()){
 				// legacy updating
 				Term apTerm = new Term();
@@ -232,8 +227,8 @@ public class Main extends Application {
     		File cdbFile = new File(localStorageDir, "course_database.xml");
        		File planFile = new File(localStorageDir, "default_pos.xml");
        		
-			xs.toXML(courseDatabase, new FileOutputStream(cdbFile));
-			xs.toXML(planControl.getPlan(), new FileOutputStream(planFile));
+			XML.writeShadowCourseDatabase(courseDatabase, new FileOutputStream(cdbFile));
+			XML.writePlan(planControl.getPlan(), new FileOutputStream(planFile));
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -250,7 +245,7 @@ public class Main extends Application {
             	file = new File(file.getPath()+".plan");
             }
     		try {
-				xs.toXML(planControl.getPlan(), new FileOutputStream(file));
+				XML.writePlan(planControl.getPlan(), new FileOutputStream(file));
 			} catch (FileNotFoundException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -275,7 +270,7 @@ public class Main extends Application {
 	    if (option == JFileChooser.APPROVE_OPTION) {
 	    	File file = chooser.getSelectedFile();
 			try {
-				planControl.setPlan((PlanOfStudy) xs.fromXML(new FileInputStream(file)));
+				planControl.setPlan(XML.readPlan(new FileInputStream(file)));
 				planControl.validatePlan();
 			} catch (FileNotFoundException e) {
 				// TODO Auto-generated catch block
@@ -293,7 +288,7 @@ public class Main extends Application {
                 return null;
             }
         }
-		PlanOfStudy plan = (PlanOfStudy) xs.fromXML(in);
+		PlanOfStudy plan = (PlanOfStudy) XML.readPlan(in);
 		try {
 			in.close();
 		} catch (IOException e) {}
@@ -359,19 +354,7 @@ public class Main extends Application {
     	AboutDialog.showDialog(mainFrame);
     }
 
-    public static XStream initializeXStream(){
-        xs = new XStream();
-        xs.processAnnotations(PlanOfStudy.class);
-        xs.processAnnotations(Course.class);
-        xs.processAnnotations(DefaultCourseDatabase.class);
-        xs.processAnnotations(ShadowCourseDatabase.class);
-        xs.processAnnotations(YearPart.class);
-        xs.registerConverter(new RequisiteSetConverter(xs.getMapper()));
-        return xs;
-    }
-
 	public static void main(String[] args) {
-        initializeXStream();
         Application.launch(Main.class, args);
     }
 }
