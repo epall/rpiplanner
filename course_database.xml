@@ -18354,9 +18354,9 @@ end</validationCode>
   </degree>
   <degree>
     <id>1</id>
-    <name>B.S. Computer &amp; Systems Engineering 2011</name>
+    <name>B.S. Computer &amp; Systems Engineering 2010</name>
     <school>School of Engineering</school>
-    <validationCode>degree "B.S. Computer &amp; Systems Engineering 2011", 1 do |d|
+    <validationCode>degree "B.S. Computer &amp; Systems Engineering 2010", 1 do |d|
   d.section "Communication Requirement" do |s|
     s.valid_courses do |course|
       course.description =~ /(communication|writing)[- ]intensive/i
@@ -18488,13 +18488,14 @@ end</validationCode>
   end
 
   d.total_credits = 128
-end</validationCode>
+end
+</validationCode>
   </degree>
   <degree>
     <id>5</id>
-    <name>B.S. Computer &amp; Systems Engineering 2011 [revised]</name>
+    <name>B.S. Computer &amp; Systems Engineering 2011</name>
     <school>School of Engineering</school>
-    <validationCode>degree "B.S. Computer &amp; Systems Engineering 2011 [revised]", 5 do |d|
+    <validationCode>degree "B.S. Computer &amp; Systems Engineering 2011", 5 do |d|
   d.section "Communication Requirement" do |s|
     s.valid_courses do |course|
       course.description =~ /(communication|writing)[- ]intensive/i
