@@ -37,6 +37,7 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
 
 import javax.print.attribute.HashPrintRequestAttributeSet;
 import javax.print.attribute.PrintRequestAttributeSet;
@@ -53,10 +54,7 @@ import org.jdesktop.application.Action;
 import org.jdesktop.application.Application;
 import org.jdesktop.application.ApplicationContext;
 
-import rpiplanner.model.DefaultCourseDatabase;
-import rpiplanner.model.PlanOfStudy;
-import rpiplanner.model.ShadowCourseDatabase;
-import rpiplanner.model.Term;
+import rpiplanner.model.*;
 import rpiplanner.view.AboutDialog;
 
 import com.apple.eawt.ApplicationEvent;
@@ -127,6 +125,7 @@ public class Main extends Application {
 		
 		fileMenu.add(getAction("savePlan"));
 		fileMenu.add(getAction("loadPlan"));
+		fileMenu.add(getAction("newPlan"));
 		fileMenu.add(getAction("print"));
 		fileMenu.add(getAction("details"));
 		
@@ -277,6 +276,18 @@ public class Main extends Application {
 				e.printStackTrace();
 			}
 	    }
+    }
+
+    @Action
+    public void newPlan(){
+        planControl.setPlan(new PlanOfStudy());
+        mainFrame.gettingStarted().addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowDeactivated(WindowEvent e) {
+                planControl.loadTemplate();
+                planControl.validatePlan();
+            }
+        });
     }
 
 	public static PlanOfStudy loadPlanFromFile(String filePath) {
