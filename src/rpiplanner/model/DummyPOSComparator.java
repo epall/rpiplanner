@@ -36,7 +36,22 @@ public class DummyPOSComparator implements Comparator {
 		}
 		
 		else {
-			return 0;
+            String lCatNum = l.getFirst().getCatalogNumber();
+            String rCatNum = r.getFirst().getCatalogNumber();
+            String lSub = lCatNum.substring(lCatNum.indexOf('-') + 1, lCatNum.length());
+            String rSub = rCatNum.substring(rCatNum.indexOf('-') + 1, rCatNum.length());
+
+            if (Integer.parseInt(lSub) < Integer.parseInt(rSub)) {
+                return -1;
+            }
+
+            else if (Integer.parseInt(lSub) > Integer.parseInt(rSub)) {
+                return 1;
+            }
+
+            else {
+			    return 0;
+            }
 		}
 	}
 }

@@ -373,10 +373,13 @@ public class POSController {
 		}
 		
 		courseFound = true;
+        ArrayList<Course> coursesWithTerm = new ArrayList<Course>();
+        coursesWithTerm.addAll(coursesUpToTerm);
+        coursesWithTerm.addAll(getPlan().getTerms().get(term).getCourses());
 		for (int k = 0; k < course.getCorequisites().size(); k++) {
 			courseFound = false;
-			for (int i = 0; i < getPlan().getTerms().get(term).getCourses().size(); i++) {
-				if (course.getCorequisites().get(k).equals(getPlan().getTerms().get(term).getCourses().get(i))) {
+			for (int i = 0; i < coursesWithTerm.size(); i++) {
+				if (course.getCorequisites().get(k).equals(coursesWithTerm.get(i))) {
 					courseFound = true;
 					break;
 				}
@@ -384,7 +387,7 @@ public class POSController {
 			
 			if (!courseFound) {
 				for (int j = 0; j < dummyPOS.size(); j++) {
-					if (dummyPOS.get(j).getSecond() == term) {
+					if (dummyPOS.get(j).getSecond() <= term) {
 						if (course.getCorequisites().get(k).equals(dummyPOS.get(j).getFirst())) {
 							courseFound = true;
 							break;

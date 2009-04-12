@@ -45,7 +45,8 @@ public class RequisiteFiller {
 
 	private void fillCourses(ArrayList<Pair<Course, Integer>> dummyPOS) {
 		Collections.sort(dummyPOS, new DummyPOSComparator());
-		       
+		                                for(int i =0; i<dummyPOS.size();i++)
+                                            System.out.println(dummyPOS.get(i).getFirst() + " " + dummyPOS.get(i).getSecond());
 		for (int i = 0; i < dummyPOS.size(); i++) {
 			int term = dummyPOS.get(i).getSecond();
 			boolean validToPushBack = true;
