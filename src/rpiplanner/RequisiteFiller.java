@@ -51,16 +51,23 @@ public class RequisiteFiller {
 			boolean adjusted = false;
 			boolean validToPushBack = true;
 			while (validToPushBack) {
-				validToPushBack = controller.wouldCourseBeValid(dummyPOS.get(i).getFirst(), term, dummyPOS) && term > 0;
-				if (!validToPushBack) {
-					if ((dummyPOS.get(i).getFirst().getAvailableTerms().length < 2) && (dummyPOS.get(i).getFirst().getAvailableTerms()[0] != controller.getPlan().getTerm(term).getTerm())) {
-						validToPushBack = controller.wouldCourseBeValid(dummyPOS.get(i).getFirst(), term - 1, dummyPOS) && term > 0;
-					}
-				}
-				
+				validToPushBack = (term > 0) && (controller.wouldCourseBeValid(dummyPOS.get(i).getFirst(), term - 1, dummyPOS));
+
+                if (validToPushBack) {
+                    if ((dummyPOS.get(i).getFirst().getAvailableTerms().length < 2) && (dummyPOS.get(i).getFirst().getAvailableTerms()[0] != controller.getPlan().getTerm(term).getTerm())) {
+                        validToPushBack = (term > 0) && (controller.wouldCourseBeValid(dummyPOS.get(i).getFirst(), term - 2, dummyPOS));
+                        if (validToPushBack) {
+                            term--;
+                        }
+                    }
+                }
+
 				if (validToPushBack) {
 					term--;
-					adjusted = true;
+
+                    if (!adjusted) {
+					    adjusted = true;
+                    }
 				}
 			}
 			
