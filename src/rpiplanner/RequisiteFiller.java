@@ -45,34 +45,31 @@ public class RequisiteFiller {
 
 	private void fillCourses(ArrayList<Pair<Course, Integer>> dummyPOS) {
 		Collections.sort(dummyPOS, new DummyPOSComparator());
-		
+		       
 		for (int i = 0; i < dummyPOS.size(); i++) {
 			int term = dummyPOS.get(i).getSecond();
-			boolean adjusted = false;
 			boolean validToPushBack = true;
+            boolean alreadyPushed = false;
 			while (validToPushBack) {
-				validToPushBack = (term > 0) && (controller.wouldCourseBeValid(dummyPOS.get(i).getFirst(), term - 1, dummyPOS));
+				validToPushBack = (term > 1) && (controller.wouldCourseBeValid(dummyPOS.get(i).getFirst(), term - 1, dummyPOS));
+                alreadyPushed = false;
 
                 if (validToPushBack) {
-                    if ((dummyPOS.get(i).getFirst().getAvailableTerms().length < 2) && (dummyPOS.get(i).getFirst().getAvailableTerms()[0] != controller.getPlan().getTerm(term).getTerm())) {
-                        validToPushBack = (term > 0) && (controller.wouldCourseBeValid(dummyPOS.get(i).getFirst(), term - 2, dummyPOS));
-                        if (validToPushBack) {
-                            term--;
+                    if ((dummyPOS.get(i).getFirst().getAvailableTerms().length < 2) && (dummyPOS.get(i).getFirst().getAvailableTerms()[0] != controller.getPlan().getTerm(term - 1).getTerm())) {
+                        if ((term > 2) && (controller.wouldCourseBeValid(dummyPOS.get(i).getFirst(), term - 2, dummyPOS))) {
+                            term -= 2;
+                            alreadyPushed = true;
+                        }
+
+                        else {
+                            validToPushBack = false;
                         }
                     }
                 }
 
-				if (validToPushBack) {
+				if (validToPushBack && !alreadyPushed) {
 					term--;
-
-                    if (!adjusted) {
-					    adjusted = true;
-                    }
 				}
-			}
-			
-			if (adjusted) {
-				term++;
 			}
 			
 			dummyPOS.get(i).setSecond(term);
@@ -94,7 +91,7 @@ public class RequisiteFiller {
 					term--;
 				}
 				
-				if (term - 1 >= 0) {
+				if (term - 1 > 0) {
 					fillRequisites(reqs.get(i), term - 1, dummyPOS);
 				}
 				
