@@ -19,12 +19,11 @@
 
 package rpiplanner.view;
 
-import java.awt.Component;
-import java.awt.Dimension;
-import java.awt.Graphics;
+import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionAdapter;
+import java.util.List;
 
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -32,6 +31,7 @@ import javax.swing.TransferHandler;
 
 import rpiplanner.POSController;
 import rpiplanner.model.Course;
+import rpiplanner.model.ValidationError;
 
 import com.jgoodies.forms.factories.FormFactory;
 import com.jgoodies.forms.layout.CellConstraints;
@@ -118,4 +118,23 @@ public class CourseDisplay extends JPanel {
 		getComponent(0).paint(g);
 		text.setSize(oldSize);
 	}
+
+    public void setErrors(List<ValidationError> errors) {
+        StringBuilder tooltip = new StringBuilder();
+        // now set its properties
+        ValidationError worstError = new ValidationError(ValidationError.Type.NONE, "");
+        for(ValidationError e : errors){
+            if(e.compareTo(worstError) > 0)
+                worstError = e;
+            tooltip.append(e.getMessage());
+            tooltip.append("\n");
+        }
+        if(worstError.getType() == ValidationError.Type.ERROR)
+            this.setBackground(Color.red);
+        else if(worstError.getType() == ValidationError.Type.WARNING)
+            this.setBackground(Color.yellow);
+        else
+            this.setBackground(null);
+        this.setToolTipText(tooltip.toString());
+    }
 }

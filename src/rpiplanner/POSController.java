@@ -253,8 +253,6 @@ public class POSController {
 			Term currentTerm = plan.getTerm(i);
 			int courseIdx = 0;
 			for(Course course : currentTerm.getCourses()){
-				StringBuilder tooltip = new StringBuilder();
-
 				boolean availableInTerm = false;
 				for(YearPart y : course.getAvailableTerms()){
 					if(y == currentTerm.getTerm())
@@ -277,21 +275,7 @@ public class POSController {
 				thisErrors = course.getPrerequisites().check(plan, i-1, true);
 				errors.addAll(thisErrors);
 				
-				// now set its properties
-				ValidationError worstError = new ValidationError(Type.NONE, "");
-				for(ValidationError e : errors){
-					if(e.compareTo(worstError) > 0)
-						worstError = e;
-					tooltip.append(e.getMessage());
-					tooltip.append("\n");
-				}
-				if(worstError.getType() == Type.ERROR)
-					cd.setBackground(Color.red);
-				else if(worstError.getType() == Type.WARNING)
-					cd.setBackground(Color.yellow);
-				else
-					cd.setBackground(null);
-				cd.setToolTipText(tooltip.toString());
+                cd.setErrors(errors);
 				courseIdx++;
 			}
 		}
