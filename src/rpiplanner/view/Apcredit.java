@@ -8,6 +8,8 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.*;
 
+import rpiplanner.model.PlanOfStudy;
+
 /**
  * Created by IntelliJ IDEA.
  * User: Administrator
@@ -24,6 +26,7 @@ public class Apcredit {
     private JButton CancelButton;
     private JButton OkButton;
     private JPanel panel1;
+    private PlanOfStudy plan;
     public int numtests = 0;
 
 
@@ -48,8 +51,19 @@ public class Apcredit {
                 panel1.add(new JPanel tests);
                 numtests++;
             }
-
         });
+    }
+
+    public JPanel getPanel1() {
+        return panel1;
+    }
+
+    public JButton getOkButton() {
+        return OkButton;
+    }
+    
+    public void setPlanOfStudy(PlanOfStudy plan){
+        this.plan = plan;
     }
 
     public static void main(String[] args) {
@@ -68,4 +82,3 @@ public class Apcredit {
         }
     }
 }
-

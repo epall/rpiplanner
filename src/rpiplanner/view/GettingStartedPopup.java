@@ -19,7 +19,7 @@
 
 package rpiplanner.view;
 
-import java.awt.BorderLayout;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
@@ -52,15 +52,28 @@ public class GettingStartedPopup extends JDialog {
 	private POSController controller;
     private JPanel contentPane;
     private JButton nextButton;
+    private Apcredit apcreditPanel;
 
-    // for Swing Designer
 	public GettingStartedPopup() {
-        setContentPane(contentPane);
+        apcreditPanel = new Apcredit();
+        apcreditPanel.setPlanOfStudy(controller.getPlan());
+        final JPanel cards = new JPanel();
+        cards.setLayout(new CardLayout());
+
+        cards.add(contentPane, "degree");
+        cards.add(apcreditPanel.getPanel1(), "apcredit");
+        setContentPane(cards);
 		setTitle("Getting Started");
 
         nextButton.addActionListener(new ActionListener() {
             public void actionPerformed(final ActionEvent e) {
                 save();
+                ((CardLayout)cards.getLayout()).show(cards, "apcredit");
+            }
+        });
+
+        apcreditPanel.getOkButton().addActionListener(new ActionListener() {
+            public void actionPerformed(final ActionEvent e) {
                 setVisible(false);
             }
         });
