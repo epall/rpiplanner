@@ -267,6 +267,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/RPI Planner.iml" filepath="$PROJECT_DIR$/RPI Planner.iml" />
     </modules>
+  </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_1_5" assert-keyword="true" jdk-15="true" project-jdk-name="1.5" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
