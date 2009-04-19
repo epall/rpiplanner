@@ -24,14 +24,10 @@ public class Apcredit {
     private JButton CancelButton;
     private JButton OkButton;
     private JPanel panel1;
+    public int numtests = 0;
 
 
     public Apcredit() {
-        //AddApButton.addActionListener(new ActionListener() {
-        //  public void actionPerformed(final ActionEvent e) {
-        //   System.out.println("This does something.");
-        //   }
-        // });
         CancelButton.addActionListener(new ActionListener() {
             public void actionPerformed(final ActionEvent e) {
                 System.out.println("this also does something.");
@@ -39,6 +35,7 @@ public class Apcredit {
         });
         OkButton.addActionListener(new ActionListener() {
             public void actionPerformed(final ActionEvent e) {
+                save();
             }
         });
         AddApButton.addActionListener(new ActionListener() {
@@ -48,7 +45,8 @@ public class Apcredit {
                 c.gridy = 2;
                 c.gridheight = 1;
                 c.gridwidth = 1;
-                tests.add(new JButton("foo"), c);
+                panel1.add(new JPanel tests);
+                numtests++;
             }
 
         });
@@ -62,5 +60,12 @@ public class Apcredit {
         window.setVisible(true);
     }
 
+    private void save(){
+        //in here, put in code that passes the apcredits selected by the person to apcredit.rb, which then puts them into the POS as the AP term
+        for (int i = 0; i < numtests; i++)
+        {
+            
+        }
+    }
 }
 

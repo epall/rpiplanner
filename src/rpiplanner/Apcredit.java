@@ -2,6 +2,8 @@ package rpiplanner;
 
 import rpiplanner.model.Course;
 
+import java.util.ArrayList;
+
 /**
  * Created by IntelliJ IDEA.
  * User: okeefm
@@ -10,5 +12,5 @@ import rpiplanner.model.Course;
  * To change this template use File | Settings | File Templates.
  */
 public interface Apcredit {
-    Course[] getcourse(String test, int score);
+    Course[] getcourse(ArrayList tests, ArrayList scores);
 }
