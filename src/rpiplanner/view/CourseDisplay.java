@@ -114,7 +114,7 @@ public class CourseDisplay extends JPanel {
 		addMouseListener(new MouseAdapter() {
 			public void mouseClicked(MouseEvent e) {
 				if(e.getButton() == MouseEvent.BUTTON3) {
-					if (course != null) {
+					if (course != null && getBackground() == Color.red) {
 						JPopupMenu contextMenu = new JPopupMenu();
 						
 						contextMenu.add("Fill Requisites").addActionListener(new ActionListener() {
