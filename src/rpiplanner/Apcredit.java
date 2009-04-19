@@ -12,5 +12,5 @@ import java.util.ArrayList;
  * To change this template use File | Settings | File Templates.
  */
 public interface Apcredit {
-    Course[] getcourse(ArrayList tests, ArrayList scores);
+    Course[] getcourse(ArrayList<String> tests, ArrayList<String> scores);
 }

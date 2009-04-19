@@ -72,6 +72,12 @@ public class GettingStartedPopup extends JDialog {
             }
         });
 
+        apcreditPanel.getCancelButton().addActionListener(new ActionListener() {
+            public void actionPerformed(final ActionEvent e) {
+                setVisible(false);
+            }
+        });
+
         apcreditPanel.getOkButton().addActionListener(new ActionListener() {
             public void actionPerformed(final ActionEvent e) {
                 setVisible(false);
