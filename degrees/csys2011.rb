@@ -1,4 +1,4 @@
-degree "B.S. Computer & Systems Engineering 2011 [revised]", 5 do |d|
+degree "B.S. Computer & Systems Engineering 2011", 5 do |d|
   d.school "School of Engineering"
 
   d.section "Communication Requirement" do |s|

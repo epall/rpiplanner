@@ -147,6 +147,11 @@ public class DegreeProgressPanel extends JPanel {
             public void propertyChange(PropertyChangeEvent evt) {
                 POSController source = (POSController)evt.getSource();
                 plan = source.getPlan();
+                plan.addPropertyChangeListener("courses", new PropertyChangeListener(){
+                    public void propertyChange(PropertyChangeEvent evt) {
+                        validatePlan();
+                    }
+                });
                 rebuildSections();
                 validatePlan();
             }

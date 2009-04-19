@@ -49,7 +49,12 @@ public class Course implements Comparable<Course> {
      */
     protected Course(){}
     
-    
+
+
+    public Course(String catalogNumber){
+        this.catalogNumber = catalogNumber;
+    }
+
 	public String getTitle() {
 		return title;
 	}
