@@ -56,7 +56,6 @@ public class GettingStartedPopup extends JDialog {
 
 	public GettingStartedPopup() {
         apcreditPanel = new Apcredit();
-        apcreditPanel.setPlanOfStudy(controller.getPlan());
         final JPanel cards = new JPanel();
         cards.setLayout(new CardLayout());
 
@@ -88,6 +87,7 @@ public class GettingStartedPopup extends JDialog {
 	public GettingStartedPopup(POSController controller){
 		this();
 		this.controller = controller;
+        apcreditPanel.setPlanOfStudy(controller.getPlan());
 		majorComboBox.setModel(controller.getDegreeListModel());
 		if (controller.getPlan().getDegrees() != null
 				&& controller.getPlan().getDegrees().size() > 0) {

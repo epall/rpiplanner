@@ -101,7 +101,7 @@ public class Apcredit {
             }
         }
 
-        Course[] apcourses = RubyEnvironment.getInstance().getApcredit().getcourse(tests, scores);
+        Course[] apcourses = RubyEnvironment.getInstance().convertAPCourses(tests, scores);
         plan.getTerm(0).getCourses().clear();
         for (Course c : apcourses)
         {
