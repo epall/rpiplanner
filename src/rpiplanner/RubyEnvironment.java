@@ -75,7 +75,7 @@ public class RubyEnvironment {
 		rubyEnvironment.defineVariable(databaseGlob);
 	}
 
-    public Course[] convertAPCourses(ArrayList<String> tests, ArrayList<String> scores){
+    public Course[] convertAPCourses(ArrayList<String> tests, ArrayList<Integer> scores){
         try {
             rubyEnvironment.executeScript(readFileAsString("apcredit.rb"), "apcredit.rb");
         } catch (IOException e) {

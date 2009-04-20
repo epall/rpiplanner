@@ -83,21 +83,15 @@ public class Apcredit {
 
     private void save(){
         ArrayList<String> tests = new ArrayList<String>();
-        ArrayList<String> scores = new ArrayList<String> ();
+        ArrayList<Integer> scores = new ArrayList<Integer>();
 
-        String test = null;
         for(Component c : this.tests.getComponents()){
             JComboBox box = (JComboBox)c;
-            if (test == null)
-            {
-                test = (String)box.getSelectedItem();
+            if(box.getModel().getElementAt(0).equals("Test")){
+                tests.add((String)box.getSelectedItem());
             }
-            else
-            {
-                String score = (String)box.getSelectedItem();
-                tests.add(test);
-                scores.add(score);
-                test = null;
+            else{
+                scores.add(Integer.valueOf((String)box.getSelectedItem()));
             }
         }
 
