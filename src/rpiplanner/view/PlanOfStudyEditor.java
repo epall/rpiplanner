@@ -99,9 +99,13 @@ public class PlanOfStudyEditor extends JPanel {
 		planPanel = new JPanel();
 		planPanel.setLayout(new FormLayout("pref:grow(1.0), pref:grow(1.0)",
 				"top:min, top:min, top:min, top:min, top:min"));
-		add(planPanel, new CellConstraints("2, 2, 1, 1, fill, top"));
 		planPanel.setName("semesters");
-		
+
+        final JScrollPane planPanelScroll = new JScrollPane(planPanel,
+                JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+        planPanelScroll.setBorder(null);
+        add(planPanelScroll, new CellConstraints("2, 2, 1, 1, fill, top"));
+
 		final JPanel apcreditPanel = new JPanel();
 		apcreditPanel.setBorder(new CompoundBorder(new EmptyBorder(5,5,5,5), new EtchedBorder()));
 		apcreditPanel.setLayout(new BoxLayout(apcreditPanel, BoxLayout.Y_AXIS));

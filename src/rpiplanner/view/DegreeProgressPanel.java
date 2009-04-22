@@ -16,6 +16,7 @@ import javax.swing.JProgressBar;
 import javax.swing.JScrollPane;
 import javax.swing.ScrollPaneConstants;
 import javax.swing.Scrollable;
+import javax.swing.border.EmptyBorder;
 
 import org.jruby.exceptions.RaiseException;
 
@@ -56,6 +57,7 @@ public class DegreeProgressPanel extends JPanel {
 		add(degreeComboBox, new CellConstraints("1, 2, 1, 1, fill, fill"));
 
 		progressBar = new JProgressBar();
+        progressBar.setBorder(new EmptyBorder(0, 3, 3, 2));
 		add(progressBar, new CellConstraints("1, 1, 1, 1, fill, fill"));
 
 		final JScrollPane scrollPane = new JScrollPane();
