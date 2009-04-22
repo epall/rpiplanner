@@ -35,6 +35,10 @@ import javax.swing.border.TitledBorder;
 import rpiplanner.model.Course;
 import rpiplanner.model.CourseDatabase;
 import rpiplanner.model.Degree;
+
+import rpiplanner.model.Pair;
+import rpiplanner.model.Term;
+
 import rpiplanner.model.PlanOfStudy;
 import rpiplanner.model.Term;
 import rpiplanner.model.ValidationError;
@@ -295,6 +299,89 @@ public class POSController {
                 plan.rebuildTerms();
 			}
 		}
+	}
+	
+	public int getTerm(Course toFind) {
+		List<Term> terms = getPlan().getTerms();
+		
+		for (int i = 0; i < terms.size(); i++) {
+			ArrayList<Course> termCourses = terms.get(i).getCourses();
+			
+			for (int k = 0; k < termCourses.size(); k++) {
+				if (toFind.equals(termCourses.get(k))) {
+					return i;
+				}
+			}
+		}
+		
+		return -1;
+	}
+	
+	public Term getTerm(int termNum) {
+		if (termNum >= 0 && getPlan().getTerms().size() > termNum) {
+			return getPlan().getTerms().get(termNum);
+		}
+		
+		else {
+			return null;
+		}
+	}
+	
+	public boolean wouldCourseBeValid(Course course, int term, ArrayList<Pair<Course, Integer>> dummyPOS) {
+		ArrayList<Course> coursesUpToTerm = new ArrayList<Course>();
+		for (int i = 0; i < term; i++) {
+			for (int k = 0; k < getPlan().getTerms().get(i).getCourses().size(); k++) {
+				coursesUpToTerm.add(getPlan().getTerms().get(i).getCourses().get(k));
+			}
+		}
+		
+		for (int i = 0; i < dummyPOS.size(); i++) {
+			if (dummyPOS.get(i).getSecond() < term) {
+				coursesUpToTerm.add(dummyPOS.get(i).getFirst());
+			}
+		}
+		
+		boolean courseFound = false;
+		for (int i = 0; i < course.getPrerequisites().size(); i++) {
+			courseFound = false;
+			for (int k = 0; k < coursesUpToTerm.size(); k++) {
+				if (course.getPrerequisites().get(i).equals(coursesUpToTerm.get(k)) || course.getPrerequisites().get(i).getCatalogNumber().equals("MATH-1500")) {
+					courseFound = true;
+					break;
+				}
+			}
+			
+			if (!courseFound) {
+				return false;
+			}
+		}
+		
+		courseFound = true;
+        ArrayList<Course> coursesWithTerm = new ArrayList<Course>();
+        coursesWithTerm.addAll(coursesUpToTerm);
+        coursesWithTerm.addAll(getPlan().getTerms().get(term).getCourses());
+		for (int k = 0; k < course.getCorequisites().size(); k++) {
+			courseFound = false;
+			for (int i = 0; i < coursesWithTerm.size(); i++) {
+				if (course.getCorequisites().get(k).equals(coursesWithTerm.get(i))) {
+					courseFound = true;
+					break;
+				}
+			}
+			
+			if (!courseFound) {
+				for (int j = 0; j < dummyPOS.size(); j++) {
+					if (dummyPOS.get(j).getSecond() <= term) {
+						if (course.getCorequisites().get(k).equals(dummyPOS.get(j).getFirst())) {
+							courseFound = true;
+							break;
+						}
+					}
+				}
+			}
+		}
+		
+		return courseFound;
 	}
 
 	public void setSearchCourses(Course[] potentialCourses) {
