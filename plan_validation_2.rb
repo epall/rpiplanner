@@ -70,6 +70,14 @@ class SectionDescriptor
     if @courses
       applied_courses += potential_courses.select{ |course| @courses.include? course.catalogNumber}
       missing_courses += str_to_course(@courses - applied_courses.map(&:catalogNumber))
+      
+      # check for countsAs stuff
+      potential_courses.each do |potential|
+        if missing_courses.find {|course| course.catalogNumber == potential.countsAs }
+          applied_courses << potential
+          missing_courses.reject!{|course| course.catalogNumber == potential.countsAs }
+        end
+      end
     elsif @credits
       running = 0
       potential_courses.each do |course|
@@ -90,7 +98,8 @@ class SectionDescriptor
       messages << "Minimum of #{@count} courses" if running < @count
     end
     if @one_of
-      candidates = potential_courses.select { |course| @one_of.include? course.catalogNumber}
+      candidates = potential_courses.select { |course| (@one_of.include? course.catalogNumber) || 
+        (@one_of.include? course.countsAs)}
       if candidates.size == 0
         missing_courses += str_to_course(@one_of)
       else
