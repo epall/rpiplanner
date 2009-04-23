@@ -103,15 +103,9 @@ public class Main extends Application {
         }
         mainFrame.setVisible(true);
         if (newPlan) {
-            mainFrame.gettingStarted().addWindowListener(new WindowAdapter() {
-                @Override
-                public void windowDeactivated(WindowEvent e) {
-                    planControl.loadTemplate();
-                    planControl.validatePlan();
-                }
-            });
+            mainFrame.gettingStarted();
         }
-	planControl.validatePlan();
+    	planControl.validatePlan();
     }
     
     private javax.swing.Action getAction(String actionName) {
@@ -281,13 +275,7 @@ public class Main extends Application {
     @Action
     public void newPlan(){
         planControl.setPlan(new PlanOfStudy());
-        mainFrame.gettingStarted().addWindowListener(new WindowAdapter() {
-            @Override
-            public void windowDeactivated(WindowEvent e) {
-                planControl.loadTemplate();
-                planControl.validatePlan();
-            }
-        });
+        mainFrame.gettingStarted();
     }
 
 	public static PlanOfStudy loadPlanFromFile(String filePath) {

@@ -88,8 +88,10 @@ public class GettingStartedPopup extends JDialog {
 		ArrayList<Degree> degrees = controller.getPlan().getDegrees();
 		if(degrees.contains(majorComboBox.getSelectedItem()) || majorComboBox.getSelectedItem() == null)
 			;
-		else
+		else{
 			controller.addDegree((Degree)majorComboBox.getSelectedItem());
+            controller.loadTemplate();
+        }
 		controller.validatePlan();
 	}
 }
