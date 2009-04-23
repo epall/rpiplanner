@@ -14,7 +14,7 @@ class Apcredit
 
       if test == "Computer Science AB"  && score == 5
         apcourses << str_to_course("CSCI-1100")
-        apcourses << str_to_course("CHEM-1200")
+        apcourses << str_to_course("CSCI-1200")
       elsif test == "Computer Science AB" && score == 4
         apcourses << str_to_course("CSCI-1100")
       elsif test == "Computer Science A" && score == 5
@@ -59,10 +59,10 @@ class Apcredit
         apcourses << str_to_course("MGMT-2100")
       elsif test == "Statistics" && score == 5
         apcourses << str_to_course("MGMT-2100")
-      elsif test == "Psychology" && score == 4
+      elsif test == "Psychology" && score == 5
         apcourses << str_to_course("PSYC-1200")
       elsif test == "Psychology" && score == 4
-        apcourses << str_to_course("PSYC-1200")
+        apcourses << str_to_course("PSYC-1200")    
       elsif test == "Physics C: Mechanics" && score == 4
         if tests.include?("Physics C: Electricity/Magnetism")
           pos = tests.index("Physics C: Electricity/Magnetism")
