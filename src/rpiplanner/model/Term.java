@@ -71,6 +71,11 @@ public class Term {
 		plan.fireCoursesChanged();
 	}
 
+    public void clear(){
+        courses.clear();
+        plan.fireCoursesChanged();
+    }
+
 	public void replace(int index, Course replacement) {
 		courses.set(index, replacement);
 		plan.fireCoursesChanged();

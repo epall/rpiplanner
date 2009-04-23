@@ -96,10 +96,10 @@ public class Apcredit {
         }
 
         Course[] apcourses = RubyEnvironment.getInstance().convertAPCourses(tests, scores);
-        plan.getTerm(0).getCourses().clear();
+        plan.getTerm(0).clear();
         for (Course c : apcourses)
         {
-            plan.getTerm(0).getCourses().add(c);
+            plan.getTerm(0).add(c);
         }
 
     }

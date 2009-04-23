@@ -8,9 +8,9 @@ class Apcredit
     i = 0
 
     tests.each do
-      i+=1
       test = tests[i]
       score = scores[i]
+      i+=1
 
       if test == "Computer Science AB"  && score == 5
         apcourses << str_to_course("CSCI-1100")
