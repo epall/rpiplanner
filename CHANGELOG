@@ -1,3 +1,9 @@
+2009-04-22 1.3
+Automatic prerequisite resolution added. Right click on course with unsatisfied prereqs and select "Fill Requisites".
+Cleaned up CSYS 2011 revision issues. 2010 is the old one, 2011 is the revised one.
+New Plan menu item to start over with a clean plan of study
+Made main view scroll if the semesters overflow off the screen
+
 2009-03-17 1.2.1
 Small GUI tweaks to improve user experience.
 Added revised B.S. Computer & Systems Engineering 2011 degree.
