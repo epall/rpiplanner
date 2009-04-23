@@ -62,7 +62,55 @@ class Apcredit
       elsif test == "Psychology" && score == 5
         apcourses << str_to_course("PSYC-1200")
       elsif test == "Psychology" && score == 4
-        apcourses << str_to_course("PSYC-1200")    
+        apcourses << str_to_course("PSYC-1200")
+      elsif test == "Microeconomics & Macroeconomics" && score == 3
+        apcourses << str_to_course("ECON-1201")
+      elsif test == "Microeconomics & Macroeconomics" && score == 4
+        apcourses << str_to_course("ECON-1200")
+      elsif test == "Microeconomics & Macroeconomics" && score == 5
+        apcourses << str_to_course("ECON-1200")
+      elsif test == "French" && score == 4
+        apcourses << str_to_course("LANG-1000")
+        apcourses << str_to_course("LANG-1111")
+      elsif test == "French" && score == 5
+        apcourses << str_to_course("LANG-1000")
+        apcourses << str_to_course("LANG-1111")
+        apcourses << str_to_course("LANG-1121")
+      elsif test == "Spanish" && score == 4
+        apcourses << str_to_course("LANG-1000")
+        apcourses << str_to_course("LANG-1511")
+      elsif test == "Spanish" && score == 5
+        apcourses << str_to_course("LANG-1000")
+        apcourses << str_to_course("LANG-1511")
+        apcourses << str_to_course("LANG-1521")
+      elsif test == "Japanese" && score == 4
+        apcourses << str_to_course("LANG-1000")
+        apcourses << str_to_course("LANG-1211")
+      elsif test == "Japanese" && score == 5
+        apcourses << str_to_course("LANG-1000")
+        apcourses << str_to_course("LANG-1211")
+        apcourses << str_to_course("LANG-1221")
+      elsif test == "Chinese" && score == 4
+        apcourses << str_to_course("LANG-1000")
+        apcourses << str_to_course("LANG-1411")
+      elsif test == "Chinese" && score == 5
+        apcourses << str_to_course("LANG-1000")
+        apcourses << str_to_course("LANG-1411")
+        apcourses << str_to_course("LANG-1421")
+      elsif test == "German" && score == 4
+        apcourses << str_to_course("LANG-1000")
+        apcourses << str_to_course("LANG-1311")
+      elsif test == "German" && score == 5
+        apcourses << str_to_course("LANG-1000")
+        apcourses << str_to_course("LANG-1311")
+        apcourses << str_to_course("LANG-1321")
+      elsif test == "Italian" && score == 4
+        apcourses << str_to_course("LANG-1000")
+        apcourses << str_to_course("LANG-1611")
+      elsif test == "Italian" && score == 5
+        apcourses << str_to_course("LANG-1000")
+        apcourses << str_to_course("LANG-1611")
+        apcourses << str_to_course("LANG-1621")
       elsif test == "Physics C: Mechanics" && score == 4
         if tests.include?("Physics C: Electricity/Magnetism")
           pos = tests.index("Physics C: Electricity/Magnetism")

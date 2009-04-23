@@ -3,7 +3,6 @@
     <catalogNumber>CHEM-1110</catalogNumber>
     <countsAs>CHEM-1100</countsAs>
   </course>
-</courses>
 
 <course>
     <title>Social Science Elective</title>
@@ -98,11 +97,28 @@
     <credits>0</credits>
   </course>
 
+<course>
+    <title>French II (non-credit)</title>
+    <description>French II (placement purposes only).</description>
+    <catalogNumber>LANG-1121</catalogNumber>
+    <countsAs>LANG-1120</countsAs>
+    <credits>0</credits>
+  </course>
+
+
   <course>
     <title>Spanish I (non-credit)</title>
     <description>Spanish I (placement purposes only).</description>
-    <catalogNumber>LANG-1501</catalogNumber>
+    <catalogNumber>LANG-1511</catalogNumber>
     <countsAs>LANG-1510</countsAs>
+    <credits>0</credits>
+  </course>
+
+  <course>
+    <title>Spanish II (non-credit)</title>
+    <description>Spanish II (placement purposes only).</description>
+    <catalogNumber>LANG-1521</catalogNumber>
+    <countsAs>LANG-1520</countsAs>
     <credits>0</credits>
   </course>
 
@@ -115,10 +131,26 @@
   </course>
 
   <course>
+    <title>Japanese II (non-credit)</title>
+    <description>Japanese I (placement purposes only).</description>
+    <catalogNumber>LANG-1221</catalogNumber>
+    <countsAs>LANG-1220</countsAs>
+    <credits>0</credits>
+  </course>
+
+  <course>
     <title>Chinese I (non-credit)</title>
     <description>Chinese I (placement purposes only).</description>
     <catalogNumber>LANG-1411</catalogNumber>
     <countsAs>LANG-1410</countsAs>
+    <credits>0</credits>
+  </course>
+
+  <course>
+    <title>Chinese II (non-credit)</title>
+    <description>Chinese II (placement purposes only).</description>
+    <catalogNumber>LANG-1421</catalogNumber>
+    <countsAs>LANG-1420</countsAs>
     <credits>0</credits>
   </course>
 
@@ -131,9 +163,27 @@
   </course>
 
   <course>
+    <title>German II (non-credit)</title>
+    <description>German II (placement purposes only).</description>
+    <catalogNumber>LANG-1321</catalogNumber>
+    <countsAs>LANG-1320</countsAs>
+    <credits>0</credits>
+  </course>
+
+  <course>
     <title>Italian I (non-credit)</title>
     <description>Italian I (placement purposes only).</description>
     <catalogNumber>LANG-1611</catalogNumber>
     <countsAs>LANG-1610</countsAs>
     <credits>0</credits>
   </course>
+
+  <course>
+    <title>Italian II (non-credit)</title>
+    <description>Italian II (placement purposes only).</description>
+    <catalogNumber>LANG-1621</catalogNumber>
+    <countsAs>LANG-1620</countsAs>
+    <credits>0</credits>
+  </course>
+
+</courses>
