@@ -3361,6 +3361,7 @@ NOTE: Unclear when course is offered
     <description>Covers the same lecture material as CHEM-1100, but laboratory experiments will be more technique-oriented to provide better preparation for students who plan to take future laboratory courses in chemistry.&#160; Students cannot get credit for both this course and CHEM-1100.</description>
     <department>Chemistry and Chemical Biology</department>
     <catalogNumber>CHEM-1110</catalogNumber>
+    <countsAs>CHEM-1100</countsAs>
     <credits>4</credits>
     <availableTerms>
       <year-part>FALL</year-part>
