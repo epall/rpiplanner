@@ -18224,6 +18224,216 @@ NOTE: Unclear when course is offered
     <isOfficial>true</isOfficial>
     <doubleCount>false</doubleCount>
   </course>
+  <course>
+    <title>Japanese II (non-credit)</title>
+    <description>Japanese I (placement purposes only).</description>
+    <catalogNumber>LANG-1221</catalogNumber>
+    <credits>0</credits>
+    <countsAs>LANG-1220</countsAs>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>French I (non-credit)</title>
+    <description>French I (placement purposes only).</description>
+    <catalogNumber>LANG-1111</catalogNumber>
+    <credits>0</credits>
+    <countsAs>LANG-1110</countsAs>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Environmental Science Elective</title>
+    <description>Environmental science elective credits.</description>
+    <department>Interdisciplinary Environmental</department>
+    <catalogNumber>IENV-1000</catalogNumber>
+    <credits>4</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>German II (non-credit)</title>
+    <description>German II (placement purposes only).</description>
+    <catalogNumber>LANG-1321</catalogNumber>
+    <credits>0</credits>
+    <countsAs>LANG-1320</countsAs>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Japanese I (non-credit)</title>
+    <description>Japanese I (placement purposes only).</description>
+    <catalogNumber>LANG-1211</catalogNumber>
+    <credits>0</credits>
+    <countsAs>LANG-1210</countsAs>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Humanitites Elective</title>
+    <description>Humanities elective credits.</description>
+    <department>Science, Technology and Society</department>
+    <catalogNumber>STSH-1000</catalogNumber>
+    <credits>4</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>German I (non-credit)</title>
+    <description>German I (placement purposes only).</description>
+    <catalogNumber>LANG-1311</catalogNumber>
+    <credits>0</credits>
+    <countsAs>LANG-1310</countsAs>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Chinese II (non-credit)</title>
+    <description>Chinese II (placement purposes only).</description>
+    <catalogNumber>LANG-1421</catalogNumber>
+    <credits>0</credits>
+    <countsAs>LANG-1420</countsAs>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Chinese I (non-credit)</title>
+    <description>Chinese I (placement purposes only).</description>
+    <catalogNumber>LANG-1411</catalogNumber>
+    <credits>0</credits>
+    <countsAs>LANG-1410</countsAs>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Spanish II (non-credit)</title>
+    <description>Spanish II (placement purposes only).</description>
+    <catalogNumber>LANG-1521</catalogNumber>
+    <credits>0</credits>
+    <countsAs>LANG-1520</countsAs>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Italian II (non-credit)</title>
+    <description>Italian II (placement purposes only).</description>
+    <catalogNumber>LANG-1621</catalogNumber>
+    <credits>0</credits>
+    <countsAs>LANG-1620</countsAs>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Spanish I (non-credit)</title>
+    <description>Spanish I (placement purposes only).</description>
+    <catalogNumber>LANG-1511</catalogNumber>
+    <credits>0</credits>
+    <countsAs>LANG-1510</countsAs>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Italian I (non-credit)</title>
+    <description>Italian I (placement purposes only).</description>
+    <catalogNumber>LANG-1611</catalogNumber>
+    <credits>0</credits>
+    <countsAs>LANG-1610</countsAs>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Social Science Elective</title>
+    <description>Social Science elective Credits.</description>
+    <department>Science, Technology and Society</department>
+    <catalogNumber>STSS-1000</catalogNumber>
+    <credits>4</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Writing Elective</title>
+    <description>Humanities writing elective credits.</description>
+    <department>Writing</department>
+    <catalogNumber>WRIT-1000</catalogNumber>
+    <credits>4</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Introduction to Economics (non-credit)</title>
+    <description>Introduction to Economics (placement purposes only).</description>
+    <department>Economics</department>
+    <catalogNumber>ECON-1201</catalogNumber>
+    <credits>0</credits>
+    <countsAs>ECON-1200</countsAs>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>French II (non-credit)</title>
+    <description>French II (placement purposes only).</description>
+    <catalogNumber>LANG-1121</catalogNumber>
+    <credits>0</credits>
+    <countsAs>LANG-1120</countsAs>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Language Elective</title>
+    <description>Foreign Language elective credits.</description>
+    <department>Foreign Languages</department>
+    <catalogNumber>LANG-1000</catalogNumber>
+    <credits>4</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Biology Elective </title>
+    <description>Biology elective credits.</description>
+    <department>Biology</department>
+    <catalogNumber>BIOL-1000</catalogNumber>
+    <credits>4</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
   <degree>
     <id>2</id>
     <name>B.S. Computer Science 2011</name>

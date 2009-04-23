@@ -88,10 +88,12 @@ public class Apcredit {
         for(Component c : this.tests.getComponents()){
             JComboBox box = (JComboBox)c;
             if(box.getModel().getElementAt(0).equals("Test")){
-                tests.add((String)box.getSelectedItem());
+                if(!("Test".equals(box.getSelectedItem())))
+                    tests.add((String)box.getSelectedItem());
             }
             else{
-                scores.add(Integer.valueOf((String)box.getSelectedItem()));
+                if(!("Score".equals(box.getSelectedItem())))
+                    scores.add(Integer.valueOf((String)box.getSelectedItem()));
             }
         }
 
