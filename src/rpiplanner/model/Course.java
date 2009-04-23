@@ -111,6 +111,12 @@ public class Course implements Comparable<Course> {
 			return catalogNumber.equals(((Course)obj).catalogNumber);
 		return false;
 	}
+
+    public boolean doesCountAs(Course req) {
+        if(countsAs == null)
+            return false;
+        return countsAs.equals(req.catalogNumber);
+    }
 	@Override
 	public int hashCode() {
         return catalogNumber.hashCode();

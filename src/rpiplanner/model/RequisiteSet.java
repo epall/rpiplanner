@@ -27,7 +27,7 @@ public class RequisiteSet extends ArrayList<Course> {
 				for (int j = 0; j <= termEnd; j++) {
 					Term testTerm = plan.getTerm(j);
 					for (Course c : testTerm.getCourses()) {
-						if (req.equals(c))
+						if (req.equals(c) || c.doesCountAs(req))
 							found = true;
 					}
 				}
@@ -53,7 +53,7 @@ public class RequisiteSet extends ArrayList<Course> {
 				for (int j = 0; j <= termEnd; j++) {
 					Term testTerm = plan.getTerm(j);
 					for (Course c : testTerm.getCourses()) {
-						if (req.equals(c))
+						if (req.equals(c) || c.doesCountAs(req))
 							found = true;
 					}
 				}
