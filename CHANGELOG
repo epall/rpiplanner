@@ -1,3 +1,6 @@
+2009-04-24 1.3.1
+New AP Credit entry form in Getting Started dialog to automatically translate from AP scores to RPI credit
+
 2009-04-22 1.3
 Automatic prerequisite resolution added. Right click on course with unsatisfied prereqs and select "Fill Requisites".
 Cleaned up CSYS 2011 revision issues. 2010 is the old one, 2011 is the revised one.

@@ -31,6 +31,7 @@ public class Course implements Comparable<Course> {
     protected RequisiteSet prerequisites;
     protected RequisiteSet corequisites;
     protected YearPart[] availableTerms;
+    protected String countsAs;
 
     /**
      * If this course is taken more than once, does each instance count
@@ -98,7 +99,11 @@ public class Course implements Comparable<Course> {
 	public YearPart[] getAvailableTerms() {
 		return availableTerms;
 	}
-	public String toString(){
+    public String getCountsAs() {
+        return countsAs;
+    }
+
+    public String toString(){
 		if(title == null)
 			return catalogNumber;
 		return catalogNumber + " - " + title;
@@ -112,6 +117,12 @@ public class Course implements Comparable<Course> {
 			return catalogNumber.equals(((Course)obj).catalogNumber);
 		return false;
 	}
+
+    public boolean doesCountAs(Course req) {
+        if(countsAs == null)
+            return false;
+        return countsAs.equals(req.catalogNumber);
+    }
 	@Override
 	public int hashCode() {
         return catalogNumber.hashCode();

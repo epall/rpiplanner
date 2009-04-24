@@ -9,6 +9,44 @@ HYPHENATED_CATALOG_NUMBER = /([A-Z0-9-]{9})/
 
 require 'ripcatalog' unless File.exist?('catalog')
 
+# load patches in preparation
+file = File.new( "patches.xml" )
+doc = Hpricot(file.read)
+
+@database_patches = {}
+(doc/"course").each do |course|
+  @database_patches[course.at("catalognumber").inner_text] = course
+end
+
+def patch_course(course)
+  patch = @database_patches[course[:catalogNumber]]
+  return if patch.nil?
+  
+  if patch/"countsas"
+    course[:countsAs] = (patch % "countsas").inner_text
+  end
+  
+  @database_patches.delete(course[:catalogNumber])
+end
+
+def finish_patches(builder)
+  @database_patches.each do |catalogNumber, patch|
+    builder.course {
+      ['title', 'description', 'department', 'catalogNumber', 
+        'credits', 'isOfficial', 'doubleCount', 'countsAs'].each do |field|
+        builder.tag!(field, (patch % field.downcase).inner_text) if patch % field.downcase
+      end
+      
+      builder.availableTerms {
+        builder.tag!('year-part', 'FALL')
+        builder.tag!('year-part', 'SPRING')
+      }
+    }
+  end
+end
+
+# catalog parsing stuff
+
 def parse_course(rawdoc)
   doc = Hpricot(rawdoc)
   course = {}
@@ -465,6 +503,8 @@ xml = builder.courses do |b|
       begin
         year_parts = parse_year_parts(course[:offered])
         requisites = parse_requisites(course[:requisites])
+        patch_course(course)
+        
         b.course do |b|
           description += "\n\n" unless year_parts[:messages].empty? && requisites[:messages].empty?
           year_parts[:messages].each do |msg|
@@ -477,6 +517,7 @@ xml = builder.courses do |b|
           b.description(description)
           b.department(course[:department])
           b.catalogNumber(course[:catalogNumber])
+          b.countsAs(course[:countsAs]) if course[:countsAs]
           b.credits(course[:credits] || 0)
           
           b.prerequisites('required' => requisites[:requiredP], 'pickOne' => requisites[:pickOneP]){
@@ -513,6 +554,8 @@ xml = builder.courses do |b|
       end
     end
   end
+  
+  finish_patches(b)
   
   Dir.glob("degrees/*.rb").each do |file|
     contents = File.new(file, 'r')

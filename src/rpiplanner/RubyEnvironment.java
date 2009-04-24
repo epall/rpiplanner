@@ -6,14 +6,17 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
 
 import org.jruby.Ruby;
 import org.jruby.RubyHash;
 import org.jruby.javasupport.JavaEmbedUtils;
 import org.jruby.runtime.GlobalVariable;
+import org.jruby.runtime.builtin.IRubyObject;
 
 import rpiplanner.model.CourseDatabase;
 import rpiplanner.model.Degree;
+import rpiplanner.model.Course;
 import rpiplanner.validation.DegreeValidator;
 
 public class RubyEnvironment {
@@ -72,6 +75,19 @@ public class RubyEnvironment {
 		rubyEnvironment.defineVariable(databaseGlob);
 	}
 
+    public Course[] convertAPCourses(ArrayList<String> tests, ArrayList<Integer> scores){
+        try {
+            rubyEnvironment.executeScript(readFileAsString("apcredit.rb"), "apcredit.rb");
+        } catch (IOException e) {
+            return null;
+        }
+        IRubyObject instance = rubyEnvironment.getClass("Apcredit").newInstance(rubyEnvironment.getCurrentContext(), new IRubyObject[0], null);
+        IRubyObject[] args = new IRubyObject[2];
+        args[0] = JavaEmbedUtils.javaToRuby(rubyEnvironment, tests);
+        args[1] = JavaEmbedUtils.javaToRuby(rubyEnvironment, scores);
+        return (Course[])JavaEmbedUtils.rubyToJava(rubyEnvironment, instance.callMethod(rubyEnvironment.getCurrentContext(), "getcourse", args), Course[].class);
+    }
+
 	public DegreeValidator getDegreeDescriptor(Degree degree) {
 		DegreeValidator desc = (DegreeValidator) degrees.get(degree.getID());
 
@@ -88,4 +104,6 @@ public class RubyEnvironment {
 		
 		return desc;
 	}
+
+
 }
