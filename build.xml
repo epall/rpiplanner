@@ -22,6 +22,7 @@
 			<fileset dir=".">
 				<include name="course_database.xml"/>
 				<include name="plan_validation_2.rb"/>
+				<include name="apcredit.rb"/>
 				<include name="*.png"/>
 				<include name="degrees/*.plan" />
 			</fileset>
