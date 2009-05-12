@@ -149,40 +149,10 @@ public class Degree {
             humSSSection.potentialCourses.add(Course.get("STSS", "4840"));
         }
         
-        ArrayList<String> upperDepthPrefix = new ArrayList<String>();
-        ArrayList<String> lowerDepthPrefix = new ArrayList<String>();
-
-        //Get Courses that apply to humanities
-        for (Course course : courseList) {
-            //Humanities
-            if (course.getPrefix() == "LANG" || course.getPrefix() == "LITR" || course.getPrefix() == "WRIT"
-                    || course.getPrefix() == "COMM"|| course.getPrefix() == "ARTS" || course.getPrefix() == "PHIL"
-                    || course.getPrefix() == "STSH"){
-                numHum++;
-                humCourses.add(course);
-                if (course.getLevel() == "4000")  {}
-                if (course.getLevel() == "4000" || course.getLevel() == "2000" || course.getLevel() == "6000")
-                    if (!upperDepthPrefix.contains(course.getPrefix())) upperDepthPrefix.add(course.getPrefix()); //Depth Requirement list
-                else lowerDepthPrefix.add(course.getPrefix());
-            }
-            if (course.getPrefix() == "IHSS"){
-                numIHSS++;
-                humCourses.add(course);
-                if (course.getLevel() == "4000"){}
-                if (course.getLevel() == "4000" || course.getLevel() == "2000" || course.getLevel() == "6000")
-                    if (!upperDepthPrefix.contains(course.getPrefix())) upperDepthPrefix.add(course.getPrefix()); //Depth Requirement list
-            }
-            if (course.getPrefix() == "ECON" || course.getPrefix() == "STSS" || course.getPrefix() == "PSYC"){
-                numSS++;
-                humCourses.add(course);
-                if (course.getLevel() == "4000") {}
-                if (course.getLevel() == "4000" || course.getLevel() == "2000" || course.getLevel() == "6000"){
-                    if (!upperDepthPrefix.contains(course.getPrefix())) upperDepthPrefix.add(course.getPrefix()); //Depth Requirement list
-                }else{
-                    
-                }
-            }
-        }
+        //TODO: Check Depth Requirement
+        //TODO: Check 4000 level requirement
+        //TODO: Check Humanities
+        //TODO: Check Social Sciences
 
 
         return humSSSection;
