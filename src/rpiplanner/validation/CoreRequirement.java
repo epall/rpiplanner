@@ -153,8 +153,6 @@ public class CoreRequirement
 
                     }
                 }
-            if (newSection.missingCourses.size() == 0) newSection.isSuccess = true;
-            else newSection.isSuccess = false;
         return newSection;
     }
 }

@@ -159,11 +159,9 @@ public class RestrictedRequirement
                 //TODO: Add support for if more than one course that meets the requirement is taken.
                 if (newSection.appliedCourses.size() == getNumCourses() && newSection.credits >= getNumCredits())
                 {
-                    newSection.isSuccess = true;
                     newSection.missingCourses.clear();
                     newSection.potentialCourses.clear();
                 }
-                else newSection.isSuccess = false;
         return newSection;
     }
 }

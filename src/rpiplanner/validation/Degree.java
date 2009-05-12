@@ -185,15 +185,6 @@ public class Degree {
         }
 
 
-
-
-
-
-
-        if (pdReq && depthReq) humSSSection.isSuccess = true;
-        else humSSSection.isSuccess = false;
-
-
         return humSSSection;
     }
 
