@@ -114,4 +114,11 @@ public class ShadowCourseDatabase implements CourseDatabase {
 	public Degree getDegree(long id) {
 		return shadowee.getDegree(id);
 	}
+
+    protected Object readResolve(){
+        instance = this;
+        if(courses == null)
+            courses = new HashSet<Course>();
+        return this;
+    }
 }

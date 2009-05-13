@@ -44,7 +44,6 @@
     <jar href="beansbinding-1.2.1.jar"/>
     <jar href="appframework.jar"/>
     <jar href="forms-1.2.0.jar"/>
-    <jar href="bsf.jar"/>
     <jar href="jruby.jar"/>
     <jar href="xpp3_min-1.1.4c.jar"/>
     <jar href="swingx-0.9.4.jar"/>

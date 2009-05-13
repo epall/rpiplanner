@@ -1,6 +1,21 @@
+2009-04-24 1.3.1
+New AP Credit entry form in Getting Started dialog to automatically translate from AP scores to RPI credit
+
+2009-04-22 1.3
+Automatic prerequisite resolution added. Right click on course with unsatisfied prereqs and select "Fill Requisites".
+Cleaned up CSYS 2011 revision issues. 2010 is the old one, 2011 is the revised one.
+New Plan menu item to start over with a clean plan of study
+Made main view scroll if the semesters overflow off the screen
+
+2009-03-17 1.2.1
+Small GUI tweaks to improve user experience.
+Added revised B.S. Computer & Systems Engineering 2011 degree.
+Expanded course database further.
+Fixed some bugs in B.S. Computer Science 2011
+
 2009-02-27 1.2.1rc1
 Release candidate because we're still experimenting with IntelliJ IDEA.
-Added B.S. Materials Engineering degree and associated courses to database.
+Added B.S. Materials Engineering 2011 degree and associated courses to database.
 Expanded course database to include several more departments.
 Fixed bug when loading a saved plan.
 

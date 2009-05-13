@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<jnlp
+  spec="1.5+"
+  codebase="http://rpiplanner.svallens.com/app"
+  href="rpiplanner.jnlp">
+  <information>
+    <title>RPI Planner (development)</title>
+    <vendor>Eric Allen</vendor>
+    <homepage href="http://rpiplanner.svallens.com/"/>
+    <offline-allowed/> 
+    <!-- <association mime-type="application-x/riplanner-file" extensions="plan" /> -->
+    <shortcut online="false">
+      <desktop/>
+      <menu submenu="RPI"/>
+    </shortcut>
+  </information>
+  <security>
+      <all-permissions/>
+  </security>
+  <resources>
+    <j2se version="1.5.0+"/>
+    <property name="sun.swing.enableImprovedDragGesture" value="true"/>
+    <jar href="development.jar"/>
+    <jar href="swing-worker.jar"/>
+    <jar href="xstream-1.3.jar"/>
+    <jar href="beansbinding-1.2.1.jar"/>
+    <jar href="appframework.jar"/>
+    <jar href="forms-1.2.0.jar"/>
+    <jar href="jruby.jar"/>
+    <jar href="xpp3_min-1.1.4c.jar"/>
+    <jar href="swingx-0.9.4.jar"/>
+    <jar href="AppleJavaExtensions.jar"/>
+  </resources>
+  <application-desc main-class="rpiplanner.Main"/>
+</jnlp>

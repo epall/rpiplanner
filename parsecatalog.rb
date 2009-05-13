@@ -9,6 +9,44 @@ HYPHENATED_CATALOG_NUMBER = /([A-Z0-9-]{9})/
 
 require 'ripcatalog' unless File.exist?('catalog')
 
+# load patches in preparation
+file = File.new( "patches.xml" )
+doc = Hpricot(file.read)
+
+@database_patches = {}
+(doc/"course").each do |course|
+  @database_patches[course.at("catalognumber").inner_text] = course
+end
+
+def patch_course(course)
+  patch = @database_patches[course[:catalogNumber]]
+  return if patch.nil?
+  
+  if patch/"countsas"
+    course[:countsAs] = (patch % "countsas").inner_text
+  end
+  
+  @database_patches.delete(course[:catalogNumber])
+end
+
+def finish_patches(builder)
+  @database_patches.each do |catalogNumber, patch|
+    builder.course {
+      ['title', 'description', 'department', 'catalogNumber', 
+        'credits', 'isOfficial', 'doubleCount', 'countsAs'].each do |field|
+        builder.tag!(field, (patch % field.downcase).inner_text) if patch % field.downcase
+      end
+      
+      builder.availableTerms {
+        builder.tag!('year-part', 'FALL')
+        builder.tag!('year-part', 'SPRING')
+      }
+    }
+  end
+end
+
+# catalog parsing stuff
+
 def parse_course(rawdoc)
   doc = Hpricot(rawdoc)
   course = {}
@@ -61,7 +99,7 @@ def parse_year_parts(description)
     parts << 'SPRING'
   when /^Spring( term| semester)?( annually)?( only)?.?( .)?$/i
     parts << 'SPRING'
-  when /^(Offered )?Fall( term)?( annually)?.?( Includes laboratory experience.)?$/i
+  when /^(Offered )?Fall( term| semester)?( annually)?.?( Includes laboratory experience.)?$/i
     parts << 'FALL'
   when /^Offered on (sufficient )?demand.$/
     messages << "Offered on sufficient demand."
@@ -88,16 +126,23 @@ def parse_year_parts(description)
   when /^(Spring|Fall)(,| term),? even(-| )number(ed|s) years.$/i
     messages << "even-numbered years ONLY"
     parts << $1.upcase
-  when /^(Spring|Fall)(,| term)? (\(of )?even.?numbered years(\))?.$/i
+  when /^(Spring|Fall)(,| term)? (\(of )?even[.-]?numbered years(\))?.$/i
     messages << "even-numbered years ONLY"
     parts << $1.upcase
   when /^(Spring|Fall) term,? alternat(e|ive) years./
     messages << "alternate years ONLY"
     parts << $1.upcase
-  when /^(Graduate course; spring semester, alternate years|Spring term alternate years.)$/
+  when /^Fall, every other year.$/i
     messages << "alternate years ONLY"
     parts << 'FALL'
-  when /^(Offered )? ?(Fall and spring)? ?Annually.?$/
+  when /^(Graduate course; spring semester, alternate years|Spring term alternate years.)$/
+    messages << "alternate years ONLY"
+    parts << 'SPRING'
+  when /^Offered alternate years.$/
+    messages << "alternate years ONLY"
+    parts << 'FALL'
+    parts << 'SPRING'
+  when /^(Offered )? ?(Fall and spring)? ?Annually.?$/i
     messages << "Offered anually. Unclear which term"
     parts << 'FALL'
     parts << 'SPRING'
@@ -445,8 +490,9 @@ end
 
 builder = Builder::XmlMarkup.new(:indent => 2)
 xml = builder.courses do |b|
-  ['ARTS','BIOL','CSCI','CHEM','CHME','COMM','ECON','ECSE','ENGR','EPOW','IHSS','MANE',
-          'MATH','MTLE','PHYS','PSYC','STSH','STSS'].each do |dept|
+  ['ARTS','BIOL','BMED','CSCI','CHEM','CHME','CIVL','COMM','ECON','ECSE',
+    'ENGR','EPOW','IHSS','LITR','MANE','MATH','MTLE','PHYS','PSYC','STSH',
+    'STSS'].each do |dept|
     files = Dir["catalog/#{dept}/*.html"]
     files.each do |filename|
       file = File.open(filename, 'r')
@@ -457,6 +503,8 @@ xml = builder.courses do |b|
       begin
         year_parts = parse_year_parts(course[:offered])
         requisites = parse_requisites(course[:requisites])
+        patch_course(course)
+        
         b.course do |b|
           description += "\n\n" unless year_parts[:messages].empty? && requisites[:messages].empty?
           year_parts[:messages].each do |msg|
@@ -469,6 +517,7 @@ xml = builder.courses do |b|
           b.description(description)
           b.department(course[:department])
           b.catalogNumber(course[:catalogNumber])
+          b.countsAs(course[:countsAs]) if course[:countsAs]
           b.credits(course[:credits] || 0)
           
           b.prerequisites('required' => requisites[:requiredP], 'pickOne' => requisites[:pickOneP]){
@@ -497,7 +546,7 @@ xml = builder.courses do |b|
           
           # 4900 courses are seminars, independent study, etc and should be counted
           # each time they are taken
-          b.doubleCount(!!(course[:catalogNumber] =~ /....-49../))
+          b.doubleCount(!!(course[:catalogNumber] =~ /....-[46]9[46]0/))
         end
       rescue => err
         $stderr.puts "#{course[:catalogNumber]} - #{course[:title]}"
@@ -505,6 +554,8 @@ xml = builder.courses do |b|
       end
     end
   end
+  
+  finish_patches(b)
   
   Dir.glob("degrees/*.rb").each do |file|
     contents = File.new(file, 'r')

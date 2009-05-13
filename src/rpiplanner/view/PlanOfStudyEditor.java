@@ -85,7 +85,7 @@ public class PlanOfStudyEditor extends JPanel {
 				RowSpec.decode("fill:0dlu:grow(1.0)"),
 				FormFactory.RELATED_GAP_ROWSPEC,
 				FormFactory.DEFAULT_ROWSPEC,
-				RowSpec.decode("fill:150dlu")}));
+				RowSpec.decode("fill:110dlu")}));
 
 		final JPanel titlePanel = new JPanel();
 		add(titlePanel, new CellConstraints("1, 1, 3, 1, fill, fill"));
@@ -98,9 +98,13 @@ public class PlanOfStudyEditor extends JPanel {
 		planPanel = new JPanel();
 		planPanel.setLayout(new FormLayout("pref:grow(1.0), pref:grow(1.0)",
 				"top:min, top:min, top:min, top:min, top:min"));
-		add(planPanel, new CellConstraints("2, 2, 1, 1, fill, top"));
 		planPanel.setName("semesters");
-		
+
+        final JScrollPane planPanelScroll = new JScrollPane(planPanel,
+                JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+        planPanelScroll.setBorder(null);
+        add(planPanelScroll, new CellConstraints("2, 2, 1, 1, fill, top"));
+
 		final JPanel apcreditPanel = new JPanel();
 		apcreditPanel.setBorder(new CompoundBorder(new EmptyBorder(5,5,5,5), new EtchedBorder()));
 		apcreditPanel.setLayout(new BoxLayout(apcreditPanel, BoxLayout.Y_AXIS));
@@ -177,6 +181,7 @@ public class PlanOfStudyEditor extends JPanel {
 		descriptionTextArea.setWrapStyleWord(true);
 		descriptionTextArea.setName("description");
 		descriptionTextArea.setEditable(false);
+        descriptionTextArea.setFont(descriptionTextArea.getFont().deriveFont(11.0f));
 		add(courseDetailsPanel, new CellConstraints(2,5));
 
 		final JLabel basicInfo = new JLabel();

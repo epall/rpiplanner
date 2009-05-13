@@ -18,19 +18,33 @@
 
 package rpiplanner.view;
 
-import java.awt.Component;
-import java.awt.Dimension;
-import java.awt.Graphics;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionAdapter;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JPopupMenu;
 import javax.swing.TransferHandler;
 
 import rpiplanner.POSController;
+import rpiplanner.RequisiteFiller;
 import rpiplanner.model.Course;
+import rpiplanner.model.ValidationError;
+
+import rpiplanner.model.CourseComparator;
+import rpiplanner.model.DummyPOSComparator;
+import rpiplanner.model.RequisiteSet;
+import rpiplanner.model.Term;
+import rpiplanner.model.Pair;
+import rpiplanner.model.ValidationError;
+
 
 import com.jgoodies.forms.factories.FormFactory;
 import com.jgoodies.forms.layout.CellConstraints;
@@ -88,6 +102,25 @@ public class CourseDisplay extends JPanel {
 				handler.exportAsDrag(CourseDisplay.this, e, TransferHandler.MOVE);
 			}
 		});
+		
+		addMouseListener(new MouseAdapter() {
+			public void mouseClicked(MouseEvent e) {
+				if(e.getButton() == MouseEvent.BUTTON3) {
+					if (course != null && getBackground() == Color.red) {
+						JPopupMenu contextMenu = new JPopupMenu();
+						
+						contextMenu.add("Fill Requisites").addActionListener(new ActionListener() {
+							public void actionPerformed(ActionEvent e) {
+								new RequisiteFiller(controller, course);
+							}
+						});
+						
+						contextMenu.show(getParent(), e.getX() + 10, e.getY() + 30);
+					}
+				}
+			}
+		});
+		
 		addMouseListener(new MouseAdapter() {
 			public void mouseEntered(final MouseEvent e) {
 				controller.setDetailDisplay(course);
@@ -97,7 +130,7 @@ public class CourseDisplay extends JPanel {
 				controller.setDetailDisplay((Course)null);
 			}
 		});
-		//
+				//
 	}
 	
 	public void setText(String text){
@@ -117,4 +150,23 @@ public class CourseDisplay extends JPanel {
 		getComponent(0).paint(g);
 		text.setSize(oldSize);
 	}
+
+    public void setErrors(List<ValidationError> errors) {
+        StringBuilder tooltip = new StringBuilder();
+        // now set its properties
+        ValidationError worstError = new ValidationError(ValidationError.Type.NONE, "");
+        for(ValidationError e : errors){
+            if(e.compareTo(worstError) > 0)
+                worstError = e;
+            tooltip.append(e.getMessage());
+            tooltip.append("\n");
+        }
+        if(worstError.getType() == ValidationError.Type.ERROR)
+            this.setBackground(Color.red);
+        else if(worstError.getType() == ValidationError.Type.WARNING)
+            this.setBackground(Color.yellow);
+        else
+            this.setBackground(null);
+        this.setToolTipText(tooltip.toString());
+    }
 }

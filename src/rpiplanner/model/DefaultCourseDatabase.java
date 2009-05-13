@@ -79,7 +79,7 @@ public class DefaultCourseDatabase implements CourseDatabase {
 			if(c.getCatalogNumber().equals(catalogNumber))
 				return c;
 		}
-		return null;
+		return new Course(catalogNumber);
 	}
 
 	public Degree[] listDegrees() {

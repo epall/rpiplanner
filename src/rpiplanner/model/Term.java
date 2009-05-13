@@ -52,6 +52,15 @@ public class Term {
 	public void setTerm(YearPart term) {
 		this.term = term;
 	}
+	
+	public int getCredits() {
+		int credits = 0;
+		for (int i = 0; i < courses.size(); i++) {
+			credits += courses.get(i).getCredits();
+		}
+		
+		return credits;
+	}
 
 	public ArrayList<Course> getCourses() {
 		if(courses == null){
@@ -69,6 +78,11 @@ public class Term {
 		courses.remove(index);
 		plan.fireCoursesChanged();
 	}
+
+    public void clear(){
+        courses.clear();
+        plan.fireCoursesChanged();
+    }
 
 	public void replace(int index, Course replacement) {
 		courses.set(index, replacement);
