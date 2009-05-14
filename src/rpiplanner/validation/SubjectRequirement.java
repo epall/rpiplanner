@@ -24,7 +24,7 @@ import java.util.HashMap;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-public class SubjectRequirement
+public class SubjectRequirement implements IDegreeRequirement
 {
 
     String name;

@@ -27,7 +27,7 @@ import com.thoughtworks.xstream.annotations.XStreamImplicit;
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 
 @XStreamAlias("RestrictedRequirement")
-public class RestrictedRequirement
+public class RestrictedRequirement implements IDegreeRequirement
 {
     String name;
 	String description;
@@ -110,7 +110,7 @@ public class RestrictedRequirement
         numCourses = i;
     }
 
-    public DegreeSection validate(HashMap<Course, Integer> courseMap) {
+    public DegreeSection validate(HashMap<Course, Integer> courseMap, ArrayList<Course> courseList) {
         DegreeSection newSection = new DegreeSection();
                 newSection.name = getName();
                 newSection.description = getDescription();

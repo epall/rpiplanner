@@ -25,7 +25,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 
-public class CoreRequirement
+public class CoreRequirement implements IDegreeRequirement
 {
     String name;
 	String description;
@@ -94,7 +94,7 @@ public class CoreRequirement
             return null;
     }
 
-    public DegreeSection validate(HashMap<Course, Integer> courseMap) {
+    public DegreeSection validate(HashMap<Course, Integer> courseMap, ArrayList<Course> courseList) {
          DegreeSection newSection = new DegreeSection();
             newSection.name = this.getName();
             newSection.description = this.getDescription();
