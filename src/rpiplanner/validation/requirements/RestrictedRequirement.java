@@ -16,9 +16,11 @@
  *  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
 
-package rpiplanner.validation;
+package rpiplanner.validation.requirements;
 
 import rpiplanner.model.Course;
+import rpiplanner.validation.interfaces.Validatable;
+import rpiplanner.validation.degree.DegreeSection;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -27,7 +29,7 @@ import com.thoughtworks.xstream.annotations.XStreamImplicit;
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 
 @XStreamAlias("RestrictedRequirement")
-public class RestrictedRequirement implements IDegreeRequirement
+public class RestrictedRequirement implements Validatable
 {
     String name;
 	String description;
@@ -102,13 +104,7 @@ public class RestrictedRequirement implements IDegreeRequirement
         return replacementCourses.get(course);
     }
 
-    public void setNumCredits(int i) {
-        numCredits = i;
-    }
 
-    public void setNumCourses(int i) {
-        numCourses = i;
-    }
 
     public DegreeSection validate(HashMap<Course, Integer> courseMap, ArrayList<Course> courseList) {
         DegreeSection newSection = new DegreeSection();

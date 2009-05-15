@@ -16,15 +16,17 @@
  *  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
 
-package rpiplanner.validation;
+package rpiplanner.validation.requirements;
 
 import rpiplanner.model.Course;
+import rpiplanner.validation.interfaces.Validatable;
+import rpiplanner.validation.degree.DegreeSection;
+import rpiplanner.validation.Subject;
 
 import java.util.HashMap;
 import java.util.ArrayList;
-import java.util.Iterator;
 
-public class SubjectRequirement implements IDegreeRequirement
+public class SubjectRequirement implements Validatable
 {
 
     String name;
@@ -44,12 +46,23 @@ public class SubjectRequirement implements IDegreeRequirement
         return description;
     }
 
+    public void addSubject(String subjName, int minLevel, int maxLevel, int minNum, int maxNum){
+        subjectList.add(new Subject(subjName, minLevel, maxLevel, minNum, maxNum));
+    }
+
     public DegreeSection validate(HashMap<Course, Integer> courseMap, ArrayList<Course> courseList) {
         DegreeSection newSection = new DegreeSection();
         newSection.name = name;
         newSection.description = description;
 
-        //Check for specific courses required in the requirement
+        checkRequiredCourses(courseMap, newSection);
+     
+
+
+        return newSection;
+    }
+
+    private void checkRequiredCourses(HashMap<Course, Integer> courseMap, DegreeSection newSection) {
         for (Course course : reqCourse)
         {
                 if (courseMap.get(course) > 0)
@@ -64,13 +77,5 @@ public class SubjectRequirement implements IDegreeRequirement
                 }
 
         }
-        //Get courses that apply to the subjects
-        //If they exist check to see if requirement is fufilled
-        //Return the section
-
-        ArrayList<Course> applicableCourses = new ArrayList<Course>();
-
-
-        return newSection;
     }
 }

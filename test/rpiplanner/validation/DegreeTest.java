@@ -24,13 +24,12 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 import static org.junit.Assert.assertEquals;
 import rpiplanner.model.Course;
-import rpiplanner.model.PlanOfStudy;
-import rpiplanner.validation.RestrictedRequirement;
+import rpiplanner.validation.requirements.RestrictedRequirement;
+import rpiplanner.validation.requirements.CoreRequirement;
+import rpiplanner.validation.degree.Degree;
 import rpiplanner.Fixtures;
 
-import java.util.List;
 import java.util.ArrayList;
-import java.io.Console;
 
 public class DegreeTest
 {

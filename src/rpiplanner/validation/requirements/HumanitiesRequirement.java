@@ -16,14 +16,16 @@
  *  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
 
-package rpiplanner.validation;
+package rpiplanner.validation.requirements;
 
 import rpiplanner.model.Course;
+import rpiplanner.validation.interfaces.Validatable;
+import rpiplanner.validation.degree.DegreeSection;
 
 import java.util.HashMap;
 import java.util.ArrayList;
 
-public class HumanitiesRequirement implements IDegreeRequirement
+public class HumanitiesRequirement implements Validatable
 {
     public DegreeSection validate(HashMap<Course, Integer> courseMap, ArrayList<Course> courseList) {
         DegreeSection humSSSection = new DegreeSection();

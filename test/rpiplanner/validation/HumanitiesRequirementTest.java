@@ -24,8 +24,7 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 import static org.junit.Assert.assertEquals;
 import rpiplanner.model.Course;
-import rpiplanner.model.PlanOfStudy;
-import rpiplanner.validation.RestrictedRequirement;
+import rpiplanner.validation.degree.Degree;
 import rpiplanner.Fixtures;
 
 import java.util.ArrayList;

@@ -16,9 +16,10 @@
  *  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
 
-package rpiplanner.validation;
+package rpiplanner.validation.degree;
 
 import rpiplanner.model.Course;
+import rpiplanner.validation.interfaces.ISection;
 
 import java.util.ArrayList;
 
@@ -38,6 +39,10 @@ public class DegreeSection implements ISection
         appliedCourses = new ArrayList<Course>();
         potentialCourses = new ArrayList<Course>();
     }
+
+    public void addMissingCourse(Course course) {}
+    public void addAppliedCourse(Course course){}
+    public void addPotentialCourse(Course course) {}
 
     public boolean isSuccess()
     {

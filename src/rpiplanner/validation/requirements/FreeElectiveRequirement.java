@@ -16,22 +16,23 @@
  *  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
 
-package rpiplanner.validation;
+package rpiplanner.validation.requirements;
 
 import rpiplanner.model.Course;
+import rpiplanner.validation.interfaces.Validatable;
+import rpiplanner.validation.degree.DegreeSection;
 
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.ArrayList;
 
-public class FreeElectiveRequirement implements IDegreeRequirement
+public class FreeElectiveRequirement implements Validatable
 {
     public DegreeSection validate(HashMap<Course, Integer> courseMap, ArrayList<Course> courseList) {
         //Free Electives
         DegreeSection freeElective = new DegreeSection();
         freeElective.name = "Free Electives";
         freeElective.description = "Courses that are not applied to any other requirements";
-        for (Course course : courseMap) {
+        for (Course course : courseList) {
             if (courseMap.get(course) > 0) {
                 freeElective.appliedCourses.add(course);
                 freeElective.credits += course.getCredits();

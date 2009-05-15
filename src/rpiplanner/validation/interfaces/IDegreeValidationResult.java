@@ -16,13 +16,12 @@
  *  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
 
-package rpiplanner.validation;
+package rpiplanner.validation.interfaces;
 
-import rpiplanner.model.Course;
-import rpiplanner.validation.DegreeSection;
+import rpiplanner.validation.degree.DegreeSection;
 
 /**
- * A {@link DegreeValidator}'s <code>validate()</code> method will produce a
+ * A {@link rpiplanner.validation.DegreeValidator}'s <code>validate()</code> method will produce a
  * ValidationResult that can be queried for detailed results. Each
  * ValidationResult contains details for each section such as which courses
  * were missing, which courses were applied, which courses could possibly

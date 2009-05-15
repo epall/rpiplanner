@@ -16,11 +16,15 @@
  *  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
 
-package rpiplanner.validation;
+package rpiplanner.validation.degree;
 
 import com.thoughtworks.xstream.annotations.XStreamAlias;
-import rpiplanner.model.PlanOfStudy;
 import rpiplanner.model.Course;
+import rpiplanner.validation.interfaces.Validatable;
+import rpiplanner.validation.DegreeValidationResult;
+import rpiplanner.validation.degree.DegreeSection;
+import rpiplanner.validation.requirements.CoreRequirement;
+import rpiplanner.validation.requirements.RestrictedRequirement;
 
 import java.util.*;
 
@@ -28,7 +32,7 @@ public class Degree {
     @XStreamAlias("DegreeName")
     String name;
 
-    ArrayList<IDegreeRequirement> requirements = new ArrayList<IDegreeRequirement>();
+    ArrayList<Validatable> requirements = new ArrayList<Validatable>();
 
 
     //TODO: Supposed to take PlanOfStudy pos as argument
@@ -39,7 +43,7 @@ public class Degree {
         HashMap<Course, Integer> courseMap = createHash(courseList);
         int totalCredits = 0;
 
-        for (IDegreeRequirement requirement : requirements){
+        for (Validatable requirement : requirements){
             DegreeSection section = requirement.validate(courseMap, courseList);
             result.addSection(section);
         }
@@ -73,7 +77,7 @@ public class Degree {
         //restReq.add(req);
     }
 
-    public void addRequirement(IDegreeRequirement requirement){
+    public void addRequirement(Validatable requirement){
         requirements.add(requirement);
     }
 }

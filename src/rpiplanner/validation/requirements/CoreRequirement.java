@@ -16,16 +16,18 @@
  *  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
 
-package rpiplanner.validation;
+package rpiplanner.validation.requirements;
 
 import com.thoughtworks.xstream.annotations.XStreamImplicit;
 import rpiplanner.model.Course;
+import rpiplanner.validation.interfaces.Validatable;
+import rpiplanner.validation.degree.DegreeSection;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 
 
-public class CoreRequirement implements IDegreeRequirement
+public class CoreRequirement implements Validatable
 {
     String name;
 	String description;

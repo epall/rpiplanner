@@ -18,7 +18,8 @@
 
 package rpiplanner.validation;
 
-import rpiplanner.validation.ValidationResult;
+import rpiplanner.validation.interfaces.IDegreeValidationResult;
+import rpiplanner.validation.degree.DegreeSection;
 
 import java.util.HashMap;
 
