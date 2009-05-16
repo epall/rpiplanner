@@ -20,12 +20,12 @@ package rpiplanner.validation.requirements;
 
 import rpiplanner.model.Course;
 import rpiplanner.validation.degree.DegreeSection;
-import rpiplanner.validation.interfaces.Validatable;
+import rpiplanner.validation.interfaces.Requirement;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class FreeElectiveRequirement implements Validatable
+public class FreeElectiveRequirement extends Requirement
 {
     public DegreeSection validate(HashMap<Course, Integer> courseMap, ArrayList<Course> courseList) {
         //Free Electives

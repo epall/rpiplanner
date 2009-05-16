@@ -22,13 +22,13 @@ import com.thoughtworks.xstream.annotations.XStreamImplicit;
 import rpiplanner.model.Course;
 import rpiplanner.validation.degree.DegreeSection;
 import rpiplanner.validation.interfaces.Section;
-import rpiplanner.validation.interfaces.Validatable;
+import rpiplanner.validation.interfaces.Requirement;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 
 
-public class CoreRequirement implements Validatable
+public class CoreRequirement extends Requirement
 {
     String name;
 	String description;

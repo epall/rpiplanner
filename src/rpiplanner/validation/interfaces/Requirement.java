@@ -23,6 +23,6 @@ import rpiplanner.model.Course;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public interface Validatable {
-    public Section validate(HashMap<Course,Integer> courseMap, ArrayList<Course> courseList);
+public abstract class Requirement {
+    public abstract Section validate(HashMap<Course,Integer> courseMap, ArrayList<Course> courseList);
 }

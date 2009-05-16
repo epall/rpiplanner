@@ -22,13 +22,13 @@ import com.thoughtworks.xstream.annotations.XStreamAlias;
 import com.thoughtworks.xstream.annotations.XStreamImplicit;
 import rpiplanner.model.Course;
 import rpiplanner.validation.degree.DegreeSection;
-import rpiplanner.validation.interfaces.Validatable;
+import rpiplanner.validation.interfaces.Requirement;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 
 @XStreamAlias("RestrictedRequirement")
-public class RestrictedRequirement implements Validatable
+public class RestrictedRequirement extends Requirement
 {
     String name;
 	String description;

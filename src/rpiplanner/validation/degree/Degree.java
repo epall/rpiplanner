@@ -21,7 +21,7 @@ package rpiplanner.validation.degree;
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 import rpiplanner.model.Course;
 import rpiplanner.validation.interfaces.Section;
-import rpiplanner.validation.interfaces.Validatable;
+import rpiplanner.validation.interfaces.Requirement;
 import rpiplanner.validation.requirements.CoreRequirement;
 import rpiplanner.validation.requirements.RestrictedRequirement;
 
@@ -32,7 +32,7 @@ public class Degree {
     @XStreamAlias("DegreeName")
     String name;
 
-    ArrayList<Validatable> requirements = new ArrayList<Validatable>();
+    ArrayList<Requirement> requirements = new ArrayList<Requirement>();
 
 
     //TODO: Supposed to take PlanOfStudy pos as argument
@@ -43,7 +43,7 @@ public class Degree {
         HashMap<Course, Integer> courseMap = createHash(courseList);
         int totalCredits = 0;
 
-        for (Validatable requirement : requirements){
+        for (Requirement requirement : requirements){
             Section section = requirement.validate(courseMap, courseList);
             result.addSection(section);
         }
@@ -77,7 +77,7 @@ public class Degree {
         //restReq.add(req);
     }
 
-    public void addRequirement(Validatable requirement){
+    public void addRequirement(Requirement requirement){
         requirements.add(requirement);
     }
 }

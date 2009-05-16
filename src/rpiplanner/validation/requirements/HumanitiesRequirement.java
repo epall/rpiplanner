@@ -20,12 +20,12 @@ package rpiplanner.validation.requirements;
 
 import rpiplanner.model.Course;
 import rpiplanner.validation.degree.DegreeSection;
-import rpiplanner.validation.interfaces.Validatable;
+import rpiplanner.validation.interfaces.Requirement;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class HumanitiesRequirement implements Validatable
+public class HumanitiesRequirement extends Requirement
 {
     public DegreeSection validate(HashMap<Course, Integer> courseMap, ArrayList<Course> courseList) {
         DegreeSection humSSSection = new DegreeSection();
@@ -40,9 +40,20 @@ public class HumanitiesRequirement implements Validatable
         int numSS = 0;
 
         ArrayList<Course> humCourses = new ArrayList<Course>();
+        checkPD2(courseMap, courseList, humSSSection);
 
 
-        //Professional Development II
+        //TODO: Check Depth Requirement
+        //TODO: Check 4000 level requirement
+        //TODO: Check Humanities
+        //TODO: Check Social Sciences
+
+
+        return humSSSection;
+    }
+
+    private void checkPD2(HashMap<Course, Integer> courseMap, ArrayList<Course> courseList, DegreeSection humSSSection) {
+        Boolean pdReq;//Professional Development II
         if (courseMap.containsKey(Course.get("PSYC", "4170")) || courseMap.containsKey(Course.get("STSS", "4840"))) {
             if (courseMap.containsKey(Course.get("PSYC", "4170"))) {
                 courseMap.put(Course.get("PSYC", "4170"), 0);
@@ -62,13 +73,5 @@ public class HumanitiesRequirement implements Validatable
             humSSSection.addPotentialCourse(Course.get("PSYC", "4170"));
             humSSSection.addPotentialCourse(Course.get("STSS", "4840"));
         }
-
-        //TODO: Check Depth Requirement
-        //TODO: Check 4000 level requirement
-        //TODO: Check Humanities
-        //TODO: Check Social Sciences
-
-
-        return humSSSection;
     }
 }
