@@ -84,10 +84,8 @@ public class CoreRequirement extends Requirement
         return replacementCourses.containsKey(course);
     }
 
-    public Course[] getCourses() {
-        Course[] tmp = new Course[reqCourse.size()];
-        reqCourse.toArray(tmp);
-        return tmp;
+    public ArrayList<Course> getCourses() {
+        return reqCourse;
     }
 
     public Course[] getReplacementCourses(Course course) {
