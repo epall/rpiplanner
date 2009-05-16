@@ -1,4 +1,4 @@
-package rpiplanner.validation;
+package rpiplanner.validation.requirements;
 
 public class Subject {
 

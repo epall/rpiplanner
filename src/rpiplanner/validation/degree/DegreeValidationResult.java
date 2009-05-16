@@ -16,21 +16,21 @@
  *  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
 
-package rpiplanner.validation;
+package rpiplanner.validation.degree;
 
 import rpiplanner.validation.interfaces.IDegreeValidationResult;
-import rpiplanner.validation.degree.DegreeSection;
+import rpiplanner.validation.interfaces.Section;
 
 import java.util.HashMap;
 
 public class DegreeValidationResult implements IDegreeValidationResult
 {
-    HashMap<String,DegreeSection> sectionMap;
+    HashMap<String, Section> sectionMap;
     private int totalCredits;
 
     DegreeValidationResult()
     {
-        sectionMap = new HashMap<String,DegreeSection>();
+        sectionMap = new HashMap<String, Section>();
     }
 	public int percentComplete()
     {
@@ -43,15 +43,15 @@ public class DegreeValidationResult implements IDegreeValidationResult
     }
 
 
-	public DegreeSection getSectionResults(String name)
+	public Section getSectionResults(String name)
     {
         return sectionMap.get(name);
     }
 
 
-    void addSection (DegreeSection newSection)
+    void addSection (Section newSection)
     {
-        sectionMap.put(newSection.name,newSection);
+        sectionMap.put(newSection.getName(),newSection);
     }
 
     int getTotalCredits()

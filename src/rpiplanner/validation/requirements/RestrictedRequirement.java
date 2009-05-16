@@ -18,15 +18,14 @@
 
 package rpiplanner.validation.requirements;
 
+import com.thoughtworks.xstream.annotations.XStreamAlias;
+import com.thoughtworks.xstream.annotations.XStreamImplicit;
 import rpiplanner.model.Course;
-import rpiplanner.validation.interfaces.Validatable;
 import rpiplanner.validation.degree.DegreeSection;
+import rpiplanner.validation.interfaces.Validatable;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-
-import com.thoughtworks.xstream.annotations.XStreamImplicit;
-import com.thoughtworks.xstream.annotations.XStreamAlias;
 
 @XStreamAlias("RestrictedRequirement")
 public class RestrictedRequirement implements Validatable
@@ -34,7 +33,8 @@ public class RestrictedRequirement implements Validatable
     String name;
 	String description;
 
-	int numCredits = 0;
+
+    int numCredits = 0;
 	int numCourses = 0;
 
 
@@ -53,6 +53,15 @@ public class RestrictedRequirement implements Validatable
 
 		reqCourse = new ArrayList<Course>();
 	}
+
+
+    public void setNumCredits(int numCredits) {
+        this.numCredits = numCredits;
+    }
+
+    public void setNumCourses(int numCourses) {
+        this.numCourses = numCourses;
+    }
 
     public RestrictedRequirement(String name, String desc) {
         this.name = name;
@@ -108,14 +117,14 @@ public class RestrictedRequirement implements Validatable
 
     public DegreeSection validate(HashMap<Course, Integer> courseMap, ArrayList<Course> courseList) {
         DegreeSection newSection = new DegreeSection();
-                newSection.name = getName();
-                newSection.description = getDescription();
+                newSection.setName(getName());
+                newSection.setDescription(getDescription());
                 for (Course course : getCourses())
                 {
                     if (courseMap.containsKey(course))
                     {
-                        newSection.appliedCourses.add(course);
-                        newSection.credits += course.getCredits();
+                        newSection.addAppliedCourse(course);
+                        newSection.addCredits(course.getCredits());
                         int number = courseMap.get(course);
                         number--;
                         courseMap.put(course,number);
@@ -127,8 +136,8 @@ public class RestrictedRequirement implements Validatable
                             {
                                 if (courseMap.containsKey(repCourse))
                                 {   //TODO: Do we want the applied course to show original course or rep course?
-                                    newSection.appliedCourses.add(repCourse);
-                                    newSection.credits += course.getCredits();
+                                    newSection.addAppliedCourse(repCourse);
+                                    newSection.addCredits(course.getCredits());
                                     int number = courseMap.get(repCourse);
                                     number--;
                                     courseMap.put(repCourse,number);
@@ -138,26 +147,21 @@ public class RestrictedRequirement implements Validatable
                     else
                     {
                         //TODO:Check to see if we want the replacement course to be in missing courses also.
-                        newSection.missingCourses.add(course);
-                        newSection.potentialCourses.add(course);
+                        newSection.addMissingCourse(course);
+                        newSection.addPotentialCourse(course);
                         if (hasReplacementCourse(course))
                         {
                             for (Course repCourse : getReplacementCourses(course))
                             {
                                 if (courseMap.containsKey(repCourse))
                                 {
-                                    newSection.potentialCourses.add(repCourse);
+                                    newSection.addPotentialCourse(repCourse);
                                 }
                             }
                         }
                     }
                 }
                 //TODO: Add support for if more than one course that meets the requirement is taken.
-                if (newSection.appliedCourses.size() == getNumCourses() && newSection.credits >= getNumCredits())
-                {
-                    newSection.missingCourses.clear();
-                    newSection.potentialCourses.clear();
-                }
         return newSection;
     }
 }

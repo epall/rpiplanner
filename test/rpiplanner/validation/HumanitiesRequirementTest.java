@@ -25,6 +25,7 @@ import static org.junit.Assert.*;
 import static org.junit.Assert.assertEquals;
 import rpiplanner.model.Course;
 import rpiplanner.validation.degree.Degree;
+import rpiplanner.validation.degree.DegreeValidationResult;
 import rpiplanner.Fixtures;
 
 import java.util.ArrayList;

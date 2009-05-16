@@ -27,6 +27,7 @@ import rpiplanner.model.Course;
 import rpiplanner.validation.requirements.RestrictedRequirement;
 import rpiplanner.validation.requirements.CoreRequirement;
 import rpiplanner.validation.degree.Degree;
+import rpiplanner.validation.degree.DegreeValidationResult;
 import rpiplanner.Fixtures;
 
 import java.util.ArrayList;
@@ -68,7 +69,7 @@ public class DegreeTest
 
         coreMathScienceReq.addReplacementCourse(Course.get("MATH","1010"), Course.get("ARTS","1010"));
 
-        testDegree.addCoreRequirement(coreMathScienceReq);
+        testDegree.addRequirement(coreMathScienceReq);
 
         ArrayList<Course> courseList = new ArrayList<Course>();
 
@@ -113,7 +114,7 @@ public class DegreeTest
 
         multiReq.addReplacementCourse(Course.get("MATH","1010"), Course.get("ARTS","1010"));
 
-        testDegree.addRestrictedRequirement(multiReq);
+        testDegree.addRequirement(multiReq);
 
         ArrayList<Course> courseList = new ArrayList<Course>();
 

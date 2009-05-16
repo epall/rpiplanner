@@ -20,13 +20,13 @@ package rpiplanner.validation.degree;
 
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 import rpiplanner.model.Course;
+import rpiplanner.validation.interfaces.Section;
 import rpiplanner.validation.interfaces.Validatable;
-import rpiplanner.validation.DegreeValidationResult;
-import rpiplanner.validation.degree.DegreeSection;
 import rpiplanner.validation.requirements.CoreRequirement;
 import rpiplanner.validation.requirements.RestrictedRequirement;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
 
 public class Degree {
     @XStreamAlias("DegreeName")
@@ -44,7 +44,7 @@ public class Degree {
         int totalCredits = 0;
 
         for (Validatable requirement : requirements){
-            DegreeSection section = requirement.validate(courseMap, courseList);
+            Section section = requirement.validate(courseMap, courseList);
             result.addSection(section);
         }
 

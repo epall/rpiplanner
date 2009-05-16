@@ -20,24 +20,15 @@ package rpiplanner.validation;
 
 import static org.junit.Assert.*;
 
-import java.io.FileInputStream;
-import java.io.InputStream;
-
 import org.junit.BeforeClass;
 import org.junit.Test;
 
 import rpiplanner.Fixtures;
 import rpiplanner.model.Course;
-import rpiplanner.model.CourseDatabase;
-import rpiplanner.model.DefaultCourseDatabase;
 import rpiplanner.model.Degree;
 import rpiplanner.model.PlanOfStudy;
-import rpiplanner.model.ShadowCourseDatabase;
-import rpiplanner.model.YearPart;
 import rpiplanner.validation.ValidationResult.Section;
-import rpiplanner.xml.RequisiteSetConverter;
-
-import com.thoughtworks.xstream.XStream;
+import rpiplanner.validation.ValidationResult;
 
 
 public class DegreeValidatorTest {

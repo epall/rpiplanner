@@ -19,11 +19,10 @@
 package rpiplanner.validation.interfaces;
 
 import rpiplanner.model.Course;
-import rpiplanner.validation.degree.DegreeSection;
 
-import java.util.HashMap;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public interface Validatable {
-    public DegreeSection validate(HashMap<Course,Integer> courseMap, ArrayList<Course> courseList);
+    public Section validate(HashMap<Course,Integer> courseMap, ArrayList<Course> courseList);
 }

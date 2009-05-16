@@ -19,12 +19,11 @@
 package rpiplanner.validation.requirements;
 
 import rpiplanner.model.Course;
-import rpiplanner.validation.interfaces.Validatable;
 import rpiplanner.validation.degree.DegreeSection;
-import rpiplanner.validation.Subject;
+import rpiplanner.validation.interfaces.Validatable;
 
-import java.util.HashMap;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class SubjectRequirement implements Validatable
 {
@@ -52,8 +51,8 @@ public class SubjectRequirement implements Validatable
 
     public DegreeSection validate(HashMap<Course, Integer> courseMap, ArrayList<Course> courseList) {
         DegreeSection newSection = new DegreeSection();
-        newSection.name = name;
-        newSection.description = description;
+        newSection.setName(name);
+        newSection.setDescription(description);
 
         checkRequiredCourses(courseMap, newSection);
      
@@ -67,13 +66,13 @@ public class SubjectRequirement implements Validatable
         {
                 if (courseMap.get(course) > 0)
                 {
-                    newSection.appliedCourses.add(course);
+                    newSection.addAppliedCourse(course);
                     int newNum = courseMap.get(course);
                     newNum--;
                     courseMap.put(course,newNum);
                 } else {
-                    newSection.missingCourses.add(course);
-                    newSection.potentialCourses.add(course);
+                    newSection.addMissingCourse(course);
+                    newSection.addPotentialCourse(course);
                 }
 
         }

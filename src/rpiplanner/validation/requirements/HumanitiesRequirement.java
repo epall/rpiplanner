@@ -19,18 +19,18 @@
 package rpiplanner.validation.requirements;
 
 import rpiplanner.model.Course;
-import rpiplanner.validation.interfaces.Validatable;
 import rpiplanner.validation.degree.DegreeSection;
+import rpiplanner.validation.interfaces.Validatable;
 
-import java.util.HashMap;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class HumanitiesRequirement implements Validatable
 {
     public DegreeSection validate(HashMap<Course, Integer> courseMap, ArrayList<Course> courseList) {
         DegreeSection humSSSection = new DegreeSection();
-        humSSSection.name = "Humanities and Social Sciences";
-        humSSSection.description = "Humanities and Social Sciences Stuff";
+        humSSSection.setName("Humanities and Social Sciences");
+        humSSSection.setDescription("Humanities and Social Sciences Stuff");
 
         Boolean pdReq = false;
         Boolean depthReq = false;
@@ -46,21 +46,21 @@ public class HumanitiesRequirement implements Validatable
         if (courseMap.containsKey(Course.get("PSYC", "4170")) || courseMap.containsKey(Course.get("STSS", "4840"))) {
             if (courseMap.containsKey(Course.get("PSYC", "4170"))) {
                 courseMap.put(Course.get("PSYC", "4170"), 0);
-                humSSSection.appliedCourses.add(Course.get("PSYC", "4170"));
+                humSSSection.addAppliedCourse(Course.get("PSYC", "4170"));
                 pdReq = true;
                 courseList.remove(Course.get("PSYC", "4170"));
             }
             if (courseMap.containsKey(Course.get("STSS", "4840"))) {
                 courseMap.put(Course.get("STSS", "4840"), 0);
-                humSSSection.appliedCourses.add(Course.get("STSS", "4840"));
+                humSSSection.addAppliedCourse(Course.get("STSS", "4840"));
                 pdReq = true;
                 courseList.remove(Course.get("STSS", "4840"));
             }
         } else {
-            humSSSection.missingCourses.add(Course.get("PSYC", "4170"));
-            humSSSection.missingCourses.add(Course.get("STSS", "4840"));
-            humSSSection.potentialCourses.add(Course.get("PSYC", "4170"));
-            humSSSection.potentialCourses.add(Course.get("STSS", "4840"));
+            humSSSection.addMissingCourse(Course.get("PSYC", "4170"));
+            humSSSection.addMissingCourse(Course.get("STSS", "4840"));
+            humSSSection.addPotentialCourse(Course.get("PSYC", "4170"));
+            humSSSection.addPotentialCourse(Course.get("STSS", "4840"));
         }
 
         //TODO: Check Depth Requirement

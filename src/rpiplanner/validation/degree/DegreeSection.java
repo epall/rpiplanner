@@ -19,11 +19,11 @@
 package rpiplanner.validation.degree;
 
 import rpiplanner.model.Course;
-import rpiplanner.validation.interfaces.ISection;
+import rpiplanner.validation.interfaces.Section;
 
 import java.util.ArrayList;
 
-public class DegreeSection implements ISection
+public class DegreeSection implements Section
 {
     String name;
     String description;
@@ -40,14 +40,45 @@ public class DegreeSection implements ISection
         potentialCourses = new ArrayList<Course>();
     }
 
-    public void addMissingCourse(Course course) {}
-    public void addAppliedCourse(Course course){}
-    public void addPotentialCourse(Course course) {}
+    public String getName(){
+        return name;
+    }
+
+    public void addMissingCourse(Course course) {
+        missingCourses.add(course);
+    }
+    public void addAppliedCourse(Course course){
+        appliedCourses.add(course);
+    }
+    public void addPotentialCourse(Course course) {
+        potentialCourses.add(course);
+    }
+    public void addCredits(int num) {
+        credits += num;
+    }
+
+    public int getNumCredits() {
+        return credits;
+    }
 
     public boolean isSuccess()
     {
        return (missingCourses.size() == 0 && potentialCourses.size() == 0);
     }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public void succeeded() {
+        missingCourses.clear();
+        potentialCourses.clear();
+    }
+
     public ArrayList<Course> missingCourses()
     {
         return missingCourses;

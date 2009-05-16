@@ -20,8 +20,9 @@ package rpiplanner.validation.requirements;
 
 import com.thoughtworks.xstream.annotations.XStreamImplicit;
 import rpiplanner.model.Course;
-import rpiplanner.validation.interfaces.Validatable;
 import rpiplanner.validation.degree.DegreeSection;
+import rpiplanner.validation.interfaces.Section;
+import rpiplanner.validation.interfaces.Validatable;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -39,7 +40,7 @@ public class CoreRequirement implements Validatable
 	HashMap<Course, ArrayList<Course>> replacementCourses;
 
 
-	CoreRequirement(String name, String description)
+	public CoreRequirement(String name, String description)
 	{
 		this.name = name;
 		this.description = description;
@@ -96,13 +97,13 @@ public class CoreRequirement implements Validatable
             return null;
     }
 
-    public DegreeSection validate(HashMap<Course, Integer> courseMap, ArrayList<Course> courseList) {
-         DegreeSection newSection = new DegreeSection();
-            newSection.name = this.getName();
-            newSection.description = this.getDescription();
+    public Section validate(HashMap<Course, Integer> courseMap, ArrayList<Course> courseList) {
+        Section newSection = new DegreeSection();
+        newSection.setName(this.getName());
+        newSection.setDescription(this.getDescription());
 
 
-                //TODO:Create fuction for this block
+                //TODO:Create function for this block
                 for (Course course : this.getCourses())
                 {
                     Boolean found = false;
@@ -111,8 +112,8 @@ public class CoreRequirement implements Validatable
                     {
                         if (courseMap.get(course) > 0)
                         {
-                            newSection.appliedCourses.add(course);
-                            newSection.credits += course.getCredits();
+                            newSection.addAppliedCourse(course);
+                            newSection.addCredits(course.getCredits());
                             int number = courseMap.get(course);
                             number--;
                             courseMap.put(course,number);
@@ -127,8 +128,8 @@ public class CoreRequirement implements Validatable
                         {
                             if (courseMap.containsKey(repCourse))
                             {   //TODO: Do we want the applied course to show original course or rep course?
-                                newSection.appliedCourses.add(repCourse);
-                                newSection.credits += course.getCredits();
+                                newSection.addAppliedCourse(repCourse);
+                                newSection.addCredits(course.getCredits());
                                 int number = courseMap.get(repCourse);
                                 number--;
                                 courseMap.put(repCourse,number);
@@ -140,21 +141,23 @@ public class CoreRequirement implements Validatable
                    if (!found)
                     {
                         //TODO:Check to see if we want the replacement course to be in missing courses also.
-                        newSection.missingCourses.add(course);
-                        newSection.potentialCourses.add(course);
+                        newSection.addMissingCourse(course);
+                        newSection.addPotentialCourse(course);
                         if (hasReplacementCourse(course))
                         {
                             for (Course repCourse : getReplacementCourses(course))
                             {
                                 if (courseMap.containsKey(repCourse))
                                 {
-                                    newSection.potentialCourses.add(repCourse);
+                                    newSection.addPotentialCourse(repCourse);
                                 }
                             }
                         }
-
                     }
                 }
+        if (newSection.appliedCourses().size() == reqCourse.size()){
+            newSection.succeeded();
+        }
         return newSection;
     }
 }

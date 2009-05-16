@@ -18,8 +18,6 @@
 
 package rpiplanner.validation.interfaces;
 
-import rpiplanner.validation.degree.DegreeSection;
-
 /**
  * A {@link rpiplanner.validation.DegreeValidator}'s <code>validate()</code> method will produce a
  * ValidationResult that can be queried for detailed results. Each
@@ -43,5 +41,5 @@ public interface IDegreeValidationResult {
      * @return The results for the requested section, or <code>null</code>.
      * if it does not exist.
      */
-	public DegreeSection getSectionResults(String name);
+	public Section getSectionResults(String name);
 }
