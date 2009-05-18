@@ -25,32 +25,75 @@ import rpiplanner.validation.interfaces.Requirement;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class HumanitiesRequirement extends Requirement
-{
+public class HumanitiesRequirement extends Requirement {
     public DegreeSection validate(HashMap<Course, Integer> courseMap, ArrayList<Course> courseList) {
         DegreeSection humSSSection = new DegreeSection();
         humSSSection.setName("Humanities and Social Sciences");
         humSSSection.setDescription("Humanities and Social Sciences Stuff");
 
-        Boolean pdReq = false;
-        Boolean depthReq = false;
-
-        int numHum = 0;
-        int numIHSS = 0;
-        int numSS = 0;
-
-        ArrayList<Course> humCourses = new ArrayList<Course>();
+        ArrayList<Course> humCourses = createHumanitiesOrSSList(courseList, courseMap);
         checkPD2(courseMap, courseList, humSSSection);
 
 
-        //TODO: Check Depth Requirement
+        //TODO: Check Depth Requirement: There is a course where 1 is at 1000 and 1 is > 1000
         //TODO: Check 4000 level requirement
+        LevelReq(humSSSection, humCourses);
+
         //TODO: Check Humanities
         //TODO: Check Social Sciences
 
 
         return humSSSection;
     }
+
+    private void LevelReq(DegreeSection humSSSection, ArrayList<Course> humCourses) {
+        if (!met4000LevelReq(humCourses)) {
+            addUpperLevelCourses(humSSSection, humCourses);
+        }
+
+    }
+
+    private void addUpperLevelCourses(DegreeSection humSSSection, ArrayList<Course> humCourses) {
+        ArrayList<Course> courses = new ArrayList<Course>();
+        String prefix;
+        int num;
+
+        courses.addAll(Course.getAllAbove(prefix, num));
+        //humSSSection.addMissingCourse(course);
+        //humSSSection.addPotentialCourse(course);
+    }
+
+    private Boolean met4000LevelReq(ArrayList<Course> humCourses) {
+        for (Course course : humCourses) {
+            if (course.getLevel() == "4000" || course.getLevel() == "6000") {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private ArrayList<Course> createHumanitiesOrSSList(ArrayList<Course> courseList, HashMap<Course, Integer> courseMap) {
+        ArrayList<Course> newList = new ArrayList<Course>();
+        for (Course course : courseList) {
+            if (courseMap.get(course) > 0) {
+                if (isHumanitiesOrSS(course)) {
+                    newList.add(course);
+                }
+            }
+        }
+        return newList;
+    }
+
+    private boolean isHumanitiesOrSS(Course course) {
+        if (course.getPrefix() == "LANG" || course.getPrefix() == "LITR" || course.getPrefix() == "COMM"
+                || course.getPrefix() == "WRIT" || course.getPrefix() == "ARTS" || course.getPrefix() == "PHIL"
+                || course.getPrefix() == "STSH" || course.getPrefix() == "IHSS" || course.getPrefix() == "ECON"
+                || course.getPrefix() == "STSS" || course.getPrefix() == "PSYC") {
+            return true;
+        }
+        return false;
+    }
+
 
     private void checkPD2(HashMap<Course, Integer> courseMap, ArrayList<Course> courseList, DegreeSection humSSSection) {
         Boolean pdReq;//Professional Development II

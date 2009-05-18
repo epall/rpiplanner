@@ -23,21 +23,12 @@ import rpiplanner.model.Course;
 import java.util.ArrayList;
 
 public interface Section {
-    public String getName();
-    public void setName(String name);
-    public void setDescription(String description);
-    public void succeeded();
 
     public ArrayList<Course> missingCourses();
     public ArrayList<Course> appliedCourses();
     public ArrayList<Course> potentialCourses();
-    public String messages();
+    public String[] messages();
     public boolean isSuccess();
-
-    public void addMissingCourse(Course course);
-    public void addAppliedCourse(Course course);
-    public void addPotentialCourse(Course course);
-    public void addCredits(int num);
 
 }
 

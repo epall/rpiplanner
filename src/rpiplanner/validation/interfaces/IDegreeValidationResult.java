@@ -42,4 +42,13 @@ public interface IDegreeValidationResult {
      * if it does not exist.
      */
 	public Section getSectionResults(String name);
+
+     /**
+     * Each degree has a set of sections, such as "Math & Science"
+     * "Communication Requirement", "Free Electives", and so on. Each section
+     * is validated separately, and the GUI needs to display the set of
+     * sections for the user to see.
+     * @return A list of section names
+     */
+	 public String[] getSectionNames();
 }

@@ -47,11 +47,17 @@ public class DegreeSection implements Section
     public void addMissingCourse(Course course) {
         missingCourses.add(course);
     }
+    public void addMissingCourse(ArrayList<Course> course) {
+        missingCourses.addAll(course);
+    }
     public void addAppliedCourse(Course course){
         appliedCourses.add(course);
     }
     public void addPotentialCourse(Course course) {
         potentialCourses.add(course);
+    }
+    public void addPotentialCourse(ArrayList<Course> course) {
+        potentialCourses.addAll(course);
     }
     public void addCredits(int num) {
         credits += num;
@@ -87,12 +93,19 @@ public class DegreeSection implements Section
     {
         return appliedCourses;
     }
-    public String messages()
-    {
-        return description;
-    }
     public ArrayList<Course> potentialCourses()
     {
         return potentialCourses;
+    }
+    public String[] messages()
+    {
+        return getMessages();
+    }
+
+    private String[] getMessages() {
+        ArrayList <String> messages = new ArrayList<String>();
+        messages.add(description);
+
+        return (String[]) messages.toArray();
     }
 }

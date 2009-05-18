@@ -20,6 +20,8 @@ package rpiplanner.model;
 
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 
+import java.util.ArrayList;
+
 @XStreamAlias("course")
 public class Course implements Comparable<Course> {
     protected String title;
