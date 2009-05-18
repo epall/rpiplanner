@@ -26,9 +26,15 @@ public interface Section {
 
     public ArrayList<Course> missingCourses();
     public ArrayList<Course> appliedCourses();
-    public ArrayList<Course> potentialCourses();
     public String[] messages();
     public boolean isSuccess();
 
+    public void setName(String name); ArrayList<Course> potentialCourses();
+    public void addAppliedCourse(Course course);
+    public void addCredits(int credits);
+    public void setDescription(String description);
+    public void addMissingCourse(Course course);
+    public void addPotentialCourse(Course course);
+    public void succeeded();
 }
 
