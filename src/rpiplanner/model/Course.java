@@ -139,7 +139,7 @@ public class Course implements Comparable<Course> {
     public static Course get(String catalogNumber){
         return ShadowCourseDatabase.getMainDatabase().getCourse(catalogNumber);
     }
-    public static ArrayList<Course> getCourseBetween(String prefix, int lowerNumber, int upperNumber) {
+    public static ArrayList<Course> getAllBetween(String prefix, int lowerNumber, int upperNumber) {
         return ShadowCourseDatabase.getMainDatabase().getCourseBetween(prefix,lowerNumber, upperNumber);
     }
 }
