@@ -20,6 +20,7 @@ package rpiplanner.model;
 
 import java.beans.PropertyChangeListener;
 import java.util.List;
+import java.util.ArrayList;
 
 public interface CourseDatabase {
 	public Course[] search(String text);
@@ -38,4 +39,6 @@ public interface CourseDatabase {
 	public void addOrUpdate(Course updated);
 
 	public Degree getDegree(long id);
+
+    ArrayList<Course> getCourseAbove(String prefix, int number);
 }

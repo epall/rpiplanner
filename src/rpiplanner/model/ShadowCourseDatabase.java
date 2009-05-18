@@ -115,6 +115,16 @@ public class ShadowCourseDatabase implements CourseDatabase {
 		return shadowee.getDegree(id);
 	}
 
+    public ArrayList<Course> getCourseAbove(String prefix, int number) {
+        ArrayList<Course> courseList = new ArrayList<Course>();
+        for (Course course : courses) {
+            if (Integer.getInteger(course.getPrefix()) > number) {
+                courseList.add(course);
+            }
+        }
+        return courseList;
+    }
+
     protected Object readResolve(){
         instance = this;
         if(courses == null)

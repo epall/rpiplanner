@@ -99,13 +99,10 @@ public class DegreeSection implements Section
     }
     public String[] messages()
     {
-        return getMessages();
-    }
-
-    private String[] getMessages() {
         ArrayList <String> messages = new ArrayList<String>();
         messages.add(description);
 
         return (String[]) messages.toArray();
+
     }
 }

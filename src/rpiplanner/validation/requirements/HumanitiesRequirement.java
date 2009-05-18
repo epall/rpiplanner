@@ -54,13 +54,29 @@ public class HumanitiesRequirement extends Requirement {
     }
 
     private void addUpperLevelCourses(DegreeSection humSSSection, ArrayList<Course> humCourses) {
+        ArrayList<String> prefixes = new ArrayList<String>();
+        fillPrefixes(prefixes);
         ArrayList<Course> courses = new ArrayList<Course>();
-        String prefix;
-        int num;
+        int num = 4000;
+        for (String prefix : prefixes) {
+            courses.addAll(Course.getAllAbove(prefix, num));
+        }
+        humSSSection.addMissingCourse(courses);
+        humSSSection.addPotentialCourse(courses);
+    }
 
-        courses.addAll(Course.getAllAbove(prefix, num));
-        //humSSSection.addMissingCourse(course);
-        //humSSSection.addPotentialCourse(course);
+    private void fillPrefixes(ArrayList<String> prefixes) {
+        prefixes.add("LANG");
+        prefixes.add("LITR");
+        prefixes.add("COMM");
+        prefixes.add("WRIT");
+        prefixes.add("ARTS");
+        prefixes.add("PHIL");
+        prefixes.add("STSH");
+        prefixes.add("IHSS");
+        prefixes.add("ECON");
+        prefixes.add("STSS");
+        prefixes.add("PSYC");
     }
 
     private Boolean met4000LevelReq(ArrayList<Course> humCourses) {
