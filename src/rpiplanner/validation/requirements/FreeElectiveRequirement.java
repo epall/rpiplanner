@@ -25,8 +25,7 @@ import rpiplanner.validation.interfaces.Requirement;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class FreeElectiveRequirement extends Requirement
-{
+public class FreeElectiveRequirement extends Requirement {
     public DegreeSection validate(HashMap<Course, Integer> courseMap, ArrayList<Course> courseList) {
         //Free Electives
         DegreeSection freeElective = new DegreeSection();

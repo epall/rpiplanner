@@ -21,66 +21,57 @@ package rpiplanner.validation.requirements;
 import com.thoughtworks.xstream.annotations.XStreamImplicit;
 import rpiplanner.model.Course;
 import rpiplanner.validation.degree.DegreeSection;
-import rpiplanner.validation.interfaces.Section;
 import rpiplanner.validation.interfaces.Requirement;
+import rpiplanner.validation.interfaces.Section;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 
 
-public class CoreRequirement extends Requirement
-{
+public class CoreRequirement extends Requirement {
     String name;
-	String description;
+    String description;
 
-	@XStreamImplicit(itemFieldName="course")
-	ArrayList<Course> reqCourse;
-	
-
-	HashMap<Course, ArrayList<Course>> replacementCourses;
+    @XStreamImplicit(itemFieldName = "course")
+    ArrayList<Course> reqCourse;
 
 
-	public CoreRequirement(String name, String description)
-	{
-		this.name = name;
-		this.description = description;
+    HashMap<Course, ArrayList<Course>> replacementCourses;
 
-		reqCourse = new ArrayList<Course>();
-		replacementCourses = new HashMap<Course, ArrayList<Course> >();
 
-	}
+    public CoreRequirement(String name, String description) {
+        this.name = name;
+        this.description = description;
 
-	public String getName()
-	{
-		return name;
-	}
+        reqCourse = new ArrayList<Course>();
+        replacementCourses = new HashMap<Course, ArrayList<Course>>();
 
-	public int getNumCourses ()
-	{
-		return reqCourse.size();
-	}
+    }
 
-	public void addCourse (Course course)
-	{
-		reqCourse.add(course);
-	}
+    public String getName() {
+        return name;
+    }
 
-	public void addReplacementCourse (Course originalCourse,Course replacementCourse)
-	{
-		if (!replacementCourses.containsKey(originalCourse))
-		{
-			replacementCourses.put(originalCourse, new ArrayList<Course>());
-		}
-		replacementCourses.get(originalCourse).add(replacementCourse);
-	}
+    public int getNumCourses() {
+        return reqCourse.size();
+    }
 
-	public String getDescription()
-    {
-		return description;
-	}
+    public void addCourse(Course course) {
+        reqCourse.add(course);
+    }
 
-    public Boolean hasReplacementCourse(Course course)
-    {
+    public void addReplacementCourse(Course originalCourse, Course replacementCourse) {
+        if (!replacementCourses.containsKey(originalCourse)) {
+            replacementCourses.put(originalCourse, new ArrayList<Course>());
+        }
+        replacementCourses.get(originalCourse).add(replacementCourse);
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public Boolean hasReplacementCourse(Course course) {
         return replacementCourses.containsKey(course);
     }
 
@@ -101,59 +92,49 @@ public class CoreRequirement extends Requirement
         newSection.setDescription(this.getDescription());
 
 
-                //TODO:Create function for this block
-                for (Course course : this.getCourses())
-                {
-                    Boolean found = false;
-                    //Check to see if we have taken this course;
-                    if (courseMap.containsKey(course))
-                    {
-                        if (courseMap.get(course) > 0)
-                        {
-                            newSection.addAppliedCourse(course);
-                            newSection.addCredits(course.getCredits());
-                            int number = courseMap.get(course);
-                            number--;
-                            courseMap.put(course,number);
-                            found = true;
+        //TODO:Create function for this block
+        for (Course course : this.getCourses()) {
+            Boolean found = false;
+            //Check to see if we have taken this course;
+            if (courseMap.containsKey(course)) {
+                if (courseMap.get(course) > 0) {
+                    newSection.addAppliedCourse(course);
+                    newSection.addCredits(course.getCredits());
+                    int number = courseMap.get(course);
+                    number--;
+                    courseMap.put(course, number);
+                    found = true;
 
-                        }
+                }
+            }
+            if (this.hasReplacementCourse(course) && !found) {
+                //Check for replacement courses for the current course.
+                for (Course repCourse : getReplacementCourses(course)) {
+                    if (courseMap.containsKey(repCourse)) {   //TODO: Do we want the applied course to show original course or rep course?
+                        newSection.addAppliedCourse(repCourse);
+                        newSection.addCredits(course.getCredits());
+                        int number = courseMap.get(repCourse);
+                        number--;
+                        courseMap.put(repCourse, number);
+                        found = true;
                     }
-                    if (this.hasReplacementCourse(course) && !found)
-                    {
-                        //Check for replacement courses for the current course.
-                        for (Course repCourse : getReplacementCourses(course))
-                        {
-                            if (courseMap.containsKey(repCourse))
-                            {   //TODO: Do we want the applied course to show original course or rep course?
-                                newSection.addAppliedCourse(repCourse);
-                                newSection.addCredits(course.getCredits());
-                                int number = courseMap.get(repCourse);
-                                number--;
-                                courseMap.put(repCourse,number);
-                                found = true;
-                            }
-                        }
-                    }
-                    //We didn't find the course so it must be missing.
-                   if (!found)
-                    {
-                        //TODO:Check to see if we want the replacement course to be in missing courses also.
-                        newSection.addMissingCourse(course);
-                        newSection.addPotentialCourse(course);
-                        if (hasReplacementCourse(course))
-                        {
-                            for (Course repCourse : getReplacementCourses(course))
-                            {
-                                if (courseMap.containsKey(repCourse))
-                                {
-                                    newSection.addPotentialCourse(repCourse);
-                                }
-                            }
+                }
+            }
+            //We didn't find the course so it must be missing.
+            if (!found) {
+                //TODO:Check to see if we want the replacement course to be in missing courses also.
+                newSection.addMissingCourse(course);
+                newSection.addPotentialCourse(course);
+                if (hasReplacementCourse(course)) {
+                    for (Course repCourse : getReplacementCourses(course)) {
+                        if (courseMap.containsKey(repCourse)) {
+                            newSection.addPotentialCourse(repCourse);
                         }
                     }
                 }
-        if (newSection.appliedCourses().size() == reqCourse.size()){
+            }
+        }
+        if (newSection.appliedCourses().size() == reqCourse.size()) {
             newSection.succeeded();
         }
         return newSection;

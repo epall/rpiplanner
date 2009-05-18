@@ -78,6 +78,9 @@ public class Course implements Comparable<Course> {
 	public String getLevel(){
 		return catalogNumber.substring(5,6)+"000";
 	}
+    public int getNumber(){
+		return Integer.getInteger(catalogNumber.substring(5,9));
+	}
     public String getPrefix(){
         return catalogNumber.substring(0,4);
     }

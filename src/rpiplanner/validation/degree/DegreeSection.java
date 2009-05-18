@@ -95,9 +95,7 @@ public class DegreeSection implements Section
     public String[] messages()
     {
         messages.add(description);
-
         return (String[]) messages.toArray();
-
     }
 
     public void addMessage(String s) {

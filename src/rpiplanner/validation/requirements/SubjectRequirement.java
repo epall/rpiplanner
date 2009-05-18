@@ -25,8 +25,7 @@ import rpiplanner.validation.interfaces.Requirement;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class SubjectRequirement extends Requirement
-{
+public class SubjectRequirement extends Requirement {
 
     String name;
     String description;
@@ -35,17 +34,15 @@ public class SubjectRequirement extends Requirement
     ArrayList<Course> reqCourse;
     ArrayList<Subject> subjectList;
 
-    public String getName()
-	{
-		return name;
-	}
+    public String getName() {
+        return name;
+    }
 
-    public String getDescription()
-    {
+    public String getDescription() {
         return description;
     }
 
-    public void addSubject(String subjName, int minLevel, int maxLevel, int minNum, int maxNum){
+    public void addSubject(String subjName, int minLevel, int maxLevel, int minNum, int maxNum) {
         subjectList.add(new Subject(subjName, minLevel, maxLevel, minNum, maxNum));
     }
 
@@ -55,25 +52,22 @@ public class SubjectRequirement extends Requirement
         newSection.setDescription(description);
 
         checkRequiredCourses(courseMap, newSection);
-     
 
 
         return newSection;
     }
 
     private void checkRequiredCourses(HashMap<Course, Integer> courseMap, DegreeSection newSection) {
-        for (Course course : reqCourse)
-        {
-                if (courseMap.get(course) > 0)
-                {
-                    newSection.addAppliedCourse(course);
-                    int newNum = courseMap.get(course);
-                    newNum--;
-                    courseMap.put(course,newNum);
-                } else {
-                    newSection.addMissingCourse(course);
-                    newSection.addPotentialCourse(course);
-                }
+        for (Course course : reqCourse) {
+            if (courseMap.get(course) > 0) {
+                newSection.addAppliedCourse(course);
+                int newNum = courseMap.get(course);
+                newNum--;
+                courseMap.put(course, newNum);
+            } else {
+                newSection.addMissingCourse(course);
+                newSection.addPotentialCourse(course);
+            }
 
         }
     }

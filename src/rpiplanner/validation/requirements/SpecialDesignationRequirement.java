@@ -18,8 +18,7 @@
 
 package rpiplanner.validation.requirements;
 
-public class SpecialDesignationRequirement
-{
+public class SpecialDesignationRequirement {
     String name;
     String description;
     String specialDesignation;

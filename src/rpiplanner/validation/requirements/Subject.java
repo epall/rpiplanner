@@ -32,7 +32,7 @@ public class Subject {
     public void setMinLevel(int minLevel) {
         this.minLevel = minLevel;
     }
-    
+
     public String getSubject() {
         return subject;
     }

@@ -118,8 +118,8 @@ public class ShadowCourseDatabase implements CourseDatabase {
     public ArrayList<Course> getCourseBetween(String prefix, int lowerNumber, int upperNumber) {
         ArrayList<Course> courseList = new ArrayList<Course>();
         for (Course course : courses) {
-            if (Integer.getInteger(course.getPrefix()) > lowerNumber &&
-                    Integer.getInteger(course.getPrefix()) < upperNumber) {
+            if (course.getNumber() >= lowerNumber &&
+                    course.getNumber() < upperNumber) {
                 courseList.add(course);
             }
         }
