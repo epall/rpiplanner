@@ -36,7 +36,7 @@ public class HumanitiesRequirement extends Requirement {
 
 
         //TODO: Check Depth Requirement: There is a course where 1 is at 1000 and 1 is > 1000
-        //TODO: Check 4000 level requirement
+
         LevelReq(humSSSection, humCourses);
 
         //TODO: Check Humanities
@@ -48,18 +48,20 @@ public class HumanitiesRequirement extends Requirement {
 
     private void LevelReq(DegreeSection humSSSection, ArrayList<Course> humCourses) {
         if (!met4000LevelReq(humCourses)) {
-            addUpperLevelCourses(humSSSection, humCourses);
+            add4000LevelCourses(humSSSection, humCourses);
+            humSSSection.addMessage("You need a 4000 Level Course");
         }
 
     }
 
-    private void addUpperLevelCourses(DegreeSection humSSSection, ArrayList<Course> humCourses) {
+    private void add4000LevelCourses(DegreeSection humSSSection, ArrayList<Course> humCourses) {
         ArrayList<String> prefixes = new ArrayList<String>();
         fillPrefixes(prefixes);
         ArrayList<Course> courses = new ArrayList<Course>();
-        int num = 4000;
+        int lowerNum = 4000;
+        int upperNum = 5000;
         for (String prefix : prefixes) {
-            courses.addAll(Course.getAllAbove(prefix, num));
+            courses.addAll(Course.getAllBetween(prefix, lowerNum, upperNum));
         }
         humSSSection.addMissingCourse(courses);
         humSSSection.addPotentialCourse(courses);

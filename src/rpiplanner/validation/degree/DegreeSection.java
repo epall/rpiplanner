@@ -29,16 +29,11 @@ public class DegreeSection implements Section
     String description;
     int credits;
 
-    ArrayList<Course> missingCourses;
-    ArrayList<Course> appliedCourses;
-    ArrayList<Course> potentialCourses;
+    ArrayList<Course> missingCourses = new ArrayList<Course>();
+    ArrayList<Course> appliedCourses = new ArrayList<Course>();
+    ArrayList<Course> potentialCourses = new ArrayList<Course>();
 
-    public DegreeSection()
-    {
-        missingCourses = new ArrayList<Course>();
-        appliedCourses = new ArrayList<Course>();
-        potentialCourses = new ArrayList<Course>();
-    }
+    ArrayList <String> messages = new ArrayList<String>();
 
     public String getName(){
         return name;
@@ -99,10 +94,13 @@ public class DegreeSection implements Section
     }
     public String[] messages()
     {
-        ArrayList <String> messages = new ArrayList<String>();
         messages.add(description);
 
         return (String[]) messages.toArray();
 
+    }
+
+    public void addMessage(String s) {
+        messages.add(s);
     }
 }

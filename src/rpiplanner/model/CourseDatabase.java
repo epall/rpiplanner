@@ -40,5 +40,5 @@ public interface CourseDatabase {
 
 	public Degree getDegree(long id);
 
-    ArrayList<Course> getCourseAbove(String prefix, int number);
+    ArrayList<Course> getCourseBetween(String prefix, int lowerNumber, int upperNumber);
 }
