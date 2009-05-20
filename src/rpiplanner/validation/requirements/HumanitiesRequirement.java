@@ -36,12 +36,17 @@ public class HumanitiesRequirement extends Requirement {
         boolean pd2ReqMet = checkPD2(courseMap, courseList, humSSSection);
         boolean depthReqMet = depthRequirement(courseMap, humCourses);
         boolean levelReqMet = LevelReq(humSSSection, humCourses);
-
         //TODO: Check Humanities
         //TODO: Check Social Sciences
+        boolean socsciReqMet = SocSciReq(humSSSection,courseMap,humCourses);
+
 
 
         return humSSSection;
+    }
+
+    private boolean SocSciReq(DegreeSection humSSSection, HashMap<Course, Integer> courseMap, ArrayList<Course> humCourses) {
+        return false;    
     }
 
     private boolean depthRequirement(HashMap<Course, Integer> courseMap, ArrayList<Course> courseList) {
@@ -49,8 +54,21 @@ public class HumanitiesRequirement extends Requirement {
         ArrayList<String> upperPrefixList = new ArrayList<String>();
         for (Course course : courseList) {
             if (courseMap.get(course) > 0) {
-                if (course.getNumber() < 2000) lowPrefixList.add(course.getPrefix());
-                else upperPrefixList.add(course.getPrefix());
+                if (course.getNumber() < 2000) {
+                    if (course.getPrefix() == "STSH" || course.getPrefix() == "STSS") {
+                        lowPrefixList.add("STSH");
+                        lowPrefixList.add("STSS");
+                    }
+                    lowPrefixList.add(course.getPrefix());
+                }
+                else
+                {
+                    if (course.getPrefix() == "STSH" || course.getPrefix() == "STSS") {
+                        upperPrefixList.add("STSH");
+                        upperPrefixList.add("STSS");
+                    }
+                    upperPrefixList.add(course.getPrefix());
+                }
             }
         }
         for (String prefix : lowPrefixList) {
