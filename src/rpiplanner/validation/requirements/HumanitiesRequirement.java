@@ -36,9 +36,9 @@ public class HumanitiesRequirement extends Requirement {
         boolean pd2ReqMet = checkPD2(courseMap, courseList, humSSSection);
         boolean depthReqMet = depthRequirement(courseMap, humCourses);
         boolean levelReqMet = LevelReq(humSSSection, humCourses);
-
         //TODO: Check Humanities
         //TODO: Check Social Sciences
+        boolean socsciReqMet = false;
 
 
         return humSSSection;
