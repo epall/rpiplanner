@@ -22,16 +22,15 @@ import rpiplanner.validation.interfaces.IDegreeValidationResult;
 import rpiplanner.validation.interfaces.Section;
 
 import java.util.HashMap;
+import java.util.ArrayList;
 
 public class DegreeValidationResult implements IDegreeValidationResult
 {
-    HashMap<String, Section> sectionMap;
+    HashMap<String, Section> sectionMap = new HashMap<String, Section>();
+    ArrayList<String> sectionNames = new ArrayList<String>();
+
     private int totalCredits;
 
-    DegreeValidationResult()
-    {
-        sectionMap = new HashMap<String, Section>();
-    }
 	public int percentComplete()
     {
         //TODO: Add algorithm to compute completenness
@@ -48,10 +47,15 @@ public class DegreeValidationResult implements IDegreeValidationResult
         return sectionMap.get(name);
     }
 
+    public String[] getSectionNames() {
+        return (String[]) sectionNames.toArray();
+    }
+
 
     void addSection (Section newSection)
     {
         sectionMap.put(newSection.getName(),newSection);
+        sectionNames.add(newSection.getName());
     }
 
     int getTotalCredits()

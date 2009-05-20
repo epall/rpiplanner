@@ -28,7 +28,7 @@ public interface Section {
     public ArrayList<Course> appliedCourses();
     public String[] messages();
     public boolean isSuccess();
-
+    public String getName();
     public void setName(String name); ArrayList<Course> potentialCourses();
     public void addAppliedCourse(Course course);
     public void addCredits(int credits);
@@ -36,5 +36,6 @@ public interface Section {
     public void addMissingCourse(Course course);
     public void addPotentialCourse(Course course);
     public void succeeded();
+
 }
 

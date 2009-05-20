@@ -109,4 +109,8 @@ public class DefaultCourseDatabase implements CourseDatabase {
 		}
 		return null;
 	}
+
+    public ArrayList<Course> getCourseBetween(String prefix, int lowerNumber, int upperNumber) {
+        return null;  //To change body of implemented methods use File | Settings | File Templates.
+    }
 }

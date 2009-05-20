@@ -32,6 +32,7 @@ public class HumanitiesRequirement extends Requirement {
         humSSSection.setDescription("Humanities and Social Sciences Core Requirement");
 
         ArrayList<Course> humCourses = createHumanitiesOrSSList(courseList, courseMap);
+
         boolean pd2ReqMet = checkPD2(courseMap, courseList, humSSSection);
         boolean depthReqMet = depthRequirement(courseMap, humCourses);
         boolean levelReqMet = LevelReq(humSSSection, humCourses);
