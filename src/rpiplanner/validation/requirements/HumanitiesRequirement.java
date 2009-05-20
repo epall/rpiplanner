@@ -31,13 +31,15 @@ public class HumanitiesRequirement extends Requirement {
         humSSSection.setName("Humanities and Social Sciences");
         humSSSection.setDescription("Humanities and Social Sciences Core Requirement");
 
-        ArrayList<Course> humCourses = createHumanitiesOrSSList(courseList, courseMap);
+        ArrayList<Course> humSSCourses = createHumanitiesOrSSList(courseList, courseMap);
         ArrayList<Course> socSciCourses = createSSList(courseList,courseMap);
+        ArrayList<Course> humCourses = createHumanitiesList(courseList,courseMap);
 
         boolean pd2ReqMet = checkPD2(courseMap, courseList, humSSSection);
-        boolean depthReqMet = depthRequirement(courseMap, humCourses);
-        boolean levelReqMet = LevelReq(humSSSection, humCourses);
+        boolean depthReqMet = depthRequirement(courseMap, humSSCourses);
+        boolean levelReqMet = LevelReq(humSSSection, humSSCourses);
         //TODO: Check Humanities
+        boolean humanitiesReqMet = humanitiesReq(humSSSection, courseMap, humCourses);
         //TODO: Check Social Sciences
         boolean socsciReqMet = SocSciReq(humSSSection,courseMap,humCourses);
 
@@ -47,7 +49,12 @@ public class HumanitiesRequirement extends Requirement {
     }
 
     private boolean SocSciReq(DegreeSection humSSSection, HashMap<Course, Integer> courseMap, ArrayList<Course> humCourses) {
-        return false;    
+        return false;
+    }
+
+
+    private boolean humanitiesReq(DegreeSection humSSSection, HashMap<Course, Integer> courseMap, ArrayList<Course> humCourses) {
+        return false;
     }
 
     private boolean depthRequirement(HashMap<Course, Integer> courseMap, ArrayList<Course> courseList) {
@@ -139,6 +146,30 @@ public class HumanitiesRequirement extends Requirement {
         for (Course course : courseList) {
             if (courseMap.get(course) > 0) {
                 if (isSS(course)) {
+                    newList.add(course);
+                }
+            }
+        }
+        return newList;
+    }
+
+    private ArrayList<Course> createHumanitiesList(ArrayList<Course> courseList, HashMap<Course, Integer> courseMap) {
+        ArrayList<Course> newList = new ArrayList<Course>();
+        for (Course course : courseList) {
+            if (courseMap.get(course) > 0) {
+                if (isHumanities(course)) {
+                    newList.add(course);
+                }
+            }
+        }
+        return newList;
+    }
+
+    private ArrayList<Course> createHumanitiesList(ArrayList<Course> courseList, HashMap<Course, Integer> courseMap) {
+        ArrayList<Course> newList = new ArrayList<Course>();
+        for (Course course : courseList) {
+            if (courseMap.get(course) > 0) {
+                if (isHumanities(course)) {
                     newList.add(course);
                 }
             }
