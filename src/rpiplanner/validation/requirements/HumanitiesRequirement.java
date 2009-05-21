@@ -39,16 +39,40 @@ public class HumanitiesRequirement extends Requirement {
         boolean depthReqMet = depthRequirement(courseMap, humSSCourses);
         boolean levelReqMet = LevelReq(humSSSection, humSSCourses);
         //TODO: Check Humanities
-        boolean humanitiesReqMet = humanitiesReq(humSSSection, courseMap, humCourses);
-        //TODO: Check Social Sciences
-        boolean socsciReqMet = SocSciReq(humSSSection,courseMap,humCourses);
+        boolean socsciReqMet = SocSciReq(humSSSection,courseMap,humCourses, socSciCourses);
 
 
 
         return humSSSection;
     }
 
-    private boolean SocSciReq(DegreeSection humSSSection, HashMap<Course, Integer> courseMap, ArrayList<Course> humCourses) {
+    private boolean SocSciReq(DegreeSection section, HashMap<Course, Integer> courseMap,
+                              ArrayList<Course> humCourses, ArrayList<Course> socSciCourses) {
+        int totalSocCredits = 0;
+        int total1000Level = 0;
+        for (Course course : socSciCourses) {
+            if (course.getLevel() == "1000") total1000Level++;
+            if (total1000Level <= 3 || course.getLevel() != "1000") {
+                totalSocCredits += course.getCredits();
+                section.addAppliedCourse(course);
+            }
+            if (totalSocCredits >= 20)  break;
+        }
+        if (totalSocCredits < 20) section.addMessage("Need More Social Sciences Courses");
+
+        int totalHumCredits = 0;
+
+        for (Course course : humCourses) {
+            if (course.getLevel() == "1000") total1000Level++;
+            if (total1000Level <= 3 || course.getLevel() != "1000") {
+                totalHumCredits += course.getCredits();
+                section.addAppliedCourse(course);
+            }
+            if (totalHumCredits >= 20) {
+                return true;
+            }
+        }
+        if (totalHumCredits < 20) section.addMessage("Need More Humanities Courses");
         return false;
     }
 
