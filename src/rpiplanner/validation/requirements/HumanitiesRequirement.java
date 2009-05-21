@@ -165,18 +165,6 @@ public class HumanitiesRequirement extends Requirement {
         return newList;
     }
 
-    private ArrayList<Course> createHumanitiesList(ArrayList<Course> courseList, HashMap<Course, Integer> courseMap) {
-        ArrayList<Course> newList = new ArrayList<Course>();
-        for (Course course : courseList) {
-            if (courseMap.get(course) > 0) {
-                if (isHumanities(course)) {
-                    newList.add(course);
-                }
-            }
-        }
-        return newList;
-    }
-
     private boolean isHumanities(Course course) {
         if (course.getPrefix() == "LANG" || course.getPrefix() == "LITR" || course.getPrefix() == "COMM"
                 || course.getPrefix() == "WRIT" || course.getPrefix() == "ARTS" || course.getPrefix() == "PHIL"
