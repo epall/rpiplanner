@@ -31,6 +31,7 @@ import java.util.HashMap;
 public class CoreRequirement extends Requirement {
     String name;
     String description;
+    //Comment here for a difference
 
     @XStreamImplicit(itemFieldName = "course")
     ArrayList<Course> reqCourse;
