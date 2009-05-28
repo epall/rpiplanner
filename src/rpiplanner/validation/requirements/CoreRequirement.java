@@ -19,6 +19,7 @@
 package rpiplanner.validation.requirements;
 
 import com.thoughtworks.xstream.annotations.XStreamImplicit;
+import com.thoughtworks.xstream.annotations.XStreamAlias;
 import rpiplanner.model.Course;
 import rpiplanner.validation.degree.DegreeSection;
 import rpiplanner.validation.interfaces.Requirement;
@@ -27,7 +28,7 @@ import rpiplanner.validation.interfaces.Section;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-
+@XStreamAlias("CoreRequirement")
 public class CoreRequirement extends Requirement {
     String name;
     String description;
