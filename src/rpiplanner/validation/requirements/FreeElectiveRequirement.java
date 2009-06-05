@@ -25,12 +25,22 @@ import rpiplanner.validation.interfaces.Requirement;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import com.thoughtworks.xstream.annotations.XStreamAlias;
+
+@XStreamAlias("FreeElectiveRequirement")
 public class FreeElectiveRequirement extends Requirement {
+    private int creditsReq = 0;
+
+    FreeElectiveRequirement(int credits) {
+        this.creditsReq = credits;
+    }
+
     public DegreeSection validate(HashMap<Course, Integer> courseMap, ArrayList<Course> courseList) {
         //Free Electives
         DegreeSection freeElective = new DegreeSection();
         freeElective.setName("Free Electives");
         freeElective.setDescription("Courses that are not applied to any other requirements");
+        int numCredits = 0;
         for (Course course : courseList) {
             if (courseMap.get(course) > 0) {
                 freeElective.addAppliedCourse(course);
@@ -38,12 +48,21 @@ public class FreeElectiveRequirement extends Requirement {
                 int number = courseMap.get(course);
                 number--;
                 courseMap.put(course, number);
+                numCredits += course.getCredits();
+                if (numCredits > creditsReq) {
+                    freeElective.succeeded();
+                    break;
+                }
                 if (courseMap.get(course) > 0 && course.isDoubleCount()) {
                     for (int i = 0; i < courseMap.get(course); i++) {
                         freeElective.addAppliedCourse(course);
                         freeElective.addCredits(course.getCredits());
                     }
                 }
+            }
+            if (numCredits > creditsReq) {
+                freeElective.succeeded();
+                break;
             }
         }
         return freeElective;
