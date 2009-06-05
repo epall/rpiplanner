@@ -28,6 +28,7 @@ import rpiplanner.validation.requirements.RestrictedRequirement;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+@XStreamAlias("Degree")
 public class Degree {
     @XStreamAlias("DegreeName")
     String name;
