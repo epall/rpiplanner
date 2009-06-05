@@ -31,9 +31,15 @@ import java.util.HashMap;
 public class Degree {
     @XStreamAlias("DegreeName")
     String name;
+    int numCredits;
+
 
     ArrayList<Requirement> requirements = new ArrayList<Requirement>();
 
+    public Degree(String name, int numCredits) {
+        this.name = name;
+        this.numCredits = numCredits;
+    }
 
     //TODO: Supposed to take PlanOfStudy pos as argument
     //Have them return validtionresult and then run another function to update Hash
@@ -41,6 +47,7 @@ public class Degree {
         ArrayList<Course> courseList = pos;
         DegreeValidationResult result = new DegreeValidationResult();
         HashMap<Course, Integer> courseMap = createHash(courseList);
+        result.setTotalCredits(numCredits);
         int totalCredits = 0;
 
         for (Requirement requirement : requirements){

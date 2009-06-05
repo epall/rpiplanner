@@ -49,7 +49,7 @@ public class DegreeTest
     @Test
     public void testValidateCoreRequirement()
     {
-        Degree testDegree = new Degree();
+        Degree testDegree = new Degree("Test Degree", 128);
         String name = "Test Requirement";
         String desc = "Testing the Core Requirement Validator";
         CoreRequirement coreMathScienceReq = new CoreRequirement(name, desc);
@@ -100,7 +100,7 @@ public class DegreeTest
     @Test
     public void testValidateRestrictedElective ()
     {
-        Degree testDegree = new Degree();
+        Degree testDegree = new Degree("Test Degree", 128);
         String name = "Test Requirement";
         String desc = "Testing the Restricted Requirement Validator";
         RestrictedRequirement multiReq = new RestrictedRequirement(name, desc);

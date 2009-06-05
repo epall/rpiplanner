@@ -25,6 +25,9 @@ import rpiplanner.validation.interfaces.Requirement;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import com.thoughtworks.xstream.annotations.XStreamAlias;
+
+@XStreamAlias("SubjectRequirement")
 public class SubjectRequirement extends Requirement {
 
     String name;

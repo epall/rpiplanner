@@ -25,7 +25,11 @@ import rpiplanner.validation.interfaces.Requirement;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import com.thoughtworks.xstream.annotations.XStreamAlias;
+
+@XStreamAlias("HumanitiesRequirement")
 public class HumanitiesRequirement extends Requirement {
+
     public DegreeSection validate(HashMap<Course, Integer> courseMap, ArrayList<Course> courseList) {
         DegreeSection humSSSection = new DegreeSection();
         humSSSection.setName("Humanities and Social Sciences");

@@ -101,4 +101,12 @@ public class DegreeSection implements Section
     public void addMessage(String s) {
         messages.add(s);
     }
+
+    public void clearPotentialCourse() {
+        potentialCourses.clear();
+    }
+
+    public void clearMissingCourse() {
+        missingCourses.clear();
+    }
 }

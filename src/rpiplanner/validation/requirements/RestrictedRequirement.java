@@ -110,6 +110,7 @@ public class RestrictedRequirement extends Requirement {
         DegreeSection newSection = new DegreeSection();
         newSection.setName(getName());
         newSection.setDescription(getDescription());
+        boolean passed = false;
         for (Course course : getCourses()) {
             if (courseMap.containsKey(course)) {
                 newSection.addAppliedCourse(course);
@@ -117,6 +118,7 @@ public class RestrictedRequirement extends Requirement {
                 int number = courseMap.get(course);
                 number--;
                 courseMap.put(course, number);
+                passed = true;
             } else if (hasReplacementCourse(course)) {
                 //Check for replacement courses for the current course.
                 for (Course repCourse : getReplacementCourses(course)) {
@@ -129,7 +131,6 @@ public class RestrictedRequirement extends Requirement {
                     }
                 }
             } else {
-                //TODO:Check to see if we want the replacement course to be in missing courses also.
                 newSection.addMissingCourse(course);
                 newSection.addPotentialCourse(course);
                 if (hasReplacementCourse(course)) {
@@ -140,8 +141,14 @@ public class RestrictedRequirement extends Requirement {
                     }
                 }
             }
+
+            if (passed) break;
         }
-        //TODO: Add support for if more than one course that meets the requirement is taken.
+        if (passed) {
+            newSection.succeeded();
+            newSection.clearPotentialCourse();
+            newSection.clearMissingCourse();
+        }
         return newSection;
     }
 }
