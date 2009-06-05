@@ -24,6 +24,7 @@ import org.junit.BeforeClass;
 import rpiplanner.validation.degree.Degree;
 import rpiplanner.model.Course;
 import rpiplanner.Fixtures;
+import static org.junit.Assert.*;
 import com.thoughtworks.xstream.XStream;
 
 public class XMLOutputTest {
@@ -50,13 +51,18 @@ public class XMLOutputTest {
         xstream.processAnnotations(HumanitiesRequirement.class);
         xstream.processAnnotations(FreeElectiveRequirement.class);
 		xstream.processAnnotations(Course.class);
-		String xml = xstream.toXML(newDegree);
+
+        String xml = xstream.toXML(newDegree);
 
 		System.out.println(xml);
 
 		Degree duplicateDegree = (Degree) xstream.fromXML(xml);
+        String newxml = xstream.toXML(duplicateDegree);
+
+        assertEquals(xml,newxml);
     }
-    static void initializeDegree (Degree newDegree)
+
+    private void initializeDegree (Degree newDegree)
 	{
 		CoreRequirement coreMathScienceReq = new CoreRequirement("Math and Science Core",
 		"Must fufill all course requirements below.");
@@ -153,8 +159,6 @@ public class XMLOutputTest {
 
         HumanitiesRequirement humReq = new HumanitiesRequirement();
         newDegree.addRequirement(humReq);
-
-
 
 	}
 }
