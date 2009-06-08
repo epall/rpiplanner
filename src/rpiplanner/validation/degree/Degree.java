@@ -20,6 +20,7 @@ package rpiplanner.validation.degree;
 
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 import rpiplanner.model.Course;
+import rpiplanner.model.PlanOfStudy;
 import rpiplanner.validation.interfaces.Section;
 import rpiplanner.validation.interfaces.Requirement;
 import rpiplanner.validation.requirements.CoreRequirement;
@@ -31,7 +32,7 @@ import java.util.HashMap;
 @XStreamAlias("Degree")
 public class Degree {
     @XStreamAlias("DegreeName")
-    String name;
+    private String name;
     int numCredits;
 
 
@@ -44,8 +45,10 @@ public class Degree {
 
     //TODO: Supposed to take PlanOfStudy pos as argument
     //Have them return validtionresult and then run another function to update Hash
-    public DegreeValidationResult validate(ArrayList<Course> pos) {
-        ArrayList<Course> courseList = pos;
+    public DegreeValidationResult validate(PlanOfStudy pos) {
+        ArrayList<Course> courseList = new ArrayList<Course>();
+        courseList.addAll(pos.getCourses());
+        
         DegreeValidationResult result = new DegreeValidationResult();
         HashMap<Course, Integer> courseMap = createHash(courseList);
         result.setTotalCredits(numCredits);

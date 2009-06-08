@@ -89,7 +89,7 @@ public class DegreeTest
         missingCourseList.add(Course.get("CHEM","1100"));
 
 
-        DegreeValidationResult result = testDegree.validate(courseList);
+        DegreeValidationResult result = null; //testDegree.validate(courseList);
 
         result.getSectionResults("Test Requirement");
 
@@ -125,14 +125,14 @@ public class DegreeTest
         courseList.add(Course.get("ENGR","2530"));
 
 
-        DegreeValidationResult result = testDegree.validate(courseList);
+        DegreeValidationResult result = null; //testDegree.validate(courseList);
 
         result.getSectionResults("Test Requirement");
         assertTrue(result.getSectionResults("Test Requirement").isSuccess());
 
         //Shows what I need to fix
         courseList.add(Course.get("ENGR","2250"));
-        result = testDegree.validate(courseList);
+        result = null; //testDegree.validate(courseList);
         assertTrue(result.getSectionResults("Test Requirement").isSuccess());
 
     }
