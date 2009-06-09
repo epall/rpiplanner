@@ -24,6 +24,7 @@ import rpiplanner.model.Course;
 import rpiplanner.validation.degree.DegreeSection;
 import rpiplanner.validation.interfaces.Requirement;
 import rpiplanner.validation.interfaces.IDegreeValidationResult;
+import rpiplanner.validation.ValidationResult;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -88,8 +89,8 @@ public class CoreRequirement extends Requirement {
             return null;
     }
 
-    public IDegreeValidationResult.Section validate(HashMap<Course, Integer> courseMap, ArrayList<Course> courseList) {
-        IDegreeValidationResult.Section newSection = new DegreeSection();
+    public ValidationResult.Section validate(HashMap<Course, Integer> courseMap, ArrayList<Course> courseList) {
+        ValidationResult.Section newSection = new DegreeSection();
         newSection.setName(this.getName());
         newSection.setDescription(this.getDescription());
 

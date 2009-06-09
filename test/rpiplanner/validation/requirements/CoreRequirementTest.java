@@ -23,6 +23,7 @@ import org.junit.BeforeClass;
 import static org.junit.Assert.*;
 import rpiplanner.Fixtures;
 import rpiplanner.validation.interfaces.IDegreeValidationResult;
+import rpiplanner.validation.ValidationResult;
 import rpiplanner.model.Course;
 
 import java.util.ArrayList;
@@ -118,7 +119,7 @@ public class CoreRequirementTest {
         missingCourseList.add(Course.get("CHEM","1100"));
 
 
-        IDegreeValidationResult.Section result = requirement.validate(courseMap,courseList);
+        ValidationResult.Section result = requirement.validate(courseMap,courseList);
 
         assertEquals(courseList, result.appliedCourses());
         assertEquals(missingCourseList, result.missingCourses());

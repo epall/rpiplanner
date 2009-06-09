@@ -59,6 +59,14 @@ public interface ValidationResult {
 		public Course[] appliedCourses();
 		public String[] messages();
 		public Course[] potentialCourses();
+        public String getName();
 		public boolean isSuccess();
-	}
+        public void setName(String name);
+        void setDescription(String description);
+        void addAppliedCourse(Course course);
+        void addCredits(int credits);
+        void addMissingCourse(Course course);
+        void addPotentialCourse(Course course);
+        void succeeded();
+    }
 }

@@ -23,6 +23,7 @@ import com.thoughtworks.xstream.annotations.XStreamImplicit;
 import rpiplanner.model.Course;
 import rpiplanner.validation.degree.DegreeSection;
 import rpiplanner.validation.interfaces.Requirement;
+import rpiplanner.validation.ValidationResult;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -106,7 +107,7 @@ public class RestrictedRequirement extends Requirement {
     }
 
 
-    public DegreeSection validate(HashMap<Course, Integer> courseMap, ArrayList<Course> courseList) {
+    public ValidationResult.Section validate(HashMap<Course, Integer> courseMap, ArrayList<Course> courseList) {
         DegreeSection newSection = new DegreeSection();
         newSection.setName(getName());
         newSection.setDescription(getDescription());
@@ -146,8 +147,6 @@ public class RestrictedRequirement extends Requirement {
         }
         if (passed) {
             newSection.succeeded();
-            newSection.clearPotentialCourse();
-            newSection.clearMissingCourse();
         }
         return newSection;
     }

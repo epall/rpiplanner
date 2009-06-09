@@ -19,14 +19,15 @@
 package rpiplanner.validation.degree;
 
 import rpiplanner.validation.interfaces.IDegreeValidationResult;
+import rpiplanner.validation.ValidationResult;
 
 import java.util.HashMap;
 import java.util.ArrayList;
 
-public class DegreeValidationResult implements IDegreeValidationResult
+public class DegreeValidationResult implements ValidationResult
 {
     HashMap<String, Section> sectionMap = new HashMap<String, Section>();
-    ArrayList<String> sectionNames = new ArrayList<String>();
+    String[] sectionNames = new String[0];
 
     private int totalCredits;
 
@@ -47,14 +48,15 @@ public class DegreeValidationResult implements IDegreeValidationResult
     }
 
     public String[] getSectionNames() {
-        return (String[]) sectionNames.toArray();
+        return sectionNames;
     }
 
 
     void addSection (Section newSection)
     {
         sectionMap.put(newSection.getName(),newSection);
-        sectionNames.add(newSection.getName());
+        String[] list = new String[sectionNames.length + 1];
+        list[list.length - 1] = newSection.getName();
     }
 
     int getTotalCredits()

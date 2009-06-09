@@ -25,6 +25,7 @@ import rpiplanner.validation.interfaces.Requirement;
 import rpiplanner.validation.interfaces.IDegreeValidationResult;
 import rpiplanner.validation.requirements.CoreRequirement;
 import rpiplanner.validation.requirements.RestrictedRequirement;
+import rpiplanner.validation.ValidationResult;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -55,7 +56,7 @@ public class Degree {
         int totalCredits = 0;
 
         for (Requirement requirement : requirements){
-            IDegreeValidationResult.Section section = requirement.validate(courseMap, courseList);
+            ValidationResult.Section section = requirement.validate(courseMap, courseList);
             result.addSection(section);
         }
 

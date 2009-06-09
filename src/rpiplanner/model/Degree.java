@@ -21,6 +21,7 @@ package rpiplanner.model;
 import rpiplanner.RubyEnvironment;
 import rpiplanner.validation.DegreeValidator;
 import rpiplanner.validation.ValidationResult;
+import rpiplanner.validation.requirements.RestrictedRequirement;
 
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 import com.thoughtworks.xstream.annotations.XStreamOmitField;
@@ -50,7 +51,7 @@ public class Degree {
 	private ValidationError[] errors;
 	
 	public String getName() {
-		return name;
+		return "Test Degree";
 	}
 	public String getNote() {
 		return note;
@@ -99,8 +100,11 @@ public class Degree {
 	}
 	
 	public String[] getSectionNames(){
-		initDescriptor();
-		return descriptor.getSectionNames();
+		//initDescriptor();
+		//return descriptor.getSectionNames();
+        String[] x = new String[1];
+        x[0] = "Test Requirement";
+        return x;
 	}
 	
 	private void initDescriptor(){
@@ -114,7 +118,26 @@ public class Degree {
      * @param plan A Plan of Study to validate
      */
 	public ValidationResult validate(PlanOfStudy plan) {
-		initDescriptor();
-		return descriptor.validate(plan);
+		//initDescriptor();
+
+        rpiplanner.validation.degree.Degree testDegree = new rpiplanner.validation.degree.Degree("Test Degree", 128);
+        String name = "Test Requirement";
+        String desc = "Testing the Restricted Requirement Validator";
+        RestrictedRequirement multiReq = new RestrictedRequirement(name, desc);
+        multiReq.setNumCredits(4);
+        multiReq.setNumCourses(1);
+
+		multiReq.addCourse(Course.get("ENGR","1600"));
+		multiReq.addCourse(Course.get("ENGR","2090"));
+		multiReq.addCourse(Course.get("ENGR","2250"));
+		multiReq.addCourse(Course.get("ENGR","2530"));
+
+        multiReq.addReplacementCourse(Course.get("MATH","1010"), Course.get("ARTS","1010"));
+
+        testDegree.addRequirement(multiReq);
+
+        ValidationResult result = testDegree.validate(plan);
+
+        return result;
 	}
 }

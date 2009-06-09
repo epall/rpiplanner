@@ -20,10 +20,11 @@ package rpiplanner.validation.degree;
 
 import rpiplanner.model.Course;
 import rpiplanner.validation.interfaces.IDegreeValidationResult;
+import rpiplanner.validation.ValidationResult;
 
 import java.util.ArrayList;
 
-public class DegreeSection implements IDegreeValidationResult.Section
+public class DegreeSection implements ValidationResult.Section
 {
     String name;
     String description;
