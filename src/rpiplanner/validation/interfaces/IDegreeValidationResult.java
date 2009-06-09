@@ -18,6 +18,10 @@
 
 package rpiplanner.validation.interfaces;
 
+import rpiplanner.model.Course;
+
+import java.util.ArrayList;
+
 /**
  * A {@link rpiplanner.validation.DegreeValidator}'s <code>validate()</code> method will produce a
  * ValidationResult that can be queried for detailed results. Each
@@ -51,4 +55,22 @@ public interface IDegreeValidationResult {
      * @return A list of section names
      */
 	 public String[] getSectionNames();
+
+    public static interface Section {
+
+        public Course[] missingCourses();
+        public Course[] appliedCourses();
+        public Course[] potentialCourses();
+        public String[] messages();
+        public boolean isSuccess();
+        public String getName();
+        public void setName(String name);
+        public void addAppliedCourse(Course course);
+        public void addCredits(int credits);
+        public void setDescription(String description);
+        public void addMissingCourse(Course course);
+        public void addPotentialCourse(Course course);
+        public void succeeded();
+
+    }
 }

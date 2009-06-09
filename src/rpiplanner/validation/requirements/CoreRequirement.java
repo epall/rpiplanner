@@ -23,7 +23,7 @@ import com.thoughtworks.xstream.annotations.XStreamAlias;
 import rpiplanner.model.Course;
 import rpiplanner.validation.degree.DegreeSection;
 import rpiplanner.validation.interfaces.Requirement;
-import rpiplanner.validation.interfaces.Section;
+import rpiplanner.validation.interfaces.IDegreeValidationResult;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -88,8 +88,8 @@ public class CoreRequirement extends Requirement {
             return null;
     }
 
-    public Section validate(HashMap<Course, Integer> courseMap, ArrayList<Course> courseList) {
-        Section newSection = new DegreeSection();
+    public IDegreeValidationResult.Section validate(HashMap<Course, Integer> courseMap, ArrayList<Course> courseList) {
+        IDegreeValidationResult.Section newSection = new DegreeSection();
         newSection.setName(this.getName());
         newSection.setDescription(this.getDescription());
 
@@ -136,7 +136,7 @@ public class CoreRequirement extends Requirement {
                 }
             }
         }
-        if (newSection.appliedCourses().size() == reqCourse.size()) {
+        if (newSection.appliedCourses().length == reqCourse.size()) {
             newSection.succeeded();
         }
         return newSection;

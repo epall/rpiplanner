@@ -21,8 +21,8 @@ package rpiplanner.validation.degree;
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 import rpiplanner.model.Course;
 import rpiplanner.model.PlanOfStudy;
-import rpiplanner.validation.interfaces.Section;
 import rpiplanner.validation.interfaces.Requirement;
+import rpiplanner.validation.interfaces.IDegreeValidationResult;
 import rpiplanner.validation.requirements.CoreRequirement;
 import rpiplanner.validation.requirements.RestrictedRequirement;
 
@@ -55,7 +55,7 @@ public class Degree {
         int totalCredits = 0;
 
         for (Requirement requirement : requirements){
-            Section section = requirement.validate(courseMap, courseList);
+            IDegreeValidationResult.Section section = requirement.validate(courseMap, courseList);
             result.addSection(section);
         }
 
