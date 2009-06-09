@@ -45,7 +45,7 @@ import com.jgoodies.forms.layout.FormLayout;
 import com.jgoodies.forms.layout.RowSpec;
 
 import rpiplanner.POSController;
-import rpiplanner.model.Degree;
+import rpiplanner.validation.degree.Degree;
 import rpiplanner.model.PlanOfStudy;
 import rpiplanner.validation.ValidationResult;
 
@@ -145,7 +145,7 @@ public class DegreeProgressPanel extends JPanel {
 		if (controller.getPlan().getDegrees().size() == 0)
 			initialize(controller.getPlan(), null);
 		else
-			initialize(controller.getPlan(), controller.getPlan().getDegrees()
+			initialize(controller.getPlan(),  controller.getPlan().getDegrees()
 					.get(0));
 		
 		degreeComboBox.setModel(controller.getDegreeListModel());

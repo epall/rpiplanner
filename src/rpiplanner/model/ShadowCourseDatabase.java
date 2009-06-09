@@ -26,6 +26,8 @@ import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
 
+import rpiplanner.validation.degree.Degree;
+
 import com.thoughtworks.xstream.annotations.XStreamImplicit;
 import com.thoughtworks.xstream.annotations.XStreamOmitField;
 
@@ -111,7 +113,7 @@ public class ShadowCourseDatabase implements CourseDatabase {
 		support.firePropertyChange("courses", null, courses);
 	}
 
-	public Degree getDegree(long id) {
+	public rpiplanner.validation.degree.Degree getDegree(long id) {
 		return shadowee.getDegree(id);
 	}
 

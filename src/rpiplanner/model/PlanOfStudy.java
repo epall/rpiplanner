@@ -23,6 +23,8 @@ import java.beans.PropertyChangeSupport;
 import java.util.ArrayList;
 import java.util.List;
 
+import rpiplanner.validation.degree.Degree;
+
 import rpiplanner.SchoolInformation;
 
 import com.thoughtworks.xstream.annotations.XStreamAlias;
@@ -76,7 +78,7 @@ public class PlanOfStudy {
 		terms.get(index).plan = this;
 		return terms.get(index);
 	}
-	public ArrayList<Degree> getDegrees() {
+	public ArrayList<rpiplanner.validation.degree.Degree> getDegrees() {
 		if(degrees == null)
 			degrees = new ArrayList<Degree>();
 		return degrees;

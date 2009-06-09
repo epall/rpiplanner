@@ -92,4 +92,16 @@ public class Degree {
     public void addRequirement(Requirement requirement){
         requirements.add(requirement);
     }
+
+    public String[] getSectionNames() {
+        String[] names = new String[requirements.size()];
+        for (int i = 0;i < requirements.size(); i++) {
+            names[i] = requirements.get(i).getName();
+        }
+        return names;
+    }
+
+    public String getID() {
+        return "0";
+    }
 }

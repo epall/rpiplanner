@@ -36,6 +36,7 @@ public class Degree {
 	
 	@XStreamOmitField
 	private DegreeValidator descriptor;
+
 	
 	/**
 	 * Constructor for testing.
@@ -120,24 +121,8 @@ public class Degree {
 	public ValidationResult validate(PlanOfStudy plan) {
 		//initDescriptor();
 
-        rpiplanner.validation.degree.Degree testDegree = new rpiplanner.validation.degree.Degree("Test Degree", 128);
-        String name = "Test Requirement";
-        String desc = "Testing the Restricted Requirement Validator";
-        RestrictedRequirement multiReq = new RestrictedRequirement(name, desc);
-        multiReq.setNumCredits(4);
-        multiReq.setNumCourses(1);
+        //ValidationResult result = currentDegree.validate(plan);
 
-		multiReq.addCourse(Course.get("ENGR","1600"));
-		multiReq.addCourse(Course.get("ENGR","2090"));
-		multiReq.addCourse(Course.get("ENGR","2250"));
-		multiReq.addCourse(Course.get("ENGR","2530"));
-
-        multiReq.addReplacementCourse(Course.get("MATH","1010"), Course.get("ARTS","1010"));
-
-        testDegree.addRequirement(multiReq);
-
-        ValidationResult result = testDegree.validate(plan);
-
-        return result;
+        return null;
 	}
 }

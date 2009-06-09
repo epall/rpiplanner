@@ -23,6 +23,7 @@ import javax.swing.ComboBoxModel;
 
 import rpiplanner.model.CourseDatabase;
 import rpiplanner.model.PlanOfStudy;
+import rpiplanner.validation.degree.Degree;
 
 public class DegreeListModel extends AbstractListModel implements ComboBoxModel {
 	private CourseDatabase database;

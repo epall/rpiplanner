@@ -25,6 +25,8 @@ import java.util.Collection;
 import java.util.List;
 import java.util.TreeSet;
 
+import rpiplanner.validation.degree.Degree;
+
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 import com.thoughtworks.xstream.annotations.XStreamImplicit;
 import com.thoughtworks.xstream.annotations.XStreamOmitField;
@@ -35,11 +37,17 @@ public class DefaultCourseDatabase implements CourseDatabase {
 	private ArrayList<Course> courses = new ArrayList<Course>();
 	
 	@XStreamImplicit
-	private ArrayList<Degree> degrees = new ArrayList<Degree>();
+	private ArrayList<rpiplanner.model.Degree> degrees = new ArrayList<rpiplanner.model.Degree>();
+
+    @XStreamOmitField
+    private ArrayList<Degree> newDegrees = new ArrayList<Degree>();
 
 	@XStreamOmitField
 	private ArrayList<String> departments;
-	
+
+    @XStreamOmitField
+    private DegreeDatabase degreeDatabase = new DegreeDatabase();
+
     protected DefaultCourseDatabase(){}
 
 	public int getNumCourses() {
@@ -83,9 +91,11 @@ public class DefaultCourseDatabase implements CourseDatabase {
 	}
 
 	public Degree[] listDegrees() {
-		if(degrees == null)
-			degrees = new ArrayList<Degree>();
-		return degrees.toArray(new Degree[0]);
+        if (degreeDatabase == null) degreeDatabase = new DegreeDatabase();
+         return degreeDatabase.listDegrees();
+        /*if(newDegrees == null)
+			newDegrees = new ArrayList<Degree>();
+		return newDegrees.toArray(new Degree[0]);*/
 	}
 
 	public void addPropertyChangeListener(PropertyChangeListener listener){
@@ -103,10 +113,10 @@ public class DefaultCourseDatabase implements CourseDatabase {
 	}
 
 	public Degree getDegree(long id) {
-		for(Degree d : degrees){
+		/*for(Degree d : newDegrees){
 			if(d.getID() == id)
 				return d;
-		}
+		}*/
 		return null;
 	}
 

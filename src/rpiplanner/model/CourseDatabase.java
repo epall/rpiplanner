@@ -17,6 +17,10 @@
  */
 
 package rpiplanner.model;
+import rpiplanner.validation.degree.Degree;
+
+import rpiplanner.validation.degree.*;
+import rpiplanner.validation.degree.Degree;
 
 import java.beans.PropertyChangeListener;
 import java.util.List;

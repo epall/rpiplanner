@@ -49,6 +49,10 @@ public class HumanitiesRequirement extends Requirement {
         return humSSSection;
     }
 
+    public String getName() {
+        return "Humanities and Social Sciences";
+    }
+
     private boolean mainReq(DegreeSection section, HashMap<Course, Integer> courseMap,
         //TODO: Add courses to potential
         ArrayList<Course> humCourses, ArrayList<Course> socSciCourses) {

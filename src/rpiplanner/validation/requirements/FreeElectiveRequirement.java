@@ -68,4 +68,8 @@ public class FreeElectiveRequirement extends Requirement {
         }
         return freeElective;
     }
+
+    public String getName() {
+        return "Free Elective Requirement";
+    }
 }

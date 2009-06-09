@@ -57,6 +57,6 @@ public class Fixtures {
 	}
 
 	public static Degree getCSYS() {
-		return getCourseDatabase().getDegree(1);
+		return null; //getCourseDatabase().getDegree(1);
 	}
 }

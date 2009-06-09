@@ -34,7 +34,7 @@ public class POSControllerTest {
         myPlan.rebuildTerms();
         POSController controller = new POSController();
         controller.setPlan(myPlan);
-        myPlan.getDegrees().add(Fixtures.getCSYS());
+        //myPlan.getDegrees().add(Fixtures.getCSYS());
         assertEquals(2000, myPlan.getStartingYear());
         controller.loadTemplate();
         assertEquals(2000, myPlan.getStartingYear());
@@ -51,7 +51,7 @@ public class POSControllerTest {
         myPlan.rebuildTerms();
         POSController controller = new POSController();
         controller.setPlan(myPlan);
-        myPlan.getDegrees().add(Fixtures.getCSYS());
+        //myPlan.getDegrees().add(Fixtures.getCSYS());
         controller.loadTemplate();
 
         assertNotSame("Expected non-zero number of courses in template.", 0, myPlan.getTerm(1).getCourses().size());
@@ -69,7 +69,7 @@ public class POSControllerTest {
         assertEquals(2000, myPlan.getTerm(1).getYear());
         POSController controller = new POSController();
         controller.setPlan(myPlan);
-        myPlan.getDegrees().add(Fixtures.getCSYS());
+        //myPlan.getDegrees().add(Fixtures.getCSYS());
         controller.loadTemplate();
         assertEquals(2000, myPlan.getTerm(1).getYear());
     }
