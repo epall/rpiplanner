@@ -39,6 +39,10 @@ public class DefaultCourseDatabase implements CourseDatabase {
 
 	@XStreamOmitField
 	private ArrayList<String> departments;
+
+    @XStreamOmitField
+    private DegreeDatabase degreeDatabase = new DegreeDatabase();
+
 	
     protected DefaultCourseDatabase(){}
 

@@ -36,6 +36,7 @@ public class Degree {
 	
 	@XStreamOmitField
 	private DegreeValidator descriptor;
+
 	
 	/**
 	 * Constructor for testing.
@@ -51,7 +52,7 @@ public class Degree {
 	private ValidationError[] errors;
 	
 	public String getName() {
-		return "Test Degree";
+		return "Error";
 	}
 	public String getNote() {
 		return note;
