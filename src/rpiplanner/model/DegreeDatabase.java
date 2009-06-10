@@ -157,6 +157,12 @@ public class DegreeDatabase {
 
         newDegree.addRequirement(newRestReq);
 
+        HumanitiesRequirement humReq = new HumanitiesRequirement();
+        newDegree.addRequirement(humReq);
+
+        FreeElectiveRequirement freeReq = new FreeElectiveRequirement(16);
+        newDegree.addRequirement(humReq);
+
         database.add(newDegree);
     }
 
