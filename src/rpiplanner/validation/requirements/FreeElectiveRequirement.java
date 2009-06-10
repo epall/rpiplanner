@@ -49,7 +49,7 @@ public class FreeElectiveRequirement extends Requirement {
         for (Course course : courseList) {
             if (courseMap.get(course) > 0) {
                 freeElective.addAppliedCourse(course);
-                freeElective.addCredits(course.getCredits());
+                numCredits += course.getCredits();
                 int number = courseMap.get(course);
                 number--;
                 courseMap.put(course, number);

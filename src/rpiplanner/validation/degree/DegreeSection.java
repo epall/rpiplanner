@@ -29,6 +29,7 @@ public class DegreeSection implements ValidationResult.Section
     String name;
     String description;
     int credits;
+    boolean isSuccess = false;
 
     ArrayList<Course> missingCourses = new ArrayList<Course>();
     ArrayList<Course> appliedCourses = new ArrayList<Course>();
@@ -65,7 +66,7 @@ public class DegreeSection implements ValidationResult.Section
 
     public boolean isSuccess()
     {
-       return (missingCourses.size() == 0 && potentialCourses.size() == 0);
+       return isSuccess;
     }
 
     public void setName(String name) {
@@ -77,8 +78,7 @@ public class DegreeSection implements ValidationResult.Section
     }
 
     public void succeeded() {
-        missingCourses.clear();
-        potentialCourses.clear();
+       isSuccess = true;
     }
 
     public Course[] missingCourses()
