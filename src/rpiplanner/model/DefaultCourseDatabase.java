@@ -119,6 +119,13 @@ public class DefaultCourseDatabase implements CourseDatabase {
 	}
 
     public ArrayList<Course> getCourseBetween(String prefix, int lowerNumber, int upperNumber) {
-        return null;  //To change body of implemented methods use File | Settings | File Templates.
+        ArrayList<Course> courseList = new ArrayList<Course>();
+        for (Course course : courses) {
+            if (course.getNumber() >= lowerNumber &&
+                    course.getNumber() < upperNumber) {
+                courseList.add(course);
+            }
+        }
+        return courseList;
     }
 }

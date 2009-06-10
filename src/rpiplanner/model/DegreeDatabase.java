@@ -21,6 +21,7 @@ package rpiplanner.model;
 import java.util.ArrayList;
 import rpiplanner.validation.degree.Degree;
 import rpiplanner.validation.requirements.CoreRequirement;
+import rpiplanner.validation.requirements.HumanitiesRequirement;
 
 
 public class DegreeDatabase {
@@ -50,6 +51,9 @@ public class DegreeDatabase {
         coreMathScienceReq.addReplacementCourse(Course.get("MATH","1010"), Course.get("ARTS","1010"));
 
         testDegree.addRequirement(coreMathScienceReq);
+
+        HumanitiesRequirement humReq = new HumanitiesRequirement();
+        testDegree.addRequirement(humReq);
 
         database.add(testDegree);
 

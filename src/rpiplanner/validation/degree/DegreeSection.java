@@ -95,8 +95,7 @@ public class DegreeSection implements ValidationResult.Section
     }
     public String[] messages()
     {
-        messages.add(description);
-        return (String[]) messages.toArray();
+        return messages.toArray(new String[0]);
     }
 
     public void addMessage(String s) {
