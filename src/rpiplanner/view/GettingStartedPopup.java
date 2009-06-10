@@ -41,7 +41,7 @@ import com.jgoodies.forms.layout.FormLayout;
 import com.jgoodies.forms.layout.RowSpec;
 
 import rpiplanner.POSController;
-import rpiplanner.model.Degree;
+import rpiplanner.validation.degree.Degree;
 import rpiplanner.model.PlanOfStudy;
 
 public class GettingStartedPopup extends JDialog {

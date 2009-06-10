@@ -81,6 +81,8 @@ public class Main extends Application {
         RubyEnvironment.getInstance().setCourseDatabase(courseDatabase);
         planControl.setCourseDatabase(courseDatabase);
         mainFrame = new MainFrame();
+        //TODO: Fix Hack
+        planControl.getPlan().getDegrees().clear();
         planControl.setView(mainFrame.getPlanCard());
         mainFrame.setController(planControl);
         mainFrame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);

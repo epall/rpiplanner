@@ -37,7 +37,7 @@ public class DefaultCourseDatabase implements CourseDatabase {
 	private ArrayList<Course> courses = new ArrayList<Course>();
 	
 	@XStreamImplicit
-	private ArrayList<Degree> degrees = new ArrayList<Degree>();
+	private ArrayList<rpiplanner.model.Degree> degrees = new ArrayList<rpiplanner.model.Degree>();
 
 	@XStreamOmitField
 	private ArrayList<String> departments;

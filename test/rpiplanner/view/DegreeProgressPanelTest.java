@@ -39,9 +39,10 @@ public class DegreeProgressPanelTest {
 	
 	@Test @Ignore
 	public void testProgress(){
+        //TODO: CLEAN UP
 		PlanOfStudy plan = new PlanOfStudy();
 		Degree csys = Fixtures.getCSYS();
-		DegreeProgressPanel panel = new DegreeProgressPanel(plan, csys);
+		DegreeProgressPanel panel = null; //new DegreeProgressPanel(plan, csys);
 		
 		Panel panelWrapper = new Panel(panel);
 		UISpecAssert.assertThat(panelWrapper.containsSwingComponent(JProgressBar.class));

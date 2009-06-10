@@ -33,7 +33,7 @@ import javax.swing.border.TitledBorder;
 
 import rpiplanner.model.Course;
 import rpiplanner.model.CourseDatabase;
-import rpiplanner.model.Degree;
+import rpiplanner.validation.degree.Degree;
 
 import rpiplanner.model.Pair;
 import rpiplanner.model.Term;
@@ -290,9 +290,10 @@ public class POSController {
 	}
 
 	public void loadTemplate() {
-		ArrayList<Degree> degrees = plan.getDegrees();
+		//TODO: Clean UP
+        ArrayList<Degree> degrees = plan.getDegrees();
 		if(degrees.size() == 1){
-			PlanOfStudy template = Main.loadPlanFromFile("degrees/"+degrees.get(0).getID()+".plan");
+			PlanOfStudy template = null; //Main.loadPlanFromFile("degrees/"+degrees.get(0).getID()+".plan");
 			if(template != null){
 				plan.setTerms(template.getTerms());
                 plan.rebuildTerms();
