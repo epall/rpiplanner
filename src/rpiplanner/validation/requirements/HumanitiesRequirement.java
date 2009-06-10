@@ -57,6 +57,7 @@ public class HumanitiesRequirement extends Requirement {
 
     private boolean mainReq(DegreeSection section, HashMap<Course, Integer> courseMap,
         //TODO: Add courses to potential
+        //TODO: Don't add more courses than necessary
         ArrayList<Course> humCourses, ArrayList<Course> socSciCourses) {
         int totalSocCredits = 0;
         int total1000Level = 0;
