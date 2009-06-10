@@ -79,10 +79,19 @@ public class Course implements Comparable<Course> {
 		return catalogNumber.substring(5,6)+"000";
 	}
     public int getNumber(){
-		return Integer.getInteger(catalogNumber.substring(5,9));
+        Integer num = Integer.valueOf(catalogNumber.substring(5,9));
+		return num;
 	}
     public String getPrefix(){
-        return catalogNumber.substring(0,4);
+        char[] prefix = new char[4];
+        prefix[0] = catalogNumber.charAt(0);
+        prefix[1] = catalogNumber.charAt(1);
+        prefix[2] = catalogNumber.charAt(2);
+        prefix[3] = catalogNumber.charAt(3);
+
+        String prefixString = String.copyValueOf(prefix);
+
+        return prefixString;
     }
 	public int getCredits() {
 		return credits;

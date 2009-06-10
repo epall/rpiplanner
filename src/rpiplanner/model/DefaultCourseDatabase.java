@@ -121,9 +121,8 @@ public class DefaultCourseDatabase implements CourseDatabase {
     public ArrayList<Course> getCourseBetween(String prefix, int lowerNumber, int upperNumber) {
         ArrayList<Course> courseList = new ArrayList<Course>();
         for (Course course : courses) {
-            if (course.getNumber() >= lowerNumber &&
-                    course.getNumber() < upperNumber) {
-                courseList.add(course);
+            if (course.getNumber() >= lowerNumber && course.getNumber() < upperNumber) {
+                if (course.getPrefix().equals(prefix)) courseList.add(course); 
             }
         }
         return courseList;
