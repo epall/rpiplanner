@@ -161,7 +161,7 @@ public class DegreeDatabase {
         newDegree.addRequirement(humReq);
 
         FreeElectiveRequirement freeReq = new FreeElectiveRequirement(16);
-        newDegree.addRequirement(humReq);
+        newDegree.addRequirement(freeReq);
 
         database.add(newDegree);
     }
