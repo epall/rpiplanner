@@ -118,7 +118,7 @@ public class HumanitiesRequirement extends Requirement {
     private boolean LevelReq(DegreeSection humSSSection, ArrayList<Course> humCourses) {
         //TODO: Add course to applied courses
         //TODO: Do we want to take care of messages at the end?
-        if (!met4000LevelReq(humCourses)) {
+        if (!met4000LevelReq(humSSSection,humCourses)) {
             add4000LevelCourses(humSSSection, humCourses);
             humSSSection.addMessage("You need a 4000 Level Course");
             return false;
@@ -133,7 +133,6 @@ public class HumanitiesRequirement extends Requirement {
         for (String prefix : prefixes) {
             courses.addAll(Course.getAllBetween(prefix, 4000, 5000));
         }
-        humSSSection.addMissingCourse(courses);
         humSSSection.addPotentialCourse(courses);
     }
 
@@ -151,9 +150,10 @@ public class HumanitiesRequirement extends Requirement {
         prefixes.add("PSYC");
     }
 
-    private Boolean met4000LevelReq(ArrayList<Course> humCourses) {
+    private Boolean met4000LevelReq(DegreeSection humSSSection, ArrayList<Course> humCourses) {
         for (Course course : humCourses) {
-            if (course.getLevel() == "4000") {
+            if (course.getNumber() > 4000 && course.getNumber() < 5000) {
+                humSSSection.addAppliedCourse(course);
                 return true;
             }
         }
@@ -196,17 +196,17 @@ public class HumanitiesRequirement extends Requirement {
     }
 
     private boolean isHumanities(Course course) {
-        if (course.getPrefix() == "LANG" || course.getPrefix() == "LITR" || course.getPrefix() == "COMM"
-                || course.getPrefix() == "WRIT" || course.getPrefix() == "ARTS" || course.getPrefix() == "PHIL"
-                || course.getPrefix() == "STSH" || course.getPrefix() == "IHSS") {
+        if (course.getPrefix().equals("LANG") || course.getPrefix().equals("LITR") || course.getPrefix().equals("COMM")
+                || course.getPrefix().equals("WRIT") || course.getPrefix().equals("ARTS") || course.getPrefix().equals("PHIL")
+                || course.getPrefix().equals("STSH") || course.getPrefix().equals("IHSS")) {
             return true;
         }
         return false;
     }
 
     private boolean isSS(Course course) {
-        if (course.getPrefix() == "ECON" || course.getPrefix() == "STSS"
-                || course.getPrefix() == "PSYC") return true;
+        if (course.getPrefix().equals("ECON") || course.getPrefix().equals("STSS")
+                || course.getPrefix().equals("PSYC")) return true;
         return false;
     }
 
