@@ -78,7 +78,9 @@ public class DegreeSection implements ValidationResult.Section
     }
 
     public void succeeded() {
-       isSuccess = true;
+        isSuccess = true;
+        missingCourses.clear();
+        potentialCourses.clear();
     }
 
     public Course[] missingCourses()

@@ -108,6 +108,7 @@ public class RestrictedRequirement extends Requirement {
 
 
     public ValidationResult.Section validate(HashMap<Course, Integer> courseMap, ArrayList<Course> courseList) {
+        //TODO:  If the section is validated make sure missing courses is empty
         DegreeSection newSection = new DegreeSection();
         newSection.setName(getName());
         newSection.setDescription(getDescription());
@@ -119,7 +120,8 @@ public class RestrictedRequirement extends Requirement {
                 int number = courseMap.get(course);
                 number--;
                 courseMap.put(course, number);
-                passed = true;
+                newSection.succeeded();
+                return newSection;
             } else if (hasReplacementCourse(course)) {
                 //Check for replacement courses for the current course.
                 for (Course repCourse : getReplacementCourses(course)) {
@@ -142,11 +144,6 @@ public class RestrictedRequirement extends Requirement {
                     }
                 }
             }
-
-            if (passed) break;
-        }
-        if (passed) {
-            newSection.succeeded();
         }
         return newSection;
     }
