@@ -43,7 +43,7 @@ public class FreeElectiveRequirement extends Requirement {
     public DegreeSection validate(HashMap<Course, Integer> courseMap, ArrayList<Course> courseList) {
         //Free Electives
         DegreeSection freeElective = new DegreeSection();
-        freeElective.setName("Free Electives");
+        freeElective.setName("Free Elective Requirement");
         freeElective.setDescription("Courses that are not applied to any other requirements");
         int numCredits = 0;
         for (Course course : courseList) {
@@ -70,6 +70,7 @@ public class FreeElectiveRequirement extends Requirement {
                 break;
             }
         }
+        if (numCredits < creditsReq) freeElective.addMessage(Integer.toString(creditsReq) + " credits are required.");
         return freeElective;
     }
 }

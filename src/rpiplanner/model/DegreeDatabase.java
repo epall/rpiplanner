@@ -22,6 +22,7 @@ import java.util.ArrayList;
 import rpiplanner.validation.degree.Degree;
 import rpiplanner.validation.requirements.CoreRequirement;
 import rpiplanner.validation.requirements.HumanitiesRequirement;
+import rpiplanner.validation.requirements.FreeElectiveRequirement;
 
 
 public class DegreeDatabase {
@@ -33,7 +34,7 @@ public class DegreeDatabase {
 
     private void createTestDegree() {
         Degree testDegree = new Degree("Test Degree 2", 128);
-        String name = "Test Requirement 2";
+        String name = "Core Requirement";
         String desc = "Testing the Core Requirement Validator";
         CoreRequirement coreMathScienceReq = new CoreRequirement(name, desc);
 
@@ -54,6 +55,9 @@ public class DegreeDatabase {
 
         HumanitiesRequirement humReq = new HumanitiesRequirement();
         testDegree.addRequirement(humReq);
+
+        FreeElectiveRequirement freeReq = new FreeElectiveRequirement(12);
+        testDegree.addRequirement(freeReq);
 
         database.add(testDegree);
 

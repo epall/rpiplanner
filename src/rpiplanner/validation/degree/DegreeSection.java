@@ -109,4 +109,8 @@ public class DegreeSection implements ValidationResult.Section
     public void clearMissingCourse() {
         missingCourses.clear();
     }
+
+    public void clearMessages() {
+        messages.clear();
+    }
 }
