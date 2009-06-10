@@ -29,6 +29,9 @@ import com.thoughtworks.xstream.annotations.XStreamAlias;
 
 @XStreamAlias("HumanitiesRequirement")
 public class HumanitiesRequirement extends Requirement {
+    public String getName() {
+        return "Humanities and Social Sciences";
+    }
 
     public DegreeSection validate(HashMap<Course, Integer> courseMap, ArrayList<Course> courseList) {
         DegreeSection humSSSection = new DegreeSection();

@@ -26,4 +26,6 @@ import java.util.HashMap;
 
 public abstract class Requirement {
     public abstract ValidationResult.Section validate(HashMap<Course,Integer> courseMap, ArrayList<Course> courseList);
+
+    public abstract String getName();
 }

@@ -29,6 +29,10 @@ import com.thoughtworks.xstream.annotations.XStreamAlias;
 
 @XStreamAlias("FreeElectiveRequirement")
 public class FreeElectiveRequirement extends Requirement {
+    public String getName() {
+        return "Free Elective Requirement";
+    }
+
     @XStreamAlias("creditsRequired")
     private int creditsReq = 0;
 
