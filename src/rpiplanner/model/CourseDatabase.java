@@ -22,6 +22,8 @@ import java.beans.PropertyChangeListener;
 import java.util.List;
 import java.util.ArrayList;
 
+import rpiplanner.validation.degree.Degree;
+
 public interface CourseDatabase {
 	public Course[] search(String text);
 

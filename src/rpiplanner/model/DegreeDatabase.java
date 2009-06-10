@@ -31,8 +31,8 @@ public class DegreeDatabase {
     }
 
     private void createTestDegree() {
-        Degree testDegree = new Degree("Test Degree", 128);
-        String name = "Test Requirement";
+        Degree testDegree = new Degree("Test Degree 2", 128);
+        String name = "Test Requirement 2";
         String desc = "Testing the Core Requirement Validator";
         CoreRequirement coreMathScienceReq = new CoreRequirement(name, desc);
 
@@ -52,5 +52,9 @@ public class DegreeDatabase {
         testDegree.addRequirement(coreMathScienceReq);
 
         database.add(testDegree);
+    }
+
+    public Degree[] listDegrees() {
+        return database.toArray(new Degree[0]);  //To change body of created methods use File | Settings | File Templates.
     }
 }

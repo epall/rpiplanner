@@ -108,11 +108,10 @@ public class RubyEnvironment {
 
 	public DegreeValidator getDegreeDescriptor(Degree degree) {
 		DegreeValidator desc = (DegreeValidator) degrees.get(degree.getID());
-
 		// no descriptor cached
 		if(desc == null){
-			rubyEnvironment.executeScript(courseDatabase.getDegree(
-					degree.getID()).getValidationCode(), degree.getName());
+		//	rubyEnvironment.executeScript(courseDatabase.getDegree(
+		//			degree.getID()).getValidationCode(), degree.getName());
 		}
 
 		desc = (DegreeValidator)degrees.get(degree.getID());

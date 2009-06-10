@@ -29,6 +29,8 @@ import com.thoughtworks.xstream.annotations.XStreamAlias;
 import com.thoughtworks.xstream.annotations.XStreamImplicit;
 import com.thoughtworks.xstream.annotations.XStreamOmitField;
 
+import rpiplanner.validation.degree.Degree;
+
 @XStreamAlias("courses")
 public class DefaultCourseDatabase implements CourseDatabase {
 	@XStreamImplicit
@@ -87,9 +89,9 @@ public class DefaultCourseDatabase implements CourseDatabase {
 	}
 
 	public Degree[] listDegrees() {
-		if(degrees == null)
-			degrees = new ArrayList<Degree>();
-		return degrees.toArray(new Degree[0]);
+        if(degreeDatabase == null)
+			degreeDatabase = new DegreeDatabase();
+		return degreeDatabase.listDegrees();
 	}
 
 	public void addPropertyChangeListener(PropertyChangeListener listener){
@@ -107,10 +109,12 @@ public class DefaultCourseDatabase implements CourseDatabase {
 	}
 
 	public Degree getDegree(long id) {
-		for(Degree d : degrees){
-			if(d.getID() == id)
-				return d;
-		}
+		//TODO: CLEAN UP
+        //for(Degree d : degrees){
+		//	if(d.getID() == id)
+		//		return d;
+		//
+        // }
 		return null;
 	}
 
