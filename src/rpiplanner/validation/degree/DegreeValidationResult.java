@@ -27,14 +27,14 @@ import java.util.ArrayList;
 public class DegreeValidationResult implements ValidationResult
 {
     HashMap<String, Section> sectionMap = new HashMap<String, Section>();
-    String[] sectionNames = new String[0];
+    ArrayList<String> sectionNames = new ArrayList<String>();
 
     private int totalCredits;
 
 	public int percentComplete()
     {
         //TODO: Add algorithm to compute completenness
-        return 0;
+        return 25;
     }
     void setTotalCredits(int totalCredits)
     {
@@ -48,15 +48,14 @@ public class DegreeValidationResult implements ValidationResult
     }
 
     public String[] getSectionNames() {
-        return sectionNames;
+        return sectionNames.toArray(new String[0]);
     }
 
 
     void addSection (Section newSection)
     {
         sectionMap.put(newSection.getName(),newSection);
-        String[] list = new String[sectionNames.length + 1];
-        list[list.length - 1] = newSection.getName();
+        sectionNames.add(newSection.getName());
     }
 
     int getTotalCredits()

@@ -63,6 +63,10 @@ public class Degree {
         return result;
     }
 
+    public String toString() {
+        return name;
+    }
+
 
     private HashMap<Course, Integer> createHash(ArrayList<Course> pos) {
         HashMap<Course, Integer> courseMap = new HashMap<Course, Integer>();

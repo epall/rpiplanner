@@ -44,6 +44,32 @@ public class DegreeDatabase {
         coreMathScienceReq.addCourse(Course.get("MATH","2400"));
         coreMathScienceReq.addCourse(Course.get("MATH","2800"));
         coreMathScienceReq.addCourse(Course.get("PHYS","1100"));
+        coreMathScienceReq.addCourse(Course.get("PHYS","1200"));
+        coreMathScienceReq.addCourse(Course.get("CHEM","1100"));
+
+        coreMathScienceReq.addReplacementCourse(Course.get("MATH","1010"), Course.get("ARTS","1010"));
+
+        testDegree.addRequirement(coreMathScienceReq);
+
+        database.add(testDegree);
+
+        createAnotherTestDegree();
+    }
+
+    private void createAnotherTestDegree() {
+        Degree testDegree = new Degree("Test Degree 1", 128);
+        String name = "Test Requirement 1";
+        String desc = "Testing the Core Requirement Validator";
+        CoreRequirement coreMathScienceReq = new CoreRequirement(name, desc);
+
+        coreMathScienceReq.addCourse(Course.get("CSCI","1100"));
+        coreMathScienceReq.addCourse(Course.get("CSCI","1200"));
+        coreMathScienceReq.addCourse(Course.get("CSCI","2300"));
+        coreMathScienceReq.addCourse(Course.get("MATH","1010"));
+        coreMathScienceReq.addCourse(Course.get("MATH","1020"));
+        coreMathScienceReq.addCourse(Course.get("MATH","2400"));
+        coreMathScienceReq.addCourse(Course.get("MATH","2800"));
+        coreMathScienceReq.addCourse(Course.get("PHYS","1100"));
         coreMathScienceReq.addCourse(Course.get("PHYS","2400"));
         coreMathScienceReq.addCourse(Course.get("CHEM","1100"));
 

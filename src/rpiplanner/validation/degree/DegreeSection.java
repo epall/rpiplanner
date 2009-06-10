@@ -83,18 +83,15 @@ public class DegreeSection implements ValidationResult.Section
 
     public Course[] missingCourses()
     {
-        Course[] list = (Course[]) missingCourses.toArray();
-        return list;
+        return missingCourses.toArray(new Course[0]);
     }
     public Course[] appliedCourses()
     {
-        Course[] list = (Course[]) appliedCourses.toArray();
-        return list;
+        return appliedCourses.toArray(new Course[0]);
     }
     public Course[] potentialCourses()
     {
-        Course[] list = (Course[]) potentialCourses.toArray();
-        return list;
+        return potentialCourses.toArray(new Course[0]);
     }
     public String[] messages()
     {
