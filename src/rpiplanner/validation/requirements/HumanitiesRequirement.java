@@ -44,7 +44,7 @@ public class HumanitiesRequirement extends Requirement {
 
         boolean pd2ReqMet = checkPD2(courseMap, courseList, humSSSection);
         boolean depthReqMet = depthRequirement(courseMap, humSSCourses);
-        boolean levelReqMet = LevelReq(humSSSection, humSSCourses);
+        boolean levelReqMet = LevelReq(humSSSection, humSSCourses, courseMap);
         boolean mainReq = mainReq(humSSSection,courseMap,humCourses, socSciCourses);
 
         if (pd2ReqMet && depthReqMet && levelReqMet &&  mainReq) {
@@ -141,10 +141,10 @@ public class HumanitiesRequirement extends Requirement {
         return false;
     }
 
-    private boolean LevelReq(DegreeSection humSSSection, ArrayList<Course> humCourses) {
+    private boolean LevelReq(DegreeSection humSSSection, ArrayList<Course> humCourses, HashMap<Course, Integer> courseMap) {
         //TODO: Add course to applied courses
         //TODO: Do we want to take care of messages at the end?
-        if (!met4000LevelReq(humSSSection,humCourses)) {
+        if (!met4000LevelReq(humSSSection,humCourses, courseMap)) {
             add4000LevelCourses(humSSSection, humCourses);
             humSSSection.addMessage("You need a 4000 Level Course");
             return false;
@@ -176,11 +176,12 @@ public class HumanitiesRequirement extends Requirement {
         prefixes.add("PSYC");
     }
 
-    private Boolean met4000LevelReq(DegreeSection humSSSection, ArrayList<Course> humCourses) {
+    private Boolean met4000LevelReq(DegreeSection humSSSection, ArrayList<Course> humCourses, HashMap<Course, Integer> courseMap) {
         for (Course course : humCourses) {
             if (course.getNumber() > 4000 && course.getNumber() < 5000 &&
                     course != Course.get("STSS", "4840") && course != Course.get("PSYC", "4170")) {
                 humSSSection.addAppliedCourse(course);
+                courseMap.put(course, courseMap.get(course) - 1);
                 return true;
             }
         }
