@@ -178,7 +178,7 @@ public class HumanitiesRequirement extends Requirement {
 
     private Boolean met4000LevelReq(DegreeSection humSSSection, ArrayList<Course> humCourses, HashMap<Course, Integer> courseMap) {
         for (Course course : humCourses) {
-            if (course.getNumber() > 4000 && course.getNumber() < 5000 &&
+            if (course.getNumber() > 4000 && course.getNumber() < 5000 && courseMap.get(course) > 0 &&
                     course != Course.get("STSS", "4840") && course != Course.get("PSYC", "4170")) {
                 humSSSection.addAppliedCourse(course);
                 courseMap.put(course, courseMap.get(course) - 1);
