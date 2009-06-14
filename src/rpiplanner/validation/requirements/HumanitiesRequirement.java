@@ -68,7 +68,6 @@ public class HumanitiesRequirement extends Requirement {
                 totalSocCredits += course.getCredits();
                 section.addAppliedCourse(course);
             }
-            if (totalSocCredits >= 20)  break;
         }
         if (totalSocCredits < 8) section.addMessage("Need More Social Sciences Courses");
 
@@ -80,9 +79,6 @@ public class HumanitiesRequirement extends Requirement {
                 courseMap.put(course,courseMap.get(course) - 1);
                 totalHumCredits += course.getCredits();
                 section.addAppliedCourse(course);
-            }
-            if (totalHumCredits >= 20) {
-                return true;
             }
         }
         if (totalHumCredits < 8) section.addMessage("Need More Humanities Courses");
@@ -157,7 +153,7 @@ public class HumanitiesRequirement extends Requirement {
     private Boolean met4000LevelReq(DegreeSection humSSSection, ArrayList<Course> humCourses) {
         for (Course course : humCourses) {
             if (course.getNumber() > 4000 && course.getNumber() < 5000) {
-                humSSSection.addAppliedCourse(course);
+
                 return true;
             }
         }
