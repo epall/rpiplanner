@@ -39,13 +39,13 @@ public class HumanitiesRequirement extends Requirement {
         humSSSection.setDescription("Humanities and Social Sciences Core Requirement");
 
         ArrayList<Course> humSSCourses = createHumanitiesOrSSList(courseList, courseMap);
-        ArrayList<Course> socSciCourses = createSSList(courseList,courseMap);
-        ArrayList<Course> humCourses = createHumanitiesList(courseList,courseMap);
+        //ArrayList<Course> socSciCourses = createSSList(courseList,courseMap);
+        //ArrayList<Course> humCourses = createHumanitiesList(courseList,courseMap);
 
         boolean pd2ReqMet = checkPD2(courseMap, courseList, humSSSection);
         boolean depthReqMet = depthRequirement(courseMap, humSSCourses);
         boolean levelReqMet = LevelReq(humSSSection, humSSCourses, courseMap);
-        boolean mainReq = mainReq(humSSSection,courseMap,humCourses, socSciCourses);
+        boolean mainReq = mainReq(humSSSection,courseMap,humSSCourses);
 
         if (pd2ReqMet && depthReqMet && levelReqMet &&  mainReq) {
             humSSSection.succeeded();
@@ -56,9 +56,8 @@ public class HumanitiesRequirement extends Requirement {
     }
 
     private boolean mainReq(DegreeSection section, HashMap<Course, Integer> courseMap,
-        ArrayList<Course> humCourses, ArrayList<Course> socSciCourses) {
+        ArrayList<Course> humSSCourses) {
         //TODO: Add courses to potential
-        //TODO: Don't add more courses than necessary
         int totalSocCredits = 0;
         int totalHumCredits = 0;
         int total1000Level = 0;
@@ -76,33 +75,33 @@ public class HumanitiesRequirement extends Requirement {
                 totalSocCredits += course.getCredits();
             }
         }
-        for (Course course : socSciCourses) {
-            if (!isApplied(section, course)) {
-                if (course.getLevel() == "1000") total1000Level++;
-                if ((total1000Level <= 3 || course.getLevel() != "1000") && courseMap.get(course) > 0) {
-                    courseMap.put(course,courseMap.get(course) - 1);
-                    totalSocCredits += course.getCredits();
-                    section.addAppliedCourse(course);
+
+        for (Course course : humSSCourses) {
+            if (!isApplied(section,course)) {
+                if (isHumanities(course)) {
+                    if (course.getLevel() == "1000") total1000Level++;
+                        if ((total1000Level <= 3 || course.getLevel() != "1000") && courseMap.get(course) > 0) {
+                            courseMap.put(course,courseMap.get(course) - 1);
+                            totalSocCredits += course.getCredits();
+                            section.addAppliedCourse(course);
+                        }
                 }
+                if (isSS(course)) {
+                    if (course.getLevel() == "1000") total1000Level++;
+                        if ((total1000Level <= 3 || course.getLevel() != "1000") && courseMap.get(course) > 0) {
+                            courseMap.put(course,courseMap.get(course) - 1);
+                            totalHumCredits += course.getCredits();
+                            section.addAppliedCourse(course);
+                        }
+
+               }
             }
+            if (totalHumCredits + totalSocCredits >= 20) return true;
         }
         if (totalSocCredits < 8) section.addMessage("Need More Social Sciences Courses");
-
-
-
-        for (Course course : humCourses) {
-            if (!isApplied(section, course)) {
-                if (course.getLevel() == "1000") total1000Level++;
-                if ((total1000Level <= 3 || course.getLevel() != "1000") && courseMap.get(course) > 0) {
-                    courseMap.put(course,courseMap.get(course) - 1);
-                    totalHumCredits += course.getCredits();
-                    section.addAppliedCourse(course);
-                }
-            }
-        }
         if (totalHumCredits < 8) section.addMessage("Need More Humanities Courses");
-        if (totalHumCredits + totalSocCredits >= 20) return true;
-        else return false;
+        if (totalSocCredits + totalHumCredits <= 20) section.addMessage("Minimum of 20 credits."); 
+        return false;
     }
 
     private boolean isApplied(DegreeSection section, Course _course) {
@@ -114,6 +113,8 @@ public class HumanitiesRequirement extends Requirement {
 
 
     private boolean depthRequirement(HashMap<Course, Integer> courseMap, ArrayList<Course> courseList) {
+        //TODO: Make sure PDII doesn't count towards depth and add the courses that counted to the appliedCourses
+        //TODO: Fix 4000 so that it doesn't add if the class is already applied
         ArrayList<String> lowPrefixList = new ArrayList<String>();
         ArrayList<String> upperPrefixList = new ArrayList<String>();
         for (Course course : courseList) {
