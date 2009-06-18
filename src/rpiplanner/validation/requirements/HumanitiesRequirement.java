@@ -41,8 +41,8 @@ public class HumanitiesRequirement extends Requirement {
         ArrayList<Course> humSSCourses = createHumanitiesOrSSList(courseList, courseMap);
 
 
-        boolean pd2ReqMet = checkPD2(courseMap, courseList, humSSSection);
-        boolean depthReqMet = depthRequirement(courseMap, humSSCourses);
+        boolean pd2ReqMet = checkPD2(humSSSection, courseMap, courseList);
+        boolean depthReqMet = depthRequirement(humSSSection, courseMap, humSSCourses);
         boolean levelReqMet = LevelReq(humSSSection, humSSCourses, courseMap);
         boolean mainReq = mainReq(humSSSection,courseMap,humSSCourses);
 
@@ -111,7 +111,7 @@ public class HumanitiesRequirement extends Requirement {
     }
 
 
-    private boolean depthRequirement(HashMap<Course, Integer> courseMap, ArrayList<Course> courseList) {
+    private boolean depthRequirement(DegreeSection section, HashMap<Course, Integer> courseMap, ArrayList<Course> courseList) {
         ArrayList<String> lowPrefixList = new ArrayList<String>();
         ArrayList<String> upperPrefixList = new ArrayList<String>();
         for (Course course : courseList) {
@@ -136,6 +136,7 @@ public class HumanitiesRequirement extends Requirement {
         for (String prefix : lowPrefixList) {
             if (upperPrefixList.contains(prefix)) return true;
         }
+        section.addMessage("Depth Requirement not Met");
         return false;
     }
 
@@ -212,7 +213,7 @@ public class HumanitiesRequirement extends Requirement {
     }
 
 
-    private boolean checkPD2(HashMap<Course, Integer> courseMap, ArrayList<Course> courseList, DegreeSection humSSSection) {
+    private boolean checkPD2( DegreeSection humSSSection, HashMap<Course, Integer> courseMap, ArrayList<Course> courseList) {
         Boolean pdReq;//Professional Development II
         if (courseMap.containsKey(Course.get("PSYC", "4170")) || courseMap.containsKey(Course.get("STSS", "4840"))) {
             if (courseMap.containsKey(Course.get("PSYC", "4170"))) {
