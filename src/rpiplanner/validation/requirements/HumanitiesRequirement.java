@@ -42,8 +42,8 @@ public class HumanitiesRequirement extends Requirement {
 
 
         boolean pd2ReqMet = checkPD2(humSSSection, courseMap, courseList);
-        boolean depthReqMet = depthRequirement(humSSSection, courseMap, humSSCourses);
         boolean levelReqMet = LevelReq(humSSSection, humSSCourses, courseMap);
+        boolean depthReqMet = depthRequirement(humSSSection, courseMap, humSSCourses);
         boolean mainReq = mainReq(humSSSection,courseMap,humSSCourses);
 
         if (pd2ReqMet && depthReqMet && levelReqMet &&  mainReq) {
@@ -81,7 +81,7 @@ public class HumanitiesRequirement extends Requirement {
                     if (course.getLevel() == "1000") total1000Level++;
                         if ((total1000Level <= 3 || course.getLevel() != "1000") && courseMap.get(course) > 0) {
                             courseMap.put(course,courseMap.get(course) - 1);
-                            totalSocCredits += course.getCredits();
+                            totalHumCredits += course.getCredits();
                             section.addAppliedCourse(course);
                         }
                 }
@@ -89,7 +89,7 @@ public class HumanitiesRequirement extends Requirement {
                     if (course.getLevel() == "1000") total1000Level++;
                         if ((total1000Level <= 3 || course.getLevel() != "1000") && courseMap.get(course) > 0) {
                             courseMap.put(course,courseMap.get(course) - 1);
-                            totalHumCredits += course.getCredits();
+                            totalSocCredits += course.getCredits();
                             section.addAppliedCourse(course);
                         }
 
@@ -134,7 +134,23 @@ public class HumanitiesRequirement extends Requirement {
             }
         }
         for (String prefix : lowPrefixList) {
-            if (upperPrefixList.contains(prefix)) return true;
+            if (upperPrefixList.contains(prefix)) {
+                //find a 1000 level and a > 1000 level for this prefix
+                boolean lowerFound = false;
+                boolean upperFound = false;
+                for (Course course : courseList) {
+                    if (course.getPrefix() == prefix && course.getNumber() >= 1000 && course.getNumber() < 2000
+                            && !lowerFound) {
+                        lowerFound = true;
+                        section.addAppliedCourse(course);
+                    }
+                    if (course.getPrefix() == prefix && course.getNumber() > 2000 && !upperFound) {
+                        upperFound = true;
+                        section.addAppliedCourse(course);
+                    }
+                }
+                return true;
+            }
         }
         section.addMessage("Depth Requirement not Met");
         return false;
