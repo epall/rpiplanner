@@ -39,8 +39,7 @@ public class HumanitiesRequirement extends Requirement {
         humSSSection.setDescription("Humanities and Social Sciences Core Requirement");
 
         ArrayList<Course> humSSCourses = createHumanitiesOrSSList(courseList, courseMap);
-        //ArrayList<Course> socSciCourses = createSSList(courseList,courseMap);
-        //ArrayList<Course> humCourses = createHumanitiesList(courseList,courseMap);
+
 
         boolean pd2ReqMet = checkPD2(courseMap, courseList, humSSSection);
         boolean depthReqMet = depthRequirement(courseMap, humSSCourses);
@@ -190,29 +189,6 @@ public class HumanitiesRequirement extends Requirement {
         for (Course course : courseList) {
             if (courseMap.get(course) > 0) {
                 if (isHumanities(course) || isSS(course)) {
-                    newList.add(course);
-                }
-            }
-        }
-        return newList;
-    }
-    private ArrayList<Course> createSSList(ArrayList<Course> courseList, HashMap<Course, Integer> courseMap) {
-        ArrayList<Course> newList = new ArrayList<Course>();
-        for (Course course : courseList) {
-            if (courseMap.get(course) > 0) {
-                if (isSS(course)) {
-                    newList.add(course);
-                }
-            }
-        }
-        return newList;
-    }
-
-    private ArrayList<Course> createHumanitiesList(ArrayList<Course> courseList, HashMap<Course, Integer> courseMap) {
-        ArrayList<Course> newList = new ArrayList<Course>();
-        for (Course course : courseList) {
-            if (courseMap.get(course) > 0) {
-                if (isHumanities(course)) {
                     newList.add(course);
                 }
             }
