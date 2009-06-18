@@ -113,8 +113,6 @@ public class HumanitiesRequirement extends Requirement {
 
 
     private boolean depthRequirement(HashMap<Course, Integer> courseMap, ArrayList<Course> courseList) {
-        //TODO: Make sure PDII doesn't count towards depth and add the courses that counted to the appliedCourses
-        //TODO: Fix 4000 so that it doesn't add if the class is already applied
         ArrayList<String> lowPrefixList = new ArrayList<String>();
         ArrayList<String> upperPrefixList = new ArrayList<String>();
         for (Course course : courseList) {
@@ -143,8 +141,6 @@ public class HumanitiesRequirement extends Requirement {
     }
 
     private boolean LevelReq(DegreeSection humSSSection, ArrayList<Course> humCourses, HashMap<Course, Integer> courseMap) {
-        //TODO: Add course to applied courses
-        //TODO: Do we want to take care of messages at the end?
         if (!met4000LevelReq(humSSSection,humCourses, courseMap)) {
             add4000LevelCourses(humSSSection, humCourses);
             humSSSection.addMessage("You need a 4000 Level Course");
