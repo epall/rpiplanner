@@ -97,7 +97,7 @@ public class HumanitiesRequirement extends Requirement {
             }
             if (totalHumCredits + totalSocCredits >= 20) return true;
         }
-        if (totalSocCredits < 8) section.addMessage("Need More Social Sciences Courses");
+        if (totalSocCredits < 8) section.addMessage("Need More Social Science Courses");
         if (totalHumCredits < 8) section.addMessage("Need More Humanities Courses");
         if (totalSocCredits + totalHumCredits <= 20) section.addMessage("Minimum of 20 credits."); 
         return false;
