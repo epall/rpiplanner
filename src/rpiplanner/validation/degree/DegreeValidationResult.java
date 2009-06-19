@@ -33,8 +33,12 @@ public class DegreeValidationResult implements ValidationResult
 
 	public int percentComplete()
     {
-        //TODO: Add algorithm to compute completenness
-        return 25;
+        int num = 0;
+        for (String name : sectionNames) {
+            if (sectionMap.get(name).isSuccess()) num++;
+        }
+        double pct = ((double) num/ (double) sectionMap.size()) * 100;
+        return (int) pct;
     }
     void setTotalCredits(int totalCredits)
     {
