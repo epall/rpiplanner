@@ -27,27 +27,37 @@ import com.thoughtworks.xstream.converters.MarshallingContext;
 import com.thoughtworks.xstream.converters.UnmarshallingContext;
 import rpiplanner.model.*;
 import rpiplanner.xml.RequisiteSetConverter;
+import rpiplanner.validation.degree.*;
+import rpiplanner.validation.requirements.*;
 
 import java.io.InputStream;
-import java.io.FileOutputStream;
 import java.io.OutputStream;
 
 public class XML {
-    private static XStream databaseReader = null;
+    private static XStream courseDatabaseReader = null;
     private static XStream planReader = null;
+    private static XStream degreeDatabaseReader = null;
 
-    private static XStream getDatabaseReader(){
-        if(databaseReader == null){
-            databaseReader = new XStream();
-            initializeXStream(databaseReader);
+    private static XStream getCourseDatabaseReader(){
+        if(courseDatabaseReader == null){
+            courseDatabaseReader = new XStream();
+            initializeCourseXStream(courseDatabaseReader);
         }
-        return databaseReader;
+        return courseDatabaseReader;
+    }
+
+    private static XStream getDegreeDatabaseReader(){
+        if(degreeDatabaseReader == null){
+            degreeDatabaseReader = new XStream();
+            initializeDegreeXStream(degreeDatabaseReader);
+        }
+        return degreeDatabaseReader;
     }
 
     private static XStream getPlanReader(){
         if(planReader == null){
             planReader = new XStream();
-            initializeXStream(planReader);
+            initializeCourseXStream(planReader);
             planReader.registerConverter(new Converter(){
 
                 public void marshal(Object o, HierarchicalStreamWriter hierarchicalStreamWriter, MarshallingContext marshallingContext) {
@@ -80,7 +90,7 @@ public class XML {
         return planReader;
     }
 
-    private static void initializeXStream(XStream xs){
+    private static void initializeCourseXStream(XStream xs){
         xs.processAnnotations(PlanOfStudy.class);
         xs.processAnnotations(Course.class);
         xs.processAnnotations(DefaultCourseDatabase.class);
@@ -89,22 +99,42 @@ public class XML {
         xs.registerConverter(new RequisiteSetConverter(xs.getMapper()));
     }
 
+    private static void initializeDegreeXStream(XStream xs){
+        xs.processAnnotations(rpiplanner.validation.degree.Degree.class);
+        xs.processAnnotations(CoreRequirement.class);
+        xs.processAnnotations(RestrictedRequirement.class);
+        xs.processAnnotations(SubjectRequirement.class);
+        xs.processAnnotations(FreeElectiveRequirement.class);
+        xs.processAnnotations(HumanitiesRequirement.class);
+        xs.processAnnotations(Course.class);
+    }
+
+
     public static PlanOfStudy readPlan(InputStream in){
         return (PlanOfStudy)getPlanReader().fromXML(in);
     }
 
     public static ShadowCourseDatabase readShadowCourseDatabase(InputStream in){
-        return (ShadowCourseDatabase)getDatabaseReader().fromXML(in);
+        return (ShadowCourseDatabase) getCourseDatabaseReader().fromXML(in);
     }
 
     public static DefaultCourseDatabase readDefaultCourseDatabase(InputStream in){
-        return (DefaultCourseDatabase)getDatabaseReader().fromXML(in);
+        return (DefaultCourseDatabase) getCourseDatabaseReader().fromXML(in);
+    }
+
+    public static DegreeDatabase readDegreeDatabase(InputStream in){
+        return (DegreeDatabase) getDegreeDatabaseReader().fromXML(in);
     }
 
     public static void writePlan(PlanOfStudy plan, OutputStream out) {
         getPlanReader().toXML(plan, out);
     }
+
     public static void writeShadowCourseDatabase(ShadowCourseDatabase db, OutputStream out) {
-        getDatabaseReader().toXML(db, out);
+        getCourseDatabaseReader().toXML(db, out);
+    }
+    
+    public static void writeDegreeDatabase(DegreeDatabase db, OutputStream out) {
+        getDegreeDatabaseReader().toXML(db,out);
     }
 }
