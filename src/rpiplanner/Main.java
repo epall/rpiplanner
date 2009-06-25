@@ -66,6 +66,7 @@ public class Main extends Application {
     private MainFrame mainFrame;
     private static POSController planControl;
     private static ShadowCourseDatabase courseDatabase;
+    private static DegreeDatabase degreeDatabase;
 	private boolean newPlan;
 
 	// for testing
@@ -155,15 +156,15 @@ public class Main extends Application {
 		}
 		// normal startup
 		
-		InputStream databaseStream = getClass().getResourceAsStream("/course_database.xml");
-		if(databaseStream == null)
+		InputStream courseDatabaseStream = getClass().getResourceAsStream("/course_database.xml");
+		if(courseDatabaseStream == null)
 			try {
-				databaseStream = new FileInputStream("course_database.xml");
+				courseDatabaseStream = new FileInputStream("course_database.xml");
 			} catch (FileNotFoundException e2) {
 				e2.printStackTrace();
 				System.exit(1);
 			}
-		DefaultCourseDatabase mainDB = XML.readDefaultCourseDatabase(databaseStream);
+		DefaultCourseDatabase mainDB = XML.readDefaultCourseDatabase(courseDatabaseStream);
 		ShadowCourseDatabase shadowDB = null;
 		try {
 			shadowDB = XML.readShadowCourseDatabase(new FileInputStream(new File(localStorageDir, "course_database.xml")));
@@ -175,6 +176,17 @@ public class Main extends Application {
 		
 		shadowDB.shadow(mainDB);
 		courseDatabase = shadowDB;
+
+
+        InputStream degreeDatabaseStream = getClass().getResourceAsStream("/degree_database.xml");
+        if (degreeDatabaseStream == null)
+            try {
+                degreeDatabaseStream = new FileInputStream("degree_database.xml");
+            } catch (IOException e) {
+                e.printStackTrace();
+                System.exit(1);
+            }
+        degreeDatabase = XML.readDegreeDatabase(degreeDatabaseStream);
 
 		try {
 			planControl.setPlan(XML.readPlan(new FileInputStream(new File(localStorageDir, "default_pos.xml"))));
