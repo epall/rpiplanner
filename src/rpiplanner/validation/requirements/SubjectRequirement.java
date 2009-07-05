@@ -56,6 +56,29 @@ public class SubjectRequirement extends Requirement {
 
         checkRequiredCourses(courseMap, newSection);
 
+        int credits = 0;
+        int courses = 0;
+        boolean success = false;
+
+        for (Subject subject : subjectList) {
+            for (Course course : courseList) {
+                if (course.getPrefix() == subject.getPrefix()) {
+                    if (course.getNumber() > subject.getMinLevel() && course.getNumber() < subject.getMaxLevel()) {
+                        newSection.addAppliedCourse(course);
+                        credits += course.getCredits();
+                        courses += 1;
+                    }
+                }
+            }
+            if (credits > numCredits) {
+                success = true;
+                break;
+            }
+        }
+
+        if (!success) {
+            //fillPossibleCourses(newSection, subjectList);
+        }
 
         return newSection;
     }

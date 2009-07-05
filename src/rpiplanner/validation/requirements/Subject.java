@@ -6,13 +6,13 @@ public class Subject {
     int maxLevel;
     int minNum;
     int maxNum;
-    String subject;
+    String prefix;
 
 
-    Subject(String subject, int minLevel, int maxLevel, int minNum, int maxNum) {
+    Subject(String prefix, int minLevel, int maxLevel, int minNum, int maxNum) {
         this.minLevel = minLevel;
         this.maxLevel = maxLevel;
-        this.subject = subject;
+        this.prefix = prefix;
         this.maxNum = maxNum;
         this.minNum = minNum;
     }
@@ -33,12 +33,12 @@ public class Subject {
         this.minLevel = minLevel;
     }
 
-    public String getSubject() {
-        return subject;
+    public String getPrefix() {
+        return prefix;
     }
 
-    public void setSubject(String subject) {
-        this.subject = subject;
+    public void setPrefix(String prefix) {
+        this.prefix = prefix;
     }
 
     public int getMinNum() {
