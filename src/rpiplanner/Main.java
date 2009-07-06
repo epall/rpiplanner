@@ -30,12 +30,7 @@ import java.awt.print.PageFormat;
 import java.awt.print.Printable;
 import java.awt.print.PrinterException;
 import java.awt.print.PrinterJob;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
+import java.io.*;
 import java.util.ArrayList;
 
 import javax.print.attribute.HashPrintRequestAttributeSet;
@@ -177,7 +172,7 @@ public class Main extends Application {
 		shadowDB.shadow(mainDB);
 		courseDatabase = shadowDB;
 
-
+        
         InputStream degreeDatabaseStream = getClass().getResourceAsStream("/degree_database.xml");
         if (degreeDatabaseStream == null)
             try {

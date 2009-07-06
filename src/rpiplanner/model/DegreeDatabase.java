@@ -19,12 +19,12 @@
 package rpiplanner.model;
 
 import java.util.ArrayList;
+import java.io.Console;
+
 import rpiplanner.validation.degree.Degree;
-import rpiplanner.validation.requirements.CoreRequirement;
-import rpiplanner.validation.requirements.HumanitiesRequirement;
-import rpiplanner.validation.requirements.FreeElectiveRequirement;
-import rpiplanner.validation.requirements.RestrictedRequirement;
+import rpiplanner.validation.requirements.*;
 import com.thoughtworks.xstream.annotations.XStreamAlias;
+import com.thoughtworks.xstream.XStream;
 
 @XStreamAlias("DegreeDatabase")
 public class DegreeDatabase {
@@ -33,6 +33,9 @@ public class DegreeDatabase {
     public DegreeDatabase() {
         createTestDegree();
         createAnotherTestDegree();
+
+        
+        
     }
 
     private void createTestDegree() {
@@ -156,12 +159,26 @@ public class DegreeDatabase {
 		newRestReq.addCourse(Course.get("EPOW","4850"));
 
         newDegree.addRequirement(newRestReq);
+        /*
+
+        SubjectRequirement subjReq = new SubjectRequirement("CSYC Engr. Elective",
+                "Choose any TWO courses numbered ECSExxxx.\n" +
+                "At least one must be numbered ECSE 46xx or ECSE 47xx.\n" +
+                "One may be numbered ENGR 2xxx or ENGR 4xxx.", 2, 6);
+        subjReq.addSubject("ECSE",2600,2700,1,1);
+        subjReq.addSubject("ECSE",1000,7000,1,1);
+        subjReq.addSubject("ENGR",2000,5000,1,1);
+
+        newDegree.addRequirement(subjReq);
+
+        */
 
         HumanitiesRequirement humReq = new HumanitiesRequirement();
         newDegree.addRequirement(humReq);
 
         FreeElectiveRequirement freeReq = new FreeElectiveRequirement(16);
         newDegree.addRequirement(freeReq);
+
 
         database.add(newDegree);
     }

@@ -37,6 +37,13 @@ public class SubjectRequirement extends Requirement {
     ArrayList<Course> reqCourse;
     ArrayList<Subject> subjectList;
 
+    public SubjectRequirement (String name, String desc, int numCourses, int numCredits) {
+        this.name = name;
+        this.description = desc;
+        this.numCredits = numCredits;
+        this.numCourses = numCourses;
+    }
+
     public String getName() {
         return name;
     }
@@ -46,7 +53,8 @@ public class SubjectRequirement extends Requirement {
     }
 
     public void addSubject(String subjName, int minLevel, int maxLevel, int minNum, int maxNum) {
-        subjectList.add(new Subject(subjName, minLevel, maxLevel, minNum, maxNum));
+        Subject subj = new Subject(subjName, minLevel, maxLevel, minNum, maxNum);
+        subjectList.add(subj);
     }
 
     public DegreeSection validate(HashMap<Course, Integer> courseMap, ArrayList<Course> courseList) {

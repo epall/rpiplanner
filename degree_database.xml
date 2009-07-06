@@ -1,0 +1,2368 @@
+<rpiplanner.model.DegreeDatabase>
+  <database>
+    <Degree>
+      <DegreeName>Test Degree 2</DegreeName>
+      <numCredits>128</numCredits>
+      <requirements>
+        <CoreRequirement>
+          <name>Core Requirement</name>
+          <description>Testing the Core Requirement Validator</description>
+          <course>
+            <title>Computer Science I</title>
+            <description>An introduction to computer programming algorithm design and analysis. Additional topics include basic computer organization; internal representation of scalar and array data; use of top-down design and subprograms to tackle complex problems; abstract data types. Enrichment material as time allows. Interdisciplinary case studies, numerical and nonnumerical applications. Students who have passed CSCI 1200 cannot register for this course.</description>
+            <department>Computer Science</department>
+            <catalogNumber>CSCI-1100</catalogNumber>
+            <credits>4</credits>
+            <availableTerms>
+              <year-part>FALL</year-part>
+              <year-part>SPRING</year-part>
+            </availableTerms>
+            <doubleCount>false</doubleCount>
+            <isOfficial>true</isOfficial>
+          </course>
+          <course>
+            <title>Computer Science II</title>
+            <description>Programming concepts: functions, parameter passing, pointers, arrays, strings, structs, classes, templates. Mathematical tools: sets, functions, and relations, order notation, complexity of algorithms, proof by induction. Data structures and their representations: data abstraction and internal representation, sequences, trees, binary search trees, associative structures. Algorithms: searching and sorting, generic algorithms, iterative and recursive algorithms. Methods of testing correctness and measuring performance.
+
+NOTE: prerequisite can be skipped on permission of instructor
+NOTE: programming experience recommended
+</description>
+            <department>Computer Science</department>
+            <catalogNumber>CSCI-1200</catalogNumber>
+            <credits>4</credits>
+            <prerequisites serialization="custom">
+              <unserializable-parents/>
+              <list>
+                <default>
+                  <size>1</size>
+                </default>
+                <int>10</int>
+                <course>
+                  <catalogNumber>CSCI-1100</catalogNumber>
+                  <credits>0</credits>
+                  <doubleCount>false</doubleCount>
+                  <isOfficial>false</isOfficial>
+                </course>
+              </list>
+              <rpiplanner.model.RequisiteSet>
+                <default>
+                  <pickOne>false</pickOne>
+                  <required>false</required>
+                </default>
+              </rpiplanner.model.RequisiteSet>
+            </prerequisites>
+            <availableTerms>
+              <year-part>FALL</year-part>
+              <year-part>SPRING</year-part>
+            </availableTerms>
+            <doubleCount>false</doubleCount>
+            <isOfficial>true</isOfficial>
+          </course>
+          <course>
+            <title>Data Structures and Algorithms</title>
+            <description>Data structures and algorithms, and the mathematical techniques necessary to design and analyze them. Basic data structures: lists, associative structures, trees. Mathematical techniques for designing algorithms and analyzing worst-case and expected-case algorithm efficiency. Advanced data structures: balanced trees, tries, heaps, priority queues, graphs. Searching, sorting. Algorithm design techniques: dynamic programming, greedy algorithms, divide-and-conquer, backtracking. Example graph, string, geometric, and numeric algorithms.</description>
+            <department>Computer Science</department>
+            <catalogNumber>CSCI-2300</catalogNumber>
+            <credits>4</credits>
+            <prerequisites serialization="custom">
+              <unserializable-parents/>
+              <list>
+                <default>
+                  <size>3</size>
+                </default>
+                <int>10</int>
+                <course>
+                  <catalogNumber>CSCI-1200</catalogNumber>
+                  <credits>0</credits>
+                  <doubleCount>false</doubleCount>
+                  <isOfficial>false</isOfficial>
+                </course>
+                <course>
+                  <catalogNumber>MATH-1010</catalogNumber>
+                  <credits>0</credits>
+                  <doubleCount>false</doubleCount>
+                  <isOfficial>false</isOfficial>
+                </course>
+                <course>
+                  <catalogNumber>MATH-2800</catalogNumber>
+                  <credits>0</credits>
+                  <doubleCount>false</doubleCount>
+                  <isOfficial>false</isOfficial>
+                </course>
+              </list>
+              <rpiplanner.model.RequisiteSet>
+                <default>
+                  <pickOne>false</pickOne>
+                  <required>true</required>
+                </default>
+              </rpiplanner.model.RequisiteSet>
+            </prerequisites>
+            <availableTerms>
+              <year-part>FALL</year-part>
+              <year-part>SPRING</year-part>
+            </availableTerms>
+            <doubleCount>false</doubleCount>
+            <isOfficial>true</isOfficial>
+          </course>
+          <course>
+            <title>Calculus I</title>
+            <description>Functions, limits, continuity, derivatives, implicit differentiation, related rates, maxima and minima, elementary transcendental functions, introduction to definite integral with applications to area and volumes of revolution.</description>
+            <department>Mathematical Sciences</department>
+            <catalogNumber>MATH-1010</catalogNumber>
+            <credits>4</credits>
+            <availableTerms>
+              <year-part>FALL</year-part>
+              <year-part>SPRING</year-part>
+            </availableTerms>
+            <doubleCount>false</doubleCount>
+            <isOfficial>true</isOfficial>
+          </course>
+          <course>
+            <title>Calculus II</title>
+            <description>Techniques and applications of integration, polar coordinates, parametric equations, infinite sequences and series, vector functions and curves in space, functions of several variables, and partial derivatives.</description>
+            <department>Mathematical Sciences</department>
+            <catalogNumber>MATH-1020</catalogNumber>
+            <credits>4</credits>
+            <prerequisites serialization="custom">
+              <unserializable-parents/>
+              <list>
+                <default>
+                  <size>1</size>
+                </default>
+                <int>10</int>
+                <course>
+                  <catalogNumber>MATH-1010</catalogNumber>
+                  <credits>0</credits>
+                  <doubleCount>false</doubleCount>
+                  <isOfficial>false</isOfficial>
+                </course>
+              </list>
+              <rpiplanner.model.RequisiteSet>
+                <default>
+                  <pickOne>false</pickOne>
+                  <required>true</required>
+                </default>
+              </rpiplanner.model.RequisiteSet>
+            </prerequisites>
+            <availableTerms>
+              <year-part>FALL</year-part>
+              <year-part>SPRING</year-part>
+            </availableTerms>
+            <doubleCount>false</doubleCount>
+            <isOfficial>true</isOfficial>
+          </course>
+          <course>
+            <title>Introduction to Differential Equations</title>
+            <description>First-order differential equations, second-order linear equations, eigenvalues and eigenvectors of matrices, systems of first-order equations, stability and qualitative properties of nonlinear autonomous systems in the plane, Fourier series, separation of variables for partial differential equations.
+
+NOTE: familiarity with elementary ordinary and partial differential equations required
+</description>
+            <department>Mathematical Sciences</department>
+            <catalogNumber>MATH-2400</catalogNumber>
+            <credits>4</credits>
+            <prerequisites serialization="custom">
+              <unserializable-parents/>
+              <list>
+                <default>
+                  <size>1</size>
+                </default>
+                <int>10</int>
+                <course>
+                  <catalogNumber>MATH-1020</catalogNumber>
+                  <credits>0</credits>
+                  <doubleCount>false</doubleCount>
+                  <isOfficial>false</isOfficial>
+                </course>
+              </list>
+              <rpiplanner.model.RequisiteSet>
+                <default>
+                  <pickOne>false</pickOne>
+                  <required>true</required>
+                </default>
+              </rpiplanner.model.RequisiteSet>
+            </prerequisites>
+            <availableTerms>
+              <year-part>FALL</year-part>
+              <year-part>SPRING</year-part>
+            </availableTerms>
+            <doubleCount>false</doubleCount>
+            <isOfficial>true</isOfficial>
+          </course>
+          <course>
+            <title>Introduction to Discrete Structures</title>
+            <description>Introduction to the mathematical foundation of computer science. Topics include logic and set theory; methods of proof; mathematical induction and wellordering; principles of counting; relations and graphs; recurrences; discrete probability.
+
+NOTE: prerequisite can be replaced with equivalent
+</description>
+            <department>Mathematical Sciences</department>
+            <catalogNumber>MATH-2800</catalogNumber>
+            <credits>4</credits>
+            <prerequisites serialization="custom">
+              <unserializable-parents/>
+              <list>
+                <default>
+                  <size>2</size>
+                </default>
+                <int>10</int>
+                <course>
+                  <catalogNumber>MATH-1010</catalogNumber>
+                  <credits>0</credits>
+                  <doubleCount>false</doubleCount>
+                  <isOfficial>false</isOfficial>
+                </course>
+                <course>
+                  <catalogNumber>MATH-1500</catalogNumber>
+                  <credits>0</credits>
+                  <doubleCount>false</doubleCount>
+                  <isOfficial>false</isOfficial>
+                </course>
+              </list>
+              <rpiplanner.model.RequisiteSet>
+                <default>
+                  <pickOne>true</pickOne>
+                  <required>false</required>
+                </default>
+              </rpiplanner.model.RequisiteSet>
+            </prerequisites>
+            <availableTerms>
+              <year-part>SPRING</year-part>
+            </availableTerms>
+            <doubleCount>false</doubleCount>
+            <isOfficial>true</isOfficial>
+          </course>
+          <course>
+            <title>Physics I</title>
+            <description>The first semester of a two-semester sequence of interactive courses. Topics include linear and angular kinematics and dynamics, work and energy, momentum and collisions, forces and fields, gravitation, elementary electrostatics, and motion of charged particles in a magnetic field.</description>
+            <department>Physics, Applied Physics, and Astronomy</department>
+            <catalogNumber>PHYS-1100</catalogNumber>
+            <credits>4</credits>
+            <corequisites serialization="custom">
+              <unserializable-parents/>
+              <list>
+                <default>
+                  <size>1</size>
+                </default>
+                <int>10</int>
+                <course>
+                  <catalogNumber>MATH-1010</catalogNumber>
+                  <credits>0</credits>
+                  <doubleCount>false</doubleCount>
+                  <isOfficial>false</isOfficial>
+                </course>
+              </list>
+              <rpiplanner.model.RequisiteSet>
+                <default>
+                  <pickOne>false</pickOne>
+                  <required>true</required>
+                </default>
+              </rpiplanner.model.RequisiteSet>
+            </corequisites>
+            <availableTerms>
+              <year-part>FALL</year-part>
+              <year-part>SPRING</year-part>
+            </availableTerms>
+            <doubleCount>false</doubleCount>
+            <isOfficial>true</isOfficial>
+          </course>
+          <course>
+            <title>Physics II</title>
+            <description>The second semester of the two-semester sequence of interactive courses. Topics include Gauss’s Law, current electricity, Ampere’s Law and Faraday’s Law, electromagnetic radiation, physical optics, and quantum physics.
+
+NOTE: PHYS-1100 can be replaced with equivalent or skipped on permission of instructor
+</description>
+            <department>Physics, Applied Physics, and Astronomy</department>
+            <catalogNumber>PHYS-1200</catalogNumber>
+            <credits>4</credits>
+            <prerequisites serialization="custom">
+              <unserializable-parents/>
+              <list>
+                <default>
+                  <size>1</size>
+                </default>
+                <int>10</int>
+                <course>
+                  <catalogNumber>PHYS-1100</catalogNumber>
+                  <credits>0</credits>
+                  <doubleCount>false</doubleCount>
+                  <isOfficial>false</isOfficial>
+                </course>
+              </list>
+              <rpiplanner.model.RequisiteSet>
+                <default>
+                  <pickOne>false</pickOne>
+                  <required>false</required>
+                </default>
+              </rpiplanner.model.RequisiteSet>
+            </prerequisites>
+            <corequisites serialization="custom">
+              <unserializable-parents/>
+              <list>
+                <default>
+                  <size>1</size>
+                </default>
+                <int>10</int>
+                <course>
+                  <catalogNumber>MATH-1020</catalogNumber>
+                  <credits>0</credits>
+                  <doubleCount>false</doubleCount>
+                  <isOfficial>false</isOfficial>
+                </course>
+              </list>
+              <rpiplanner.model.RequisiteSet>
+                <default>
+                  <pickOne>false</pickOne>
+                  <required>true</required>
+                </default>
+              </rpiplanner.model.RequisiteSet>
+            </corequisites>
+            <availableTerms>
+              <year-part>FALL</year-part>
+              <year-part>SPRING</year-part>
+            </availableTerms>
+            <doubleCount>false</doubleCount>
+            <isOfficial>true</isOfficial>
+          </course>
+          <course>
+            <title>Chemistry I</title>
+            <description> </description>
+            <department>Chemistry and Chemical Biology</department>
+            <catalogNumber>CHEM-1100</catalogNumber>
+            <credits>4</credits>
+            <availableTerms>
+              <year-part>FALL</year-part>
+            </availableTerms>
+            <doubleCount>false</doubleCount>
+            <isOfficial>true</isOfficial>
+          </course>
+          <replacementCourses>
+            <entry>
+              <course reference="../../../course[4]"/>
+              <list>
+                <course>
+                  <title>Media Studio: Video/Audio</title>
+                  <description>This course is divided into two half-semester sessions, with each student receiving an intensive seven-week introduction to basic techniques of computer music, and a similar introduction to video. Students develop critical listening and viewing skills through reading, listening, and viewing assignments, and by discussing historical and contemporary examples of computer music and video art.  Individual and group projects are created and critiqued in class sections.</description>
+                  <department>Arts</department>
+                  <catalogNumber>ARTS-1010</catalogNumber>
+                  <credits>4</credits>
+                  <availableTerms>
+                    <year-part>FALL</year-part>
+                    <year-part>SPRING</year-part>
+                  </availableTerms>
+                  <doubleCount>false</doubleCount>
+                  <isOfficial>true</isOfficial>
+                </course>
+              </list>
+            </entry>
+          </replacementCourses>
+        </CoreRequirement>
+        <HumanitiesRequirement/>
+        <FreeElectiveRequirement>
+          <creditsRequired>12</creditsRequired>
+        </FreeElectiveRequirement>
+      </requirements>
+    </Degree>
+    <Degree>
+      <DegreeName>Computer &amp; Systems Engineering</DegreeName>
+      <numCredits>128</numCredits>
+      <requirements>
+        <CoreRequirement>
+          <name>Math and Science Core</name>
+          <description>Must fufill all course requirements below.</description>
+          <course reference="../../../../Degree/requirements/CoreRequirement/course"/>
+          <course reference="../../../../Degree/requirements/CoreRequirement/course[2]"/>
+          <course reference="../../../../Degree/requirements/CoreRequirement/course[3]"/>
+          <course reference="../../../../Degree/requirements/CoreRequirement/course[4]"/>
+          <course reference="../../../../Degree/requirements/CoreRequirement/course[5]"/>
+          <course reference="../../../../Degree/requirements/CoreRequirement/course[6]"/>
+          <course reference="../../../../Degree/requirements/CoreRequirement/course[7]"/>
+          <course reference="../../../../Degree/requirements/CoreRequirement/course[8]"/>
+          <course reference="../../../../Degree/requirements/CoreRequirement/course[9]"/>
+          <course reference="../../../../Degree/requirements/CoreRequirement/course[10]"/>
+          <replacementCourses/>
+        </CoreRequirement>
+        <CoreRequirement>
+          <name>Core Engineering Courses</name>
+          <description>Must fufill all course requirements below.</description>
+          <course>
+            <title>Introduction to Engineering Analysis</title>
+            <description>An integrated development of linear algebra and statics emphasizing engineering applications and also incorporating computer exercises involving matrix techniques and calculations using available software packages.</description>
+            <department>School of Engineering</department>
+            <catalogNumber>ENGR-1100</catalogNumber>
+            <credits>4</credits>
+            <availableTerms>
+              <year-part>FALL</year-part>
+              <year-part>SPRING</year-part>
+            </availableTerms>
+            <doubleCount>false</doubleCount>
+            <isOfficial>true</isOfficial>
+          </course>
+          <course>
+            <title>Embedded Control</title>
+            <description>Engineering laboratory introduction to the microprocessor as an embedded element of engineering systems. Students simultaneously develop the hardware and software of one or more target systems during the semester. Topics include concepts and practices of microcontroller hardware and software for command, sensing, control, and display. Specifically this includes control of dynamic systems and sensor interfaces; analog-digital conversion; parallel input/output; driver circuits, modular programming, and subsystem integration.
+
+NOTE: a programming language, preferably C.
+</description>
+            <department>School of Engineering</department>
+            <catalogNumber>ENGR-2350</catalogNumber>
+            <credits>4</credits>
+            <availableTerms>
+              <year-part>FALL</year-part>
+              <year-part>SPRING</year-part>
+            </availableTerms>
+            <doubleCount>false</doubleCount>
+            <isOfficial>true</isOfficial>
+          </course>
+          <course>
+            <title>Engineering Graphics and CAD</title>
+            <description>An introduction to the techniques for creating solid models of engineering designs. Topics include three-dimensional modeling of parts and assemblies, visualization, orthographic and isometric free-hand sketching, and computer-generated design documentation.</description>
+            <department>School of Engineering</department>
+            <catalogNumber>ENGR-1200</catalogNumber>
+            <credits>1</credits>
+            <availableTerms>
+              <year-part>FALL</year-part>
+              <year-part>SPRING</year-part>
+            </availableTerms>
+            <doubleCount>false</doubleCount>
+            <isOfficial>true</isOfficial>
+          </course>
+          <course>
+            <title>Introduction to Engineering Electronics</title>
+            <description>A hands-on experience with electronic circuits and modern laboratory instrumentation. Motivates further study of engineering. The laboratory provides opportunities to build and test simple electronic circuits that illustrate basic concepts. A design project is included.</description>
+            <department>School of Engineering</department>
+            <catalogNumber>ENGR-1310</catalogNumber>
+            <credits>1</credits>
+            <availableTerms>
+              <year-part>FALL</year-part>
+              <year-part>SPRING</year-part>
+            </availableTerms>
+            <doubleCount>false</doubleCount>
+            <isOfficial>true</isOfficial>
+          </course>
+          <course>
+            <title>Introduction to Engineering Design</title>
+            <description>A first course in engineering design which emphasizes creativity, teamwork, communication, and work across engineering disciplines. Students are introduced to the design process through a semester-long project which provides a design-build-test experience. Oral and written communication are important elements of the course. The course meets with ENGR 1010.</description>
+            <department>School of Engineering</department>
+            <catalogNumber>ENGR-2050</catalogNumber>
+            <credits>4</credits>
+            <prerequisites serialization="custom">
+              <unserializable-parents/>
+              <list>
+                <default>
+                  <size>2</size>
+                </default>
+                <int>10</int>
+                <course>
+                  <catalogNumber>ENGR-1100</catalogNumber>
+                  <credits>0</credits>
+                  <doubleCount>false</doubleCount>
+                  <isOfficial>false</isOfficial>
+                </course>
+                <course>
+                  <catalogNumber>ENGR-1200</catalogNumber>
+                  <credits>0</credits>
+                  <doubleCount>false</doubleCount>
+                  <isOfficial>false</isOfficial>
+                </course>
+              </list>
+              <rpiplanner.model.RequisiteSet>
+                <default>
+                  <pickOne>false</pickOne>
+                  <required>true</required>
+                </default>
+              </rpiplanner.model.RequisiteSet>
+            </prerequisites>
+            <corequisites serialization="custom">
+              <unserializable-parents/>
+              <list>
+                <default>
+                  <size>1</size>
+                </default>
+                <int>10</int>
+                <course>
+                  <catalogNumber>PHYS-1200</catalogNumber>
+                  <credits>0</credits>
+                  <doubleCount>false</doubleCount>
+                  <isOfficial>false</isOfficial>
+                </course>
+              </list>
+              <rpiplanner.model.RequisiteSet>
+                <default>
+                  <pickOne>false</pickOne>
+                  <required>true</required>
+                </default>
+              </rpiplanner.model.RequisiteSet>
+            </corequisites>
+            <availableTerms>
+              <year-part>FALL</year-part>
+              <year-part>SPRING</year-part>
+            </availableTerms>
+            <doubleCount>false</doubleCount>
+            <isOfficial>true</isOfficial>
+          </course>
+          <course>
+            <title>Professional Development III</title>
+            <description>Students will study issues associated with working in teams in a modern work environment. Various styles of leadership, the definitions of power and empowerment and their applications in industry and team settings will be studied. Additionally, other topics to be explored include vision, values and attitudes, and organizational culture. The course format will include small and large group discussions, case studies, experiential exercises, and regular participation from industry guests.
+
+NOTE: Offered in conjunction with senior courses.
+</description>
+            <department>School of Engineering</department>
+            <catalogNumber>ENGR-4010</catalogNumber>
+            <credits>1</credits>
+            <availableTerms>
+              <year-part>FALL</year-part>
+              <year-part>SPRING</year-part>
+            </availableTerms>
+            <doubleCount>false</doubleCount>
+            <isOfficial>true</isOfficial>
+          </course>
+          <replacementCourses/>
+        </CoreRequirement>
+        <CoreRequirement>
+          <name>Required Major Courses</name>
+          <description>Choose either ECSE 4500 or ENGR 2600 (with advisor&apos;s approval).</description>
+          <course>
+            <title>Computer Components and Operations</title>
+            <description>Design-oriented introduction to computer components and operations. Standard codes, number systems, base conversions, and computer arithmetic. Boolean algebra, minimization and synthesis techniques for combinational and sequential logic. Races, hazards, and asynchronous behavior. Registers, arithmetic logic units, memory structure, buses, and control units. Machine language programming, instruction fetch and execution, input-output devices, interrupts, and microprogram sequencers. Software and hardware tools.</description>
+            <department>Electrical, Computer, and Systems Engineering</department>
+            <catalogNumber>ECSE-2610</catalogNumber>
+            <credits>4</credits>
+            <prerequisites serialization="custom">
+              <unserializable-parents/>
+              <list>
+                <default>
+                  <size>1</size>
+                </default>
+                <int>10</int>
+                <course>
+                  <catalogNumber>CSCI-1100</catalogNumber>
+                  <credits>0</credits>
+                  <doubleCount>false</doubleCount>
+                  <isOfficial>false</isOfficial>
+                </course>
+              </list>
+              <rpiplanner.model.RequisiteSet>
+                <default>
+                  <pickOne>false</pickOne>
+                  <required>true</required>
+                </default>
+              </rpiplanner.model.RequisiteSet>
+            </prerequisites>
+            <corequisites serialization="custom">
+              <unserializable-parents/>
+              <list>
+                <default>
+                  <size>1</size>
+                </default>
+                <int>10</int>
+                <course>
+                  <catalogNumber>ENGR-2350</catalogNumber>
+                  <credits>0</credits>
+                  <doubleCount>false</doubleCount>
+                  <isOfficial>false</isOfficial>
+                </course>
+              </list>
+              <rpiplanner.model.RequisiteSet>
+                <default>
+                  <pickOne>false</pickOne>
+                  <required>true</required>
+                </default>
+              </rpiplanner.model.RequisiteSet>
+            </corequisites>
+            <availableTerms>
+              <year-part>FALL</year-part>
+              <year-part>SPRING</year-part>
+            </availableTerms>
+            <doubleCount>false</doubleCount>
+            <isOfficial>true</isOfficial>
+          </course>
+          <course>
+            <title>Computer Architecture, Networks, and Operating Systems</title>
+            <description>Quantitative basis of modern computer architecture, processor design, memory hierarchy, and input/output methods. Layered operating system structures, process and storage management. Layered network organization, network protocols, switching, local and wide area networks. Examples from Unix and the Internet.</description>
+            <department>Electrical, Computer, and Systems Engineering</department>
+            <catalogNumber>ECSE-2660</catalogNumber>
+            <credits>4</credits>
+            <prerequisites serialization="custom">
+              <unserializable-parents/>
+              <list>
+                <default>
+                  <size>1</size>
+                </default>
+                <int>10</int>
+                <course>
+                  <catalogNumber>ECSE-2610</catalogNumber>
+                  <credits>0</credits>
+                  <doubleCount>false</doubleCount>
+                  <isOfficial>false</isOfficial>
+                </course>
+              </list>
+              <rpiplanner.model.RequisiteSet>
+                <default>
+                  <pickOne>false</pickOne>
+                  <required>true</required>
+                </default>
+              </rpiplanner.model.RequisiteSet>
+            </prerequisites>
+            <availableTerms>
+              <year-part>SPRING</year-part>
+            </availableTerms>
+            <doubleCount>false</doubleCount>
+            <isOfficial>true</isOfficial>
+          </course>
+          <course>
+            <title>Signals and Systems</title>
+            <description>Time and frequency-domain representation of continuous-and discrete-time signals and systems, and solutions of their response. Simulation of linear systems. Fourier series and transform. Laplace transform and z-transform. Stability, feedback systems, and root-locus analysis and design. Applications involving communication and control systems.</description>
+            <department>Electrical, Computer, and Systems Engineering</department>
+            <catalogNumber>ECSE-2410</catalogNumber>
+            <credits>4</credits>
+            <prerequisites serialization="custom">
+              <unserializable-parents/>
+              <list>
+                <default>
+                  <size>1</size>
+                </default>
+                <int>10</int>
+                <course>
+                  <catalogNumber>ECSE-2010</catalogNumber>
+                  <credits>0</credits>
+                  <doubleCount>false</doubleCount>
+                  <isOfficial>false</isOfficial>
+                </course>
+              </list>
+              <rpiplanner.model.RequisiteSet>
+                <default>
+                  <pickOne>false</pickOne>
+                  <required>true</required>
+                </default>
+              </rpiplanner.model.RequisiteSet>
+            </prerequisites>
+            <availableTerms>
+              <year-part>FALL</year-part>
+              <year-part>SPRING</year-part>
+            </availableTerms>
+            <doubleCount>false</doubleCount>
+            <isOfficial>true</isOfficial>
+          </course>
+          <course>
+            <title>Probability for Engineering Applications</title>
+            <description>Axioms of probability, joint and conditional probability, random variables, probability density and distribution functions, functions of random variables, statistical averages, empirical distributions, parameter estimation, regression, tests of hypotheses, and Markov chains. Applications to engineering data such as device characteristics, failure rates, image processing and network traffic.</description>
+            <department>Electrical, Computer, and Systems Engineering</department>
+            <catalogNumber>ECSE-4500</catalogNumber>
+            <credits>4</credits>
+            <prerequisites serialization="custom">
+              <unserializable-parents/>
+              <list>
+                <default>
+                  <size>1</size>
+                </default>
+                <int>10</int>
+                <course>
+                  <catalogNumber>ECSE-2410</catalogNumber>
+                  <credits>0</credits>
+                  <doubleCount>false</doubleCount>
+                  <isOfficial>false</isOfficial>
+                </course>
+              </list>
+              <rpiplanner.model.RequisiteSet>
+                <default>
+                  <pickOne>false</pickOne>
+                  <required>true</required>
+                </default>
+              </rpiplanner.model.RequisiteSet>
+            </prerequisites>
+            <availableTerms>
+              <year-part>FALL</year-part>
+              <year-part>SPRING</year-part>
+            </availableTerms>
+            <doubleCount>false</doubleCount>
+            <isOfficial>true</isOfficial>
+          </course>
+          <replacementCourses>
+            <entry>
+              <course reference="../../../course[4]"/>
+              <list>
+                <course>
+                  <title>Modeling and Analysis of Uncertainty</title>
+                  <description>Appreciation and understanding of uncertainties and the conditions under which they occur, within the context of the engineering problem-solving pedagogy of measurements, models, validation, and analysis. Problems and concerns in obtaining measurements; tabular and graphical organization of data to minimize misinformation and maximize information; and development and evaluation of models. Concepts will be supported with computer demonstration. Applications to problems in engineering are emphasized.</description>
+                  <department>School of Engineering</department>
+                  <catalogNumber>ENGR-2600</catalogNumber>
+                  <credits>3</credits>
+                  <prerequisites serialization="custom">
+                    <unserializable-parents/>
+                    <list>
+                      <default>
+                        <size>1</size>
+                      </default>
+                      <int>10</int>
+                      <course>
+                        <catalogNumber>MATH-1010</catalogNumber>
+                        <credits>0</credits>
+                        <doubleCount>false</doubleCount>
+                        <isOfficial>false</isOfficial>
+                      </course>
+                    </list>
+                    <rpiplanner.model.RequisiteSet>
+                      <default>
+                        <pickOne>false</pickOne>
+                        <required>true</required>
+                      </default>
+                    </rpiplanner.model.RequisiteSet>
+                  </prerequisites>
+                  <availableTerms>
+                    <year-part>FALL</year-part>
+                    <year-part>SPRING</year-part>
+                  </availableTerms>
+                  <doubleCount>false</doubleCount>
+                  <isOfficial>true</isOfficial>
+                </course>
+              </list>
+            </entry>
+          </replacementCourses>
+        </CoreRequirement>
+        <RestrictedRequirement>
+          <name>Multidisciplinary Engineering Elective</name>
+          <description>Choose one of the following courses.</description>
+          <numCredits>4</numCredits>
+          <numCourses>1</numCourses>
+          <course>
+            <title>Materials Science for Engineers</title>
+            <description>Introduction to “real” (defect-containing) solids, and equilibria and kinetic processes in solids. Macroscopic properties, such as mechanical strength and electrical conductivity, are dominated by structure and bonding, and the course continuously emphasizes this connection. Each of the materials classes (metals, ceramics, semiconductors, and polymers) is discussed in detail in this context.</description>
+            <department>School of Engineering</department>
+            <catalogNumber>ENGR-1600</catalogNumber>
+            <credits>4</credits>
+            <prerequisites serialization="custom">
+              <unserializable-parents/>
+              <list>
+                <default>
+                  <size>1</size>
+                </default>
+                <int>10</int>
+                <course>
+                  <catalogNumber>CHEM-1100</catalogNumber>
+                  <credits>0</credits>
+                  <doubleCount>false</doubleCount>
+                  <isOfficial>false</isOfficial>
+                </course>
+              </list>
+              <rpiplanner.model.RequisiteSet>
+                <default>
+                  <pickOne>false</pickOne>
+                  <required>true</required>
+                </default>
+              </rpiplanner.model.RequisiteSet>
+            </prerequisites>
+            <availableTerms>
+              <year-part>FALL</year-part>
+              <year-part>SPRING</year-part>
+            </availableTerms>
+            <doubleCount>false</doubleCount>
+            <isOfficial>true</isOfficial>
+          </course>
+          <course>
+            <title>Engineering Dynamics</title>
+            <description>An integrated development of modeling-and problem-solving techniques for particles and rigid bodies emphasizing the use of free-body diagrams, vector algebra, and computer simulation. Topics covered include the kinematics and kinetics of translational, rotational, and general plane motion, energy and momentum methods, and single degree of freedom vibrations.</description>
+            <department>School of Engineering</department>
+            <catalogNumber>ENGR-2090</catalogNumber>
+            <credits>4</credits>
+            <prerequisites serialization="custom">
+              <unserializable-parents/>
+              <list>
+                <default>
+                  <size>2</size>
+                </default>
+                <int>10</int>
+                <course>
+                  <catalogNumber>ENGR-1100</catalogNumber>
+                  <credits>0</credits>
+                  <doubleCount>false</doubleCount>
+                  <isOfficial>false</isOfficial>
+                </course>
+                <course>
+                  <catalogNumber>PHYS-1100</catalogNumber>
+                  <credits>0</credits>
+                  <doubleCount>false</doubleCount>
+                  <isOfficial>false</isOfficial>
+                </course>
+              </list>
+              <rpiplanner.model.RequisiteSet>
+                <default>
+                  <pickOne>false</pickOne>
+                  <required>true</required>
+                </default>
+              </rpiplanner.model.RequisiteSet>
+            </prerequisites>
+            <corequisites serialization="custom">
+              <unserializable-parents/>
+              <list>
+                <default>
+                  <size>1</size>
+                </default>
+                <int>10</int>
+                <course>
+                  <catalogNumber>MATH-2400</catalogNumber>
+                  <credits>0</credits>
+                  <doubleCount>false</doubleCount>
+                  <isOfficial>false</isOfficial>
+                </course>
+              </list>
+              <rpiplanner.model.RequisiteSet>
+                <default>
+                  <pickOne>false</pickOne>
+                  <required>true</required>
+                </default>
+              </rpiplanner.model.RequisiteSet>
+            </corequisites>
+            <availableTerms>
+              <year-part>FALL</year-part>
+              <year-part>SPRING</year-part>
+            </availableTerms>
+            <doubleCount>false</doubleCount>
+            <isOfficial>true</isOfficial>
+          </course>
+          <course>
+            <catalogNumber>ENGR-2550</catalogNumber>
+            <credits>0</credits>
+            <doubleCount>false</doubleCount>
+            <isOfficial>false</isOfficial>
+          </course>
+          <course>
+            <title>Strength of Materials</title>
+            <description>Concept of stress and strain, generalized Hooke’s law, axial load, torsion, pure bending, transverse loading, transformation of stress and strain components in 2-D, design of beams and shafts for strength, deflection of beams, work and energy, columns.</description>
+            <department>School of Engineering</department>
+            <catalogNumber>ENGR-2530</catalogNumber>
+            <credits>4</credits>
+            <prerequisites serialization="custom">
+              <unserializable-parents/>
+              <list>
+                <default>
+                  <size>1</size>
+                </default>
+                <int>10</int>
+                <course>
+                  <catalogNumber>ENGR-1100</catalogNumber>
+                  <credits>0</credits>
+                  <doubleCount>false</doubleCount>
+                  <isOfficial>false</isOfficial>
+                </course>
+              </list>
+              <rpiplanner.model.RequisiteSet>
+                <default>
+                  <pickOne>false</pickOne>
+                  <required>true</required>
+                </default>
+              </rpiplanner.model.RequisiteSet>
+            </prerequisites>
+            <availableTerms>
+              <year-part>FALL</year-part>
+              <year-part>SPRING</year-part>
+            </availableTerms>
+            <doubleCount>false</doubleCount>
+            <isOfficial>true</isOfficial>
+          </course>
+          <replacementCourses/>
+        </RestrictedRequirement>
+        <RestrictedRequirement>
+          <name>Software Engineering Elective</name>
+          <description>Choose one of the following courses.</description>
+          <numCredits>3</numCredits>
+          <numCourses>1</numCourses>
+          <course>
+            <title>Experimental and Simulation Techniques for Computer Networking</title>
+            <description>This senior-level laboratory course teaches tools and techniques used in the design and analysis of computer networks and protocols such as simulation, animation, visualization, experiment design, trace collection/analysis, protocol development on Linux, and modular router development platforms (eg: Linux-based “Click” and Intel IXA platform). Each tool is developed in a networking protocol context such as TCP reliable transport, TCP congestion control, routing protocols (RIP, OSPF, BGP), network management and 802.11 wireless networks.
+
+NOTE: C programming skills required
+</description>
+            <department>Electrical, Computer, and Systems Engineering</department>
+            <catalogNumber>ECSE-4690</catalogNumber>
+            <credits>3</credits>
+            <corequisites serialization="custom">
+              <unserializable-parents/>
+              <list>
+                <default>
+                  <size>1</size>
+                </default>
+                <int>10</int>
+                <course>
+                  <catalogNumber>ECSE-4670</catalogNumber>
+                  <credits>0</credits>
+                  <doubleCount>false</doubleCount>
+                  <isOfficial>false</isOfficial>
+                </course>
+              </list>
+              <rpiplanner.model.RequisiteSet>
+                <default>
+                  <pickOne>false</pickOne>
+                  <required>true</required>
+                </default>
+              </rpiplanner.model.RequisiteSet>
+            </corequisites>
+            <availableTerms>
+              <year-part>FALL</year-part>
+            </availableTerms>
+            <doubleCount>false</doubleCount>
+            <isOfficial>true</isOfficial>
+          </course>
+          <course>
+            <title>Computer Graphics</title>
+            <description>Introduction to Interactive Computer Graphics, with an emphasis on applications programming. Objects and viewers, and the synthetic camera model. Graphics architectures, the graphics pipeline, clipping, rasterization, and programmable shaders. Input and interaction. Geometric objects, homogeneous coordinates, and transformations. Viewing, hidden surface removal, frame and depth buffers, compositing, and anti-aliasing. Shading, light and materials, texture mapping, ray tracing, and radiosity. Intellectual property concerns. Extensive programming with the OpenGL API and C++.
+
+NOTE: prerequisite can be replaced with an equivalent
+</description>
+            <department>Electrical, Computer, and Systems Engineering</department>
+            <catalogNumber>ECSE-4750</catalogNumber>
+            <credits>3</credits>
+            <prerequisites serialization="custom">
+              <unserializable-parents/>
+              <list>
+                <default>
+                  <size>1</size>
+                </default>
+                <int>10</int>
+                <course>
+                  <catalogNumber>ECSE-2610</catalogNumber>
+                  <credits>0</credits>
+                  <doubleCount>false</doubleCount>
+                  <isOfficial>false</isOfficial>
+                </course>
+              </list>
+              <rpiplanner.model.RequisiteSet>
+                <default>
+                  <pickOne>false</pickOne>
+                  <required>false</required>
+                </default>
+              </rpiplanner.model.RequisiteSet>
+            </prerequisites>
+            <availableTerms>
+              <year-part>FALL</year-part>
+            </availableTerms>
+            <doubleCount>false</doubleCount>
+            <isOfficial>true</isOfficial>
+          </course>
+          <course>
+            <title>Database Systems</title>
+            <description>Discussion of the state of practice in modern database systems, with an emphasis on relational systems. Topics include database design, database system architecture, SQL, normalization techniques, storage structures, query processing, concurrency control, recovery, security, and new directions such as object-oriented and distributed database systems. Students gain hands-on experience with commercial database systems and interface building tools. Programming projects are required.</description>
+            <department>Computer Science</department>
+            <catalogNumber>CSCI-4380</catalogNumber>
+            <credits>4</credits>
+            <prerequisites serialization="custom">
+              <unserializable-parents/>
+              <list>
+                <default>
+                  <size>1</size>
+                </default>
+                <int>10</int>
+                <course>
+                  <catalogNumber>CSCI-2300</catalogNumber>
+                  <credits>0</credits>
+                  <doubleCount>false</doubleCount>
+                  <isOfficial>false</isOfficial>
+                </course>
+              </list>
+              <rpiplanner.model.RequisiteSet>
+                <default>
+                  <pickOne>false</pickOne>
+                  <required>true</required>
+                </default>
+              </rpiplanner.model.RequisiteSet>
+            </prerequisites>
+            <availableTerms>
+              <year-part>FALL</year-part>
+              <year-part>SPRING</year-part>
+            </availableTerms>
+            <doubleCount>false</doubleCount>
+            <isOfficial>true</isOfficial>
+          </course>
+          <course>
+            <title>Software Design and Documentation</title>
+            <description>Software system design methodology emphasizing use of object oriented modeling of application domains and of software systems, and emphasizing the roles of written and oral communication in software engineering. Project management and software testing. Individual and team projects include specification, software architecture, user interfaces, and documentation of the phases of a project.</description>
+            <department>Computer Science</department>
+            <catalogNumber>CSCI-4440</catalogNumber>
+            <credits>4</credits>
+            <prerequisites serialization="custom">
+              <unserializable-parents/>
+              <list>
+                <default>
+                  <size>1</size>
+                </default>
+                <int>10</int>
+                <course>
+                  <catalogNumber>CSCI-2300</catalogNumber>
+                  <credits>0</credits>
+                  <doubleCount>false</doubleCount>
+                  <isOfficial>false</isOfficial>
+                </course>
+              </list>
+              <rpiplanner.model.RequisiteSet>
+                <default>
+                  <pickOne>false</pickOne>
+                  <required>true</required>
+                </default>
+              </rpiplanner.model.RequisiteSet>
+            </prerequisites>
+            <availableTerms>
+              <year-part>FALL</year-part>
+              <year-part>SPRING</year-part>
+            </availableTerms>
+            <doubleCount>false</doubleCount>
+            <isOfficial>true</isOfficial>
+          </course>
+          <course>
+            <title>The Human-Computer Interface</title>
+            <description>An exploration of the languages, techniques, and mechanisms used to define and enhance communication between people and computer applications, both for input and output, in the general case and for a variety of important special domains. Use of graphics in the interface; multimedia environments; alternative I/O devices; issues in interface design. Interactive in-class exercises and activities. Substantial programming projects are assigned in a number of languages and for a variety of platforms. Students also prepare oral presentations based on material from the current scientific literature.
+
+NOTE: Offered on availability of instructor.
+</description>
+            <department>Computer Science</department>
+            <catalogNumber>CSCI-4600</catalogNumber>
+            <credits>4</credits>
+            <availableTerms>
+              <year-part>FALL</year-part>
+              <year-part>SPRING</year-part>
+            </availableTerms>
+            <doubleCount>false</doubleCount>
+            <isOfficial>true</isOfficial>
+          </course>
+          <replacementCourses/>
+        </RestrictedRequirement>
+        <RestrictedRequirement>
+          <name>Design Elective</name>
+          <description>Choose one of the following courses.</description>
+          <numCredits>3</numCredits>
+          <numCourses>1</numCourses>
+          <course>
+            <title>Advanced Computer Hardware Design</title>
+            <description>A capstone design course.† Design methodologies include register transfer modules and firmware microprogrammed design. “Bit-slice” philosophy of design. LSI microprocessors as design elements in larger digital systems such as high-speed channels and special purpose computers. Detailed discussion of the structure of several computers at the chip and board level. Specification of custom IC digital systems. FPGA based design implementation using VHDL. Students cannot receive credit for both this course and ECSE 6700.
+
+NOTE: senior standing required
+</description>
+            <department>Electrical, Computer, and Systems Engineering</department>
+            <catalogNumber>ECSE-4780</catalogNumber>
+            <credits>4</credits>
+            <prerequisites serialization="custom">
+              <unserializable-parents/>
+              <list>
+                <default>
+                  <size>1</size>
+                </default>
+                <int>10</int>
+                <course>
+                  <catalogNumber>ECSE-4770</catalogNumber>
+                  <credits>0</credits>
+                  <doubleCount>false</doubleCount>
+                  <isOfficial>false</isOfficial>
+                </course>
+              </list>
+              <rpiplanner.model.RequisiteSet>
+                <default>
+                  <pickOne>false</pickOne>
+                  <required>true</required>
+                </default>
+              </rpiplanner.model.RequisiteSet>
+            </prerequisites>
+            <corequisites serialization="custom">
+              <unserializable-parents/>
+              <list>
+                <default>
+                  <size>2</size>
+                </default>
+                <int>10</int>
+                <course>
+                  <catalogNumber>ECSE-2660</catalogNumber>
+                  <credits>0</credits>
+                  <doubleCount>false</doubleCount>
+                  <isOfficial>false</isOfficial>
+                </course>
+                <course>
+                  <catalogNumber>ENGR-4010</catalogNumber>
+                  <credits>0</credits>
+                  <doubleCount>false</doubleCount>
+                  <isOfficial>false</isOfficial>
+                </course>
+              </list>
+              <rpiplanner.model.RequisiteSet>
+                <default>
+                  <pickOne>false</pickOne>
+                  <required>true</required>
+                </default>
+              </rpiplanner.model.RequisiteSet>
+            </corequisites>
+            <availableTerms>
+              <year-part>SPRING</year-part>
+            </availableTerms>
+            <doubleCount>false</doubleCount>
+            <isOfficial>true</isOfficial>
+          </course>
+          <course>
+            <title>ECSE Design</title>
+            <description>A capstone design course.† Provides all ECSE majors senior design experience by engaging them in clientsponsored projects. The students work in multidisciplinary teams, jointly responsible to the faculty, the client liaison, and to each other for project management, execution and reporting. Contemporary design tools and practices are emphasized. Senior standing required.
+
+NOTE: senior standing required
+</description>
+            <department>Electrical, Computer, and Systems Engineering</department>
+            <catalogNumber>ECSE-4900</catalogNumber>
+            <credits>3</credits>
+            <corequisites serialization="custom">
+              <unserializable-parents/>
+              <list>
+                <default>
+                  <size>1</size>
+                </default>
+                <int>10</int>
+                <course>
+                  <catalogNumber>ECSE-4010</catalogNumber>
+                  <credits>0</credits>
+                  <doubleCount>false</doubleCount>
+                  <isOfficial>false</isOfficial>
+                </course>
+              </list>
+              <rpiplanner.model.RequisiteSet>
+                <default>
+                  <pickOne>false</pickOne>
+                  <required>true</required>
+                </default>
+              </rpiplanner.model.RequisiteSet>
+            </corequisites>
+            <availableTerms>
+              <year-part>FALL</year-part>
+              <year-part>SPRING</year-part>
+            </availableTerms>
+            <doubleCount>false</doubleCount>
+            <isOfficial>true</isOfficial>
+          </course>
+          <course>
+            <title>Inventor’s Studio</title>
+            <description>Students work in teams to continue design and development work on approved projects that started in other courses such as Introduction to Engineering Design. New projects can also be proposed by students. Emphasis will be on completing the design, building an improved prototype, applying for patent protection, and licensing the design. Open to undergraduate and graduate students. Oral and written presentations are required. This is designated as a writing-intensive course.
+
+NOTE: prerequisite can be skipped on permission of instructor
+NOTE: programming experience recommended
+</description>
+            <department>Mechanical, Aerospace, and Nuclear Engineering</department>
+            <catalogNumber>MANE-4220</catalogNumber>
+            <credits>3</credits>
+            <prerequisites serialization="custom">
+              <unserializable-parents/>
+              <list>
+                <default>
+                  <size>1</size>
+                </default>
+                <int>10</int>
+                <course>
+                  <catalogNumber>ENGR-2050</catalogNumber>
+                  <credits>0</credits>
+                  <doubleCount>false</doubleCount>
+                  <isOfficial>false</isOfficial>
+                </course>
+              </list>
+              <rpiplanner.model.RequisiteSet>
+                <default>
+                  <pickOne>false</pickOne>
+                  <required>false</required>
+                </default>
+              </rpiplanner.model.RequisiteSet>
+            </prerequisites>
+            <availableTerms>
+              <year-part>FALL</year-part>
+              <year-part>SPRING</year-part>
+            </availableTerms>
+            <doubleCount>false</doubleCount>
+            <isOfficial>true</isOfficial>
+          </course>
+          <course>
+            <catalogNumber>EPOW-4850</catalogNumber>
+            <credits>0</credits>
+            <doubleCount>false</doubleCount>
+            <isOfficial>false</isOfficial>
+          </course>
+          <replacementCourses/>
+        </RestrictedRequirement>
+        <HumanitiesRequirement/>
+        <FreeElectiveRequirement>
+          <creditsRequired>16</creditsRequired>
+        </FreeElectiveRequirement>
+      </requirements>
+    </Degree>
+  </database>
+</rpiplanner.model.DegreeDatabase>
+<rpiplanner.model.DegreeDatabase>
+  <database>
+    <Degree>
+      <DegreeName>Test Degree 2</DegreeName>
+      <numCredits>128</numCredits>
+      <requirements>
+        <CoreRequirement>
+          <name>Core Requirement</name>
+          <description>Testing the Core Requirement Validator</description>
+          <course>
+            <title>Computer Science I</title>
+            <description>An introduction to computer programming algorithm design and analysis. Additional topics include basic computer organization; internal representation of scalar and array data; use of top-down design and subprograms to tackle complex problems; abstract data types. Enrichment material as time allows. Interdisciplinary case studies, numerical and nonnumerical applications. Students who have passed CSCI 1200 cannot register for this course.</description>
+            <department>Computer Science</department>
+            <catalogNumber>CSCI-1100</catalogNumber>
+            <credits>4</credits>
+            <availableTerms>
+              <year-part>FALL</year-part>
+              <year-part>SPRING</year-part>
+            </availableTerms>
+            <doubleCount>false</doubleCount>
+            <isOfficial>true</isOfficial>
+          </course>
+          <course>
+            <title>Computer Science II</title>
+            <description>Programming concepts: functions, parameter passing, pointers, arrays, strings, structs, classes, templates. Mathematical tools: sets, functions, and relations, order notation, complexity of algorithms, proof by induction. Data structures and their representations: data abstraction and internal representation, sequences, trees, binary search trees, associative structures. Algorithms: searching and sorting, generic algorithms, iterative and recursive algorithms. Methods of testing correctness and measuring performance.
+
+NOTE: prerequisite can be skipped on permission of instructor
+NOTE: programming experience recommended
+</description>
+            <department>Computer Science</department>
+            <catalogNumber>CSCI-1200</catalogNumber>
+            <credits>4</credits>
+            <prerequisites serialization="custom">
+              <unserializable-parents/>
+              <list>
+                <default>
+                  <size>1</size>
+                </default>
+                <int>10</int>
+                <course>
+                  <catalogNumber>CSCI-1100</catalogNumber>
+                  <credits>0</credits>
+                  <doubleCount>false</doubleCount>
+                  <isOfficial>false</isOfficial>
+                </course>
+              </list>
+              <rpiplanner.model.RequisiteSet>
+                <default>
+                  <pickOne>false</pickOne>
+                  <required>false</required>
+                </default>
+              </rpiplanner.model.RequisiteSet>
+            </prerequisites>
+            <availableTerms>
+              <year-part>FALL</year-part>
+              <year-part>SPRING</year-part>
+            </availableTerms>
+            <doubleCount>false</doubleCount>
+            <isOfficial>true</isOfficial>
+          </course>
+          <course>
+            <title>Data Structures and Algorithms</title>
+            <description>Data structures and algorithms, and the mathematical techniques necessary to design and analyze them. Basic data structures: lists, associative structures, trees. Mathematical techniques for designing algorithms and analyzing worst-case and expected-case algorithm efficiency. Advanced data structures: balanced trees, tries, heaps, priority queues, graphs. Searching, sorting. Algorithm design techniques: dynamic programming, greedy algorithms, divide-and-conquer, backtracking. Example graph, string, geometric, and numeric algorithms.</description>
+            <department>Computer Science</department>
+            <catalogNumber>CSCI-2300</catalogNumber>
+            <credits>4</credits>
+            <prerequisites serialization="custom">
+              <unserializable-parents/>
+              <list>
+                <default>
+                  <size>3</size>
+                </default>
+                <int>10</int>
+                <course>
+                  <catalogNumber>CSCI-1200</catalogNumber>
+                  <credits>0</credits>
+                  <doubleCount>false</doubleCount>
+                  <isOfficial>false</isOfficial>
+                </course>
+                <course>
+                  <catalogNumber>MATH-1010</catalogNumber>
+                  <credits>0</credits>
+                  <doubleCount>false</doubleCount>
+                  <isOfficial>false</isOfficial>
+                </course>
+                <course>
+                  <catalogNumber>MATH-2800</catalogNumber>
+                  <credits>0</credits>
+                  <doubleCount>false</doubleCount>
+                  <isOfficial>false</isOfficial>
+                </course>
+              </list>
+              <rpiplanner.model.RequisiteSet>
+                <default>
+                  <pickOne>false</pickOne>
+                  <required>true</required>
+                </default>
+              </rpiplanner.model.RequisiteSet>
+            </prerequisites>
+            <availableTerms>
+              <year-part>FALL</year-part>
+              <year-part>SPRING</year-part>
+            </availableTerms>
+            <doubleCount>false</doubleCount>
+            <isOfficial>true</isOfficial>
+          </course>
+          <course>
+            <title>Calculus I</title>
+            <description>Functions, limits, continuity, derivatives, implicit differentiation, related rates, maxima and minima, elementary transcendental functions, introduction to definite integral with applications to area and volumes of revolution.</description>
+            <department>Mathematical Sciences</department>
+            <catalogNumber>MATH-1010</catalogNumber>
+            <credits>4</credits>
+            <availableTerms>
+              <year-part>FALL</year-part>
+              <year-part>SPRING</year-part>
+            </availableTerms>
+            <doubleCount>false</doubleCount>
+            <isOfficial>true</isOfficial>
+          </course>
+          <course>
+            <title>Calculus II</title>
+            <description>Techniques and applications of integration, polar coordinates, parametric equations, infinite sequences and series, vector functions and curves in space, functions of several variables, and partial derivatives.</description>
+            <department>Mathematical Sciences</department>
+            <catalogNumber>MATH-1020</catalogNumber>
+            <credits>4</credits>
+            <prerequisites serialization="custom">
+              <unserializable-parents/>
+              <list>
+                <default>
+                  <size>1</size>
+                </default>
+                <int>10</int>
+                <course>
+                  <catalogNumber>MATH-1010</catalogNumber>
+                  <credits>0</credits>
+                  <doubleCount>false</doubleCount>
+                  <isOfficial>false</isOfficial>
+                </course>
+              </list>
+              <rpiplanner.model.RequisiteSet>
+                <default>
+                  <pickOne>false</pickOne>
+                  <required>true</required>
+                </default>
+              </rpiplanner.model.RequisiteSet>
+            </prerequisites>
+            <availableTerms>
+              <year-part>FALL</year-part>
+              <year-part>SPRING</year-part>
+            </availableTerms>
+            <doubleCount>false</doubleCount>
+            <isOfficial>true</isOfficial>
+          </course>
+          <course>
+            <title>Introduction to Differential Equations</title>
+            <description>First-order differential equations, second-order linear equations, eigenvalues and eigenvectors of matrices, systems of first-order equations, stability and qualitative properties of nonlinear autonomous systems in the plane, Fourier series, separation of variables for partial differential equations.
+
+NOTE: familiarity with elementary ordinary and partial differential equations required
+</description>
+            <department>Mathematical Sciences</department>
+            <catalogNumber>MATH-2400</catalogNumber>
+            <credits>4</credits>
+            <prerequisites serialization="custom">
+              <unserializable-parents/>
+              <list>
+                <default>
+                  <size>1</size>
+                </default>
+                <int>10</int>
+                <course>
+                  <catalogNumber>MATH-1020</catalogNumber>
+                  <credits>0</credits>
+                  <doubleCount>false</doubleCount>
+                  <isOfficial>false</isOfficial>
+                </course>
+              </list>
+              <rpiplanner.model.RequisiteSet>
+                <default>
+                  <pickOne>false</pickOne>
+                  <required>true</required>
+                </default>
+              </rpiplanner.model.RequisiteSet>
+            </prerequisites>
+            <availableTerms>
+              <year-part>FALL</year-part>
+              <year-part>SPRING</year-part>
+            </availableTerms>
+            <doubleCount>false</doubleCount>
+            <isOfficial>true</isOfficial>
+          </course>
+          <course>
+            <title>Introduction to Discrete Structures</title>
+            <description>Introduction to the mathematical foundation of computer science. Topics include logic and set theory; methods of proof; mathematical induction and wellordering; principles of counting; relations and graphs; recurrences; discrete probability.
+
+NOTE: prerequisite can be replaced with equivalent
+</description>
+            <department>Mathematical Sciences</department>
+            <catalogNumber>MATH-2800</catalogNumber>
+            <credits>4</credits>
+            <prerequisites serialization="custom">
+              <unserializable-parents/>
+              <list>
+                <default>
+                  <size>2</size>
+                </default>
+                <int>10</int>
+                <course>
+                  <catalogNumber>MATH-1010</catalogNumber>
+                  <credits>0</credits>
+                  <doubleCount>false</doubleCount>
+                  <isOfficial>false</isOfficial>
+                </course>
+                <course>
+                  <catalogNumber>MATH-1500</catalogNumber>
+                  <credits>0</credits>
+                  <doubleCount>false</doubleCount>
+                  <isOfficial>false</isOfficial>
+                </course>
+              </list>
+              <rpiplanner.model.RequisiteSet>
+                <default>
+                  <pickOne>true</pickOne>
+                  <required>false</required>
+                </default>
+              </rpiplanner.model.RequisiteSet>
+            </prerequisites>
+            <availableTerms>
+              <year-part>SPRING</year-part>
+            </availableTerms>
+            <doubleCount>false</doubleCount>
+            <isOfficial>true</isOfficial>
+          </course>
+          <course>
+            <title>Physics I</title>
+            <description>The first semester of a two-semester sequence of interactive courses. Topics include linear and angular kinematics and dynamics, work and energy, momentum and collisions, forces and fields, gravitation, elementary electrostatics, and motion of charged particles in a magnetic field.</description>
+            <department>Physics, Applied Physics, and Astronomy</department>
+            <catalogNumber>PHYS-1100</catalogNumber>
+            <credits>4</credits>
+            <corequisites serialization="custom">
+              <unserializable-parents/>
+              <list>
+                <default>
+                  <size>1</size>
+                </default>
+                <int>10</int>
+                <course>
+                  <catalogNumber>MATH-1010</catalogNumber>
+                  <credits>0</credits>
+                  <doubleCount>false</doubleCount>
+                  <isOfficial>false</isOfficial>
+                </course>
+              </list>
+              <rpiplanner.model.RequisiteSet>
+                <default>
+                  <pickOne>false</pickOne>
+                  <required>true</required>
+                </default>
+              </rpiplanner.model.RequisiteSet>
+            </corequisites>
+            <availableTerms>
+              <year-part>FALL</year-part>
+              <year-part>SPRING</year-part>
+            </availableTerms>
+            <doubleCount>false</doubleCount>
+            <isOfficial>true</isOfficial>
+          </course>
+          <course>
+            <title>Physics II</title>
+            <description>The second semester of the two-semester sequence of interactive courses. Topics include Gauss’s Law, current electricity, Ampere’s Law and Faraday’s Law, electromagnetic radiation, physical optics, and quantum physics.
+
+NOTE: PHYS-1100 can be replaced with equivalent or skipped on permission of instructor
+</description>
+            <department>Physics, Applied Physics, and Astronomy</department>
+            <catalogNumber>PHYS-1200</catalogNumber>
+            <credits>4</credits>
+            <prerequisites serialization="custom">
+              <unserializable-parents/>
+              <list>
+                <default>
+                  <size>1</size>
+                </default>
+                <int>10</int>
+                <course>
+                  <catalogNumber>PHYS-1100</catalogNumber>
+                  <credits>0</credits>
+                  <doubleCount>false</doubleCount>
+                  <isOfficial>false</isOfficial>
+                </course>
+              </list>
+              <rpiplanner.model.RequisiteSet>
+                <default>
+                  <pickOne>false</pickOne>
+                  <required>false</required>
+                </default>
+              </rpiplanner.model.RequisiteSet>
+            </prerequisites>
+            <corequisites serialization="custom">
+              <unserializable-parents/>
+              <list>
+                <default>
+                  <size>1</size>
+                </default>
+                <int>10</int>
+                <course>
+                  <catalogNumber>MATH-1020</catalogNumber>
+                  <credits>0</credits>
+                  <doubleCount>false</doubleCount>
+                  <isOfficial>false</isOfficial>
+                </course>
+              </list>
+              <rpiplanner.model.RequisiteSet>
+                <default>
+                  <pickOne>false</pickOne>
+                  <required>true</required>
+                </default>
+              </rpiplanner.model.RequisiteSet>
+            </corequisites>
+            <availableTerms>
+              <year-part>FALL</year-part>
+              <year-part>SPRING</year-part>
+            </availableTerms>
+            <doubleCount>false</doubleCount>
+            <isOfficial>true</isOfficial>
+          </course>
+          <course>
+            <title>Chemistry I</title>
+            <description> </description>
+            <department>Chemistry and Chemical Biology</department>
+            <catalogNumber>CHEM-1100</catalogNumber>
+            <credits>4</credits>
+            <availableTerms>
+              <year-part>FALL</year-part>
+            </availableTerms>
+            <doubleCount>false</doubleCount>
+            <isOfficial>true</isOfficial>
+          </course>
+          <replacementCourses>
+            <entry>
+              <course reference="../../../course[4]"/>
+              <list>
+                <course>
+                  <title>Media Studio: Video/Audio</title>
+                  <description>This course is divided into two half-semester sessions, with each student receiving an intensive seven-week introduction to basic techniques of computer music, and a similar introduction to video. Students develop critical listening and viewing skills through reading, listening, and viewing assignments, and by discussing historical and contemporary examples of computer music and video art.  Individual and group projects are created and critiqued in class sections.</description>
+                  <department>Arts</department>
+                  <catalogNumber>ARTS-1010</catalogNumber>
+                  <credits>4</credits>
+                  <availableTerms>
+                    <year-part>FALL</year-part>
+                    <year-part>SPRING</year-part>
+                  </availableTerms>
+                  <doubleCount>false</doubleCount>
+                  <isOfficial>true</isOfficial>
+                </course>
+              </list>
+            </entry>
+          </replacementCourses>
+        </CoreRequirement>
+        <HumanitiesRequirement/>
+        <FreeElectiveRequirement>
+          <creditsRequired>12</creditsRequired>
+        </FreeElectiveRequirement>
+      </requirements>
+    </Degree>
+    <Degree>
+      <DegreeName>Computer &amp; Systems Engineering</DegreeName>
+      <numCredits>128</numCredits>
+      <requirements>
+        <CoreRequirement>
+          <name>Math and Science Core</name>
+          <description>Must fufill all course requirements below.</description>
+          <course reference="../../../../Degree/requirements/CoreRequirement/course"/>
+          <course reference="../../../../Degree/requirements/CoreRequirement/course[2]"/>
+          <course reference="../../../../Degree/requirements/CoreRequirement/course[3]"/>
+          <course reference="../../../../Degree/requirements/CoreRequirement/course[4]"/>
+          <course reference="../../../../Degree/requirements/CoreRequirement/course[5]"/>
+          <course reference="../../../../Degree/requirements/CoreRequirement/course[6]"/>
+          <course reference="../../../../Degree/requirements/CoreRequirement/course[7]"/>
+          <course reference="../../../../Degree/requirements/CoreRequirement/course[8]"/>
+          <course reference="../../../../Degree/requirements/CoreRequirement/course[9]"/>
+          <course reference="../../../../Degree/requirements/CoreRequirement/course[10]"/>
+          <replacementCourses/>
+        </CoreRequirement>
+        <CoreRequirement>
+          <name>Core Engineering Courses</name>
+          <description>Must fufill all course requirements below.</description>
+          <course>
+            <title>Introduction to Engineering Analysis</title>
+            <description>An integrated development of linear algebra and statics emphasizing engineering applications and also incorporating computer exercises involving matrix techniques and calculations using available software packages.</description>
+            <department>School of Engineering</department>
+            <catalogNumber>ENGR-1100</catalogNumber>
+            <credits>4</credits>
+            <availableTerms>
+              <year-part>FALL</year-part>
+              <year-part>SPRING</year-part>
+            </availableTerms>
+            <doubleCount>false</doubleCount>
+            <isOfficial>true</isOfficial>
+          </course>
+          <course>
+            <title>Embedded Control</title>
+            <description>Engineering laboratory introduction to the microprocessor as an embedded element of engineering systems. Students simultaneously develop the hardware and software of one or more target systems during the semester. Topics include concepts and practices of microcontroller hardware and software for command, sensing, control, and display. Specifically this includes control of dynamic systems and sensor interfaces; analog-digital conversion; parallel input/output; driver circuits, modular programming, and subsystem integration.
+
+NOTE: a programming language, preferably C.
+</description>
+            <department>School of Engineering</department>
+            <catalogNumber>ENGR-2350</catalogNumber>
+            <credits>4</credits>
+            <availableTerms>
+              <year-part>FALL</year-part>
+              <year-part>SPRING</year-part>
+            </availableTerms>
+            <doubleCount>false</doubleCount>
+            <isOfficial>true</isOfficial>
+          </course>
+          <course>
+            <title>Engineering Graphics and CAD</title>
+            <description>An introduction to the techniques for creating solid models of engineering designs. Topics include three-dimensional modeling of parts and assemblies, visualization, orthographic and isometric free-hand sketching, and computer-generated design documentation.</description>
+            <department>School of Engineering</department>
+            <catalogNumber>ENGR-1200</catalogNumber>
+            <credits>1</credits>
+            <availableTerms>
+              <year-part>FALL</year-part>
+              <year-part>SPRING</year-part>
+            </availableTerms>
+            <doubleCount>false</doubleCount>
+            <isOfficial>true</isOfficial>
+          </course>
+          <course>
+            <title>Introduction to Engineering Electronics</title>
+            <description>A hands-on experience with electronic circuits and modern laboratory instrumentation. Motivates further study of engineering. The laboratory provides opportunities to build and test simple electronic circuits that illustrate basic concepts. A design project is included.</description>
+            <department>School of Engineering</department>
+            <catalogNumber>ENGR-1310</catalogNumber>
+            <credits>1</credits>
+            <availableTerms>
+              <year-part>FALL</year-part>
+              <year-part>SPRING</year-part>
+            </availableTerms>
+            <doubleCount>false</doubleCount>
+            <isOfficial>true</isOfficial>
+          </course>
+          <course>
+            <title>Introduction to Engineering Design</title>
+            <description>A first course in engineering design which emphasizes creativity, teamwork, communication, and work across engineering disciplines. Students are introduced to the design process through a semester-long project which provides a design-build-test experience. Oral and written communication are important elements of the course. The course meets with ENGR 1010.</description>
+            <department>School of Engineering</department>
+            <catalogNumber>ENGR-2050</catalogNumber>
+            <credits>4</credits>
+            <prerequisites serialization="custom">
+              <unserializable-parents/>
+              <list>
+                <default>
+                  <size>2</size>
+                </default>
+                <int>10</int>
+                <course>
+                  <catalogNumber>ENGR-1100</catalogNumber>
+                  <credits>0</credits>
+                  <doubleCount>false</doubleCount>
+                  <isOfficial>false</isOfficial>
+                </course>
+                <course>
+                  <catalogNumber>ENGR-1200</catalogNumber>
+                  <credits>0</credits>
+                  <doubleCount>false</doubleCount>
+                  <isOfficial>false</isOfficial>
+                </course>
+              </list>
+              <rpiplanner.model.RequisiteSet>
+                <default>
+                  <pickOne>false</pickOne>
+                  <required>true</required>
+                </default>
+              </rpiplanner.model.RequisiteSet>
+            </prerequisites>
+            <corequisites serialization="custom">
+              <unserializable-parents/>
+              <list>
+                <default>
+                  <size>1</size>
+                </default>
+                <int>10</int>
+                <course>
+                  <catalogNumber>PHYS-1200</catalogNumber>
+                  <credits>0</credits>
+                  <doubleCount>false</doubleCount>
+                  <isOfficial>false</isOfficial>
+                </course>
+              </list>
+              <rpiplanner.model.RequisiteSet>
+                <default>
+                  <pickOne>false</pickOne>
+                  <required>true</required>
+                </default>
+              </rpiplanner.model.RequisiteSet>
+            </corequisites>
+            <availableTerms>
+              <year-part>FALL</year-part>
+              <year-part>SPRING</year-part>
+            </availableTerms>
+            <doubleCount>false</doubleCount>
+            <isOfficial>true</isOfficial>
+          </course>
+          <course>
+            <title>Professional Development III</title>
+            <description>Students will study issues associated with working in teams in a modern work environment. Various styles of leadership, the definitions of power and empowerment and their applications in industry and team settings will be studied. Additionally, other topics to be explored include vision, values and attitudes, and organizational culture. The course format will include small and large group discussions, case studies, experiential exercises, and regular participation from industry guests.
+
+NOTE: Offered in conjunction with senior courses.
+</description>
+            <department>School of Engineering</department>
+            <catalogNumber>ENGR-4010</catalogNumber>
+            <credits>1</credits>
+            <availableTerms>
+              <year-part>FALL</year-part>
+              <year-part>SPRING</year-part>
+            </availableTerms>
+            <doubleCount>false</doubleCount>
+            <isOfficial>true</isOfficial>
+          </course>
+          <replacementCourses/>
+        </CoreRequirement>
+        <CoreRequirement>
+          <name>Required Major Courses</name>
+          <description>Choose either ECSE 4500 or ENGR 2600 (with advisor&apos;s approval).</description>
+          <course>
+            <title>Computer Components and Operations</title>
+            <description>Design-oriented introduction to computer components and operations. Standard codes, number systems, base conversions, and computer arithmetic. Boolean algebra, minimization and synthesis techniques for combinational and sequential logic. Races, hazards, and asynchronous behavior. Registers, arithmetic logic units, memory structure, buses, and control units. Machine language programming, instruction fetch and execution, input-output devices, interrupts, and microprogram sequencers. Software and hardware tools.</description>
+            <department>Electrical, Computer, and Systems Engineering</department>
+            <catalogNumber>ECSE-2610</catalogNumber>
+            <credits>4</credits>
+            <prerequisites serialization="custom">
+              <unserializable-parents/>
+              <list>
+                <default>
+                  <size>1</size>
+                </default>
+                <int>10</int>
+                <course>
+                  <catalogNumber>CSCI-1100</catalogNumber>
+                  <credits>0</credits>
+                  <doubleCount>false</doubleCount>
+                  <isOfficial>false</isOfficial>
+                </course>
+              </list>
+              <rpiplanner.model.RequisiteSet>
+                <default>
+                  <pickOne>false</pickOne>
+                  <required>true</required>
+                </default>
+              </rpiplanner.model.RequisiteSet>
+            </prerequisites>
+            <corequisites serialization="custom">
+              <unserializable-parents/>
+              <list>
+                <default>
+                  <size>1</size>
+                </default>
+                <int>10</int>
+                <course>
+                  <catalogNumber>ENGR-2350</catalogNumber>
+                  <credits>0</credits>
+                  <doubleCount>false</doubleCount>
+                  <isOfficial>false</isOfficial>
+                </course>
+              </list>
+              <rpiplanner.model.RequisiteSet>
+                <default>
+                  <pickOne>false</pickOne>
+                  <required>true</required>
+                </default>
+              </rpiplanner.model.RequisiteSet>
+            </corequisites>
+            <availableTerms>
+              <year-part>FALL</year-part>
+              <year-part>SPRING</year-part>
+            </availableTerms>
+            <doubleCount>false</doubleCount>
+            <isOfficial>true</isOfficial>
+          </course>
+          <course>
+            <title>Computer Architecture, Networks, and Operating Systems</title>
+            <description>Quantitative basis of modern computer architecture, processor design, memory hierarchy, and input/output methods. Layered operating system structures, process and storage management. Layered network organization, network protocols, switching, local and wide area networks. Examples from Unix and the Internet.</description>
+            <department>Electrical, Computer, and Systems Engineering</department>
+            <catalogNumber>ECSE-2660</catalogNumber>
+            <credits>4</credits>
+            <prerequisites serialization="custom">
+              <unserializable-parents/>
+              <list>
+                <default>
+                  <size>1</size>
+                </default>
+                <int>10</int>
+                <course>
+                  <catalogNumber>ECSE-2610</catalogNumber>
+                  <credits>0</credits>
+                  <doubleCount>false</doubleCount>
+                  <isOfficial>false</isOfficial>
+                </course>
+              </list>
+              <rpiplanner.model.RequisiteSet>
+                <default>
+                  <pickOne>false</pickOne>
+                  <required>true</required>
+                </default>
+              </rpiplanner.model.RequisiteSet>
+            </prerequisites>
+            <availableTerms>
+              <year-part>SPRING</year-part>
+            </availableTerms>
+            <doubleCount>false</doubleCount>
+            <isOfficial>true</isOfficial>
+          </course>
+          <course>
+            <title>Signals and Systems</title>
+            <description>Time and frequency-domain representation of continuous-and discrete-time signals and systems, and solutions of their response. Simulation of linear systems. Fourier series and transform. Laplace transform and z-transform. Stability, feedback systems, and root-locus analysis and design. Applications involving communication and control systems.</description>
+            <department>Electrical, Computer, and Systems Engineering</department>
+            <catalogNumber>ECSE-2410</catalogNumber>
+            <credits>4</credits>
+            <prerequisites serialization="custom">
+              <unserializable-parents/>
+              <list>
+                <default>
+                  <size>1</size>
+                </default>
+                <int>10</int>
+                <course>
+                  <catalogNumber>ECSE-2010</catalogNumber>
+                  <credits>0</credits>
+                  <doubleCount>false</doubleCount>
+                  <isOfficial>false</isOfficial>
+                </course>
+              </list>
+              <rpiplanner.model.RequisiteSet>
+                <default>
+                  <pickOne>false</pickOne>
+                  <required>true</required>
+                </default>
+              </rpiplanner.model.RequisiteSet>
+            </prerequisites>
+            <availableTerms>
+              <year-part>FALL</year-part>
+              <year-part>SPRING</year-part>
+            </availableTerms>
+            <doubleCount>false</doubleCount>
+            <isOfficial>true</isOfficial>
+          </course>
+          <course>
+            <title>Probability for Engineering Applications</title>
+            <description>Axioms of probability, joint and conditional probability, random variables, probability density and distribution functions, functions of random variables, statistical averages, empirical distributions, parameter estimation, regression, tests of hypotheses, and Markov chains. Applications to engineering data such as device characteristics, failure rates, image processing and network traffic.</description>
+            <department>Electrical, Computer, and Systems Engineering</department>
+            <catalogNumber>ECSE-4500</catalogNumber>
+            <credits>4</credits>
+            <prerequisites serialization="custom">
+              <unserializable-parents/>
+              <list>
+                <default>
+                  <size>1</size>
+                </default>
+                <int>10</int>
+                <course>
+                  <catalogNumber>ECSE-2410</catalogNumber>
+                  <credits>0</credits>
+                  <doubleCount>false</doubleCount>
+                  <isOfficial>false</isOfficial>
+                </course>
+              </list>
+              <rpiplanner.model.RequisiteSet>
+                <default>
+                  <pickOne>false</pickOne>
+                  <required>true</required>
+                </default>
+              </rpiplanner.model.RequisiteSet>
+            </prerequisites>
+            <availableTerms>
+              <year-part>FALL</year-part>
+              <year-part>SPRING</year-part>
+            </availableTerms>
+            <doubleCount>false</doubleCount>
+            <isOfficial>true</isOfficial>
+          </course>
+          <replacementCourses>
+            <entry>
+              <course reference="../../../course[4]"/>
+              <list>
+                <course>
+                  <title>Modeling and Analysis of Uncertainty</title>
+                  <description>Appreciation and understanding of uncertainties and the conditions under which they occur, within the context of the engineering problem-solving pedagogy of measurements, models, validation, and analysis. Problems and concerns in obtaining measurements; tabular and graphical organization of data to minimize misinformation and maximize information; and development and evaluation of models. Concepts will be supported with computer demonstration. Applications to problems in engineering are emphasized.</description>
+                  <department>School of Engineering</department>
+                  <catalogNumber>ENGR-2600</catalogNumber>
+                  <credits>3</credits>
+                  <prerequisites serialization="custom">
+                    <unserializable-parents/>
+                    <list>
+                      <default>
+                        <size>1</size>
+                      </default>
+                      <int>10</int>
+                      <course>
+                        <catalogNumber>MATH-1010</catalogNumber>
+                        <credits>0</credits>
+                        <doubleCount>false</doubleCount>
+                        <isOfficial>false</isOfficial>
+                      </course>
+                    </list>
+                    <rpiplanner.model.RequisiteSet>
+                      <default>
+                        <pickOne>false</pickOne>
+                        <required>true</required>
+                      </default>
+                    </rpiplanner.model.RequisiteSet>
+                  </prerequisites>
+                  <availableTerms>
+                    <year-part>FALL</year-part>
+                    <year-part>SPRING</year-part>
+                  </availableTerms>
+                  <doubleCount>false</doubleCount>
+                  <isOfficial>true</isOfficial>
+                </course>
+              </list>
+            </entry>
+          </replacementCourses>
+        </CoreRequirement>
+        <RestrictedRequirement>
+          <name>Multidisciplinary Engineering Elective</name>
+          <description>Choose one of the following courses.</description>
+          <numCredits>4</numCredits>
+          <numCourses>1</numCourses>
+          <course>
+            <title>Materials Science for Engineers</title>
+            <description>Introduction to “real” (defect-containing) solids, and equilibria and kinetic processes in solids. Macroscopic properties, such as mechanical strength and electrical conductivity, are dominated by structure and bonding, and the course continuously emphasizes this connection. Each of the materials classes (metals, ceramics, semiconductors, and polymers) is discussed in detail in this context.</description>
+            <department>School of Engineering</department>
+            <catalogNumber>ENGR-1600</catalogNumber>
+            <credits>4</credits>
+            <prerequisites serialization="custom">
+              <unserializable-parents/>
+              <list>
+                <default>
+                  <size>1</size>
+                </default>
+                <int>10</int>
+                <course>
+                  <catalogNumber>CHEM-1100</catalogNumber>
+                  <credits>0</credits>
+                  <doubleCount>false</doubleCount>
+                  <isOfficial>false</isOfficial>
+                </course>
+              </list>
+              <rpiplanner.model.RequisiteSet>
+                <default>
+                  <pickOne>false</pickOne>
+                  <required>true</required>
+                </default>
+              </rpiplanner.model.RequisiteSet>
+            </prerequisites>
+            <availableTerms>
+              <year-part>FALL</year-part>
+              <year-part>SPRING</year-part>
+            </availableTerms>
+            <doubleCount>false</doubleCount>
+            <isOfficial>true</isOfficial>
+          </course>
+          <course>
+            <title>Engineering Dynamics</title>
+            <description>An integrated development of modeling-and problem-solving techniques for particles and rigid bodies emphasizing the use of free-body diagrams, vector algebra, and computer simulation. Topics covered include the kinematics and kinetics of translational, rotational, and general plane motion, energy and momentum methods, and single degree of freedom vibrations.</description>
+            <department>School of Engineering</department>
+            <catalogNumber>ENGR-2090</catalogNumber>
+            <credits>4</credits>
+            <prerequisites serialization="custom">
+              <unserializable-parents/>
+              <list>
+                <default>
+                  <size>2</size>
+                </default>
+                <int>10</int>
+                <course>
+                  <catalogNumber>ENGR-1100</catalogNumber>
+                  <credits>0</credits>
+                  <doubleCount>false</doubleCount>
+                  <isOfficial>false</isOfficial>
+                </course>
+                <course>
+                  <catalogNumber>PHYS-1100</catalogNumber>
+                  <credits>0</credits>
+                  <doubleCount>false</doubleCount>
+                  <isOfficial>false</isOfficial>
+                </course>
+              </list>
+              <rpiplanner.model.RequisiteSet>
+                <default>
+                  <pickOne>false</pickOne>
+                  <required>true</required>
+                </default>
+              </rpiplanner.model.RequisiteSet>
+            </prerequisites>
+            <corequisites serialization="custom">
+              <unserializable-parents/>
+              <list>
+                <default>
+                  <size>1</size>
+                </default>
+                <int>10</int>
+                <course>
+                  <catalogNumber>MATH-2400</catalogNumber>
+                  <credits>0</credits>
+                  <doubleCount>false</doubleCount>
+                  <isOfficial>false</isOfficial>
+                </course>
+              </list>
+              <rpiplanner.model.RequisiteSet>
+                <default>
+                  <pickOne>false</pickOne>
+                  <required>true</required>
+                </default>
+              </rpiplanner.model.RequisiteSet>
+            </corequisites>
+            <availableTerms>
+              <year-part>FALL</year-part>
+              <year-part>SPRING</year-part>
+            </availableTerms>
+            <doubleCount>false</doubleCount>
+            <isOfficial>true</isOfficial>
+          </course>
+          <course>
+            <catalogNumber>ENGR-2550</catalogNumber>
+            <credits>0</credits>
+            <doubleCount>false</doubleCount>
+            <isOfficial>false</isOfficial>
+          </course>
+          <course>
+            <title>Strength of Materials</title>
+            <description>Concept of stress and strain, generalized Hooke’s law, axial load, torsion, pure bending, transverse loading, transformation of stress and strain components in 2-D, design of beams and shafts for strength, deflection of beams, work and energy, columns.</description>
+            <department>School of Engineering</department>
+            <catalogNumber>ENGR-2530</catalogNumber>
+            <credits>4</credits>
+            <prerequisites serialization="custom">
+              <unserializable-parents/>
+              <list>
+                <default>
+                  <size>1</size>
+                </default>
+                <int>10</int>
+                <course>
+                  <catalogNumber>ENGR-1100</catalogNumber>
+                  <credits>0</credits>
+                  <doubleCount>false</doubleCount>
+                  <isOfficial>false</isOfficial>
+                </course>
+              </list>
+              <rpiplanner.model.RequisiteSet>
+                <default>
+                  <pickOne>false</pickOne>
+                  <required>true</required>
+                </default>
+              </rpiplanner.model.RequisiteSet>
+            </prerequisites>
+            <availableTerms>
+              <year-part>FALL</year-part>
+              <year-part>SPRING</year-part>
+            </availableTerms>
+            <doubleCount>false</doubleCount>
+            <isOfficial>true</isOfficial>
+          </course>
+          <replacementCourses/>
+        </RestrictedRequirement>
+        <RestrictedRequirement>
+          <name>Software Engineering Elective</name>
+          <description>Choose one of the following courses.</description>
+          <numCredits>3</numCredits>
+          <numCourses>1</numCourses>
+          <course>
+            <title>Experimental and Simulation Techniques for Computer Networking</title>
+            <description>This senior-level laboratory course teaches tools and techniques used in the design and analysis of computer networks and protocols such as simulation, animation, visualization, experiment design, trace collection/analysis, protocol development on Linux, and modular router development platforms (eg: Linux-based “Click” and Intel IXA platform). Each tool is developed in a networking protocol context such as TCP reliable transport, TCP congestion control, routing protocols (RIP, OSPF, BGP), network management and 802.11 wireless networks.
+
+NOTE: C programming skills required
+</description>
+            <department>Electrical, Computer, and Systems Engineering</department>
+            <catalogNumber>ECSE-4690</catalogNumber>
+            <credits>3</credits>
+            <corequisites serialization="custom">
+              <unserializable-parents/>
+              <list>
+                <default>
+                  <size>1</size>
+                </default>
+                <int>10</int>
+                <course>
+                  <catalogNumber>ECSE-4670</catalogNumber>
+                  <credits>0</credits>
+                  <doubleCount>false</doubleCount>
+                  <isOfficial>false</isOfficial>
+                </course>
+              </list>
+              <rpiplanner.model.RequisiteSet>
+                <default>
+                  <pickOne>false</pickOne>
+                  <required>true</required>
+                </default>
+              </rpiplanner.model.RequisiteSet>
+            </corequisites>
+            <availableTerms>
+              <year-part>FALL</year-part>
+            </availableTerms>
+            <doubleCount>false</doubleCount>
+            <isOfficial>true</isOfficial>
+          </course>
+          <course>
+            <title>Computer Graphics</title>
+            <description>Introduction to Interactive Computer Graphics, with an emphasis on applications programming. Objects and viewers, and the synthetic camera model. Graphics architectures, the graphics pipeline, clipping, rasterization, and programmable shaders. Input and interaction. Geometric objects, homogeneous coordinates, and transformations. Viewing, hidden surface removal, frame and depth buffers, compositing, and anti-aliasing. Shading, light and materials, texture mapping, ray tracing, and radiosity. Intellectual property concerns. Extensive programming with the OpenGL API and C++.
+
+NOTE: prerequisite can be replaced with an equivalent
+</description>
+            <department>Electrical, Computer, and Systems Engineering</department>
+            <catalogNumber>ECSE-4750</catalogNumber>
+            <credits>3</credits>
+            <prerequisites serialization="custom">
+              <unserializable-parents/>
+              <list>
+                <default>
+                  <size>1</size>
+                </default>
+                <int>10</int>
+                <course>
+                  <catalogNumber>ECSE-2610</catalogNumber>
+                  <credits>0</credits>
+                  <doubleCount>false</doubleCount>
+                  <isOfficial>false</isOfficial>
+                </course>
+              </list>
+              <rpiplanner.model.RequisiteSet>
+                <default>
+                  <pickOne>false</pickOne>
+                  <required>false</required>
+                </default>
+              </rpiplanner.model.RequisiteSet>
+            </prerequisites>
+            <availableTerms>
+              <year-part>FALL</year-part>
+            </availableTerms>
+            <doubleCount>false</doubleCount>
+            <isOfficial>true</isOfficial>
+          </course>
+          <course>
+            <title>Database Systems</title>
+            <description>Discussion of the state of practice in modern database systems, with an emphasis on relational systems. Topics include database design, database system architecture, SQL, normalization techniques, storage structures, query processing, concurrency control, recovery, security, and new directions such as object-oriented and distributed database systems. Students gain hands-on experience with commercial database systems and interface building tools. Programming projects are required.</description>
+            <department>Computer Science</department>
+            <catalogNumber>CSCI-4380</catalogNumber>
+            <credits>4</credits>
+            <prerequisites serialization="custom">
+              <unserializable-parents/>
+              <list>
+                <default>
+                  <size>1</size>
+                </default>
+                <int>10</int>
+                <course>
+                  <catalogNumber>CSCI-2300</catalogNumber>
+                  <credits>0</credits>
+                  <doubleCount>false</doubleCount>
+                  <isOfficial>false</isOfficial>
+                </course>
+              </list>
+              <rpiplanner.model.RequisiteSet>
+                <default>
+                  <pickOne>false</pickOne>
+                  <required>true</required>
+                </default>
+              </rpiplanner.model.RequisiteSet>
+            </prerequisites>
+            <availableTerms>
+              <year-part>FALL</year-part>
+              <year-part>SPRING</year-part>
+            </availableTerms>
+            <doubleCount>false</doubleCount>
+            <isOfficial>true</isOfficial>
+          </course>
+          <course>
+            <title>Software Design and Documentation</title>
+            <description>Software system design methodology emphasizing use of object oriented modeling of application domains and of software systems, and emphasizing the roles of written and oral communication in software engineering. Project management and software testing. Individual and team projects include specification, software architecture, user interfaces, and documentation of the phases of a project.</description>
+            <department>Computer Science</department>
+            <catalogNumber>CSCI-4440</catalogNumber>
+            <credits>4</credits>
+            <prerequisites serialization="custom">
+              <unserializable-parents/>
+              <list>
+                <default>
+                  <size>1</size>
+                </default>
+                <int>10</int>
+                <course>
+                  <catalogNumber>CSCI-2300</catalogNumber>
+                  <credits>0</credits>
+                  <doubleCount>false</doubleCount>
+                  <isOfficial>false</isOfficial>
+                </course>
+              </list>
+              <rpiplanner.model.RequisiteSet>
+                <default>
+                  <pickOne>false</pickOne>
+                  <required>true</required>
+                </default>
+              </rpiplanner.model.RequisiteSet>
+            </prerequisites>
+            <availableTerms>
+              <year-part>FALL</year-part>
+              <year-part>SPRING</year-part>
+            </availableTerms>
+            <doubleCount>false</doubleCount>
+            <isOfficial>true</isOfficial>
+          </course>
+          <course>
+            <title>The Human-Computer Interface</title>
+            <description>An exploration of the languages, techniques, and mechanisms used to define and enhance communication between people and computer applications, both for input and output, in the general case and for a variety of important special domains. Use of graphics in the interface; multimedia environments; alternative I/O devices; issues in interface design. Interactive in-class exercises and activities. Substantial programming projects are assigned in a number of languages and for a variety of platforms. Students also prepare oral presentations based on material from the current scientific literature.
+
+NOTE: Offered on availability of instructor.
+</description>
+            <department>Computer Science</department>
+            <catalogNumber>CSCI-4600</catalogNumber>
+            <credits>4</credits>
+            <availableTerms>
+              <year-part>FALL</year-part>
+              <year-part>SPRING</year-part>
+            </availableTerms>
+            <doubleCount>false</doubleCount>
+            <isOfficial>true</isOfficial>
+          </course>
+          <replacementCourses/>
+        </RestrictedRequirement>
+        <RestrictedRequirement>
+          <name>Design Elective</name>
+          <description>Choose one of the following courses.</description>
+          <numCredits>3</numCredits>
+          <numCourses>1</numCourses>
+          <course>
+            <title>Advanced Computer Hardware Design</title>
+            <description>A capstone design course.† Design methodologies include register transfer modules and firmware microprogrammed design. “Bit-slice” philosophy of design. LSI microprocessors as design elements in larger digital systems such as high-speed channels and special purpose computers. Detailed discussion of the structure of several computers at the chip and board level. Specification of custom IC digital systems. FPGA based design implementation using VHDL. Students cannot receive credit for both this course and ECSE 6700.
+
+NOTE: senior standing required
+</description>
+            <department>Electrical, Computer, and Systems Engineering</department>
+            <catalogNumber>ECSE-4780</catalogNumber>
+            <credits>4</credits>
+            <prerequisites serialization="custom">
+              <unserializable-parents/>
+              <list>
+                <default>
+                  <size>1</size>
+                </default>
+                <int>10</int>
+                <course>
+                  <catalogNumber>ECSE-4770</catalogNumber>
+                  <credits>0</credits>
+                  <doubleCount>false</doubleCount>
+                  <isOfficial>false</isOfficial>
+                </course>
+              </list>
+              <rpiplanner.model.RequisiteSet>
+                <default>
+                  <pickOne>false</pickOne>
+                  <required>true</required>
+                </default>
+              </rpiplanner.model.RequisiteSet>
+            </prerequisites>
+            <corequisites serialization="custom">
+              <unserializable-parents/>
+              <list>
+                <default>
+                  <size>2</size>
+                </default>
+                <int>10</int>
+                <course>
+                  <catalogNumber>ECSE-2660</catalogNumber>
+                  <credits>0</credits>
+                  <doubleCount>false</doubleCount>
+                  <isOfficial>false</isOfficial>
+                </course>
+                <course>
+                  <catalogNumber>ENGR-4010</catalogNumber>
+                  <credits>0</credits>
+                  <doubleCount>false</doubleCount>
+                  <isOfficial>false</isOfficial>
+                </course>
+              </list>
+              <rpiplanner.model.RequisiteSet>
+                <default>
+                  <pickOne>false</pickOne>
+                  <required>true</required>
+                </default>
+              </rpiplanner.model.RequisiteSet>
+            </corequisites>
+            <availableTerms>
+              <year-part>SPRING</year-part>
+            </availableTerms>
+            <doubleCount>false</doubleCount>
+            <isOfficial>true</isOfficial>
+          </course>
+          <course>
+            <title>ECSE Design</title>
+            <description>A capstone design course.† Provides all ECSE majors senior design experience by engaging them in clientsponsored projects. The students work in multidisciplinary teams, jointly responsible to the faculty, the client liaison, and to each other for project management, execution and reporting. Contemporary design tools and practices are emphasized. Senior standing required.
+
+NOTE: senior standing required
+</description>
+            <department>Electrical, Computer, and Systems Engineering</department>
+            <catalogNumber>ECSE-4900</catalogNumber>
+            <credits>3</credits>
+            <corequisites serialization="custom">
+              <unserializable-parents/>
+              <list>
+                <default>
+                  <size>1</size>
+                </default>
+                <int>10</int>
+                <course>
+                  <catalogNumber>ECSE-4010</catalogNumber>
+                  <credits>0</credits>
+                  <doubleCount>false</doubleCount>
+                  <isOfficial>false</isOfficial>
+                </course>
+              </list>
+              <rpiplanner.model.RequisiteSet>
+                <default>
+                  <pickOne>false</pickOne>
+                  <required>true</required>
+                </default>
+              </rpiplanner.model.RequisiteSet>
+            </corequisites>
+            <availableTerms>
+              <year-part>FALL</year-part>
+              <year-part>SPRING</year-part>
+            </availableTerms>
+            <doubleCount>false</doubleCount>
+            <isOfficial>true</isOfficial>
+          </course>
+          <course>
+            <title>Inventor’s Studio</title>
+            <description>Students work in teams to continue design and development work on approved projects that started in other courses such as Introduction to Engineering Design. New projects can also be proposed by students. Emphasis will be on completing the design, building an improved prototype, applying for patent protection, and licensing the design. Open to undergraduate and graduate students. Oral and written presentations are required. This is designated as a writing-intensive course.
+
+NOTE: prerequisite can be skipped on permission of instructor
+NOTE: programming experience recommended
+</description>
+            <department>Mechanical, Aerospace, and Nuclear Engineering</department>
+            <catalogNumber>MANE-4220</catalogNumber>
+            <credits>3</credits>
+            <prerequisites serialization="custom">
+              <unserializable-parents/>
+              <list>
+                <default>
+                  <size>1</size>
+                </default>
+                <int>10</int>
+                <course>
+                  <catalogNumber>ENGR-2050</catalogNumber>
+                  <credits>0</credits>
+                  <doubleCount>false</doubleCount>
+                  <isOfficial>false</isOfficial>
+                </course>
+              </list>
+              <rpiplanner.model.RequisiteSet>
+                <default>
+                  <pickOne>false</pickOne>
+                  <required>false</required>
+                </default>
+              </rpiplanner.model.RequisiteSet>
+            </prerequisites>
+            <availableTerms>
+              <year-part>FALL</year-part>
+              <year-part>SPRING</year-part>
+            </availableTerms>
+            <doubleCount>false</doubleCount>
+            <isOfficial>true</isOfficial>
+          </course>
+          <course>
+            <catalogNumber>EPOW-4850</catalogNumber>
+            <credits>0</credits>
+            <doubleCount>false</doubleCount>
+            <isOfficial>false</isOfficial>
+          </course>
+          <replacementCourses/>
+        </RestrictedRequirement>
+        <HumanitiesRequirement/>
+        <FreeElectiveRequirement>
+          <creditsRequired>16</creditsRequired>
+        </FreeElectiveRequirement>
+      </requirements>
+    </Degree>
+  </database>
+</rpiplanner.model.DegreeDatabase>
