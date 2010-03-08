@@ -7753,21 +7753,6 @@ NOTE: prerequisite can be skipped on permission of instructor
     <doubleCount>false</doubleCount>
   </course>
   <course>
-    <title>Ecological Economics Values and Policy Professional Projects</title>
-    <description>This seminar focuses on the development of practical proposals for responding to environmental problems and opportunities. Research projects will include both primary data collection and the formulation of policy recommendations. Course readings will focus on case studies that involve disputes over environmental and economic issues, providing the basis for class discussion about how such disputes can be documented, analyzed, and resolved through various scientific, legal, managerial, and policy initiatives.
-
-NOTE: Must be EEVP Professional Master&#8217;s students or have permission of instructor
-</description>
-    <department>Economics</department>
-    <catalogNumber>ECON-6650</catalogNumber>
-    <credits>3</credits>
-    <availableTerms>
-      <year-part>FALL</year-part>
-    </availableTerms>
-    <isOfficial>true</isOfficial>
-    <doubleCount>false</doubleCount>
-  </course>
-  <course>
     <title>Readings in Economics</title>
     <description>
 
@@ -18130,21 +18115,6 @@ NOTE: Prerequisites:  graduate standing in STS or permission of instructor.
     <doubleCount>false</doubleCount>
   </course>
   <course>
-    <title>Professional Project in Ecological Economics, Values, and Policy</title>
-    <description>The course focuses on the development of practical proposals for responding to environmental problems and opportunities. Research projects will include both primary data collection and the formulation of policy recommendations. Course readings will focus on case studies that involve disputes over environmental and economic issues, providing the basis for class discussion about how such disputes can be documented, analyzed and resolved through various scientific, legal, managerial, and  policy initiatives.
-
-NOTE: Must be EEVP Professional Master&#8217;s students or have permission of instructor
-</description>
-    <department>Science and Technology Studies</department>
-    <catalogNumber>STSS-6650</catalogNumber>
-    <credits>3</credits>
-    <availableTerms>
-      <year-part>FALL</year-part>
-    </availableTerms>
-    <isOfficial>true</isOfficial>
-    <doubleCount>false</doubleCount>
-  </course>
-  <course>
     <title>Readings in Science and Technology Studies</title>
     <description>With an individual faculty member on an agreed-upon topic.
 
@@ -18225,32 +18195,10 @@ NOTE: Unclear when course is offered
     <doubleCount>false</doubleCount>
   </course>
   <course>
-    <title>Japanese II (non-credit)</title>
-    <description>Japanese I (placement purposes only).</description>
-    <catalogNumber>LANG-1221</catalogNumber>
-    <credits>0</credits>
-    <countsAs>LANG-1220</countsAs>
-    <availableTerms>
-      <year-part>FALL</year-part>
-      <year-part>SPRING</year-part>
-    </availableTerms>
-  </course>
-  <course>
-    <title>French I (non-credit)</title>
-    <description>French I (placement purposes only).</description>
-    <catalogNumber>LANG-1111</catalogNumber>
-    <credits>0</credits>
-    <countsAs>LANG-1110</countsAs>
-    <availableTerms>
-      <year-part>FALL</year-part>
-      <year-part>SPRING</year-part>
-    </availableTerms>
-  </course>
-  <course>
-    <title>Environmental Science Elective</title>
-    <description>Environmental science elective credits.</description>
-    <department>Interdisciplinary Environmental</department>
-    <catalogNumber>IENV-1000</catalogNumber>
+    <title>Social Science Elective</title>
+    <description>Social Science elective Credits.</description>
+    <department>Science, Technology and Society</department>
+    <catalogNumber>STSS-1000</catalogNumber>
     <credits>4</credits>
     <availableTerms>
       <year-part>FALL</year-part>
@@ -18258,22 +18206,22 @@ NOTE: Unclear when course is offered
     </availableTerms>
   </course>
   <course>
-    <title>German II (non-credit)</title>
-    <description>German II (placement purposes only).</description>
-    <catalogNumber>LANG-1321</catalogNumber>
-    <credits>0</credits>
-    <countsAs>LANG-1320</countsAs>
+    <title>Biology Elective </title>
+    <description>Biology elective credits.</description>
+    <department>Biology</department>
+    <catalogNumber>BIOL-1000</catalogNumber>
+    <credits>4</credits>
     <availableTerms>
       <year-part>FALL</year-part>
       <year-part>SPRING</year-part>
     </availableTerms>
   </course>
   <course>
-    <title>Japanese I (non-credit)</title>
-    <description>Japanese I (placement purposes only).</description>
-    <catalogNumber>LANG-1211</catalogNumber>
-    <credits>0</credits>
-    <countsAs>LANG-1210</countsAs>
+    <title>Writing Elective</title>
+    <description>Humanities writing elective credits.</description>
+    <department>Writing</department>
+    <catalogNumber>WRIT-1000</catalogNumber>
+    <credits>4</credits>
     <availableTerms>
       <year-part>FALL</year-part>
       <year-part>SPRING</year-part>
@@ -18291,87 +18239,10 @@ NOTE: Unclear when course is offered
     </availableTerms>
   </course>
   <course>
-    <title>German I (non-credit)</title>
-    <description>German I (placement purposes only).</description>
-    <catalogNumber>LANG-1311</catalogNumber>
-    <credits>0</credits>
-    <countsAs>LANG-1310</countsAs>
-    <availableTerms>
-      <year-part>FALL</year-part>
-      <year-part>SPRING</year-part>
-    </availableTerms>
-  </course>
-  <course>
-    <title>Chinese II (non-credit)</title>
-    <description>Chinese II (placement purposes only).</description>
-    <catalogNumber>LANG-1421</catalogNumber>
-    <credits>0</credits>
-    <countsAs>LANG-1420</countsAs>
-    <availableTerms>
-      <year-part>FALL</year-part>
-      <year-part>SPRING</year-part>
-    </availableTerms>
-  </course>
-  <course>
-    <title>Chinese I (non-credit)</title>
-    <description>Chinese I (placement purposes only).</description>
-    <catalogNumber>LANG-1411</catalogNumber>
-    <credits>0</credits>
-    <countsAs>LANG-1410</countsAs>
-    <availableTerms>
-      <year-part>FALL</year-part>
-      <year-part>SPRING</year-part>
-    </availableTerms>
-  </course>
-  <course>
-    <title>Spanish II (non-credit)</title>
-    <description>Spanish II (placement purposes only).</description>
-    <catalogNumber>LANG-1521</catalogNumber>
-    <credits>0</credits>
-    <countsAs>LANG-1520</countsAs>
-    <availableTerms>
-      <year-part>FALL</year-part>
-      <year-part>SPRING</year-part>
-    </availableTerms>
-  </course>
-  <course>
-    <title>Italian II (non-credit)</title>
-    <description>Italian II (placement purposes only).</description>
-    <catalogNumber>LANG-1621</catalogNumber>
-    <credits>0</credits>
-    <countsAs>LANG-1620</countsAs>
-    <availableTerms>
-      <year-part>FALL</year-part>
-      <year-part>SPRING</year-part>
-    </availableTerms>
-  </course>
-  <course>
-    <title>Spanish I (non-credit)</title>
-    <description>Spanish I (placement purposes only).</description>
-    <catalogNumber>LANG-1511</catalogNumber>
-    <credits>0</credits>
-    <countsAs>LANG-1510</countsAs>
-    <availableTerms>
-      <year-part>FALL</year-part>
-      <year-part>SPRING</year-part>
-    </availableTerms>
-  </course>
-  <course>
-    <title>Italian I (non-credit)</title>
-    <description>Italian I (placement purposes only).</description>
-    <catalogNumber>LANG-1611</catalogNumber>
-    <credits>0</credits>
-    <countsAs>LANG-1610</countsAs>
-    <availableTerms>
-      <year-part>FALL</year-part>
-      <year-part>SPRING</year-part>
-    </availableTerms>
-  </course>
-  <course>
-    <title>Social Science Elective</title>
-    <description>Social Science elective Credits.</description>
-    <department>Science, Technology and Society</department>
-    <catalogNumber>STSS-1000</catalogNumber>
+    <title>Environmental Science Elective</title>
+    <description>Environmental science elective credits.</description>
+    <department>Interdisciplinary Environmental</department>
+    <catalogNumber>IENV-1000</catalogNumber>
     <credits>4</credits>
     <availableTerms>
       <year-part>FALL</year-part>
@@ -18379,10 +18250,10 @@ NOTE: Unclear when course is offered
     </availableTerms>
   </course>
   <course>
-    <title>Writing Elective</title>
-    <description>Humanities writing elective credits.</description>
-    <department>Writing</department>
-    <catalogNumber>WRIT-1000</catalogNumber>
+    <title>Language Elective</title>
+    <description>Foreign Language elective credits.</description>
+    <department>Foreign Languages</department>
+    <catalogNumber>LANG-1000</catalogNumber>
     <credits>4</credits>
     <availableTerms>
       <year-part>FALL</year-part>
@@ -18402,6 +18273,17 @@ NOTE: Unclear when course is offered
     </availableTerms>
   </course>
   <course>
+    <title>French I (non-credit)</title>
+    <description>French I (placement purposes only).</description>
+    <catalogNumber>LANG-1111</catalogNumber>
+    <credits>0</credits>
+    <countsAs>LANG-1110</countsAs>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+  <course>
     <title>French II (non-credit)</title>
     <description>French II (placement purposes only).</description>
     <catalogNumber>LANG-1121</catalogNumber>
@@ -18413,27 +18295,245 @@ NOTE: Unclear when course is offered
     </availableTerms>
   </course>
   <course>
-    <title>Language Elective</title>
-    <description>Foreign Language elective credits.</description>
-    <department>Foreign Languages</department>
-    <catalogNumber>LANG-1000</catalogNumber>
-    <credits>4</credits>
+    <title>Spanish I (non-credit)</title>
+    <description>Spanish I (placement purposes only).</description>
+    <catalogNumber>LANG-1511</catalogNumber>
+    <credits>0</credits>
+    <countsAs>LANG-1510</countsAs>
     <availableTerms>
       <year-part>FALL</year-part>
       <year-part>SPRING</year-part>
     </availableTerms>
   </course>
   <course>
-    <title>Biology Elective </title>
-    <description>Biology elective credits.</description>
-    <department>Biology</department>
-    <catalogNumber>BIOL-1000</catalogNumber>
-    <credits>4</credits>
+    <title>Spanish II (non-credit)</title>
+    <description>Spanish II (placement purposes only).</description>
+    <catalogNumber>LANG-1521</catalogNumber>
+    <credits>0</credits>
+    <countsAs>LANG-1520</countsAs>
     <availableTerms>
       <year-part>FALL</year-part>
       <year-part>SPRING</year-part>
     </availableTerms>
   </course>
+  <course>
+    <title>Japanese I (non-credit)</title>
+    <description>Japanese I (placement purposes only).</description>
+    <catalogNumber>LANG-1211</catalogNumber>
+    <credits>0</credits>
+    <countsAs>LANG-1210</countsAs>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Japanese II (non-credit)</title>
+    <description>Japanese I (placement purposes only).</description>
+    <catalogNumber>LANG-1221</catalogNumber>
+    <credits>0</credits>
+    <countsAs>LANG-1220</countsAs>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Chinese I (non-credit)</title>
+    <description>Chinese I (placement purposes only).</description>
+    <catalogNumber>LANG-1411</catalogNumber>
+    <credits>0</credits>
+    <countsAs>LANG-1410</countsAs>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Chinese II (non-credit)</title>
+    <description>Chinese II (placement purposes only).</description>
+    <catalogNumber>LANG-1421</catalogNumber>
+    <credits>0</credits>
+    <countsAs>LANG-1420</countsAs>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>German I (non-credit)</title>
+    <description>German I (placement purposes only).</description>
+    <catalogNumber>LANG-1311</catalogNumber>
+    <credits>0</credits>
+    <countsAs>LANG-1310</countsAs>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>German II (non-credit)</title>
+    <description>German II (placement purposes only).</description>
+    <catalogNumber>LANG-1321</catalogNumber>
+    <credits>0</credits>
+    <countsAs>LANG-1320</countsAs>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Italian I (non-credit)</title>
+    <description>Italian I (placement purposes only).</description>
+    <catalogNumber>LANG-1611</catalogNumber>
+    <credits>0</credits>
+    <countsAs>LANG-1610</countsAs>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Italian II (non-credit)</title>
+    <description>Italian II (placement purposes only).</description>
+    <catalogNumber>LANG-1621</catalogNumber>
+    <credits>0</credits>
+    <countsAs>LANG-1620</countsAs>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+  <degree>
+    <id>6</id>
+    <name>B.S. Bioinformatics &amp; Molecular Biology 2012</name>
+    <school>School of Science</school>
+    <validationCode>degree "B.S. Bioinformatics &amp; Molecular Biology 2012", 6 do |d|
+  d.section "Communication Requirement" do |s|
+    s.valid_courses do |course|
+      course.description =~ /(communication|writing)[- ]intensive/i
+    end
+    s.exclusive = false
+    s.count = 2
+  end
+
+  d.section "Mathematics Requirement" do |s|
+    s.valid_courses {|course| course.catalogNumber =~ /MAT[HP]-[12346].../}
+    s.count = 3
+  end
+  
+  d.section "Chemistry Requirement" do |s|
+    s.courses 'CHEM-1110','CHEM-1200','CHEM-2250','CHEM-2260','CHEM-4330','CHEM-4340','CHEM-2230','CHEM-2240'
+  end
+  
+  d.section "Computer Science Requirement" do |s|
+    s.courses 'CSCI-1100','CSCI-1200'
+    s.count = 2
+  end
+  
+  d.section "Physics Requirement" do |s|
+	s.courses 'PHYS-1100','PHYS-1200'
+	s.count = 2
+  end
+	
+  d.section "Required Courses" do |s|
+    s.courses 'BIOL-1010','BIOL-2120','BIOL-4620','BIOL-4760','BIOL-4770','BIOL-4540','BIOL-4720','BIOL-4550','BIOL-4630'
+	s.one_of 'BIOL-4630','BIOL-4640','CHEM-4300'
+  end
+  
+  d.section "Culminating Experience" do |s|
+    s.courses "BIOL-4990"
+  end
+
+  d.section "H&amp;SS Core" do |s|
+    s.credits = 24
+    s.description = &lt;&lt;-EOF
+    Select a minimum of 2 4-credit courses in Humanities 
+    Select a minimum of 2 4-credit courses in the Social Sciences 
+    No more than 3 1000-level H&amp;SS courses may be applied to the H&amp;SS Core 
+    No more than 6 credits may be taken P/NC 
+    At least ONE 4 credit course must be at the 4000 level 
+    No more than 2 courses may transfer towards the 
+    H&amp;SS Core (including Adv Placement), excludes Transfer Students. 
+    Depth Requirement: 2 4-credit courses in same H or SS 
+    subject area with at least 1 above the .1000 level and none on Pass/No Credit 
+    Engineering majors (except ROTC cadets) choose a 2 credit 
+    course to meet their Profess Development II requirement. 
+    (PSYC 4170 or STSS 4840 Professional Development). 
+    The TOTAL H&amp;SS Core Requirement is 22 credits.
+    EOF
+    s.valid_courses_special do |courses|
+      numonethousand = 0
+      courses.select do |course|
+        if ['IHSS','ARTS','LANG','LITR','COMM','WRIT','STSH','PHIL',
+          'COGS','ECON','IHSS','PSYC','STSS'].include?(course.catalogNumber[0..3])
+          if course.level == '1000'
+            numonethousand += 1
+            numonethousand &lt;= 3
+          else
+            true
+          end
+        else
+          false
+        end
+      end
+    end
+    
+    s.valid_courses do |course|
+        ['IHSS','ARTS','LANG','LITR','COMM','WRIT','STSH','PHIL',
+          'COGS','ECON','IHSS','PSYC','STSS'].include?(course.catalogNumber[0..3])
+    end
+    
+    s.must_have "minimum of 2 4-credit courses in Humanities" do |courses|
+      courses = courses.find_all do |course| 
+        course.credits == 4 &amp;&amp; ['IHSS','ARTS','LANG','LITR','COMM','WRIT','STSH','PHIL'].include?(course.catalogNumber[0..3])
+      end
+      courses.size &gt;= 2
+    end
+
+    s.must_have "minimum of 2 4-credit courses in the Social Sciences" do |courses|
+      courses = courses.find_all do |course| 
+        course.credits == 4 &amp;&amp; ['COGS','ECON','IHSS','PSYC','STSS'].include?(course.catalogNumber[0..3])
+      end
+      courses.size &gt;= 2
+    end
+
+    s.must_have "one 4 credit course at the 4000 level" do |courses|
+      courses.find {|c| c.level == '4000' &amp;&amp; c.credits == 4}
+    end
+    
+    s.must_have "Depth Requirement" do |courses|
+      departments = {}
+      courses.each do |course|
+        dept = course.catalogNumber[0..3]
+        if course.credits == 4
+          departments[dept] ||= []
+          departments[dept] &lt;&lt; course
+        end
+      end
+      
+      success = false
+      departments.each do |dept, courses|
+        above1k = false
+        courses.each do |course|
+          above1k ||= course.level != '1000'
+        end
+        if courses.size &gt;= 2 &amp;&amp; above1k
+          success = true
+        end
+      end
+      success
+    end
+  end
+
+  d.section "Free Electives" do |s|
+    s.valid_courses {|c| true}
+    s.credits = 28
+  end
+
+  d.total_credits = 128
+end</validationCode>
+  </degree>
   <degree>
     <id>2</id>
     <name>B.S. Computer Science 2011</name>
