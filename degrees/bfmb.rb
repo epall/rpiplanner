@@ -15,7 +15,7 @@ degree "B.S. Bioinformatics & Molecular Biology 2012", 6 do |d|
   end
   
   d.section "Chemistry Requirement" do |s|
-    s.courses 'CHEM-1110','CHEM-1200','CHEM-2250','CHEM-2260','CHEM-4330','CHEM-4340','CHEM-2230','CHEM-2240'
+    s.courses 'CHEM-1100','CHEM-1200','CHEM-2250','CHEM-2260','CHEM-4330','CHEM-4340','CHEM-2230','CHEM-2240'
   end
   
   d.section "Computer Science Requirement" do |s|
