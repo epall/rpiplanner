@@ -246,7 +246,7 @@ def parse_requisites(requisites)
     messages << "#{$4+'-'+$5} can be skipped on permission of instructor" if $8
     messages << $11 if $10
     messages << "basic knowledge (at the graduate level) of semiconductor devices or permission of the instructor required" if $12
-  when /Prerequisites: #{CATALOG_NUMBER} and #{CATALOG_NUMBER} (or concurrent).$/
+  when /Prerequisites: #{CATALOG_NUMBER} and #{CATALOG_NUMBER} (\()?(or concurrent)(\))?.$/i
     prerequisites << $1+'-'+$2
     corequisites << $3+'-'+$4
   # two either-or prerequisites
@@ -259,6 +259,8 @@ def parse_requisites(requisites)
     messages << "prerequisite can be replaced with equivalent" if $5
     messages << "prerequisite can be skipped on permission of instructor" if $6 && $7 == 'or'
     messages << "must get permission of instructor to take coures" if $7 == 'and'
+  when /^Prerequisite: #{CATALOG_NUMBER} or concurrent with #{CATALOG_NUMBER}.$/
+	corequisites << $1+'-'+$2
   when /^Prerequisites: #{CATALOG_NUMBER}, #{CATALOG_NUMBER}, or permission of instructor; (.*).$/
     prerequisites << $1+'-'+$2
     prerequisites << $3+'-'+$4
@@ -321,6 +323,24 @@ def parse_requisites(requisites)
     pickOneP = true
   # A or B, C, D
   # This isn't possible to do correctly with current scheme
+  when /^Prerequisites: #{CATALOG_NUMBER} or #{CATALOG_NUMBER} and #{CATALOG_NUMBER} or equivalent.$/
+	prerequisites << $1+'-'+$2
+	prerequisites << $3+'-'+$4
+	prerequisites << $5+'-'+$6
+	pickOneP = true
+	messages << "#{$1+'-'+$2} or #{$3+'-'+$4}"
+	messages << "#{$5+'-'+$6} or equivalent"
+  when /^Prerequisites: #{CATALOG_NUMBER} and #{CATALOG_NUMBER} or #{CATALOG_NUMBER} or #{CATALOG_NUMBER} or equivalent, or permission of instructor.$/
+	prerequisites << $1+'-'+$2
+	prerequisites << $3+'-'+$4
+	prerequisites << $5+'-'+$6
+	prerequisites << $7+'-'+$8
+	pickOneP = true
+	messages << "#{$3+'-'+$4} or #{$5+'-'+$6} or #{$7+'-'+$8} or equivalent"
+	messages << "or permission of instructor"
+  when /^Prerequisite: #{CATALOG_NUMBER} (or a similar course in organic chemistry) should be taken with or prior to this course.$/
+	corequisites << $1+'-'+$2
+	messages << "#{$3}"
   when /^Prerequisites: #{CATALOG_NUMBER} or #{CATALOG_NUMBER}, #{CATALOG_NUMBER}, #{CATALOG_NUMBER}. ?(Not recommended for Freshmen and Sophomores.)?$/
     prerequisites << $1+'-'+$2
     prerequisites << $5+'-'+$6
