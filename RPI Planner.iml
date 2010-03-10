@@ -65,8 +65,8 @@
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar://$APPLICATION_HOME_DIR$/lib/junit-4.7.jar!/" />
           <root url="jar://$APPLICATION_HOME_DIR$/lib/junit.jar!/" />
+          <root url="jar://$APPLICATION_HOME_DIR$/lib/junit-4.7.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
