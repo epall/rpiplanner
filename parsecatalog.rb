@@ -511,8 +511,8 @@ end
 builder = Builder::XmlMarkup.new(:indent => 2)
 xml = builder.courses do |b|
   ['ARTS','ASTR','BIOL','BMED','CSCI','CHEM','CHME','CIVL','COMM','ECON','ECSE',
-    'ENGR','EPOW','IHSS','LITR','MANE','MATH','MTLE','PHIL','PHYS','PSYC','STSH',
-    'STSS'].each do |dept|
+    'ENGR','EPOW','IHSS','ITEC','LITR','MANE','MATH','MATP','MTLE','PHIL','PHYS','PSYC','STSH',
+    'STSS','WRIT'].each do |dept|
     files = Dir["catalog/#{dept}/*.html"]
     files.each do |filename|
       file = File.open(filename, 'r')
