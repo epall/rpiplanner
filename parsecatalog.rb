@@ -88,7 +88,7 @@ def parse_year_parts(description)
   messages = []
 
   case description
-  when /^(Offered )?(each term|Fall and spring( term)?)( annually)?.$/i
+  when /^(Offered )?(each term|Fall (and|or) spring( term)?)( annually)?.?.$/i
     parts << 'FALL'
     parts << 'SPRING'
   when /^Fall, spring,? (and )?summer (terms|session 2) annually.$/
@@ -330,6 +330,11 @@ def parse_requisites(requisites)
 	pickOneP = true
 	messages << "#{$1+'-'+$2} or #{$3+'-'+$4}"
 	messages << "#{$5+'-'+$6} or equivalent"
+  when /^Prerequisite:.? #{CATALOG_NUMBER} or #{CATALOG_NUMBER}.#{CATALOG_NUMBER}.$/
+	prerequisites << $1+'-'+$2
+	prerequisites << $3+'-'+$4
+	prerequisites << $5+'-'+$6
+	pickOneP = true
   when /^Prerequisites: #{CATALOG_NUMBER} and #{CATALOG_NUMBER} or #{CATALOG_NUMBER} or #{CATALOG_NUMBER} or equivalent, or permission of instructor.$/
 	prerequisites << $1+'-'+$2
 	prerequisites << $3+'-'+$4

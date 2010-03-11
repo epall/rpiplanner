@@ -11509,6 +11509,171 @@ NOTE: Unclear when course is offered
     <doubleCount>true</doubleCount>
   </course>
   <course>
+    <title>Introduction to IT</title>
+    <description></description>
+    <department>Information Technology</department>
+    <catalogNumber>ITEC-1100</catalogNumber>
+    <credits>4</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>false</doubleCount>
+  </course>
+  <course>
+    <title>Introduction to UML</title>
+    <description></description>
+    <department>Information Technology</department>
+    <catalogNumber>ITEC-1150</catalogNumber>
+    <credits>1</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>false</doubleCount>
+  </course>
+  <course>
+    <title>IT and Society</title>
+    <description>Will IT increase prosperity? For whom? What role should governments play in IT development? Do corporations have new responsibilities in the Information Era? What about IT professionals? This course explores the issues, the arguments and working solutions. The first section examines macro indicators and trends. The second section examines the microeconomics and politics of specific arenas&#8212;the software industry, the automated work place, telemedicine, television. The last section explores opportunities for improving society, using IT.
+
+Cross-listed as IHSS 1220. Students cannot obtain credit for both this course and IHSS 1220.</description>
+    <department>Information Technology</department>
+    <catalogNumber>ITEC-1220</catalogNumber>
+    <credits>4</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>false</doubleCount>
+  </course>
+  <course>
+    <title>Web Systems Development</title>
+    <description>This course involves a study of the methods used to extract and deliver dynamic information on the World Wide Web. The course uses a hands-on approach in which students actively develop Web-based software systems. Additional topics include installation, configuration, and management of Web servers. Students are required to have access to a PC on which they can install software such as a Web server and various programming environments.
+
+NOTE: prerequisite can be replaced with an equivalent
+</description>
+    <department>Information Technology</department>
+    <catalogNumber>ITEC-2110</catalogNumber>
+    <credits>4</credits>
+    <prerequisites required="false" pickOne="false">
+      <course>
+        <catalogNumber>CSCI-1200</catalogNumber>
+      </course>
+    </prerequisites>
+    <availableTerms>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>false</doubleCount>
+  </course>
+  <course>
+    <title>Introduction to Human Computer Interaction</title>
+    <description>An introduction to the current theories, methods, and issues in human-computer interaction. Theory and research along with practical application are discussed within the context of organizational impact. The course provides the knowledge of HCI systems and research used for the implementation of safe, quick, and useable interactive technologies.</description>
+    <department>Information Technology</department>
+    <catalogNumber>ITEC-2210</catalogNumber>
+    <credits>4</credits>
+    <availableTerms>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>false</doubleCount>
+  </course>
+  <course>
+    <title>Business Issues for Engineers and Scientists</title>
+    <description>Investigates business-related considerations in successfully commercializing new technology in a new venture or within an existing enterprise: market and customer analysis, beating the competition, planning and managing for profitability, high-tech marketing and sales, and business partnerships and acquisitions. Not a general management course; focuses explicitly on what is relevant for engineers and scientists working in a commercial environment. For junior/senior undergraduate or graduate students.
+
+Cross-listed as ENGR 4100/ENGR 6100 and ITEC 6300. Students can only obtain credit for one of these courses.</description>
+    <department>Information Technology</department>
+    <catalogNumber>ITEC-4300</catalogNumber>
+    <credits>4</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>false</doubleCount>
+  </course>
+  <course>
+    <title>Managing IT Resources</title>
+    <description>This course provides an introduction to fundamental concepts of management and applies them to IT. It examines the use of IT in business processes and the management issues of integrating IT into organizational processes to gain competitive advantage. Topics include: management, organizations, and information systems; development life cycle; project management and systems engineering; process reengineering; and organizational learning. This course includes the planning, development, and implementation of an IT project for a real client.
+
+NOTE: prerequisite can be skipped on permission of instructor
+NOTE: programming experience recommended
+</description>
+    <department>Information Technology</department>
+    <catalogNumber>ITEC-4310</catalogNumber>
+    <credits>4</credits>
+    <prerequisites required="false" pickOne="false">
+      <course>
+        <catalogNumber>ITEC-2110</catalogNumber>
+      </course>
+    </prerequisites>
+    <availableTerms>
+      <year-part>FALL</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>false</doubleCount>
+  </course>
+  <course>
+    <title>Business Issues for Engineers and Scientists</title>
+    <description>Investigates business-related considerations in successfully commercializing new technology in a new venture or within an existing enterprise: market and customer analysis, beating the competition, planning and managing for profitability, high-tech marketing and sales, and business partnerships and acquisitions. Not a general management course; focuses explicitly on what is relevant for engineers and scientists working in a commercial environment. For junior/senior undergraduate or graduate students.
+
+Cross-listed as ENGR 4100/ENGR 6100 and ITEC 4300. Students can only obtain credit for one of these courses.</description>
+    <department>Information Technology</department>
+    <catalogNumber>ITEC-6300</catalogNumber>
+    <credits>4</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>false</doubleCount>
+  </course>
+  <course>
+    <title>Information Technology and Decision Systems Capstone</title>
+    <description>Integration of the knowledge and professional practice of the Master&#8217;s in IT core and concentration courses. Topics in database systems, networking, software design, human computer interaction, management of technology, and ethics are applied within a framework of global e-business strategy. The course utilizes a Team Project with a real organization to practice major IT concepts. Team members select, develop, and present a significant technology implementation project, incorporating strategy, systems development and business planning.</description>
+    <department>Information Technology</department>
+    <catalogNumber>ITEC-6800</catalogNumber>
+    <credits>3</credits>
+    <availableTerms>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>false</doubleCount>
+  </course>
+  <course>
+    <title>Master&#8217;s Project</title>
+    <description>Active participation in a master&#8217;s-level project under the supervision of a faculty adviser, leading to a master&#8217;s project report. Grades of IP are assigned until the master&#8217;s project has been approved by the faculty adviser and the Office of Graduate Education to then be archived in a standard format in the library. Grades will then be listed as S.
+
+NOTE: Unclear when course is offered
+</description>
+    <department>Information Technology</department>
+    <catalogNumber>ITEC-6980</catalogNumber>
+    <credits>3</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>false</doubleCount>
+  </course>
+  <course>
+    <title>Master&#8217;s Thesis</title>
+    <description>Active participation in research, under the supervision of a faculty adviser, leading to a master&#8217;s thesis. Grades of IP are assigned until the thesis has been approved by the faculty adviser and accepted by the Office of Graduate Education to be archived in a standard format in the library. Grades will then be listed as S.
+
+NOTE: Unclear when course is offered
+</description>
+    <department>Information Technology</department>
+    <catalogNumber>ITEC-6990</catalogNumber>
+    <credits>3</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>false</doubleCount>
+  </course>
+  <course>
     <title>Introduction to Literature</title>
     <description>A study of major literary works that introduces students to basic ideas and terminology in literary criticism. Students learn to read and interpret a selection of novels, plays, poetry, or other forms of writing to be determined each semester by the instructor.</description>
     <department>Language, Literature, and Communication</department>
@@ -15391,6 +15556,211 @@ NOTE: Unclear when course is offered
     <doubleCount>false</doubleCount>
   </course>
   <course>
+    <title>Probability Theory and Applications</title>
+    <description>Axioms of probability, joint and conditional probability, random variables, probability density and distribution functions, expectation, functions of random variables, and limit theorems. Applications of probability to models in operations research, including queuing theory and Markov chains.
+
+Cross-listed as DSES 4750. Students cannot obtain credit for both this course and DSES 4750.
+
+NOTE: prerequisite can be replaced with an equivalent
+NOTE: prerequisite can be skipped on permission of instructor
+NOTE: programming experience recommended
+</description>
+    <department>Mathematical Sciences</department>
+    <catalogNumber>MATP-4600</catalogNumber>
+    <credits>4</credits>
+    <prerequisites required="false" pickOne="false">
+      <course>
+        <catalogNumber>MATH-1020</catalogNumber>
+      </course>
+    </prerequisites>
+    <availableTerms>
+      <year-part>FALL</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>false</doubleCount>
+  </course>
+  <course>
+    <title>Readings in Mathematical Programming, Probability, and Mathematical Statistics</title>
+    <description>
+
+NOTE: Unclear when course is offered
+</description>
+    <department>Mathematical Sciences</department>
+    <catalogNumber>MATP-4940</catalogNumber>
+    <credits>1</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>true</doubleCount>
+  </course>
+  <course>
+    <title>Topics in Mathematical Programming, Probability, and Mathematical Statistics</title>
+    <description>
+
+NOTE: Unclear when course is offered
+</description>
+    <department>Mathematical Sciences</department>
+    <catalogNumber>MATP-4960</catalogNumber>
+    <credits>1</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>true</doubleCount>
+  </course>
+  <course>
+    <title>Undergraduate Project in Mathematical Programming, Probability, and Mathematical Statistics</title>
+    <description>
+
+NOTE: Unclear when course is offered
+</description>
+    <department>Mathematical Sciences</department>
+    <catalogNumber>MATP-4980</catalogNumber>
+    <credits>1</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>false</doubleCount>
+  </course>
+  <course>
+    <title>Nonlinear Programming</title>
+    <description>Convex sets and functions, optimality conditions in nonlinear programming, Lagrangian duality, quadratic programming; algorithms for nonlinear programming including Newton&#8217;s method, quasi-Newton methods, conjugate gradient methods, together with proofs of convergence.
+
+(Cross listed as DSES 6780. Students cannot obtain credit for both this course and DSES 6780.)
+
+NOTE: prerequisite can be replaced with an equivalent
+NOTE: prerequisite can be skipped on permission of instructor
+NOTE: programming experience recommended
+</description>
+    <department>Mathematical Sciences</department>
+    <catalogNumber>MATP-6600</catalogNumber>
+    <credits>4</credits>
+    <prerequisites required="false" pickOne="false">
+      <course>
+        <catalogNumber>MATH-4200</catalogNumber>
+      </course>
+    </prerequisites>
+    <availableTerms>
+      <year-part>FALL</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>false</doubleCount>
+  </course>
+  <course>
+    <title>Computational Optimization</title>
+    <description>An introduction to nonlinear programming. Models, methods, algorithms, and computer techniques for nonlinear optimization are studied. Students investigate contemporary optimization methods both by implementing these methods and through experimentation with commercial software. Nonmajors wishing to gain practical optimization skills are welcomed in this course. A course project will allow students to explore optimization methods and practical problems directly related to their interests. A computer implementation and a research presentation will be required. Students cannot obtain credit for both this course and either DSES 4780 or MATP 6610.</description>
+    <department>Mathematical Sciences</department>
+    <catalogNumber>MATP-6610</catalogNumber>
+    <credits>4</credits>
+    <availableTerms>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>false</doubleCount>
+  </course>
+  <course>
+    <title>Combinatorial Optimization and Integer Programming</title>
+    <description>Exact and heuristic methods for solving discrete problems, including the traveling salesman problem, the knapsack problem, packing and covering problems. Algorithm complexity and NP-completeness, cutting plane methods and polyhedral theory, branch and bound, simulated annealing, tabu search, Lagrangian duality.
+
+Cross-listed as DSES 6760. Students cannot obtain credit for both this course and DSES 6760.
+
+NOTE: odd-numbered years ONLY
+</description>
+    <department>Mathematical Sciences</department>
+    <catalogNumber>MATP-6620</catalogNumber>
+    <credits>4</credits>
+    <prerequisites required="false" pickOne="true">
+      <course>
+        <catalogNumber>MATP-4700</catalogNumber>
+      </course>
+      <course>
+        <catalogNumber>DSES-4770</catalogNumber>
+      </course>
+    </prerequisites>
+    <availableTerms>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>false</doubleCount>
+  </course>
+  <course>
+    <title>Linear Programming</title>
+    <description>A unified development of linear systems and linear programming, polyhedral theory, the simplex method, interior point methods, decomposition methods for large-scale linear programming problems, the ellipsoid method, column generation algorithms for stochastic programming, and other problems.
+
+Cross-listed as DSES 6770. Students cannot obtain credit for both this course and DSES 6770.
+
+NOTE: even-numbered years ONLY
+</description>
+    <department>Mathematical Sciences</department>
+    <catalogNumber>MATP-6640</catalogNumber>
+    <credits>4</credits>
+    <prerequisites required="false" pickOne="true">
+      <course>
+        <catalogNumber>MATP-4700</catalogNumber>
+      </course>
+      <course>
+        <catalogNumber>DSES-4770</catalogNumber>
+      </course>
+    </prerequisites>
+    <availableTerms>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>false</doubleCount>
+  </course>
+  <course>
+    <title>Readings in Mathematical Programming, Probability, and Mathematical Statistics</title>
+    <description>
+
+NOTE: Unclear when course is offered
+</description>
+    <department>Mathematical Sciences</department>
+    <catalogNumber>MATP-6940</catalogNumber>
+    <credits>1</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>true</doubleCount>
+  </course>
+  <course>
+    <title>Topics in Optimization</title>
+    <description>Advanced methods and/or applications in optimization. Possible topics include stochastic programming, learning theory, cone programming, optimization of medical treatment, and network flows.
+
+NOTE: vary with topics and/or instructor.
+</description>
+    <department>Mathematical Sciences</department>
+    <catalogNumber>MATP-6960</catalogNumber>
+    <credits>4</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>true</doubleCount>
+  </course>
+  <course>
+    <title>Master&#8217;s Project</title>
+    <description>Active participation in a master&#8217;s-level project under the supervision of a faculty adviser, leading to a master&#8217;s project report. Grades of IP are assigned until the master&#8217;s project has been approved by the faculty adviser. If recommended by the adviser, the master&#8217;s project may be accepted by the Office of Graduate Education to be archived in the Library.
+
+NOTE: Unclear when course is offered
+</description>
+    <department>Mathematical Sciences</department>
+    <catalogNumber>MATP-6980</catalogNumber>
+    <credits>1</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>false</doubleCount>
+  </course>
+  <course>
     <title>Introduction to Ceramic Materials</title>
     <description>Structure and properties of crystalline ceramic materials. Atomic bonding, crystal structure, structural imperfections, nonstoichiometry, surfaces, and interfaces. Reactions in ceramic systems in terms of phase equilibria, nucleation and crystal growth, diffusion, grain growth, and sintering. Ceramic microstructures and various properties.</description>
     <department>Materials Science and Engineering</department>
@@ -16354,6 +16724,19 @@ NOTE: Unclear when course is offered
     <doubleCount>false</doubleCount>
   </course>
   <course>
+    <title>Ethics</title>
+    <description>A critical examination of traditional and contemporary works in ethical theory by considering what these theories have to say about how we should live, what rights and obligations we have, what things are intrinsically valuable. Typically this includes such topics as ethical and cultural relativism, egoism, freedom, and responsibility. Often the focus will be on contemporary issues such as war, abortion, equality, or punishment.</description>
+    <department>Cognitive Science</department>
+    <catalogNumber>PHIL-4240</catalogNumber>
+    <credits>4</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>false</doubleCount>
+  </course>
+  <course>
     <title>Philosophy of Artificial Intelligence</title>
     <description>This course may be roughly divided into two general areas: philosophical problems in AI and philosophical issues that arise because of AI. An example from the first area is the Knower Paradox, a paradox in which an apparently desirable formalism for handling an agent&#8217;s knowledge leads to inconsistency; an example from the second area is John Searle&#8217;s attack on so-called &#8220;Strong&#8221; AI by way of his Chinese Room argument, wherein he claims that because a computer at bottom just manipulates symbols it cannot genuinely understand.</description>
     <department>Cognitive Science</department>
@@ -16382,6 +16765,35 @@ NOTE: Prerequisite:  junior or senior standing or permission of instructor.
     <department>Cognitive Science</department>
     <catalogNumber>PHIL-4300</catalogNumber>
     <credits>4</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>false</doubleCount>
+  </course>
+  <course>
+    <title>Scientific Revolutions</title>
+    <description>What is progress in science? How has our concept of progress been influenced by science? Are there significant differences between scientific and technological revolutions? These questions are explored in order to shed light on the complex dynamics of academic and industrial research.
+
+Cross-listed as STSH 4310. Students cannot obtain credit for both this course and STSH 4310.
+
+NOTE: Offered on availability of of .
+</description>
+    <department>Cognitive Science</department>
+    <catalogNumber>PHIL-4310</catalogNumber>
+    <credits>4</credits>
+    <prerequisites required="true" pickOne="true">
+      <course>
+        <catalogNumber>PHIL-1110</catalogNumber>
+      </course>
+      <course>
+        <catalogNumber>PHIL-2130</catalogNumber>
+      </course>
+      <course>
+        <catalogNumber>STSH-2130</catalogNumber>
+      </course>
+    </prerequisites>
     <availableTerms>
       <year-part>FALL</year-part>
       <year-part>SPRING</year-part>
@@ -18070,6 +18482,34 @@ NOTE: Unclear when course is offered
     <doubleCount>false</doubleCount>
   </course>
   <course>
+    <title>Scientific Revolutions</title>
+    <description>What is progress in science? How has our concept of progress been influenced by science? Are there significant differences between scientific and technological revolutions? These questions are explored in order to shed light on the complex dynamics of academic and industrial research.
+
+Cross-listed as PHIL 4310. Students cannot obtain credit for both this course and PHIL 4310.
+
+NOTE: alternate years ONLY
+</description>
+    <department>Science and Technology Studies</department>
+    <catalogNumber>STSH-4310</catalogNumber>
+    <credits>4</credits>
+    <prerequisites required="true" pickOne="true">
+      <course>
+        <catalogNumber>PHIL-1110</catalogNumber>
+      </course>
+      <course>
+        <catalogNumber>PHIL-2130</catalogNumber>
+      </course>
+      <course>
+        <catalogNumber>STSH-2130</catalogNumber>
+      </course>
+    </prerequisites>
+    <availableTerms>
+      <year-part>FALL</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>false</doubleCount>
+  </course>
+  <course>
     <title>Philosophy of Law</title>
     <description>The course examines the following questions: What is law? What is the relationship between law and morality? Is there a moral obligation not to break the law? Detailed examination is given to the concepts of liberty, justice, responsibility, and punishment.
 
@@ -19130,44 +19570,172 @@ NOTE: Unclear when course is offered
     <doubleCount>false</doubleCount>
   </course>
   <course>
-    <title>Social Science Elective</title>
-    <description>Social Science elective Credits.</description>
-    <department>Science, Technology and Society</department>
-    <catalogNumber>STSS-1000</catalogNumber>
+    <title>Writing for Classroom and Career</title>
+    <description>This course emphasizes written, visual, and oral communication strategies that will help students succeed in both academic and professional contexts. Principal assignments are based on types of writing required in school and on the job: reporting, evaluating, taking a position, and making a proposal (orally and in writing). Written assignments will include visual elements such as headings, charts/graphs, and page or screen design. This is a communication-intensive course.</description>
+    <department>Language, Literature, and Communication</department>
+    <catalogNumber>WRIT-1110</catalogNumber>
     <credits>4</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>false</doubleCount>
+  </course>
+  <course>
+    <title>Topics in Writing</title>
+    <description>
+
+NOTE: Unclear when course is offered
+</description>
+    <department>Language, Literature, and Communication</department>
+    <catalogNumber>WRIT-1960</catalogNumber>
+    <credits>4</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>false</doubleCount>
+  </course>
+  <course>
+    <title>Rhetoric and Writing</title>
+    <description>This course aims to increase students&#8217; ability to develop ideas and to express them effectively. It gives special attention to expository and persuasive writing. Study of rhetorical theory and critical reading of speeches and/or essays help the students to understand the rhetorical process, to analyze the audience, and to foresee its response. A substantial amount of writing is required. This is a communication-intensive course.</description>
+    <department>Language, Literature, and Communication</department>
+    <catalogNumber>WRIT-2110</catalogNumber>
+    <credits>4</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>false</doubleCount>
+  </course>
+  <course>
+    <title>Creative Writing</title>
+    <description>A workshop course in the practice of writing in one or more literary forms: poetry, drama, essay, fiction. Students work at their own pace and have opportunities to present their work for criticism by other students. The literary form featured during a given semester depends on the instructor. This is a communication-intensive course.</description>
+    <department>Language, Literature, and Communication</department>
+    <catalogNumber>WRIT-2310</catalogNumber>
+    <credits>4</credits>
+    <availableTerms>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>false</doubleCount>
+  </course>
+  <course>
+    <title>Speech Communication</title>
+    <description>This course focuses on developing public speaking skills and critical listening abilities. Guided by rhetorical theory, theories of persuasion, and argumentation theory, students prepare several oral presentations, engage in extemporaneous speaking exercises, and criticize other performances. This is a communication-intensive course.</description>
+    <department>Language, Literature, and Communication</department>
+    <catalogNumber>WRIT-2340</catalogNumber>
+    <credits>4</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>false</doubleCount>
+  </course>
+  <course>
+    <title>Writing: Print and Digital</title>
+    <description>This course emphasizes the repurposing of print text for use in interactive Web sites or CD-ROMs. The course links traditional writing skills (organization, style, audience, etc.) with new media skills such as information architecture.
+
+NOTE: Offered anually. Unclear which term
+</description>
+    <department>Language, Literature, and Communication</department>
+    <catalogNumber>WRIT-2520</catalogNumber>
+    <credits>4</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>false</doubleCount>
+  </course>
+  <course>
+    <title>Topics in Writing</title>
+    <description>
+
+NOTE: Unclear when course is offered
+</description>
+    <department>Language, Literature, and Communication</department>
+    <catalogNumber>WRIT-2960</catalogNumber>
+    <credits>4</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>false</doubleCount>
+  </course>
+  <course>
+    <title>Advanced Content Development for the World Wide Web</title>
+    <description>This course is intended for those seeking a career in web design and analysis who wish to explore concepts of content development and management in depth. This studio-oriented course gives students a chance to analyze and create effective content for the web. Topics include how to create and maintain information structures for dynamic content, and how to deliver customized content for specific user groups.
+
+Cross-listed with WRIT 6610. Students cannot obtain credit for both courses.
+
+NOTE: prerequisite can be replaced with an equivalent
+</description>
+    <department>Language, Literature, and Communication</department>
+    <catalogNumber>WRIT-4610</catalogNumber>
+    <credits>4</credits>
+    <prerequisites required="false" pickOne="false">
+      <course>
+        <catalogNumber>WRIT-2510</catalogNumber>
+      </course>
+    </prerequisites>
+    <availableTerms>
+      <year-part>FALL</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>false</doubleCount>
+  </course>
+  <course>
+    <title>Topics in Writing</title>
+    <description>
+
+NOTE: Unclear when course is offered
+</description>
+    <department>Language, Literature, and Communication</department>
+    <catalogNumber>WRIT-4960</catalogNumber>
+    <credits>4</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>true</doubleCount>
+  </course>
+  <course>
+    <title>Advanced Content Development for the World Wide Web</title>
+    <description>This course is intended for those seeking a career in web design and analysis who wish to explore concepts of content development and management in depth. This studio-oriented course gives students a chance to analyze and create effective content for the web. Topics include how to create and maintain information structures for dynamic content and how to deliver customized content for specific user groups.
+
+Cross-listed with WRIT 4610. Students cannot obtain credit for both courses. Additional assignments at higher levels are required for those registered at the 6000 level.</description>
+    <department>Language, Literature, and Communication</department>
+    <catalogNumber>WRIT-6610</catalogNumber>
+    <credits>3</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>false</doubleCount>
+  </course>
+  <course>
+    <title>Japanese II (non-credit)</title>
+    <description>Japanese I (placement purposes only).</description>
+    <catalogNumber>LANG-1221</catalogNumber>
+    <credits>0</credits>
+    <countsAs>LANG-1220</countsAs>
     <availableTerms>
       <year-part>FALL</year-part>
       <year-part>SPRING</year-part>
     </availableTerms>
   </course>
   <course>
-    <title>Biology Elective </title>
-    <description>Biology elective credits.</description>
-    <department>Biology</department>
-    <catalogNumber>BIOL-1000</catalogNumber>
-    <credits>4</credits>
-    <availableTerms>
-      <year-part>FALL</year-part>
-      <year-part>SPRING</year-part>
-    </availableTerms>
-  </course>
-  <course>
-    <title>Writing Elective</title>
-    <description>Humanities writing elective credits.</description>
-    <department>Writing</department>
-    <catalogNumber>WRIT-1000</catalogNumber>
-    <credits>4</credits>
-    <availableTerms>
-      <year-part>FALL</year-part>
-      <year-part>SPRING</year-part>
-    </availableTerms>
-  </course>
-  <course>
-    <title>Humanitites Elective</title>
-    <description>Humanities elective credits.</description>
-    <department>Science, Technology and Society</department>
-    <catalogNumber>STSH-1000</catalogNumber>
-    <credits>4</credits>
+    <title>French I (non-credit)</title>
+    <description>French I (placement purposes only).</description>
+    <catalogNumber>LANG-1111</catalogNumber>
+    <credits>0</credits>
+    <countsAs>LANG-1110</countsAs>
     <availableTerms>
       <year-part>FALL</year-part>
       <year-part>SPRING</year-part>
@@ -19185,10 +19753,131 @@ NOTE: Unclear when course is offered
     </availableTerms>
   </course>
   <course>
-    <title>Language Elective</title>
-    <description>Foreign Language elective credits.</description>
-    <department>Foreign Languages</department>
-    <catalogNumber>LANG-1000</catalogNumber>
+    <title>German II (non-credit)</title>
+    <description>German II (placement purposes only).</description>
+    <catalogNumber>LANG-1321</catalogNumber>
+    <credits>0</credits>
+    <countsAs>LANG-1320</countsAs>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Japanese I (non-credit)</title>
+    <description>Japanese I (placement purposes only).</description>
+    <catalogNumber>LANG-1211</catalogNumber>
+    <credits>0</credits>
+    <countsAs>LANG-1210</countsAs>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Humanitites Elective</title>
+    <description>Humanities elective credits.</description>
+    <department>Science, Technology and Society</department>
+    <catalogNumber>STSH-1000</catalogNumber>
+    <credits>4</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>German I (non-credit)</title>
+    <description>German I (placement purposes only).</description>
+    <catalogNumber>LANG-1311</catalogNumber>
+    <credits>0</credits>
+    <countsAs>LANG-1310</countsAs>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Chinese II (non-credit)</title>
+    <description>Chinese II (placement purposes only).</description>
+    <catalogNumber>LANG-1421</catalogNumber>
+    <credits>0</credits>
+    <countsAs>LANG-1420</countsAs>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Chinese I (non-credit)</title>
+    <description>Chinese I (placement purposes only).</description>
+    <catalogNumber>LANG-1411</catalogNumber>
+    <credits>0</credits>
+    <countsAs>LANG-1410</countsAs>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Spanish II (non-credit)</title>
+    <description>Spanish II (placement purposes only).</description>
+    <catalogNumber>LANG-1521</catalogNumber>
+    <credits>0</credits>
+    <countsAs>LANG-1520</countsAs>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Italian II (non-credit)</title>
+    <description>Italian II (placement purposes only).</description>
+    <catalogNumber>LANG-1621</catalogNumber>
+    <credits>0</credits>
+    <countsAs>LANG-1620</countsAs>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Spanish I (non-credit)</title>
+    <description>Spanish I (placement purposes only).</description>
+    <catalogNumber>LANG-1511</catalogNumber>
+    <credits>0</credits>
+    <countsAs>LANG-1510</countsAs>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Italian I (non-credit)</title>
+    <description>Italian I (placement purposes only).</description>
+    <catalogNumber>LANG-1611</catalogNumber>
+    <credits>0</credits>
+    <countsAs>LANG-1610</countsAs>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Social Science Elective</title>
+    <description>Social Science elective Credits.</description>
+    <department>Science, Technology and Society</department>
+    <catalogNumber>STSS-1000</catalogNumber>
+    <credits>4</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+  </course>
+  <course>
+    <title>Writing Elective</title>
+    <description>Humanities writing elective credits.</description>
+    <department>Writing</department>
+    <catalogNumber>WRIT-1000</catalogNumber>
     <credits>4</credits>
     <availableTerms>
       <year-part>FALL</year-part>
@@ -19208,17 +19897,6 @@ NOTE: Unclear when course is offered
     </availableTerms>
   </course>
   <course>
-    <title>French I (non-credit)</title>
-    <description>French I (placement purposes only).</description>
-    <catalogNumber>LANG-1111</catalogNumber>
-    <credits>0</credits>
-    <countsAs>LANG-1110</countsAs>
-    <availableTerms>
-      <year-part>FALL</year-part>
-      <year-part>SPRING</year-part>
-    </availableTerms>
-  </course>
-  <course>
     <title>French II (non-credit)</title>
     <description>French II (placement purposes only).</description>
     <catalogNumber>LANG-1121</catalogNumber>
@@ -19230,245 +19908,27 @@ NOTE: Unclear when course is offered
     </availableTerms>
   </course>
   <course>
-    <title>Spanish I (non-credit)</title>
-    <description>Spanish I (placement purposes only).</description>
-    <catalogNumber>LANG-1511</catalogNumber>
-    <credits>0</credits>
-    <countsAs>LANG-1510</countsAs>
+    <title>Language Elective</title>
+    <description>Foreign Language elective credits.</description>
+    <department>Foreign Languages</department>
+    <catalogNumber>LANG-1000</catalogNumber>
+    <credits>4</credits>
     <availableTerms>
       <year-part>FALL</year-part>
       <year-part>SPRING</year-part>
     </availableTerms>
   </course>
   <course>
-    <title>Spanish II (non-credit)</title>
-    <description>Spanish II (placement purposes only).</description>
-    <catalogNumber>LANG-1521</catalogNumber>
-    <credits>0</credits>
-    <countsAs>LANG-1520</countsAs>
+    <title>Biology Elective </title>
+    <description>Biology elective credits.</description>
+    <department>Biology</department>
+    <catalogNumber>BIOL-1000</catalogNumber>
+    <credits>4</credits>
     <availableTerms>
       <year-part>FALL</year-part>
       <year-part>SPRING</year-part>
     </availableTerms>
   </course>
-  <course>
-    <title>Japanese I (non-credit)</title>
-    <description>Japanese I (placement purposes only).</description>
-    <catalogNumber>LANG-1211</catalogNumber>
-    <credits>0</credits>
-    <countsAs>LANG-1210</countsAs>
-    <availableTerms>
-      <year-part>FALL</year-part>
-      <year-part>SPRING</year-part>
-    </availableTerms>
-  </course>
-  <course>
-    <title>Japanese II (non-credit)</title>
-    <description>Japanese I (placement purposes only).</description>
-    <catalogNumber>LANG-1221</catalogNumber>
-    <credits>0</credits>
-    <countsAs>LANG-1220</countsAs>
-    <availableTerms>
-      <year-part>FALL</year-part>
-      <year-part>SPRING</year-part>
-    </availableTerms>
-  </course>
-  <course>
-    <title>Chinese I (non-credit)</title>
-    <description>Chinese I (placement purposes only).</description>
-    <catalogNumber>LANG-1411</catalogNumber>
-    <credits>0</credits>
-    <countsAs>LANG-1410</countsAs>
-    <availableTerms>
-      <year-part>FALL</year-part>
-      <year-part>SPRING</year-part>
-    </availableTerms>
-  </course>
-  <course>
-    <title>Chinese II (non-credit)</title>
-    <description>Chinese II (placement purposes only).</description>
-    <catalogNumber>LANG-1421</catalogNumber>
-    <credits>0</credits>
-    <countsAs>LANG-1420</countsAs>
-    <availableTerms>
-      <year-part>FALL</year-part>
-      <year-part>SPRING</year-part>
-    </availableTerms>
-  </course>
-  <course>
-    <title>German I (non-credit)</title>
-    <description>German I (placement purposes only).</description>
-    <catalogNumber>LANG-1311</catalogNumber>
-    <credits>0</credits>
-    <countsAs>LANG-1310</countsAs>
-    <availableTerms>
-      <year-part>FALL</year-part>
-      <year-part>SPRING</year-part>
-    </availableTerms>
-  </course>
-  <course>
-    <title>German II (non-credit)</title>
-    <description>German II (placement purposes only).</description>
-    <catalogNumber>LANG-1321</catalogNumber>
-    <credits>0</credits>
-    <countsAs>LANG-1320</countsAs>
-    <availableTerms>
-      <year-part>FALL</year-part>
-      <year-part>SPRING</year-part>
-    </availableTerms>
-  </course>
-  <course>
-    <title>Italian I (non-credit)</title>
-    <description>Italian I (placement purposes only).</description>
-    <catalogNumber>LANG-1611</catalogNumber>
-    <credits>0</credits>
-    <countsAs>LANG-1610</countsAs>
-    <availableTerms>
-      <year-part>FALL</year-part>
-      <year-part>SPRING</year-part>
-    </availableTerms>
-  </course>
-  <course>
-    <title>Italian II (non-credit)</title>
-    <description>Italian II (placement purposes only).</description>
-    <catalogNumber>LANG-1621</catalogNumber>
-    <credits>0</credits>
-    <countsAs>LANG-1620</countsAs>
-    <availableTerms>
-      <year-part>FALL</year-part>
-      <year-part>SPRING</year-part>
-    </availableTerms>
-  </course>
-  <degree>
-    <id>6</id>
-    <name>B.S. Bioinformatics &amp; Molecular Biology 2012</name>
-    <school>School of Science</school>
-    <validationCode>degree "B.S. Bioinformatics &amp; Molecular Biology 2012", 6 do |d|
-  d.section "Communication Requirement" do |s|
-    s.valid_courses do |course|
-      course.description =~ /(communication|writing)[- ]intensive/i
-    end
-    s.exclusive = false
-    s.count = 2
-  end
-
-  d.section "Mathematics Requirement" do |s|
-    s.valid_courses {|course| course.catalogNumber =~ /MAT[HP]-[12346].../}
-    s.count = 3
-  end
-  
-  d.section "Chemistry Requirement" do |s|
-    s.courses 'CHEM-1100','CHEM-1200','CHEM-2250','CHEM-2260','CHEM-4330','CHEM-4340','CHEM-2230','CHEM-2240'
-  end
-  
-  d.section "Computer Science Requirement" do |s|
-    s.courses 'CSCI-1100','CSCI-1200'
-    s.count = 2
-  end
-  
-  d.section "Physics Requirement" do |s|
-	s.courses 'PHYS-1100','PHYS-1200'
-	s.count = 2
-  end
-	
-  d.section "Required Courses" do |s|
-    s.courses 'BIOL-1010','BIOL-2120','BIOL-4620','BIOL-4760','BIOL-4770','BIOL-4540','BIOL-4720','BIOL-4550','BIOL-4630'
-	s.one_of 'BIOL-4630','BIOL-4640','CHEM-4300'
-  end
-  
-  d.section "Culminating Experience" do |s|
-    s.courses "BIOL-4990"
-  end
-
-  d.section "H&amp;SS Core" do |s|
-    s.credits = 24
-    s.description = &lt;&lt;-EOF
-    Select a minimum of 2 4-credit courses in Humanities 
-    Select a minimum of 2 4-credit courses in the Social Sciences 
-    No more than 3 1000-level H&amp;SS courses may be applied to the H&amp;SS Core 
-    No more than 6 credits may be taken P/NC 
-    At least ONE 4 credit course must be at the 4000 level 
-    No more than 2 courses may transfer towards the 
-    H&amp;SS Core (including Adv Placement), excludes Transfer Students. 
-    Depth Requirement: 2 4-credit courses in same H or SS 
-    subject area with at least 1 above the .1000 level and none on Pass/No Credit 
-    Engineering majors (except ROTC cadets) choose a 2 credit 
-    course to meet their Profess Development II requirement. 
-    (PSYC 4170 or STSS 4840 Professional Development). 
-    The TOTAL H&amp;SS Core Requirement is 22 credits.
-    EOF
-    s.valid_courses_special do |courses|
-      numonethousand = 0
-      courses.select do |course|
-        if ['IHSS','ARTS','LANG','LITR','COMM','WRIT','STSH','PHIL',
-          'COGS','ECON','IHSS','PSYC','STSS'].include?(course.catalogNumber[0..3])
-          if course.level == '1000'
-            numonethousand += 1
-            numonethousand &lt;= 3
-          else
-            true
-          end
-        else
-          false
-        end
-      end
-    end
-    
-    s.valid_courses do |course|
-        ['IHSS','ARTS','LANG','LITR','COMM','WRIT','STSH','PHIL',
-          'COGS','ECON','IHSS','PSYC','STSS'].include?(course.catalogNumber[0..3])
-    end
-    
-    s.must_have "minimum of 2 4-credit courses in Humanities" do |courses|
-      courses = courses.find_all do |course| 
-        course.credits == 4 &amp;&amp; ['IHSS','ARTS','LANG','LITR','COMM','WRIT','STSH','PHIL'].include?(course.catalogNumber[0..3])
-      end
-      courses.size &gt;= 2
-    end
-
-    s.must_have "minimum of 2 4-credit courses in the Social Sciences" do |courses|
-      courses = courses.find_all do |course| 
-        course.credits == 4 &amp;&amp; ['COGS','ECON','IHSS','PSYC','STSS'].include?(course.catalogNumber[0..3])
-      end
-      courses.size &gt;= 2
-    end
-
-    s.must_have "one 4 credit course at the 4000 level" do |courses|
-      courses.find {|c| c.level == '4000' &amp;&amp; c.credits == 4}
-    end
-    
-    s.must_have "Depth Requirement" do |courses|
-      departments = {}
-      courses.each do |course|
-        dept = course.catalogNumber[0..3]
-        if course.credits == 4
-          departments[dept] ||= []
-          departments[dept] &lt;&lt; course
-        end
-      end
-      
-      success = false
-      departments.each do |dept, courses|
-        above1k = false
-        courses.each do |course|
-          above1k ||= course.level != '1000'
-        end
-        if courses.size &gt;= 2 &amp;&amp; above1k
-          success = true
-        end
-      end
-      success
-    end
-  end
-
-  d.section "Free Electives" do |s|
-    s.valid_courses {|c| true}
-    s.credits = 28
-  end
-
-  d.total_credits = 128
-end</validationCode>
-  </degree>
   <degree>
     <id>2</id>
     <name>B.S. Computer Science 2011</name>
