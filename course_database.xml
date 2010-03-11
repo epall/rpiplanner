@@ -279,6 +279,22 @@ NOTE: demonstration of adequate skills in at least some areas of percussion thro
     <doubleCount>false</doubleCount>
   </course>
   <course>
+    <title>World Music</title>
+    <description>From &#8220;raves&#8221; to symphony hall, Indian film music to Tibetan chant, monster truck rallies to a mother&#8217;s lullaby, musical soundscapes surround us through all aspects of our daily lives. This course focuses on the study of music in or as culture. The exploration of music in human life will be comparative, using case studies from diverse world traditions and examining topics such as: ritual, media and technology, ethnicity/identity, music and dance, and musical transmission.
+
+NOTE: Offered anually. Unclear which term
+</description>
+    <department>Arts</department>
+    <catalogNumber>ARTS-2520</catalogNumber>
+    <credits>4</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>false</doubleCount>
+  </course>
+  <course>
     <title>Art History I: From Paleolithic to Renaissance</title>
     <description>This course is a survey of the visual arts from the Paleolithic to the Renaissance era. Nearly 500 images are analyzed according to style, time, place and character. Relationship of art to ritual, magic, religion, philosophy, literature and music are examined. Material is presented in a form accessible to students without previous knowledge of Art History.</description>
     <department>Arts</department>
@@ -501,7 +517,7 @@ NOTE: programming experience recommended
     <title>Sculpture 2</title>
     <description>An advanced studio course in sculpture for students who have taken Sculpture I. Students are encouraged to explore personal areas of interest and are required to develop a familiarity with the history of sculpture as well as mastering fabrication techniques.
 
-NOTE: Offered on availability of instructor.
+NOTE: Offered on availability of of .
 </description>
     <department>Arts</department>
     <catalogNumber>ARTS-4210</catalogNumber>
@@ -683,6 +699,20 @@ NOTE: Prerequisite: permission of instructor
     <doubleCount>false</doubleCount>
   </course>
   <course>
+    <title>Multimediate Performance Systems</title>
+    <description>Multimedia Performance Systems explores the composition and programming of real-time performance systems.&#160;We will examine the basics of MIDI, sound synthesis, digital signal processing, and image/video manipulation.&#160;Final projects will consist of a real-time performance system or interactive installation.
+
+Cross-listed with ARTS 4030.  Students cannot obtain credit for both courses.</description>
+    <department>Arts</department>
+    <catalogNumber>ARTS-6030</catalogNumber>
+    <credits>3</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>false</doubleCount>
+  </course>
+  <course>
     <title>Electronic Arts Practice</title>
     <description>Development and completion of individual creative projects in electronic arts with discussions and critiques of student work in a seminar format. Projects may use any of the studios and combinations of media available in the iEAR Studios. All projects will be presented or performed in public concerts, exhibitions, and installations.
 
@@ -729,6 +759,24 @@ NOTE: Unclear when course is offered
 </description>
     <department>Arts</department>
     <catalogNumber>ARTS-6130</catalogNumber>
+    <credits>3</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>false</doubleCount>
+  </course>
+  <course>
+    <title>Media Watch</title>
+    <description>This seminar is an investigation of the &#8220;successes&#8221; and &#8220;failures&#8221; of the news media, set within historical and contemporary contexts.&#160; The title &#8220;media watch&#8221; is intended to evoke a &#8220;watch-dog&#8221; approach found in &#8220;independent media&#8221; sources and organizations like &#8220;human rights watch.&#8221; Assignments involve analyzing how issues are portrayed in the media and students choose their topics according to their interests. The course can therefore enhance capstone, thesis, or dissertation work.
+
+Cross-listed with ARTS-4150.  Student cannot obtain credit for both courses.
+
+NOTE: Offered on availability of of .
+</description>
+    <department>Arts</department>
+    <catalogNumber>ARTS-6150</catalogNumber>
     <credits>3</credits>
     <availableTerms>
       <year-part>FALL</year-part>
@@ -799,6 +847,333 @@ NOTE: Unclear when course is offered
     <description>Active participation in research, under the supervision of a faculty adviser, leading to a doctoral dissertation.&#160; Grades of IP are assigned until the dissertation has been publicly defended approved by the doctoral committee, and accepted by the Office of Graduate Education to be archived in a standard format in the library.&#160; Grades will then be listed as S.</description>
     <department>Arts</department>
     <catalogNumber>ARTS-9990</catalogNumber>
+    <credits>0</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>false</doubleCount>
+  </course>
+  <course>
+    <title>Quasars and Cosmology</title>
+    <description>An introduction to the origin and large-scale structure of the Universe. Topics to be covered include: the contents and geometry of the Universe, the Big Bang model, particle physics and the formation of the elements, galaxy formation, dark matter, black holes, and active galactic nuclei. If ASTR 1510 is taken as a 1-credit course, it will be graded satisfactory/unsatisfactory and it cannot be counted towards the Institute&#8217;s baccalaureate requirement of 24 credits in the sciences. If ASTR 1510 is taken as a two-credit&#160; course, it will be graded in the conventional manner. If ASTR 1510 and ASTR 1530 are both taken as graded two-credit courses, they may be counted together as one four-credit elective for nonscience majors.</description>
+    <department>Physics, Applied Physics, and Astronomy</department>
+    <catalogNumber>ASTR-1510</catalogNumber>
+    <credits>1</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>false</doubleCount>
+  </course>
+  <course>
+    <title>Tour of the Solar System</title>
+    <description>A survey of the solar system based on recent results from ground-based observations and space probes. Topics to be covered include: the sun, moon, Venus, Mars, the giant planets, comets, and the search for life in the solar system. If ASTR 1530 is taken as a 1-credit course, it will be graded satisfactory/unsatisfactory, and it cannot be counted towards the Institute&#8217;s baccalaureate requirement of 24 credits in the sciences. If ASTR 1530 is taken as a 2- credit course, it will be graded in the conventional manner. If ASTR 1510 and ASTR 1530 are both taken as graded 2-credit courses, they may be counted together as one 4-credit elective for nonscience majors.</description>
+    <department>Physics, Applied Physics, and Astronomy</department>
+    <catalogNumber>ASTR-1530</catalogNumber>
+    <credits>1</credits>
+    <availableTerms>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>false</doubleCount>
+  </course>
+  <course>
+    <title>Topics in Astronomy and Astrophysics</title>
+    <description>
+
+NOTE: Unclear when course is offered
+</description>
+    <department>Physics, Applied Physics, and Astronomy</department>
+    <catalogNumber>ASTR-1960</catalogNumber>
+    <credits>1</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>false</doubleCount>
+  </course>
+  <course>
+    <title>Introductory Astronomy and Astrophysics</title>
+    <description>Astronomy for students with a background of college mathematics and physics. Topics include: astrophysical concepts, solar system basics, stellar astronomy and the interstellar medium, the Milky Way system, galaxies, quasars, and cosmology.</description>
+    <department>Physics, Applied Physics, and Astronomy</department>
+    <catalogNumber>ASTR-2050</catalogNumber>
+    <credits>4</credits>
+    <prerequisites required="true" pickOne="false">
+      <course>
+        <catalogNumber>MATH-1020</catalogNumber>
+      </course>
+    </prerequisites>
+    <corequisites required="true" pickOne="false">
+      <course>
+        <catalogNumber>PHYS-1200</catalogNumber>
+      </course>
+    </corequisites>
+    <availableTerms>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>false</doubleCount>
+  </course>
+  <course>
+    <title>Earth and Sky</title>
+    <description>An introduction to astronomy from an observational perspective. Students will learn the basics of observing the night-time sky, both with the unaided eye and through telescopic observation. Observations of Earth from orbiting satellites will also be discussed. The course is suitable for nonphysics and nonscience majors as well as those committed to specialization in Astronomy. Includes evening laboratory sessions.</description>
+    <department>Physics, Applied Physics, and Astronomy</department>
+    <catalogNumber>ASTR-2120</catalogNumber>
+    <credits>4</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>false</doubleCount>
+  </course>
+  <course>
+    <title>Special Projects in Astronomy</title>
+    <description>Study and research in various fields of astronomy to demonstrate interest in and ability for independent work.
+
+NOTE: permission of instructor.
+</description>
+    <department>Physics, Applied Physics, and Astronomy</department>
+    <catalogNumber>ASTR-2940</catalogNumber>
+    <credits>3</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>false</doubleCount>
+  </course>
+  <course>
+    <title>Observational Astronomy</title>
+    <description>An introduction to astronomical observing techniques and instrumentation. Optical telescope design. Observatory site selection. Telescopes above the atmosphere. Imaging techniques: photography, charge-coupled devices. Optical photometry, spectroscopy and polarimetry, and their applications. Infrared techniques and applications. Radio astronomy. Includes evening laboratory sessions.
+
+NOTE: prerequisite can be skipped on permission of instructor
+NOTE: programming experience recommended
+</description>
+    <department>Physics, Applied Physics, and Astronomy</department>
+    <catalogNumber>ASTR-4120</catalogNumber>
+    <credits>4</credits>
+    <prerequisites required="false" pickOne="false">
+      <course>
+        <catalogNumber>ASTR-2050</catalogNumber>
+      </course>
+    </prerequisites>
+    <availableTerms>
+      <year-part>FALL</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>false</doubleCount>
+  </course>
+  <course>
+    <title>Astrophysics</title>
+    <description>A survey course in modern astrophysics with an emphasis on stellar astrophysics and interstellar matter; topics include star formation, the structure and observable properties of normal and degenerate stars; and the composition, dynamics, and stability of the interstellar medium.
+
+NOTE: PHYS-4420 can be replaced with equivalent
+</description>
+    <department>Physics, Applied Physics, and Astronomy</department>
+    <catalogNumber>ASTR-4220</catalogNumber>
+    <credits>4</credits>
+    <prerequisites required="true" pickOne="false">
+      <course>
+        <catalogNumber>PHYS-2510</catalogNumber>
+      </course>
+      <course>
+        <catalogNumber>PHYS-4420</catalogNumber>
+      </course>
+    </prerequisites>
+    <availableTerms>
+      <year-part>FALL</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>false</doubleCount>
+  </course>
+  <course>
+    <title>Gravitation and Cosmology</title>
+    <description>Introduction to the physics of gravitation and spacetime. Special relativity, tensor calculus, and relativistic electrodynamics. General relativity with selected applications of Einstein&#8217;s field equations (gravitational time dilation; gravitational lensing; frame dragging; gravitational radiation). The physics of nonrotating and rotating black holes. Relativistic models for the large-scale structure of the Universe. Observational constraints on the cosmological parameters. Big Bang nucleosynthesis, the Cosmic Background Radiation.
+
+NOTE: prerequisite can be skipped on permission of instructor
+NOTE: programming experience recommended
+</description>
+    <department>Physics, Applied Physics, and Astronomy</department>
+    <catalogNumber>ASTR-4240</catalogNumber>
+    <credits>4</credits>
+    <prerequisites required="false" pickOne="false">
+      <course>
+        <catalogNumber>PHYS-2330</catalogNumber>
+      </course>
+    </prerequisites>
+    <availableTerms>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>false</doubleCount>
+  </course>
+  <course>
+    <title>Interstellar Medium</title>
+    <description>Thermal structure and dynamics of the interstellar medium. Topics include diffuse nebulae, composition of interstellar dust and relation to extinction and polarization, molecules and interstellar chemistry, physics of star-forming regions. Students cannot obtain credit for both this course and ASTR-6250.
+
+NOTE: Consult department for availability
+</description>
+    <department>Physics, Applied Physics, and Astronomy</department>
+    <catalogNumber>ASTR-4250</catalogNumber>
+    <credits>3</credits>
+    <prerequisites required="true" pickOne="false">
+      <course>
+        <catalogNumber>ASTR-4220</catalogNumber>
+      </course>
+    </prerequisites>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>false</doubleCount>
+  </course>
+  <course>
+    <title>Origin of Life: A Cosmic Perspective</title>
+    <description>To understand the origin of life is a fundamental goal of science. We discuss evidence for important prebiotic molecules in the clouds from which new planetary systems are born, and compare cosmic and terrestrial sources of such molecules on the primitive Earth. The course is multidisciplinary, covering topics in physics, astronomy, chemistry, earth sciences, and biology.
+
+NOTE: prerequisite can be skipped on permission of instructor
+NOTE: programming experience recommended
+</description>
+    <department>Physics, Applied Physics, and Astronomy</department>
+    <catalogNumber>ASTR-4510</catalogNumber>
+    <credits>4</credits>
+    <prerequisites required="false" pickOne="false">
+      <course>
+        <catalogNumber>ASTR-2050</catalogNumber>
+      </course>
+    </prerequisites>
+    <availableTerms>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>false</doubleCount>
+  </course>
+  <course>
+    <title>Astrophysics Undergraduate Seminar</title>
+    <description>Discussion of topics in the current astrophysical literature. Each student is required to give one oral presentation based on a paper or group of papers.
+
+NOTE: junior standing or higher, or permission of instructor.
+</description>
+    <department>Physics, Applied Physics, and Astronomy</department>
+    <catalogNumber>ASTR-4900</catalogNumber>
+    <credits>1</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>false</doubleCount>
+  </course>
+  <course>
+    <title>Special Projects in Astronomy</title>
+    <description>Study and research in various fields of astronomy to demonstrate interest in and ability for independent work.
+
+NOTE: permission of instructor.
+</description>
+    <department>Physics, Applied Physics, and Astronomy</department>
+    <catalogNumber>ASTR-4940</catalogNumber>
+    <credits>3</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>true</doubleCount>
+  </course>
+  <course>
+    <title>Topics in Astronomy and Astrophysics</title>
+    <description>
+
+NOTE: Unclear when course is offered
+</description>
+    <department>Physics, Applied Physics, and Astronomy</department>
+    <catalogNumber>ASTR-4960</catalogNumber>
+    <credits>4</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>true</doubleCount>
+  </course>
+  <course>
+    <title>Interstellar Medium</title>
+    <description>Thermal structure and dynamics of the interstellar medium. Topics include diffuse nebulae, composition of interstellar dust and relation to extinction and polarization, molecules and interstellar chemistry, physics of star-forming regions. Students cannot obtain credit for both this course and ASTR 4250.
+
+NOTE: Consult department for availability
+</description>
+    <department>Physics, Applied Physics, and Astronomy</department>
+    <catalogNumber>ASTR-6250</catalogNumber>
+    <credits>3</credits>
+    <prerequisites required="true" pickOne="false">
+      <course>
+        <catalogNumber>ASTR-4220</catalogNumber>
+      </course>
+    </prerequisites>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>false</doubleCount>
+  </course>
+  <course>
+    <title>Astrophysics Seminar</title>
+    <description>Discussion of topics in the current astrophysical literature. Each student is required to give an oral presentation based on a paper or group of papers. For graduate students only.</description>
+    <department>Physics, Applied Physics, and Astronomy</department>
+    <catalogNumber>ASTR-6900</catalogNumber>
+    <credits>1</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>false</doubleCount>
+  </course>
+  <course>
+    <title>Readings in Astronomy and Astrophysics</title>
+    <description>
+
+NOTE: Unclear when course is offered
+</description>
+    <department>Physics, Applied Physics, and Astronomy</department>
+    <catalogNumber>ASTR-6940</catalogNumber>
+    <credits>3</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>true</doubleCount>
+  </course>
+  <course>
+    <title>Special Topics in Astronomy and Astrophysics</title>
+    <description>Supervised reading and study in various fields of astrophysics.
+
+NOTE: Unclear when course is offered
+</description>
+    <department>Physics, Applied Physics, and Astronomy</department>
+    <catalogNumber>ASTR-6960</catalogNumber>
+    <credits>3</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>true</doubleCount>
+  </course>
+  <course>
+    <title>Professional Project</title>
+    <description>Active participation in a semester-long project, under the supervision of a faculty adviser. A Professional Project often serves as a culminating experience for a Professional Master&#8217;s program but, with departmental or school approval, can be used to fulfill other program requirements. With approval, students may register for more than one Professional Project. Professional Projects must result in documentation established by each department or school, but are not submitted to the Graduate School and are not archived in the library. Grades of A, B, C, or F are assigned by the faculty adviser at the end of the semester. If not completed on time, a formal Incomplete grade may be assigned by the faculty adviser, listing the work remaining to be completed and the time limit for completing this work.
+
+NOTE: Unclear when course is offered
+</description>
+    <department>Physics, Applied Physics, and Astronomy</department>
+    <catalogNumber>ASTR-6970</catalogNumber>
     <credits>0</credits>
     <availableTerms>
       <year-part>FALL</year-part>
@@ -1229,6 +1604,28 @@ NOTE: programming experience recommended
     <doubleCount>false</doubleCount>
   </course>
   <course>
+    <title>Molecular Biology</title>
+    <description>Nucleotide biosynthesis; structure, replication, transcription, and translation of nucleic acids; reassociation of nucleic acids; molecular cloning, sequencing, and endonuclease mapping of DNA; control of gene expression in bacteria and higher organisms.</description>
+    <department>Biology</department>
+    <catalogNumber>BIOL-4620</catalogNumber>
+    <credits>4</credits>
+    <prerequisites required="true" pickOne="false">
+      <course>
+        <catalogNumber>BIOL-2120</catalogNumber>
+      </course>
+    </prerequisites>
+    <corequisites required="true" pickOne="false">
+      <course>
+        <catalogNumber>BIOL-2500</catalogNumber>
+      </course>
+    </corequisites>
+    <availableTerms>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>false</doubleCount>
+  </course>
+  <course>
     <title>Molecular Biology II</title>
     <description>This course will provide students with an in-depth examination of the molecular mechanisms involved with gene regulation. The goal of this course will be to expose students to the complexity of regulation of specific biological phenomena, emphasizing current areas of research interest. Examples of semester topics include aspects of immunity, the cell cycle and oncogenes, phage replication and infection, and cellular growth and development.</description>
     <department>Biology</department>
@@ -1323,6 +1720,33 @@ NOTE: prerequisite can be replaced with an equivalent
       </course>
       <course>
         <catalogNumber>BIOL-2500</catalogNumber>
+      </course>
+    </prerequisites>
+    <availableTerms>
+      <year-part>FALL</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>false</doubleCount>
+  </course>
+  <course>
+    <title>Molecular Biochemistry I</title>
+    <description>Part I of a two-semester sequence focusing on the chemistry, structure, and function of biological molecules, macromolecules, and systems. Topics covered include protein and nucleic acid synthesis, enzymology, mechanisms of catalysis, regulation, lipids and membranes, carbohydrates, bioenergetics, and carbohydrate metabolism. This course is taught in studio mode. (Students cannot obtain credit for both this course and either BCBP-4760 or CHEM-4760.)
+
+NOTE: CHEM-2250 or CHEM-2210
+NOTE: BIOL-1010 or equivalent
+</description>
+    <department>Biology</department>
+    <catalogNumber>BIOL-4760</catalogNumber>
+    <credits>4</credits>
+    <prerequisites required="true" pickOne="true">
+      <course>
+        <catalogNumber>CHEM-2250</catalogNumber>
+      </course>
+      <course>
+        <catalogNumber>CHEM-2210</catalogNumber>
+      </course>
+      <course>
+        <catalogNumber>BIOL-1010</catalogNumber>
       </course>
     </prerequisites>
     <availableTerms>
@@ -1502,6 +1926,36 @@ NOTE: college-level math, or permission of the instructor required
     </prerequisites>
     <availableTerms>
       <year-part>FALL</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>false</doubleCount>
+  </course>
+  <course>
+    <title>Bioinformatics II: Molecular Modeling</title>
+    <description>This studio course covers use of homology to extract information about structure and function from amino acid sequences. Concepts covered include structural homology, structural motifs and databases, homology modeling of macromolecules, energy minimization and relaxation, water considerations, molecular docking and molecular dynamics.
+
+NOTE: BIOL-4760 or BCBP-4760 or CHEM-4760 or equivalent
+NOTE: or permission of instructor
+</description>
+    <department>Biology</department>
+    <catalogNumber>BIOL-6420</catalogNumber>
+    <credits>3</credits>
+    <prerequisites required="true" pickOne="true">
+      <course>
+        <catalogNumber>BIOL-6410</catalogNumber>
+      </course>
+      <course>
+        <catalogNumber>BIOL-4760</catalogNumber>
+      </course>
+      <course>
+        <catalogNumber>BCBP-4760</catalogNumber>
+      </course>
+      <course>
+        <catalogNumber>CHEM-4760</catalogNumber>
+      </course>
+    </prerequisites>
+    <availableTerms>
+      <year-part>SPRING</year-part>
     </availableTerms>
     <isOfficial>true</isOfficial>
     <doubleCount>false</doubleCount>
@@ -2268,7 +2722,7 @@ NOTE: prerequisite can be replaced with an equivalent
     <title>Machine and Computational Learning</title>
     <description>Introduction to the theory, algorithms, and applications of automated learning (supervised, reinforcement, and unsupervised), how much information and computation are needed to learn a task, and how to accomplish it. Emphasis will be given to unifying approaches coming from statistics, function approximation, optimization and pattern recognition. Topics include: Decision Trees, Neural Networks, RBF&#8217;s, Bayesian Learning, PAC Learning, Support Vector Machines, Gaussian processes, Hidden Markov Models.
 
-NOTE: Offered on availability of instructor.
+NOTE: Offered on availability of of .
 NOTE: familiarity with probability, linear algebra, and calculus.
 </description>
     <department>Computer Science</department>
@@ -2579,7 +3033,7 @@ Cross-listed with CSCI 6530.</description>
     <title>The Human-Computer Interface</title>
     <description>An exploration of the languages, techniques, and mechanisms used to define and enhance communication between people and computer applications, both for input and output, in the general case and for a variety of important special domains. Use of graphics in the interface; multimedia environments; alternative I/O devices; issues in interface design. Interactive in-class exercises and activities. Substantial programming projects are assigned in a number of languages and for a variety of platforms. Students also prepare oral presentations based on material from the current scientific literature.
 
-NOTE: Offered on availability of instructor.
+NOTE: Offered on availability of of .
 </description>
     <department>Computer Science</department>
     <catalogNumber>CSCI-4600</catalogNumber>
@@ -2775,7 +3229,7 @@ NOTE: prerequisite can be replaced with an equivalent
     <title>Machine and Computational Learning</title>
     <description>Introduction to the theory, algorithms, and applications of automated learning (supervised, reinforcement, and unsupervised), how much information and computation are needed to learn a task, and how to accomplish it. Emphasis will be given to unifying approaches coming from statistics, function approximation, optimization, and pattern recognition. Topics include: Decision Trees, Neural Networks, RBF&#8217;s, Bayesian Learning, PAC Learning, Support Vector Machines, Gaussian processes, Hidden Markov Models.
 
-NOTE: Offered on availability of instructor.
+NOTE: Offered on availability of of .
 NOTE: familiarity with probability, linear algebra, and calculus.
 </description>
     <department>Computer Science</department>
@@ -2792,7 +3246,7 @@ NOTE: familiarity with probability, linear algebra, and calculus.
     <title>Distributed Operating Systems</title>
     <description>A detailed discussion of issues in distributed operating system design and in computer security.&#160; The topics discussed include distributed algorithms, distributed deadlock detection and recovery, distributed concurrency control and synchronization, cryptography, and computer security. If both CSCI 6130 and CSCI 6140 are to be taken, CSCI 6140 should be taken first.
 
-NOTE: Offered on availability of instructor.
+NOTE: Offered on availability of of .
 </description>
     <department>Computer Science</department>
     <catalogNumber>CSCI-6130</catalogNumber>
@@ -2857,7 +3311,7 @@ NOTE: prerequisite can be replaced with an equivalent
     <title>Parallel Algorithm Design</title>
     <description>Models of parallel computation; deterministic and probabilistic PRAM model; P-complete problems. Techniques for designing efficient parallel algorithms. Parallel sorting prefix and suffix computation, list ranking, DAG evaluation, solving linear systems, graph and combinatorial problems.
 
-NOTE: Offered on availability of instructor.
+NOTE: Offered on availability of of .
 NOTE: prerequisite can be replaced with an equivalent
 </description>
     <department>Computer Science</department>
@@ -2942,7 +3396,7 @@ NOTE: user interface design experience.
     <title>Parallel Computing</title>
     <description>A survey of fundamental issues in design of efficient programs for parallel computers. The topics discussed include models of parallel machines and programs, efficiency of parallel algorithms, programming styles for shared memory, message passing, data parallelism, and using MPI in scientific parallel programs. Parallel programming project required.
 
-NOTE: Offered on availability of instructor.
+NOTE: Offered on availability of of .
 NOTE: prerequisite can be replaced with an equivalent
 </description>
     <department>Computer Science</department>
@@ -2984,7 +3438,7 @@ NOTE: prerequisite can be replaced with an equivalent
     <title>Advanced Database Management Topics</title>
     <description>This course is a continuation of CSCI-4380 and presents a more theoretical approach to logical and physical database design. It covers such topics as algorithms for logical database design, primary and secondary indexing techniques, query processing and query optimization, and database security. Problems of interfacing a database system with an operating system and some of the issues in implementing distributed database systems are also discussed. Much of the material comes from recent research papers. A term paper may be required.
 
-NOTE: Offered on availability of instructor.
+NOTE: Offered on availability of of .
 </description>
     <department>Computer Science</department>
     <catalogNumber>CSCI-6460</catalogNumber>
@@ -3005,7 +3459,7 @@ NOTE: Offered on availability of instructor.
     <title>Database Systems for Engineering Applications</title>
     <description>A survey of traditional database systems is followed by an examination of differences between applications of those systems and engineering applications. Database systems for engineering applications are described including the concepts of long transactions, version control, object-oriented support, and concurrent engineering.
 
-NOTE: Offered on availability of instructor.
+NOTE: Offered on availability of of .
 NOTE: prerequisite can be replaced with an equivalent
 NOTE: prerequisite can be skipped on permission of instructor
 NOTE: programming experience recommended
@@ -3029,7 +3483,7 @@ NOTE: programming experience recommended
     <title>Theory of Compiler Design</title>
     <description>The use of language theory and automata theory in the design of compilers. Syntax-directed compilers. Lexical analysis and computer implementation of finite state machines. Syntax analysis, parsing versus restructuring. Top-down and bottom-up parsing algorithms. TD(k) and LR(k) grammars. The Younges algorithm. Syntax-directed transducers.
 
-NOTE: Offered on availability of instructor.
+NOTE: Offered on availability of of .
 NOTE: prerequisite can be replaced with an equivalent
 NOTE: prerequisite can be skipped with thorough knowledge of a scientific computer language, preferably C
 </description>
@@ -3493,6 +3947,26 @@ NOTE: prerequisite can be replaced with an equivalent
     <doubleCount>false</doubleCount>
   </course>
   <course>
+    <title>Organic Chemistry Laboratory II</title>
+    <description>A continuation of CHEM 2230, which is a prerequisite.
+
+NOTE: or a similar course in organic chemistry
+</description>
+    <department>Chemistry and Chemical Biology</department>
+    <catalogNumber>CHEM-2240</catalogNumber>
+    <credits>1</credits>
+    <corequisites required="true" pickOne="false">
+      <course>
+        <catalogNumber>CHEM-2220</catalogNumber>
+      </course>
+    </corequisites>
+    <availableTerms>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>false</doubleCount>
+  </course>
+  <course>
     <title>Organic Chemistry I</title>
     <description>Structure, chemical behavior, occurrence and uses of organic compounds. Compounds of biological, environmental and industrial importance are specifically addressed. Recommended for students in biology and health related areas. Students cannot obtain credit for both CHEM 2250 and CHEM 2210.
 
@@ -3779,6 +4253,23 @@ NOTE: prerequisite can be skipped on permission of instructor
         <catalogNumber>CHEM-2260</catalogNumber>
       </course>
     </prerequisites>
+    <availableTerms>
+      <year-part>FALL</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>false</doubleCount>
+  </course>
+  <course>
+    <title>Drug Discovery Laboratory</title>
+    <description>In this laboratory associated with CHEM-4330, students will reduce to practice the chemical and biological aspects of high-throughput screening used to discover lead molecules. Colorimetric and fluorescence plate readers will be used in 96-well plate format to generate enzyme inhibition data for small libraries of organic molecules. Students will use these inhibition data and published X-ray structural data to develop a pharmacophore model and rationalize a structure-activity relationship.</description>
+    <department>Chemistry and Chemical Biology</department>
+    <catalogNumber>CHEM-4340</catalogNumber>
+    <credits>1</credits>
+    <corequisites required="true" pickOne="false">
+      <course>
+        <catalogNumber>CHEM-4330</catalogNumber>
+      </course>
+    </corequisites>
     <availableTerms>
       <year-part>FALL</year-part>
     </availableTerms>
@@ -6439,10 +6930,27 @@ NOTE: any COMM or LITR course or permission of instructor.
     <doubleCount>false</doubleCount>
   </course>
   <course>
+    <title>Research Design and Analysis for New Media</title>
+    <description>A practicum in research focusing on methodology for assessing Web usage and computer-mediated behavior. Topics include research design issues, data gathering, sample frames, recruitment and treatment of subjects and quantitative analysis of online surveys, server bits, and other forms of direct and unobtrusive data.
+
+NOTE: Offered on availability of of .
+NOTE: at least one previous 4000-level research course; one course in statistics is advisable.
+</description>
+    <department>Language, Literature, and Communication</department>
+    <catalogNumber>COMM-4590</catalogNumber>
+    <credits>4</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>false</doubleCount>
+  </course>
+  <course>
     <title>Rhetorical Analysis</title>
     <description>A study of the persuasive use of language. Some basic theories of argument and style are explored as a means of improving the students&#8217; ability to both analyze and create rhetorical discourse.
 
-NOTE: Offered on availability of instructor.
+NOTE: Offered on availability of of .
 NOTE: prerequisite can be skipped on permission of instructor
 NOTE: programming experience recommended
 </description>
@@ -6619,7 +7127,7 @@ NOTE: programming experience recommended
     <title>Social Impact of Electronic Media</title>
     <description>An exploration of the effects of electronic media such as the Internet, multimedia, computers, pop music, and television. The effects examined include changes in social and work relationships, time displacement, audience aggression, child socialization, education, and consumer behavior.
 
-NOTE: Offered on availability of instructor.
+NOTE: Offered on availability of of .
 NOTE: any communication course or permission of the instructor.
 </description>
     <department>Language, Literature, and Communication</department>
@@ -6658,7 +7166,7 @@ Cross-listed with COMM 6800. Students cannot obtain credit for both courses.</de
     <title>Electronic Media and Society</title>
     <description>Electronic media such as the Internet, cable television, movies, and pop music are both producers of information and large organizational structures. The course analyzes the interplay between media organizations and society at large.
 
-NOTE: Offered on availability of instructor.
+NOTE: Offered on availability of of .
 </description>
     <department>Language, Literature, and Communication</department>
     <catalogNumber>COMM-4810</catalogNumber>
@@ -6757,7 +7265,7 @@ NOTE: Unclear when course is offered
     <title>Rhetorical Analysis</title>
     <description>The application of rhetorical concepts in the analysis and appraisal of discourse. Students pursue projects under the direction of the instructor; weekly seminar meetings are devoted principally to discussions of ongoing projects.
 
-NOTE: Offered on availability of instructor.
+NOTE: Offered on availability of of .
 </description>
     <department>Language, Literature, and Communication</department>
     <catalogNumber>COMM-6280</catalogNumber>
@@ -6943,6 +7451,23 @@ Cross-listed with COMM 4570.</description>
     <doubleCount>false</doubleCount>
   </course>
   <course>
+    <title>Research Design and Analysis for New Media</title>
+    <description>A practicum in research focusing on methodology for assessing Web usage and computer-mediated behavior. Topics include research design issues, data gathering, sample frames, recruitment and treatment of subjects, and quantitative analysis of online surveys, server bits, and other forms of direct and unobtrusive data.
+
+NOTE: Offered on availability of of .
+NOTE: at least one previous 4000-level research course; one course in statistics is advisable.
+</description>
+    <department>Language, Literature, and Communication</department>
+    <catalogNumber>COMM-6600</catalogNumber>
+    <credits>3</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>false</doubleCount>
+  </course>
+  <course>
     <title>Visual Literacy</title>
     <description>This course examines the notion of visual literacy&#8212;the ability to create effective visual layouts and analyze visual language for meaning. Through readings, discussions, and praxis exercises, students learn the lexicon of visual communication, how to critically evaluate a visual argument, and how to apply visual literacy theory to practice.
 
@@ -6960,7 +7485,7 @@ Cross-listed with COMM 4660. Students cannot obtain credit for both courses.</de
     <title>Rhetoric of the Photograph</title>
     <description>This is a theoretical course exploring three aspects of photography that have a rhetorical component. These aspects are the formal &#8220;aesthetic&#8221; elements of the photographic image; the psychological, psychoanalytical relationship between viewer, model, camera, and photographer; and the social/political effects of photography in our culture.
 
-NOTE: Offered on availability of instructor.
+NOTE: Offered on availability of of .
 NOTE: graduate standing or permission of instructor.
 </description>
     <department>Language, Literature, and Communication</department>
@@ -7200,7 +7725,7 @@ NOTE: prerequisite can be replaced with an equivalent
     <title>Economic Analysis of Technological Change</title>
     <description>An examination of the economic considerations that influence the creation and assimilation of new products and processes, and of the impact of technological change on the structures and evolution of the American economy and environment. Topics include productivity growth, the organization and management of industrial research and development, the interaction between technological change and industrial structure, diffusion of innovations, and technological unemployment. This is a communication-intensive course.
 
-NOTE: Offered on availability of instructor.
+NOTE: Offered on availability of of .
 NOTE: prerequisite can be skipped on permission of instructor
 </description>
     <department>Economics</department>
@@ -7264,7 +7789,7 @@ NOTE: programming experience recommended
     <title>Economics of Government Regulation</title>
     <description>Can government intervention improve the performance of private markets and if so, when and how? How is regulatory policy actually made, and what effects has it had? We apply these questions to the experience in the U.S. and elsewhere with telecommunications, electricity, transportation, financial services, job safety, and environmental regulation.
 
-NOTE: Offered on availability of instructor.
+NOTE: Offered on availability of of .
 NOTE: prerequisite can be skipped on permission of instructor
 NOTE: programming experience recommended
 </description>
@@ -7308,7 +7833,7 @@ NOTE: programming experience recommended
     <title>Development of Economic Thought</title>
     <description>A critical examination in which comparisons are made and contrasts emphasized between different schools of economic thinking such as classicism, marginalism, socialism, institutionalism, neoclassicism, and Keynesianism. Special attention is given to historical theories and attitudes of economists toward technological change and its impact on human welfare.
 
-NOTE: Offered on availability of instructor.
+NOTE: Offered on availability of of .
 NOTE: prerequisite can be skipped on permission of instructor
 NOTE: programming experience recommended
 </description>
@@ -7648,7 +8173,7 @@ Students cannot receive credit for both ECON 4260 and ECON 6260.</description>
     <title>Introduction to Economic Theory</title>
     <description>The course examines the basic concepts and techniques of economic analysis and their applications to economics problems at the level of the firm, industry, and economy as a whole. Topics include theory of product and factor pricing, national income and employment theory, monetary and fiscal theories, economic growth and fluctuations.
 
-NOTE: Offered on availability of instructor.
+NOTE: Offered on availability of of .
 </description>
     <department>Economics</department>
     <catalogNumber>ECON-6490</catalogNumber>
@@ -9464,7 +9989,7 @@ NOTE: even-numbered years ONLY
     <title>Advanced VLSI Design</title>
     <description>The reliable development of VLSI designs. Topics include device modeling, comparative circuit performance, design for testability, multiprocessor architectures, and memory and microprocessor design. Laboratory experiments involve the use of an ensemble of CAD tools, including SPICE, placement and routing, and high-level design descriptions. A term report and project are required.
 
-NOTE: Offered on availability of instructor.
+NOTE: Offered on availability of of .
 </description>
     <department>Electrical, Computer, and Systems Engineering</department>
     <catalogNumber>ECSE-6680</catalogNumber>
@@ -10984,6 +11509,171 @@ NOTE: Unclear when course is offered
     <doubleCount>true</doubleCount>
   </course>
   <course>
+    <title>Introduction to IT</title>
+    <description></description>
+    <department>Information Technology</department>
+    <catalogNumber>ITEC-1100</catalogNumber>
+    <credits>4</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>false</doubleCount>
+  </course>
+  <course>
+    <title>Introduction to UML</title>
+    <description></description>
+    <department>Information Technology</department>
+    <catalogNumber>ITEC-1150</catalogNumber>
+    <credits>1</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>false</doubleCount>
+  </course>
+  <course>
+    <title>IT and Society</title>
+    <description>Will IT increase prosperity? For whom? What role should governments play in IT development? Do corporations have new responsibilities in the Information Era? What about IT professionals? This course explores the issues, the arguments and working solutions. The first section examines macro indicators and trends. The second section examines the microeconomics and politics of specific arenas&#8212;the software industry, the automated work place, telemedicine, television. The last section explores opportunities for improving society, using IT.
+
+Cross-listed as IHSS 1220. Students cannot obtain credit for both this course and IHSS 1220.</description>
+    <department>Information Technology</department>
+    <catalogNumber>ITEC-1220</catalogNumber>
+    <credits>4</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>false</doubleCount>
+  </course>
+  <course>
+    <title>Web Systems Development</title>
+    <description>This course involves a study of the methods used to extract and deliver dynamic information on the World Wide Web. The course uses a hands-on approach in which students actively develop Web-based software systems. Additional topics include installation, configuration, and management of Web servers. Students are required to have access to a PC on which they can install software such as a Web server and various programming environments.
+
+NOTE: prerequisite can be replaced with an equivalent
+</description>
+    <department>Information Technology</department>
+    <catalogNumber>ITEC-2110</catalogNumber>
+    <credits>4</credits>
+    <prerequisites required="false" pickOne="false">
+      <course>
+        <catalogNumber>CSCI-1200</catalogNumber>
+      </course>
+    </prerequisites>
+    <availableTerms>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>false</doubleCount>
+  </course>
+  <course>
+    <title>Introduction to Human Computer Interaction</title>
+    <description>An introduction to the current theories, methods, and issues in human-computer interaction. Theory and research along with practical application are discussed within the context of organizational impact. The course provides the knowledge of HCI systems and research used for the implementation of safe, quick, and useable interactive technologies.</description>
+    <department>Information Technology</department>
+    <catalogNumber>ITEC-2210</catalogNumber>
+    <credits>4</credits>
+    <availableTerms>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>false</doubleCount>
+  </course>
+  <course>
+    <title>Business Issues for Engineers and Scientists</title>
+    <description>Investigates business-related considerations in successfully commercializing new technology in a new venture or within an existing enterprise: market and customer analysis, beating the competition, planning and managing for profitability, high-tech marketing and sales, and business partnerships and acquisitions. Not a general management course; focuses explicitly on what is relevant for engineers and scientists working in a commercial environment. For junior/senior undergraduate or graduate students.
+
+Cross-listed as ENGR 4100/ENGR 6100 and ITEC 6300. Students can only obtain credit for one of these courses.</description>
+    <department>Information Technology</department>
+    <catalogNumber>ITEC-4300</catalogNumber>
+    <credits>4</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>false</doubleCount>
+  </course>
+  <course>
+    <title>Managing IT Resources</title>
+    <description>This course provides an introduction to fundamental concepts of management and applies them to IT. It examines the use of IT in business processes and the management issues of integrating IT into organizational processes to gain competitive advantage. Topics include: management, organizations, and information systems; development life cycle; project management and systems engineering; process reengineering; and organizational learning. This course includes the planning, development, and implementation of an IT project for a real client.
+
+NOTE: prerequisite can be skipped on permission of instructor
+NOTE: programming experience recommended
+</description>
+    <department>Information Technology</department>
+    <catalogNumber>ITEC-4310</catalogNumber>
+    <credits>4</credits>
+    <prerequisites required="false" pickOne="false">
+      <course>
+        <catalogNumber>ITEC-2110</catalogNumber>
+      </course>
+    </prerequisites>
+    <availableTerms>
+      <year-part>FALL</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>false</doubleCount>
+  </course>
+  <course>
+    <title>Business Issues for Engineers and Scientists</title>
+    <description>Investigates business-related considerations in successfully commercializing new technology in a new venture or within an existing enterprise: market and customer analysis, beating the competition, planning and managing for profitability, high-tech marketing and sales, and business partnerships and acquisitions. Not a general management course; focuses explicitly on what is relevant for engineers and scientists working in a commercial environment. For junior/senior undergraduate or graduate students.
+
+Cross-listed as ENGR 4100/ENGR 6100 and ITEC 4300. Students can only obtain credit for one of these courses.</description>
+    <department>Information Technology</department>
+    <catalogNumber>ITEC-6300</catalogNumber>
+    <credits>4</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>false</doubleCount>
+  </course>
+  <course>
+    <title>Information Technology and Decision Systems Capstone</title>
+    <description>Integration of the knowledge and professional practice of the Master&#8217;s in IT core and concentration courses. Topics in database systems, networking, software design, human computer interaction, management of technology, and ethics are applied within a framework of global e-business strategy. The course utilizes a Team Project with a real organization to practice major IT concepts. Team members select, develop, and present a significant technology implementation project, incorporating strategy, systems development and business planning.</description>
+    <department>Information Technology</department>
+    <catalogNumber>ITEC-6800</catalogNumber>
+    <credits>3</credits>
+    <availableTerms>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>false</doubleCount>
+  </course>
+  <course>
+    <title>Master&#8217;s Project</title>
+    <description>Active participation in a master&#8217;s-level project under the supervision of a faculty adviser, leading to a master&#8217;s project report. Grades of IP are assigned until the master&#8217;s project has been approved by the faculty adviser and the Office of Graduate Education to then be archived in a standard format in the library. Grades will then be listed as S.
+
+NOTE: Unclear when course is offered
+</description>
+    <department>Information Technology</department>
+    <catalogNumber>ITEC-6980</catalogNumber>
+    <credits>3</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>false</doubleCount>
+  </course>
+  <course>
+    <title>Master&#8217;s Thesis</title>
+    <description>Active participation in research, under the supervision of a faculty adviser, leading to a master&#8217;s thesis. Grades of IP are assigned until the thesis has been approved by the faculty adviser and accepted by the Office of Graduate Education to be archived in a standard format in the library. Grades will then be listed as S.
+
+NOTE: Unclear when course is offered
+</description>
+    <department>Information Technology</department>
+    <catalogNumber>ITEC-6990</catalogNumber>
+    <credits>3</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>false</doubleCount>
+  </course>
+  <course>
     <title>Introduction to Literature</title>
     <description>A study of major literary works that introduces students to basic ideas and terminology in literary criticism. Students learn to read and interpret a selection of novels, plays, poetry, or other forms of writing to be determined each semester by the instructor.</description>
     <department>Language, Literature, and Communication</department>
@@ -11066,7 +11756,7 @@ NOTE: alternate years ONLY
     <title>Black Film</title>
     <description>A survey of black films of the 20th century and an analysis of the plot, theme, cultural construction, characterization, moral-,philosophical implications, black images, and historical context to black life and national conditions.
 
-NOTE: Offered on availability of instructor.
+NOTE: Offered on availability of of .
 </description>
     <department>Language, Literature, and Communication</department>
     <catalogNumber>LITR-2460</catalogNumber>
@@ -11082,7 +11772,7 @@ NOTE: Offered on availability of instructor.
     <title>Study of African-American Literature</title>
     <description>This course provides an introduction to black authors and their literary contributions and an analysis of their relationship to black thought and culture. Various forms of literature, such as folk tales, poetry, short story, prose, and essay, will be presented with emphasis on literary style and content as influenced by the social environment of the periods of America&#8217;s historical development from 1619 to the present. Students will write about these works in class, including a 30-page (typed) critical research paper outside of class. Workshops, lectures, oral reports, and group discussions will be the methodology for each class session.
 
-NOTE: Offered on availability of instructor.
+NOTE: Offered on availability of of .
 </description>
     <department>Language, Literature, and Communication</department>
     <catalogNumber>LITR-2470</catalogNumber>
@@ -11098,7 +11788,7 @@ NOTE: Offered on availability of instructor.
     <title>The Short Story</title>
     <description>A study of outstanding short stories from 19th-and 20th-century Europe and America, usually including works by such writers as Boccaccio, Flaubert, Chekhov, Borges, Ellison, Faulkner, Hemingway, Chopin, Joyce, Kafka, O&#8217;Connor, and Welty.
 
-NOTE: Offered on availability of instructor.
+NOTE: Offered on availability of of .
 </description>
     <department>Language, Literature, and Communication</department>
     <catalogNumber>LITR-2500</catalogNumber>
@@ -11114,7 +11804,7 @@ NOTE: Offered on availability of instructor.
     <title>Modern Drama</title>
     <description>A survey of the work of modern dramatists such as Shaw, Ibsen, and O&#8217;Neill, as well as more contemporary playwrights such as Miller, Williams, Brecht, Beckett, Orton, and Stoppard.
 
-NOTE: Offered on availability of instructor.
+NOTE: Offered on availability of of .
 </description>
     <department>Language, Literature, and Communication</department>
     <catalogNumber>LITR-2540</catalogNumber>
@@ -11683,7 +12373,7 @@ NOTE: senior standing
     <title>Dynamics and Control of Multibody Systems</title>
     <description>Dynamic analysis and control of multibody mechanical systems. Review of dynamic analysis using Newton-Euler and Lagrange formulations of equations of motion. Introduction to dynamic analysis using Kane&#8217;s Method. Comparison of the methods for formulating equations of motion. Computer-aided control system analysis and design using root-locus, frequency-response, and statespace analysis and design methods. Introduction to linear quadratic control and robust/H control.
 
-NOTE: Offered on availability of faculty.
+NOTE: Offered on availability of of .
 </description>
     <department>Mechanical, Aerospace, and Nuclear Engineering</department>
     <catalogNumber>MANE-4270</catalogNumber>
@@ -12431,7 +13121,7 @@ NOTE: Offered on sufficient demand.
     <title>Dynamics of Rotating Machinery</title>
     <description>Analytical basis of design for rotating machinery mounted on various types of bearing supports, as exemplified by turboshaft engines, centrifugal or axial flow compressors, vehicle drivetrains, etc. Description of analytical and numerical tools for evaluation of dynamic stability, critical speeds, and unbalance response of rotor-bearing systems. Special problems encountered in modern applications operating through and above the critical speeds, and means of their solution, including rigid and flexible rotor balancing and support damper design. Several informal laboratory sessions are included to enhance visualization of rotordynamic phenomena.
 
-NOTE: Offered on availability of faculty.
+NOTE: Offered on availability of of .
 </description>
     <department>Mechanical, Aerospace, and Nuclear Engineering</department>
     <catalogNumber>MANE-6130</catalogNumber>
@@ -12452,7 +13142,7 @@ NOTE: Offered on availability of faculty.
     <title>Advanced Structural Analysis</title>
     <description>Development and application of the variational formulation to structural dynamics problems involving effects such as rotary inertia, shear deformation, extensionality, and nonlinearities. Several papers published in the technical journals are also discussed during the semester.
 
-NOTE: Offered on availability of faculty.
+NOTE: Offered on availability of of .
 </description>
     <department>Mechanical, Aerospace, and Nuclear Engineering</department>
     <catalogNumber>MANE-6150</catalogNumber>
@@ -12632,7 +13322,7 @@ NOTE: prerequisite can be replaced with an equivalent
     <title>Environmental Radiation Safety Controls</title>
     <description>Consideration and control of the health hazards peculiar to the atomic industry. Radiological units; exposure control; shielding; fallout; toxic materials; shipping and storage; waste disposal; legal aspects. Introduction to criticality hazards. Nonionizing radiation.
 
-NOTE: Offered on availability of faculty.
+NOTE: Offered on availability of of .
 NOTE: prerequisite can be replaced with an equivalent
 </description>
     <department>Mechanical, Aerospace, and Nuclear Engineering</department>
@@ -12735,7 +13425,7 @@ NOTE: alternate years ONLY
     <title>Radiation Shielding</title>
     <description>Design, analysis, and confirmation of radiation shields. Point kernel, removal-diffusion, P-N, discrete ordinates, and Monte Carlo computation method. Photon, neutron, and charged particle transport data, applications, and tests. Shield materials and behavior. Dosimetry in shield confirmation.
 
-NOTE: Offered on availability of faculty.
+NOTE: Offered on availability of of .
 </description>
     <department>Mechanical, Aerospace, and Nuclear Engineering</department>
     <catalogNumber>MANE-6350</catalogNumber>
@@ -12756,7 +13446,7 @@ NOTE: Offered on availability of faculty.
     <title>Reactor Reliability and Safety</title>
     <description>Theory and applications of reliability and risk assessment. Boolean algebra, logic diagrams, redundancy, and majority- vote configurations. System synthesis by reliability and fault tree techniques, quantitative evaluation, uncertainty analysis. Common cause events, failure data, and failure models. Allocation of risk to subsystems. Availability, repair policies, renewal theory. Operational reliability methods.
 
-NOTE: Offered on availability of faculty.
+NOTE: Offered on availability of of .
 </description>
     <department>Mechanical, Aerospace, and Nuclear Engineering</department>
     <catalogNumber>MANE-6360</catalogNumber>
@@ -12780,7 +13470,7 @@ NOTE: Offered on availability of faculty.
     <title>Thermal-Hydraulic Design of Nuclear Reactors</title>
     <description>An introduction to the principles underlying the thermal-hydraulic design of nuclear power reactors. Topics include plant thermal limits, sub-channel analysis, thermal-hydraulic stability analysis, and reactor system response during both normal and postulated accident conditions.
 
-NOTE: Offered on availability of faculty.
+NOTE: Offered on availability of of .
 NOTE: prerequisite can be replaced with an equivalent
 </description>
     <department>Mechanical, Aerospace, and Nuclear Engineering</department>
@@ -12802,7 +13492,7 @@ NOTE: prerequisite can be replaced with an equivalent
     <title>Nuclear Reactor Materials</title>
     <description>The physical metallurgy and associated physical chemistry of problems encountered in the application of materials in nuclear reactors is discussed. Specifically, the metallurgy and physical chemistry of ceramic fuels (e.g., oxygen potentials), the primary fuel densification and pellet-clad interaction mechanisms, irradiation-induced creep, hardening, and embrittlement mechanisms, and the properties of zircalloy are covered.
 
-NOTE: Offered on availability of faculty.
+NOTE: Offered on availability of of .
 </description>
     <department>Mechanical, Aerospace, and Nuclear Engineering</department>
     <catalogNumber>MANE-6380</catalogNumber>
@@ -13072,7 +13762,7 @@ NOTE: odd-numbered years ONLY
     <title>Gas Dynamics</title>
     <description>Properties of gases at high temperatures; thermodynamics and chemical kinetics. Macroscopic description of high-speed flows of chemically reacting and ionized gases. Shock tube theory and applications. Reentry aerophysics. The interaction of high-speed plasma flows with electromagnetic fields.
 
-NOTE: Offered on availability of faculty.
+NOTE: Offered on availability of of .
 NOTE: Prerequisite: permission of instructor
 </description>
     <department>Mechanical, Aerospace, and Nuclear Engineering</department>
@@ -14866,6 +15556,211 @@ NOTE: Unclear when course is offered
     <doubleCount>false</doubleCount>
   </course>
   <course>
+    <title>Probability Theory and Applications</title>
+    <description>Axioms of probability, joint and conditional probability, random variables, probability density and distribution functions, expectation, functions of random variables, and limit theorems. Applications of probability to models in operations research, including queuing theory and Markov chains.
+
+Cross-listed as DSES 4750. Students cannot obtain credit for both this course and DSES 4750.
+
+NOTE: prerequisite can be replaced with an equivalent
+NOTE: prerequisite can be skipped on permission of instructor
+NOTE: programming experience recommended
+</description>
+    <department>Mathematical Sciences</department>
+    <catalogNumber>MATP-4600</catalogNumber>
+    <credits>4</credits>
+    <prerequisites required="false" pickOne="false">
+      <course>
+        <catalogNumber>MATH-1020</catalogNumber>
+      </course>
+    </prerequisites>
+    <availableTerms>
+      <year-part>FALL</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>false</doubleCount>
+  </course>
+  <course>
+    <title>Readings in Mathematical Programming, Probability, and Mathematical Statistics</title>
+    <description>
+
+NOTE: Unclear when course is offered
+</description>
+    <department>Mathematical Sciences</department>
+    <catalogNumber>MATP-4940</catalogNumber>
+    <credits>1</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>true</doubleCount>
+  </course>
+  <course>
+    <title>Topics in Mathematical Programming, Probability, and Mathematical Statistics</title>
+    <description>
+
+NOTE: Unclear when course is offered
+</description>
+    <department>Mathematical Sciences</department>
+    <catalogNumber>MATP-4960</catalogNumber>
+    <credits>1</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>true</doubleCount>
+  </course>
+  <course>
+    <title>Undergraduate Project in Mathematical Programming, Probability, and Mathematical Statistics</title>
+    <description>
+
+NOTE: Unclear when course is offered
+</description>
+    <department>Mathematical Sciences</department>
+    <catalogNumber>MATP-4980</catalogNumber>
+    <credits>1</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>false</doubleCount>
+  </course>
+  <course>
+    <title>Nonlinear Programming</title>
+    <description>Convex sets and functions, optimality conditions in nonlinear programming, Lagrangian duality, quadratic programming; algorithms for nonlinear programming including Newton&#8217;s method, quasi-Newton methods, conjugate gradient methods, together with proofs of convergence.
+
+(Cross listed as DSES 6780. Students cannot obtain credit for both this course and DSES 6780.)
+
+NOTE: prerequisite can be replaced with an equivalent
+NOTE: prerequisite can be skipped on permission of instructor
+NOTE: programming experience recommended
+</description>
+    <department>Mathematical Sciences</department>
+    <catalogNumber>MATP-6600</catalogNumber>
+    <credits>4</credits>
+    <prerequisites required="false" pickOne="false">
+      <course>
+        <catalogNumber>MATH-4200</catalogNumber>
+      </course>
+    </prerequisites>
+    <availableTerms>
+      <year-part>FALL</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>false</doubleCount>
+  </course>
+  <course>
+    <title>Computational Optimization</title>
+    <description>An introduction to nonlinear programming. Models, methods, algorithms, and computer techniques for nonlinear optimization are studied. Students investigate contemporary optimization methods both by implementing these methods and through experimentation with commercial software. Nonmajors wishing to gain practical optimization skills are welcomed in this course. A course project will allow students to explore optimization methods and practical problems directly related to their interests. A computer implementation and a research presentation will be required. Students cannot obtain credit for both this course and either DSES 4780 or MATP 6610.</description>
+    <department>Mathematical Sciences</department>
+    <catalogNumber>MATP-6610</catalogNumber>
+    <credits>4</credits>
+    <availableTerms>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>false</doubleCount>
+  </course>
+  <course>
+    <title>Combinatorial Optimization and Integer Programming</title>
+    <description>Exact and heuristic methods for solving discrete problems, including the traveling salesman problem, the knapsack problem, packing and covering problems. Algorithm complexity and NP-completeness, cutting plane methods and polyhedral theory, branch and bound, simulated annealing, tabu search, Lagrangian duality.
+
+Cross-listed as DSES 6760. Students cannot obtain credit for both this course and DSES 6760.
+
+NOTE: odd-numbered years ONLY
+</description>
+    <department>Mathematical Sciences</department>
+    <catalogNumber>MATP-6620</catalogNumber>
+    <credits>4</credits>
+    <prerequisites required="false" pickOne="true">
+      <course>
+        <catalogNumber>MATP-4700</catalogNumber>
+      </course>
+      <course>
+        <catalogNumber>DSES-4770</catalogNumber>
+      </course>
+    </prerequisites>
+    <availableTerms>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>false</doubleCount>
+  </course>
+  <course>
+    <title>Linear Programming</title>
+    <description>A unified development of linear systems and linear programming, polyhedral theory, the simplex method, interior point methods, decomposition methods for large-scale linear programming problems, the ellipsoid method, column generation algorithms for stochastic programming, and other problems.
+
+Cross-listed as DSES 6770. Students cannot obtain credit for both this course and DSES 6770.
+
+NOTE: even-numbered years ONLY
+</description>
+    <department>Mathematical Sciences</department>
+    <catalogNumber>MATP-6640</catalogNumber>
+    <credits>4</credits>
+    <prerequisites required="false" pickOne="true">
+      <course>
+        <catalogNumber>MATP-4700</catalogNumber>
+      </course>
+      <course>
+        <catalogNumber>DSES-4770</catalogNumber>
+      </course>
+    </prerequisites>
+    <availableTerms>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>false</doubleCount>
+  </course>
+  <course>
+    <title>Readings in Mathematical Programming, Probability, and Mathematical Statistics</title>
+    <description>
+
+NOTE: Unclear when course is offered
+</description>
+    <department>Mathematical Sciences</department>
+    <catalogNumber>MATP-6940</catalogNumber>
+    <credits>1</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>true</doubleCount>
+  </course>
+  <course>
+    <title>Topics in Optimization</title>
+    <description>Advanced methods and/or applications in optimization. Possible topics include stochastic programming, learning theory, cone programming, optimization of medical treatment, and network flows.
+
+NOTE: vary with topics and/or instructor.
+</description>
+    <department>Mathematical Sciences</department>
+    <catalogNumber>MATP-6960</catalogNumber>
+    <credits>4</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>true</doubleCount>
+  </course>
+  <course>
+    <title>Master&#8217;s Project</title>
+    <description>Active participation in a master&#8217;s-level project under the supervision of a faculty adviser, leading to a master&#8217;s project report. Grades of IP are assigned until the master&#8217;s project has been approved by the faculty adviser. If recommended by the adviser, the master&#8217;s project may be accepted by the Office of Graduate Education to be archived in the Library.
+
+NOTE: Unclear when course is offered
+</description>
+    <department>Mathematical Sciences</department>
+    <catalogNumber>MATP-6980</catalogNumber>
+    <credits>1</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>false</doubleCount>
+  </course>
+  <course>
     <title>Introduction to Ceramic Materials</title>
     <description>Structure and properties of crystalline ceramic materials. Atomic bonding, crystal structure, structural imperfections, nonstoichiometry, surfaces, and interfaces. Reactions in ceramic systems in terms of phase equilibria, nucleation and crystal growth, diffusion, grain growth, and sintering. Ceramic microstructures and various properties.</description>
     <department>Materials Science and Engineering</department>
@@ -15631,6 +16526,428 @@ NOTE: Unclear when course is offered
     <doubleCount>false</doubleCount>
   </course>
   <course>
+    <title>Introduction to Philosophy</title>
+    <description>An introduction to the major areas of philosophy (ethics, theory of knowledge, philosophy of religion, etc.) and to some of the main problems treated within these fields. Selections from contemporary as well as classical authors are studied and discussed. Students are encouraged to develop a disciplined approach to intellectual problems. Emphasis varies with the instructor.</description>
+    <department>Cognitive Science</department>
+    <catalogNumber>PHIL-1110</catalogNumber>
+    <credits>4</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>false</doubleCount>
+  </course>
+  <course>
+    <title>Minds and Machines</title>
+    <description>This course is an introduction to the philosophy of mind. Students will debate and write papers on the nature of mind, free will, personal identity, consciousness, artificial intelligence, and animal cognition. This is a communication-intensive course.
+
+(Students cannot obtain credit for both this course and IHSS 1964-Minds and Machines.)</description>
+    <department>Cognitive Science</department>
+    <catalogNumber>PHIL-1120</catalogNumber>
+    <credits>4</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>false</doubleCount>
+  </course>
+  <course>
+    <title>Methods of Reasoning</title>
+    <description>This course provides tools for the identification, analysis, and evaluation of the various patterns of reasoning as they occur in the real world. Patterns of reasoning include deductive reasoning, inductive reasoning, scientific reasoning, statistical reasoning, and causal reasoning. The course also covers some basic psychology and sociology of reasoning and belief, and concludes with a critical discussion of science and the scientific method.
+
+Cross-listed as PSYC 2100. Students cannot obtain credit for both this course and PSYC 2100.</description>
+    <department>Cognitive Science</department>
+    <catalogNumber>PHIL-2100</catalogNumber>
+    <credits>4</credits>
+    <availableTerms>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>false</doubleCount>
+  </course>
+  <course>
+    <title>Introduction to Cognitive Science</title>
+    <description>This course is an introduction to the new and quickly growing field of Cognitive Science which studies the various aspects of cognition, including reasoning, learning, memory, and perception and action. Cognitive Science is a highly interdisciplinary field of study at the intersection of philosophy, psychology, computer science, linguistics, neuroscience, and anthropology, and the course hosts a number of guest lectures given by experts in these respective fields. This is a communication-intensive course.
+
+Cross-listed as PSYC 2120. Students cannot obtain credit for both this course and PSYC 2120.</description>
+    <department>Cognitive Science</department>
+    <catalogNumber>PHIL-2120</catalogNumber>
+    <credits>4</credits>
+    <availableTerms>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>false</doubleCount>
+  </course>
+  <course>
+    <title>Introduction to Philosophy of Science</title>
+    <description>How does science stimulate philosophical thinking and how has philosophy influenced science? This broad range of interaction is studied with special attention given to the concepts of theory, observation, and scientific method. Special attention is given to issues basic to psychology, in particular, reductionism, behaviorism, functionalism, and cognitivism. This is a communication-intensive course.
+
+Cross-listed as STSH 2130. Students cannot obtain credit for both this course and STSH 2130.</description>
+    <department>Cognitive Science</department>
+    <catalogNumber>PHIL-2130</catalogNumber>
+    <credits>4</credits>
+    <availableTerms>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>false</doubleCount>
+  </course>
+  <course>
+    <title>Introduction to Logic</title>
+    <description>Introduction to first-order logic as a tool to be used in engineering, computer science, philosophy, etc., and as procedural knowledge helpful in puzzle-solving environments (e.g., standardized tests). A hands-on laboratory component is included.</description>
+    <department>Cognitive Science</department>
+    <catalogNumber>PHIL-2140</catalogNumber>
+    <credits>4</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>false</doubleCount>
+  </course>
+  <course>
+    <title>Inspired Lives: Moral Exemplars and Visionaries</title>
+    <description>We focus on the character and conscience, teaching and deeds of reputed ethical exemplars. Everyday &#8220;local heroes&#8221; working in obscurity in our communities are highlighted alongside ethical superstars like Mother Teresa, Gandhi, or King. How do exemplars embody and function as models of character development and aspiration? What lessons can we draw from these exemplary lives for our workaday lives and personal reflections.
+
+NOTE: Offered on availability of of .
+</description>
+    <department>Cognitive Science</department>
+    <catalogNumber>PHIL-2150</catalogNumber>
+    <credits>4</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>false</doubleCount>
+  </course>
+  <course>
+    <title>Asian Philosophies</title>
+    <description>An introduction to the major Asian philosophical traditions. Comparisons between different Asian traditions and between Asian and non-Asian traditions as appropriate.</description>
+    <department>Cognitive Science</department>
+    <catalogNumber>PHIL-2300</catalogNumber>
+    <credits>4</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>false</doubleCount>
+  </course>
+  <course>
+    <title>Bioethics</title>
+    <description>This course involves a philosophical analysis of some of the basic moral issues raised by recent and anticipated developments in the areas of biology and medicine. The general question &#8220;What are moral problems, and how does one resolve them?&#8221; is examined in the context of concrete cases involving issues such as abortion, euthanasia, organ transplants, experimentation on human patients, cloning, genetic engineering, behavior control and modification.
+
+Cross-listed as STSH 2310. Students cannot obtain credit for both this course and STSH 2310.</description>
+    <department>Cognitive Science</department>
+    <catalogNumber>PHIL-2500</catalogNumber>
+    <credits>4</credits>
+    <availableTerms>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>false</doubleCount>
+  </course>
+  <course>
+    <title>Moral Development</title>
+    <description>An analysis of psychological research on how our commonsense moral beliefs develop from early childhood through old age and their application to daily problems. A major focus is on the conflict between themes of justice or individual rights and caring compassion and its relation to gender differences (the Kohlberg/Gilligan debate).
+
+Cross listed as PSYC 2600. Students cannot obtain credit for both this course and PSYC 2600.
+
+NOTE: Offered anually. Unclear which term
+</description>
+    <department>Cognitive Science</department>
+    <catalogNumber>PHIL-2600</catalogNumber>
+    <credits>4</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>false</doubleCount>
+  </course>
+  <course>
+    <title>Introduction to Philosophy of Religion</title>
+    <description>Central to philosophy is a careful examination of our reasons for holding our beliefs.&#160;Given the complexity/ineffability of religious experience, philosophy of religion&#8217;s examination of reasons is especially difficult.&#160;This course will analyze and evaluate Western monotheism both generally and as it relates to the traditional questions of faith and reason, the problem of evil, fate and free will and the existence of miracles.&#160;Time permitting, non-Western as well as Western religions will be considered.</description>
+    <department>Cognitive Science</department>
+    <catalogNumber>PHIL-2830</catalogNumber>
+    <credits>4</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>false</doubleCount>
+  </course>
+  <course>
+    <title>Philosophy Studies</title>
+    <description>Independent study of a particular topic.
+
+NOTE: Unclear when course is offered
+NOTE: Prerequisite: permission of instructor
+</description>
+    <department>Cognitive Science</department>
+    <catalogNumber>PHIL-2940</catalogNumber>
+    <credits>1</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>false</doubleCount>
+  </course>
+  <course>
+    <title>Topics in Philosophy</title>
+    <description>Experimental courses on subjects to be announced in advance.
+
+NOTE: Unclear when course is offered
+</description>
+    <department>Cognitive Science</department>
+    <catalogNumber>PHIL-2960</catalogNumber>
+    <credits>1</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>false</doubleCount>
+  </course>
+  <course>
+    <title>Social and Political Philosophy</title>
+    <description>An exploration of such concepts as freedom, rights, and consent and their interrelationship; and a consideration of their bearing on questions of justice, law, and human welfare.</description>
+    <department>Cognitive Science</department>
+    <catalogNumber>PHIL-4220</catalogNumber>
+    <credits>4</credits>
+    <availableTerms>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>false</doubleCount>
+  </course>
+  <course>
+    <title>Ethics</title>
+    <description>A critical examination of traditional and contemporary works in ethical theory by considering what these theories have to say about how we should live, what rights and obligations we have, what things are intrinsically valuable. Typically this includes such topics as ethical and cultural relativism, egoism, freedom, and responsibility. Often the focus will be on contemporary issues such as war, abortion, equality, or punishment.</description>
+    <department>Cognitive Science</department>
+    <catalogNumber>PHIL-4240</catalogNumber>
+    <credits>4</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>false</doubleCount>
+  </course>
+  <course>
+    <title>Philosophy of Artificial Intelligence</title>
+    <description>This course may be roughly divided into two general areas: philosophical problems in AI and philosophical issues that arise because of AI. An example from the first area is the Knower Paradox, a paradox in which an apparently desirable formalism for handling an agent&#8217;s knowledge leads to inconsistency; an example from the second area is John Searle&#8217;s attack on so-called &#8220;Strong&#8221; AI by way of his Chinese Room argument, wherein he claims that because a computer at bottom just manipulates symbols it cannot genuinely understand.</description>
+    <department>Cognitive Science</department>
+    <catalogNumber>PHIL-4260</catalogNumber>
+    <credits>4</credits>
+    <prerequisites required="true" pickOne="false">
+      <course>
+        <catalogNumber>PHIL-2140</catalogNumber>
+      </course>
+    </prerequisites>
+    <availableTerms>
+      <year-part>FALL</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>false</doubleCount>
+  </course>
+  <course>
+    <title>Environmental Philosophy</title>
+    <description>While concepts such as quality of life, environment, nature, global ecology, and the like figure heavily in contemporary discussions, they are seldom integrated into an environmental philosophy. The course tries to achieve this integration by understanding some of the religious, mythic-poetic, and scientific dimensions of the man-nature matrix. Some specific environmental problems are examined in order to illustrate the system of values implied by various solutions.
+
+Cross-listed as STSH 4340. Students cannot obtain credit for both this course and STSH 4340.
+
+NOTE: Offered on availability of of .
+NOTE: Prerequisite:  junior or senior standing or permission of instructor.
+</description>
+    <department>Cognitive Science</department>
+    <catalogNumber>PHIL-4300</catalogNumber>
+    <credits>4</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>false</doubleCount>
+  </course>
+  <course>
+    <title>Scientific Revolutions</title>
+    <description>What is progress in science? How has our concept of progress been influenced by science? Are there significant differences between scientific and technological revolutions? These questions are explored in order to shed light on the complex dynamics of academic and industrial research.
+
+Cross-listed as STSH 4310. Students cannot obtain credit for both this course and STSH 4310.
+
+NOTE: Offered on availability of of .
+</description>
+    <department>Cognitive Science</department>
+    <catalogNumber>PHIL-4310</catalogNumber>
+    <credits>4</credits>
+    <prerequisites required="true" pickOne="true">
+      <course>
+        <catalogNumber>PHIL-1110</catalogNumber>
+      </course>
+      <course>
+        <catalogNumber>PHIL-2130</catalogNumber>
+      </course>
+      <course>
+        <catalogNumber>STSH-2130</catalogNumber>
+      </course>
+    </prerequisites>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>false</doubleCount>
+  </course>
+  <course>
+    <title>Philosophical Problems of Space and Time</title>
+    <description>Relevant aspects of the work of Kant, Leibniz, and Newton; Gauss, Riemann, and Poincare; Faraday, Maxwell, and Einstein. Special attention is given to the historical development of non-Euclidean geometries and the distinction between mathematical and physical geometry. Ultimately, the aim is to clarify the conceptual structure of special and general relativity by showing the problem context in which they evolved.
+
+NOTE: prerequisite can be skipped on permission of instructor
+NOTE: programming experience recommended
+</description>
+    <department>Cognitive Science</department>
+    <catalogNumber>PHIL-4360</catalogNumber>
+    <credits>4</credits>
+    <prerequisites required="false" pickOne="false">
+      <course>
+        <catalogNumber>PHIL-2130</catalogNumber>
+      </course>
+    </prerequisites>
+    <availableTerms>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>false</doubleCount>
+  </course>
+  <course>
+    <title>Philosophy of Mathematics</title>
+    <description>Basic schools of thought about the nature of mathematical reality are described and critically analyzed. Special topics include artificial intelligence, randomness, and the work of George Cantor on transfinite numbers.
+
+NOTE: Offered on availability of of .
+</description>
+    <department>Cognitive Science</department>
+    <catalogNumber>PHIL-4380</catalogNumber>
+    <credits>4</credits>
+    <prerequisites required="false" pickOne="true">
+      <course>
+        <catalogNumber>PHIL-1110</catalogNumber>
+      </course>
+      <course>
+        <catalogNumber>PHIL-2130</catalogNumber>
+      </course>
+    </prerequisites>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>false</doubleCount>
+  </course>
+  <course>
+    <title>Computability and Logic</title>
+    <description>A team-based, project-oriented, hands-on introduction to the great concepts and discoveries in logic and computability, including Turing Machines, first-order logic, the limitations of computing machines, Godel&#8217;s incompleteness results, and so forth. A hands-on laboratory component is included.</description>
+    <department>Cognitive Science</department>
+    <catalogNumber>PHIL-4420</catalogNumber>
+    <credits>4</credits>
+    <prerequisites required="true" pickOne="false">
+      <course>
+        <catalogNumber>PHIL-2140</catalogNumber>
+      </course>
+    </prerequisites>
+    <availableTerms>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>false</doubleCount>
+  </course>
+  <course>
+    <title>Philosophy of Law</title>
+    <description>The course examines the following questions: What is law? What is the relationship between law and morality? Is there a moral obligation not to break the law? Detailed examination is given to the concepts of liberty, justice, responsibility, and punishment.
+
+Cross-listed as STSH 4320. Students cannot obtain credit for both this course and STSH 4320.
+
+NOTE: Offered on availability of of .
+NOTE: Prerequisite:  one philosophy or STS course or permission of instructor.
+</description>
+    <department>Cognitive Science</department>
+    <catalogNumber>PHIL-4740</catalogNumber>
+    <credits>4</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>false</doubleCount>
+  </course>
+  <course>
+    <title>Topics in Philosophy</title>
+    <description>Experimental courses on subjects to be announced in advance.
+
+NOTE: Unclear when course is offered
+NOTE: Prerequisite: permission of instructor
+</description>
+    <department>Cognitive Science</department>
+    <catalogNumber>PHIL-4940</catalogNumber>
+    <credits>1</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>true</doubleCount>
+  </course>
+  <course>
+    <title>Capstone Experience in Philosophy</title>
+    <description>Students conduct original scholarly projects: original research, theoretical or analytical reviews of the literature, or computer simulations. Working either alone or in groups, students prepare written reports relating to this project, under the supervision of a faculty member.
+
+NOTE: Prerequisite:  permission of a supervising faculty member.
+</description>
+    <department>Cognitive Science</department>
+    <catalogNumber>PHIL-4990</catalogNumber>
+    <credits>3</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>false</doubleCount>
+  </course>
+  <course>
+    <title>Foundations of Science</title>
+    <description>This seminar explores the issues of confirmation, semantics, and interpretations of scientific theories. Positivism, realism, and the logic of scientific discovery are discussed with special attention given to foundational problems in physics and psychology.
+
+NOTE: Offered on availability of of .
+</description>
+    <department>Cognitive Science</department>
+    <catalogNumber>PHIL-6360</catalogNumber>
+    <credits>4</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>false</doubleCount>
+  </course>
+  <course>
+    <title>Philosophy of Mind</title>
+    <description>A study of some current issues in philosophical psychology and philosophy of psychology. The following are representative of the questions discussed: Is a person identical with his body? Is consciousness a brain process? Can computers think? Do avowals have truth-value? Is psychology possible? Occasionally additional topics are selected from such areas as phenomenology (Merleau-Ponty, Sartre) and structuralism (Levi-Strauss, Barthes).
+
+NOTE: Offered on availability of of .
+</description>
+    <department>Cognitive Science</department>
+    <catalogNumber>PHIL-6740</catalogNumber>
+    <credits>4</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>false</doubleCount>
+  </course>
+  <course>
     <title>A Passion for Physics</title>
     <description>A weekly one-hour seminar by physics department faculty members, in which they describe their scientific and research interests, at a level suitable for first-year college students. This course is graded satisfactory/unsatisfactory.</description>
     <department>Physics, Applied Physics, and Astronomy</department>
@@ -16303,7 +17620,7 @@ NOTE: Consult department for availability
     <title>Nuclear and Particle Physics I</title>
     <description>An introduction to the physical concepts and methods of modern nuclear and elementary particle physics, for specialists and nonspecialists. Nonrelativistic scattering theory, resonance production, group symmetries and conservation laws, quark-model of hadron structure, and simple Feynman diagrams.
 
-NOTE: Offered on availability of instructor.
+NOTE: Offered on availability of of .
 </description>
     <department>Physics, Applied Physics, and Astronomy</department>
     <catalogNumber>PHYS-6620</catalogNumber>
@@ -16341,7 +17658,7 @@ NOTE: Offered on availability of instructor.
     <title>Theory of Solids II</title>
     <description>More detailed application of solid-state theory to electrical, magnetic, and optical properties of matter. Consideration of particular materials; semiconductors, ferrites, ferroelectrics, and superconductors.
 
-NOTE: Offered on availability of instructor.
+NOTE: Offered on availability of of .
 </description>
     <department>Physics, Applied Physics, and Astronomy</department>
     <catalogNumber>PHYS-6720</catalogNumber>
@@ -16816,7 +18133,7 @@ NOTE: Offered anually. Unclear which term
     <title>Personality</title>
     <description>Modern theories of personality are presented and compared. Using these theories, students analyze the processes by which people cope with intrapsychic, interpersonal, and institutional demands. Evidence on adaptive processes from clinical, field, and laboratory studies is evaluated. This is a communication-intensive course.
 
-NOTE: Offered on availability of instructor.
+NOTE: Offered on availability of of .
 </description>
     <department>Cognitive Science</department>
     <catalogNumber>PSYC-4400</catalogNumber>
@@ -17165,12 +18482,40 @@ NOTE: Unclear when course is offered
     <doubleCount>false</doubleCount>
   </course>
   <course>
+    <title>Scientific Revolutions</title>
+    <description>What is progress in science? How has our concept of progress been influenced by science? Are there significant differences between scientific and technological revolutions? These questions are explored in order to shed light on the complex dynamics of academic and industrial research.
+
+Cross-listed as PHIL 4310. Students cannot obtain credit for both this course and PHIL 4310.
+
+NOTE: alternate years ONLY
+</description>
+    <department>Science and Technology Studies</department>
+    <catalogNumber>STSH-4310</catalogNumber>
+    <credits>4</credits>
+    <prerequisites required="true" pickOne="true">
+      <course>
+        <catalogNumber>PHIL-1110</catalogNumber>
+      </course>
+      <course>
+        <catalogNumber>PHIL-2130</catalogNumber>
+      </course>
+      <course>
+        <catalogNumber>STSH-2130</catalogNumber>
+      </course>
+    </prerequisites>
+    <availableTerms>
+      <year-part>FALL</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>false</doubleCount>
+  </course>
+  <course>
     <title>Philosophy of Law</title>
     <description>The course examines the following questions: What is law? What is the relationship between law and morality? Is there a moral obligation not to break the law? Detailed examination is given to the concepts of liberty, justice, responsibility, and punishment.
 
 Cross-listed as PHIL 4740. Students cannot obtain credit for both this course and PHIL 4740.
 
-NOTE: Offered on availability of instructor.
+NOTE: Offered on availability of of .
 NOTE: Prerequisite:  one philosophy or STS course or permission of instructor.
 </description>
     <department>Science and Technology Studies</department>
@@ -17189,7 +18534,7 @@ NOTE: Prerequisite:  one philosophy or STS course or permission of instructor.
 
 Cross listed as PHIL 4300. Students cannot obtain credit for both this course and PHIL 4300.
 
-NOTE: Offered on availability of instructor.
+NOTE: Offered on availability of of .
 NOTE: Prerequisite:  junior or senior standing or permission of instructor.
 </description>
     <department>Science and Technology Studies</department>
@@ -17256,7 +18601,7 @@ NOTE: one course in American history or permission of instructor.
     <title>China: Past and Present</title>
     <description>An introduction to Chinese social organization and politics through readings in primary and secondary sources, class discussion, and student research projects. The class examines the paths of development open to China, and the problems the Chinese people face in choosing among them, along with the historical background of values, symbols, anger, and pride against which these issues are debated.
 
-NOTE: Offered on availability of instructor.
+NOTE: Offered on availability of of .
 NOTE: a course in STS or permission of instructor.
 </description>
     <department>Science and Technology Studies</department>
@@ -17453,7 +18798,7 @@ Cross-listed as STSH 1110. Students cannot obtain credit for both this course an
     <title>Principles and Practices of American Government</title>
     <description>An analytical survey of the essential features of American government within the national setting of environmental and historical factors. Among the topics included are the foundations and characteristics of American constitutionalism; the principles of federalism and the boundaries of federal, state, and local governments; the structure and dynamics of political parties; the activities and interrelations of the legislative and executive branches on all levels of American government; the judicial process and judicial review.
 
-NOTE: Offered on availability of instructor.
+NOTE: Offered on availability of of .
 </description>
     <department>Science and Technology Studies</department>
     <catalogNumber>STSS-1310</catalogNumber>
@@ -17631,7 +18976,7 @@ NOTE: Offered anually. Unclear which term
     <title>Human Evolution</title>
     <description>The systematic study of human origins has excited scientific and popular imaginations since Darwin. We consider two overlapping frameworks, sociobiology and paleoanthropology, for explaining the evolution of behavior. Topics include &#8220;selfish gene&#8221; theories of biological altruism, adaptation, and organism-environment interaction. We also develop critical perspectives on the exchange of ideas between science and society in determining the nature of human nature. This is a communication-intensive course.
 
-NOTE: Offered on availability of instructor.
+NOTE: Offered on availability of of .
 </description>
     <department>Science and Technology Studies</department>
     <catalogNumber>STSS-2460</catalogNumber>
@@ -17763,7 +19108,7 @@ NOTE: Prerequisite:&#160; 1000-level course (or higher) in STS.
     <title>Body: Self, Symbol, and Politics</title>
     <description>Using cross-cultural comparisons, this course highlights the distinctive ways we conceptualize the body and explore how these assumptions influence health care in Western societies. The body is examined from three perspectives: as experienced; as a natural symbol for thinking about the relationships between nature and society; and as an artifact of social and political control.
 
-NOTE: Offered on availability of instructor.
+NOTE: Offered on availability of of .
 NOTE: Prerequisite:  a 1000-level social science course.
 </description>
     <department>Science and Technology Studies</department>
@@ -17802,7 +19147,7 @@ NOTE: programming experience recommended
     <title>Inequality in America</title>
     <description>Modern societies are characterized by varying degrees of social inequality or differences in education, income, wealth, status, and power. How large are these differences in the U.S.? What are their consequences? How are they created, and why do they persist? We examine such issues using social statistics, ethnographic accounts of people&#8217;s lives, international comparative data, and theoretical writings on social class.
 
-NOTE: Offered on availability of instructor.
+NOTE: Offered on availability of of .
 </description>
     <department>Science and Technology Studies</department>
     <catalogNumber>STSS-4540</catalogNumber>
@@ -17826,7 +19171,7 @@ NOTE: Offered on availability of instructor.
     <title>Gender, Science, and Technology</title>
     <description>&#8220;Sex&#8221; is the biological distinction between being male and female. &#8220;Gender&#8221; is the social construction of masculinity and femininity. The purpose of this course is to explore if, and if so, how, science and technology reciprocally contribute to and are shaped by gender ideals and images. We use gender as a tool for critical thinking about such topics as studies of sex differences, women in science and engineering, the environment, and war and peace.
 
-NOTE: Offered on availability of instructor.
+NOTE: Offered on availability of of .
 NOTE: Prerequisite can be skipped on permission of instructor
 </description>
     <department>Science and Technology Studies</department>
@@ -18042,7 +19387,7 @@ NOTE: alternate years ONLY
     <title>Advanced Contemporary Political Thought</title>
     <description>Conducted in conjunction with STSS 4360, with additional graduate-level readings. Graduate students must write a research paper along with all other requirements for the course.
 
-NOTE: Offered on availability of instructor.
+NOTE: Offered on availability of of .
 </description>
     <department>Science and Technology Studies</department>
     <catalogNumber>STSS-6360</catalogNumber>
@@ -18088,7 +19433,7 @@ NOTE: alternate years ONLY
     <title>Advanced Gender, Science, and Technology</title>
     <description>Conducted in conjunction with STSS 4560. Additional graduate-level readings will focus on the impact of feminist theory on science and technology studies, and students are required to write a research paper.
 
-NOTE: Offered on availability of instructor.
+NOTE: Offered on availability of .
 </description>
     <department>Science and Technology Studies</department>
     <catalogNumber>STSS-6560</catalogNumber>
@@ -18220,6 +19565,156 @@ NOTE: Unclear when course is offered
     <availableTerms>
       <year-part>FALL</year-part>
       <year-part>SPRING</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>false</doubleCount>
+  </course>
+  <course>
+    <title>Writing for Classroom and Career</title>
+    <description>This course emphasizes written, visual, and oral communication strategies that will help students succeed in both academic and professional contexts. Principal assignments are based on types of writing required in school and on the job: reporting, evaluating, taking a position, and making a proposal (orally and in writing). Written assignments will include visual elements such as headings, charts/graphs, and page or screen design. This is a communication-intensive course.</description>
+    <department>Language, Literature, and Communication</department>
+    <catalogNumber>WRIT-1110</catalogNumber>
+    <credits>4</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>false</doubleCount>
+  </course>
+  <course>
+    <title>Topics in Writing</title>
+    <description>
+
+NOTE: Unclear when course is offered
+</description>
+    <department>Language, Literature, and Communication</department>
+    <catalogNumber>WRIT-1960</catalogNumber>
+    <credits>4</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>false</doubleCount>
+  </course>
+  <course>
+    <title>Rhetoric and Writing</title>
+    <description>This course aims to increase students&#8217; ability to develop ideas and to express them effectively. It gives special attention to expository and persuasive writing. Study of rhetorical theory and critical reading of speeches and/or essays help the students to understand the rhetorical process, to analyze the audience, and to foresee its response. A substantial amount of writing is required. This is a communication-intensive course.</description>
+    <department>Language, Literature, and Communication</department>
+    <catalogNumber>WRIT-2110</catalogNumber>
+    <credits>4</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>false</doubleCount>
+  </course>
+  <course>
+    <title>Creative Writing</title>
+    <description>A workshop course in the practice of writing in one or more literary forms: poetry, drama, essay, fiction. Students work at their own pace and have opportunities to present their work for criticism by other students. The literary form featured during a given semester depends on the instructor. This is a communication-intensive course.</description>
+    <department>Language, Literature, and Communication</department>
+    <catalogNumber>WRIT-2310</catalogNumber>
+    <credits>4</credits>
+    <availableTerms>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>false</doubleCount>
+  </course>
+  <course>
+    <title>Speech Communication</title>
+    <description>This course focuses on developing public speaking skills and critical listening abilities. Guided by rhetorical theory, theories of persuasion, and argumentation theory, students prepare several oral presentations, engage in extemporaneous speaking exercises, and criticize other performances. This is a communication-intensive course.</description>
+    <department>Language, Literature, and Communication</department>
+    <catalogNumber>WRIT-2340</catalogNumber>
+    <credits>4</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>false</doubleCount>
+  </course>
+  <course>
+    <title>Writing: Print and Digital</title>
+    <description>This course emphasizes the repurposing of print text for use in interactive Web sites or CD-ROMs. The course links traditional writing skills (organization, style, audience, etc.) with new media skills such as information architecture.
+
+NOTE: Offered anually. Unclear which term
+</description>
+    <department>Language, Literature, and Communication</department>
+    <catalogNumber>WRIT-2520</catalogNumber>
+    <credits>4</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>false</doubleCount>
+  </course>
+  <course>
+    <title>Topics in Writing</title>
+    <description>
+
+NOTE: Unclear when course is offered
+</description>
+    <department>Language, Literature, and Communication</department>
+    <catalogNumber>WRIT-2960</catalogNumber>
+    <credits>4</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>false</doubleCount>
+  </course>
+  <course>
+    <title>Advanced Content Development for the World Wide Web</title>
+    <description>This course is intended for those seeking a career in web design and analysis who wish to explore concepts of content development and management in depth. This studio-oriented course gives students a chance to analyze and create effective content for the web. Topics include how to create and maintain information structures for dynamic content, and how to deliver customized content for specific user groups.
+
+Cross-listed with WRIT 6610. Students cannot obtain credit for both courses.
+
+NOTE: prerequisite can be replaced with an equivalent
+</description>
+    <department>Language, Literature, and Communication</department>
+    <catalogNumber>WRIT-4610</catalogNumber>
+    <credits>4</credits>
+    <prerequisites required="false" pickOne="false">
+      <course>
+        <catalogNumber>WRIT-2510</catalogNumber>
+      </course>
+    </prerequisites>
+    <availableTerms>
+      <year-part>FALL</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>false</doubleCount>
+  </course>
+  <course>
+    <title>Topics in Writing</title>
+    <description>
+
+NOTE: Unclear when course is offered
+</description>
+    <department>Language, Literature, and Communication</department>
+    <catalogNumber>WRIT-4960</catalogNumber>
+    <credits>4</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
+      <year-part>SPRING</year-part>
+    </availableTerms>
+    <isOfficial>true</isOfficial>
+    <doubleCount>true</doubleCount>
+  </course>
+  <course>
+    <title>Advanced Content Development for the World Wide Web</title>
+    <description>This course is intended for those seeking a career in web design and analysis who wish to explore concepts of content development and management in depth. This studio-oriented course gives students a chance to analyze and create effective content for the web. Topics include how to create and maintain information structures for dynamic content and how to deliver customized content for specific user groups.
+
+Cross-listed with WRIT 4610. Students cannot obtain credit for both courses. Additional assignments at higher levels are required for those registered at the 6000 level.</description>
+    <department>Language, Literature, and Communication</department>
+    <catalogNumber>WRIT-6610</catalogNumber>
+    <credits>3</credits>
+    <availableTerms>
+      <year-part>FALL</year-part>
     </availableTerms>
     <isOfficial>true</isOfficial>
     <doubleCount>false</doubleCount>
